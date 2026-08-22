@@ -1,0 +1,17 @@
+{
+  "name": "सरकारी सहायक - Sarkari Sahayak",
+  "short_name": "सरकारी सहायक",
+  "description": "भारत और राजस्थान की सरकारी सेवाओं, योजनाओं, आधार, पैन, और बोर्ड रिजल्ट्स की संपूर्ण हिंदी गाइड।",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
