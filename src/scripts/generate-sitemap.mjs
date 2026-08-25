@@ -22,6 +22,8 @@ const results = loadJson('results.json');
 const admitCards = loadJson('admit-cards.json');
 const answerKeys = loadJson('answer-keys.json');
 const syllabus = loadJson('syllabus.json');
+const yojanas = loadJson('yojana.json');
+const scholarships = loadJson('scholarships.json');
 
 const today = new Date().toISOString().split('T')[0];
 
@@ -61,6 +63,11 @@ const staticPages = [
   { loc: '/states/uttar-pradesh/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/states/bihar/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/states/madhya-pradesh/', priority: '0.8', changefreq: 'weekly' },
+
+  // Yojana & Scholarships
+  { loc: '/yojana/', priority: '0.9', changefreq: 'daily' },
+  { loc: '/scholarship/', priority: '0.8', changefreq: 'weekly' },
+  { loc: '/current-affairs/', priority: '0.8', changefreq: 'daily' },
 
   // Syllabus Hub
   { loc: '/syllabus/', priority: '0.8', changefreq: 'weekly' },
@@ -109,37 +116,42 @@ for (const s of rajServices) {
 }
 
 // Jobs
+const MIN_SLUG_LEN = 10; // filter out garbage slugs like "7-yojana", "1-yojana"
 for (const j of jobs) {
+  if (!j.slug || j.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/latest-jobs/${j.slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>`);
 }
 
 // Results
 for (const r of results) {
+  if (!r.slug || r.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/results/${r.slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>`);
 }
 
 // Admit cards
 for (const a of admitCards) {
+  if (!a.slug || a.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/admit-cards/${a.slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>`);
 }
 
 // Answer keys
 for (const k of answerKeys) {
+  if (!k.slug || k.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/answer-keys/${k.slug}/</loc>
     <lastmod>${today}</lastmod>
@@ -150,8 +162,31 @@ for (const k of answerKeys) {
 
 // Syllabus pages
 for (const s of syllabus) {
+  if (!s.slug) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/syllabus/${s.slug}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`);
+}
+
+// Yojana pages
+for (const y of yojanas) {
+  if (!y.slug || y.slug.length < MIN_SLUG_LEN) continue;
+  urls.push(`  <url>
+    <loc>https://govtjob.salarypitcher.com/yojana/${y.slug}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`);
+}
+
+// Scholarship pages
+for (const s of scholarships) {
+  if (!s.slug) continue;
+  urls.push(`  <url>
+    <loc>https://govtjob.salarypitcher.com/scholarship/${s.slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

@@ -36,6 +36,8 @@ const articleSchema = {
   title={`${admitCard.title} | Sarkari Sahayak 2026`}
   description={`${admitCard.title} — ${admitCard.organization}। Download admit card, check exam date, steps & direct links at Sarkari Sahayak.`}
   canonical={`/admit-cards/${admitCard.slug}`}
+  ogType="article"
+  keywords={`${admitCard.title}, ${admitCard.organization} admit card 2026, hall ticket download, admit card kaise download karein, sarkari admit card`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

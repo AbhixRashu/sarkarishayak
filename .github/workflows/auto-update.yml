@@ -23,10 +23,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Run 24/7 Government Job Sync Engine
+      - name: Run 24/7 Live Ingestion Agent
         run: |
-          node src/scripts/auto-sync-jobs.mjs
-          node src/scripts/generate-sitemap.mjs
+          node src/scripts/live-agent.mjs
 
       - name: Check for Changes and Auto-Commit
         run: |

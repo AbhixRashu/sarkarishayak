@@ -88,6 +88,8 @@ const steps = result.howToCheck || [
   title={`${result.title} | Sarkari Sahayak 2026`}
   description={`${result.title} — ${result.organization}. ${result.shortDescription || 'Check result, important dates, steps & direct links at Sarkari Sahayak.'}`}
   canonical={`/results/${result.slug}`}
+  ogType="article"
+  keywords={`${result.title}, ${result.organization} result 2026, sarkari result, merit list 2026, check result online`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

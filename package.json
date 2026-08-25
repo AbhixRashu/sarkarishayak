@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "sync": "node src/scripts/live-agent.mjs",
+    "agent:live": "node src/scripts/live-agent.mjs --daemon --interval=30",
+    "sitemap": "node src/scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

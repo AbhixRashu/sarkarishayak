@@ -181,7 +181,13 @@ const d = {
 };
 ---
 
-<BaseLayout title={`${job.title} | Sarkari Sahayak 2026`} description={`${job.title} — ${job.organization}. Vacancies: ${job.vacancies || 'TBA'}. Last Date: ${job.lastDate}. Apply online now.`} canonical={`/latest-jobs/${job.slug}`}>
+<BaseLayout 
+  title={`${job.title} | Sarkari Sahayak 2026`} 
+  description={`${job.title} — ${job.organization}. Vacancies: ${job.vacancies || 'TBA'}. Last Date: ${job.lastDate}. Apply online now.`} 
+  canonical={`/latest-jobs/${job.slug}`}
+  ogType="article"
+  keywords={`${job.title}, ${job.organization} recruitment 2026, ${job.category || 'sarkari naukri'} vacancy, apply online, sarkari job 2026, latest government jobs`}
+>
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jobPostingSchema)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
