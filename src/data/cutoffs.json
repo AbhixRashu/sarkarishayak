@@ -1,0 +1,789 @@
+[
+  {
+    "id": "ssc-cgl-2025",
+    "exam": "SSC CGL 2025",
+    "organization": "SSC",
+    "category": "central",
+    "tiers": ["Tier 1", "Tier 2"],
+    "cutoffs": {
+      "tier1": {
+        "general": 145,
+        "obc": 130,
+        "sc": 115,
+        "st": 105,
+        "ews": 135
+      },
+      "tier2": {
+        "general": 310,
+        "obc": 290,
+        "sc": 260,
+        "st": 240,
+        "ews": 300
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 142, "obc": 127, "sc": 112, "st": 102 },
+      { "year": 2023, "general": 138, "obc": 124, "sc": 108, "st": 98 },
+      { "year": 2022, "general": 140, "obc": 126, "sc": 110, "st": 100 }
+    ],
+    "totalPosts": "SSC CGL",
+    "examLevel": "Graduate Level"
+  },
+  {
+    "id": "ssc-chsl-2025",
+    "exam": "SSC CHSL 2025",
+    "organization": "SSC",
+    "category": "central",
+    "tiers": ["Tier 1", "Tier 2"],
+    "cutoffs": {
+      "tier1": {
+        "general": 140,
+        "obc": 125,
+        "sc": 110,
+        "st": 100,
+        "ews": 130
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 137, "obc": 122, "sc": 107, "st": 97 },
+      { "year": 2023, "general": 135, "obc": 120, "sc": 105, "st": 95 },
+      { "year": 2022, "general": 138, "obc": 123, "sc": 108, "st": 98 }
+    ],
+    "totalPosts": "LDC, JSA, DEO",
+    "examLevel": "12th Level"
+  },
+  {
+    "id": "rrb-ntpc-2025",
+    "exam": "RRB NTPC 2025",
+    "organization": "RRB",
+    "category": "railway",
+    "tiers": ["CBT 1", "CBT 2"],
+    "cutoffs": {
+      "tier1": {
+        "general": 120,
+        "obc": 108,
+        "sc": 96,
+        "st": 88,
+        "ews": 115
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 118, "obc": 106, "sc": 94, "st": 86 },
+      { "year": 2023, "general": 115, "obc": 103, "sc": 91, "st": 83 },
+      { "year": 2022, "general": 112, "obc": 100, "sc": 88, "st": 80 }
+    ]
+  },
+  {
+    "id": "rrb-group-d-2025",
+    "exam": "RRB Group D 2025",
+    "organization": "RRB",
+    "category": "railway",
+    "tiers": ["CBT"],
+    "cutoffs": {
+      "cbt": {
+        "general": 115,
+        "obc": 105,
+        "sc": 92,
+        "st": 82,
+        "ews": 110
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 113, "obc": 103, "sc": 90, "st": 80 },
+      { "year": 2023, "general": 110, "obc": 100, "sc": 87, "st": 78 },
+      { "year": 2022, "general": 108, "obc": 98, "sc": 85, "st": 76 }
+    ]
+  },
+  {
+    "id": "ibps-clerk-2026",
+    "exam": "IBPS Clerk 16th 2026",
+    "organization": "IBPS",
+    "category": "banking",
+    "tiers": ["Prelims", "Mains"],
+    "cutoffs": {
+      "prelims": {
+        "general": 72,
+        "obc": 66,
+        "sc": 56,
+        "st": 49,
+        "ews": 69
+      },
+      "mains": {
+        "general": 85,
+        "obc": 78,
+        "sc": 65,
+        "st": 58,
+        "ews": 82
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 70, "obc": 64, "sc": 54, "st": 47 },
+      { "year": 2024, "general": 68, "obc": 62, "sc": 52, "st": 45 },
+      { "year": 2023, "general": 72, "obc": 66, "sc": 56, "st": 49 }
+    ],
+    "totalPosts": "Clerk",
+    "examLevel": "Graduate Level"
+  },
+  {
+    "id": "sbi-clerk-2026",
+    "exam": "SBI Clerk 2026",
+    "organization": "SBI",
+    "category": "banking",
+    "tiers": ["Prelims", "Mains"],
+    "cutoffs": {
+      "prelims": {
+        "general": 74,
+        "obc": 68,
+        "sc": 58,
+        "st": 50,
+        "ews": 71
+      },
+      "mains": {
+        "general": 88,
+        "obc": 80,
+        "sc": 68,
+        "st": 60,
+        "ews": 85
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 72, "obc": 66, "sc": 56, "st": 48 },
+      { "year": 2024, "general": 70, "obc": 64, "sc": 54, "st": 46 },
+      { "year": 2023, "general": 74, "obc": 68, "sc": 58, "st": 50 }
+    ],
+    "totalPosts": "Junior Associate",
+    "examLevel": "Graduate Level"
+  },
+  {
+    "id": "uppsc-pre-2026",
+    "exam": "UPPSC PCS Pre 2026",
+    "organization": "UPPSC",
+    "category": "state",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 128,
+        "obc": 115,
+        "sc": 100,
+        "st": 95,
+        "ews": 125
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 125, "obc": 112, "sc": 98, "st": 92 },
+      { "year": 2024, "general": 120, "obc": 108, "sc": 94, "st": 88 },
+      { "year": 2023, "general": 128, "obc": 115, "sc": 100, "st": 95 }
+    ],
+    "totalPosts": "PCS",
+    "examLevel": "Graduate Level"
+  },
+  {
+    "id": "rpsc-2nd-grade-2026",
+    "exam": "RPSC 2nd Grade Teacher 2026",
+    "organization": "RPSC",
+    "category": "rajasthan",
+    "tiers": ["Written", "Interview"],
+    "cutoffs": {
+      "written": {
+        "general": 180,
+        "obc": 165,
+        "sc": 150,
+        "st": 140,
+        "ews": 175
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 175, "obc": 160, "sc": 145, "st": 135 },
+      { "year": 2023, "general": 180, "obc": 165, "sc": 150, "st": 140 }
+    ],
+    "totalPosts": "Senior Teacher",
+    "examLevel": "Graduate Level + B.Ed"
+  },
+  {
+    "id": "neet-ug-2026",
+    "exam": "NEET UG 2026",
+    "organization": "NTA",
+    "category": "central",
+    "tiers": ["Single Paper"],
+    "cutoffs": {
+      "general": {
+        "general": 720,
+        "obc": 700,
+        "sc": 650,
+        "st": 620,
+        "ews": 710
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 715, "obc": 695, "sc": 645, "st": 615 },
+      { "year": 2024, "general": 710, "obc": 690, "sc": 640, "st": 610 },
+      { "year": 2023, "general": 705, "obc": 685, "sc": 635, "st": 605 }
+    ]
+  },
+  {
+    "id": "upsc-cse-2026",
+    "exam": "UPSC CSE 2026",
+    "organization": "UPSC",
+    "category": "central",
+    "tiers": ["Prelims", "Mains", "Interview"],
+    "cutoffs": {
+      "prelims": {
+        "general": 98,
+        "obc": 90,
+        "sc": 82,
+        "st": 80,
+        "ews": 95
+      },
+      "mains": {
+        "general": 750,
+        "obc": 700,
+        "sc": 640,
+        "st": 620,
+        "ews": 730
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 95, "obc": 88, "sc": 80, "st": 78 },
+      { "year": 2024, "general": 90, "obc": 82, "sc": 75, "st": 72 },
+      { "year": 2023, "general": 98, "obc": 90, "sc": 82, "st": 80 }
+    ],
+    "totalPosts": "IAS/IPS/IFS",
+    "examLevel": "Graduate Level"
+  },
+  {
+    "id": "ibps-clerk-2026-pre",
+    "exam": "IBPS Clerk XVI 2026 Pre",
+    "organization": "IBPS",
+    "category": "banking",
+    "tiers": ["Prelims", "Mains"],
+    "cutoffs": {
+      "prelims": {
+        "general": 72,
+        "obc": 68,
+        "sc": 62,
+        "st": 55,
+        "ews": 70
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 71, "obc": 67, "sc": 61, "st": 54 },
+      { "year": 2024, "general": 70, "obc": 66, "sc": 60, "st": 53 },
+      { "year": 2023, "general": 68, "obc": 64, "sc": 58, "st": 51 }
+    ]
+  },
+  {
+    "id": "upsc-cse-2025",
+    "exam": "UPSC CSE 2025",
+    "organization": "UPSC",
+    "category": "central",
+    "tiers": ["Prelims", "Mains", "Interview"],
+    "cutoffs": {
+      "prelims": {
+        "general": 98,
+        "obc": 92,
+        "sc": 82,
+        "st": 78,
+        "ews": 95
+      },
+      "mains": {
+        "general": 750,
+        "obc": 710,
+        "sc": 680,
+        "st": 660,
+        "ews": 730
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 96, "obc": 90, "sc": 80, "st": 76 },
+      { "year": 2023, "general": 95, "obc": 89, "sc": 79, "st": 75 },
+      { "year": 2022, "general": 94, "obc": 88, "sc": 78, "st": 74 }
+    ]
+  },
+  {
+    "id": "raj-police-constable-2026",
+    "exam": "Rajasthan Police Constable 2026",
+    "organization": "RSSB",
+    "category": "rajasthan",
+    "tiers": ["Written", "PET"],
+    "cutoffs": {
+      "written": {
+        "general": 180,
+        "obc": 168,
+        "sc": 155,
+        "st": 145,
+        "ews": 175
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 178, "obc": 166, "sc": 153, "st": 143 },
+      { "year": 2023, "general": 175, "obc": 163, "sc": 150, "st": 140 },
+      { "year": 2022, "general": 172, "obc": 160, "sc": 147, "st": 137 }
+    ]
+  },
+  {
+    "id": "ssc-gd-2026",
+    "exam": "SSC GD Constable 2026",
+    "organization": "SSC",
+    "category": "central",
+    "tiers": ["CBT", "PET/PST"],
+    "cutoffs": {
+      "cbt": {
+        "general": 135,
+        "obc": 125,
+        "sc": 110,
+        "st": 100,
+        "ews": 130
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 133, "obc": 123, "sc": 108, "st": 98 },
+      { "year": 2024, "general": 130, "obc": 120, "sc": 105, "st": 95 },
+      { "year": 2023, "general": 128, "obc": 118, "sc": 103, "st": 93 }
+    ]
+  },
+  {
+    "id": "bpsc-72-pre-2026",
+    "exam": "BPSC 72nd Pre 2026",
+    "organization": "BPSC",
+    "category": "state",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 145,
+        "obc": 135,
+        "sc": 120,
+        "st": 115,
+        "ews": 140
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 142, "obc": 132, "sc": 117, "st": 112 },
+      { "year": 2024, "general": 140, "obc": 130, "sc": 115, "st": 110 },
+      { "year": 2023, "general": 138, "obc": 128, "sc": 113, "st": 108 }
+    ]
+  },
+  {
+    "id": "uppsc-pcs-pre-2026",
+    "exam": "UPPSC PCS Pre 2026",
+    "organization": "UPPSC",
+    "category": "state",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 128,
+        "obc": 118,
+        "sc": 105,
+        "st": 100,
+        "ews": 125
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 125, "obc": 115, "sc": 102, "st": 97 },
+      { "year": 2024, "general": 122, "obc": 112, "sc": 99, "st": 95 },
+      { "year": 2023, "general": 120, "obc": 110, "sc": 97, "st": 93 }
+    ]
+  },
+  {
+    "id": "rpsc-ras-pre-2026",
+    "exam": "RPSC RAS Pre 2026",
+    "organization": "RPSC",
+    "category": "rajasthan",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 105,
+        "obc": 98,
+        "sc": 88,
+        "st": 82,
+        "ews": 102
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 102, "obc": 95, "sc": 85, "st": 80 },
+      { "year": 2024, "general": 100, "obc": 93, "sc": 83, "st": 78 },
+      { "year": 2023, "general": 98, "obc": 91, "sc": 81, "st": 76 }
+    ]
+  },
+  {
+    "id": "ssc-cpo-2025",
+    "exam": "SSC CPO 2025",
+    "organization": "SSC",
+    "category": "central",
+    "tiers": ["Pre", "Mains", "PET"],
+    "cutoffs": {
+      "pre": {
+        "general": 130,
+        "obc": 120,
+        "sc": 108,
+        "st": 98,
+        "ews": 128
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 128, "obc": 118, "sc": 106, "st": 96 },
+      { "year": 2023, "general": 125, "obc": 115, "sc": 103, "st": 93 },
+      { "year": 2022, "general": 122, "obc": 112, "sc": 100, "st": 90 }
+    ]
+  },
+  {
+    "id": "ssc-steno-2025",
+    "exam": "SSC Stenographer 2025",
+    "organization": "SSC",
+    "category": "central",
+    "tiers": ["CBT", "Skill Test"],
+    "cutoffs": {
+      "cbt": {
+        "general": 120,
+        "obc": 110,
+        "sc": 98,
+        "st": 88,
+        "ews": 118
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 118, "obc": 108, "sc": 96, "st": 86 },
+      { "year": 2023, "general": 115, "obc": 105, "sc": 93, "st": 83 }
+    ]
+  },
+  {
+    "id": "ssc-je-2025",
+    "exam": "SSC JE 2025",
+    "organization": "SSC",
+    "category": "central",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 125,
+        "obc": 115,
+        "sc": 102,
+        "st": 92,
+        "ews": 122
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 122, "obc": 112, "sc": 99, "st": 89 },
+      { "year": 2023, "general": 120, "obc": 110, "sc": 97, "st": 87 }
+    ]
+  },
+  {
+    "id": "upsc-nda-2026",
+    "exam": "UPSC NDA 2026",
+    "organization": "UPSC",
+    "category": "central",
+    "tiers": ["Written", "SSB"],
+    "cutoffs": {
+      "written": {
+        "general": 350,
+        "obc": 320,
+        "sc": 280,
+        "st": 260,
+        "ews": 340
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 345, "obc": 315, "sc": 275, "st": 255 },
+      { "year": 2024, "general": 340, "obc": 310, "sc": 270, "st": 250 },
+      { "year": 2023, "general": 335, "obc": 305, "sc": 265, "st": 245 }
+    ]
+  },
+  {
+    "id": "upsc-cds-2026",
+    "exam": "UPSC CDS 2026",
+    "organization": "UPSC",
+    "category": "central",
+    "tiers": ["Written", "SSB"],
+    "cutoffs": {
+      "written": {
+        "general": 340,
+        "obc": 310,
+        "sc": 270,
+        "st": 250,
+        "ews": 330
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 335, "obc": 305, "sc": 265, "st": 245 },
+      { "year": 2024, "general": 330, "obc": 300, "sc": 260, "st": 240 }
+    ]
+  },
+  {
+    "id": "upsc-ese-2026",
+    "exam": "UPSC ESE 2026",
+    "organization": "UPSC",
+    "category": "central",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 230,
+        "obc": 215,
+        "sc": 195,
+        "st": 185,
+        "ews": 225
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 225, "obc": 210, "sc": 190, "st": 180 },
+      { "year": 2024, "general": 220, "obc": 205, "sc": 185, "st": 175 }
+    ]
+  },
+  {
+    "id": "upsc-epfo-2026",
+    "exam": "UPSC EPFO 2026",
+    "organization": "UPSC",
+    "category": "central",
+    "tiers": ["Exam", "Interview"],
+    "cutoffs": {
+      "exam": {
+        "general": 280,
+        "obc": 260,
+        "sc": 230,
+        "st": 220,
+        "ews": 275
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 275, "obc": 255, "sc": 225, "st": 215 },
+      { "year": 2024, "general": 270, "obc": 250, "sc": 220, "st": 210 }
+    ]
+  },
+  {
+    "id": "rrb-alp-2025",
+    "exam": "RRB ALP 2025",
+    "organization": "RRB",
+    "category": "railway",
+    "tiers": ["CBT 1", "CBT 2"],
+    "cutoffs": {
+      "cbt1": {
+        "general": 65,
+        "obc": 58,
+        "sc": 50,
+        "st": 42,
+        "ews": 62
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 63, "obc": 56, "sc": 48, "st": 40 },
+      { "year": 2023, "general": 60, "obc": 53, "sc": 45, "st": 38 }
+    ]
+  },
+  {
+    "id": "rrb-technician-2025",
+    "exam": "RRB Technician 2025",
+    "organization": "RRB",
+    "category": "railway",
+    "tiers": ["CBT"],
+    "cutoffs": {
+      "cbt": {
+        "general": 60,
+        "obc": 54,
+        "sc": 46,
+        "st": 38,
+        "ews": 58
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 58, "obc": 52, "sc": 44, "st": 36 }
+    ]
+  },
+  {
+    "id": "ibps-po-xvii-2026",
+    "exam": "IBPS PO XVII 2026",
+    "organization": "IBPS",
+    "category": "banking",
+    "tiers": ["Prelims", "Mains"],
+    "cutoffs": {
+      "prelims": {
+        "general": 68,
+        "obc": 62,
+        "sc": 54,
+        "st": 46,
+        "ews": 65
+      }
+    },
+    "previousYears": [
+      { "year": 2026, "general": 66, "obc": 60, "sc": 52, "st": 44 },
+      { "year": 2025, "general": 64, "obc": 58, "sc": 50, "st": 42 }
+    ]
+  },
+  {
+    "id": "sbi-po-2026",
+    "exam": "SBI PO 2026",
+    "organization": "SBI",
+    "category": "banking",
+    "tiers": ["Prelims", "Mains"],
+    "cutoffs": {
+      "prelims": {
+        "general": 70,
+        "obc": 64,
+        "sc": 56,
+        "st": 48,
+        "ews": 67
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 68, "obc": 62, "sc": 54, "st": 46 },
+      { "year": 2024, "general": 66, "obc": 60, "sc": 52, "st": 44 }
+    ]
+  },
+  {
+    "id": "raj-si-2026",
+    "exam": "Rajasthan SI 2026",
+    "organization": "RSSB",
+    "category": "rajasthan",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 120,
+        "obc": 110,
+        "sc": 95,
+        "st": 88,
+        "ews": 118
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 118, "obc": 108, "sc": 93, "st": 86 },
+      { "year": 2023, "general": 115, "obc": 105, "sc": 90, "st": 83 }
+    ]
+  },
+  {
+    "id": "reet-2026",
+    "exam": "REET Level 1 & 2 2026",
+    "organization": "BSER",
+    "category": "rajasthan",
+    "tiers": ["Single Paper"],
+    "cutoffs": {
+      "paper": {
+        "general": 130,
+        "obc": 120,
+        "sc": 105,
+        "st": 98,
+        "ews": 128
+      }
+    },
+    "previousYears": [
+      { "year": 2024, "general": 128, "obc": 118, "sc": 103, "st": 96 },
+      { "year": 2023, "general": 125, "obc": 115, "sc": 100, "st": 93 }
+    ]
+  },
+  {
+    "id": "ctet-2026",
+    "exam": "CTET 2026",
+    "organization": "CBSE",
+    "category": "central",
+    "tiers": ["Paper 1", "Paper 2"],
+    "cutoffs": {
+      "paper1": {
+        "general": 90,
+        "obc": 85,
+        "sc": 80,
+        "st": 80,
+        "ews": 88
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 90, "obc": 85, "sc": 80, "st": 80 },
+      { "year": 2024, "general": 90, "obc": 85, "sc": 80, "st": 80 }
+    ]
+  },
+  {
+    "id": "nta-neet-ug-2026",
+    "exam": "NEET UG 2026",
+    "organization": "NTA",
+    "category": "central",
+    "tiers": ["Single Paper"],
+    "cutoffs": {
+      "general": {
+        "general": 720,
+        "obc": 700,
+        "sc": 650,
+        "st": 620,
+        "ews": 710
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 715, "obc": 695, "sc": 645, "st": 615 },
+      { "year": 2024, "general": 710, "obc": 690, "sc": 640, "st": 610 },
+      { "year": 2023, "general": 705, "obc": 685, "sc": 635, "st": 605 }
+    ]
+  },
+  {
+    "id": "bpsc-73-2026",
+    "exam": "BPSC 73rd 2026",
+    "organization": "BPSC",
+    "category": "state",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 140,
+        "obc": 130,
+        "sc": 115,
+        "st": 108,
+        "ews": 138
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 138, "obc": 128, "sc": 113, "st": 106 },
+      { "year": 2024, "general": 135, "obc": 125, "sc": 110, "st": 103 }
+    ]
+  },
+  {
+    "id": "mpsc-group-b-2026",
+    "exam": "MPSC Group B 2026",
+    "organization": "MPSC",
+    "category": "state",
+    "tiers": ["Pre", "Mains"],
+    "cutoffs": {
+      "pre": {
+        "general": 150,
+        "obc": 140,
+        "sc": 125,
+        "st": 118,
+        "ews": 148
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 148, "obc": 138, "sc": 123, "st": 116 },
+      { "year": 2024, "general": 145, "obc": 135, "sc": 120, "st": 113 }
+    ]
+  },
+  {
+    "id": "delhi-police-constable-2026",
+    "exam": "Delhi Police Constable 2026",
+    "organization": "Delhi Police",
+    "category": "central",
+    "tiers": ["CBT", "PET/PST"],
+    "cutoffs": {
+      "cbt": {
+        "general": 140,
+        "obc": 128,
+        "sc": 115,
+        "st": 105,
+        "ews": 135
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 138, "obc": 126, "sc": 113, "st": 103 },
+      { "year": 2024, "general": 135, "obc": 123, "sc": 110, "st": 100 }
+    ]
+  },
+  {
+    "id": "crpf-asi-hc-2026",
+    "exam": "CRPF ASI & HC 2026",
+    "organization": "CRPF",
+    "category": "defence",
+    "tiers": ["CBT", "PET"],
+    "cutoffs": {
+      "cbt": {
+        "general": 135,
+        "obc": 125,
+        "sc": 110,
+        "st": 100,
+        "ews": 132
+      }
+    },
+    "previousYears": [
+      { "year": 2025, "general": 133, "obc": 123, "sc": 108, "st": 98 },
+      { "year": 2024, "general": 130, "obc": 120, "sc": 105, "st": 95 }
+    ]
+  }
+]

@@ -1,0 +1,474 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": siteUrl + "/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Age Calculator" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Govt job mein age limit kaise calculate hoti hai?", acceptedAnswer: { "@type": "Answer", "text": "Age calculation ki cutoff date har notification mein likhi hoti hai. Generally last date of application apply hoti hai. SSC, UPSC, RRB, IBPS sabki alag cutoff date hoti hai." } },
+    { "@type": "Question", "name": "SSC CGL mein kitni age relaxation milti hai?", acceptedAnswer: { "@type": "Answer", "text": "SSC CGL mein General category ke liye max 32 years, OBC ke liye +3 years (35), SC/ST ke liye +5 years (37), PH ke liye +10 years relaxation milti hai." } },
+    { "@type": "Question", "name": "UPSC CSE mein age limit kitni hai?", acceptedAnswer: { "@type": "Answer", "text": "UPSC CSE mein General category ke liye 21-32 years, OBC ke liye 21-35 years, SC/ST ke liye 21-37 years age limit hai. General mein 6 attempts, OBC mein 9, SC/ST mein unlimited attempts hain." } }
+  ]
+};
+---
+
+<BaseLayout
+  title="Age Calculator for Govt Jobs 2026 — SSC, UPSC, RRB, IBPS | Sarkari Sahayak"
+  description="Apni exact age check karein SSC CGL, UPSC CSE, RRB NTPC, IBPS Clerk ke liye. Category-wise relaxation ke saath. Free age calculator tool."
+  canonical="/tools/age-calculator/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/tools/" style="color:var(--saffron);text-decoration:none">Tools</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Age Calculator</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+
+      <div class="d-header">
+        <div class="d-icon">🎂</div>
+        <div>
+          <h1 class="d-title">Age Calculator for Govt Jobs</h1>
+          <div class="d-sub">Exam cutoff date ke hisaab se exact age check karein</div>
+        </div>
+      </div>
+
+      <!-- Calculator -->
+      <div class="age-form">
+        <div class="age-row">
+          <div class="age-field">
+            <label class="age-label">Date of Birth</label>
+            <input type="date" id="dobInput" class="age-input" />
+          </div>
+          <div class="age-field">
+            <label class="age-label">Age as on Date (Cutoff)</label>
+            <input type="date" id="cutoffInput" class="age-input" value="2026-08-01" />
+          </div>
+        </div>
+        <div class="age-row">
+          <div class="age-field">
+            <label class="age-label">Category</label>
+            <select id="catInput" class="age-input">
+              <option value="general">General / UR</option>
+              <option value="obc">OBC (Non-Creamy Layer)</option>
+              <option value="sc">SC</option>
+              <option value="st">ST</option>
+              <option value="ews">EWS</option>
+              <option value="ph">PH / PwD</option>
+            </select>
+          </div>
+          <div class="age-field">
+            <label class="age-label">Quick Select Exam</label>
+            <select id="examSelect" class="age-input">
+              <option value="">Custom...</option>
+              <optgroup label="SSC Exams">
+                <option value="ssc_cgl">SSC CGL (18-32 yrs)</option>
+                <option value="ssc_chsl">SSC CHSL (18-27 yrs)</option>
+                <option value="ssc_cpo">SSC CPO (20-25 yrs)</option>
+                <option value="ssc_gd">SSC GD Constable (18-23 yrs)</option>
+                <option value="ssc_steno">SSC Stenographer (18-27 yrs)</option>
+                <option value="ssc_je">SSC JE (18-32 yrs)</option>
+                <option value="ssc_sel_post">SSC Selection Post (18-30 yrs)</option>
+              </optgroup>
+              <optgroup label="UPSC Exams">
+                <option value="upsc_cse">UPSC CSE (21-32 yrs)</option>
+                <option value="upsc_nda">UPSC NDA (16.5-19.5 yrs)</option>
+                <option value="upsc_ese">UPSC ESE / IES (21-30 yrs)</option>
+                <option value="upsc_cdse">UPSC CDS (19-24 yrs)</option>
+                <option value="upsc_epfo">UPSC EPFO (21-30 yrs)</option>
+                <option value="upsc_ifos">UPSC IFOS (21-32 yrs)</option>
+              </optgroup>
+              <optgroup label="Railway Exams">
+                <option value="rrb_ntpc">RRB NTPC (18-33 yrs)</option>
+                <option value="rrb_groupd">RRB Group D (18-33 yrs)</option>
+                <option value="rrb_je">RRB JE (18-33 yrs)</option>
+                <option value="rrb_alp">RRB ALP (18-30 yrs)</option>
+                <option value="rrb_technician">RRB Technician (18-30 yrs)</option>
+              </optgroup>
+              <optgroup label="Banking Exams">
+                <option value="ibps_clerk">IBPS Clerk (20-28 yrs)</option>
+                <option value="sbi_clerk">SBI Clerk (20-28 yrs)</option>
+                <option value="ibps_po">IBPS PO (20-30 yrs)</option>
+                <option value="sbi_po">SBI PO (21-30 yrs)</option>
+                <option value="ibps_so">IBPS SO (25-35 yrs)</option>
+                <option value="rbi_assistant">RBI Assistant (18-28 yrs)</option>
+                <option value="rbi_grade_b">RBI Grade B (21-30 yrs)</option>
+                <option value="nabard_grade_a">NABARD Grade A (21-30 yrs)</option>
+              </optgroup>
+              <optgroup label="State PSC Exams">
+                <option value="uppsc_pcs">UPPSC PCS (21-40 yrs)</option>
+                <option value="bpsc">BPSC (22-37 yrs)</option>
+                <option value="rpsc_ras">RPSC RAS (21-40 yrs)</option>
+                <option value="mpsc">MPSC (21-38 yrs)</option>
+                <option value="wbpsc">WBPSC (21-36 yrs)</option>
+                <option value="hpsc">HPSC (21-42 yrs)</option>
+                <option value="ukpsc">UKPSC (21-42 yrs)</option>
+                <option value="mppsc">MPPSC (21-40 yrs)</option>
+                <option value="opsc">OPSC (21-38 yrs)</option>
+                <option value="tspsc">TSPSC (18-44 yrs)</option>
+              </optgroup>
+              <optgroup label="Defence Exams">
+                <option value="nda">NDA (16.5-19.5 yrs)</option>
+                <option value="cdse">CDS (19-24 yrs)</option>
+                <option value="afcat">AFCAT (20-26 yrs)</option>
+                <option value="agniveer_army">Agniveer Army (17.5-21 yrs)</option>
+                <option value="agniveer_navy">Agniveer Navy (17-21 yrs)</option>
+                <option value="agniveer_airforce">Agniveer Air Force (17-21 yrs)</option>
+              </optgroup>
+              <optgroup label="Teaching Exams">
+                <option value="ctet">CTET (18-30 yrs)</option>
+                <option value="reet">REET (18-40 yrs)</option>
+                <option value="kvs_teachers">KVS Teachers (18-35 yrs)</option>
+              </optgroup>
+              <optgroup label="Other Exams">
+                <option value="nta_neet">NTA NEET (17-25 yrs)</option>
+                <option value="nta_neet_pg">NTA NEET PG (18-30 yrs)</option>
+                <option value="nta_cuet">NTA CUET UG (No age limit)</option>
+                <option value="delhi_police">Delhi Police Constable (18-25 yrs)</option>
+                <option value="raj_police">Raj Police Constable (18-23 yrs)</option>
+                <option value="raj_si">Rajasthan SI (18-33 yrs)</option>
+                <option value="bsf_hc">BSF Head Constable (18-25 yrs)</option>
+                <option value="crpf_asi">CRPF ASI (18-25 yrs)</option>
+                <option value="uppsc_lecturer">UPPSC Lecturer (21-40 yrs)</option>
+                <option value="rssb_je">RSSB JE (18-40 yrs)</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <button class="age-btn" id="calcBtn">🎂 Calculate Age</button>
+      </div>
+
+      <!-- Result -->
+      <div id="ageResult" style="display:none" class="age-result">
+        <div class="ar-main">
+          <div class="ar-years" id="arYears">--</div>
+          <div class="ar-label">Exact Age</div>
+        </div>
+        <div class="ar-detail">
+          <span id="arMonths">-- months</span>
+          <span>·</span>
+          <span id="arDays">-- days</span>
+        </div>
+      </div>
+
+      <!-- Eligibility Table -->
+      <div id="eligTable" style="display:none">
+        <h2 class="d-h">Exam-wise Eligibility</h2>
+        <div class="elig-grid" id="eligGrid"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEO Content -->
+  <div class="section">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+      <div class="d-section">
+        <h2 class="d-h">Age Calculator Kya Hai?</h2>
+        <div class="steps-box">
+          <p style="font-size:15px;color:var(--body);line-height:1.7;margin-bottom:12px">
+            Government jobs ke liye apply karne se pehle apni exact age jaanna bahut zaroori hai.
+            Har exam ki alag age limit hoti hai — SSC CGL mein 32 saal, IBPS Clerk mein 28 saal, UPSC mein 32 saal.
+            Aur har category (General, OBC, SC, ST) ke liye alag relaxation bhi hoti hai.
+          </p>
+          <p style="font-size:15px;color:var(--body);line-height:1.7">
+            Ye tool aapki <b>exact age</b> calculate karta hai (years, months, days) kisi bhi cutoff date ke hisaab se.
+            Saath hi <b>12 major exams</b> ke liye eligibility check kar deta hai — aapko pata chal jayega ki kaunse exams ke liye eligible hain.
+          </p>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Category-wise Age Relaxation (Central Govt)</h2>
+        <div class="steps-box">
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--hairline)">
+                  <th style="text-align:left;padding:10px;color:var(--strong)">Category</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Relaxation</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Example (Max 30)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">General / UR</td><td style="text-align:center">No relaxation</td><td style="text-align:center">30 years</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">OBC (Non-Creamy)</td><td style="text-align:center;color:var(--success)">+3 years</td><td style="text-align:center">33 years</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">SC / ST</td><td style="text-align:center;color:var(--success)">+5 years</td><td style="text-align:center">35 years</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">EWS</td><td style="text-align:center">No relaxation</td><td style="text-align:center">30 years</td></tr>
+                <tr><td style="padding:8px 10px">PH / PwD</td><td style="text-align:center;color:var(--success)">+10 years</td><td style="text-align:center">40 years</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Exam-wise Age Limits (2026)</h2>
+        <div class="steps-box">
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--hairline)">
+                  <th style="text-align:left;padding:10px;color:var(--strong)">Exam</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Min</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Max (Gen)</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Max (OBC)</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Max (SC/ST)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">SSC CGL</td><td style="text-align:center">18</td><td style="text-align:center">32</td><td style="text-align:center">35</td><td style="text-align:center">37</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">SSC CHSL</td><td style="text-align:center">18</td><td style="text-align:center">27</td><td style="text-align:center">30</td><td style="text-align:center">32</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">UPSC CSE</td><td style="text-align:center">21</td><td style="text-align:center">32</td><td style="text-align:center">35</td><td style="text-align:center">37</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">RRB NTPC</td><td style="text-align:center">18</td><td style="text-align:center">33</td><td style="text-align:center">36</td><td style="text-align:center">38</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">IBPS/SBI Clerk</td><td style="text-align:center">20</td><td style="text-align:center">28</td><td style="text-align:center">31</td><td style="text-align:center">33</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">IBPS/SBI PO</td><td style="text-align:center">20</td><td style="text-align:center">30</td><td style="text-align:center">33</td><td style="text-align:center">35</td></tr>
+                <tr><td style="padding:8px 10px;font-weight:600">UPPSC PCS</td><td style="text-align:center">21</td><td style="text-align:center">40</td><td style="text-align:center">43</td><td style="text-align:center">45</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="d-section">
+        <h2 class="d-h">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-q">Age calculation mein cutoff date kya hoti hai?</summary>
+            <div class="faq-a">Cutoff date woh date hai jis din aapki age calculate hoti hai. Har exam ki alag cutoff date hoti hai — SSC mein last date of application, UPSC mein 1st August, RRB mein notification date. Official notification mein likhi hoti hai.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Kya 1 month ka bhi fark matter karta hai?</summary>
+            <div class="faq-a">Haan, bilkul! Agar aapki age cutoff date ke din bhi 1 din kam hai to aap eligible hain. Lekin agle din birthday hai to age badh jayegi. Isliye exact calculation zaroori hai.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">OBC creamy layer mein age relaxation milti hai kya?</summary>
+            <div class="faq-a">Nahi, OBC Creamy Layer candidates ko age relaxation nahi milti hai. Sirf Non-Creamy Layer OBC candidates ko +3 years ki relaxation milti hai. Valid OBC-NCL certificate hona zaroori hai.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Ex-Servicemen ko kitni relaxation milti hai?</summary>
+            <div class="faq-a">Ex-Servicemen ko central government jobs mein 5 years ki relaxation milti hai (SC/ST ke liye additional). Plus unki service period bhi age calculation mein count hota hai.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .age-form {
+      padding: 28px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 14px; margin-top: 20px; transition: box-shadow .2s;
+    }
+    .age-form:hover { box-shadow: 0 4px 20px rgba(255,107,53,.08); }
+    .age-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    .age-field { display: flex; flex-direction: column; gap: 7px; }
+    .age-label { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .age-input {
+      padding: 12px 16px; background: var(--elevated); border: 1.5px solid var(--hairline);
+      border-radius: 10px; color: var(--strong); font-size: 15px;
+      font-family: var(--font-hindi); transition: all .2s;
+    }
+    .age-input:focus { border-color: var(--saffron); outline: none; box-shadow: 0 0 0 3px rgba(255,107,53,.1); }
+    .age-btn {
+      width: 100%; padding: 16px; margin-top: 8px;
+      background: linear-gradient(135deg, var(--saffron), #e85d26);
+      border: none; border-radius: 12px; color: #fff;
+      font-size: 17px; font-weight: 700; cursor: pointer;
+      font-family: var(--font-hindi); transition: all .15s;
+      box-shadow: 0 4px 12px rgba(255,107,53,.3);
+    }
+    .age-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,53,.4); }
+    .age-btn:active { transform: translateY(0); }
+
+    .age-result {
+      padding: 32px 24px; background: var(--card); border: 2px solid var(--saffron);
+      border-radius: 14px; margin-top: 24px; text-align: center;
+      animation: fadeSlideUp .3s ease;
+    }
+    .ar-main { margin-bottom: 8px; }
+    .ar-years { font-family: var(--font-display); font-size: 56px; font-weight: 700; color: var(--saffron); line-height: 1; }
+    .ar-label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+    .ar-detail { font-size: 18px; color: var(--body); display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
+
+    .elig-grid { display: grid; gap: 8px; }
+    .elig-card {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 12px; transition: all .15s;
+    }
+    .elig-card:hover { transform: translateX(4px); }
+    .elig-card.pass { border-color: var(--success); background: rgba(15,163,54,.04); }
+    .elig-card.fail { border-color: #ef4444; background: rgba(239,68,68,.03); }
+    .elig-exam { font-weight: 600; color: var(--strong); font-size: 15px; }
+    .elig-age { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .elig-status { font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; white-space: nowrap; }
+    .elig-status.pass { background: rgba(15,163,54,.12); color: var(--success); }
+    .elig-status.fail { background: rgba(239,68,68,.12); color: #ef4444; }
+    .elig-status.near { background: rgba(244,180,0,.12); color: var(--warning); }
+
+    .faq-list { display: grid; gap: 8px; }
+    .faq-item { padding: 12px 16px; background: var(--card); border: 1px solid var(--hairline); border-radius: 10px; }
+    .faq-q { font-size: 15px; font-weight: 600; color: var(--strong); cursor: pointer; font-family: var(--font-hindi); list-style: none; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before { content: '▸ '; color: var(--saffron); }
+    .faq-item[open] .faq-q::before { content: '▾ '; }
+    .faq-a { font-size: 14px; color: var(--body); margin-top: 8px; line-height: 1.6; padding-left: 18px; }
+
+    @media (max-width: 600px) {
+      .age-row { grid-template-columns: 1fr; gap: 14px; }
+      .age-form { padding: 20px; }
+      .ar-years { font-size: 44px; }
+      .elig-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script is:inline>
+  (function() {
+    const exams = {
+      ssc_cgl: { name: 'SSC CGL', min: 18, max: 32, cutoff: '2026-08-01' },
+      ssc_chsl: { name: 'SSC CHSL', min: 18, max: 27, cutoff: '2026-08-01' },
+      ssc_cpo: { name: 'SSC CPO', min: 20, max: 25, cutoff: '2026-08-01' },
+      ssc_gd: { name: 'SSC GD Constable', min: 18, max: 23, cutoff: '2026-08-01' },
+      ssc_steno: { name: 'SSC Stenographer', min: 18, max: 27, cutoff: '2026-08-01' },
+      ssc_je: { name: 'SSC JE', min: 18, max: 32, cutoff: '2026-08-01' },
+      ssc_sel_post: { name: 'SSC Selection Post', min: 18, max: 30, cutoff: '2026-08-01' },
+      upsc_cse: { name: 'UPSC CSE', min: 21, max: 32, cutoff: '2026-08-01' },
+      upsc_nda: { name: 'UPSC NDA', min: 16, max: 19, cutoff: '2026-07-01' },
+      upsc_ese: { name: 'UPSC ESE / IES', min: 21, max: 30, cutoff: '2026-01-01' },
+      upsc_cdse: { name: 'UPSC CDS', min: 19, max: 24, cutoff: '2026-07-01' },
+      upsc_epfo: { name: 'UPSC EPFO', min: 21, max: 30, cutoff: '2026-08-01' },
+      upsc_ifos: { name: 'UPSC IFOS', min: 21, max: 32, cutoff: '2026-08-01' },
+      rrb_ntpc: { name: 'RRB NTPC', min: 18, max: 33, cutoff: '2026-01-01' },
+      rrb_groupd: { name: 'RRB Group D', min: 18, max: 33, cutoff: '2026-01-01' },
+      rrb_je: { name: 'RRB JE', min: 18, max: 33, cutoff: '2026-01-01' },
+      rrb_alp: { name: 'RRB ALP', min: 18, max: 30, cutoff: '2026-01-01' },
+      rrb_technician: { name: 'RRB Technician', min: 18, max: 30, cutoff: '2026-01-01' },
+      ibps_clerk: { name: 'IBPS Clerk', min: 20, max: 28, cutoff: '2026-08-01' },
+      sbi_clerk: { name: 'SBI Clerk', min: 20, max: 28, cutoff: '2026-08-01' },
+      ibps_po: { name: 'IBPS PO', min: 20, max: 30, cutoff: '2026-08-01' },
+      sbi_po: { name: 'SBI PO', min: 21, max: 30, cutoff: '2026-08-01' },
+      ibps_so: { name: 'IBPS SO', min: 25, max: 35, cutoff: '2026-08-01' },
+      rbi_assistant: { name: 'RBI Assistant', min: 18, max: 28, cutoff: '2026-08-01' },
+      rbi_grade_b: { name: 'RBI Grade B', min: 21, max: 30, cutoff: '2026-08-01' },
+      nabard_grade_a: { name: 'NABARD Grade A', min: 21, max: 30, cutoff: '2026-08-01' },
+      uppsc_pcs: { name: 'UPPSC PCS', min: 21, max: 40, cutoff: '2026-07-01' },
+      bpsc: { name: 'BPSC', min: 22, max: 37, cutoff: '2026-08-01' },
+      rpsc_ras: { name: 'RPSC RAS', min: 21, max: 40, cutoff: '2026-08-01' },
+      mpsc: { name: 'MPSC', min: 21, max: 38, cutoff: '2026-08-01' },
+      wbpsc: { name: 'WBPSC', min: 21, max: 36, cutoff: '2026-08-01' },
+      hpsc: { name: 'HPSC HCS', min: 21, max: 42, cutoff: '2026-08-01' },
+      ukpsc: { name: 'UKPSC', min: 21, max: 42, cutoff: '2026-08-01' },
+      mppsc: { name: 'MPPSC', min: 21, max: 40, cutoff: '2026-08-01' },
+      opsc: { name: 'OPSC OCS', min: 21, max: 38, cutoff: '2026-08-01' },
+      tspsc: { name: 'TSPSC', min: 18, max: 44, cutoff: '2026-08-01' },
+      nda: { name: 'NDA', min: 16, max: 19, cutoff: '2026-07-01' },
+      cdse: { name: 'CDS', min: 19, max: 24, cutoff: '2026-07-01' },
+      afcat: { name: 'AFCAT', min: 20, max: 26, cutoff: '2026-08-01' },
+      agniveer_army: { name: 'Agniveer Army', min: 17, max: 21, cutoff: '2026-08-01' },
+      agniveer_navy: { name: 'Agniveer Navy', min: 17, max: 21, cutoff: '2026-08-01' },
+      agniveer_airforce: { name: 'Agniveer Air Force', min: 17, max: 21, cutoff: '2026-08-01' },
+      ctet: { name: 'CTET', min: 18, max: 30, cutoff: '2026-07-01' },
+      reet: { name: 'REET', min: 18, max: 40, cutoff: '2026-08-01' },
+      kvs_teachers: { name: 'KVS Teachers', min: 18, max: 35, cutoff: '2026-08-01' },
+      nta_neet: { name: 'NTA NEET UG', min: 17, max: 25, cutoff: '2026-05-01' },
+      nta_neet_pg: { name: 'NTA NEET PG', min: 18, max: 30, cutoff: '2026-08-01' },
+      nta_cuet: { name: 'NTA CUET UG', min: 0, max: 99, cutoff: '2026-05-01' },
+      delhi_police: { name: 'Delhi Police Constable', min: 18, max: 25, cutoff: '2026-08-01' },
+      raj_police: { name: 'Raj Police Constable', min: 18, max: 23, cutoff: '2026-08-01' },
+      raj_si: { name: 'Rajasthan SI', min: 18, max: 33, cutoff: '2026-08-01' },
+      bsf_hc: { name: 'BSF Head Constable', min: 18, max: 25, cutoff: '2026-08-01' },
+      crpf_asi: { name: 'CRPF ASI', min: 18, max: 25, cutoff: '2026-08-01' },
+      uppsc_lecturer: { name: 'UPPSC Lecturer', min: 21, max: 40, cutoff: '2026-08-01' },
+      rssb_je: { name: 'RSSB JE', min: 18, max: 40, cutoff: '2026-08-01' }
+    };
+
+    const relax = { general: 0, obc: 3, sc: 5, st: 5, ews: 0, ph: 10 };
+
+    const examSelect = document.getElementById('examSelect');
+    examSelect.addEventListener('change', () => {
+      const val = examSelect.value;
+      if (val && exams[val]) {
+        document.getElementById('cutoffInput').value = exams[val].cutoff;
+      }
+    });
+
+    document.getElementById('calcBtn').addEventListener('click', () => {
+      const dob = document.getElementById('dobInput').value;
+      const cutoff = document.getElementById('cutoffInput').value;
+      const cat = document.getElementById('catInput').value;
+      if (!dob || !cutoff) { alert('DOB aur Cutoff date dono daalein!'); return; }
+
+      const dobDate = new Date(dob);
+      const cutoffDate = new Date(cutoff);
+      const age = calcAge(dobDate, cutoffDate);
+
+      document.getElementById('ageResult').style.display = 'block';
+      document.getElementById('arYears').textContent = age.years;
+      document.getElementById('arMonths').textContent = age.months + ' months';
+      document.getElementById('arDays').textContent = age.days + ' days';
+
+      const catRelax = relax[cat] || 0;
+      const eligGrid = document.getElementById('eligGrid');
+      eligGrid.innerHTML = '';
+
+      Object.values(exams).forEach(exam => {
+        const maxAge = exam.max + catRelax;
+        const isEligible = age.years >= exam.min && age.years <= maxAge;
+        const isNear = !isEligible && age.years === maxAge + 1;
+        const status = isEligible ? 'pass' : isNear ? 'near' : 'fail';
+        const statusText = isEligible ? '✅ Eligible' : isNear ? '⚠️ 1 saal se zyada' : '❌ Not Eligible';
+
+        eligGrid.innerHTML += `
+          <div class="elig-card ${status}">
+            <div>
+              <div class="elig-exam">${exam.name}</div>
+              <div class="elig-age">Age: ${exam.min}-${maxAge} years (Cutoff: ${exam.cutoff})</div>
+            </div>
+            <span class="elig-status ${status}">${statusText}</span>
+          </div>
+        `;
+      });
+
+      document.getElementById('eligTable').style.display = 'block';
+    });
+
+    function calcAge(dob, cutoff) {
+      let years = cutoff.getFullYear() - dob.getFullYear();
+      let months = cutoff.getMonth() - dob.getMonth();
+      let days = cutoff.getDate() - dob.getDate();
+      if (days < 0) { months--; days += new Date(cutoff.getFullYear(), cutoff.getMonth(), 0).getDate(); }
+      if (months < 0) { years--; months += 12; }
+      return { years, months, days };
+    }
+  })();
+  </script>
+</BaseLayout>

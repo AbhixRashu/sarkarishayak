@@ -1,0 +1,1495 @@
+[
+  {
+    "name": "Post Matric Scholarship for SC Students",
+    "slug": "post-matric-scholarship-sc",
+    "category": "sc-st",
+    "ministry": "Ministry of Social Justice & Empowerment",
+    "amount": "₹380-₹1,200/month",
+    "eligibility": {
+      "education": "Class 11 to PhD (Post Matric level)",
+      "income": "Parental income ≤ ₹2,50,000/year",
+      "category": "SC (Scheduled Caste)",
+      "marks": "Minimum passing marks in previous exam",
+      "other": "Government or recognized private institution mein admission hona chahiye"
+    },
+    "benefits": "SC वर्ग के छात्रों को पढ़ाई के लिए ₹380 से ₹1,200 प्रति माह छात्रवृत्ति मिलती है। इसमें tuition fee, maintenance allowance और book allowance शामिल है।",
+    "applicationProcess": [
+      "NSP Portal (scholarships.gov.in) par register karein",
+      "Apna profile complete karein — personal, academic & bank details",
+      "Post Matric Scholarship for SC select karein",
+      "Required documents upload karein",
+      "Form submit karein aur printout lein",
+      "Institute se verification ke liye forward karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate (SC)",
+      "Income Certificate",
+      "Previous year marksheet",
+      "Bank Passbook (IFSC & Account No.)",
+      "Institute Admission Letter",
+      "Passport size photograph",
+      "Previous scholarship sanction order (if renewal)"
+    ],
+    "lastDate": "31/10/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous year mein minimum 50% marks aur 75% attendance zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "SC छात्रों के लिए केंद्र सरकार की Post Matric Scholarship — ₹380-₹1,200/month तक मिलता है।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date (Fresh): 31 October 2026",
+      "Last Date (Renewal): 31 December 2026",
+      "Institute Verification: 15 November 2026",
+      "Disbursement: January-March 2027"
+    ],
+    "importantLinks": [
+      { "label": "Official Portal (NSP)", "url": "https://scholarships.gov.in" },
+      { "label": "Guidelines PDF", "url": "https://scholarships.gov.in/guidelines" },
+      { "label": "Track Application", "url": "https://scholarships.gov.in/status" }
+    ]
+  },
+  {
+    "name": "Pre Matric Scholarship for SC Students",
+    "slug": "pre-matric-scholarship-sc",
+    "category": "sc-st",
+    "ministry": "Ministry of Social Justice & Empowerment",
+    "amount": "₹150-₹350/month",
+    "eligibility": {
+      "education": "Class 1 to 10 (Pre Matric level)",
+      "income": "Parental income ≤ ₹2,50,000/year",
+      "category": "SC (Scheduled Caste)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "Government school ya recognized private school mein padh raha ho"
+    },
+    "benefits": "SC वर्ग के कक्षा 1-10 के छात्रों को ₹150-₹350 प्रति माह छात्रवृत्ति। इससे गरीब परिवारों के बच्चों को स्कूल छोड़ने से रोका जाता है।",
+    "applicationProcess": [
+      "NSP Portal par jaayein aur register karein",
+      "Pre Matric Scholarship for SC select karein",
+      "Personal & academic details bharen",
+      "Documents upload karein",
+      "Form submit karein",
+      "School head se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate (SC)",
+      "Income Certificate",
+      "Previous class marksheet",
+      "Bank Passbook",
+      "School Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/09/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein pass hona zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Class 1-10 के SC छात्रों के लिए Pre Matric Scholarship — ₹150-₹350/month तक मिलता है।",
+    "importantDates": [
+      "Application Start: 01 June 2026",
+      "Last Date (Fresh): 30 September 2026",
+      "Last Date (Renewal): 30 November 2026",
+      "Disbursement: December 2026"
+    ],
+    "importantLinks": [
+      { "label": "Official Portal (NSP)", "url": "https://scholarships.gov.in" },
+      { "label": "Apply Online", "url": "https://scholarships.gov.in/apply" }
+    ]
+  },
+  {
+    "name": "Central Sector Scholarship (Merit cum Means)",
+    "slug": "central-sector-scholarship",
+    "category": "central",
+    "ministry": "Ministry of Education",
+    "amount": "₹10,000-₹20,000/year",
+    "eligibility": {
+      "education": "Class 12 pass & pursuing Graduation/Post Graduation",
+      "income": "Parental income ≤ ₹8,00,000/year",
+      "category": "General/OBC/SC/ST (All categories)",
+      "marks": "Class 12 mein top 20% percentile hona chahiye",
+      "other": "Regular full-time course mein admission hona chahiye"
+    },
+    "benefits": "कक्षा 12 में टॉप 20% percentile में आने वाले छात्रों को ₹10,000-₹20,000 सालाना मिलता है। Professional courses ke liye ₹20,000/year tak milta hai.",
+    "applicationProcess": [
+      "NSP Portal par register karein",
+      "Central Sector Scheme select karein",
+      "Class 12 roll number aur details enter karein",
+      "Income certificate upload karein",
+      "Bank details verify karein",
+      "Form submit karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Class 12 Marksheet",
+      "Income Certificate",
+      "Bank Passbook",
+      "College Admission Letter",
+      "Passport size photograph",
+      "Previous year marksheets (for renewal)"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal online renewal karna hota hai. Course mein regular aur minimum 50% marks zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Class 12 toppers को ₹10,000-₹20,000/year Central Sector Scholarship — merit cum means basis पर मिलती है।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "Verification by Institute: 31 December 2026",
+      "Disbursement: February 2027"
+    ],
+    "importantLinks": [
+      { "label": "Official Portal (NSP)", "url": "https://scholarships.gov.in" },
+      { "label": "Eligibility Check", "url": "https://scholarships.gov.in/eligibility" }
+    ]
+  },
+  {
+    "name": "INSPIRE Scholarship (SHE)",
+    "slug": "inspire-scholarship-she",
+    "category": "central",
+    "ministry": "Department of Science & Technology",
+    "amount": "₹80,000/year (₹60,000 + ₹20,000 mentorship)",
+    "eligibility": {
+      "education": "Class 12 pass & pursuing B.Sc/B.S./Integrated MS",
+      "income": "No income limit (merit based)",
+      "category": "All categories",
+      "marks": "Class 12 mein top 1% ya JEE Advanced rank 1-10,000 / NEET rank 1-10,000",
+      "other": "Natural Sciences, Basic Sciences mein higher education pursue karna ho"
+    },
+    "benefits": "विज्ञान के क्षेत्र में पढ़ने वाले टॉपर छात्रों को ₹80,000 सालाना मिलता है — ₹60,000 fellowship + ₹20,000 mentorship grant. 5 साल के लिए मिलता है।",
+    "applicationProcess": [
+      "INSPIRE Portal (inspire-dst.gov.in) par jaayein",
+      "SHE Scholarship section mein apply karein",
+      "Personal & academic details fill karein",
+      "Class 12 marksheet aur rank proof upload karein",
+      "Bank details aur Aadhaar verify karein",
+      "Form submit karein aur status track karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Class 12 Marksheet (with percentile/rank)",
+      "JEE/NEET Score Card (if applicable)",
+      "Bank Passbook",
+      "College Admission Letter",
+      "Recommendation Letter from Head of Institution",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/01/2027",
+    "officialPortal": "https://inspire-dst.gov.in",
+    "renewal": "Har saal online renewal. B.Sc mein minimum 60% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2689-4378",
+    "shortDescription": "Science students को ₹80,000/year INSPIRE Fellowship — Class 12 top 1% या JEE/NEET toppers के लिए।",
+    "importantDates": [
+      "Application Start: 01 October 2026",
+      "Last Date: 31 January 2027",
+      "Document Verification: February 2027",
+      "Fellowship Disbursement: March 2027"
+    ],
+    "importantLinks": [
+      { "label": "INSPIRE Portal", "url": "https://inspire-dst.gov.in" },
+      { "label": "Apply Online", "url": "https://inspire-dst.gov.in/she" },
+      { "label": "Guidelines", "url": "https://inspire-dst.gov.in/guidelines" }
+    ]
+  },
+  {
+    "name": "PM Scholarship Scheme (PMSS)",
+    "slug": "pm-scholarship-scheme-pmss",
+    "category": "central",
+    "ministry": "Ministry of Defence",
+    "amount": "₹2,500-₹3,600/month",
+    "eligibility": {
+      "education": "Class 12 pass & pursuing Professional Degree courses (Engg, Medical, MBA etc.)",
+      "income": "No income limit (Ex-servicemen wards)",
+      "category": "Wards of Ex-Servicemen / War Widows",
+      "marks": "Class 12 mein minimum 60% marks",
+      "other": "Wards of Ex-Servicemen, War Widows, or Disabled/Deceased JCOs"
+    },
+    "benefits": "सैनिकों के बच्चों को ₹2,500-₹3,600 प्रति माह Professional courses के लिए मिलता है। Engineering ke liye ₹3,600/month aur Medical ke liye ₹3,000/month milta hai.",
+    "applicationProcess": [
+      "KSB Portal (ksb.gov.in) par register karein",
+      "PM Scholarship Scheme select karein",
+      "Ex-servicemen details aur certificates upload karein",
+      "Academic details aur bank information bharen",
+      "Form submit karein",
+      "Zila Sainik Board se verify karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Ex-Servicemen Identity Card",
+      "Class 12 Marksheet",
+      "College Admission Letter",
+      "Bank Passbook",
+      "Death/Disability Certificate (if applicable)",
+      "Passport size photograph",
+      "Pension Payment Order (if applicable)"
+    ],
+    "lastDate": "15/11/2026",
+    "officialPortal": "https://ksb.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Course mein minimum 50% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2610-7467",
+    "shortDescription": "Ex-Servicemen के बच्चों के लिए PM Scholarship — ₹2,500-₹3,600/month Professional courses के लिए।",
+    "importantDates": [
+      "Application Start: 01 September 2026",
+      "Last Date: 15 November 2026",
+      "Verification by ZSB: 30 November 2026",
+      "Disbursement: January 2027"
+    ],
+    "importantLinks": [
+      { "label": "KSB Portal", "url": "https://ksb.gov.in" },
+      { "label": "Apply Online", "url": "https://ksb.gov.in/pmss" },
+      { "label": "Guidelines", "url": "https://ksb.gov.in/guidelines" }
+    ]
+  },
+  {
+    "name": "National Means Cum Merit Scholarship (NMMSS)",
+    "slug": "national-means-merit-scholarship-nmmss",
+    "category": "central",
+    "ministry": "Ministry of Education",
+    "amount": "₹12,000/year (₹1,000/month)",
+    "eligibility": {
+      "education": "Class 9 to Class 12",
+      "income": "Parental income ≤ ₹3,50,000/year",
+      "category": "All categories (merit + means based)",
+      "marks": "Class 8 mein minimum 55% marks (relaxation for SC/ST)",
+      "other": "Government ya aided school mein padh raha ho"
+    },
+    "benefits": "मेरिट और मीन्स दोनों के आधार पर ₹12,000 सालाना (₹1,000/month) मिलता है। Class 9 से 12 तक मिलता है। इससे गरीब बच्चों को dropout से बचाया जाता है।",
+    "applicationProcess": [
+      "NSP Portal par register karein",
+      "NMMSS Scholarship select karein",
+      "Class 8 marksheet aur details enter karein",
+      "Income certificate upload karein",
+      "School se verification karwayein",
+      "Form submit karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Class 8 Marksheet",
+      "Income Certificate",
+      "Bank Passbook",
+      "School Admission Receipt",
+      "Caste Certificate (if SC/ST)",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal renewal hota hai. Previous class mein minimum 55% marks aur 75% attendance zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Class 9-12 के गरीब मेधावी छात्रों के लिए ₹12,000/year NMMSS Scholarship।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date (Fresh): 30 November 2026",
+      "Last Date (Renewal): 31 December 2026",
+      "Disbursement: February 2027"
+    ],
+    "importantLinks": [
+      { "label": "Official Portal (NSP)", "url": "https://scholarships.gov.in" },
+      { "label": "NMMSS Guidelines", "url": "https://scholarships.gov.in/nmmss" }
+    ]
+  },
+  {
+    "name": "AICTE Pragati Scholarship for Girls",
+    "slug": "aicte-pragati-scholarship-girls",
+    "category": "girl-child",
+    "ministry": "All India Council for Technical Education (AICTE)",
+    "amount": "₹50,000/year",
+    "eligibility": {
+      "education": "Girl students in AICTE approved Technical Degree/Diploma courses",
+      "income": "Parental income ≤ ₹8,00,000/year",
+      "category": "Girl Students (All categories)",
+      "marks": "Minimum passing marks in qualifying exam",
+      "other": "AICTE approved institution mein admission hona chahiye. Ek family se sirf 1 ladki apply kar sakti hai."
+    },
+    "benefits": "लड़कियों को technical education के लिए ₹50,000 सालाना मिलता है। इसमें tuition fee, books, equipment और other educational expenses cover होते हैं।",
+    "applicationProcess": [
+      "AICTE Scholarship Portal (facilities.aicte-india.org) par jaayein",
+      "Pragati Scholarship for Girls select karein",
+      "Personal, academic & family details bharen",
+      "Income certificate aur admission letter upload karein",
+      "Bank details verify karein",
+      "Form submit karein aur status track karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Class 10/12 Marksheet",
+      "Income Certificate",
+      "Admission Letter (AICTE approved)",
+      "Bank Passbook",
+      "Fee Receipt",
+      "Caste Certificate (if applicable)",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://facilities.aicte-india.org",
+    "renewal": "Har saal online renewal. Course mein minimum 50% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2958-1000",
+    "shortDescription": "Girl students को Technical courses के लिए ₹50,000/year AICTE Pragati Scholarship।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "AICTE Portal", "url": "https://facilities.aicte-india.org" },
+      { "label": "Apply Online", "url": "https://facilities.aicte-india.org/scholarship/pragati" },
+      { "label": "Guidelines", "url": "https://facilities.aicte-india.org/guidelines" }
+    ]
+  },
+  {
+    "name": "AICTE Saksham Scholarship (Differently Abled)",
+    "slug": "aicte-saksham-scholarship-disabled",
+    "category": "disability",
+    "ministry": "All India Council for Technical Education (AICTE)",
+    "amount": "₹50,000/year",
+    "eligibility": {
+      "education": "Differently abled students in AICTE approved Technical Degree/Diploma courses",
+      "income": "Parental income ≤ ₹8,00,000/year",
+      "category": "PwD (Persons with Disabilities) - 40% or more disability",
+      "marks": "Minimum passing marks in qualifying exam",
+      "other": "AICTE approved institution mein admission hona chahiye. Disability certificate hona zaroori hai."
+    },
+    "benefits": "विकलांग छात्रों को technical education के लिए ₹50,000 सालाना मिलता है। इससे उन्हें आर्थिक सहायता मिलती है और वो बिना किसी रुकावट के पढ़ाई कर सकते हैं।",
+    "applicationProcess": [
+      "AICTE Scholarship Portal par jaayein",
+      "Saksham Scholarship select karein",
+      "Disability certificate aur details upload karein",
+      "Academic & family details bharen",
+      "Bank details verify karein",
+      "Form submit karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Disability Certificate (40%+ disability)",
+      "Class 10/12 Marksheet",
+      "Income Certificate",
+      "Admission Letter (AICTE approved)",
+      "Bank Passbook",
+      "Fee Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://facilities.aicte-india.org",
+    "renewal": "Har saal online renewal. Course mein minimum 40% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2958-1000",
+    "shortDescription": "Differently Abled छात्रों के लिए AICTE Saksham Scholarship — ₹50,000/year Technical courses के लिए।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "AICTE Portal", "url": "https://facilities.aicte-india.org" },
+      { "label": "Apply Online", "url": "https://facilities.aicte-india.org/scholarship/saksham" }
+    ]
+  },
+  {
+    "name": "UP Scholarship (Pre/Post Matric)",
+    "slug": "up-scholarship-pre-post-matric",
+    "category": "state",
+    "ministry": "Social Welfare Department, UP",
+    "amount": "₹1,000-₹10,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation (UP state schools/colleges)",
+      "income": "SC/ST: ₹2,50,000 | OBC: ₹3,00,000 | General: ₹2,00,000",
+      "category": "SC/ST/OBC/General (UP domicile)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "Uttar Pradesh ke recognized institution mein admission hona chahiye"
+    },
+    "benefits": "UP के छात्रों को ₹1,000-₹10,000 सालाना मिलता है। SC/ST/OBC/General सभी वर्गों के लिए अलग-अलग scholarships हैं। Tuition fee और maintenance allowance दोनों मिलते हैं।",
+    "applicationProcess": [
+      "UP Scholarship Portal (scholarship.up.gov.in) par jaayein",
+      "Apna category select karein (Pre/Post Matric)",
+      "Registration number aur details enter karein",
+      "Documents upload karein",
+      "Online form submit karein",
+      "Printout lekar college mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook (UP state bank)",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/10/2026",
+    "officialPortal": "https://scholarship.up.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 50% marks zaroori hai.",
+    "helpline": "1800-419-0901",
+    "shortDescription": "UP के छात्रों के लिए Pre/Post Matric Scholarship — ₹1,000-₹10,000/year तक मिलता है।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date (Fresh): 31 October 2026",
+      "Last Date (Renewal): 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-March 2027"
+    ],
+    "importantLinks": [
+      { "label": "UP Scholarship Portal", "url": "https://scholarship.up.gov.in" },
+      { "label": "Status Check", "url": "https://scholarship.up.gov.in/status" },
+      { "label": "Guidelines", "url": "https://scholarship.up.gov.in/guidelines" }
+    ]
+  },
+  {
+    "name": "Bihar Post Matric Scholarship",
+    "slug": "bihar-post-matric-scholarship",
+    "category": "state",
+    "ministry": "Education Department, Bihar",
+    "amount": "₹2,000-₹15,000/year",
+    "eligibility": {
+      "education": "Class 11 to Post Graduation (Bihar institutions)",
+      "income": "SC/ST: ₹2,50,000 | OBC: ₹1,50,000 | EBC: ₹1,00,000",
+      "category": "SC/ST/OBC/EBC (Bihar domicile)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "Bihar ke recognized institution mein admission hona chahiye"
+    },
+    "benefits": "Bihar के SC/ST/OBC/EBC छात्रों को ₹2,000-₹15,000 सालाना मिलता है। Tuition fee, maintenance allowance और book allowance शामिल है।",
+    "applicationProcess": [
+      "Bihar Scholarship Portal (scholarship.bihar.gov.in) par jaayein",
+      "Apna category aur course select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "College mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate (Bihar)",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarship.bihar.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 50% marks zaroori hai.",
+    "helpline": "1800-345-6789",
+    "shortDescription": "Bihar के SC/ST/OBC/EBC छात्रों के लिए Post Matric Scholarship — ₹2,000-₹15,000/year।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date (Fresh): 30 November 2026",
+      "Last Date (Renewal): 31 December 2026",
+      "Institute Verification: 15 January 2027",
+      "Disbursement: February-March 2027"
+    ],
+    "importantLinks": [
+      { "label": "Bihar Scholarship Portal", "url": "https://scholarship.bihar.gov.in" },
+      { "label": "Status Check", "url": "https://scholarship.bihar.gov.in/status" }
+    ]
+  },
+  {
+    "name": "Rajasthan Medhavi Chhatra Yojana",
+    "slug": "rajasthan-medhavi-chhatra-yojana",
+    "category": "state",
+    "ministry": "Department of College Education, Rajasthan",
+    "amount": "₹5,000-₹25,000/year",
+    "eligibility": {
+      "education": "Class 11 to Post Graduation (Rajasthan institutions)",
+      "income": "₹2,50,000/year (all categories)",
+      "category": "SC/ST/OBC/General (Rajasthan domicile)",
+      "marks": "Class 12 mein minimum 60% marks",
+      "other": "Rajasthan ke recognized college mein admission hona chahiye"
+    },
+    "benefits": "Rajasthan के मेधावी छात्रों को ₹5,000-₹25,000 सालाना मिलता है। यह scholarship merit-based है और गरीब छात्रों को आर्थिक सहायता प्रदान करती है।",
+    "applicationProcess": [
+      "Rajasthan Scholarship Portal (scholarship.rajasthan.gov.in) par jaayein",
+      "Medhavi Chhatra Yojana select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "College mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate (if applicable)",
+      "Income Certificate",
+      "Class 12 Marksheet",
+      "Bank Passbook",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/12/2026",
+    "officialPortal": "https://scholarship.rajasthan.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 55% marks zaroori hai.",
+    "helpline": "1800-180-6127",
+    "shortDescription": "Rajasthan के मेधावी छात्रों के लिए Medhavi Chhatra Yojana — ₹5,000-₹25,000/year।",
+    "importantDates": [
+      "Application Start: 01 September 2026",
+      "Last Date: 31 December 2026",
+      "College Verification: 15 January 2027",
+      "Disbursement: February-March 2027"
+    ],
+    "importantLinks": [
+      { "label": "Rajasthan Scholarship Portal", "url": "https://scholarship.rajasthan.gov.in" },
+      { "label": "Status Check", "url": "https://scholarship.rajasthan.gov.in/status" }
+    ]
+  },
+  {
+    "name": "MP Scholarship Portal",
+    "slug": "mp-scholarship-portal",
+    "category": "state",
+    "ministry": "Department of Higher Education, MP",
+    "amount": "₹1,500-₹20,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation (MP institutions)",
+      "income": "SC/ST: ₹2,00,000 | OBC: ₹3,00,000",
+      "category": "SC/ST/OBC (MP domicile)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "MP ke recognized institution mein admission hona chahiye"
+    },
+    "benefits": "MP के SC/ST/OBC छात्रों को ₹1,500-₹20,000 सालाना मिलता है। इसमें tuition fee, maintenance allowance और other expenses cover होते हैं।",
+    "applicationProcess": [
+      "MP Scholarship Portal (mpscholarship.gov.in) par jaayein",
+      "Apna category aur course select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "College mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/10/2026",
+    "officialPortal": "https://mpscholarship.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 50% marks zaroori hai.",
+    "helpline": "1800-233-0369",
+    "shortDescription": "MP के SC/ST/OBC छात्रों के लिए Scholarship Portal — ₹1,500-₹20,000/year।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date: 31 October 2026",
+      "College Verification: 15 November 2026",
+      "Disbursement: January 2027"
+    ],
+    "importantLinks": [
+      { "label": "MP Scholarship Portal", "url": "https://mpscholarship.gov.in" },
+      { "label": "Status Check", "url": "https://mpscholarship.gov.in/status" }
+    ]
+  },
+  {
+    "name": "Maharashtra Scholarship",
+    "slug": "maharashtra-scholarship",
+    "category": "state",
+    "ministry": "Department of Social Justice, Maharashtra",
+    "amount": "₹1,000-₹25,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation (Maharashtra institutions)",
+      "income": "SC/ST: ₹2,50,000 | OBC: ₹1,50,000 | VJ/NT/SBC: ₹2,00,000",
+      "category": "SC/ST/OBC/VJ/NT/SBC (Maharashtra domicile)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "Maharashtra ke recognized institution mein admission hona chahiye"
+    },
+    "benefits": "Maharashtra के विभिन्न वर्गों के छात्रों को ₹1,000-₹25,000 सालाना मिलता है। Tuition fee, maintenance allowance और book allowance शामिल है।",
+    "applicationProcess": [
+      "Maharashtra Scholarship Portal (mahadbt.maharashtra.gov.in) par jaayein",
+      "Apna category select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "College mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://mahadbt.maharashtra.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 50% marks zaroori hai.",
+    "helpline": "1800-120-8040",
+    "shortDescription": "Maharashtra के SC/ST/OBC/VJ/NT छात्रों के लिए Scholarship — ₹1,000-₹25,000/year।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "College Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "MahaDBT Portal", "url": "https://mahadbt.maharashtra.gov.in" },
+      { "label": "Status Check", "url": "https://mahadbt.maharashtra.gov.in/status" }
+    ]
+  },
+  {
+    "name": "West Bengal Scholarship",
+    "slug": "west-bengal-scholarship",
+    "category": "state",
+    "ministry": "Department of Higher Education, WB",
+    "amount": "₹1,000-₹16,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation (WB institutions)",
+      "income": "SC/ST: ₹2,00,000 | OBC: ₹1,50,000",
+      "category": "SC/ST/OBC (West Bengal domicile)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "WB ke recognized institution mein admission hona chahiye"
+    },
+    "benefits": "West Bengal के SC/ST/OBC छात्रों को ₹1,000-₹16,000 सालाना मिलता है। Pre Matric, Post Matric और Merit cum Means तीनों तरह की scholarships हैं।",
+    "applicationProcess": [
+      "WB Scholarship Portal (wbmdfcscholarship.org) par jaayein",
+      "Apna category aur course select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "College mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/12/2026",
+    "officialPortal": "https://wbmdfcscholarship.org",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 50% marks zaroori hai.",
+    "helpline": "1800-345-5555",
+    "shortDescription": "West Bengal के SC/ST/OBC छात्रों के लिए Scholarship — ₹1,000-₹16,000/year।",
+    "importantDates": [
+      "Application Start: 01 September 2026",
+      "Last Date: 31 December 2026",
+      "College Verification: 15 January 2027",
+      "Disbursement: February-March 2027"
+    ],
+    "importantLinks": [
+      { "label": "WB Scholarship Portal", "url": "https://wbmdfcscholarship.org" },
+      { "label": "Status Check", "url": "https://wbmdfcscholarship.org/status" }
+    ]
+  },
+  {
+    "name": "Tamil Nadu Scholarship",
+    "slug": "tamil-nadu-scholarship",
+    "category": "state",
+    "ministry": "Department of Social Welfare, TN",
+    "amount": "₹1,000-₹20,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation (TN institutions)",
+      "income": "SC/ST: ₹2,50,000 | BC/MBC: ₹1,50,000",
+      "category": "SC/ST/BC/MBC (Tamil Nadu domicile)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "TN ke recognized institution mein admission hona chahiye"
+    },
+    "benefits": "Tamil Nadu के SC/ST/BC/MBC छात्रों को ₹1,000-₹20,000 सालाना मिलता है। इसमें tuition fee, maintenance allowance और other expenses cover होते हैं।",
+    "applicationProcess": [
+      "TN Scholarship Portal (tn.gov.in/scholarship) par jaayein",
+      "Apna category select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "College mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/10/2026",
+    "officialPortal": "https://tn.gov.in/scholarship",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 50% marks zaroori hai.",
+    "helpline": "1800-425-0001",
+    "shortDescription": "Tamil Nadu के SC/ST/BC/MBC छात्रों के लिए Scholarship — ₹1,000-₹20,000/year।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date: 31 October 2026",
+      "College Verification: 15 November 2026",
+      "Disbursement: January 2027"
+    ],
+    "importantLinks": [
+      { "label": "TN Scholarship Portal", "url": "https://tn.gov.in/scholarship" },
+      { "label": "Status Check", "url": "https://tn.gov.in/scholarship/status" }
+    ]
+  },
+  {
+    "name": "Karnataka Scholarship",
+    "slug": "karnataka-scholarship",
+    "category": "state",
+    "ministry": "Department of Social Welfare, Karnataka",
+    "amount": "₹1,000-₹18,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation (Karnataka institutions)",
+      "income": "SC/ST: ₹2,00,000 | OBC: ₹1,50,000",
+      "category": "SC/ST/OBC (Karnataka domicile)",
+      "marks": "Previous class mein pass hona zaroori",
+      "other": "Karnataka ke recognized institution mein admission hona chahiye"
+    },
+    "benefits": "Karnataka के SC/ST/OBC छात्रों को ₹1,000-₹18,000 सालाना मिलता है। इसमें tuition fee, maintenance allowance और book allowance शामिल है।",
+    "applicationProcess": [
+      "Karnataka Scholarship Portal (scholarship.karnataka.gov.in) par jaayein",
+      "Apna category select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "College mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Domicile Certificate",
+      "College Admission Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarship.karnataka.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum 50% marks zaroori hai.",
+    "helpline": "1800-425-1122",
+    "shortDescription": "Karnataka के SC/ST/OBC छात्रों के लिए Scholarship — ₹1,000-₹18,000/year।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "College Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "Karnataka Scholarship Portal", "url": "https://scholarship.karnataka.gov.in" },
+      { "label": "Status Check", "url": "https://scholarship.karnataka.gov.in/status" }
+    ]
+  },
+  {
+    "name": "NSP Scholarship (National Scholarship Portal)",
+    "slug": "nsp-scholarship-portal",
+    "category": "central",
+    "ministry": "Ministry of Electronics & IT",
+    "amount": "₹1,000-₹20,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation",
+      "income": "Vary per scholarship scheme (₹1,00,000-₹8,00,000)",
+      "category": "SC/ST/OBC/Minority/General/EWS",
+      "marks": "Previous class mein minimum passing marks",
+      "other": "Recognized Indian institution mein admission hona chahiye"
+    },
+    "benefits": "NSP Portal पर 60+ scholarships उपलब्ध हैं। एक ही जगह से सभी scholarships apply कर सकते हैं। Direct Benefit Transfer (DBT) के जरिए पैसा bank account में आता है।",
+    "applicationProcess": [
+      "NSP Portal (scholarships.gov.in) par jaayein",
+      "New Registration karein",
+      "Apna profile complete karein",
+      "Eligible scholarship schemes search karein",
+      "Apply karein aur documents upload karein",
+      "Form submit karein aur institute se verify karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate (if applicable)",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook (linked with Aadhaar)",
+      "Institute Admission Letter",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/12/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal fresh apply ya renewal karna hota hai. Previous class mein minimum marks zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "NSP Portal पर 60+ scholarships एक जगह — SC/ST/OBC/Minority सभी के लिए।",
+    "importantDates": [
+      "Application Start: 01 June 2026 (varies by scheme)",
+      "Last Date: 31 December 2026 (varies by scheme)",
+      "Institute Verification: 15 January 2027",
+      "Disbursement: February-March 2027"
+    ],
+    "importantLinks": [
+      { "label": "NSP Portal", "url": "https://scholarships.gov.in" },
+      { "label": "List of Scholarships", "url": "https://scholarships.gov.in/schemes" },
+      { "label": "Track Application", "url": "https://scholarships.gov.in/status" }
+    ]
+  },
+  {
+    "name": "SC/ST Scholarship - Central Sector",
+    "slug": "sc-st-scholarship-central-sector",
+    "category": "sc-st",
+    "ministry": "Ministry of Social Justice & Empowerment",
+    "amount": "₹10,000-₹30,000/year",
+    "eligibility": {
+      "education": "Class 12 pass & pursuing Graduation/Post Graduation",
+      "income": "Parental income ≤ ₹8,00,000/year",
+      "category": "SC/ST only",
+      "marks": "Class 12 mein minimum 60% marks",
+      "other": "Regular full-time course mein admission hona chahiye"
+    },
+    "benefits": "SC/ST छात्रों को ₹10,000-₹30,000 सालाना मिलता है। Professional courses ke liye zyada amount milta hai. Post Matric level par apply karna hota hai.",
+    "applicationProcess": [
+      "NSP Portal par register karein",
+      "SC/ST Central Sector Scholarship select karein",
+      "Personal & academic details bharen",
+      "Documents upload karein",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Caste Certificate (SC/ST)",
+      "Income Certificate",
+      "Class 12 Marksheet",
+      "Bank Passbook",
+      "College Admission Letter",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal online renewal. Course mein minimum 50% marks aur regular attendance zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "SC/ST छात्रों के लिए Central Sector Scholarship — ₹10,000-₹30,000/year Graduation/PG के लिए।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "Verification by Institute: 31 December 2026",
+      "Disbursement: February 2027"
+    ],
+    "importantLinks": [
+      { "label": "NSP Portal", "url": "https://scholarships.gov.in" },
+      { "label": "Apply Online", "url": "https://scholarships.gov.in/apply" }
+    ]
+  },
+  {
+    "name": "OBC Scholarship (Post Matric)",
+    "slug": "obc-scholarship-post-matric",
+    "category": "sc-st",
+    "ministry": "Ministry of Social Justice & Empowerment",
+    "amount": "₹500-₹1,500/month",
+    "eligibility": {
+      "education": "Class 11 to PhD (Post Matric level)",
+      "income": "Parental income ≤ ₹1,50,000/year",
+      "category": "OBC (Other Backward Classes)",
+      "marks": "Previous class mein minimum passing marks",
+      "other": "Government ya recognized private institution mein admission hona chahiye"
+    },
+    "benefits": "OBC वर्ग के छात्रों को Post Matric level पर ₹500-₹1,500 प्रति माह छात्रवृत्ति मिलती है। Tuition fee, maintenance allowance और book allowance शामिल है।",
+    "applicationProcess": [
+      "NSP Portal par register karein",
+      "Post Matric Scholarship for OBC select karein",
+      "Personal, academic & family details bharen",
+      "Documents upload karein",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "OBC Caste Certificate (Non-Creamy Layer)",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Institute Admission Letter",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/10/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous year mein minimum 50% marks aur 75% attendance zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "OBC छात्रों के लिए Post Matric Scholarship — ₹500-₹1,500/month तक मिलता है।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date (Fresh): 31 October 2026",
+      "Last Date (Renewal): 31 December 2026",
+      "Disbursement: January-March 2027"
+    ],
+    "importantLinks": [
+      { "label": "NSP Portal", "url": "https://scholarships.gov.in" },
+      { "label": "OBC Scholarship Guidelines", "url": "https://scholarships.gov.in/obc" }
+    ]
+  },
+  {
+    "name": "Minority Scholarship (PM's 15 Point Programme)",
+    "slug": "minority-scholarship-pm-15-point",
+    "category": "minority",
+    "ministry": "Ministry of Minority Affairs",
+    "amount": "₹1,000-₹10,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation",
+      "income": "₹2,00,000/year (all minority communities)",
+      "category": "Muslim, Christian, Sikh, Buddhist, Jain, Parsi (Minority communities)",
+      "marks": "Previous class mein minimum 50% marks",
+      "other": "Government ya recognized private institution mein admission hona chahiye"
+    },
+    "benefits": "अल्पसंख्यक समुदाय के छात्रों को ₹1,000-₹10,000 सालाना मिलता है। Pre Matric, Post Matric और Merit cum Means तीनों तरह की scholarships हैं।",
+    "applicationProcess": [
+      "NSP Portal par register karein",
+      "Minority Scholarship scheme select karein",
+      "Personal & academic details bharen",
+      "Minority community certificate upload karein",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Minority Community Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Institute Admission Letter",
+      "Self-declaration of minority community",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous year mein minimum 50% marks aur 75% attendance zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Muslim, Christian, Sikh, Buddhist, Jain, Parsi छात्रों के लिए Minority Scholarship — ₹1,000-₹10,000/year।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "NSP Portal", "url": "https://scholarships.gov.in" },
+      { "label": "Minority Affairs Ministry", "url": "https://minorityaffairs.gov.in" }
+    ]
+  },
+  {
+    "name": "Beti Bachao Beti Padhao Scholarship",
+    "slug": "beti-bachao-beti-padhao-scholarship",
+    "category": "girl-child",
+    "ministry": "Ministry of Women & Child Development",
+    "amount": "₹5,000-₹50,000/year",
+    "eligibility": {
+      "education": "Girl students from Class 1 to Graduation",
+      "income": "No specific income limit (BPL preference)",
+      "category": "Girl Children (All categories)",
+      "marks": "Previous class mein minimum 60% marks",
+      "other": "School mein regular attendance honi chahiye. Birth registration hona zaroori hai."
+    },
+    "benefits": "बेटियों की पढ़ाई के लिए ₹5,000-₹50,000 सालाना मिलता है। इससे लड़कियों को शिक्षा के लिए प्रोत्साहित किया जाता है। Sukanya Samriddhi Yojana से भी जुड़ सकते हैं।",
+    "applicationProcess": [
+      "Anganwadi Centre ya Block Office mein jaayein",
+      "Beti Bachao Beti Padhao form bharen",
+      "Documents attach karein",
+      "Form submit karein",
+      "Bank account open karwayein (Sukanya Samriddhi)",
+      "Scholarship amount directly bank mein aayega"
+    ],
+    "documents": [
+      "Birth Certificate",
+      "Aadhaar Card (Girl Child)",
+      "Aadhaar Card (Parents)",
+      "Income Certificate",
+      "School Admission Letter",
+      "Bank Passbook (Girl Child)",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/12/2026",
+    "officialPortal": "https://wcd.nic.in/bbbp",
+    "renewal": "Har saal school se attendance certificate submit karna hota hai. Minimum 60% marks zaroori hai.",
+    "helpline": "181 (Women Helpline)",
+    "shortDescription": "बेटियों की पढ़ाई के लिए Beti Bachao Beti Padhao Scholarship — ₹5,000-₹50,000/year।",
+    "importantDates": [
+      "Application Start: Throughout the year",
+      "Last Date: 31 December 2026",
+      "Verification: Within 30 days of application",
+      "Disbursement: Quarterly"
+    ],
+    "importantLinks": [
+      { "label": "WCD Ministry", "url": "https://wcd.nic.in/bbbp" },
+      { "label": "Sukanya Samriddhi Yojana", "url": "https://www.indiapost.gov.in/vas/pages/sukanya-samriddhi.aspx" }
+    ]
+  },
+  {
+    "name": "Girl Child Scholarship (State Level)",
+    "slug": "girl-child-scholarship-state-level",
+    "category": "girl-child",
+    "ministry": "Department of Education (Various States)",
+    "amount": "₹2,000-₹15,000/year",
+    "eligibility": {
+      "education": "Girl students from Class 1 to Class 12",
+      "income": "₹2,00,000/year (BPL families)",
+      "category": "Girl Children (All categories)",
+      "marks": "Previous class mein minimum 60% marks",
+      "other": "Government school mein padh rahi ho. Birth registration hona zaroori hai."
+    },
+    "benefits": "राज्य सरकारों द्वारा बेटियों को ₹2,000-₹15,000 सालाना मिलता है। अलग-अलग राज्यों में अलग-अलग schemes हैं जैसे Ladli Laxmi, Kanya Utthan, आदि।",
+    "applicationProcess": [
+      "State Scholarship Portal par jaayein",
+      "Girl Child Scholarship select karein",
+      "Registration karein aur login karein",
+      "Documents upload karein",
+      "Form submit karein aur printout lein",
+      "School mein jama karein"
+    ],
+    "documents": [
+      "Birth Certificate",
+      "Aadhaar Card (Girl Child)",
+      "Aadhaar Card (Parents)",
+      "Income Certificate (BPL)",
+      "School Admission Letter",
+      "Bank Passbook",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. School mein minimum 60% marks aur regular attendance zaroori hai.",
+    "helpline": "181 (Women Helpline)",
+    "shortDescription": "राज्य स्तर पर बेटियों के लिए Girl Child Scholarship — ₹2,000-₹15,000/year।",
+    "importantDates": [
+      "Application Start: Varies by state",
+      "Last Date: 30 November 2026",
+      "Verification: Within 30 days",
+      "Disbursement: Quarterly"
+    ],
+    "importantLinks": [
+      { "label": "NSP Portal", "url": "https://scholarships.gov.in" },
+      { "label": "State Scholarship Portals", "url": "https://scholarships.gov.in/state-portals" }
+    ]
+  },
+  {
+    "name": "Sports Scholarship (Khel Ratna / Arjuna)",
+    "slug": "sports-scholarship-khel-ratna",
+    "category": "sports",
+    "ministry": "Ministry of Youth Affairs & Sports",
+    "amount": "₹2,00,000-₹25,00,000/year",
+    "eligibility": {
+      "education": "Sports persons in any recognized educational institution",
+      "income": "No income limit (merit based on sports performance)",
+      "category": "All categories (sports quota)",
+      "marks": "No minimum marks required (sports performance based)",
+      "other": "National/International level sports participation hona chahiye"
+    },
+    "benefits": "खिलाड़ियों को ₹2,00,000-₹25,00,000 सालाना मिलता है। Khel Ratna ke liye ₹25,00,000, Arjuna Award ke liye ₹5,00,000 milta hai. Sports equipment और training भी मिलती है।",
+    "applicationProcess": [
+      "Sports Authority of India (SAI) ki website par jaayein",
+      "Sports Scholarship application form bharen",
+      "Sports certificates aur achievements attach karein",
+      "Medical fitness certificate lagayein",
+      "Form submit karein",
+      "SAI se interview/selection ke liye bulaya jayega"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Sports Certificates (National/International)",
+      "Medal/Position proof",
+      "Medical Fitness Certificate",
+      "Bank Passbook",
+      "Educational Certificates",
+      "Passport size photograph",
+      "Recommendation from Sports Federation"
+    ],
+    "lastDate": "31/12/2026",
+    "officialPortal": "https://sportsauthorityofindia.nic.in",
+    "renewal": "Har saal performance ke basis par renewal hota hai. National/International level participation zaroori hai.",
+    "helpline": "011-2436-2065",
+    "shortDescription": "खिलाड़ियों के लिए Sports Scholarship — ₹2,00,000-₹25,00,000/year National/International level पर।",
+    "importantDates": [
+      "Application Start: 01 October 2026",
+      "Last Date: 31 December 2026",
+      "Selection Trials: January-February 2027",
+      "Disbursement: March 2027"
+    ],
+    "importantLinks": [
+      { "label": "SAI Portal", "url": "https://sportsauthorityofindia.nic.in" },
+      { "label": "Khel Ratna Award", "url": "https://sportsauthorityofindia.nic.in/khel-ratna" },
+      { "label": "Arjuna Award", "url": "https://sportsauthorityofindia.nic.in/arjuna-award" }
+    ]
+  },
+  {
+    "name": "Disability Scholarship (National Handicap Finance)",
+    "slug": "disability-scholarship-national-handicap-finance",
+    "category": "disability",
+    "ministry": "Ministry of Social Justice & Empowerment",
+    "amount": "₹1,000-₹5,000/month",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation / Professional courses",
+      "income": "₹1,50,000/year (BPL preference)",
+      "category": "PwD (Persons with Disabilities) - 40% or more disability",
+      "marks": "Previous class mein minimum passing marks",
+      "other": "Disability certificate hona zaroori hai. Government ya recognized institution mein admission hona chahiye."
+    },
+    "benefits": "विकलांग छात्रों को ₹1,000-₹5,000 प्रति माह मिलता है। इसमें tuition fee, maintenance allowance, books और assistive devices शामिल हैं।",
+    "applicationProcess": [
+      "NHFDC Portal (nhfdc.nic.in) par jaayein",
+      "Scholarship for Disabled Students select karein",
+      "Registration karein aur login karein",
+      "Disability certificate aur documents upload karein",
+      "Form submit karein aur printout lein",
+      "District Disability Office mein jama karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Disability Certificate (40%+ disability)",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Medical Certificate from Govt Hospital",
+      "Institute Admission Letter",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://nhfdc.nic.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous class mein minimum passing marks aur medical fitness certificate zaroori hai.",
+    "helpline": "011-2610-1234",
+    "shortDescription": "विकलांग छात्रों के लिए NHFDC Scholarship — ₹1,000-₹5,000/month तक मिलता है।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "District Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "NHFDC Portal", "url": "https://nhfdc.nic.in" },
+      { "label": "Apply Online", "url": "https://nhfdc.nic.in/scholarship" },
+      { "label": "Disability Certificate", "url": "https://disabilityaffairs.gov.in" }
+    ]
+  },
+  {
+    "name": "Technical Education Scholarship (AICTE)",
+    "slug": "technical-education-scholarship-aicte",
+    "category": "technical",
+    "ministry": "All India Council for Technical Education (AICTE)",
+    "amount": "₹50,000-₹1,00,000/year",
+    "eligibility": {
+      "education": "Students in AICTE approved Technical Degree/Diploma courses",
+      "income": "Parental income ≤ ₹8,00,000/year",
+      "category": "All categories (EWS preference)",
+      "marks": "Class 12 mein minimum 60% marks",
+      "other": "AICTE approved institution mein admission hona chahiye"
+    },
+    "benefits": "Technical education के छात्रों को ₹50,000-₹1,00,000 सालाना मिलता है। Tuition fee, books, equipment और other educational expenses cover होते हैं।",
+    "applicationProcess": [
+      "AICTE Scholarship Portal par jaayein",
+      "Technical Education Scholarship select karein",
+      "Personal & academic details bharen",
+      "Documents upload karein",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Class 10/12 Marksheet",
+      "Income Certificate",
+      "Admission Letter (AICTE approved)",
+      "Bank Passbook",
+      "Fee Receipt",
+      "Caste Certificate (if applicable)",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://facilities.aicte-india.org",
+    "renewal": "Har saal online renewal. Course mein minimum 50% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2958-1000",
+    "shortDescription": "Technical courses के छात्रों के लिए AICTE Scholarship — ₹50,000-₹1,00,000/year।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "AICTE Portal", "url": "https://facilities.aicte-india.org" },
+      { "label": "List of AICTE Scholarships", "url": "https://facilities.aicte-india.org/scholarships" }
+    ]
+  },
+  {
+    "name": "Nursing Scholarship (Indian Nursing Council)",
+    "slug": "nursing-scholarship-indian-nursing-council",
+    "category": "technical",
+    "ministry": "Indian Nursing Council",
+    "amount": "₹5,000-₹20,000/year",
+    "eligibility": {
+      "education": "Students in B.Sc Nursing / GNM courses",
+      "income": "₹2,50,000/year",
+      "category": "All categories (Girls preference)",
+      "marks": "Class 12 mein minimum 50% marks (PCB stream)",
+      "other": "INC recognized nursing institution mein admission hona chahiye"
+    },
+    "benefits": "नर्सिंग छात्राओं को ₹5,000-₹20,000 सालाना मिलता है। इसमें tuition fee, books और hostel allowance शामिल है। Post Basic B.Sc Nursing ke liye bhi available hai.",
+    "applicationProcess": [
+      "INC Portal (indianursingcouncil.org) par jaayein",
+      "Nursing Scholarship apply karein",
+      "Personal & academic details bharen",
+      "Documents upload karein",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Class 12 Marksheet (PCB)",
+      "Income Certificate",
+      "Admission Letter (INC recognized)",
+      "Bank Passbook",
+      "Fee Receipt",
+      "Caste Certificate (if applicable)",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://indianursingcouncil.org",
+    "renewal": "Har saal online renewal. Course mein minimum 50% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2336-0069",
+    "shortDescription": "नर्सिंग छात्राओं के लिए INC Scholarship — ₹5,000-₹20,000/year B.Sc Nursing / GNM के लिए।",
+    "importantDates": [
+      "Application Start: 01 September 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January 2027"
+    ],
+    "importantLinks": [
+      { "label": "INC Portal", "url": "https://indianursingcouncil.org" },
+      { "label": "Apply Online", "url": "https://indianursingcouncil.org/scholarship" }
+    ]
+  },
+  {
+    "name": "Medical Scholarship (Dr. BC Roy National Award)",
+    "slug": "medical-scholarship-dr-bc-roy",
+    "category": "technical",
+    "ministry": "Ministry of Health & Family Welfare",
+    "amount": "₹1,00,000-₹5,00,000/year",
+    "eligibility": {
+      "education": "MBBS/BDS/BAMS/BHMS students",
+      "income": "No income limit (merit based)",
+      "category": "All categories",
+      "marks": "Minimum 75% marks in qualifying exam",
+      "other": "MCI/NCH recognized medical institution mein admission hona chahiye"
+    },
+    "benefits": "Medical students को ₹1,00,000-₹5,00,000 सालाना मिलता है। यह scholarship merit-based है और top medical students को दिया जाता है। Research allowance भी मिलता है।",
+    "applicationProcess": [
+      "MCI/NCH ki website par jaayein",
+      "Dr. BC Roy Scholarship application form bharen",
+      "Academic details aur achievements attach karein",
+      "Recommendation letters submit karein",
+      "Form submit karein",
+      "Selection committee se interview ke liye bulaya jayega"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "MBBS/BDS Admission Letter",
+      "Class 12 Marksheet (PCB - 75%+)",
+      "NEET Score Card",
+      "Bank Passbook",
+      "Recommendation Letters (2-3)",
+      "Research Proposal (if applicable)",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/12/2026",
+    "officialPortal": "https://mohfw.gov.in",
+    "renewal": "Har saal performance aur marks ke basis par renewal hota hai. Minimum 75% marks aur good conduct zaroori hai.",
+    "helpline": "011-2306-1469",
+    "shortDescription": "Medical students के लिए Dr. BC Roy Scholarship — ₹1,00,000-₹5,00,000/year MBBS/BDS/BAMS के लिए।",
+    "importantDates": [
+      "Application Start: 01 October 2026",
+      "Last Date: 31 December 2026",
+      "Selection Process: January-February 2027",
+      "Disbursement: March 2027"
+    ],
+    "importantLinks": [
+      { "label": "MoHFW Portal", "url": "https://mohfw.gov.in" },
+      { "label": "Dr. BC Roy Award", "url": "https://mohfw.gov.in/dr-bc-roy" },
+      { "label": "MCI", "url": "https://www.nmc.org.in" }
+    ]
+  },
+  {
+    "name": "Engineering Scholarship (AICTE Swanath)",
+    "slug": "engineering-scholarship-aicte-swanath",
+    "category": "technical",
+    "ministry": "All India Council for Technical Education (AICTE)",
+    "amount": "₹50,000/year + Tuition Fee",
+    "eligibility": {
+      "education": "Students in AICTE approved Engineering/Technology courses",
+      "income": "No income limit (orphans/war widows wards)",
+      "category": "Orphans, War Widows wards, Disabled soldiers wards",
+      "marks": "Class 12 mein minimum 60% marks",
+      "other": "AICTE approved engineering college mein admission hona chahiye"
+    },
+    "benefits": "Engineering students को ₹50,000 सालाना + tuition fee reimbursement मिलता है। यह scholarship orphans, war widows और disabled soldiers के बच्चों के लिए है।",
+    "applicationProcess": [
+      "AICTE Scholarship Portal par jaayein",
+      "Swanath Scholarship select karein",
+      "Eligibility certificate upload karein",
+      "Personal & academic details bharen",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Death Certificate of Parent (if orphan)",
+      "War Widows Certificate (if applicable)",
+      "Disability Certificate of Parent (if applicable)",
+      "Class 12 Marksheet",
+      "Engineering Admission Letter",
+      "Bank Passbook",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://facilities.aicte-india.org",
+    "renewal": "Har saal online renewal. Course mein minimum 50% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2958-1000",
+    "shortDescription": "Engineering students के लिए AICTE Swanath Scholarship — ₹50,000/year + Tuition Fee Orphans/War Widows के लिए।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "AICTE Portal", "url": "https://facilities.aicte-india.org" },
+      { "label": "Swanath Scholarship", "url": "https://facilities.aicte-india.org/scholarship/swanath" }
+    ]
+  },
+  {
+    "name": "MBA Scholarship (AICTE)",
+    "slug": "mba-scholarship-aicte",
+    "category": "technical",
+    "ministry": "All India Council for Technical Education (AICTE)",
+    "amount": "₹50,000-₹1,00,000/year",
+    "eligibility": {
+      "education": "Students in AICTE approved MBA/MCA courses",
+      "income": "Parental income ≤ ₹8,00,000/year",
+      "category": "All categories (EWS preference)",
+      "marks": "Graduation mein minimum 60% marks",
+      "other": "AICTE approved B-school mein admission hona chahiye. CAT/MAT/XAT score hona chahiye."
+    },
+    "benefits": "MBA students को ₹50,000-₹1,00,000 सालाना मिलता है। इसमें tuition fee, books और other educational expenses cover होते हैं। Management education को promote करने के लिए है।",
+    "applicationProcess": [
+      "AICTE Scholarship Portal par jaayein",
+      "MBA Scholarship select karein",
+      "CAT/MAT/XAT score upload karein",
+      "Personal & academic details bharen",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "Graduation Marksheet",
+      "CAT/MAT/XAT Score Card",
+      "Income Certificate",
+      "MBA Admission Letter",
+      "Bank Passbook",
+      "Fee Receipt",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://facilities.aicte-india.org",
+    "renewal": "Har saal online renewal. Course mein minimum 50% marks aur regular attendance zaroori hai.",
+    "helpline": "011-2958-1000",
+    "shortDescription": "MBA students के लिए AICTE Scholarship — ₹50,000-₹1,00,000/year CAT/MAT/XAT qualified के लिए।",
+    "importantDates": [
+      "Application Start: 01 August 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "AICTE Portal", "url": "https://facilities.aicte-india.org" },
+      { "label": "MBA Scholarships", "url": "https://facilities.aicte-india.org/scholarships/mba" }
+    ]
+  },
+  {
+    "name": "PhD Scholarship (CSIR/UGC JRF)",
+    "slug": "phd-scholarship-csir-ugc-jrf",
+    "category": "central",
+    "ministry": "Council of Scientific & Industrial Research (CSIR)",
+    "amount": "₹31,000-₹35,000/month (JRF) + ₹42,000/month (SRF)",
+    "eligibility": {
+      "education": "Post Graduation (M.Sc/M.Tech) with NET/GATE qualification",
+      "income": "No income limit (merit based)",
+      "category": "All categories",
+      "marks": "PG mein minimum 55% marks (50% for SC/ST/PwD)",
+      "other": "Research topic Science & Technology se related hona chahiye. Age limit: 28 years (JRF) with relaxation for reserved categories."
+    },
+    "benefits": "PhD students को CSIR/UGC JRF में ₹31,000-₹35,000 प्रति माह (JRF) और ₹42,000 प्रति माह (SRF) मिलता है। Contingency grant और HRA भी मिलता है।",
+    "applicationProcess": [
+      "CSIR-UGC NET ki website par jaayein (csirhrdg.res.in)",
+      "JRF Fellowship apply karein",
+      "NET/GATE score upload karein",
+      "Research proposal submit karein",
+      "Guide ki recommendation attach karein",
+      "Form submit karein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "PG Marksheet & Degree",
+      "NET/GATE Score Card",
+      "Research Proposal",
+      "Guide's Recommendation Letter",
+      "Bank Passbook",
+      "Age Proof (Birth Certificate)",
+      "Caste Certificate (if applicable)",
+      "Passport size photograph"
+    ],
+    "lastDate": "31/12/2026",
+    "officialPortal": "https://csirhrdg.res.in",
+    "renewal": "Har saal progress report submit karna hota hai. Research mein satisfactory progress zaroori hai. JRF to SRF promotion ke liye 2 saal baad review hota hai.",
+    "helpline": "011-2360-4290",
+    "shortDescription": "PhD students के लिए CSIR/UGC JRF — ₹31,000-₹42,000/month Fellowship Science & Technology research के लिए।",
+    "importantDates": [
+      "Application Start: 01 October 2026",
+      "Last Date: 31 December 2026",
+      "NET Exam: February 2027",
+      "Result: April 2027",
+      "Fellowship Start: May 2027"
+    ],
+    "importantLinks": [
+      { "label": "CSIR-UGC NET Portal", "url": "https://csirhrdg.res.in" },
+      { "label": "UGC NET", "url": "https://ugcnet.nta.nic.in" },
+      { "label": "JRF Application", "url": "https://csirhrdg.res.in/jrf" }
+    ]
+  },
+  {
+    "name": "EWS Scholarship (Economically Weaker Section)",
+    "slug": "ews-scholarship-economically-weaker-section",
+    "category": "central",
+    "ministry": "Ministry of Social Justice & Empowerment",
+    "amount": "₹5,000-₹20,000/year",
+    "eligibility": {
+      "education": "Class 1 to Post Graduation",
+      "income": "Family income ≤ ₹8,00,000/year",
+      "category": "General (EWS - Economically Weaker Section)",
+      "marks": "Previous class mein minimum 50% marks",
+      "other": "EWS Certificate hona zaroori hai. Government ya recognized institution mein admission hona chahiye."
+    },
+    "benefits": "EWS वर्ग के छात्रों को ₹5,000-₹20,000 सालाना मिलता है। इसमें tuition fee, maintenance allowance और book allowance शामिल है।",
+    "applicationProcess": [
+      "NSP Portal par register karein",
+      "EWS Scholarship scheme select karein",
+      "Personal & academic details bharen",
+      "EWS Certificate upload karein",
+      "Form submit karein",
+      "Institute se verification karwayein"
+    ],
+    "documents": [
+      "Aadhaar Card",
+      "EWS Certificate",
+      "Income Certificate",
+      "Previous year Marksheet",
+      "Bank Passbook",
+      "Institute Admission Letter",
+      "Passport size photograph"
+    ],
+    "lastDate": "30/11/2026",
+    "officialPortal": "https://scholarships.gov.in",
+    "renewal": "Har saal fresh apply karna hota hai. Previous year mein minimum 50% marks aur 75% attendance zaroori hai.",
+    "helpline": "1800-180-5678",
+    "shortDescription": "EWS वर्ग के छात्रों के लिए Scholarship — ₹5,000-₹20,000/year आर्थिक रूप से कमजोर वर्ग के लिए।",
+    "importantDates": [
+      "Application Start: 01 July 2026",
+      "Last Date: 30 November 2026",
+      "Institute Verification: 15 December 2026",
+      "Disbursement: January-February 2027"
+    ],
+    "importantLinks": [
+      { "label": "NSP Portal", "url": "https://scholarships.gov.in" },
+      { "label": "EWS Certificate Guidelines", "url": "https://scholarships.gov.in/ews" }
+    ]
+  }
+]

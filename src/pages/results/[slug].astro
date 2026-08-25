@@ -1,0 +1,567 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import results from '../../data/results.json';
+
+export function getStaticPaths() {
+  return results.map(r => ({
+    params: { slug: r.slug },
+    props: { result: r },
+  }));
+}
+
+const { result } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Results", "item": siteUrl + "/results/" },
+    { "@type": "ListItem", "position": 3, "name": result.title }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": result.title,
+  "description": result.intro || result.title,
+  "author": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "publisher": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "datePublished": result.date || new Date().toISOString().split('T')[0]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `${result.title} kaise check karein?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Official website par jaake roll number ya registration number enter karein. Step-by-step guide hamari website par hai.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `${result.title} ki cut-off kya hai?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Cut-off marks official website par release hoti hai. Hamari website par previous year cut-off trends bhi available hain.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `${result.title} mein documents kya chahiye?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Result check karne ke liye roll number aur date of birth / registration number chahiye. Document verification ke liye original certificates aur photos chahiye.`
+      }
+    }
+  ]
+};
+
+const lastUpdated = new Date().toLocaleDateString('hi-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const dateItems = (result.importantDates || []).map(d => {
+  const [label, ...rest] = d.split(':');
+  return { label: label.trim(), value: rest.join(':').trim() };
+});
+
+const links = result.importantLinks || [];
+const resultLink = links.find(l => l.label.toLowerCase().includes('result')) || { label: 'Check Result', url: result.resultUrl };
+const officialLink = links.find(l => l.label.toLowerCase().includes('official')) || { label: 'Official Website', url: result.officialUrl };
+const notifLink = links.find(l => l.label.toLowerCase().includes('notification')) || { label: 'Download Notification', url: result.notificationUrl };
+
+const steps = result.howToCheck || [
+  `Visit the official website of ${result.organization}`,
+  'Find the result link on the homepage',
+  'Enter your Roll Number or Registration ID',
+  'Submit to view your result',
+  'Download and print the result for future reference',
+];
+---
+
+<BaseLayout
+  title={`${result.title} | Sarkari Sahayak 2026`}
+  description={`${result.title} — ${result.organization}. ${result.shortDescription || 'Check result, important dates, steps & direct links at Sarkari Sahayak.'}`}
+  canonical={`/results/${result.slug}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+  <main class="result-detail-page">
+
+    <div class="rd-breadcrumb container">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/results/">Results</a>
+      <span>/</span>
+      <span class="current">{result.title}</span>
+    </div>
+
+    <div class="container rd-wrap">
+
+      <div class="rd-hero">
+        <div class="rd-hero-badge">{result.category?.toUpperCase() || 'RESULT'}</div>
+        <h1 class="rd-hero-title">{result.title}</h1>
+        <div class="rd-hero-org">{result.organization}</div>
+        <div class="rd-hero-meta">
+          <span class="rd-meta-chip">📅 Declared: {result.date}</span>
+          <span class="rd-meta-chip verified">✓ Verified 2026</span>
+        </div>
+      </div>
+
+      <div class="rd-grid">
+
+        <div class="rd-main">
+
+          <section class="rd-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">ℹ️</span> About the Result</h2>
+            <div class="rd-body-text">
+              <p><strong>{result.organization}</strong> द्वारा आयोजित <strong>{result.title}</strong> का result घोषित कर दिया गया है। जिन भी उम्मीदवारों ने यह परीक्षा दी थी, वे नीचे दिए गए steps के माध्यम से अपना result check कर सकते हैं। Result check करने के लिए आपके पास roll number और date of birth / registration number होना चाहिए।</p>
+              {result.shortDescription && <p>{result.shortDescription}</p>}
+            </div>
+          </section>
+
+          {dateItems.length > 0 && (
+            <section class="rd-card">
+              <h2 class="rd-card-head"><span class="rd-head-icon">📅</span> Important Dates</h2>
+              <div class="rd-dates-grid">
+                {dateItems.map((d, i) => (
+                  <div class={`rd-date-item${d.label.toLowerCase().includes('result') ? ' highlight' : ''}`}>
+                    <div class="rd-date-label">{d.label}</div>
+                    <div class="rd-date-val">{d.value}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section class="rd-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">🔍</span> How to Check Result</h2>
+            <ol class="rd-steps">
+              {steps.map((step, i) => (
+                <li>
+                  <span class="rd-step-num">{i + 1}</span>
+                  <span class="rd-step-text">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <div class="rd-disclaimer">
+            <p><strong>Disclaimer:</strong> यह जानकारी आधिकारिक अधिसूचनाओं से ली गई है। सभी विवरणों की पुष्टि आधिकारिक वेबसाइट से करें। Sarkari Sahayak इस जानकारी की सटीकता की गारंटी नहीं देता।</p>
+            <p style="margin-top:8px;font-size:13px;color:var(--muted)">🕐 Last Updated: {lastUpdated}</p>
+          </div>
+
+          <!-- Internal Links -->
+          <div class="rd-related-links">
+            <h3 class="rd-related-title">सम्बंधित पेज</h3>
+            <div class="rd-related-grid">
+              <a href="/admit-cards/" class="rd-related-item">
+                <span class="rd-related-icon">🎫</span>
+                <span>Admit Cards</span>
+              </a>
+              <a href="/cutoffs/" class="rd-related-item">
+                <span class="rd-related-icon">📊</span>
+                <span>Cut-off Marks</span>
+              </a>
+              <a href="/latest-jobs/" class="rd-related-item">
+                <span class="rd-related-icon">💼</span>
+                <span>Latest Jobs</span>
+              </a>
+              <a href="/syllabus/" class="rd-related-item">
+                <span class="rd-related-icon">📚</span>
+                <span>Syllabus</span>
+              </a>
+              <a href="/answer-keys/" class="rd-related-item">
+                <span class="rd-related-icon">🔑</span>
+                <span>Answer Keys</span>
+              </a>
+              <a href="/current-affairs/" class="rd-related-item">
+                <span class="rd-related-icon">📰</span>
+                <span>Current Affairs</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="rd-side">
+
+          <div class="rd-card rd-side-card rd-links-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">🔗</span> Important Links</h2>
+            <div class="rd-links-list">
+              {resultLink && (
+                <a href={resultLink.url && resultLink.url !== '#' ? resultLink.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
+                  <span class="rd-link-label">{resultLink.label}</span>
+                  <span class="rd-link-arrow">{resultLink.url && resultLink.url !== '#' ? '→' : 'Coming Soon'}</span>
+                </a>
+              )}
+              {officialLink && (
+                <a href={officialLink.url && officialLink.url !== '#' ? officialLink.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
+                  <span class="rd-link-label">{officialLink.label}</span>
+                  <span class="rd-link-arrow">{officialLink.url && officialLink.url !== '#' ? '→' : 'Coming Soon'}</span>
+                </a>
+              )}
+              {notifLink && (
+                <a href={notifLink.url && notifLink.url !== '#' ? notifLink.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
+                  <span class="rd-link-label">{notifLink.label}</span>
+                  <span class="rd-link-arrow">{notifLink.url && notifLink.url !== '#' ? '→' : 'Coming Soon'}</span>
+                </a>
+              )}
+              {links.filter(l => l !== resultLink && l !== officialLink && l !== notifLink).map(link => (
+                <a href={link.url && link.url !== '#' ? link.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
+                  <span class="rd-link-label">{link.label}</span>
+                  <span class="rd-link-arrow">{link.url && link.url !== '#' ? '→' : 'Coming Soon'}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="rd-card rd-side-card rd-quick-card">
+            <h3 class="rd-quick-title">Quick Actions</h3>
+            <a href={result.resultUrl && result.resultUrl !== '#' ? result.resultUrl : '#'} target="_blank" rel="noopener" class="rd-apply-btn">
+              Check Result →
+            </a>
+            <a href="/results/" class="rd-more-btn">
+              View More Results →
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <style>
+    .result-detail-page {
+      padding-top: 80px;
+    }
+
+    .rd-breadcrumb {
+      padding: 16px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .rd-breadcrumb a {
+      color: var(--saffron);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .rd-breadcrumb a:hover { color: var(--accent); }
+    .rd-breadcrumb span { margin: 0 8px; }
+    .rd-breadcrumb .current { color: var(--strong); font-weight: 500; }
+
+    .rd-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .rd-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, rgba(28,105,212,.15) 100%);
+      border: 1px solid var(--hairline);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .rd-hero-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--saffron);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .rd-hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .rd-hero-org {
+      font-size: 16px;
+      color: var(--saffron);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .rd-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .rd-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--body);
+      font-weight: 500;
+    }
+    .rd-meta-chip.verified {
+      background: rgba(15,163,54,.12);
+      border-color: rgba(15,163,54,.3);
+      color: var(--success, #0fa336);
+      font-weight: 700;
+    }
+
+    .rd-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .rd-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .rd-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      background: linear-gradient(90deg, var(--navy) 0%, rgba(28,105,212,.08) 100%);
+      border-bottom: 1px solid var(--hairline);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .5px;
+    }
+    .rd-head-icon { font-size: 20px; }
+
+    .rd-body-text {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--body);
+    }
+    .rd-body-text p {
+      margin-bottom: 12px;
+    }
+    .rd-body-text p:last-child {
+      margin-bottom: 0;
+    }
+    .rd-body-text strong {
+      color: var(--strong);
+    }
+
+    .rd-dates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--hairline);
+    }
+    .rd-date-item {
+      padding: 16px 20px;
+      background: var(--card);
+    }
+    .rd-date-item.highlight {
+      background: rgba(255,107,53,.06);
+    }
+    .rd-date-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .rd-date-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+    }
+    .rd-date-item.highlight .rd-date-val {
+      color: var(--saffron);
+      font-size: 18px;
+    }
+
+    .rd-steps {
+      list-style: none;
+      padding: 16px 20px;
+      margin: 0;
+    }
+    .rd-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 16px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .rd-steps li:last-child { border-bottom: none; }
+    .rd-step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--saffron);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    .rd-side-card { position: sticky; top: 90px; }
+
+    .rd-links-card {
+      margin-top: 0;
+    }
+    .rd-links-list {
+      padding: 8px 12px;
+    }
+    .rd-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 16px;
+      font-weight: 500;
+      transition: all .2s;
+      border: 1px solid transparent;
+    }
+    .rd-link-item:hover {
+      background: rgba(255,107,53,.06);
+      border-color: rgba(255,107,53,.2);
+      color: var(--saffron);
+    }
+    .rd-link-label { flex: 1; }
+    .rd-link-arrow {
+      font-size: 18px;
+      color: var(--saffron);
+      transition: transform .2s;
+    }
+    .rd-link-item:hover .rd-link-arrow { transform: translateX(4px); }
+
+    .rd-quick-card {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .rd-quick-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+      margin-bottom: 14px;
+    }
+    .rd-apply-btn {
+      display: block;
+      padding: 14px;
+      background: var(--saffron);
+      color: #000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all .2s;
+    }
+    .rd-apply-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+    .rd-more-btn {
+      display: block;
+      padding: 12px;
+      background: transparent;
+      color: var(--saffron);
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid var(--saffron);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .rd-more-btn:hover {
+      background: rgba(255,107,53,.08);
+    }
+
+    .rd-disclaimer {
+      padding: 20px 24px;
+      background: rgba(244,180,0,.06);
+      border: 1px solid rgba(244,180,0,.2);
+      border-radius: 12px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .rd-disclaimer p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--body);
+    }
+
+    .rd-related-links {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .rd-related-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .rd-related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .rd-related-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all .2s;
+    }
+    .rd-related-item:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+      background: rgba(255,107,53,.06);
+    }
+    .rd-related-icon { font-size: 18px; }
+
+    @media (max-width: 860px) {
+      .rd-grid {
+        grid-template-columns: 1fr;
+      }
+      .rd-hero-title { font-size: 22px; }
+      .rd-hero { padding: 24px 20px; }
+      .rd-dates-grid { grid-template-columns: 1fr; }
+      .rd-side-card { position: static; }
+    }
+  </style>
+</BaseLayout>

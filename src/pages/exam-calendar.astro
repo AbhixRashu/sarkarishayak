@@ -1,0 +1,580 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Exam Calendar 2026" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Government exam calendar 2026 kab update hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har saal January-February mein major recruiting bodies (SSC, UPSC, IBPS, RRB, etc.) apna annual calendar release karti hain. Dates tentative hoti hain aur official notification ke saath confirm hoti hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya exam dates change ho sakti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, exam dates official notification se pehle change ho sakti hain. Hamari website par hamesha latest dates check karein. Notification aane ke baad dates confirm ho jaati hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Multiple exams ek saath prepare kaise karein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common subjects jaise Math, English, GK aur Reasoning sab exams mein aate hain. Pehle basics strong karein, phir exam-specific topics cover karein. Weekly mock tests zaroor dein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SSC CGL aur CHSL mein kya difference hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CGL graduate level ke liye hai aur Group B/C posts ke liye hota hai. CHSL 10+2 level ke liye hai aur Lower Division Clerk, DEO jaise posts milte hain. Dono mein Tier-1 aur Tier-2 exam hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "UPSC CSE Prelims aur Mains ke beech kitna gap hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Typically Prelims May mein aur Mains September-October mein hota hai. Approximately 4-5 months ka gap milta hai Mains ki preparation ke liye."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "IBPS aur SBI banking exams mein kya common hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dono mein Reasoning, Quantitative Aptitude, English aur General Awareness subjects aate hain. IBPS multiple banks ke liye ek exam leta hai, jabki SBI apna alag exam conduct karta hai."
+      }
+    }
+  ]
+};
+
+const months = [
+  { id: 'jan', name: 'January', short: 'JAN', exams: [] },
+  { id: 'feb', name: 'February', short: 'FEB', exams: ['UPSC ESE 2026 - Prelims'] },
+  { id: 'mar', name: 'March', short: 'MAR', exams: [] },
+  { id: 'apr', name: 'April', short: 'APR', exams: ['UPSC NDA 2026 - Written'] },
+  { id: 'may', name: 'May', short: 'MAY', exams: ['UPSC CSE 2026 - Prelims', 'NEET UG 2026', 'CUET UG 2026'] },
+  { id: 'jun', name: 'June', short: 'JUN', exams: ['CUET UG 2026'] },
+  { id: 'jul', name: 'July', short: 'JUL', exams: [] },
+  { id: 'aug', name: 'August', short: 'AUG', exams: ['CTET July 2026'] },
+  { id: 'sep', name: 'September', short: 'SEP', exams: ['UPSC CSE 2026 - Mains', 'UPPCS PCS 2026 - Pre'] },
+  { id: 'oct', name: 'October', short: 'OCT', exams: ['SSC CGL 2026 - Prelims', 'SSC GD 2026 - CBT', 'IBPS PO XVII - Prelims', 'SBI Clerk 2026 - Prelims', 'BPSC 73rd - Pre', 'RPSC RAS 2026 - Pre', 'RRB JE 2026 - CBT'] },
+  { id: 'nov', name: 'November', short: 'NOV', exams: ['SSC CHSL 2026 - Prelims', 'IBPS PO XVII - Mains', 'SBI Clerk 2026 - Mains', 'SBI PO 2026 - Prelims', 'RRB Group D 2026 - CBT', 'REET 2026'] },
+  { id: 'dec', name: 'December', short: 'DEC', exams: ['RRB NTPC 2026 - CBT 1', 'IBPS Clerk XVI - Prelims', 'SBI PO 2026 - Mains'] },
+];
+
+const exams = [
+  { name: 'SSC CGL 2026', stage: 'Prelims', date: 'October 2026', month: 'october', org: 'SSC', status: 'upcoming', color: 'var(--saffron)' },
+  { name: 'SSC CHSL 2026', stage: 'Prelims', date: 'November 2026', month: 'november', org: 'SSC', status: 'upcoming', color: 'var(--saffron)' },
+  { name: 'SSC GD 2026', stage: 'CBT', date: 'October 2026', month: 'october', org: 'SSC', status: 'upcoming', color: 'var(--saffron)' },
+  { name: 'UPSC CSE 2026', stage: 'Prelims', date: 'May 2026', month: 'may', org: 'UPSC', status: 'upcoming', color: 'var(--success)' },
+  { name: 'UPSC CSE 2026', stage: 'Mains', date: 'September 2026', month: 'september', org: 'UPSC', status: 'upcoming', color: 'var(--success)' },
+  { name: 'UPSC NDA 2026', stage: 'Written', date: 'April 2026', month: 'april', org: 'UPSC', status: 'completed', color: 'var(--success)' },
+  { name: 'UPSC ESE 2026', stage: 'Prelims', date: 'February 2026', month: 'february', org: 'UPSC', status: 'completed', color: 'var(--success)' },
+  { name: 'RRB NTPC 2026', stage: 'CBT 1', date: 'December 2026', month: 'december', org: 'RRB', status: 'upcoming', color: 'var(--m-blue-dark)' },
+  { name: 'RRB Group D 2026', stage: 'CBT', date: 'November 2026', month: 'november', org: 'RRB', status: 'upcoming', color: 'var(--m-blue-dark)' },
+  { name: 'RRB JE 2026', stage: 'CBT', date: 'October 2026', month: 'october', org: 'RRB', status: 'upcoming', color: 'var(--m-blue-dark)' },
+  { name: 'IBPS Clerk XVI', stage: 'Prelims', date: 'December 2026', month: 'december', org: 'IBPS', status: 'upcoming', color: 'var(--gold)' },
+  { name: 'IBPS Clerk XVI', stage: 'Mains', date: 'January 2027', month: 'january', org: 'IBPS', status: 'upcoming', color: 'var(--gold)' },
+  { name: 'IBPS PO XVII', stage: 'Prelims', date: 'October 2026', month: 'october', org: 'IBPS', status: 'upcoming', color: 'var(--gold)' },
+  { name: 'IBPS PO XVII', stage: 'Mains', date: 'November 2026', month: 'november', org: 'IBPS', status: 'upcoming', color: 'var(--gold)' },
+  { name: 'SBI Clerk 2026', stage: 'Prelims', date: 'October 2026', month: 'october', org: 'SBI', status: 'upcoming', color: 'var(--m-blue-light)' },
+  { name: 'SBI Clerk 2026', stage: 'Mains', date: 'November 2026', month: 'november', org: 'SBI', status: 'upcoming', color: 'var(--m-blue-light)' },
+  { name: 'SBI PO 2026', stage: 'Prelims', date: 'November 2026', month: 'november', org: 'SBI', status: 'upcoming', color: 'var(--m-blue-light)' },
+  { name: 'SBI PO 2026', stage: 'Mains', date: 'December 2026', month: 'december', org: 'SBI', status: 'upcoming', color: 'var(--m-blue-light)' },
+  { name: 'UPPSC PCS 2026', stage: 'Pre', date: 'September 2026', month: 'september', org: 'UPPSC', status: 'upcoming', color: 'var(--warning)' },
+  { name: 'BPSC 73rd', stage: 'Pre', date: 'October 2026', month: 'october', org: 'BPSC', status: 'upcoming', color: 'var(--warning)' },
+  { name: 'RPSC RAS 2026', stage: 'Pre', date: 'October 2026', month: 'october', org: 'RPSC', status: 'upcoming', color: 'var(--warning)' },
+  { name: 'CTET July 2026', stage: 'Exam', date: 'August 2026', month: 'august', org: 'CBSE', status: 'upcoming', color: 'var(--m-red)' },
+  { name: 'NEET UG 2026', stage: 'Exam', date: 'May 2026', month: 'may', org: 'NTA', status: 'upcoming', color: 'var(--m-red)' },
+  { name: 'CUET UG 2026', stage: 'Exam', date: 'May-June 2026', month: 'may', org: 'NTA', status: 'upcoming', color: 'var(--m-red)' },
+  { name: 'REET 2026', stage: 'Exam', date: 'November 2026', month: 'november', org: 'BSER', status: 'upcoming', color: 'var(--warning)' },
+];
+
+const eventSchemas = exams.filter(e => e.status === 'upcoming').map(e => ({
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": `${e.name} — ${e.stage}`,
+  "startDate": e.date,
+  "organizer": { "@type": "Organization", "name": e.org },
+  "location": { "@type": "Place", "name": "India", "address": { "@type": "PostalAddress", "addressCountry": "IN" } },
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+}));
+---
+
+<BaseLayout
+  title="Upcoming Govt Exams Calendar 2026 | Sarkari Sahayak"
+  description="SSC CGL, UPSC CSE, IBPS Clerk, RRB NTPC, NEET, CTET — sab major govt exams ki dates 2026 ka calendar dekhein. Month-wise exam schedule with preparation tips."
+  canonical="/exam-calendar"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+    {eventSchemas.map(e => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(e)} />
+    ))}
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Exam Calendar 2026</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:960px;margin-inline:auto">
+
+      <h1 class="d-title" style="font-size:28px;margin-bottom:8px">📅 Upcoming Govt Exams Calendar 2026</h1>
+      <p style="color:var(--body);font-size:16px;margin-bottom:12px">SSC, UPSC, IBPS, RRB, State PSC aur teaching exams — sab major govt exams ki dates ek jagah. Apni preparation ke liye calendar mark karein.</p>
+
+      <div class="status-line info">📋 Last Updated: August 2026 — Dates tentative, official notification se verify karein</div>
+
+      {/* Filter Chips */}
+      <div class="filter-bar">
+        <span class="filter-label">Filter by:</span>
+        <div class="chips-row" style="justify-content:flex-start;margin-top:0">
+          <button class="chip active" data-filter="all">All Exams <span class="cnt">{exams.length}</span></button>
+          <button class="chip" data-filter="upcoming">Upcoming</button>
+          <button class="chip" data-filter="completed">Completed</button>
+          <button class="chip" data-filter="ssc">SSC</button>
+          <button class="chip" data-filter="upsc">UPSC</button>
+          <button class="chip" data-filter="ibps">IBPS</button>
+          <button class="chip" data-filter="sbi">SBI</button>
+          <button class="chip" data-filter="rrb">RRB</button>
+          <button class="chip" data-filter="state">State PSC</button>
+          <button class="chip" data-filter="teaching">Teaching</button>
+        </div>
+      </div>
+
+      {/* Month-wise Calendar Grid */}
+      <div class="cal-section">
+        <div class="section-label">Month-wise Calendar</div>
+        <div class="cal-grid">
+          {months.map(m => (
+            <div class={`cal-month ${m.exams.length > 0 ? 'has-exams' : 'empty-month'}`}>
+              <div class="cal-month-head">
+                <span class="cal-month-name">{m.short}</span>
+                <span class="cal-month-full">{m.name}</span>
+              </div>
+              <div class="cal-month-body">
+                {m.exams.length === 0 ? (
+                  <span class="cal-empty">—</span>
+                ) : (
+                  m.exams.map(e => (
+                    <div class="cal-exam-tag">{e}</div>
+                  ))
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Full Exam List */}
+      <div class="exam-list-section">
+        <div class="section-label">All Exams — Detailed List</div>
+        <div class="exam-table-wrap">
+          <table class="exam-table">
+            <thead>
+              <tr>
+                <th>Exam Name</th>
+                <th>Stage</th>
+                <th>Date</th>
+                <th>Org</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {exams.map(e => (
+                <tr class={`exam-row`} data-status={e.status} data-org={e.org.toLowerCase()}>
+                  <td class="exam-name-cell">
+                    <span class="exam-dot" style={`background:${e.color}`}></span>
+                    {e.name}
+                  </td>
+                  <td>{e.stage}</td>
+                  <td class="exam-date-cell">{e.date}</td>
+                  <td><span class="org-badge">{e.org}</span></td>
+                  <td>
+                    <span class={`status-pill ${e.status === 'completed' ? 'done' : e.status === 'ongoing' ? 'live' : ''}`}>
+                      {e.status === 'completed' ? '✓ Done' : e.status === 'ongoing' ? '● Live' : 'Upcoming'}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Competitive Exams Summary */}
+      <div class="summary-section">
+        <div class="section-label">Competition Overview</div>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-num">25+</div>
+            <div class="summary-label">Total Exam Events</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-num">6</div>
+            <div class="summary-label">Major Recruiting Bodies</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-num">12</div>
+            <div class="summary-label">Months Covered</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-num">5</div>
+            <div class="summary-label">Categories</div>
+          </div>
+        </div>
+      </div>
+
+      {/* SEO Content */}
+      <div class="seo-section">
+        <div class="section-label">Exam Calendar 2026 — Complete Guide</div>
+        <div class="seo-content">
+          <h2>Govt Exams Calendar 2026 — Sab Exams Ki Dates Ek Jagah</h2>
+          <p>Government job ki taiyari karne wale candidates ke liye <strong>exam calendar 2026</strong> bahut zaroori hai. Is page par aapko <strong>SSC, UPSC, IBPS, SBI, RRB, State PSC</strong> aur <strong>Teaching exams</strong> sab ki dates ek jagah mil jaayengi.</p>
+
+          <h3>SSC Exams 2026</h3>
+          <p><strong>Staff Selection Commission (SSC)</strong> har saal <strong>CGL, CHSL, GD Constable</strong> aur other exams conduct karta hai. SSC CGL 2026 ka Prelims <strong>October 2026</strong> mein hone ki ummeed hai, jabki CHSL ka Prelims <strong>November 2026</strong> mein hoga. SSC GD Constable 2026 ka CBT bhi <strong>October 2026</strong> mein schedule hai.</p>
+
+          <h3>UPSC Exams 2026</h3>
+          <p><strong>Union Public Service Commission (UPSC)</strong> ne apna calendar pehle se release kar diya hai. <strong>UPSC CSE 2026 Prelims — May 2026</strong> aur <strong>Mains — September 2026</strong> mein hoga. UPSC NDA 2026 ka Written exam <strong>April 2026</strong> mein aur UPSC ESE 2026 ka Prelims <strong>February 2026</strong> mein conduct ho chuka hai.</p>
+
+          <h3>Banking Exams 2026 (IBPS & SBI)</h3>
+          <p>Banking sector mein <strong>IBPS</strong> aur <strong>SBI</strong> ke exams sabse zyada popular hain. IBPS Clerk XVI ka Prelims <strong>December 2026</strong> aur Mains <strong>January 2027</strong> mein hoga. IBPS PO XVII ka Prelims <strong>October 2026</strong> aur Mains <strong>November 2026</strong> mein schedule hai. SBI Clerk 2026 ka Prelims <strong>October</strong> aur Mains <strong>November 2026</strong> mein hoga. SBI PO 2026 ke liye Prelims <strong>November</strong> aur Mains <strong>December 2026</strong> mein hain.</p>
+
+          <h3>Railway Exams 2026 (RRB)</h3>
+          <p><strong>Railway Recruitment Board (RRB)</strong> ke exams — RRB NTPC, Group D aur JE — sab 2026 ke end mein schedule hain. RRB JE 2026 CBT <strong>October</strong>, RRB Group D CBT <strong>November</strong> aur RRB NTPC CBT-1 <strong>December 2026</strong> mein hoga.</p>
+
+          <h3>State PSC Exams 2026</h3>
+          <p>Rajya level par <strong>UPPSC PCS 2026</strong> ka Pre <strong>September</strong>, <strong>BPSC 73rd</strong> ka Pre <strong>October</strong> aur <strong>RPSC RAS 2026</strong> ka Pre <strong>October 2026</strong> mein hone ki ummeed hai.</p>
+
+          <h3>Teaching & Entrance Exams 2026</h3>
+          <p><strong>CTET July 2026</strong> ka exam <strong>August 2026</strong> mein hoga. <strong>NEET UG 2026</strong> <strong>May 2026</strong> mein aur <strong>CUET UG 2026</strong> <strong>May-June 2026</strong> mein conduct hone wala hai. <strong>REET 2026</strong> ka exam bhi <strong>November 2026</strong> mein scheduled hai.</p>
+
+          <h3>Preparation Tips — Multiple Exams Ki Taiyari</h3>
+          <ul>
+            <li><strong>Common Syllabus:</strong> Math, English, Reasoning aur GK sab exams mein aate hain — basics pehle strong karein.</li>
+            <li><strong>Mock Tests:</strong> Har hafte mock test dein — SSC, UPSC aur Banking ke liye alag-alag platforms available hain.</li>
+            <li><strong>Previous Year Papers:</strong> Last 5-10 saal ke papers solve karein — pattern samajh mein aayega.</li>
+            <li><strong>Time Management:</strong> Daily study schedule banayein aur har subject ko time dein.</li>
+            <li><strong>Current Affairs:</strong> Roz newspaper padhein ya monthly magazines follow karein.</li>
+            <li><strong>Health:</strong> Proper sleep, exercise aur diet rakhein — exam pressure mein health sabse important hai.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div class="faq-section">
+        <div class="section-label">Frequently Asked Questions</div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Government exam calendar 2026 kab update hota hai?</summary>
+            <p>Har saal January-February mein major recruiting bodies (SSC, UPSC, IBPS, RRB, etc.) apna annual calendar release karti hain. Dates tentative hoti hain aur official notification ke saath confirm hoti hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Kya exam dates change ho sakti hain?</summary>
+            <p>Haan, exam dates official notification se pehle change ho sakti hain. Hamari website par hamesha latest dates check karein. Notification aane ke baad dates confirm ho jaati hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Multiple exams ek saath prepare kaise karein?</summary>
+            <p>Common subjects jaise Math, English, GK aur Reasoning sab exams mein aate hain. Pehle basics strong karein, phir exam-specific topics cover karein. Weekly mock tests zaroor dein.</p>
+          </details>
+          <details class="faq-item">
+            <summary>SSC CGL aur CHSL mein kya difference hai?</summary>
+            <p>CGL graduate level ke liye hai aur Group B/C posts ke liye hota hai. CHSL 10+2 level ke liye hai aur Lower Division Clerk, DEO jaise posts milte hain. Dono mein Tier-1 aur Tier-2 exam hota hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>UPSC CSE Prelims aur Mains ke beech kitna gap hota hai?</summary>
+            <p>Typically Prelims May mein aur Mains September-October mein hota hai. Approximately 4-5 months ka gap milta hai Mains ki preparation ke liye.</p>
+          </details>
+          <details class="faq-item">
+            <summary>IBPS aur SBI banking exams mein kya common hai?</summary>
+            <p>Dono mein Reasoning, Quantitative Aptitude, English aur General Awareness subjects aate hain. IBPS multiple banks ke liye ek exam leta hai, jabki SBI apna alag exam conduct karta hai.</p>
+          </details>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div class="disclaimer" style="margin-top:var(--sp-xl)">
+        <span class="disc-icon">⚠️</span>
+        <p class="disc-text">Ye dates <strong>tentative</strong> hain. Final dates ke liye official websites — <strong>ssc.nic.in, upsc.gov.in, ibps.in, rrbcdg.gov.in</strong> — regularly check karein. Sarkari Sahayak kisi bhi exam body se affiliated nahi hai.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .filter-bar {
+      margin: var(--sp-lg) 0;
+      padding: var(--sp-md);
+      background: var(--card);
+      border: 1px solid var(--hairline);
+    }
+    .filter-label {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: var(--sp-xs);
+    }
+
+    .cal-section { margin-top: var(--sp-xl); }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-sm);
+    }
+    .cal-month {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      min-height: 120px;
+      transition: border-color .25s ease;
+    }
+    .cal-month.has-exams { border-color: rgba(255,107,53,.35); }
+    .cal-month.has-exams:hover { border-color: var(--saffron); }
+    .cal-month.empty-month { opacity: .5; }
+    .cal-month-head {
+      padding: 10px 12px;
+      background: var(--elevated);
+      border-bottom: 1px solid var(--hairline);
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .cal-month-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--saffron);
+    }
+    .cal-month-full {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .cal-month-body {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .cal-empty {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .cal-exam-tag {
+      font-size: 11.5px;
+      font-weight: 400;
+      color: var(--strong);
+      padding: 4px 8px;
+      background: var(--elevated);
+      border-left: 2px solid var(--saffron);
+      line-height: 1.3;
+    }
+
+    .exam-list-section { margin-top: var(--sp-xl); }
+    .exam-table-wrap { overflow-x: auto; }
+    .exam-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+    .exam-table th {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--hairline);
+      background: var(--elevated);
+    }
+    .exam-table td {
+      padding: 10px 12px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--body);
+      border-bottom: 1px solid var(--hairline-strong);
+    }
+    .exam-table tr:hover td {
+      background: rgba(255,107,53,.04);
+    }
+    .exam-name-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: var(--strong);
+    }
+    .exam-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .exam-date-cell {
+      font-family: var(--font-display);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .org-badge {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      color: var(--muted);
+    }
+    .status-pill.done {
+      background: rgba(126,126,126,.12);
+      border-color: rgba(126,126,126,.4);
+      color: var(--muted);
+    }
+
+    .summary-section { margin-top: var(--sp-xl); }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-sm);
+    }
+    .summary-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      padding: var(--sp-lg);
+      text-align: center;
+    }
+    .summary-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 36px;
+      color: var(--saffron);
+      line-height: 1;
+    }
+    .summary-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .seo-section { margin-top: var(--sp-xl); }
+    .seo-content h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--strong);
+      margin-bottom: var(--sp-sm);
+      margin-top: var(--sp-lg);
+    }
+    .seo-content h2:first-child { margin-top: 0; }
+    .seo-content h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--saffron);
+      margin-bottom: var(--sp-xs);
+      margin-top: var(--sp-md);
+    }
+    .seo-content p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--body);
+      margin-bottom: var(--sp-sm);
+    }
+    .seo-content strong { font-weight: 500; color: var(--strong); }
+    .seo-content ul {
+      list-style: none;
+      margin-bottom: var(--sp-sm);
+    }
+    .seo-content ul li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--body);
+    }
+    .seo-content ul li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--saffron);
+    }
+
+    .faq-section { margin-top: var(--sp-xl); }
+    .faq-list { display: flex; flex-direction: column; gap: var(--sp-xs); }
+
+    @media (max-width: 768px) {
+      .cal-grid { grid-template-columns: repeat(2, 1fr); }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .exam-table { min-width: 520px; }
+    }
+    @media (max-width: 420px) {
+      .cal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script is:inline>
+  (function () {
+    var chips = document.querySelectorAll('.chip[data-filter]');
+    var rows = document.querySelectorAll('.exam-row');
+    var months = document.querySelectorAll('.cal-month');
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        var f = chip.getAttribute('data-filter');
+
+        rows.forEach(function (row) {
+          var status = row.getAttribute('data-status');
+          var org = row.getAttribute('data-org');
+          var show = f === 'all' || status === f || org === f;
+          row.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  })();
+  </script>
+</BaseLayout>

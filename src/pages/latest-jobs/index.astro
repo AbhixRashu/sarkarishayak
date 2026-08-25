@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const categories = [...new Set(jobs.map(j => j.category))];
+const categoryLabels = {
+  banking: 'Banking',
+  rajasthan: 'Rajasthan',
+  central: 'Central Govt',
+  railway: 'Railway',
+  state: 'State Govt',
+  defence: 'Defence',
+  psu: 'PSU',
+  ssc: 'SSC',
+  psc: 'State PSC',
+  teaching: 'Teaching',
+  medical: 'Medical / Health',
+  engineering: 'Engineering',
+  police: 'Police / Paramilitary',
+  court: 'Court / Judiciary'
+};
+---
+
+<BaseLayout
+  title="Latest Government Jobs 2026 | Sarkari Naukri | Sarkari Sahayak"
+  description="2026 की सभी Latest Government Jobs — SBI, IBPS, UPSC, Railway, RSSB, Rajasthan Safai Karamchari। Vacancy, last date, apply link sab ek jagah। Sarkari Naukri 2026।"
+  canonical="/latest-jobs"
+>
+  <section class="section">
+    <div class="container">
+      <div class="section-head center-head">
+        <span class="section-label">Sarkari Naukri 2026</span>
+        <h1 class="section-title">Latest Government Jobs</h1>
+        <p class="section-sub">Abhi open hain — apply karein before last date. Banking, Railway, Rajasthan, Central sab covered.</p>
+      </div>
+
+      <div class="chips-row" id="jobFilters" role="group" aria-label="Job category filters">
+        <button type="button" class="chip active" data-filter="all">All<span class="cnt">{jobs.length}</span></button>
+        {categories.map(cat => (
+          <button type="button" class="chip" data-filter={cat}>
+            {categoryLabels[cat] || cat}
+            <span class="cnt">{jobs.filter(j => j.category === cat).length}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="tt-wrap" style="margin-top:var(--sp-xl)">
+        <table class="tt-table" id="jobsTable">
+          <thead>
+            <tr>
+              <th style="width:40%">Post / Recruitment</th>
+              <th>Organization</th>
+              <th style="text-align:center">Vacancies</th>
+              <th>Last Date</th>
+              <th style="text-align:center">Apply</th>
+            </tr>
+          </thead>
+          <tbody>
+            {jobs.map(job => (
+              <tr data-category={job.category}>
+                <td>
+                  <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                  <br/>
+                  <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                </td>
+                <td style="white-space:nowrap">{job.organization}</td>
+                <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                  {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                </td>
+                <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                <td style="text-align:center">
+                  <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                    Apply ↗
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var filterBtns = document.querySelectorAll('#jobFilters .chip');
+    var rows = document.querySelectorAll('#jobsTable tbody tr');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        rows.forEach(function(row) {
+          if (f === 'all' || row.getAttribute('data-category') === f) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+  </script>
+</BaseLayout>

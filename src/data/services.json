@@ -1,0 +1,1538 @@
+[
+  {
+    "id": "aadhar",
+    "slug": "aadhaar",
+    "icon": "🪪",
+    "titleHi": "आधार कार्ड",
+    "titleEn": "Aadhaar Card · UIDAI",
+    "category": "national",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "5 min",
+    "keywords": "aadhaar card update, aadhaar address change, uidai, aadhaar correction, aadhaar download",
+    "intro": "आधार कार्ड भारत में सबसे ज़रूरी identity document है। इसमें address, name, mobile number या photo correction online या nearest Aadhaar centre से करवा सकते हैं।",
+    "portalUrl": "https://myaadhaar.uidai.gov.in/",
+    "portalName": "myaadhaar.uidai.gov.in",
+    "docs": [
+      "आधार नंबर या 16-digit VID number",
+      "Registered mobile number (OTP verification ke liye)",
+      "Valid Address Proof — bank passbook / passport / bijli-paani ka bill (3 mahine purana max)",
+      "Rent agreement (govt format mein, agar rented ho)",
+      "Head of Family (HoF) ka Aadhaar — jab apna proof na ho"
+    ],
+    "steps": [
+      "myaadhaar.uidai.gov.in kholen → Login section mein Aadhaar/VID number aur captcha daalein",
+      "Registered mobile par aaya OTP enter karke login karein",
+      "Address Update option chunein → naya poora address type karein",
+      "Address proof document upload karein (JPG/PNG, 2MB se kam, saaf readable scan)",
+      "₹50 fee UPI/Card/Netbanking se pay karein → SRN number note kar lein",
+      "SRN se status track karein; approval ke baad m-Aadhaar app mein turant updated address dikhega"
+    ],
+    "fees": [
+      ["Online Address Update", "₹50"],
+      ["Biometric Update (Seva Kendra)", "₹100"],
+      ["Name / Gender Correction", "₹50"],
+      ["Mobile Number Update (center only)", "₹50"]
+    ],
+    "timeInfo": "Proof verify hone ke baad 5–7 din · e-Aadhaar turant download ho jata hai",
+    "tips": [
+      "Naam life mein sirf 2 baar change hota hai; DOB sirf 1 baar valid proof ke saath",
+      "2026 mein UIDAI periodically FREE document update window kholti hai — myAadhaar dashboard check karte rahein"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Aadhaar card mein address kaise change karein?", "a": "myaadhaar.uidai.gov.in par login karein, Address Update option chunein, naya address aur proof upload karein, ₹50 fee pay karein. 5-7 din mein update ho jayega." },
+      { "q": "Aadhaar mobile number link kaise karein?", "a": "Nearest Aadhaar Seva Kendra jaakar mobile number update karwayein. ₹50 fee hai. Online sirf address update hota hai, mobile number ke liye physically jaana padta hai." },
+      { "q": "e-Aadhaar download kaise karein?", "a": "myaadhaar.uidai.gov.in par login karein ya UIDAI website se Download Aadhaar option chunein. Aadhaar number ya VID se download kar sakte hain." },
+      { "q": "Aadhaar card free mein ban sakta hai?", "a": "Haan, pehli baar banana free hai. Update/correction ke liye ₹50-100 fee hoti hai." }
+    ],
+    "relatedServices": ["pan", "voter-id"],
+    "keyPoints": [
+      "Bharat mein sabse zaroori identity document",
+      "Bank account, SIM card, aur government schemes ke liye zaroori",
+      "Online aur offline dono tarike se update kar sakte hain",
+      "mAadhaar app se digital version use kar sakte hain"
+    ],
+    "helpline": "1947 (toll-free)",
+    "processingTime": {
+      "eAadhaar": "instant download",
+      "addressUpdate": "5-7 working days",
+      "biometricUpdate": "7-15 working days",
+      "nameGenderCorrection": "5-7 working days",
+      "mobileUpdate": "same day at centre"
+    },
+    "updateLimits": {
+      "name": "Max 2 times in lifetime (with valid proof)",
+      "dob": "Max 1 time (with original proof)",
+      "gender": "Max 1 time",
+      "address": "No limit (valid proof required)",
+      "mobile": "No limit (centre visit required)"
+    },
+    "importantDates": {
+      "freeUpdateWindow": "Available periodically — check myAadhaar dashboard",
+      "deadline14June2027": "Free document update deadline 14 June 2027 (if applicable)"
+    },
+    "childMbu": "Children MBU (Multiple Biometric Update) available for children turning 5 and 15",
+    "rejectionReasons": [
+      "Address proof mismatch with application",
+      "Blurry or unreadable document upload",
+      "Duplicate request already pending",
+      "Payment failure — SRN not generated"
+    ]
+  },
+  {
+    "id": "pan",
+    "slug": "pan",
+    "icon": "💳",
+    "titleHi": "PAN कार्ड",
+    "titleEn": "PAN 2.0 · Income Tax Dept",
+    "category": "national",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "7 min",
+    "keywords": "pan card apply, pan 2.0, e-pan download, pan aadhaar link, instant pan",
+    "intro": "PAN card income tax filing, banking, aur financial transactions ke liye zaroori hai. 2026 mein PAN 2.0 ke saath instant e-PAN free mein ban jata hai Aadhaar se.",
+    "portalUrl": "https://www.incometax.gov.in/iec/foportal/",
+    "portalName": "incometax.gov.in",
+    "docs": [
+      "Aadhaar card (e-KYC ke liye mandatory)",
+      "Aadhaar-linked mobile number (OTP ke liye)",
+      "Photo + signature scan (sirf correction route ke liye)",
+      "DOB proof — Aadhaar se auto-fetch hota hai"
+    ],
+    "steps": [
+      "Instant e-PAN: incometax.gov.in kholen → Instant e-PAN section par click karein",
+      "Get New e-PAN chunein → Aadhaar number daalein → OTP verify karein",
+      "Aadhaar se aayi details confirm karke Submit karein — e-PAN PDF minutes mein download ready",
+      "Physical PAN 2.0 card: e-filing account → Reprint/Request New PAN Card select karein",
+      "Correction ke liye Protean portal → Change/Correction form → ₹50 e-sign",
+      "PAN-Aadhaar link status: incometax.gov.in → Quick Links → Link Aadhaar Status"
+    ],
+    "fees": [
+      ["Instant e-PAN (Aadhaar se)", "FREE"],
+      ["e-PAN correction (electronic)", "₹50"],
+      ["Physical PAN 2.0 card dispatch", "₹107 approx"],
+      ["Card Reprint", "₹50 + dispatch"]
+    ],
+    "timeInfo": "Instant e-PAN: minutes mein · Physical card: ~15 din",
+    "tips": [
+      "Ek Aadhaar se sirf ek hi PAN banta hai — duplicate PAN penalty ₹10,000 tak hoti hai",
+      "PAN 2.0 transition mein purana PAN number same rehta hai, koi re-application nahi chahiye"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "PAN card ke liye kitni age chahiye?", "a": "Koi age limit nahi hai — newborn se lekar elderly tak sab ke liye PAN ban sakta hai." },
+      { "q": "PAN aur Aadhaar link kaise karein?", "a": "incometax.gov.in par Quick Links → Link Aadhaar par jaayein. Aadhaar number aur PAN number daalein, OTP verify karein. Agar dono naam match na karein toh pehle correction karwayein." },
+      { "q": "Gum hua PAN card kaise dubara lein?", "a": "incometax.gov.in par login karein → Reprint PAN Card option chunein → ₹50+50 fee pay karein → naya card ghar par aayega." },
+      { "q": "Ek se zyada PAN hai toh kya karein?", "a": "Voluntarily surrender karein — online portal par Return of Duplicate PAN form bharen. Nahi toh ₹10,000 tak ka penalty lag sakta hai." }
+    ],
+    "relatedServices": ["itr-filing", "aadhaar"],
+    "keyPoints": [
+      "Aadhaar se instant e-PAN free mein ban jata hai",
+      "Income tax filing ke liye PAN zaroori hai",
+      "Bank account, investment, aur property ke liye mandatory",
+      "PAN 2.0 mein purana number same rehta hai"
+    ],
+    "helpline": "1800-186-1542 (toll-free)",
+    "processingTime": {
+      "instantEPan": "10 minutes (Aadhaar e-KYC based)",
+      "physicalPanCard": "15-20 working days",
+      "correction": "15-20 working days after approval"
+    },
+    "newForms": {
+      "form95": "New PAN application ( Indian citizen)",
+      "form96": "New PAN application (Foreign citizen)",
+      "form97": "PAN correction/ change",
+      "form98": "PAN reprint/ replacement"
+    },
+    "nriFees": "₹1017 (including dispatch charges)",
+    "importantDates": {
+      "panAadhaarLinkDeadline": "Check incometax.gov.in for latest deadline",
+      "penaltyForNonLink": "₹1,000 fee for late linking"
+    },
+    "rejectionReasons": [
+      "Aadhaar name does not match PAN name",
+      "Invalid Aadhaar OTP verification",
+      "Duplicate PAN already exists",
+      "Incomplete form submission"
+    ]
+  },
+  {
+    "id": "passport",
+    "slug": "passport",
+    "icon": "📘",
+    "titleHi": "पासपोर्ट",
+    "titleEn": "Passport Seva · MEA",
+    "category": "national",
+    "difficulty": "Complex",
+    "mode": "Offline Visit",
+    "readTime": "8 min",
+    "keywords": "passport apply, passport seva, passport renewal, tatkal passport, passport appointment",
+    "intro": "Passport banwane ke liye online form bharna aur PSK visit karna padta hai. Normal ya Tatkal dono options available hain — documents sahi hone par process smooth hota hai.",
+    "portalUrl": "https://www.passportindia.gov.in/",
+    "portalName": "passportindia.gov.in",
+    "docs": [
+      "Aadhaar card (original + copy)",
+      "Date of Birth proof — birth certificate ya 10th certificate",
+      "Current address proof — bijli bill / bank passbook / rent agreement",
+      "Old passport (re-issue case mein original)",
+      "Tatkal ke liye: Annexure verification certificate + 1 additional ID proof"
+    ],
+    "steps": [
+      "passportindia.gov.in par New User Registration karke account banayein",
+      "Login karke Apply for Fresh Passport / Re-issue chunein → form bharein",
+      "PSK choose karein (Jaipur/Jodhpur etc.) → fee pay karein → appointment slot book karein",
+      "Appointment day: originals + self-attested photocopy set lekar PSK 15 minute pehle pahunchein",
+      "Token lagne ke baad Counter A-B-C process: biometric + document verification hoga",
+      "Fresh application: police verification baad mein hogi; Tatkal: passport 1–3 din mein dispatch",
+      "Speed Post tracking number se delivery monitor karein"
+    ],
+    "fees": [
+      ["Fresh/Reissue 36 pages (Adult) — Normal", "₹1,500"],
+      ["Tatkal surcharge (same category)", "+₹2,000"],
+      ["60 pages upgrade", "+₹500"],
+      ["Minor (≤15 yr) 36 pages Normal", "₹1,000"]
+    ],
+    "timeInfo": "Normal: 7–30 din (police verification ke baad) · Tatkal: 1–3 din",
+    "tips": [
+      "Slot booking free hai lekin fee payment pehle zaroori hai — slot 90 din advance tak milte hain",
+      "Police verification report negative aaye toh application reject ho sakti hai — documents honest bharein"
+    ],
+    "tool": "fees-passport",
+    "faq": [
+      { "q": "Passport ke liye police verification zaruri hai?", "a": "Haan, fresh passport ke liye police verification hoti hai. Tatkal mein pehle passport milta hai, baad mein verification hoti hai. Re-issue mein address same ho toh verification nahi hoti." },
+      { "q": "Passport ka address Aadhaar wala hona chahiye?", "a": "Nahi, koi bhi valid address proof chalega — bijli bill, bank passbook, rent agreement sab accepted hain." },
+      { "q": "Minor bachche ka passport kaise banwayein?", "a": "Dono parents ka consent chahiye. Online form bharen, PSK mein appoint le jaayein. 15 saal se kam ke bachon ke passport 5 saal ke liye valid hote hain." },
+      { "q": "Passport kharab ho gaya hai toh kya karein?", "a": "Re-issue ke liye apply karein — 'Reissue' reason mein 'Valid upto declared/Exhausted pages' chunein. Same process follow karein." },
+      { "q": "Passport track kaise karein?", "a": "passportindia.gov.in par Login → Track Application Status. Ya SMS service: SMS STATUS <space> 15-digit file number 9704100100 par bhejen." }
+    ],
+    "relatedServices": ["aadhaar", "birth-certificate"],
+    "keyPoints": [
+      "Online form bharkar PSK mein appointment lena padta hai",
+      "Normal aur Tatkal dono options available hain",
+      "Documents sahi hone par process smooth hota hai",
+      "Police verification fresh passport ke liye zaroori hai"
+    ],
+    "helpline": "1800-258-1100 (toll-free) / 011-23386161",
+    "processingTime": {
+      "normal": "7-30 working days (after police verification)",
+      "tatkal": "1-3 working days (passport first, verification later)",
+      "reissueNormal": "7-30 working days",
+      "reissueTatkal": "1-3 working days"
+    },
+    "comparison": {
+      "headers": ["Feature", "Normal", "Tatkal"],
+      "rows": [
+        ["Fee (36 pages, Adult)", "₹1,500", "₹3,500"],
+        ["Fee (60 pages)", "₹2,000", "₹4,000"],
+        ["Minor (≤15 yr) 36 pages", "₹1,000", "₹3,000"],
+        ["Processing Time", "7-30 days", "1-3 days"],
+        ["Police Verification", "Before passport", "After passport"],
+        ["Appointment Slot", "Available 90 days advance", "Limited availability"]
+      ]
+    },
+    "pskTypes": ["PSK (Passport Seva Kendra)", "POPSK (Post Office PSK)", "RPO (Regional Passport Office)"],
+    "rejectionReasons": [
+      "Documents not self-attested",
+      "Address proof expired",
+      "Police verification report negative",
+      "Incomplete application form",
+      "Appointment slot missed"
+    ]
+  },
+  {
+    "id": "dl",
+    "slug": "driving-license",
+    "icon": "🚗",
+    "titleHi": "ड्राइविंग लाइसेंस",
+    "titleEn": "Sarathi Parivahan",
+    "category": "national",
+    "difficulty": "Medium",
+    "mode": "Online",
+    "readTime": "6 min",
+    "keywords": "driving license apply, learner license, permanent DL, DL renewal, sarathi parivahan",
+    "intro": "Learner license (LL) ke baad permanent driving license banwana Parivahan portal par online hota hai. Rajasthan mein Sarathi portal se dono ke liye apply kar sakte hain.",
+    "portalUrl": "https://sarathi.parivahan.gov.in/",
+    "portalName": "sarathi.parivahan.gov.in",
+    "docs": [
+      "Age proof — birth certificate / 10th marksheet",
+      "Address proof — Aadhaar / bijli bill / passport",
+      "Aadhaar card (e-KYC ke liye)",
+      "Passport size photos (digital upload)",
+      "Medical Certificate Form 1A (40+ age ya transport DL)"
+    ],
+    "steps": [
+      "sarathi.parivahan.gov.in kholen → state Rajasthan select karein",
+      "Apply for Learner Licence → Aadhaar e-KYC se form auto-fill karein",
+      "LL test slot book karein — kai states ab ghar se online test bhi deti hain",
+      "LL test: 15 sawaal, 9 saahi (60%) chahiye — traffic signs, rules, documents par based",
+      "LL milne ke baad (validity 6 mahine) kam se kam 30 din baad Permanent DL apply karein",
+      "DL driving test slot book karein → test day apni gaadi RTO lekar jayein",
+      "Test pass hone par DL Speed Post se ghar aa jata hai"
+    ],
+    "fees": [
+      ["Learner Licence fee", "₹200"],
+      ["LL test (per class)", "₹50"],
+      ["Permanent Driving Licence", "₹1,000"],
+      ["DL Renewal", "₹800"],
+      ["International Driving Permit", "₹1,000"]
+    ],
+    "timeInfo": "LL: same day · DL: driving test ke 15–30 din baad",
+    "tips": [
+      "LL validity 6 mahine ki hoti hai — iske andar DL test pass karna zaroori",
+      "Faceless renewal: koi driving test nahi, sirf medical self-declaration (Form 1)"
+    ],
+    "tool": "fees-dl",
+    "faq": [
+      { "q": "Learner license ke baad kitne din mein permanent DL ke liye apply karein?", "a": "Kam se kam 30 din baad aur maximum 6 mahine ke andar apply karna hota hai. Is period ke bahar apply nahi hoga." },
+      { "q": "DL renewal ki age kitni hai?", "a": "Non-transport DL: 40 tak 20 saal, phir 5-5 saal. Transport DL: 40 tak 10 saal, phir har 5 saal medical ke saath." },
+      { "q": "Online LL test kaise hota hai?", "a": "Sarathi portal par slot book karein. Webcam on karna hai, screen share hota hai. 15 MCQ sawaal aate hain, 9 sahi hone chahiye." },
+      { "q": "Gaadi ka paper hona chahiye DL test ke liye?", "a": "Nahi, gaadi LMV category ki honi chahiye. Own car, driving school car ya kisi ka bhi chalega — registration papers driver ke naam nahi chahiye." }
+    ],
+    "relatedServices": ["jan-aadhaar", "aadhaar"],
+    "keyPoints": [
+      "Pehle Learner License lena padta hai, phir Permanent DL ke liye apply karein",
+      "Online aur offline dono tarike se apply kar sakte hain",
+      "LL validity 6 mahine ki hoti hai",
+      "Faceless renewal se bina test ke DL renew hota hai"
+    ],
+    "helpline": "1800-180-1551 (toll-free) / 011-23386161",
+    "processingTime": {
+      "learnerLicense": "Same day (online test pass hone par)",
+      "permanentDL": "15-30 working days after driving test",
+      "dlRenewal": "7-15 working days",
+      "internationalDrivingPermit": "7-15 working days"
+    },
+    "comparison": {
+      "headers": ["Feature", "Learner License", "Permanent DL"],
+      "rows": [
+        ["Validity", "6 months", "20 years (non-transport) / 10 years (transport)"],
+        ["Minimum Age", "18 years (LMV) / 20 years (transport)", "18 years (LMV) / 20 years (transport)"],
+        ["Test Required", "15 MCQs (9 correct needed)", "Practical driving test"],
+        ["Fee", "₹200", "₹1,000"],
+        ["Can Drive Alone", "No (supervisor required)", "Yes"]
+      ]
+    },
+    "importantDates": {
+      "llToDlGap": "Minimum 30 days, Maximum 6 months after LL",
+      "dlRenewalWindow": "Up to 1 year before expiry, up to 5 years after expiry"
+    },
+    "rejectionReasons": [
+      "LL expired before DL application",
+      "Age proof mismatch",
+      "Driving test failed",
+      "Medical certificate not submitted (40+ age)",
+      "Incomplete application"
+    ]
+  },
+  {
+    "id": "ration",
+    "slug": "ration-card",
+    "icon": "🌾",
+    "titleHi": "राशन कार्ड",
+    "titleEn": "NFSA Ration Card",
+    "category": "national",
+    "difficulty": "Medium",
+    "mode": "Online",
+    "readTime": "6 min",
+    "keywords": "ration card apply, NFSA ration card, new ration card, ration card member add, food security",
+    "intro": "Ration card se sasti dar par ration milta hai. Rajasthan mein Jan Aadhaar se family import karke ration card apply karna sabse aasan hai.",
+    "portalUrl": "https://food.rajasthan.gov.in/",
+    "portalName": "food.rajasthan.gov.in",
+    "docs": [
+      "Jan Aadhaar card (Rajasthan — sabhi members ka)",
+      "Sabhi family members ke Aadhaar cards",
+      "Income / residence proof",
+      "Family ka photo (group photo kabhi states mein)",
+      "Bank passbook (head of family)"
+    ],
+    "steps": [
+      "Apne state ka Food/NFSA portal kholen (Rajasthan: food.rajasthan.gov.in)",
+      "New Ration Card Application chunein → Jan Aadhaar ID daalne par members auto-import ho jayenge",
+      "Zaroori documents upload karein → submit karke Application Number note karein",
+      "Ward officer / Panchayat level par field verification hogi",
+      "Approval ke baad e-Ration card PDF download karein ya BTP par print karwayein",
+      "Member add karna ho toh PEHLE Jan Aadhaar mein add karein, phir ration card update request karein",
+      "Har saal e-KYC: portal → Ration Card eKYC → Aadhaar OTP se complete karein"
+    ],
+    "fees": [
+      ["Naya ration card", "₹10–45 (state wise)"],
+      ["Duplicate card print", "₹10"],
+      ["Member add/remove", "FREE"],
+      ["Annual e-KYC", "FREE"]
+    ],
+    "timeInfo": "Application se approval: 15–30 din",
+    "tips": [
+      "NFSA Priority list walon ko 2026 mein free grain jaari hai — eligibility list portal par check karein",
+      "e-KYC skip karne par card temporary suspend ho sakta hai"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Naya ration card kaise banwayein?", "a": "Apne state ke Food portal par jaayein, Jan Aadhaar ID se login karein, family members ka data auto-import hoga, documents upload karein aur submit karein. 15-30 din mein approval mil jayega." },
+      { "q": "Ration card mein naya member kaise jodein?", "a": "Pehle Jan Aadhaar mein naya member add karein, phir ration card portal par update request karein. Jan Aadhaar ke bina ration card mein member nahi jud sakta." },
+      { "q": "e-KYC skip karne se kya hoga?", "a": "Ration card temporary suspend ho sakta hai. Har saal Aadhaar OTP se e-KYC karna zaroori hai. Bina e-KYC ke ration nahi milega." },
+      { "q": "Ration card duplicate kaise nikalein?", "a": "Ration card portal par login karein, Duplicate Card option chunein, ₹10 fee pay karein. Ya e-Mitra kiosk se bhi nikal sakte hain." }
+    ],
+    "relatedServices": ["jan-aadhaar", "ayushman-bharat"],
+    "keyPoints": [
+      "Sasti dar par anaj milta hai NFSA beneficiaries ko",
+      "Jan Aadhaar se family import karna sabse aasan tarika hai",
+      "Har saal e-KYC karna zaroori hai warna card suspend hota hai",
+      "Member add karne ke liye pehle Jan Aadhaar update karein"
+    ],
+    "helpline": "1967 (toll-free) / Food Department helpline",
+    "processingTime": {
+      "applicationToApproval": "15-30 working days",
+      "ekycReminder": "Annual — typically Q4 each year",
+      "memberAddition": "7-15 working days after Jan Aadhaar update"
+    },
+    "types": {
+      "aay": "Antyodaya Anna Yojana — poorest families, 35 kg grain/month",
+      "phh": "Priority Households — eligible families, 5 kg/person/month",
+      "sphh": "Special Priority Households — state-level priority families"
+    },
+    "comparison": {
+      "headers": ["Card Type", "Grain Entitlement", "Eligibility"],
+      "rows": [
+        ["AAY", "35 kg/month", "Poorest of poor families"],
+        ["PHH", "5 kg/person/month", "SECC 2011 deprivation criteria"],
+        ["SPHH", "5 kg/person/month", "State government priority list"]
+      ]
+    },
+    "importantDates": {
+      "nfsaFreeGrain": "Extended till March 2027 under NFSA",
+      "ekycDeadline": "Annual — check food.rajasthan.gov.in"
+    },
+    "rejectionReasons": [
+      "Jan Aadhaar ID not linked",
+      "Family income above threshold",
+      "Already holding another ration card",
+      "Documents not verified at field level",
+      "e-KYC not completed"
+    ]
+  },
+  {
+    "id": "voter",
+    "slug": "voter-id",
+    "icon": "🗳️",
+    "titleHi": "वोटर आईडी",
+    "titleEn": "ECI Voter Helpline",
+    "category": "national",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "5 min",
+    "keywords": "voter id apply, voter registration, e-epic download, form 6, voter id correction",
+    "intro": "Voter ID banwana ya correct karna ab ECI portal par online ho jata hai. Digital e-EPIC download karke turant use kar sakte hain.",
+    "portalUrl": "https://voters.eci.gov.in/",
+    "portalName": "voters.eci.gov.in",
+    "docs": [
+      "Age proof — birth certificate / 10th certificate / passport",
+      "Address proof — bijli bill / bank passbook / rent agreement",
+      "Passport size photo (digital)",
+      "Aadhaar card (optional — Form 6B linking ke liye)",
+      "Registered mobile number"
+    ],
+    "steps": [
+      "voters.eci.gov.in kholen → Sign Up se mobile + email register karein → OTP verify",
+      "Fill Form 6 chunein → naam, DOB, address details bharein",
+      "Age + address proofs upload karein → photo lagayen → submit karein",
+      "Application reference number note karein — online track kar sakte hain",
+      "BLO ~30 din mein ghar aakar verification karega",
+      "Approval par EPIC number SMS aayega → e-EPIC Download se digital Voter ID PDF turant le lein",
+      "Correction ke liye Form 8 use karein (naam / pata / photo / DOB)"
+    ],
+    "fees": [
+      ["New registration (Form 6)", "FREE"],
+      ["e-EPIC digital download", "FREE"],
+      ["Corrections (Form 8)", "FREE"],
+      ["Physical EPIC replacement", "FREE (first time)"]
+    ],
+    "timeInfo": "EPIC card: ~30 din · e-EPIC: approval ke turant baad",
+    "tips": [
+      "Digital e-EPIC sabhi jagah valid hai — print bhi kar sakte hain",
+      "Form 6B se Aadhaar link karne par duplicate voters khatam hote hain"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "18 saal ki age mein voter ID ban sakta hai?", "a": "Haan, 18 saal ya usse zyada age mein voter ID ke liye apply kar sakte hain. Jan 1, Apr 1, Jul 1, Oct 1 ko age 18+ honi chahiye." },
+      { "q": "e-EPIC download kaise karein?", "a": "voters.eci.gov.in par login karein → e-EPIC Download chunein → EPIC number ya reference number se PDF download karein. Ya Voter Helpline app bhi use kar sakte hain." },
+      { "q": "Puraane voter card mein correction kaise karein?", "a": "Form 8 online bharen — naam, address, photo ya DOB correct kar sakte hain. BLO verification ke baad naya EPIC banega." },
+      { "q": "Ek se zyada jagah voter ID hai toh kya karein?", "a": "Voluntarily surrender karein — Form 7 bharkar old constituency ko bhejen. Ek se zyada hona illegal hai." }
+    ],
+    "relatedServices": ["aadhaar", "jan-aadhaar"],
+    "keyPoints": [
+      "18 saal ki age mein free mein voter ID ban jata hai",
+      "Digital e-EPIC download karke turant use kar sakte hain",
+      "Online Form 6 se apply karna sabse aasan hai",
+      "Aadhaar link karne se duplicate voter id khatam hota hai"
+    ],
+    "helpline": "1950 (toll-free)",
+    "processingTime": {
+      "newEPIC": "~30 working days (after BLO verification)",
+      "ePICDownload": "Instant after approval",
+      "correction": "~15-30 working days"
+    },
+    "importantDates": {
+      "ageCutoff": "1st January / 1st April / 1st July / 1st October of the year of application",
+      "epicDownloadWindow": "Available anytime after approval"
+    },
+    "eligibilityDates": "To be 18 years on 1 Jan, 1 Apr, 1 Jul, or 1 Oct of the application year",
+    "rejectionReasons": [
+      "BLO verification negative (address not found)",
+      "Incomplete Form 6 submission",
+      "Age proof mismatch",
+      "Duplicate EPIC already exists in same constituency",
+      "Photo not clear"
+    ]
+  },
+  {
+    "id": "itr",
+    "slug": "itr-filing",
+    "icon": "📊",
+    "titleHi": "ITR Filing 2026",
+    "titleEn": "Income Tax Return",
+    "category": "national",
+    "difficulty": "Medium",
+    "mode": "Online",
+    "readTime": "10 min",
+    "keywords": "itr filing, income tax return, itr 2026, itr online, tax refund",
+    "intro": "Income Tax Return bharna portal par kaafi simple ho gaya hai — pre-filled data auto-fetch hota hai. Sahi ITR form chunna aur regime compare karna zaroori hai.",
+    "portalUrl": "https://www.incometax.gov.in/iec/foportal/",
+    "portalName": "incometax.gov.in",
+    "docs": [
+      "Form 16 (employer se mila salary certificate)",
+      "Form 26AS / AIS statement (portal par pre-filled)",
+      "Bank account details + IFSC code",
+      "Investment proofs — 80C (LIC/PPF/ELSS), HRA receipts, home loan interest",
+      "Interest certificates — savings/FD income (agar ho)"
+    ],
+    "steps": [
+      "incometax.gov.in login karein → e-File → Income Tax Returns → File New Return",
+      "AY 2026-27 select karein → Online Mode → applicable person: Individual",
+      "ITR-1 Sahaj chunein (salary ek employer se + 1 house property + interest income tak valid)",
+      "Pre-filled data ko Form 16 aur AIS se MATCH karein — mismatch par notice aa sakta hai",
+      "Regime compare karein: New Regime vs Old Regime — system dono ka tax dikhata hai",
+      "Bank details confirm → Submit → turant Aadhaar OTP se e-Verify karein (30 din ke andar zaroori!)",
+      "Refund 20–45 din mein bank account mein credit hota hai"
+    ],
+    "fees": [
+      ["Self filing (online portal)", "FREE"],
+      ["Late filing after due date", "₹1,000 – ₹5,000"],
+      ["e-Verify miss hone par", "Return invalid — penalty risk"]
+    ],
+    "timeInfo": "Filing: 20–30 min · Refund: 20–45 din",
+    "tips": [
+      "Due date: 31 July 2026 (non-audit cases)",
+      "New regime mein standard deduction ₹75,000 milega (salaried)"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "ITR bharna zaruri hai?", "a": "Agar income basic exemption limit se zyada hai toh zaruri hai. Salary ke liye ₹3 lakh, senior citizen ke liye ₹5 lakh se zyada income par ITR mandatory hai." },
+      { "q": "ITR file karne ki last date kab hai?", "a": "Non-audit cases ke liye 31 July 2026. Audit cases ke liye 31 October. Revised return 31 December tak file kar sakte hain." },
+      { "q": "Refund kab tak aata hai?", "a": "e-Verify karne ke baad 20-45 din mein refund bank account mein credit hota hai. inttax.gov.in par status check kar sakte hain." },
+      { "q": "New Regime ya Old Regime — kaunsa best hai?", "a": "Deductions zyada hain toh Old Regime best hai. Bilkul deductions nahi hain toh New Regime. Portal par dono ka tax auto-compare hota hai." }
+    ],
+    "relatedServices": ["pan", "ayushman-bharat"],
+    "keyPoints": [
+      "Online portal par pre-filled data auto-fetch hota hai",
+      "Due date 31 July non-audit cases ke liye hai",
+      "Aadhaar se e-Verify karna zaroori hai 30 din ke andar",
+      "New Regime mein ₹75,000 standard deduction milta hai"
+    ],
+    "helpline": "1800-419-0025 (toll-free) / 1800-103-0025",
+    "processingTime": {
+      "filing": "20-30 minutes online",
+      "refundCredit": "20-45 working days after e-verification",
+      "processingNotice": "3-6 months (if selected for scrutiny)"
+    },
+    "comparison": {
+      "headers": ["Feature", "Old Regime", "New Regime (Default)"],
+      "rows": [
+        ["Standard Deduction", "₹50,000 (salaried)", "₹75,000 (salaried)"],
+        ["80C Deductions", "Up to ₹1.5 lakh", "Not available"],
+        ["HRA Exemption", "Available", "Not available"],
+        ["Section 80D (Health)", "Up to ₹25,000", "Not available"],
+        ["Tax Rebate (u/s 87A)", "Up to ₹5 lakh income", "Up to ₹7 lakh income"]
+      ]
+    },
+    "importantDates": {
+      "dueDateNonAudit": "31 July 2026",
+      "dueDateAudit": "31 October 2026",
+      "revisedReturn": "31 December 2026",
+      "eVerifyDeadline": "30 days from filing"
+    },
+    "rejectionReasons": [
+      "Aadhaar not linked with PAN",
+      "e-verification not completed within 30 days",
+      "Income mismatch with Form 26AS/AIS",
+      "Wrong ITR form selected",
+      "Bank account not pre-validated"
+    ]
+  },
+  {
+    "id": "birth",
+    "slug": "birth-certificate",
+    "icon": "📜",
+    "titleHi": "जन्म प्रमाण पत्र",
+    "titleEn": "Birth Certificate · CRS",
+    "category": "national",
+    "difficulty": "Easy",
+    "mode": "Hybrid",
+    "readTime": "5 min",
+    "keywords": "birth certificate apply, janam praman patra, birth registration, crs login, birth certificate download",
+    "intro": "Jnma praman patra school admission, passport, aur government schemes ke liye zaroori hai. Hospital ya municipal corporation ke through CRS par register karte hain.",
+    "portalUrl": "https://crsorgi.gov.in/",
+    "portalName": "crsorgi.gov.in",
+    "docs": [
+      "Hospital / institution ka birth record slip",
+      "Parents ke Aadhaar cards",
+      "Marriage certificate (optional, kuch states)",
+      "Current address proof",
+      "Child ka naam final (baad mein bhi add ho sakta hai)"
+    ],
+    "steps": [
+      "crsorgi.gov.in kholen → General Public Signup se account banayein",
+      "Login karke Add Birth Registration chunein → hospital/institution details bharein",
+      "Registration number milne par municipal corporation verification karta hai (3–7 din)",
+      "Verified entry ke baad child ka naam add karein (agar pehle nahi diya)",
+      "Download Certificate se digitally signed PDF le lein — DigiLocker mein bhi dikhega",
+      "21 din ke baad case: late fee ₹25–50; 1 saal ke baad: SDM order + ₹100"
+    ],
+    "fees": [
+      ["21 din ke andar registration", "FREE"],
+      ["21–30 din late fee", "₹25"],
+      ["30 din – 1 saal", "₹50"],
+      ["1 saal ke baad", "₹100 + SDM order"]
+    ],
+    "timeInfo": "Verification: 3–7 din · Certificate PDF: instant download",
+    "tips": [
+      "School admission ke liye naam wali certificate hi chahiye — naam add kiye bina mat chhodein",
+      "Hospital khud bhi CRS par register karta hai — unse registration number maang lein"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Birth certificate ke liye kitne din mein apply karein?", "a": "21 din ke andar free hai. 21-30 din mein ₹25 late fee hai. 1 saal ke baad SDM order + ₹100 lagta hai." },
+      { "q": "Birth certificate ghar se online ban sakta hai?", "a": "Haan, crsorgi.gov.in par account banakar online apply kar sakte hain. Hospital registration number hota hai toh process fast hota hai." },
+      { "q": "Naam baad mein add kar sakte hain?", "a": "Haan, verified entry ke baad bhi naam add kar sakte hain. Baad mein bhi portal se hi add hota hai." },
+      { "q": "Duplicate birth certificate kaise lein?", "a": "CRS portal par login karein → Download Certificate chunein. Ya municipal corporation office se bhi duplicate nikalwa sakte hain." }
+    ],
+    "relatedServices": ["aadhaar", "passport"],
+    "keyPoints": [
+      "21 din ke andar apply karein — free hai",
+      "School admission, passport, aur schemes ke liye zaroori hai",
+      "Hospital khud bhi CRS par register karta hai",
+      "Naam baad mein bhi add ho sakta hai"
+    ],
+    "helpline": "1800-11-2525 (toll-free) / CRS Helpline",
+    "processingTime": {
+      "registration": "3-7 working days (after hospital/municipal verification)",
+      "certificateDownload": "Instant after approval",
+      "delayedRegistration": "7-30 working days (after SDM order)"
+    },
+    "importantDates": {
+      "freeRegistration": "Within 21 days of birth — FREE",
+      "lateFee21to30": "₹25 (21-30 days after birth)",
+      "lateFee30to1year": "₹50 (30 days - 1 year after birth)",
+      "lateFeeAfter1year": "₹100 + SDM order required"
+    },
+    "delayedRegistrationProcess": "After 1 year: Apply to SDM with affidavit and proof of birth, ₹100 fee + SDM order required",
+    "rejectionReasons": [
+      "Hospital registration number mismatch",
+      "Parent Aadhaar not verified",
+      "Address proof not matching jurisdiction",
+      "Incomplete application form",
+      "Late registration without SDM order"
+    ]
+  },
+  {
+    "id": "ayushman",
+    "slug": "ayushman-bharat",
+    "icon": "🏥",
+    "titleHi": "आयुष्मान भारत",
+    "titleEn": "PM-JAY / ABHA Card",
+    "category": "national",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "5 min",
+    "keywords": "ayushman bharat, pmjay card, abha card, health insurance, cashless treatment",
+    "intro": "Ayushman Bharat se ₹5 lakh tak ka cashless treatment milta hai eligible families ko. 2026 mein ABHA health ID bhi isi portal se free mein ban jati hai.",
+    "portalUrl": "https://beneficiary.nha.gov.in/",
+    "portalName": "beneficiary.nha.gov.in",
+    "docs": [
+      "Sabhi family members ke Aadhaar cards",
+      "Ration card (SECC list verification ke liye)",
+      "Registered mobile number",
+      "Ration/income category info (deprivation criteria)"
+    ],
+    "steps": [
+      "beneficiary.nha.gov.in kholen → Am I Eligible? check karein",
+      "Mobile number daalkar Aadhaar se login karein",
+      "Family members SECC/deprivation list mein dikhenge — eligible member select karein",
+      "Consent + Aadhaar OTP verify karein",
+      "Download Ayushman Card se PDF card turant le lein (₹0 cost)",
+      "Empanelled hospital list: pmjay.gov.in → Find Hospital — city wise dekhein",
+      "Hospital admission par card + Aadhaar dikha kar cashless treatment lein"
+    ],
+    "fees": [
+      ["Ayushman Card banwana", "FREE — agent ko paise dena mana hai!"],
+      ["Treatment cover", "₹5 lakh / year / family"],
+      ["Pre-existing diseases", "Covered day 1 se"]
+    ],
+    "timeInfo": "Eligible ho toh card download: 5 minute",
+    "tips": [
+      "ABHA number (14-digit health ID) bhi isi portal se free banta hai",
+      "Naam card par cut ho toh hospital Arogya Mitra desk help karta hai"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Ayushman card ke liye kaun eligible hai?", "a": "SECC 2011 deprivation list mein jo families hain unko free cover milta hai. Rural: 14 parameters, Urban: 11 parameters. Portal par eligibility check kar sakte hain." },
+      { "q": "Ayushman card se kya hota hai?", "a": "₹5 lakh tak ka cashless treatment milta hai empanelled hospitals mein. Pre-existing diseases bhi day 1 se covered hain." },
+      { "q": "Private hospital bhi covered hai?", "a": "Haan, jo private hospitals government se empanelled hain unmein cashless treatment milta hai. pmjay.gov.in par city-wise hospital list dekhein." },
+      { "q": "ABHA card aur Ayushman card mein kya farq hai?", "a": "ABHA (Ayushman Bharat Health Account) ek health ID hai jo har koi bana sakta hai. Ayushman card sirf eligible families ke liye hai jismein ₹5 lakh cover milta hai." }
+    ],
+    "relatedServices": ["chiranjeevi-yojana", "ration-card"],
+    "keyPoints": [
+      "₹5 lakh tak ka cashless hospital treatment milta hai",
+      "Pre-existing diseases bhi day 1 se covered hain",
+      "ABHA health ID bhi free mein ban sakti hai",
+      "Private empanelled hospitals mein bhi cashless treatment hai"
+    ],
+    "helpline": "14555 (toll-free) / 1800-111-565",
+    "processingTime": {
+      "cardDownload": "5 minutes (if eligible in SECC list)",
+      "eligibilityCheck": "Instant online",
+      "hospitalAdmission": "Cashless — show card + Aadhaar"
+    },
+    "comparison": {
+      "headers": ["Feature", "Ayushman Bharat (PM-JAY)", "ABHA Health ID"],
+      "rows": [
+        ["Eligibility", "SECC 2011 deprivation families", "All Indian citizens"],
+        ["Coverage", "₹5 lakh/year/family", "No financial coverage — health record only"],
+        ["Card Cost", "FREE", "FREE"],
+        ["Treatment", "Cashless at empanelled hospitals", "Not applicable"],
+        ["Pre-existing Diseases", "Covered from Day 1", "Not applicable"]
+      ]
+    },
+    "importantDates": {
+      "schemeLaunch": "September 2018",
+      "abhaMandatory": "Gradually mandatory for all hospital visits by 2026",
+      "hospitalCount": "27,000+ empanelled hospitals across India"
+    },
+    "rejectionReasons": [
+      "Not in SECC 2011 deprivation list",
+      "Aadhaar not linked with family",
+      "Family income above threshold",
+      "Card not renewed (if applicable)",
+      "Hospital not empanelled under PM-JAY"
+    ]
+  },
+  {
+    "id": "sso",
+    "slug": "sso",
+    "icon": "🌐",
+    "titleHi": "SSO Portal",
+    "titleEn": "Rajasthan Single Sign On",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "4 min",
+    "keywords": "rajasthan sso, sso id, sso login, single sign on, sso password reset",
+    "intro": "Rajasthan SSO portal ek hi login se sabhi govt services access karne ka tarika hai — e-Mitra, recruitment, schemes sab ek jagah.",
+    "portalUrl": "https://sso.rajasthan.gov.in/",
+    "portalName": "sso.rajasthan.gov.in",
+    "docs": [
+      "Jan Aadhaar ID (recommended) YA Google/Facebook account",
+      "Active mobile number (SMS OTP ke liye)",
+      "Email ID (password reset ke liye)",
+      "Citizen ke liye: bas yehi — Govt employee alag process"
+    ],
+    "steps": [
+      "sso.rajasthan.gov.in kholen → Register button par click karein",
+      "Identity choose karein: Jan Aadhaar ID (best) ya Google account",
+      "Jan Aadhaar se: 8-digit Jan Aadhaar ID + member detail select karein; Google se: direct verify",
+      "Custom SSOID banayein (ya auto-generated rakhein) + strong password set karein",
+      "Mobile par aaya SMS OTP enter karke account activate karein",
+      "Dashboard par jaakar apps connect karein — e-Mitra, EMPOWER, recruitment portals",
+      "Password bhool gayein? Login page → Forgot Password → SMS/Email OTP se reset"
+    ],
+    "fees": [
+      ["SSOID creation", "FREE"],
+      ["Linked service applications", "Service ke hisaab se alag"]
+    ],
+    "timeInfo": "Account activation: 2–3 minute",
+    "tips": [
+      "Govt employees apni department IP se Government Employee login use karte hain",
+      "Ek mobile par ek hi SSOID allowed hai"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "SSO ID kaise banayein?", "a": "sso.rajasthan.gov.in par jaayein, Register par click karein. Jan Aadhaar ID ya Google account se register kar sakte hain. Mobile number se OTP aayega." },
+      { "q": "SSO password bhool gaye toh kya karein?", "a": "Login page par 'Forgot Password' par click karein. Mobile ya email se OTP aayega, usse naya password set kar lein." },
+      { "q": "Ek mobile se kitne SSO ID ban sakte hain?", "a": "Sirf ek hi SSOID ek mobile number se ban sakta hai. Zyada banana ho toh alag mobile number chahiye." },
+      { "q": "SSO se kaunsi services access hoti hain?", "a": "e-Mitra, recruitment forms, government schemes, EMPOWER — Raj ke sabhi major portals SSO se ek hi jagah access ho jate hain." }
+    ],
+    "relatedServices": ["e-mitra", "jan-aadhaar"],
+    "keyPoints": [
+      "Rajasthan ke sabhi govt portals ek hi login se access karein",
+      "Jan Aadhaar ID se register karna sabse aasan hai",
+      "Free mein SSOID ban jata hai",
+      "e-Mitra, recruitment, schemes sab ek jagah milte hain"
+    ],
+    "helpline": "0141-2228030 (Rajasthan e-Governance)",
+    "processingTime": {
+      "accountCreation": "2-3 minutes",
+      "passwordReset": "Instant via SMS/Email OTP",
+      "serviceActivation": "Varies by service (usually instant)"
+    },
+    "passwordResetOptions": ["SMS OTP (registered mobile)", "Email OTP", "Jan Aadhaar re-verification"],
+    "rejectionReasons": [
+      "Mobile number already registered with another SSOID",
+      "Jan Aadhaar ID mismatch",
+      "Inactive account (no login for 2+ years)",
+      "Password policy not met"
+    ]
+  },
+  {
+    "id": "emitra",
+    "slug": "e-mitra",
+    "icon": "🖥️",
+    "titleHi": "e-Mitra Services",
+    "titleEn": "Rajasthan e-Mitra",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "6 min",
+    "keywords": "e-mitra rajasthan, emitra certificate, caste certificate, domicile certificate, bonafide certificate",
+    "intro": "e-Mitra Rajasthan mein certificate aur govt services ke liye one-stop portal hai — caste, domicile, bonafide sab yahan se ban jata hai.",
+    "portalUrl": "https://emitra.rajasthan.gov.in/",
+    "portalName": "emitra.rajasthan.gov.in",
+    "docs": [
+      "SSOID (login ke liye)",
+      "Jan Aadhaar / Aadhaar card",
+      "Self-declaration + photo",
+      "Caste ke liye: parent ka school/birth record ya caste proof",
+      "Domicile ke liye: property papers / voter ID 15+ saal purana"
+    ],
+    "steps": [
+      "emitra.rajasthan.gov.in kholen → SSO se citizen login karein",
+      "Availed Services → Service category chunein (Certificate section)",
+      "Service select karein — jaise Caste / Mool Niwas / Bonafide certificate",
+      "Online form bharein → documents scan upload karein → application fee pay karein",
+      "Token number note karein — status Track Application se dekhein",
+      "Officer approval ke baad certificate PDF download karein — digitally signed & QR verified",
+      "Kiosk route: najdiki e-Mitra kiosk par operator ke through bhi same process hota hai"
+    ],
+    "fees": [
+      ["Certificate application", "₹25–50 (service wise)"],
+      ["Portal convenience charge", "~₹5–10"],
+      ["Urgent/special services", "Extra charges notify hote hain"]
+    ],
+    "timeInfo": "Caste/Domicile: 15–30 din · Bonafide: 7–15 din",
+    "tips": [
+      "2026 mein kai certificates Jan Aadhaar data se auto-fill ho rahe hain",
+      "Rejected application ka reason status mein likha aata hai — fix karke reapply karein"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "e-Mitra se kaunse certificates ban sakte hain?", "a": "Caste certificate, Domicile (Mool Niwas), Bonafide, Income certificate, Character certificate — Raj ke sabhi major certificates e-Mitra se ban sakte hain." },
+      { "q": "e-Mitra kiosk kya hota hai?", "a": "Physical shops jahan trained operators aapke liye online form bharte hain. Agar aapko online nahi aata toh kiosk se bhi kaam ho jata hai." },
+      { "q": "Application reject ho gayi toh kya karein?", "a": "Status mein rejection reason likha hoga. Usko fix karke dobara apply karein. Documents sahi hone par 2-3 din mein approval hota hai." },
+      { "q": "Caste certificate banne mein kitna time lagta hai?", "a": "Online apply karne par 15-30 din mein approval hota hai. Digital certificate officer approval ke baad portal se download ho jata hai." }
+    ],
+    "relatedServices": ["sso", "bhu-naksha"],
+    "keyPoints": [
+      "Rajasthan ke sabhi major certificates ek jagah se ban jate hain",
+      "SSO ID se login karna padta hai",
+      "Online ya e-Mitra kiosk se apply kar sakte hain",
+      "Jan Aadhaar se auto-fill hone se process fast hota hai"
+    ],
+    "helpline": "1800-180-6030 (toll-free)",
+    "processingTime": {
+      "casteCertificate": "15-30 working days",
+      "domicileCertificate": "15-30 working days",
+      "bonafideCertificate": "7-15 working days",
+      "incomeCertificate": "15-30 working days",
+      "instantServices": "Some certificates available same-day at kiosk"
+    },
+    "certificateTypes": ["Caste Certificate", "Domicile (Mool Niwas)", "Bonafide Certificate", "Income Certificate", "Character Certificate", "Non-Creamy Layer Certificate", "Guardian Certificate"],
+    "rejectionReasons": [
+      "Documents not uploaded or blurry",
+      "SSO login mismatch with applicant",
+      "Address outside Rajasthan",
+      "Duplicate application already pending",
+      "Officer rejection with specific reason in status"
+    ]
+  },
+  {
+    "id": "bhunaksha",
+    "slug": "bhu-naksha",
+    "icon": "🏠",
+    "titleHi": "Bhu-Naksha & Apna Khata",
+    "titleEn": "Land Map · Jamabandi",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "4 min",
+    "keywords": "bhu naksha, apna khata, jamabandi nakal, land map, khasra number, land records rajasthan",
+    "intro": "Bhu-Naksha se zameen ka naksha aur Apna Khata se jamabandi nakal online dekh sakte hain — property verification ke liye zaroori hai.",
+    "portalUrl": "https://bhunaksha.rajasthan.gov.in/",
+    "portalName": "bhunaksha.rajasthan.gov.in",
+    "docs": [
+      "Khasra number YA khewat/khata number",
+      "District / Tehsil / Village name",
+      "Owner ka naam (verification ke liye)",
+      "Girdawari period (current fasli year)"
+    ],
+    "steps": [
+      "Apna Khata: rajasthan.rajdhara/apnakhata portal → District → Tehsil → Village select karein",
+      "Owner naam / Khasra number se search karein → Jamabandi nakal PDF download karein",
+      "Bhu-Naksha: bhunaksha.rajasthan.gov.in kholen → district/village select karein",
+      "Khasra number daalein → map par plot highlight hoga → boundaries double-check karein",
+      "Print Map se naksha nikalen (reference ke liye)",
+      "Certified copy chahiye toh e-Dhani / tehsil e-Mitra se paid copy le lein"
+    ],
+    "fees": [
+      ["Jamabandi nakal (view/print unofficial)", "FREE"],
+      ["Certified nakal (e-Mitra)", "₹15–30 per copy"],
+      ["Bhu-Naksha viewing", "FREE"]
+    ],
+    "timeInfo": "Nakal download: instant · Certified copy: 1–2 din",
+    "tips": [
+      "Map aur jamabandi ka owner name match hona chahiye — mismatch par mutation check karein",
+      "Girdawari current year ki lena behtar hota hai"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Apna Khata par jamabandi nakal kaise dekhein?", "a": "rajasthan.rajdhara/apnakhata portal par jaayein. District, tehsil, village select karein. Khasra number ya owner naam se search karein. PDF download ho jayegi." },
+      { "q": "Zameen ka map kaise dekhein?", "a": "bhunaksha.rajasthan.gov.in par jaayein. District/village select karein, khasra number daalein. Plot map par highlight ho jayega." },
+      { "q": "Jamabandi aur map ka owner naam alag hai toh?", "a": "Mutation hua hai ya nahi — check karein. Tehsil office ya e-Mitra se certified copy lekar verify karein." },
+      { "q": "Certified copy kahan se milegi?", "a": "e-Dhani portal ya tehsil e-Mitra kiosk se ₹15-30 fee mein certified copy mil jayegi. Online free wali unofficial copy bhi kaam ki hai." }
+    ],
+    "relatedServices": ["e-mitra", "jan-aadhaar"],
+    "keyPoints": [
+      "Zameen ka naksha online dekh sakte hain",
+      "Jamabandi nakal free mein download ho jati hai",
+      "Property verification ke liye zaroori hai",
+      "Certified copy e-Mitra se mil jati hai"
+    ],
+    "helpline": "0141-2228030 (Revenue Department)",
+    "processingTime": {
+      "jamabandiDownload": "Instant (unofficial copy)",
+      "certifiedCopy": "1-2 working days via e-Mitra",
+      "mapDownload": "Instant"
+    },
+    "importantDates": {
+      "girdawariUpdate": "Updated every fasli (agricultural) season",
+      "digitalRecords": "All 33 districts fully digitized"
+    },
+    "portalUrls": {
+      "apnaKhata": "apnakhata.rajasthan.gov.in",
+      "bhuNaksha": "bhunaksha.rajasthan.gov.in",
+      "eDhani": "edhani.rajasthan.gov.in"
+    },
+    "rejectionReasons": [
+      "Khasra number not found in selected village",
+      "Village not yet digitized",
+      "Ownership name mismatch — mutation pending",
+      "Technical error in map rendering"
+    ]
+  },
+  {
+    "id": "janadhar",
+    "slug": "jan-aadhaar",
+    "icon": "🆔",
+    "titleHi": "Jan Aadhaar Card",
+    "titleEn": "Family ID Rajasthan",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "4 min",
+    "keywords": "jan aadhaar, family id rajasthan, jan aadhaar registration, add member jan aadhaar",
+    "intro": "Jan Aadhaar Rajasthan ki family ID hai — sabhi govt schemes aur services ke liye ye sabse zaroori document hai.",
+    "portalUrl": "https://janaadhaar.rajasthan.gov.in/",
+    "portalName": "janaadhaar.rajasthan.gov.in",
+    "docs": [
+      "Sabhi members ke Aadhaar cards",
+      "Family head ka mobile number",
+      "Bank account details (head of family)",
+      "Address proof",
+      "Member add karne par: uska Aadhaar + relation proof"
+    ],
+    "steps": [
+      "janaadhaar.rajasthan.gov.in kholen ya SSO se login karein",
+      "Naye family ke liye: Citizen Registration → head of family ki Aadhaar e-KYC karein",
+      "Family ke sabhi members add karein (Aadhaar number se) — relation select karein",
+      "Address + bank details bharein → Submit karke Acknowledgement ID note karein",
+      "e-Mitra / ward level verification (agar flag ho) ke baad Jan Aadhaar ID active hota hai",
+      "Naya member add karna: login → Add Member → Aadhaar OTP verify karein",
+      "Jan Aadhaar ID ration/pension/yojana forms mein har jagah kaam aati hai"
+    ],
+    "fees": [
+      ["Family registration", "FREE"],
+      ["Member add/update", "FREE"],
+      ["Duplicate acknowledgement print", "FREE"]
+    ],
+    "timeInfo": "Instant acknowledgement · Verification (if any): 7 din",
+    "tips": [
+      "Chiranjeevi card Jan Aadhaar se hi linked hota hai",
+      "Members ki death par Deceased marking zaroor karein warna yojana benefits rukte hain"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Jan Aadhaar ID kaise banayein?", "a": "janaadhaar.rajasthan.gov.in par jaayein ya SSO se login karein. Head of family ki Aadhaar e-KYC karein, sabhi members add karein, address bank details bharen. Instant acknowledgement mil jayega." },
+      { "q": "Jan Aadhaar mein naya member kaise jodein?", "a": "Login karein, Add Member option chunein. Naye member ka Aadhaar number daalein, OTP verify karein, relation select karein. Instant add ho jayega." },
+      { "q": "Jan Aadhaar aur Aadhaar mein kya farq hai?", "a": "Aadhaar individual identity hai. Jan Aadhaar family ID hai — poore family ka ek ID hota hai jo Raj ki sabhi schemes mein kaam aata hai." },
+      { "q": "Jan Aadhaar card offline kaise banwayein?", "a": "E-Mitra kiosk par jaakar bhi Jan Aadhaar registration ho jata hai. Kiosk operator aapki Aadhaar e-KYC karke registration kar dega." }
+    ],
+    "relatedServices": ["ration-card", "e-mitra"],
+    "keyPoints": [
+      "Rajasthan ki family ID — sabhi govt schemes ke liye zaroori hai",
+      "Free mein ban jata hai",
+      "Members add karna bhi free hai",
+      "Ration card, pension, Chiranjeevi sab isse linked hain"
+    ],
+    "helpline": "0141-2228030 / 181 (toll-free)",
+    "processingTime": {
+      "registration": "Instant acknowledgement, verification if flagged: 7 working days",
+      "memberAddition": "Instant via Aadhaar OTP",
+      "eJanAadhaarDownload": "Instant after registration"
+    },
+    "linkedSchemes": ["Ration Card (NFSA)", "Chiranjeevi Health Insurance", "PM-Kisan", "Social Security Pensions", "Scholarship Schemes", "MGNREGA", "Jan Dhan Yojana"],
+    "rejectionReasons": [
+      "Aadhaar OTP verification failed",
+      "Head of family Aadhaar not linked",
+      "Duplicate family already registered",
+      "Address mismatch with Aadhaar",
+      "Incomplete member details"
+    ]
+  },
+  {
+    "id": "rbse",
+    "slug": "rbse-board",
+    "icon": "🎓",
+    "titleHi": "RBSE Board 2026",
+    "titleEn": "Rajasthan Board · Ajmer",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "10 min",
+    "keywords": "rbse result 2026, rajasthan board result, rbse 10th result, rbse 12th result, board exam rajasthan, rbse 5th 8th result, rajshaladarpan, rbse toppers 2026, rbse revaluation, rbse supplementary exam",
+    "intro": "RBSE (Board of Secondary Education, Rajasthan) Ajmer se 5th, 8th, 10th aur 12th ke results rajeduboard.rajasthan.gov.in aur rajshaladarpan.nic.in par check ho jate hain. 2026 mein exam March tak khatam hue aur results March mein hi declare ho gaye — pehle se pehle!",
+    "portalUrl": "https://rajeduboard.rajasthan.gov.in/",
+    "portalName": "rajeduboard.rajasthan.gov.in",
+    "altPortals": [
+      "rajresults.nic.in",
+      "rajshaladarpan.nic.in",
+      "rajpsp.nic.in"
+    ],
+    "docs": [
+      "Roll Number (admit card par likha hota hai)",
+      "Class — 5th / 8th / 10th / 12th",
+      "Stream (12th ke liye): Science / Arts / Commerce",
+      "Date of Birth (result check ke liye)",
+      "School code (name-wise search ke liye optional)"
+    ],
+    "steps": [
+      "Official portal kholen: rajeduboard.rajasthan.gov.in ya rajresults.nic.in",
+      "Result 2026 section mein apni Class select karein (5th / 8th / 10th / 12th)",
+      "Roll Number enter karein (12th mein stream bhi chunein) → Get Result click karein",
+      "Subject-wise marks + total + division ka preview dekhein → Print/PDF save karein",
+      "Original marksheet apne school se ~3 hafte baad collect karein",
+      "Revaluation/re-checking: result declare hone ke 7-10 din ke andar online apply karein bseronline.com par"
+    ],
+    "fees": [
+      ["Result check online", "FREE"],
+      ["Rechecking / Scrutiny (per subject)", "₹300"],
+      ["Rechecking with late fee", "₹800"],
+      ["Revaluation (per subject)", "₹500"],
+      ["Photocopy of answer sheet", "₹700"],
+      ["Supplementary exam form", "₹600–₹650"],
+      ["Practical exam fee (per subject)", "₹100"],
+      ["Duplicate marksheet", "₹50–200"]
+    ],
+    "timeInfo": "Result day par instant · Original marksheets ~3 hafte baad school se",
+    "tips": [
+      "Name-wise search official portal par limited window mein hi khulta hai",
+      "Online result provisional hota hai — original marksheet school se collect karein",
+      "Revaluation mein marks badh bhi sakte hain aur kam bhi — soch samajh ke apply karein",
+      "2026-27 se supplementary exams band honge — do annual board exams honge"
+    ],
+    "tool": "rbse",
+    "result2026": {
+      "class5": {
+        "examDates": "20 February – 6 March 2026",
+        "resultDate": "24 March 2026, 1 PM",
+        "passPercentage": "97.75%",
+        "totalStudents": "13+ lakh",
+        "portal": "rajshaladarpan.nic.in",
+        "gradingSystem": "9-point grading (A1 to E2)"
+      },
+      "class8": {
+        "examDates": "19 February – 4 March 2026",
+        "resultDate": "24 March 2026, 1 PM",
+        "passPercentage": "97.01%",
+        "totalStudents": "13+ lakh",
+        "portal": "rajshaladarpan.nic.in",
+        "girlsVsBoys": "Girls lead by 1.05%"
+      },
+      "class10": {
+        "examDates": "12 February – 28 February 2026",
+        "examTiming": "8:30 AM – 11:45 AM",
+        "resultDate": "24 March 2026, 1 PM",
+        "passPercentage": "94.23%",
+        "girlsPassPercentage": "94.90%",
+        "boysPassPercentage": "93.63%",
+        "totalStudentsAppeared": "10,68,078",
+        "totalStudentsPassed": "9,88,520",
+        "toppers": "Cheshta Sharma / Aryan Nagayach / Deepika — 99.5% (597/600)",
+        "topDistrict": "Jhunjhunu — 97.77%"
+      },
+      "class12": {
+        "examDates": "12 February – 11 March 2026",
+        "resultDate": "31 March 2026, 10 AM",
+        "overallPassPercentage": "97.23%",
+        "totalStudentsAppeared": "8.5+ lakh",
+        "streams": {
+          "science": "97.52% pass",
+          "commerce": "93.64% pass",
+          "arts": "97.54% pass"
+        },
+        "toppers": {
+          "arts": "Maya Meghwal — 98.40%",
+          "science": "Prem Singh Chundawat / Piyush Paliwal — 96.60%",
+          "commerce": "Vikas Jat — 88.20%"
+        },
+        "topDistricts": "Rajsamand 98.70%, Chittorgarh 98.61%, Didwana-Kuchaman 98.58%"
+      }
+    },
+    "gradingSystem": {
+      "A1": "91–100 marks — Exceptional",
+      "A2": "76–90 marks — Excellent",
+      "B": "61–75 marks — Very Good",
+      "C": "41–60 marks — Good",
+      "D": "33–40 marks — Pass",
+      "E1": "21–32 marks — Supplementary",
+      "E2": "0–20 marks — Fail"
+    },
+    "passingMarks": "33% in each subject AND aggregate (26/80 in theory, 7/20 in internals)",
+    "revaluationProcess": {
+      "step1": "rajeduboard.rajasthan.gov.in ya bseronline.com par login karein",
+      "step2": "Rechecking / Scrutiny 2026 link par click karein",
+      "step3": "Roll number, subjects select karein aur fee pay karein",
+      "step4": "Rechecking = retotalling only (marks badhenge ya same rahenge, kam nahi)",
+      "step5": "Revaluation = naya examiner puri copy dubara check karega (marks badh/same/kam ho sakte hain)"
+    },
+    "supplementaryExam": {
+      "eligibility": "1–2 subjects mein fail hone par (3+ subjects fail = pura saal repeat)",
+      "formDates": "15 April – 22 April 2026 (bina late fee), 23–27 April (late fee ke saath)",
+      "practicalExamDate": "7 May 2026",
+      "theoryExamDates": "14–16 May 2026",
+      "resultExpected": "June 2026",
+      "importantNote": "2026-27 se supplementary exams band — do annual board exams honge"
+    },
+    "districtWiseTop10": [
+      "Jhunjhunu — 97.77%",
+      "Didwana-Kuchaman — 97.59%",
+      "Sikar — 97.43%",
+      "Nagaur — 97.09%",
+      "Jodhpur — 96.48%",
+      "Barmer — 96.14%",
+      "Sirohi — 96.05%",
+      "Jalore — 96.23%",
+      "Kotputli — 96.23%",
+      "Jaipur — 94.66%"
+    ],
+    "faq": [
+      { "q": "RBSE result roll number ke bina dekh sakte hain?", "a": "Haan, portal par name-wise search bhi hota hai lekin limited window mein. Best hai apna roll number ready rakhein. SMS se bhi check kar sakte hain: RESULT RAJ10 ROLL_NUMBER 56263 par bhejen." },
+      { "q": "Revaluation mein marks badh sakte hain?", "a": "Haan, kai baar marks badh jaate hain. Lekin revaluation mein marks kam bhi ho sakte hain. Scrutiny (retotalling) mein sirf addition check hota hai — marks kam nahi honge. Per subject ₹300–500 fee hai." },
+      { "q": "Original marksheet kab tak aati hai?", "a": "Result declare hone ke ~3 hafte baad school se mil jati hai. Tab tak digital copy DigiLocker se download kar sakte hain." },
+      { "q": "Back paper form kab bharna hai?", "a": "Result aane ke baad alag se notification aata hai back paper (supplementary) ke liye. 15–27 April 2026 tak form bharna tha. 14–16 May 2026 ko exam hua." },
+      { "q": "Supplementary exam mein kitne subjects de sakte hain?", "a": "Maximum 2 subjects mein de sakte hain. 3 ya zyada subjects mein fail hone par pura saal repeat karna padega." },
+      { "q": "5th aur 8th result kaise check karein?", "a": "rajshaladarpan.nic.in par jaayein, Roll Number aur District daalein. Ya SMS: RESULT RAJ8 ROLL_NUMBER 56263 par bhejen (Class 8 ke liye). Grading system hota hai — A1 se E2 tak." },
+      { "q": "2026-27 se supplementary exams kyun band ho rahe hain?", "a": "Sarkar ne faisla kiya hai ki ab do annual board exams honge (May-June aur November-December). Isliye supplementary/compartment exam ka system khatam hoga." }
+    ],
+    "relatedServices": ["rajasthan-university", "e-mitra"],
+    "keyPoints": [
+      "2026 mein results March mein hi declare ho gaye — pehle se pehle",
+      "10th: 94.23% pass, 12th: 97.23% pass — ladkiyan aage",
+      "Result DigiLocker, SMS ya website se check kar sakte hain",
+      "Revaluation ₹300–500/subject, Supplementary 14–16 May 2026",
+      "2026-27 se supplementary exams band — do annual exams honge"
+    ],
+    "helpline": "0145-2631053 (RBSE Ajmer) / 1800-180-6211"
+  },
+  {
+    "id": "chiranjeevi",
+    "slug": "chiranjeevi-yojana",
+    "icon": "💊",
+    "titleHi": "Chiranjeevi Yojana",
+    "titleEn": "Mukhyamantri Health Insurance",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "4 min",
+    "keywords": "chiranjeevi yojana, rajasthan health insurance, cashless treatment, hfmis rajasthan, chiranjeevi card",
+    "intro": "Chiranjeevi Yojana se Rajasthan ki eligible families ko free ya sasti dar par cashless hospital treatment milta hai.",
+    "portalUrl": "https://hfmis.rajasthan.gov.in/",
+    "portalName": "Chiranjeevi Portal (HFMIS)",
+    "docs": [
+      "Jan Aadhaar card (poori family ka)",
+      "Sabhi members ke Aadhaar cards",
+      "Registered mobile number",
+      "NFSA/SMBKB category proof (free eligibility ke liye)",
+      "General families: yearly contribution receipt"
+    ],
+    "steps": [
+      "SSO se login karke Chiranjeevi Health portal kholen",
+      "Jan Aadhaar ID daalkar apni family search karein",
+      "Eligibility category confirm karein — NFSA/SMBKB = FREE, general = contribution pay karein",
+      "Family members verify karke registration/renewal complete karein",
+      "e-Card download karein — status app se bhi dikh jata hai",
+      "Empanelled hospital list portal par city-wise check karein",
+      "Hospital admission par e-Card + Aadhaar dikha kar cashless treatment lein"
+    ],
+    "fees": [
+      ["NFSA / SMBKB families", "FREE"],
+      ["General family contribution", "~₹850/year"],
+      ["Treatment cover", "Badi amount tak cashless"]
+    ],
+    "timeInfo": "Registration approval: instant – 7 din",
+    "tips": [
+      "Renewal window miss na ho — SMS reminders watch karein",
+      "Private empanelled hospitals bhi fully covered hain"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Chiranjeevi Yojana mein kaun free hai?", "a": "NFSA (National Food Security Act) aur State Modified BPL families ko free cover milta hai. General families ko ₹850/year ka contribution dena hota hai." },
+      { "q": "Chiranjeevi card kaise banwayein?", "a": "SSO se login karein, Chiranjeevi portal kholen, Jan Aadhaar ID se family search karein, eligibility confirm karein. Card instant download ho jayega." },
+      { "q": "Private hospital mein bhi hota hai?", "a": "Haan, jo private hospitals government se empanelled hain unmein cashless treatment milta hai. Portal par empanelled hospital list check karein." },
+      { "q": "Renewal kab karna hai?", "a": "Har saal renewal hota hai. SMS reminders aate hain — time par renewal karein warna cover ruk jayega." }
+    ],
+    "relatedServices": ["ayushman-bharat", "jan-aadhaar"],
+    "keyPoints": [
+      "NFSA families ke liye free health insurance hai",
+      "Private empanelled hospitals mein bhi cashless treatment milta hai",
+      "Jan Aadhaar se family search hoti hai",
+      "Har saal renewal karna zaroori hai"
+    ],
+    "helpline": "0141-2222364 (HFMIS Rajasthan)",
+    "processingTime": {
+      "registration": "Instant to 7 working days",
+      "cardDownload": "Instant after approval",
+      "renewal": "Instant (annual renewal)"
+    },
+    "comparison": {
+      "headers": ["Feature", "NFSA/SMBKB Families", "General Families"],
+      "rows": [
+        ["Annual Contribution", "FREE", "~₹850/year"],
+        ["Coverage", "Full cashless treatment", "Full cashless treatment"],
+        ["Renewal", "Auto-renewed", "Annual renewal required"],
+        ["Card", "Auto-generated", "After contribution payment"]
+      ]
+    },
+    "hospitalCount": "2,400+ empanelled hospitals across Rajasthan",
+    "rejectionReasons": [
+      "Jan Aadhaar ID not linked",
+      "Family not in NFSA/SMBKB list",
+      "Contribution not paid (general category)",
+      "Card renewal missed",
+      "Hospital not empanelled"
+    ]
+  },
+  {
+    "id": "police",
+    "slug": "rajasthan-police",
+    "icon": "👮",
+    "titleHi": "Rajasthan Police",
+    "titleEn": "Citizen Services · Bharti 2026",
+    "category": "rajasthan",
+    "difficulty": "Medium",
+    "mode": "Hybrid",
+    "readTime": "6 min",
+    "keywords": "rajasthan police, police verification, character certificate, tenant verification, police bharti 2026, FIR online",
+    "intro": "Rajasthan Police citizen services — FIR, tenant verification, character certificate sab online ho jata hai. Bharti 2026 ke liye bhi portal par hi apply hota hai.",
+    "portalUrl": "https://police.rajasthan.gov.in/",
+    "portalName": "police.rajasthan.gov.in",
+    "docs": [
+      "SSOID (citizen login ke liye)",
+      "FIR ke liye: incident ki date/place/detail",
+      "Tenant verification: tenant Aadhaar + photo + landlord ki details",
+      "Character certificate: photo + Aadhaar + residence proof",
+      "Bharti ke liye: SSO profile + educational certificates"
+    ],
+    "steps": [
+      "SSO se Citizen Login → Police Citizen Portal kholen",
+      "Online FIR: Report a Crime section mein incident details bharein",
+      "Tenant Verification: form bharein → landlord consent → thana level verification report",
+      "Character Certificate: e-Mitra/citizen portal se apply → police verification ke baad certificate",
+      "Constable Bharti 2026: recruitment portal par SSO se login karke application/admit card download karein",
+      "Har application ka status portal dashboard par track karein"
+    ],
+    "fees": [
+      ["Online FIR / complaint", "FREE"],
+      ["Police verification (tenant)", "~₹100–200"],
+      ["Character certificate", "~₹50–100"],
+      ["Bharti application fee", "Category wise (Gen ₹600 approx)"]
+    ],
+    "timeInfo": "Complaint number: instant · Character certificate: 7–15 din",
+    "tips": [
+      "Emergency par hamesha 112 dial karein — online FIR non-urgent matters ke liye hai",
+      "Bharti PET/PST admit card exam se ~1 hafta pehle aata hai"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Online FIR kaise karein?", "a": "SSO se login karein, Police Citizen Portal kholein, 'Report a Crime' section mein incident details bharein. Non-urgent crimes ke liye ye tarika hai. Emergency mein 112 dial karein." },
+      { "q": "Character certificate kaise banwayein?", "a": "e-Mitra ya citizen portal se apply karein. ₹50-100 fee hai. Police verification ke baad 7-15 din mein certificate mil jata hai." },
+      { "q": "Tenant verification kaise hoti hai?", "a": "Landlord online form bharein, tenant ka Aadhaar photo lagayein. Thana level par verification hoti hai, report online aa jati hai." },
+      { "q": "Police bharti 2026 ke liye kaise apply karein?", "a": "SSO se recruitment portal par login karein. Application bharein, admit card download karein. PET/PST admit card exam se 1 hafta pehle aata hai." }
+    ],
+    "relatedServices": ["e-mitra", "sso"],
+    "keyPoints": [
+      "Online FIR non-urgent crimes ke liye ho jati hai",
+      "Character certificate 7-15 din mein mil jata hai",
+      "Tenant verification thana level par hoti hai",
+      "Emergency mein 112 dial karein — online nahi"
+    ],
+    "helpline": "112 (Emergency) / 0141-2610163 (Control Room)",
+    "processingTime": {
+      "onlineFIR": "Instant — FIR number generated immediately",
+      "characterCertificate": "7-15 working days",
+      "tenantVerification": "7-15 working days",
+      "bhartiApplication": "Varies by recruitment cycle"
+    },
+    "importantDates": {
+      "constableBharti2026": "Notification expected mid-2026",
+      "petPstAdmitCard": "Available ~1 week before test"
+    },
+    "rejectionReasons": [
+      "Online FIR — incomplete incident details",
+      "Character certificate — previous police record found",
+      "Tenant verification — landlord consent missing",
+      "Bharti — eligibility criteria not met"
+    ]
+  },
+  {
+    "id": "kisan",
+    "slug": "kisan-kalyan",
+    "icon": "🌾",
+    "titleHi": "Kisan Kalyan Yojana",
+    "titleEn": "PM-Kisan · Raj Kisan",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "5 min",
+    "keywords": "pm kisan, kisan yojana, pm kisan e-kyc, raj kisan, farmer subsidy, kisan samman nidhi",
+    "intro": "PM-Kisan se kisano ko ₹6,000 saal mein milte hain. Rajasthan mein Raj Kisan portal par bhi subsidy schemes ke liye apply kar sakte hain.",
+    "portalUrl": "https://rajkisan.rajasthan.gov.in/",
+    "portalName": "Raj Kisan Portal",
+    "docs": [
+      "Aadhaar card (bank seeded)",
+      "Bank passbook (account IFSC ke saath)",
+      "Land records — jamabandi/khasra (kisht eligibility)",
+      "Jan Aadhaar card",
+      "Mobile number (Aadhaar linked)"
+    ],
+    "steps": [
+      "PM-Kisan e-KYC: pmkisan.gov.in → eKYC → Aadhaar OTP se complete karein (ya CSC par biometric)",
+      "Beneficiary Status se apni installments aur payment history dekhein",
+      "Naam list mein nahi? Farmer corner se New Farmer Registration karein",
+      "Tarbandi Yojana: Raj Kisan portal → scheme select → land docs upload → subsidy claim",
+      "Krishi Yantra subsidy: Farm Machinery section se apply → quotation attach karein",
+      "Approval ke baad subsidy seedha bank account mein aati hai"
+    ],
+    "fees": [
+      ["PM-Kisan e-KYC", "FREE"],
+      ["Beneficiary status check", "FREE"],
+      ["Har saal income support", "₹6,000 (3 kishton mein)"],
+      ["Yantra subsidy", "Machine cost ka % hisaab"]
+    ],
+    "timeInfo": "e-KYC: instant · Subsidy credit: approval ke 30–45 din",
+    "tips": [
+      "Aadhaar-bank seeding zaroori hai warna installment fail hoti hai",
+      "PM-Kisan ki installment generally Feb/Jun/Oct mein aati hai"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "PM-Kisan ki installments kab aati hai?", "a": "Teen kishton mein milti hai — generally February, June aur October mein. ₹2,000 per installment, total ₹6,000 saal mein." },
+      { "q": "Aadhaar-bank seeding kaise karein?", "a": "Apne bank mein jaakar Aadhaar seeding form bharen. Ya NPCI portal se bhi link kar sakte hain. Bina seeding ke installment fail hoti hai." },
+      { "q": "PM-Kisan beneficiary status kaise check karein?", "a": "pmkisan.gov.in par Farmer Corner → Beneficiary Status. Aadhaar number ya mobile number se check kar sakte hain." },
+      { "q": "Raj Kisan portal par kaunsi schemes hain?", "a": "Tarbandi Yojana, Krishi Yantra subsidy, irrigation schemes — Raj par Raj ke kisano ke liye kai schemes hain. Raj kisan portal par dekhein." }
+    ],
+    "relatedServices": ["ayushman-bharat", "jan-aadhaar"],
+    "keyPoints": [
+      "PM-Kisan se ₹6,000 saal mein milte hain (3 kishton mein)",
+      "Aadhaar-bank seeding zaroori hai",
+      "Raj Kisan portal par aur bhi subsidy schemes hain",
+      "e-KYC free aur instant hai"
+    ],
+    "helpline": "011-24300606 (PM-Kisan Helpline) / 1800-180-1551",
+    "processingTime": {
+      "ekyc": "Instant (Aadhaar OTP)",
+      "installmentCredit": "Within 30 days of installment release",
+      "newRegistration": "15-30 working days for verification"
+    },
+    "installmentSchedule": {
+      "installment1": "₹2,000 — February (Rabi season)",
+      "installment2": "₹2,000 — June (Kharif season)",
+      "installment3": "₹2,000 — October (Zaid season)",
+      "total": "₹6,000 per year"
+    },
+    "eligibility": [
+      "Farmer families with cultivable land",
+      "All farmer families regardless of land size (subject to exclusions)",
+      "Institutional landholders not eligible",
+      "Government employees not eligible (pensioners eligible)",
+      "Income taxpayers not eligible"
+    ],
+    "rejectionReasons": [
+      "Aadhaar-bank seeding not done",
+      "Land records not linked",
+      "Farmer name not in beneficiary list",
+      "Bank account details incorrect",
+      "e-KYC not completed"
+    ]
+  },
+  {
+    "id": "nagarpalika",
+    "slug": "nagarpalika",
+    "icon": "🏛️",
+    "titleHi": "Nagarpalika Services",
+    "titleEn": "Property Tax · Water Bill",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "5 min",
+    "keywords": "property tax rajasthan, nagarpalika, water bill pay, municipal tax, property tax online payment",
+    "intro": "Nagarpalika se property tax aur water bill online pay kar sakte hain — receipt turant download ho jata hai.",
+    "portalUrl": "https://lsg.urban.rajasthan.gov.in/",
+    "portalName": "LSG Urban Rajasthan",
+    "docs": [
+      "Property ID / khata number (purane receipt par likha)",
+      "Owner ka Aadhaar card",
+      "Previous tax receipt (assessment ke liye)",
+      "Water connection: property papers + NOC",
+      "Mobile number + email"
+    ],
+    "steps": [
+      "Apne Nagar Nigam/Palika ka official portal ya UD Tax portal kholen",
+      "Pay Property Tax → Property ID daalein ya naya assessment karein",
+      "Property details (area, use type, floors) verify karein → tax auto-calculate",
+      "Online pay karein (UPI/card) → digitally signed receipt download karein",
+      "Naya water connection: New Connection form → documents upload → fee pay karein",
+      "Connection inspection ke baad meter lagta hai; bill online/app se pay hota hai"
+    ],
+    "fees": [
+      ["Property tax payment", "Rate zone/use wise"],
+      ["Self-assessment registration", "FREE"],
+      ["New water connection", "Connection charges zone wise"],
+      ["Late payment surcharge", "% per month"]
+    ],
+    "timeInfo": "Tax receipt: instant · Water connection: 15–30 din",
+    "tips": [
+      "Time par tax dene par rebate milta hai (usually Q1 mein)",
+      "Purani dues clear karne par kabhi-kabhi interest waiver schemes aati hain"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Property tax online kaise pay karein?", "a": "Nagar Nigam ke official portal ya UD Tax portal par jaayein. Property ID daalein, details verify karein, UPI/card se pay karein. Receipt instant download ho jayega." },
+      { "q": "Property tax kaunsa zone hota hai?", "a": "Har city mein alag-alag zones hain — Zone A, B, C, D. Zone ke hisaab se tax rate hota hai. Old area mein kam, new area mein zyada." },
+      { "q": "Naya water connection kaise lein?", "a": "Nagar Nigam portal par New Connection form bharein, property papers upload karein, fee pay karein. Inspection ke baad meter lag jayega." },
+      { "q": "Purani dues par interest waiver hota hai?", "a": "Kabhi-kabhi sarkar interest waiver schemes laati hain. Apne Nagar Nigam ki website check karte rahein. Time par dene se rebate bhi milta hai." }
+    ],
+    "relatedServices": ["e-mitra", "bhu-naksha"],
+    "keyPoints": [
+      "Property tax aur water bill dono online pay ho jate hain",
+      "Receipt instant download ho jata hai",
+      "Time par tax dene par rebate milta hai",
+      "Property ID purane receipt par mil jata hai"
+    ],
+    "helpline": "1800-180-6030 (Rajasthan Urban Development)",
+    "processingTime": {
+      "taxPayment": "Instant receipt download",
+      "waterConnection": "15-30 working days (inspection + meter installation)",
+      "selfAssessment": "Instant registration"
+    },
+    "importantDates": {
+      "rebatePeriod": "Q1 (April-June) — early payment rebate available",
+      "penaltyStart": "After due date — % per month surcharge",
+      "specialSchemes": "Government occasionally announces interest waiver schemes"
+    },
+    "rejectionReasons": [
+      "Property ID not found in records",
+      "Outstanding dues not cleared",
+      "Incomplete assessment details",
+      "Water connection — NOC not attached"
+    ]
+  },
+  {
+    "id": "uniraj",
+    "slug": "rajasthan-university",
+    "icon": "🧑‍🎓",
+    "titleHi": "Rajasthan University",
+    "titleEn": "Uniraj Results 2026",
+    "category": "rajasthan",
+    "difficulty": "Easy",
+    "mode": "Online",
+    "readTime": "4 min",
+    "keywords": "uniraj result, rajasthan university result, uniraj 2026, univraj, university of rajasthan",
+    "intro": "Rajasthan University ke results univraj.org par roll number se check ho jate hain. Semester wise results bhi isi portal par aate hain.",
+    "portalUrl": "https://www.uniraj.ac.in/",
+    "portalName": "uniraj.ac.in",
+    "docs": [
+      "Enrollment number / Roll number",
+      "Exam form number",
+      "Date of Birth (kuch results mein)",
+      "Course + Semester detail (BA/BSc/BCom/MA/MSc)"
+    ],
+    "steps": [
+      "Official result portal kholen: univraj.org ya uniraj.ac.in → Student section",
+      "Results 2026 link par click karein → course + semester select karein",
+      "Roll number (+ form number agar mange) enter karke result dekhein",
+      "Marksheet PDF print/save karein — original college se milegi",
+      "Admit Card: exam se pehle Admit Card link par roll/form no. se download karein",
+      "Marks kam lagein toh Revaluation Form exam result ke ~10–15 din ke andar bharein"
+    ],
+    "fees": [
+      ["Result check", "FREE"],
+      ["Admit card download", "FREE"],
+      ["Revaluation (per paper)", "~₹500"],
+      ["Transcript application", "Extra charges"]
+    ],
+    "timeInfo": "Semester results: exams khatam hone ke ~1 mahine baad",
+    "tips": [
+      "Revaluation ki last date strict hoti hai — result day se calendar mark kar lein",
+      "Back paper forms alag hote hain — confusion avoid karein"
+    ],
+    "tool": "",
+    "faq": [
+      { "q": "Uniraj result roll number ke bina dekh sakte hain?", "a": "Nahi, roll number ya form number zaruri hai. Admit card par dono mil jayenge." },
+      { "q": "Revaluation mein marks badh sakte hain?", "a": "Haan, kai baar badh jaate hain. Lekin guarantee nahi hai. ₹500 per paper fee hai. Result ke 10-15 din ke andar apply karna hota hai." },
+      { "q": "Back paper form kab bharna hai?", "a": "Result aane ke baad alag se notification aata hai. University website par check karte rahein. Back paper form result se alag hota hai." },
+      { "q": "Original marksheet kab tak milti hai?", "a": "Result ke ~3-4 hafte baad college se original marksheet milti hai. Tab tak digital copy kaam chal sakti hai." }
+    ],
+    "relatedServices": ["rbse-board", "e-mitra"],
+    "keyPoints": [
+      "Roll number se result check kar sakte hain",
+      "Semester wise results ek portal par milte hain",
+      "Revaluation ke liye 10-15 din ke andar apply karein",
+      "Admit card exam se pehle download hota hai"
+    ],
+    "helpline": "0141-2710856 (University of Rajasthan)",
+    "processingTime": {
+      "resultDeclaration": "~1 month after exam completion",
+      "marksheetCollection": "3-4 weeks after result at college",
+      "revaluation": "15-30 working days"
+    },
+    "importantDates": {
+      "semesterExams": "Dec-Jan (odd sem) / May-Jun (even sem)",
+      "revaluationDeadline": "10-15 days from result declaration",
+      "backPaperForms": "Separate notification after result"
+    },
+    "rejectionReasons": [
+      "Roll number not found",
+      "Form number mismatch",
+      "Revaluation deadline missed",
+      "Back paper form not submitted separately"
+    ]
+  }
+]

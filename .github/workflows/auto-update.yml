@@ -1,0 +1,43 @@
+name: 24/7 Automated Govt Jobs & Results Sync
+
+on:
+  schedule:
+    # Runs automatically every 2 hours, 24/7/365 in GitHub Cloud
+    - cron: '0 */2 * * *'
+  workflow_dispatch: # Allows manual 1-click trigger anytime from GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  auto-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run 24/7 Government Job Sync Engine
+        run: |
+          node src/scripts/auto-sync-jobs.mjs
+          node src/scripts/generate-sitemap.mjs
+
+      - name: Check for Changes and Auto-Commit
+        run: |
+          git config --global user.name "Sarkari Sahayak Bot"
+          git config --global user.email "bot@salarypitcher.com"
+          
+          if [ -n "$(git status --porcelain)" ]; then
+            git add src/data/ public/sitemap.xml
+            git commit -m "🤖 auto-sync: latest govt jobs, results & admit cards [skip ci]"
+            git push origin main
+            echo "✓ New updates pushed to repository. Auto-deploy triggered!"
+          else
+            echo "✓ Datasets are up-to-date. No new entries found."
+          fi

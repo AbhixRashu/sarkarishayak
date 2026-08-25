@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import services from '../../data/services.json';
+
+const nationalServices = services.filter(s => s.category === 'national');
+
+function difficultyClass(d) {
+  if (d === 'Easy') return 't-easy';
+  if (d === 'Medium') return 't-medium';
+  return 't-complex';
+}
+function modeClass(m) {
+  return m.toLowerCase().includes('online') ? 't-online' : 't-offline';
+}
+---
+
+<BaseLayout
+  title="National Government Services | Sarkari Sahayak 2026"
+  description="भारत की सभी राष्ट्रीय सरकारी सेवाओं की जानकारी हिंदी में — आधार, PAN, पासपोर्ट, ड्राइविंग लाइसेंस, राशन कार्ड, वोटर आईडी, ITR। Step-by-step guide 2026।"
+  canonical="/national-services"
+>
+  <section class="section">
+    <div class="container">
+      <div class="section-head center-head">
+        <span class="section-label">National Services</span>
+        <h1 class="section-title">Rashtriya Sarkari Seva</h1>
+        <p class="section-sub">Bharat sarkar ki sabhi national-level services — aadhaar se passport tak, sab kuch Hindi mein</p>
+      </div>
+
+      <div class="services-grid">
+        {nationalServices.map(service => (
+          <a href={`/service/${service.slug}`} class="service-card">
+            <span class="card-arrow">↗</span>
+            <div class="icon-box">{service.icon}</div>
+            <div>
+              <h2 class="svc-title">{service.titleHi}</h2>
+              <p class="svc-sub">{service.titleEn}</p>
+            </div>
+            <div class="tags">
+              <span class={`tag ${difficultyClass(service.difficulty)}`}>{service.difficulty}</span>
+              <span class={`tag ${modeClass(service.mode)}`}>{service.mode}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

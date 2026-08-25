@@ -1,0 +1,2486 @@
+[
+  {
+    "id": "ssc-cgl",
+    "exam": "SSC CGL 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "Combined Graduate Level Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 600,
+    "duration": "6 hours (total)",
+    "negativeMarking": "0.50 marks for wrong answer (Tier 1 & 2)",
+    "subjects": [
+      {
+        "name": "Quantitative Aptitude",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 30,
+        "marks": 60,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Simple & Compound Interest", "Time & Work", "Geometry", "Mensuration",
+          "Data Interpretation", "Trigonometry", "Algebra", "Statistics"
+        ]
+      },
+      {
+        "name": "English Language & Comprehension",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 45,
+        "marks": 90,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Synonyms & Antonyms",
+          "Idioms & Phrases", "One Word Substitution", "Active/Passive Voice",
+          "Direct/Indirect Speech", "Para Jumbles"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity & Constitution",
+          "Geography", "Indian Economy", "General Science",
+          "Awards & Honors", "Books & Authors", "Sports", "Important Dates"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Matrix", "Verbal Reasoning", "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "Statistics",
+        "tier": "Tier 2 only",
+        "questions": 100,
+        "marks": 200,
+        "topics": [
+          "Collection and Classification of Data", "Measures of Central Tendency",
+          "Measures of Dispersion", "Correlation & Regression", "Probability",
+          "Random Variables", "Sampling Theory", "Statistical Inference",
+          "Index Numbers", "Time Series Analysis"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Quantum CAT by Sarvesh K Verma", "subject": "Quant" },
+      { "name": "Plinth to Paramount by Neetu Singh", "subject": "English" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" },
+      { "name": "Kiran SSC Mathematics", "subject": "Quant" }
+    ]
+  },
+  {
+    "id": "rrb-ntpc",
+    "exam": "RRB NTPC 2026",
+    "organization": "Railway Recruitment Boards",
+    "fullName": "Non-Technical Popular Categories",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 150,
+    "duration": "90 minutes (CBT 1)",
+    "negativeMarking": "1/3rd marks deducted for wrong answer",
+    "subjects": [
+      {
+        "name": "Mathematics",
+        "tier": "CBT 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Number System", "Percentage", "Profit & Loss", "Time & Work",
+          "Geometry", "Mensuration", "Algebra", "Trigonometry"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "CBT 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Analogy", "Series", "Classification", "Syllogism",
+          "Coding-Decoding", "Blood Relations", "Direction Sense", "Puzzle"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "CBT 1",
+        "questions": 40,
+        "marks": 40,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "General Science", "Sports", "Awards"
+        ]
+      },
+      {
+        "name": "General Science",
+        "tier": "CBT 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Physics", "Chemistry", "Biology", "Environment", "Computer Applications"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Rakesh Yadav Mathematics", "subject": "Math" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" },
+      { "name": "Lucent General Science", "subject": "Science" }
+    ]
+  },
+  {
+    "id": "ibps-clerk",
+    "exam": "IBPS Clerk 16th 2026",
+    "organization": "Institute of Banking Personnel Selection",
+    "fullName": "Common Recruitment Process for Clerks",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 100,
+    "duration": "60 min (Prelims) + 120 min (Mains)",
+    "negativeMarking": "0.25 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "English Language",
+        "tier": "Prelims + Mains",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Synonyms & Antonyms",
+          "Idioms & Phrases"
+        ]
+      },
+      {
+        "name": "Numerical Ability",
+        "tier": "Prelims + Mains",
+        "questions": 35,
+        "marks": 35,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Simple & Compound Interest", "Time & Work", "Time Distance",
+          "Data Interpretation", "Mensuration"
+        ]
+      },
+      {
+        "name": "Reasoning Ability",
+        "tier": "Prelims + Mains",
+        "questions": 35,
+        "marks": 35,
+        "topics": [
+          "Syllogism", "Coding-Decoding", "Puzzle", "Seating Arrangement",
+          "Input-Output", "Blood Relations", "Direction Sense", "Inequality"
+        ]
+      },
+      {
+        "name": "General/Financial Awareness",
+        "tier": "Mains",
+        "questions": 40,
+        "marks": 40,
+        "topics": [
+          "Current Affairs", "Banking Awareness", "Financial Awareness",
+          "Static GK", "Computer Awareness"
+        ]
+      },
+      {
+        "name": "Computer Awareness",
+        "tier": "Mains",
+        "questions": 40,
+        "marks": 40,
+        "topics": [
+          "MS Office", "Internet", "Computer Hardware", "Operating System",
+          "Basic Security", "Database Concepts", "Networking"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Banking Awareness by Arihant", "subject": "Banking" }
+    ]
+  },
+  {
+    "id": "upsc-cse",
+    "exam": "UPSC CSE 2026",
+    "organization": "Union Public Service Commission",
+    "fullName": "Civil Services Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 2025,
+    "duration": "Prelims: 4 hrs, Mains: ~27 hrs, Interview: 30 min",
+    "negativeMarking": "1/3rd in Prelims, No negative marking in Mains",
+    "subjects": [
+      {
+        "name": "General Studies Paper 1",
+        "tier": "Prelims",
+        "questions": 100,
+        "marks": 200,
+        "topics": [
+          "Current Events", "History of India", "Indian & World Geography",
+          "Indian Polity", "Economy", "General Science", "Environment & Ecology"
+        ]
+      },
+      {
+        "name": "CSAT (Paper 2)",
+        "tier": "Prelims",
+        "questions": 80,
+        "marks": 200,
+        "topics": [
+          "Comprehension", "Logical Reasoning", "Decision Making",
+          "Mathematics", "Data Interpretation", "GK"
+        ]
+      },
+      {
+        "name": "GS Paper I-IV",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 1000,
+        "topics": [
+          "Indian Heritage & Culture", "History", "Geography", "Society",
+          "Governance", "Constitution", "Polity", "Justice",
+          "Ethics", "Integrity", "Aptitude", "Security", "Disaster Management"
+        ]
+      },
+      {
+        "name": "Optional Subject",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 500,
+        "topics": [
+          "Any one subject from UPSC list"
+        ]
+      },
+      {
+        "name": "Interview",
+        "tier": "Personality Test",
+        "questions": 0,
+        "marks": 275,
+        "topics": [
+          "Personality Assessment", "Current Affairs", "General Knowledge",
+          "Analytical Ability", "Communication Skills"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "NCERT History (Class 6-12)", "subject": "History" },
+      { "name": "NCERT Geography (Class 6-12)", "subject": "Geography" },
+      { "name": "Indian Polity by M. Laxmikanth", "subject": "Polity" },
+      { "name": "Indian Economy by Ramesh Singh", "subject": "Economy" },
+      { "name": "Ethics by Lexicon", "subject": "Ethics" },
+      { "name": "Environment by Shankar IAS", "subject": "Environment" }
+    ]
+  },
+  {
+    "id": "uppsc-pcs",
+    "exam": "UPPSC PCS 2026",
+    "organization": "Uttar Pradesh Public Service Commission",
+    "fullName": "Provincial Civil Services",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 2050,
+    "duration": "Pre: 2 hrs, Mains: ~18 hrs",
+    "negativeMarking": "1/3rd in Pre only",
+    "subjects": [
+      {
+        "name": "General Studies",
+        "tier": "Pre + Mains",
+        "questions": 150,
+        "marks": 200,
+        "topics": [
+          "Current Events", "History of India", "Indian National Movement",
+          "Indian & World Geography", "Indian Polity & Governance",
+          "Economic & Social Development", "General Issues on Environment", "General Science"
+        ]
+      },
+      {
+        "name": "CSAT",
+        "tier": "Pre",
+        "questions": 100,
+        "marks": 200,
+        "topics": [
+          "Comprehension", "Interpersonal Skills", "Logical Reasoning",
+          "Decision Making", "General Mental Ability", "Elementary Mathematics",
+          "English Language Comprehension"
+        ]
+      },
+      {
+        "name": "General Studies I",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "History", "Culture", "Geography of India & UP", "Society",
+          "Indian Constitution", "Political System", "Governance"
+        ]
+      },
+      {
+        "name": "General Studies II",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Indian Polity", "Constitution", "Governance",
+          "Social Justice", "International Relations"
+        ]
+      },
+      {
+        "name": "General Studies III",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Economy", "Science & Technology", "Environment", "Biodiversity",
+          "Internal Security", "Disaster Management", "Agriculture"
+        ]
+      },
+      {
+        "name": "General Studies IV",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Ethics", "Integrity", "Aptitude", "Emotional Intelligence",
+          "Probity in Governance", "Case Studies"
+        ]
+      },
+      {
+        "name": "Optional Subject I",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Any one optional from UPSC list"
+        ]
+      },
+      {
+        "name": "Optional Subject II",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Any one optional from UPSC list"
+        ]
+      },
+      {
+        "name": "Hindi",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 150,
+        "topics": [
+          "Hindi Nibandh",
+          "Hindi Vyakaran",
+          "Patra Lekhan",
+          "Saransh Lekhan"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "UP Special by Pariksha Vani", "subject": "UP Special" },
+      { "name": "NCERT Books (6-12)", "subject": "GS" },
+      { "name": "Indian Polity by M. Laxmikanth", "subject": "Polity" },
+      { "name": "Lucent GK", "subject": "GK" }
+    ]
+  },
+  {
+    "id": "ssc-chsl-2026",
+    "exam": "SSC CHSL 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "Combined Higher Secondary Level Examination",
+    "level": "10+2 Level",
+    "tiers": 2,
+    "totalMarks": 400,
+    "duration": "60 min (Tier 1) + 120 min (Tier 2)",
+    "negativeMarking": "0.50 marks for wrong answer in Tier 1; 1 mark in Tier 2",
+    "subjects": [
+      {
+        "name": "Quantitative Aptitude",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Simple & Compound Interest", "Time & Work", "Time Distance",
+          "Mensuration", "Data Interpretation", "Trigonometry"
+        ]
+      },
+      {
+        "name": "English Language",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Synonyms & Antonyms",
+          "Idioms & Phrases", "One Word Substitution", "Active/Passive Voice",
+          "Direct/Indirect Speech"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity & Constitution",
+          "Geography", "Indian Economy", "General Science",
+          "Awards & Honors", "Sports"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "Tier 1 + Tier 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Matrix", "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "Descriptive Paper",
+        "tier": "Tier 2",
+        "questions": 3,
+        "marks": 100,
+        "topics": [
+          "Essay Writing (200-250 words)", "Letter/Application Writing",
+          "Precis Writing"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Plinth to Paramount by Neetu Singh", "subject": "English" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" },
+      { "name": "Kiran SSC Mathematics", "subject": "Quant" }
+    ]
+  },
+  {
+    "id": "ssc-mts-2026",
+    "exam": "SSC MTS 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "Multi-Tasking Staff Examination",
+    "level": "10th Level",
+    "tiers": 2,
+    "totalMarks": 200,
+    "duration": "90 min (Session 1) + 90 min (Session 2)",
+    "negativeMarking": "1 mark for wrong answer in Session 1; 0.25 in Session 2",
+    "subjects": [
+      {
+        "name": "Numerical & Mathematical Ability",
+        "tier": "Session 1",
+        "questions": 20,
+        "marks": 60,
+        "topics": [
+          "Number System", "HCF & LCM", "Percentage", "Ratio & Proportion",
+          "Profit & Loss", "Simple Interest", "Time & Work", "Time Distance",
+          "Mensuration", "Data Interpretation"
+        ]
+      },
+      {
+        "name": "Reasoning Ability & Problem Solving",
+        "tier": "Session 1",
+        "questions": 20,
+        "marks": 60,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Blood Relations", "Direction Sense", "Puzzle", "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "Session 1",
+        "questions": 20,
+        "marks": 60,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "General Science", "Sports"
+        ]
+      },
+      {
+        "name": "English Language & Comprehension",
+        "tier": "Session 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Synonyms & Antonyms",
+          "Idioms & Phrases"
+        ]
+      },
+      {
+        "name": "Hindi Language",
+        "tier": "Session 2",
+        "questions": 25,
+        "marks": 50,
+        "topics": [
+          "व्याकरण", "मुहावरे एवं लोकोक्तियाँ", "पर्यायवाची शब्द",
+          "विपरीतार्थक शब्द", "गद्यांश", "पद्यांश", "वाक्य शुद्धि"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "Samanya Hindi by Upkar", "subject": "Hindi" }
+    ]
+  },
+  {
+    "id": "ssc-cpo-2026",
+    "exam": "SSC CPO 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "Central Police Organisation Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 400,
+    "duration": "2 hours (Paper 1) + 2 hours (Paper 2)",
+    "negativeMarking": "0.25 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "Quantitative Aptitude",
+        "tier": "Paper 1",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Simple & Compound Interest", "Time & Work", "Geometry", "Mensuration",
+          "Data Interpretation", "Algebra", "Trigonometry"
+        ]
+      },
+      {
+        "name": "English Language & Comprehension",
+        "tier": "Paper 1 + Paper 2",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Synonyms & Antonyms",
+          "Idioms & Phrases", "One Word Substitution", "Active/Passive Voice",
+          "Direct/Indirect Speech", "Para Jumbles"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "Paper 1",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity & Constitution",
+          "Geography", "Indian Economy", "General Science",
+          "Awards & Honors", "Sports"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "Paper 1",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Matrix", "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "Physical Standards Test",
+        "tier": "PET/PST",
+        "questions": 0,
+        "marks": 0,
+        "topics": [
+          "Height", "Chest", "Running (1600m / 800m)", "Long Jump", "Shot Put"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Plinth to Paramount by Neetu Singh", "subject": "English" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" },
+      { "name": "Kiran SSC Mathematics", "subject": "Quant" }
+    ]
+  },
+  {
+    "id": "ssc-je-2026",
+    "exam": "SSC JE 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "Junior Engineer Examination",
+    "level": "Engineering Diploma Level",
+    "tiers": 2,
+    "totalMarks": 400,
+    "duration": "2 hours (Paper 1) + 3 hours (Paper 2)",
+    "negativeMarking": "0.25 marks for wrong answer in Paper 1",
+    "subjects": [
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "Paper 1",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "Paper 1",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "General Science"
+        ]
+      },
+      {
+        "name": "General Engineering (Civil/Mechanical/Electrical)",
+        "tier": "Paper 1",
+        "questions": 100,
+        "marks": 100,
+        "topics": [
+          "Civil: Building Materials, Estimating, Concrete Technology, RCC, Steel, Soil Mechanics, Hydraulics, Transportation",
+          "Mechanical: Theory of Machines, Thermodynamics, Fluid Mechanics, Heat Transfer, Manufacturing",
+          "Electrical: Circuit Theory, Electrical Machines, Power Systems, Measurements, Control Systems"
+        ]
+      },
+      {
+        "name": "Civil Engineering (Conventional)",
+        "tier": "Paper 2",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Building Materials", "Estimating & Costing", "Surveying",
+          "Soil Mechanics", "Hydraulics", "Transportation Engineering",
+          "Environmental Engineering", "RCC & Steel Structures"
+        ]
+      },
+      {
+        "name": "Mechanical Engineering (Conventional)",
+        "tier": "Paper 2",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Thermodynamics", "Heat Transfer", "Theory of Machines",
+          "Manufacturing Processes", "Fluid Mechanics", "Strength of Materials",
+          "Refrigeration & AC", "Engineering Drawing"
+        ]
+      },
+      {
+        "name": "Electrical Engineering (Conventional)",
+        "tier": "Paper 2",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Circuit Theory", "Electrical Machines", "Power Systems",
+          "Control Systems", "Electrical Measurements", "Analog & Digital Electronics",
+          "Power Electronics", "Utilization of Electrical Energy"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "SSC JE Civil by R. Agor", "subject": "Civil Engineering" },
+      { "name": "SSC JE Mechanical by R.K. Jain", "subject": "Mechanical Engineering" },
+      { "name": "SSC JE Electrical by J.B. Gupta", "subject": "Electrical Engineering" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" }
+    ]
+  },
+  {
+    "id": "ssc-stenographer-2026",
+    "exam": "SSC Stenographer 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "Stenographer Grade C & D Examination",
+    "level": "10+2 Level",
+    "tiers": 2,
+    "totalMarks": 200,
+    "duration": "2 hours (CBT) + Skill Test",
+    "negativeMarking": "0.25 marks for wrong answer in CBT",
+    "subjects": [
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "CBT",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Matrix", "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "CBT",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity & Constitution",
+          "Geography", "Indian Economy", "General Science",
+          "Awards & Honors", "Sports"
+        ]
+      },
+      {
+        "name": "English Language & Comprehension",
+        "tier": "CBT",
+        "questions": 100,
+        "marks": 100,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Synonyms & Antonyms",
+          "Idioms & Phrases", "One Word Substitution", "Active/Passive Voice",
+          "Direct/Indirect Speech", "Para Jumbles", "Spelling Correction"
+        ]
+      },
+      {
+        "name": "Skill Test (Stenography)",
+        "tier": "Skill Test",
+        "questions": 0,
+        "marks": 0,
+        "topics": [
+          "Shorthand English/Hindi - Grade C: 100 wpm, Grade D: 80 wpm",
+          "Transcription on Computer - Grade C: 50 min (Eng) / 65 min (Hindi)",
+          "Transcription on Computer - Grade D: 40 min (Eng) / 55 min (Hindi)"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Plinth to Paramount by Neetu Singh", "subject": "English" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Shorthand Pitman's", "subject": "Stenography" }
+    ]
+  },
+  {
+    "id": "rrb-group-d-2026",
+    "exam": "RRB Group D 2026",
+    "organization": "Railway Recruitment Boards",
+    "fullName": "Railway Group D (Level 1 Posts)",
+    "level": "10th Level",
+    "tiers": 2,
+    "totalMarks": 120,
+    "duration": "90 minutes (CBT 1)",
+    "negativeMarking": "1/3rd marks deducted for wrong answer",
+    "subjects": [
+      {
+        "name": "Mathematics",
+        "tier": "CBT 1",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Number System", "BODMAS", "Decimals & Fractions", "Percentage",
+          "Ratio & Proportion", "Profit & Loss", "Time & Work", "Time Distance",
+          "Mensuration", "Elementary Statistics"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "CBT 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Non-Verbal Reasoning", "Venn Diagram"
+        ]
+      },
+      {
+        "name": "General Science",
+        "tier": "CBT 1",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Physics - Units, Motion, Force, Energy",
+          "Chemistry - Elements, Compounds, Acids & Bases",
+          "Biology - Cells, Human Body, Diseases, Nutrition",
+          "Environment", "Pollution"
+        ]
+      },
+      {
+        "name": "General Awareness & Current Affairs",
+        "tier": "CBT 1",
+        "questions": 20,
+        "marks": 20,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "Sports", "Awards & Honors"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Rakesh Yadav Mathematics", "subject": "Math" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" },
+      { "name": "Lucent General Science", "subject": "Science" },
+      { "name": "NCERT Science (Class 6-10)", "subject": "Science" }
+    ]
+  },
+  {
+    "id": "rrb-alp-2026",
+    "exam": "RRB ALP 2026",
+    "organization": "Railway Recruitment Boards",
+    "fullName": "Assistant Loco Pilot Examination",
+    "level": "ITI/Diploma Level",
+    "tiers": 3,
+    "totalMarks": 250,
+    "duration": "60 min (CBT 1) + 90 min (CBT 2)",
+    "negativeMarking": "1/3rd marks deducted for wrong answer",
+    "subjects": [
+      {
+        "name": "Mathematics",
+        "tier": "CBT 1",
+        "questions": 20,
+        "marks": 20,
+        "topics": [
+          "Number System", "BODMAS", "Percentage", "Ratio & Proportion",
+          "Profit & Loss", "Time & Work", "Time Distance", "Mensuration",
+          "Algebra", "Trigonometry"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "CBT 1",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "General Science",
+        "tier": "CBT 1",
+        "questions": 20,
+        "marks": 20,
+        "topics": [
+          "Physics", "Chemistry", "Biology", "Environment"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "CBT 1",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "Sports"
+        ]
+      },
+      {
+        "name": "Trade (Mechanical/Electrical/Civil)",
+        "tier": "CBT 2",
+        "questions": 100,
+        "marks": 100,
+        "topics": [
+          "Engineering Drawing", "Workshop Technology", "Strength of Materials",
+          "Thermodynamics", "Fluid Mechanics", "Electrical Machines",
+          "Basic Electronics", "Computer Fundamentals"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "RRB ALP by R.Gupta", "subject": "Trade" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Rakesh Yadav Mathematics", "subject": "Math" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" },
+      { "name": "Lucent General Science", "subject": "Science" }
+    ]
+  },
+  {
+    "id": "rrb-je-2026",
+    "exam": "RRB JE 2026",
+    "organization": "Railway Recruitment Boards",
+    "fullName": "Junior Engineer Examination",
+    "level": "Engineering Diploma Level",
+    "tiers": 2,
+    "totalMarks": 250,
+    "duration": "90 min (CBT 1) + 120 min (CBT 2)",
+    "negativeMarking": "1/3rd marks deducted for wrong answer",
+    "subjects": [
+      {
+        "name": "Mathematics",
+        "tier": "CBT 1",
+        "questions": 20,
+        "marks": 20,
+        "topics": [
+          "Number System", "BODMAS", "Percentage", "Ratio & Proportion",
+          "Profit & Loss", "Time & Work", "Geometry", "Mensuration",
+          "Algebra", "Trigonometry", "Data Interpretation"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "CBT 1",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "CBT 1",
+        "questions": 15,
+        "marks": 15,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "General Science"
+        ]
+      },
+      {
+        "name": "General Science",
+        "tier": "CBT 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Physics", "Chemistry", "Biology", "Environment", "Computer Applications"
+        ]
+      },
+      {
+        "name": "Civil/Mechanical/Electrical Engineering",
+        "tier": "CBT 2",
+        "questions": 150,
+        "marks": 150,
+        "topics": [
+          "Civil: Building Materials, Estimating, Surveying, Soil Mechanics, Hydraulics",
+          "Mechanical: Thermodynamics, Theory of Machines, Fluid Mechanics, Manufacturing",
+          "Electrical: Circuit Theory, Machines, Power Systems, Control Systems"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "RRB JE Civil by R. Agor", "subject": "Civil Engineering" },
+      { "name": "RRB JE Mechanical by R.K. Jain", "subject": "Mechanical Engineering" },
+      { "name": "RRB JE Electrical by J.B. Gupta", "subject": "Electrical Engineering" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" }
+    ]
+  },
+  {
+    "id": "rrb-tc-2026",
+    "exam": "RRB TC 2026",
+    "organization": "Railway Recruitment Boards",
+    "fullName": "Ticket Collector Examination",
+    "level": "12th Level",
+    "tiers": 2,
+    "totalMarks": 150,
+    "duration": "90 minutes (CBT 1)",
+    "negativeMarking": "1/3rd marks deducted for wrong answer",
+    "subjects": [
+      {
+        "name": "Mathematics",
+        "tier": "CBT 1",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Number System", "BODMAS", "Percentage", "Ratio & Proportion",
+          "Profit & Loss", "Time & Work", "Time Distance", "Mensuration",
+          "Data Interpretation"
+        ]
+      },
+      {
+        "name": "General Intelligence & Reasoning",
+        "tier": "CBT 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "CBT 1",
+        "questions": 35,
+        "marks": 35,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity",
+          "Geography", "Indian Economy", "General Science", "Sports", "Awards"
+        ]
+      },
+      {
+        "name": "General Science",
+        "tier": "CBT 1",
+        "questions": 20,
+        "marks": 20,
+        "topics": [
+          "Physics", "Chemistry", "Biology", "Environment"
+        ]
+      },
+      {
+        "name": "English Language",
+        "tier": "CBT 1",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "Reading Comprehension", "Error Spotting", "Fill in the Blanks",
+          "Synonyms & Antonyms", "Idioms & Phrases"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Rakesh Yadav Mathematics", "subject": "Math" },
+      { "name": "M.K. Pandey Reasoning", "subject": "Reasoning" },
+      { "name": "Lucent General Science", "subject": "Science" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" }
+    ]
+  },
+  {
+    "id": "sbi-po-2026",
+    "exam": "SBI PO 2026",
+    "organization": "State Bank of India",
+    "fullName": "Probationary Officer Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 250,
+    "duration": "60 min (Prelims) + 3 hours (Mains) + Interview",
+    "negativeMarking": "0.25 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "English Language",
+        "tier": "Prelims + Mains",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Para Jumbles",
+          "Vocabulary", "Grammar"
+        ]
+      },
+      {
+        "name": "Quantitative Aptitude",
+        "tier": "Prelims + Mains",
+        "questions": 35,
+        "marks": 35,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Simple & Compound Interest", "Time & Work", "Data Interpretation",
+          "Mensuration", "Algebra", "Probability"
+        ]
+      },
+      {
+        "name": "Reasoning Ability",
+        "tier": "Prelims + Mains",
+        "questions": 35,
+        "marks": 35,
+        "topics": [
+          "Syllogism", "Coding-Decoding", "Puzzle", "Seating Arrangement",
+          "Input-Output", "Blood Relations", "Direction Sense", "Inequality",
+          "Logical Reasoning"
+        ]
+      },
+      {
+        "name": "General/Economy/Banking Awareness",
+        "tier": "Mains",
+        "questions": 40,
+        "marks": 40,
+        "topics": [
+          "Current Affairs", "Banking Awareness", "Financial Awareness",
+          "Economic Survey", "Union Budget", "RBI Policies", "Static GK"
+        ]
+      },
+      {
+        "name": "Data Analysis & Interpretation",
+        "tier": "Mains",
+        "questions": 35,
+        "marks": 60,
+        "topics": [
+          "Tables", "Bar Graphs", "Line Graphs", "Pie Charts",
+          "Caselets", "Data Sufficiency", "Probability", "Permutation & Combination"
+        ]
+      },
+      {
+        "name": "Descriptive Paper",
+        "tier": "Mains",
+        "questions": 2,
+        "marks": 50,
+        "topics": [
+          "Essay Writing", "Letter/Precis Writing", "Letter to Editor",
+          "Banking Related Topics", "Economic Topics"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Banking Awareness by Arihant", "subject": "Banking" },
+      { "name": "Data Interpretation by Arun Sharma", "subject": "DI" }
+    ]
+  },
+  {
+    "id": "sbi-clerk-2026",
+    "exam": "SBI Clerk 2026",
+    "organization": "State Bank of India",
+    "fullName": "Junior Associate Examination",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 100,
+    "duration": "60 min (Prelims) + 2 hours 40 min (Mains)",
+    "negativeMarking": "0.25 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "English Language",
+        "tier": "Prelims + Mains",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Fill in the Blanks", "Synonyms & Antonyms",
+          "Idioms & Phrases", "Para Jumbles"
+        ]
+      },
+      {
+        "name": "Numerical Ability",
+        "tier": "Prelims + Mains",
+        "questions": 35,
+        "marks": 35,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Simple & Compound Interest", "Time & Work", "Time Distance",
+          "Data Interpretation", "Mensuration", "Simplification"
+        ]
+      },
+      {
+        "name": "Reasoning Ability",
+        "tier": "Prelims + Mains",
+        "questions": 35,
+        "marks": 35,
+        "topics": [
+          "Syllogism", "Coding-Decoding", "Puzzle", "Seating Arrangement",
+          "Blood Relations", "Direction Sense", "Inequality", "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "General/Financial Awareness",
+        "tier": "Mains",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Current Affairs", "Banking Awareness", "Financial Awareness",
+          "Static GK", "Computer Awareness"
+        ]
+      },
+      {
+        "name": "General English",
+        "tier": "Mains",
+        "questions": 40,
+        "marks": 40,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Rearrangement", "Vocabulary", "Grammar"
+        ]
+      },
+      {
+        "name": "Quantitative Aptitude",
+        "tier": "Mains",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Simplification", "Number Series", "Data Interpretation",
+          "Quadratic Equations", "Profit & Loss", "Time & Work"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Banking Awareness by Arihant", "subject": "Banking" },
+      { "name": "Lucent GK", "subject": "GK" }
+    ]
+  },
+  {
+    "id": "rbi-grade-b-2026",
+    "exam": "RBI Grade B 2026",
+    "organization": "Reserve Bank of India",
+    "fullName": "Grade B Officer Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 450,
+    "duration": "Phase 1: 2 hrs, Phase 2: 6 hrs (3 papers), Interview: 30 min",
+    "negativeMarking": "0.25 marks for wrong answer in Phase 1 & 2",
+    "subjects": [
+      {
+        "name": "General Awareness",
+        "tier": "Phase 1",
+        "questions": 80,
+        "marks": 80,
+        "topics": [
+          "Current Affairs", "Indian Economy", "RBI Policies",
+          "Banking & Financial Awareness", "Static GK", "Government Schemes"
+        ]
+      },
+      {
+        "name": "English Language",
+        "tier": "Phase 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Vocabulary"
+        ]
+      },
+      {
+        "name": "Quantitative Aptitude",
+        "tier": "Phase 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Number System", "Percentage", "Data Interpretation",
+          "Profit & Loss", "Time & Work", "Mensuration"
+        ]
+      },
+      {
+        "name": "Reasoning",
+        "tier": "Phase 1",
+        "questions": 60,
+        "marks": 60,
+        "topics": [
+          "Puzzle", "Seating Arrangement", "Syllogism", "Coding-Decoding",
+          "Blood Relations", "Inequality", "Logical Reasoning"
+        ]
+      },
+      {
+        "name": "Economic & Social Issues",
+        "tier": "Phase 2",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Indian Economy", "Growth & Development", "Poverty Alleviation",
+          "Employment Generation", "Social Justice", "Education & Health",
+          "Globalization", "Economic Reforms", "Industrial Policy"
+        ]
+      },
+      {
+        "name": "English (Writing Skills)",
+        "tier": "Phase 2",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Essay Writing", "Precis Writing", "Letter Writing",
+          "Reading Comprehension", "Business Correspondence"
+        ]
+      },
+      {
+        "name": "Finance & Management",
+        "tier": "Phase 2",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Financial System", "Financial Markets", "Risk Management",
+          "Corporate Governance", "HRM", "Communication",
+          "Decision Making", "Leadership", "Motivation"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Indian Economy by Ramesh Singh", "subject": "Economics" },
+      { "name": "Banking Awareness by Arihant", "subject": "Banking" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "RBI Grade B by Disha Publications", "subject": "Phase 2" }
+    ]
+  },
+  {
+    "id": "nabard-grade-a-2026",
+    "exam": "NABARD Grade A 2026",
+    "organization": "National Bank for Agriculture and Rural Development",
+    "fullName": "Grade A (Rural Development Banking Service) Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 450,
+    "duration": "Phase 1: 2 hrs, Phase 2: 6 hrs, Interview: 30 min",
+    "negativeMarking": "0.25 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "General Awareness",
+        "tier": "Phase 1",
+        "questions": 40,
+        "marks": 40,
+        "topics": [
+          "Current Affairs", "Indian Economy", "Agriculture & Rural Development",
+          "Banking Awareness", "Government Schemes", "Static GK"
+        ]
+      },
+      {
+        "name": "English Language",
+        "tier": "Phase 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Vocabulary", "Grammar"
+        ]
+      },
+      {
+        "name": "Quantitative Aptitude",
+        "tier": "Phase 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Number System", "Percentage", "Data Interpretation",
+          "Profit & Loss", "Time & Work", "Mensuration"
+        ]
+      },
+      {
+        "name": "Reasoning",
+        "tier": "Phase 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Puzzle", "Seating Arrangement", "Syllogism", "Coding-Decoding",
+          "Blood Relations", "Inequality", "Logical Reasoning"
+        ]
+      },
+      {
+        "name": "Economic & Social Issues",
+        "tier": "Phase 2",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Indian Economy", "Agriculture", "Rural Development",
+          "Poverty", "Employment", "Social Justice", "Education"
+        ]
+      },
+      {
+        "name": "English (Writing Skills)",
+        "tier": "Phase 2",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Essay Writing", "Precis Writing", "Letter Writing",
+          "Report Writing"
+        ]
+      },
+      {
+        "name": "Agriculture & Rural Development",
+        "tier": "Phase 2",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Agriculture", "Animal Husbandry", "Fisheries", "Forestry",
+          "Rural Credit", "Microfinance", "Water Resources",
+          "Land Reforms", "Agricultural Policies"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Indian Economy by Ramesh Singh", "subject": "Economics" },
+      { "name": "Agriculture at a Glance by R.K. Sharma", "subject": "Agriculture" },
+      { "name": "NABARD Grade A by Disha Publications", "subject": "General" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Lucent GK", "subject": "GK" }
+    ]
+  },
+  {
+    "id": "nda-2026",
+    "exam": "NDA 2026",
+    "organization": "Union Public Service Commission",
+    "fullName": "National Defence Academy Examination",
+    "level": "12th Level",
+    "tiers": 2,
+    "totalMarks": 900,
+    "duration": "2.5 hrs (Mathematics) + 2.5 hrs (General Ability) + SSB Interview",
+    "negativeMarking": "0.33 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "Mathematics",
+        "tier": "Written",
+        "questions": 120,
+        "marks": 300,
+        "topics": [
+          "Algebra", "Trigonometry", "Analytical Geometry",
+          "Differential Calculus", "Integral Calculus", "Vectors",
+          "Statistics & Probability", "Matrices & Determinants"
+        ]
+      },
+      {
+        "name": "General Ability - English",
+        "tier": "Written",
+        "questions": 50,
+        "marks": 200,
+        "topics": [
+          "Reading Comprehension", "Vocabulary", "Grammar",
+          "Sentence Correction", "Idioms & Phrases", "Synonyms & Antonyms"
+        ]
+      },
+      {
+        "name": "General Ability - GK",
+        "tier": "Written",
+        "questions": 100,
+        "marks": 400,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "General Science", "Defence Related Topics"
+        ]
+      },
+      {
+        "name": "SSB Interview",
+        "tier": "SSB",
+        "questions": 0,
+        "marks": 900,
+        "topics": [
+          "Officer Intelligence Rating", "Picture Perception & Description Test",
+          "Situation Reaction Test", "Group Discussion",
+          "Psychological Testing", "Group Planning Exercise",
+          "Personal Interview", "Conference"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Pathfinder for NDA/NA by Arihant", "subject": "General" },
+      { "name": "Mathematics for NDA by RS Aggarwal", "subject": "Math" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "NDA/NA SSB Interview by Arihant", "subject": "SSB" }
+    ]
+  },
+  {
+    "id": "cds-2026",
+    "exam": "CDS 2026",
+    "organization": "Union Public Service Commission",
+    "fullName": "Combined Defence Services Examination",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 900,
+    "duration": "2 hrs (English) + 2 hrs (General Knowledge) + 2 hrs (Elementary Maths) + SSB",
+    "negativeMarking": "0.33 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "English",
+        "tier": "Written",
+        "questions": 120,
+        "marks": 100,
+        "topics": [
+          "Reading Comprehension", "Cloze Test", "Error Spotting",
+          "Sentence Improvement", "Synonyms & Antonyms", "Idioms & Phrases",
+          "One Word Substitution", "Fill in the Blanks", "Para Jumbles"
+        ]
+      },
+      {
+        "name": "General Knowledge",
+        "tier": "Written",
+        "questions": 120,
+        "marks": 100,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity & Constitution",
+          "Geography", "Indian Economy", "General Science",
+          "Defence Related Topics", "Sports"
+        ]
+      },
+      {
+        "name": "Elementary Mathematics",
+        "tier": "Written (IMA/AFA/NA)",
+        "questions": 100,
+        "marks": 100,
+        "topics": [
+          "Number System", "HCF & LCM", "Percentage", "Ratio & Proportion",
+          "Profit & Loss", "Simple & Compound Interest", "Time & Work",
+          "Geometry", "Mensuration", "Trigonometry", "Algebra", "Statistics"
+        ]
+      },
+      {
+        "name": "SSB Interview",
+        "tier": "SSB",
+        "questions": 0,
+        "marks": 900,
+        "topics": [
+          "Officer Intelligence Rating", "Picture Perception & Description Test",
+          "Situation Reaction Test", "Group Discussion",
+          "Psychological Testing", "Group Planning Exercise",
+          "Personal Interview", "Conference"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Pathfinder for CDS by Arihant", "subject": "General" },
+      { "name": "Mathematics for CDS by RS Aggarwal", "subject": "Math" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "CDS SSB Interview by Arihant", "subject": "SSB" }
+    ]
+  },
+  {
+    "id": "afcat-2026",
+    "exam": "AFCAT 2026",
+    "organization": "Indian Air Force",
+    "fullName": "Air Force Common Admission Test",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 300,
+    "duration": "2 hours (AFCAT) + EKT (for Technical)",
+    "negativeMarking": "1 mark for wrong answer",
+    "subjects": [
+      {
+        "name": "General Awareness",
+        "tier": "AFCAT",
+        "questions": 25,
+        "marks": 75,
+        "topics": [
+          "Current Affairs", "History", "Geography", "Indian Polity",
+          "Indian Economy", "General Science", "Defence Related Topics", "Sports"
+        ]
+      },
+      {
+        "name": "Verbal Ability in English",
+        "tier": "AFCAT",
+        "questions": 25,
+        "marks": 75,
+        "topics": [
+          "Reading Comprehension", "Error Spotting", "Sentence Improvement",
+          "Fill in the Blanks", "Synonyms & Antonyms", "Idioms & Phrases",
+          "One Word Substitution", "Cloze Test"
+        ]
+      },
+      {
+        "name": "Numerical Ability",
+        "tier": "AFCAT",
+        "questions": 25,
+        "marks": 75,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Time & Work", "Time Distance", "Mensuration", "Data Interpretation",
+          "Simple & Compound Interest"
+        ]
+      },
+      {
+        "name": "Reasoning & Military Aptitude",
+        "tier": "AFCAT",
+        "questions": 25,
+        "marks": 75,
+        "topics": [
+          "Verbal Reasoning", "Non-Verbal Reasoning", "Spatial Ability",
+          "Pattern Recognition", "Analogies", "Classification", "Series",
+          "Blood Relations", "Direction Sense"
+        ]
+      },
+      {
+        "name": "Engineering Knowledge Test (EKT)",
+        "tier": "EKT (Technical)",
+        "questions": 50,
+        "marks": 150,
+        "topics": [
+          "Mechanical: Thermodynamics, Fluid Mechanics, Theory of Machines",
+          "Electrical: Circuit Theory, Electrical Machines, Power Systems",
+          "Electronics: Analog & Digital Electronics, Communication Systems",
+          "Computer Science: Programming, Data Structures, OS, Networking"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "AFCAT by Arihant", "subject": "General" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Lucent GK", "subject": "GK" }
+    ]
+  },
+  {
+    "id": "upsc-ifs-2026",
+    "exam": "UPSC IFS 2026",
+    "organization": "Union Public Service Commission",
+    "fullName": "Indian Forest Service Examination",
+    "level": "Graduate Level (Science)",
+    "tiers": 3,
+    "totalMarks": 1400,
+    "duration": "Prelims: 4 hrs, Mains: ~27 hrs, Interview: 30 min",
+    "negativeMarking": "1/3rd in Prelims, No negative marking in Mains",
+    "subjects": [
+      {
+        "name": "General Studies Paper 1",
+        "tier": "Prelims",
+        "questions": 100,
+        "marks": 200,
+        "topics": [
+          "Current Events", "History of India", "Indian & World Geography",
+          "Indian Polity", "Economy", "General Science", "Environment & Ecology"
+        ]
+      },
+      {
+        "name": "CSAT (Paper 2)",
+        "tier": "Prelims",
+        "questions": 80,
+        "marks": 200,
+        "topics": [
+          "Comprehension", "Logical Reasoning", "Decision Making",
+          "Mathematics", "Data Interpretation"
+        ]
+      },
+      {
+        "name": "General English",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Essay", "Précis Writing", "Reading Comprehension",
+          "Grammar", "Vocabulary", "Sentence Construction"
+        ]
+      },
+      {
+        "name": "General Knowledge",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Current Affairs", "Indian Polity", "Indian Economy",
+          "Geography", "History", "General Science"
+        ]
+      },
+      {
+        "name": "Optional Subject I",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 400,
+        "topics": [
+          "Agriculture", "Botany", "Chemistry", "Mathematics",
+          "Physics", "Statistics", "Zoology", "Forestry",
+          "Geology", "Animal Husbandry & Veterinary Science"
+        ]
+      },
+      {
+        "name": "Optional Subject II",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 400,
+        "topics": [
+          "Agriculture", "Botany", "Chemistry", "Mathematics",
+          "Physics", "Statistics", "Zoology", "Forestry",
+          "Geology", "Animal Husbandry & Veterinary Science"
+        ]
+      },
+      {
+        "name": "Interview",
+        "tier": "Personality Test",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Personality Assessment", "Current Affairs", "Forest Management",
+          "Environmental Issues", "Communication Skills"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "NCERT Biology (Class 11-12)", "subject": "Botany/Zoology" },
+      { "name": "Indian Forestry by R.S. Jamwal", "subject": "Forestry" },
+      { "name": "NCERT Geography (Class 6-12)", "subject": "Geography" },
+      { "name": "Indian Polity by M. Laxmikanth", "subject": "Polity" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" }
+    ]
+  },
+  {
+    "id": "upsc-capf-2026",
+    "exam": "UPSC CAPF 2026",
+    "organization": "Union Public Service Commission",
+    "fullName": "Central Armed Police Forces (Assistant Commandants) Examination",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 550,
+    "duration": "2 hrs (Paper 1) + 2 hrs (Paper 2) + PST/PET + Interview",
+    "negativeMarking": "0.33 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "General Ability & Intelligence",
+        "tier": "Paper 1",
+        "questions": 125,
+        "marks": 250,
+        "topics": [
+          "General Mental Ability", "Logical Reasoning", "General Science",
+          "Current Events", "Indian Polity", "Indian Economy",
+          "Indian & World Geography", "History of India"
+        ]
+      },
+      {
+        "name": "General Studies, Essay & Comprehension",
+        "tier": "Paper 2",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Essay Writing (3 essays)", "Précis Writing",
+          "Reading Comprehension", "Grammar & Vocabulary",
+          "Counter Currents", "Argumentative Writing"
+        ]
+      },
+      {
+        "name": "Physical Standards Test",
+        "tier": "PST/PET",
+        "questions": 0,
+        "marks": 0,
+        "topics": [
+          "Height", "Chest", "100m Race", "800m Race",
+          "Long Jump", "Shot Put"
+        ]
+      },
+      {
+        "name": "Interview/Personality Test",
+        "tier": "Interview",
+        "questions": 0,
+        "marks": 150,
+        "topics": [
+          "Personality Assessment", "Current Affairs", "Security Issues",
+          "Leadership Qualities", "Communication Skills"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "CAPF by Arihant", "subject": "General" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" }
+    ]
+  },
+  {
+    "id": "upsc-cisf-ac-2026",
+    "exam": "UPSC CISF AC 2026",
+    "organization": "Union Public Service Commission",
+    "fullName": "Central Industrial Security Force (Assistant Commandants) Examination",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 550,
+    "duration": "2 hrs (Paper 1) + 2 hrs (Paper 2) + Interview",
+    "negativeMarking": "0.33 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "General Ability & Intelligence",
+        "tier": "Paper 1",
+        "questions": 125,
+        "marks": 250,
+        "topics": [
+          "General Mental Ability", "Logical Reasoning", "General Science",
+          "Current Events", "Indian Polity", "Indian Economy",
+          "Indian & World Geography", "History of India"
+        ]
+      },
+      {
+        "name": "General Studies, Essay & Comprehension",
+        "tier": "Paper 2",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Essay Writing", "Précis Writing", "Reading Comprehension",
+          "Grammar & Vocabulary", "Argumentative Writing"
+        ]
+      },
+      {
+        "name": "Interview/Personality Test",
+        "tier": "Interview",
+        "questions": 0,
+        "marks": 150,
+        "topics": [
+          "Personality Assessment", "Current Affairs", "Industrial Security",
+          "Leadership Qualities", "Communication Skills"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "CAPF/CISF by Arihant", "subject": "General" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" }
+    ]
+  },
+  {
+    "id": "bpsc-71st-2026",
+    "exam": "BPSC 71st 2026",
+    "organization": "Bihar Public Service Commission",
+    "fullName": "Bihar Public Service Commission Combined Competitive Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 1200,
+    "duration": "Pre: 2 hrs, Mains: ~15 hrs, Interview: 30 min",
+    "negativeMarking": "0.25 marks in Pre, No negative marking in Mains",
+    "subjects": [
+      {
+        "name": "General Studies",
+        "tier": "Pre + Mains",
+        "questions": 150,
+        "marks": 200,
+        "topics": [
+          "Current Events", "History of India", "Indian National Movement",
+          "Indian & World Geography", "Indian Polity & Governance",
+          "Economic & Social Development", "General Science", "Environment"
+        ]
+      },
+      {
+        "name": "General Science & Maths",
+        "tier": "Pre",
+        "questions": 100,
+        "marks": 200,
+        "topics": [
+          "Physics", "Chemistry", "Biology", "Mathematics",
+          "Environment", "Current Science & Technology"
+        ]
+      },
+      {
+        "name": "General Studies I",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Indian Culture", "History of India", "History of Bihar",
+          "Indian National Movement", "Geography"
+        ]
+      },
+      {
+        "name": "General Studies II",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Indian Polity", "Economy", "Geography", "Science & Technology"
+        ]
+      },
+      {
+        "name": "General Studies III",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Economy", "Science & Technology", "Environment",
+          "Internal Security", "Disaster Management"
+        ]
+      },
+      {
+        "name": "General Studies IV (Ethics)",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "Ethics", "Integrity", "Aptitude", "Emotional Intelligence",
+          "Probity in Governance", "Case Studies"
+        ]
+      },
+      {
+        "name": "Hindi (Qualifying)",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Hindi Essay", "Hindi Grammar", "Letter Writing",
+          "Précis Writing", "Translation"
+        ]
+      },
+      {
+        "name": "Optional Subject",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "History, Geography, Political Science, Sociology, Philosophy, Mathematics, Physics, Chemistry, Botany, Zoology, Geology, Statistics, Agriculture, Computer Science, Law, Commerce, Economics, Management, Psychology"
+        ]
+      },
+      {
+        "name": "Interview",
+        "tier": "Interview",
+        "questions": 0,
+        "marks": 120,
+        "topics": [
+          "Personality Assessment", "Current Affairs", "Bihar Specific",
+          "Analytical Ability", "Communication Skills"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "BPSC by Arihant", "subject": "General" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Bihar GK by Crown", "subject": "Bihar Special" },
+      { "name": "Indian Polity by M. Laxmikanth", "subject": "Polity" },
+      { "name": "NCERT Books (6-12)", "subject": "GS" }
+    ]
+  },
+  {
+    "id": "mppsc-state-service-2026",
+    "exam": "MPPSC State Service 2026",
+    "organization": "Madhya Pradesh Public Service Commission",
+    "fullName": "State Service Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 1600,
+    "duration": "Pre: 2 hrs, Mains: ~18 hrs, Interview: 30 min",
+    "negativeMarking": "0.33 marks in Pre, No negative marking in Mains",
+    "subjects": [
+      {
+        "name": "General Studies",
+        "tier": "Pre + Mains",
+        "questions": 150,
+        "marks": 200,
+        "topics": [
+          "Current Events", "History of India", "Indian National Movement",
+          "Indian & World Geography", "Indian Polity & Governance",
+          "Economic & Social Development", "General Science", "Environment"
+        ]
+      },
+      {
+        "name": "General Science & Environment",
+        "tier": "Pre",
+        "questions": 100,
+        "marks": 200,
+        "topics": [
+          "Physics", "Chemistry", "Biology", "Environment",
+          "Ecology", "Climate Change", "Current Science & Technology"
+        ]
+      },
+      {
+        "name": "General Studies I",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Indian History", "Cultural Heritage", "Indian Constitution",
+          "Political System", "Governance"
+        ]
+      },
+      {
+        "name": "General Studies II",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Indian Polity", "Economy", "Science & Technology",
+          "Environment", "Biodiversity"
+        ]
+      },
+      {
+        "name": "General Studies III",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Economy", "Agriculture", "Science & Technology",
+          "Internal Security", "Disaster Management"
+        ]
+      },
+      {
+        "name": "General Studies IV (Ethics)",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Ethics", "Integrity", "Aptitude", "Emotional Intelligence",
+          "Probity in Governance", "Case Studies"
+        ]
+      },
+      {
+        "name": "Hindi",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Hindi Nibandh", "Hindi Vyakaran", "Patra Lekhan",
+          "Saransh Lekhan", "Anuvad"
+        ]
+      },
+      {
+        "name": "Optional Subject",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 400,
+        "topics": [
+          "History, Geography, Political Science, Sociology, Philosophy, Mathematics, Physics, Chemistry, Botany, Zoology, Geology, Statistics, Agriculture, Commerce, Economics"
+        ]
+      },
+      {
+        "name": "Interview",
+        "tier": "Interview",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Personality Assessment", "Current Affairs", "MP Specific",
+          "Analytical Ability", "Communication Skills"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "MPPSC by Arihant", "subject": "General" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "MP GK by Upkar", "subject": "MP Special" },
+      { "name": "Indian Polity by M. Laxmikanth", "subject": "Polity" },
+      { "name": "NCERT Books (6-12)", "subject": "GS" }
+    ]
+  },
+  {
+    "id": "rpsc-ras-2026",
+    "exam": "RPSC RAS 2026",
+    "organization": "Rajasthan Public Service Commission",
+    "fullName": "Rajasthan State and Subordinate Services Combined Competitive Examination",
+    "level": "Graduate Level",
+    "tiers": 3,
+    "totalMarks": 1800,
+    "duration": "Pre: 3 hrs, Mains: ~27 hrs, Interview: 30 min",
+    "negativeMarking": "0.33 marks in Pre, No negative marking in Mains",
+    "subjects": [
+      {
+        "name": "General Knowledge & General Science",
+        "tier": "Pre + Mains",
+        "questions": 150,
+        "marks": 200,
+        "topics": [
+          "Current Events", "History of India", "Indian National Movement",
+          "Indian & World Geography", "Indian Polity & Governance",
+          "Economic & Social Development", "General Science", "Environment"
+        ]
+      },
+      {
+        "name": "General Hindi",
+        "tier": "Pre",
+        "questions": 80,
+        "marks": 100,
+        "topics": [
+          "Hindi Vyakaran", "Hindi Nibandh", "Patra Lekhan",
+          "Saransh Lekhan", "Muhavare & Lokoktiyan"
+        ]
+      },
+      {
+        "name": "General Studies I",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Indian History", "Cultural Heritage", "Rajasthan History",
+          "Art & Culture", "Indian Constitution"
+        ]
+      },
+      {
+        "name": "General Studies II",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Indian Polity", "Economy", "Rajasthan Economy",
+          "Science & Technology", "Environment"
+        ]
+      },
+      {
+        "name": "General Studies III",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Economy", "Agriculture", "Science & Technology",
+          "Internal Security", "Disaster Management"
+        ]
+      },
+      {
+        "name": "General Studies IV (Ethics & Mental Ability)",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Ethics", "Integrity", "Aptitude", "Emotional Intelligence",
+          "Logical Reasoning", "Decision Making", "Case Studies"
+        ]
+      },
+      {
+        "name": "English",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Essay", "Précis Writing", "Reading Comprehension",
+          "Grammar", "Vocabulary"
+        ]
+      },
+      {
+        "name": "Hindi (Qualifying)",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 100,
+        "topics": [
+          "Hindi Nibandh", "Hindi Vyakaran", "Patra Lekhan",
+          "Saransh Lekhan"
+        ]
+      },
+      {
+        "name": "Optional Subject I",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "History, Geography, Political Science, Sociology, Philosophy, Mathematics, Physics, Chemistry, Botany, Zoology, Geology, Statistics, Agriculture, Commerce, Economics, Public Administration, Law"
+        ]
+      },
+      {
+        "name": "Optional Subject II",
+        "tier": "Mains",
+        "questions": 0,
+        "marks": 300,
+        "topics": [
+          "History, Geography, Political Science, Sociology, Philosophy, Mathematics, Physics, Chemistry, Botany, Zoology, Geology, Statistics, Agriculture, Commerce, Economics, Public Administration, Law"
+        ]
+      },
+      {
+        "name": "Interview",
+        "tier": "Interview",
+        "questions": 0,
+        "marks": 200,
+        "topics": [
+          "Personality Assessment", "Current Affairs", "Rajasthan Specific",
+          "Analytical Ability", "Communication Skills"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "RPSC RAS by Arihant", "subject": "General" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Rajasthan GK by R.D. Sharma", "subject": "Rajasthan Special" },
+      { "name": "Indian Polity by M. Laxmikanth", "subject": "Polity" },
+      { "name": "NCERT Books (6-12)", "subject": "GS" },
+      { "name": "Samanya Hindi by Upkar", "subject": "Hindi" }
+    ]
+  },
+  {
+    "id": "delhi-police-constable-2026",
+    "exam": "Delhi Police Constable 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "Delhi Police Constable Executive Male/Female Examination",
+    "level": "12th Level",
+    "tiers": 2,
+    "totalMarks": 100,
+    "duration": "90 minutes (CBT) + Physical Test",
+    "negativeMarking": "0.25 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "General Knowledge/Current Affairs",
+        "tier": "CBT",
+        "questions": 50,
+        "marks": 50,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity & Constitution",
+          "Geography", "Indian Economy", "General Science",
+          "Awards & Honors", "Sports", "Books & Authors"
+        ]
+      },
+      {
+        "name": "Reasoning/Mental Ability",
+        "tier": "CBT",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Syllogism", "Blood Relations", "Direction Sense", "Puzzle",
+          "Non-Verbal Reasoning"
+        ]
+      },
+      {
+        "name": "Numerical Ability",
+        "tier": "CBT",
+        "questions": 15,
+        "marks": 15,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Time & Work", "Time Distance", "Mensuration", "Data Interpretation"
+        ]
+      },
+      {
+        "name": "Computer Fundamentals",
+        "tier": "CBT",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "MS Office", "Internet", "Computer Hardware", "Operating System",
+          "Basic Security", "Networking"
+        ]
+      },
+      {
+        "name": "Physical Test",
+        "tier": "PET/PST",
+        "questions": 0,
+        "marks": 0,
+        "topics": [
+          "Male: 1600m in 6 min, Long Jump 12ft, High Jump 3.5ft",
+          "Female: 800m in 4 min, Long Jump 9ft, High Jump 2.5ft"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "A Modern Approach to Verbal & Non-Verbal Reasoning by RS Aggarwal", "subject": "Reasoning" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Quant" },
+      { "name": "Delhi Police by Arihant", "subject": "Delhi Police" },
+      { "name": "Computer Awareness by Arihant", "subject": "Computer" }
+    ]
+  },
+  {
+    "id": "crpf-hc-2026",
+    "exam": "CRPF HC 2026",
+    "organization": "Staff Selection Commission",
+    "fullName": "CRPF Head Constable (Ministerial) Examination",
+    "level": "12th Level",
+    "tiers": 2,
+    "totalMarks": 100,
+    "duration": "90 minutes (CBT) + Physical Test + Skill Test",
+    "negativeMarking": "0.25 marks for wrong answer",
+    "subjects": [
+      {
+        "name": "General Knowledge",
+        "tier": "CBT",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Current Affairs", "History of India", "Indian Polity & Constitution",
+          "Geography", "Indian Economy", "General Science",
+          "Awards & Honors", "Sports"
+        ]
+      },
+      {
+        "name": "General Science",
+        "tier": "CBT",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Physics", "Chemistry", "Biology",
+          "Environment", "Pollution"
+        ]
+      },
+      {
+        "name": "Mathematics",
+        "tier": "CBT",
+        "questions": 20,
+        "marks": 20,
+        "topics": [
+          "Number System", "Percentage", "Ratio & Proportion", "Profit & Loss",
+          "Time & Work", "Time Distance", "Mensuration", "Data Interpretation"
+        ]
+      },
+      {
+        "name": "English/Hindi",
+        "tier": "CBT",
+        "questions": 25,
+        "marks": 25,
+        "topics": [
+          "Reading Comprehension", "Error Spotting", "Fill in the Blanks",
+          "Synonyms & Antonyms", "Idioms & Phrases", "Grammar",
+          "Hindi Vyakaran", "Muhavare"
+        ]
+      },
+      {
+        "name": "Physical Standard Test",
+        "tier": "PST",
+        "questions": 0,
+        "marks": 0,
+        "topics": [
+          "Male: Height 170cm, Chest 80-85cm",
+          "Female: Height 157cm"
+        ]
+      },
+      {
+        "name": "Typing/Skill Test",
+        "tier": "Skill Test",
+        "questions": 0,
+        "marks": 0,
+        "topics": [
+          "English Typing: 35 wpm",
+          "Hindi Typing: 30 wpm"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Lucent General Science", "subject": "Science" },
+      { "name": "Quantitative Aptitude by RS Aggarwal", "subject": "Math" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" },
+      { "name": "Samanya Hindi by Upkar", "subject": "Hindi" }
+    ]
+  },
+  {
+    "id": "kvs-pgt-2026",
+    "exam": "KVS PGT 2026",
+    "organization": "Kendriya Vidyalaya Sangathan",
+    "fullName": "Post Graduate Teacher Recruitment Examination",
+    "level": "Post Graduate Level",
+    "tiers": 2,
+    "totalMarks": 150,
+    "duration": "3 hours (CBT) + Interview",
+    "negativeMarking": "No negative marking",
+    "subjects": [
+      {
+        "name": "Concerned Subject (PG Level)",
+        "tier": "CBT",
+        "questions": 100,
+        "marks": 100,
+        "topics": [
+          "Deep knowledge in respective subject (Physics/Chemistry/Biology/Math/English/Hindi/Social Science/Computer Science/Economics/Geography/History/Polity)"
+        ]
+      },
+      {
+        "name": "General Awareness",
+        "tier": "CBT",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "Current Affairs", "Indian History", "Indian Polity",
+          "Indian Economy", "Sports", "Awards & Honors"
+        ]
+      },
+      {
+        "name": "Reasoning Ability",
+        "tier": "CBT",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "Analogies", "Classification", "Series", "Coding-Decoding",
+          "Blood Relations", "Direction Sense"
+        ]
+      },
+      {
+        "name": "Computer Literacy",
+        "tier": "CBT",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "MS Office", "Internet", "Computer Hardware", "Operating System",
+          "Database Concepts", "Networking", "Cyber Security"
+        ]
+      },
+      {
+        "name": "Hindi/English",
+        "tier": "CBT",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "Reading Comprehension", "Error Spotting", "Fill in the Blanks",
+          "Vocabulary", "Grammar"
+        ]
+      },
+      {
+        "name": "Pedagogy",
+        "tier": "CBT",
+        "questions": 10,
+        "marks": 10,
+        "topics": [
+          "Teaching Methods", "Child Development", "Learning Psychology",
+          "Educational Technology", "Classroom Management", "Evaluation Methods"
+        ]
+      },
+      {
+        "name": "Interview",
+        "tier": "Interview",
+        "questions": 0,
+        "marks": 60,
+        "topics": [
+          "Subject Knowledge", "Teaching Aptitude", "Communication Skills",
+          "Current Affairs", "General Awareness"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "KVS PGT by Arihant", "subject": "General" },
+      { "name": "Child Development & Pedagogy by Arihant", "subject": "Pedagogy" },
+      { "name": "Computer Awareness by Arihant", "subject": "Computer" },
+      { "name": "Lucent GK", "subject": "GK" },
+      { "name": "Objective General English by SP Bakshi", "subject": "English" }
+    ]
+  },
+  {
+    "id": "ctet-2026",
+    "exam": "CTET 2026",
+    "organization": "Central Board of Secondary Education",
+    "fullName": "Central Teacher Eligibility Test",
+    "level": "Graduate Level",
+    "tiers": 2,
+    "totalMarks": 150,
+    "duration": "2.5 hours each paper",
+    "negativeMarking": "No negative marking",
+    "subjects": [
+      {
+        "name": "Child Development & Pedagogy",
+        "tier": "Paper 1 + Paper 2",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Child Development", "Concept of Development", "Learning & Pedagogy",
+          "Inclusive Education", "Gender as a Social Construct",
+          "Individual Differences", "Assessment & Evaluation",
+          "Heredity & Environment", "Piaget, Kohlberg, Vygotsky Theories"
+        ]
+      },
+      {
+        "name": "Language I (Hindi/English)",
+        "tier": "Paper 1 + Paper 2",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Reading Comprehension", "Language Pedagogy",
+          "Grammar", "Vocabulary", "Language Development",
+          "Teaching Learning Materials", "Principles of Language Teaching"
+        ]
+      },
+      {
+        "name": "Language II (English/Hindi/Other)",
+        "tier": "Paper 1 + Paper 2",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Reading Comprehension", "Language Pedagogy",
+          "Grammar", "Vocabulary", "Language Development",
+          "Teaching Learning Materials"
+        ]
+      },
+      {
+        "name": "Mathematics (Paper 1) / Maths & Science (Paper 2)",
+        "tier": "Paper 1 + Paper 2",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Number System", "Algebra", "Geometry", "Mensuration",
+          "Data Handling", "Fractions", "Patterns",
+          "Pedagogical Issues in Mathematics"
+        ]
+      },
+      {
+        "name": "Environmental Studies (Paper 1)",
+        "tier": "Paper 1",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Family & Friends", "Food", "Shelter", "Water",
+          "Travel", "Things We Make & Do", "Environment & Pedagogy"
+        ]
+      },
+      {
+        "name": "Science (Paper 2)",
+        "tier": "Paper 2",
+        "questions": 30,
+        "marks": 30,
+        "topics": [
+          "Physics", "Chemistry", "Biology",
+          "Pedagogical Issues in Science", "Nature & Structure of Sciences"
+        ]
+      },
+      {
+        "name": "Social Studies/Social Science (Paper 2)",
+        "tier": "Paper 2",
+        "questions": 60,
+        "marks": 60,
+        "topics": [
+          "History", "Geography", "Social & Political Life",
+          "Economics", "Civic Issues",
+          "Pedagogical Issues in Social Science"
+        ]
+      }
+    ],
+    "books": [
+      { "name": "CTET by Arihant", "subject": "General" },
+      { "name": "Child Development & Pedagogy by Arihant", "subject": "Pedagogy" },
+      { "name": "CTET Mathematics by Arihant", "subject": "Math" },
+      { "name": "CTET Science by Arihant", "subject": "Science" },
+      { "name": "CTET Social Studies by Arihant", "subject": "Social Studies" },
+      { "name": "Lucent GK", "subject": "GK" }
+    ]
+  }
+]

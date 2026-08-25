@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const filteredJobs = jobs.filter(job => {
+  const text = (job.title + ' ' + job.organization + ' ' + job.slug + ' ' + job.category).toLowerCase();
+  return text.includes('mpesb') || text.includes('madhya pradesh') || text.includes('mp police') || text.includes('mppsc') || text.includes('mppeb') || text.includes('vyapam') || (text.includes('mp ') && (text.includes('patwari') || text.includes('group')));
+});
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "States" },
+    { "@type": "ListItem", "position": 3, "name": "Madhya Pradesh" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to apply for MP government jobs through MPESB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit mpbpeb.gov.in or mpprofessionalexamboard.gov.in, register with Aadhaar, fill the online application, upload documents, pay fee online or via MP Online kiosk, and submit. CPCT score card is required for many posts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is MPPSC and what posts does it recruit for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MPPSC (Madhya Pradesh Public Service Commission) conducts exams for State Services like SDM, DSP, Tehsildar, and other Group A and Group B posts in Madhya Pradesh government."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the main MP govt job exams in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Major MP exams include MPPSC State Services, MPPEB (Vyapam) various Group 2/Group 3 posts, MP Police Constable/SI, MPPEB Patwari, and MP Professional Examination Board technical and non-technical recruitment."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Madhya Pradesh Government Jobs 2026 | Sarkari Sahayak"
+  description="Madhya Pradesh Govt Jobs 2026 — MPSC, MP Police, MPPSC, MPPEB (Vyapam) sabki latest sarkari naukri. MP government vacancy 2026 apply online."
+  canonical="/states/madhya-pradesh"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/states/" style="color:var(--saffron);text-decoration:none">States</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Madhya Pradesh</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">State Govt Jobs</span>
+        <h1 class="section-title" style="font-size:34px">Madhya Pradesh Government Jobs 2026</h1>
+        <p class="section-sub">MPPSC, MP Police, MPPEB (Vyapam) — sabki latest MP sarkari naukri ek jagah.</p>
+      </div>
+
+      <div class="portal-row" style="margin-bottom:var(--sp-xl)">
+        <a href="https://mppsc.mp.gov.in" target="_blank" rel="noopener" class="btn-primary">MPPSC Portal ↗</a>
+        <a href="https://mpbpeb.gov.in" target="_blank" rel="noopener" class="btn-ghost">MPPEB (Vyapam) ↗</a>
+        <a href="/latest-jobs" class="btn-ghost">All Latest Jobs</a>
+      </div>
+
+      {filteredJobs.length > 0 ? (
+        <div class="tt-wrap">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th style="width:40%">Post / Recruitment</th>
+                <th>Organization</th>
+                <th style="text-align:center">Vacancies</th>
+                <th>Last Date</th>
+                <th style="text-align:center">Apply</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredJobs.map(job => (
+                <tr>
+                  <td>
+                    <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                    <br/>
+                    <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                  </td>
+                  <td style="white-space:nowrap">{job.organization}</td>
+                  <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                    {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                  </td>
+                  <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                  <td style="text-align:center">
+                    <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                      Apply ↗
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div class="no-results">Abhi koi MP-specific job open nahi hai. <a href="/latest-jobs" style="color:var(--saffron)">Saari jobs dekhein.</a></div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--soft);padding-block:var(--sp-xxl)">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:26px;margin-bottom:16px">Madhya Pradesh Govt Jobs — Complete Guide 2026</h2>
+      <div class="prose">
+        <p>Madhya Pradesh India ke central region me hai aur yahan sarkari naukri ki bahut demand hai. <strong>MPPSC</strong>, <strong>MPPEB (Vyapam)</strong> aur <strong>MP Police</strong> regular basis par recruitment drives conduct karte hain.</p>
+
+        <p><strong>MPPSC (Madhya Pradesh Public Service Commission)</strong> — State Services exam conduct karta hai jisme SDM, DSP, Tehsildar, Assistant Director jaise Group A aur Group B posts milte hain. Iske liye graduation zaroori hai.</p>
+
+        <p><strong>MPPEB / Vyapam (MP Professional Examination Board)</strong> — Patwari, Group 2, Group 3, Sub Inspector, constable jaise posts ke liye exam conduct karta hai. CPCT score card kai posts ke liye mandatory hai.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Sarkari Naukri in Madhya Pradesh — Major Exams</h2>
+
+        <p><strong>MP Police</strong> — MP Police me Constable, Sub Inspector aur other posts ke liye regular recruitment hota hai. Physical Efficiency Test aur Written Exam ke basis par selection hota hai.</p>
+
+        <p><strong>MPPEB Patwari</strong> — Patwari posts ke liye badi vacancy har saal aati hai. Graduation + Computer Diploma aur CPCT score card required hai.</p>
+
+        <p><strong>MP Group 2 / Group 3</strong> — Various departmental posts ke liye MPPEB exams conduct karta hai. Revenue, Police, Education department me vacancies aati hain.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">How to Apply for MP Govt Jobs</h2>
+
+        <ul>
+          <li><strong>Step 1:</strong> MPPEB ki official website mpbpeb.gov.in par jaayein</li>
+          <li><strong>Step 2:</strong> Desired recruitment ka notification dekhein</li>
+          <li><strong>Step 3:</strong> Aadhaar se register karein aur login karein</li>
+          <li><strong>Step 4:</strong> Application form bharein, documents upload karein</li>
+          <li><strong>Step 5:</strong> Fee online ya MP Online kiosk se pay karein</li>
+          <li><strong>Step 6:</strong> Form submit karein aur printout lein</li>
+        </ul>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Tips for MP Govt Job Aspirants</h2>
+
+        <ul>
+          <li>CPCT exam de lein — bahut si posts ke liye ye mandatory hai</li>
+          <li>MPPSC ki preparation ke liye NCERT aur MP GK par focus karein</li>
+          <li>MPPEB previous year papers solve karein exam pattern samajhne ke liye</li>
+          <li>Physical test ki taiyari daily running aur exercise se karein</li>
+          <li>MP specific current affairs aur government schemes padhein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:24px;margin-bottom:20px">Frequently Asked Questions — MP Govt Jobs</h2>
+
+      <details class="faq-item">
+        <summary>How to apply for MP government jobs through MPPEB?</summary>
+        <p>Visit mpbpeb.gov.in or mpprofessionalexamboard.gov.in, register with Aadhaar, fill the online application, upload documents, pay fee online or via MP Online kiosk, and submit. CPCT score card is required for many posts.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is MPPSC and what posts does it recruit for?</summary>
+        <p>MPPSC (Madhya Pradesh Public Service Commission) conducts exams for State Services like SDM, DSP, Tehsildar, and other Group A and Group B posts in Madhya Pradesh government.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What are the main MP govt job exams in 2026?</summary>
+        <p>Major MP exams include MPPSC State Services, MPPEB (Vyapam) various Group 2/Group 3 posts, MP Police Constable/SI, MPPEB Patwari, and MP Professional Examination Board technical and non-technical recruitment.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is CPCT and is it required for MP govt jobs?</summary>
+        <p>CPCT (Computer Proficiency Certification Test) is conducted by MPPEB. It is mandatory for many Group 2 and Group 3 posts in Madhya Pradesh government including Patwari, Clerk, and similar positions.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the age limit for MP govt jobs?</summary>
+        <p>Generally, minimum age is 18 years and maximum is 40 years for most Group 2/Group 3 posts. For MPPSC State Services, the age limit is 21-40 years. SC/ST/OBC candidates get additional relaxation as per MP government rules.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

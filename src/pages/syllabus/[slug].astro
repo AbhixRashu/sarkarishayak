@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import syllabusData from '../../data/syllabus.json';
+
+export function getStaticPaths() {
+  return syllabusData.map(exam => ({
+    params: { slug: exam.id },
+    props: { exam },
+  }));
+}
+
+const { exam } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Syllabus", "item": siteUrl + "/syllabus/" },
+    { "@type": "ListItem", "position": 3, "name": exam.exam }
+  ]
+};
+
+const faqEntity = exam.subjects.slice(0, 3).map(s => {
+  const topicList = s.topics.join(', ');
+  return {
+    "@type": "Question",
+    "name": exam.exam + " mein " + s.name + " ka syllabus kya hai?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      "text": s.name + " mein " + topicList + " jaise topics cover hote hain. Total " + s.questions + " questions aate hain (" + s.marks + " marks)."
+    }
+  };
+});
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqEntity
+};
+---
+
+<BaseLayout
+  title={`${exam.exam} Syllabus 2026 — ${exam.fullName} | Sarkari Sahayak`}
+  description={`${exam.exam} complete syllabus with topic-wise breakdown. ${exam.organization} exam. ${exam.totalMarks} marks, ${exam.duration}. Books recommended.`}
+  canonical={`/syllabus/${exam.id}/`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/syllabus/" style="color:var(--saffron);text-decoration:none">Syllabus</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">{exam.exam}</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+
+      <div class="d-header">
+        <div class="d-icon">📚</div>
+        <div>
+          <h1 class="d-title">{exam.exam}</h1>
+          <div class="d-sub">{exam.fullName} · {exam.organization}</div>
+        </div>
+      </div>
+
+      <!-- Overview -->
+      <div class="syll-overview">
+        <div class="syll-ov-item">
+          <div class="syll-ov-label">Level</div>
+          <div class="syll-ov-value">{exam.level}</div>
+        </div>
+        <div class="syll-ov-item">
+          <div class="syll-ov-label">Tiers</div>
+          <div class="syll-ov-value">{exam.tiers}</div>
+        </div>
+        <div class="syll-ov-item">
+          <div class="syll-ov-label">Total Marks</div>
+          <div class="syll-ov-value">{exam.totalMarks}</div>
+        </div>
+        <div class="syll-ov-item">
+          <div class="syll-ov-label">Duration</div>
+          <div class="syll-ov-value">{exam.duration}</div>
+        </div>
+        <div class="syll-ov-item" style="grid-column:1/-1">
+          <div class="syll-ov-label">Negative Marking</div>
+          <div class="syll-ov-value">{exam.negativeMarking}</div>
+        </div>
+      </div>
+
+      <!-- Subjects -->
+      <h2 class="d-h">Subject-wise Syllabus</h2>
+      <div class="syll-subjects-list">
+        {exam.subjects.map((subject, i) => (
+          <details class="syll-subject" open={i === 0}>
+            <summary class="syll-subject-head">
+              <span class="syll-subject-name">{subject.name}</span>
+              <span class="syll-subject-meta">{subject.questions}Q · {subject.marks} Marks · {subject.tier}</span>
+            </summary>
+            <div class="syll-topics">
+              {subject.topics.map(topic => (
+                <span class="syll-topic">{topic}</span>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+
+      {/* Recommended Books */}
+      {exam.books && exam.books.length > 0 && (
+        <>
+          <h2 class="d-h">Recommended Books</h2>
+          <div class="syll-books">
+            {exam.books.map(book => (
+              <div class="syll-book">
+                <span class="syll-book-name">{book.name}</span>
+                <span class="syll-book-subject">{book.subject}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Tips */}
+      <div class="d-section">
+        <h2 class="d-h">Preparation Tips</h2>
+        <div class="steps-box">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📌 <b>Strong subjects pehle</b> — jo subject strong hai usse start karein, confidence badhega</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📝 <b>Previous year papers solve karein</b> — pattern samajhne ke liye minimum 5 saal ke papers karein</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">⏰ <b>Daily 2-3 hours study</b> — consistency zaroori hai, roz padho chahe 2 ghante hi sahi</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📊 <b>Mock tests weekly</b> — har hafte 1 mock test do aur analysis karo</li>
+            <li style="padding:8px 0;font-size:15px">📖 <b>NCERT se start karein</b> — basics clear karo phir advanced books pe jao</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .syll-overview {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px; margin-bottom: 24px;
+    }
+    .syll-ov-item {
+      padding: 14px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 10px; text-align: center;
+    }
+    .syll-ov-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: .5px; }
+    .syll-ov-value { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--strong); margin-top: 4px; }
+
+    .syll-subjects-list { display: grid; gap: 10px; }
+    .syll-subject {
+      background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 10px; overflow: hidden;
+    }
+    .syll-subject-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 16px; cursor: pointer; list-style: none;
+    }
+    .syll-subject-head::-webkit-details-marker { display: none; }
+    .syll-subject-head::before { content: '▸ '; color: var(--saffron); }
+    .syll-subject[open] .syll-subject-head::before { content: '▾ '; }
+    .syll-subject-name { font-weight: 700; color: var(--strong); font-size: 15px; }
+    .syll-subject-meta { font-size: 12px; color: var(--muted); }
+    .syll-topics {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding: 0 16px 14px;
+    }
+    .syll-topic {
+      font-size: 13px; padding: 4px 10px; border-radius: 6px;
+      background: var(--elevated); color: var(--body);
+    }
+
+    .syll-books { display: grid; gap: 8px; }
+    .syll-book {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 8px;
+    }
+    .syll-book-name { font-size: 14px; font-weight: 600; color: var(--strong); }
+    .syll-book-subject { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--elevated); color: var(--saffron); }
+  </style>
+</BaseLayout>

@@ -1,0 +1,343 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const filteredJobs = jobs.filter(j => {
+  const q = (j.qualify + ' ' + (j.eligibility?.map(e => e.details).join(' ') || '')).toLowerCase();
+  return q.includes('graduation') || q.includes('graduate') || q.includes('bachelor') || q.includes('degree') || q.includes('b.com') || q.includes('b.sc') || q.includes('b.e.') || q.includes('b.tech') || q.includes('llb') || q.includes('mbbs');
+});
+
+const totalVacancies = filteredJobs.reduce((sum, j) => sum + (j.vacancies || 0), 0);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Qualifications" },
+    { "@type": "ListItem", "position": 3, "name": "Graduate Jobs" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Graduate ke liye kaun kaun si government jobs hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Graduate candidates SSC CGL, IBPS PO/Clerk, SBI PO/Clerk, UPSC CSE, UPSC IES, State PSC, RRB NTPC, SSC CPO, RBI Assistant, NABARD Grade A, SIDBI Grade A, Coal India MT jaisi government jobs ke liye apply kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Graduate government job ki salary kitni hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Graduate government jobs mein salary post ke hisaabse alag hoti hai. SSC CGL mein Group B posts ki starting salary Rs. 44,900-1,42,400 (Level-7) hoti hai. IBPS PO mein Rs. 36,000-63,840 milta hai. UPSC CSE mein IAS officer ki starting salary Rs. 56,100 (Level-10) hoti hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SSC CGL ke liye kaun sa degree chahiye?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SSC CGL ke liye kisi bhi discipline mein Bachelor's Degree zaroori hai recognized university se. Kuch posts ke liye specific qualification jaise B.Com (for AAO), Statistics/Maths (for JSO) bhi ho sakti hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Banking exams (IBPS/SBI) ke liye kya eligibility hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IBPS PO/Clerk aur SBI PO/Clerk ke liye kisi bhi discipline mein Graduation zaroori hai recognized university se. Age limit 20-30 years hoti hai. Computer literacy aur local language proficiency bhi required hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "UPSC Civil Services ke liye kaun sa degree chahiye?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UPSC CSE ke liye kisi bhi discipline mein Bachelor's Degree zaroori hai. Final year ke students bhi apply kar sakte hain. Age limit 21-32 years hai with relaxation for reserved categories. Maximum 6 attempts (General), 9 (OBC), unlimited (SC/ST)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Graduate engineers ke liye kaun si government jobs hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Graduate engineers ke liye UPSC IES (Engineering Services), RRB JE, RSSB JE, IOCL Executive, Coal India Management Trainee, BHEL, NTPC, ONGC jaisi PSU jobs available hain. GATE score ke through bhi bahut opportunities milti hain."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Graduate Government Jobs 2026 | Sarkari Sahayak"
+  description="Graduate sarkari naukri 2026 — SSC CGL, IBPS PO/Clerk, SBI PO/Clerk, UPSC CSE, RRB NTPC, State PSC. Bachelor degree govt jobs with salary, eligibility, apply link."
+  canonical="/qualifications/graduate"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/qualifications" style="color:var(--saffron);text-decoration:none">Qualifications</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Graduate</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+
+      <div class="section-head center-head">
+        <span class="section-label">Bachelor Degree Level Jobs</span>
+        <h1 class="section-title">Graduate Government Jobs 2026</h1>
+        <p class="section-sub">Graduate sarkari naukri 2026 — SSC CGL, IBPS PO, SBI Clerk, UPSC CSE, RRB NTPC, State PSC. Sab graduate level vacancies ek jagah.</p>
+      </div>
+
+      <div class="stats-row" style="margin-bottom:var(--sp-xl)">
+        <div class="stat">
+          <div class="stat-num">{filteredJobs.length}</div>
+          <div class="stat-label">Open Vacancies</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">{totalVacancies.toLocaleString('en-IN')}</div>
+          <div class="stat-label">Total Posts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">20-32</div>
+          <div class="stat-label">Typical Age Range</div>
+        </div>
+      </div>
+
+      <div class="tt-wrap">
+        <table class="tt-table">
+          <thead>
+            <tr>
+              <th style="width:40%">Post / Recruitment</th>
+              <th>Organization</th>
+              <th style="text-align:center">Vacancies</th>
+              <th>Last Date</th>
+              <th style="text-align:center">Apply</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredJobs.map(job => (
+              <tr>
+                <td>
+                  <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                  <br/>
+                  <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                </td>
+                <td style="white-space:nowrap">{job.organization}</td>
+                <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                  {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                </td>
+                <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                <td style="text-align:center">
+                  <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                    Apply ↗
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Exam Table */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Major Graduate Level Exams 2026</div>
+        <div class="tt-wrap" style="margin-top:var(--sp-md)">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th>Exam Name</th>
+                <th>Conducting Body</th>
+                <th>Eligibility</th>
+                <th>Exam Date</th>
+                <th>Vacancies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">SSC CGL 2026</td>
+                <td>Staff Selection Commission</td>
+                <td>Graduate in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">—</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">IBPS PO XVII 2026</td>
+                <td>Institute of Banking Personnel Selection</td>
+                <td>Graduate in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">4,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">SBI PO 2026</td>
+                <td>State Bank of India</td>
+                <td>Graduate in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">2,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">IBPS Clerk XVI 2026</td>
+                <td>Institute of Banking Personnel Selection</td>
+                <td>Graduate in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">11,403</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">SBI Clerk 2026</td>
+                <td>State Bank of India</td>
+                <td>Graduate in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">10,662</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">RBI Assistant 2026</td>
+                <td>Reserve Bank of India</td>
+                <td>Bachelor's with 50% marks</td>
+                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">1,200</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">SSC CPO 2026</td>
+                <td>Staff Selection Commission</td>
+                <td>Bachelor's in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">4,300</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">UPSC Civil Services 2026</td>
+                <td>Union Public Service Commission</td>
+                <td>Bachelor's from recognized university</td>
+                <td style="font-family:var(--font-display);font-weight:600">June 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">1,100</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">RRB NTPC UG 2026</td>
+                <td>Railway Recruitment Boards</td>
+                <td>Graduate in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">February 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">3,500</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Bank of Baroda LBO 2026</td>
+                <td>Bank of Baroda</td>
+                <td>Graduate in any discipline</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">3,482</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">BPSC TRE 4.0 2026</td>
+                <td>Bihar Public Service Commission</td>
+                <td>Graduate + B.Ed + CTET/STET</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">32,388</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">MPESB Patwari 2026</td>
+                <td>MP Professional Examination Board</td>
+                <td>Graduate with Computer Diploma</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">6,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* SEO Content */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Graduate Sarkari Naukri 2026 — Complete Guide</div>
+        <div style="margin-top:var(--sp-md)">
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--strong);margin-bottom:var(--sp-sm);margin-top:var(--sp-lg)">Graduate Government Jobs 2026</h2>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">Graduate sarkari naukri 2026</strong> mein sabse badi opportunities available hain. <strong>SSC CGL</strong> (Group B & C posts), <strong>IBPS PO/Clerk, SBI PO/Clerk</strong> (Banking sector), <strong>UPSC CSE</strong> (IAS/IPS/IFS), <strong>RRB NTPC</strong> (Railway Non-Technical), <strong>State PSC</strong> — sab graduate level ke exams hain jismein lakhon vacancies aati hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">Banking Sector — Graduate Level Jobs</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            Banking sector graduate candidates ke liye sabse popular career option hai. <strong style="font-weight:500;color:var(--strong)">IBPS PO XVII</strong> (4,000 posts) — Probationary Officer bank mein managerial level ki job hai with starting salary Rs. 36,000-63,840. <strong style="font-weight:500;color:var(--strong)">SBI Clerk 2026</strong> (10,662 posts) — Clerk level job hai with Rs. 19,900-63,200 starting salary. <strong style="font-weight:500;color:var(--strong)">IBPS Clerk XVI</strong> (11,403 posts) — Clerical cadre mein government bank mein job milta hai.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">SSC CGL — Most Popular Graduate Exam</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">SSC CGL 2026</strong> graduate level ka sabse popular exam hai. Iske through Inspector Income Tax, Inspector Central Excise, Assistant Audit Officer, Junior Statistical Officer, Auditor jaise Group B aur Group C posts milte hain. Eligibility kisi bhi discipline mein Graduate hai. Tier-1 aur Tier-2 exam hota hai with 4 subjects — Quantitative Aptitude, Reasoning, English, General Awareness.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">UPSC Civil Services — Prestigious Graduate Exam</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">UPSC CSE 2026</strong> India ka sabse prestigious exam hai jo IAS, IPS, IFS aur other Group A services ke liye conduct hota hai. 1,100+ vacancies aati hain with salary Rs. 56,100 (Level-10) starting. Age limit 21-32 years hai with multiple attempts allowed. Prelims (May), Mains (September) aur Interview (March-April) teen stages hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">RRB NTPC & State PSC — Other Graduate Options</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">RRB NTPC UG</strong> (3,500 posts) — Railway mein Non-Technical Popular Categories ke liye graduate level exam hai jismein Station Master, Goods Guard, Traffic Apprentice jaise posts milte hain. <strong style="font-weight:500;color:var(--strong)">State PSC exams</strong> — UPPSC, BPSC, RPSC, MPPSC jaise state level commissions bhi graduate level ki recruitment karte hain aur inme bhi bade vacancies hote hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">Graduate Engineers ke Liye Special Options</h3>
+          <ul style="list-style:none;margin-bottom:var(--sp-sm)">
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">UPSC IES:</strong> Engineering Services Exam ke through Civil, Mechanical, Electrical, E&T officers bante hain.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">PSU Jobs:</strong> GATE score ke through IOCL, NTPC, BHEL, ONGC, Coal India jaisi PSU mein Management Trainee bante hain.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">RRB JE:</strong> Railway Junior Engineer 4,029 posts with Diploma/Degree in Engineering.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">ISRO/BARC/DRDO:</strong> Space, Nuclear aur Defence research mein bhi engineers ke liye opportunities hain.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Frequently Asked Questions</div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-xs);margin-top:var(--sp-md)">
+          <details class="faq-item">
+            <summary>Graduate ke liye kaun kaun si government jobs hoti hain?</summary>
+            <p>Graduate candidates SSC CGL, IBPS PO/Clerk, SBI PO/Clerk, UPSC CSE, UPSC IES, State PSC, RRB NTPC, SSC CPO, RBI Assistant, NABARD Grade A, SIDBI Grade A, Coal India MT jaisi government jobs ke liye apply kar sakte hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Graduate government job ki salary kitni hoti hai?</summary>
+            <p>Graduate government jobs mein salary post ke hisaabse alag hoti hai. SSC CGL mein Group B posts ki starting salary Rs. 44,900-1,42,400 (Level-7) hoti hai. IBPS PO mein Rs. 36,000-63,840 milta hai. UPSC CSE mein IAS officer ki starting salary Rs. 56,100 (Level-10) hoti hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>SSC CGL ke liye kaun sa degree chahiye?</summary>
+            <p>SSC CGL ke liye kisi bhi discipline mein Bachelor's Degree zaroori hai recognized university se. Kuch posts ke liye specific qualification jaise B.Com (for AAO), Statistics/Maths (for JSO) bhi ho sakti hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Banking exams (IBPS/SBI) ke liye kya eligibility hai?</summary>
+            <p>IBPS PO/Clerk aur SBI PO/Clerk ke liye kisi bhi discipline mein Graduation zaroori hai recognized university se. Age limit 20-30 years hoti hai. Computer literacy aur local language proficiency bhi required hota hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>UPSC Civil Services ke liye kaun sa degree chahiye?</summary>
+            <p>UPSC CSE ke liye kisi bhi discipline mein Bachelor's Degree zaroori hai. Final year ke students bhi apply kar sakte hain. Age limit 21-32 years hai with relaxation for reserved categories. Maximum 6 attempts (General), 9 (OBC), unlimited (SC/ST).</p>
+          </details>
+          <details class="faq-item">
+            <summary>Graduate engineers ke liye kaun si government jobs hain?</summary>
+            <p>Graduate engineers ke liye UPSC IES (Engineering Services), RRB JE, RSSB JE, IOCL Executive, Coal India Management Trainee, BHEL, NTPC, ONGC jaisi PSU jobs available hain. GATE score ke through bhi bahut opportunities milti hain.</p>
+          </details>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div class="disclaimer" style="margin-top:var(--sp-xl)">
+        <span class="disc-icon">⚠️</span>
+        <p class="disc-text">Ye information <strong style="font-weight:500;color:var(--warning)">tentative</strong> hai. Final dates aur vacancies ke liye official websites — <strong style="font-weight:500;color:var(--warning)">ssc.nic.in, ibps.in, sbi.co.in, upsc.gov.in, rrbapply.gov.in</strong> — regularly check karein.</p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

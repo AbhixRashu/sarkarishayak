@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const tools = [
+  {
+    icon: '🔍',
+    title: 'Eligibility Checker',
+    desc: 'Age, education, category daalo → matching govt jobs dikhao with % match score.',
+    url: '/tools/eligibility-checker/',
+    tag: 'Popular',
+    features: ['15+ exams covered', 'Category relaxation', 'Match percentage']
+  },
+  {
+    icon: '🎂',
+    title: 'Age Calculator',
+    desc: 'Exam cutoff date ke hisaab se exact age (years, months, days) + 12 exams ki eligibility.',
+    url: '/tools/age-calculator/',
+    tag: 'Popular',
+    features: ['SSC/UPSC/RRB/IBPS cutoff', 'Category relaxation', 'Instant eligibility']
+  },
+  {
+    icon: '💰',
+    title: 'Salary Calculator',
+    desc: '7th CPC ke hisaab se in-hand salary — Basic, DA, HRA, NPS, TA sab calculate karo.',
+    url: '/tools/salary-calculator/',
+    tag: 'New',
+    features: ['Pay Level 1-14', 'City-wise HRA', 'NPS deduction']
+  },
+  {
+    icon: '📊',
+    title: 'Cut-off Tracker',
+    desc: '10+ exams ke previous year cut-offs aur 3-year trends category-wise.',
+    url: '/tools/cutoff-tracker/',
+    tag: 'New',
+    features: ['10 major exams', '3-year trends', 'Category-wise data']
+  }
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Free Tools — Age Calculator, Eligibility Checker | Sarkari Sahayak 2026"
+  description="Govt job ke liye free tools — eligibility checker, age calculator, cut-off tracker. Sarkari Sahayak."
+  canonical="/tools/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Tools</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+      <h1 class="d-title" style="font-size:28px;margin-bottom:8px">🛠️ Free Govt Job Tools</h1>
+      <p style="color:var(--body);font-size:16px;margin-bottom:24px">Sarkari job dhundhne ke liye useful tools — sab free hai.</p>
+
+      <div class="tools-grid">
+        {tools.map(tool => (
+          <a href={tool.url} class="tool-card">
+            <div class="tool-icon">{tool.icon}</div>
+            <div class="tool-info">
+              <div class="tool-title">{tool.title}</div>
+              <div class="tool-desc">{tool.desc}</div>
+              {tool.features && (
+                <div class="tool-features">
+                  {tool.features.map(f => <span class="tool-feat">✓ {f}</span>)}
+                </div>
+              )}
+            </div>
+            <span class={`tool-tag ${tool.tag === 'Popular' ? 'tag-popular' : 'tag-new'}`}>{tool.tag}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO Content -->
+  <div class="section">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+
+      <div class="d-section">
+        <h2 class="d-h">Govt Job Tools Kyun Zaroori Hain?</h2>
+        <div class="steps-box">
+          <p style="font-size:15px;color:var(--body);line-height:1.7;margin-bottom:12px">
+            Sarkari job dhundhna aur apply karna aasaan nahi hota. Har exam ki alag eligibility, alag syllabus, aur alag cut-off hota hai.
+            Ye tools aapki madad karte hain sahi job dhundhne mein aur saari information ek jagah mil jati hai.
+          </p>
+          <p style="font-size:15px;color:var(--body);line-height:1.7">
+            <b>Eligibility Checker</b> se aap apni age aur education ke basis par matching jobs dekh sakte hain.
+            <b>Cut-off Tracker</b> se previous year trends samajh sakte hain aur apne target score ka andaza laga sakte hain.
+            Ye sab bilkul free hai — koi registration ya login ki zaroorat nahi hai.
+          </p>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Kaun Use Kar Sakta Hai?</h2>
+        <div class="steps-box">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">🎓 <b>Students:</b> 10th/12th/Graduate students jo sarkari job ki taiyari kar rahe hain</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">👨‍💼 <b>Freshers:</b> Jo pehli baar govt job apply kar rahe hain aur eligibility nahi jaante</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">👩‍🏫 <b>Teachers:</b> Jo apne students ko career guidance de rahe hain</li>
+            <li style="padding:8px 0;font-size:15px">📱 <b>Sabke liye:</b> Mobile par bhi chalta hai — kahin se bhi check karo</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .tools-grid { display: grid; gap: 14px; }
+    .tool-card {
+      display: flex; align-items: flex-start; gap: 18px;
+      padding: 24px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 14px; text-decoration: none; transition: all .2s;
+    }
+    .tool-card:hover { border-color: var(--saffron); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+    .tool-icon { font-size: 36px; width: 56px; text-align: center; flex-shrink: 0; padding-top: 2px; }
+    .tool-info { flex: 1; }
+    .tool-title { font-size: 18px; font-weight: 700; color: var(--strong); font-family: var(--font-display); }
+    .tool-desc { font-size: 14px; color: var(--body); margin-top: 4px; line-height: 1.6; }
+    .tool-features { display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+    .tool-feat { font-size: 12px; color: var(--success); font-weight: 600; }
+    .tool-tag {
+      font-size: 11px; padding: 4px 12px; border-radius: 20px;
+      font-weight: 700; white-space: nowrap; flex-shrink: 0; align-self: flex-start;
+    }
+    .tag-popular { background: rgba(15,163,54,.12); color: var(--success); }
+    .tag-new { background: rgba(0,102,177,.12); color: var(--m-blue-light); }
+  </style>
+</BaseLayout>

@@ -1,0 +1,322 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const filteredJobs = jobs.filter(j => {
+  const q = (j.qualify + ' ' + (j.eligibility?.map(e => e.details).join(' ') || '')).toLowerCase();
+  return q.includes('10th') || q.includes('matriculation') || q.includes('8th');
+});
+
+const totalVacancies = filteredJobs.reduce((sum, j) => sum + (j.vacancies || 0), 0);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Qualifications" },
+    { "@type": "ListItem", "position": 3, "name": "10th Pass Jobs" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "10th pass ke liye kaun kaun si government jobs hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10th pass candidates SSC GD Constable, Indian Army Agniveer, BSF, CRPF, CISF, Railway Group D, RRB Apprentice, State Police Constable, Anganwadi, Safai Karamchari jaisi government jobs ke liye apply kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "10th pass government job ki salary kitni hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10th pass government jobs mein salary post ke according alag hoti hai. SSC GD Constable mein starting salary Rs. 21,700-69,100 (Level-3) hoti hai. Railway Group D mein Rs. 18,000-56,900 (Level-1) milta hai. Army Agniveer mein Rs. 30,000/month starting milta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "10th pass ke liye sabse aasaan government job kaun si hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SSC GD Constable aur Railway Group D sabse zyada popular 10th pass jobs hain. Inme bade vacancies aate hain aur selection process straightforward hota hai. State level constable exams bhi relatively easy hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "10th pass candidates ka physical test kaise hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Defence aur police jobs mein Physical Efficiency Test (PET) hota hai jisme running, long jump, high jump shamil hota hai. SSC GD Constable mein male candidates ko 5km running 24 minutes mein complete karni hoti hai. Height, chest measurement bhi hoti hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya 10th pass karke ITI ke baad better jobs mil sakti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, 10th pass ke baad ITI karne se Railway Apprentice, RRB Technician, Junior Engineer jaisi better paying jobs mil sakti hain. ITI ke baad Apprenticeship bhi bahut faydemand hoti hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "10th pass government jobs ke liye age limit kya hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zyada tar 10th pass government jobs mein minimum age 18 years aur maximum age 23-25 years hoti hai. SC/ST candidates ko 5 saal aur OBC candidates ko 3 saal ki age relaxation milti hai. Ex-servicemen aur PH candidates ko bhi relaxation milti hai."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="10th Pass Government Jobs 2026 | Sarkari Sahayak"
+  description="10th pass sarkari naukri 2026 — SSC GD Constable, Indian Army Agniveer, BSF, CRPF, Railway Group D, State Police Constable. Matriculation level vacancy with salary, age limit, apply link."
+  canonical="/qualifications/10th-pass"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/qualifications" style="color:var(--saffron);text-decoration:none">Qualifications</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">10th Pass</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+
+      <div class="section-head center-head">
+        <span class="section-label">Matriculation Level Jobs</span>
+        <h1 class="section-title">10th Pass Government Jobs 2026</h1>
+        <p class="section-sub">10th pass sarkari naukri 2026 — SSC GD, Army Agniveer, BSF, CRPF, Railway Group D, State Police. Sab 10th pass level vacancies ek jagah.</p>
+      </div>
+
+      <div class="stats-row" style="margin-bottom:var(--sp-xl)">
+        <div class="stat">
+          <div class="stat-num">{filteredJobs.length}</div>
+          <div class="stat-label">Open Vacancies</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">{totalVacancies.toLocaleString('en-IN')}</div>
+          <div class="stat-label">Total Posts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">18-25</div>
+          <div class="stat-label">Typical Age Range</div>
+        </div>
+      </div>
+
+      <div class="tt-wrap">
+        <table class="tt-table">
+          <thead>
+            <tr>
+              <th style="width:40%">Post / Recruitment</th>
+              <th>Organization</th>
+              <th style="text-align:center">Vacancies</th>
+              <th>Last Date</th>
+              <th style="text-align:center">Apply</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredJobs.map(job => (
+              <tr>
+                <td>
+                  <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                  <br/>
+                  <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                </td>
+                <td style="white-space:nowrap">{job.organization}</td>
+                <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                  {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                </td>
+                <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                <td style="text-align:center">
+                  <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                    Apply ↗
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Exam Table */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Major 10th Pass Level Exams 2026</div>
+        <div class="tt-wrap" style="margin-top:var(--sp-md)">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th>Exam Name</th>
+                <th>Conducting Body</th>
+                <th>Eligibility</th>
+                <th>Exam Date</th>
+                <th>Vacancies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">SSC GD Constable 2026</td>
+                <td>Staff Selection Commission</td>
+                <td>10th Pass from recognized board</td>
+                <td style="font-family:var(--font-display);font-weight:600">February 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">26,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Indian Army Agniveer (GD/Tradesman)</td>
+                <td>Indian Army</td>
+                <td>10th/8th Pass depending on trade</td>
+                <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">25,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">BSF Head Constable 2026</td>
+                <td>Border Security Force</td>
+                <td>12th Pass (10th for some trades)</td>
+                <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">1,500</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">CRPF ASI & Head Constable 2026</td>
+                <td>Central Reserve Police Force</td>
+                <td>10th/12th Pass depending on post</td>
+                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">3,500</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Indian Railways Apprentices 2026</td>
+                <td>RRC / Ministry of Railways</td>
+                <td>10th Pass + ITI in relevant trade</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">4,500</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Indian Navy Agniveer (MR)</td>
+                <td>Indian Navy</td>
+                <td>10th Pass with minimum 50% marks</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">1,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">UPSSSC PET 2026</td>
+                <td>UP Subordinate Services Selection Commission</td>
+                <td>10th/12th Pass from UP Board</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--muted)">Qualifying</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">UP Anganwadi Worker & Helper 2026</td>
+                <td>UP Women & Child Development Dept</td>
+                <td>8th/10th Pass for different posts</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">53,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Rajasthan Safai Karamchari 2026</td>
+                <td>Local Self Government Dept, Rajasthan</td>
+                <td>8th/10th Pass</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">13,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* SEO Content */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">10th Pass Sarkari Naukri 2026 — Complete Guide</div>
+        <div style="margin-top:var(--sp-md)">
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--strong);margin-bottom:var(--sp-sm);margin-top:var(--sp-lg)">10th Pass Government Jobs 2026</h2>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">10th pass sarkari naukri 2026</strong> mein badi sankhya mein vacancies aati hain har saal. <strong>SSC GD Constable</strong> (26,000+ posts), <strong>Indian Army Agniveer</strong> (25,000+ posts), <strong>BSF, CRPF, CISF</strong> jaise Central Armed Police Forces mein 10th pass candidates ke liye bahut opportunities hain. Railway mein <strong>Group D, Apprentice</strong> aur <strong>Technician</strong> posts bhi 10th level ki hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">Matriculation Level Vacancy — Key Recruitments</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">SSC GD Constable 2026</strong> — Staff Selection Commission har saal Border Security Force (BSF), Central Reserve Police Force (CRPF), Central Industrial Security Force (CISF), Sashastra Seema Bal (SSB), Indo-Tibetan Border Police (ITBP), Secretariat Security Force (SSF) aur Assam Rifles ke liye Constable GD ki recruitment karta hai. Ismein 26,000+ vacancies aati hain aur eligibility sirf <strong>10th pass</strong> hai.
+          </p>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">Indian Army Agniveer</strong> — Indian Army mein Agniveer GD, Agniveer Tradesman (10th Pass), aur Agniveer Tradesman (8th Pass) ke liye 10th level se directly apply kar sakte hain. Selection process mein Online Common Entrance Test (CET), Physical Fitness Test (PFT), aur Medical Examination hota hai.
+          </p>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">Railway Group D 2026</strong> — RRB Group D exam Level-1 posts ke liye hota hai jismein Track Maintainer, Helper, Assistant Pointsman shamil hain. Eligibility 10th pass + ITI hai. Starting salary Rs. 18,000/month se shuru hoti hai.
+          </p>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">State Level 10th Pass Jobs</strong> — Rajya level par bhi 10th pass ke liye Constable, Anganwadi Worker, Safai Karamchari, Forest Guard jaisi bahut posts hoti hain. UP, Rajasthan, Bihar, MP jaise bade states mein har saal hazaaron vacancies aati hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">10th Pass Govt Jobs — Salary & Benefits</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            10th pass government jobs mein salary post ke hisaab se alag hoti hai. <strong style="font-weight:500;color:var(--strong)">SSC GD Constable</strong> mein starting salary Rs. 21,700-69,100 (Pay Level-3) hoti hai. <strong style="font-weight:500;color:var(--strong)">Railway Group D</strong> mein Rs. 18,000-56,900 (Level-1). <strong style="font-weight:500;color:var(--strong)">Army Agniveer</strong> mein Rs. 30,000/month se shuru hoti hai with allowances. In sab ke saath DA, HRA, Medical, Pension jaise benefits bhi milte hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">Matriculation Level Exams — Preparation Tips</h3>
+          <ul style="list-style:none;margin-bottom:var(--sp-sm)">
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Basic Subjects:</strong> Math, Science, Social Studies — ye sab 10th level ke exams mein aate hain.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Physical Fitness:</strong> Defence/Police jobs ke liye daily running, push-ups, sit-ups zaroor karein.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Previous Year Papers:</strong> SSC GD, Railway Group D ke last 5 saal ke papers solve karein.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Mock Tests:</strong> Weekly mock tests dein aur time management practice karein.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">ITI Course:</strong> 10th ke baad ITI karne se Railway Apprentice aur Technician jaisi better jobs mil sakti hain.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Frequently Asked Questions</div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-xs);margin-top:var(--sp-md)">
+          <details class="faq-item">
+            <summary>10th pass ke liye kaun kaun si government jobs hoti hain?</summary>
+            <p>10th pass candidates SSC GD Constable, Indian Army Agniveer, BSF, CRPF, CISF, Railway Group D, RRB Apprentice, State Police Constable, Anganwadi, Safai Karamchari jaisi government jobs ke liye apply kar sakte hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>10th pass government job ki salary kitni hoti hai?</summary>
+            <p>10th pass government jobs mein salary post ke according alag hoti hai. SSC GD Constable mein starting salary Rs. 21,700-69,100 (Level-3) hoti hai. Railway Group D mein Rs. 18,000-56,900 (Level-1) milta hai. Army Agniveer mein Rs. 30,000/month starting milta hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>10th pass ke liye sabse aasaan government job kaun si hai?</summary>
+            <p>SSC GD Constable aur Railway Group D sabse zyada popular 10th pass jobs hain. Inme bade vacancies aate hain aur selection process straightforward hota hai. State level constable exams bhi relatively easy hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>10th pass candidates ka physical test kaise hota hai?</summary>
+            <p>Defence aur police jobs mein Physical Efficiency Test (PET) hota hai jisme running, long jump, high jump shamil hota hai. SSC GD Constable mein male candidates ko 5km running 24 minutes mein complete karni hoti hai. Height, chest measurement bhi hoti hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Kya 10th pass karke ITI ke baad better jobs mil sakti hain?</summary>
+            <p>Haan, 10th pass ke baad ITI karne se Railway Apprentice, RRB Technician, Junior Engineer jaisi better paying jobs mil sakti hain. ITI ke baad Apprenticeship bhi bahut faydemand hoti hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>10th pass government jobs ke liye age limit kya hai?</summary>
+            <p>Zyada tar 10th pass government jobs mein minimum age 18 years aur maximum age 23-25 years hoti hai. SC/ST candidates ko 5 saal aur OBC candidates ko 3 saal ki age relaxation milti hai. Ex-servicemen aur PH candidates ko bhi relaxation milti hai.</p>
+          </details>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div class="disclaimer" style="margin-top:var(--sp-xl)">
+        <span class="disc-icon">⚠️</span>
+        <p class="disc-text">Ye information <strong style="font-weight:500;color:var(--warning)">tentative</strong> hai. Final dates aur vacancies ke liye official websites — <strong style="font-weight:500;color:var(--warning)">ssc.nic.in, joinindianarmy.nic.in, rrbcdg.gov.in</strong> — regularly check karein.</p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

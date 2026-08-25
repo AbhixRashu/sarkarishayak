@@ -1,0 +1,6368 @@
+[
+  {
+    "exam": "SSC CGL",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2025_T1_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2024_T1_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2024_T2_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2023_T1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC CHSL",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2025_T1_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2024_T1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB NTPC",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2024/NTPC_CBT1_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2024/NTPC_CBT1_2024_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB Group D",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2025/GroupD_CBT_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2025/GroupD_CBT_2024_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS Clerk",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XVI/Prelims_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XV/Prelims_2025_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XV/Mains_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SBI Clerk",
+    "officialSite": "https://sbi.co.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2026_Prelims_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2025_Prelims_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPPSC PCS",
+    "officialSite": "https://uppsc.up.nic.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC CSE",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NEET UG",
+    "officialSite": "https://nta.ac.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Single",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Biology"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://nta.ac.in/Download/NEET_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Single",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Biology"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://nta.ac.in/Download/NEET_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "BPSC 72",
+    "officialSite": "https://bpsc.bih.nic.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/72Pre_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/72Pre_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RPSC RAS",
+    "officialSite": "https://rpsc.rajasthan.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NTA CUET UG",
+    "officialSite": "https://nta.ac.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Single",
+        "shifts": 3,
+        "subjects": [
+          "Domain",
+          "General Test",
+          "Language"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://nta.ac.in/Download/CUET_UG_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Single",
+        "shifts": 3,
+        "subjects": [
+          "Domain",
+          "General Test",
+          "Language"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://nta.ac.in/Download/CUET_UG_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "CTET",
+    "officialSite": "https://ctet.nic.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jul_2026_P1_QP.pdf"
+      },
+      {
+        "year": 2026,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jul_2026_P2_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jan_2025_P1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC GD",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2025_CBT_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2024_CBT_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB ALP",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2024/ALP_CBT1_2025_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "CBT 2",
+        "shifts": 1,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science",
+          "Basic Science"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2024/ALP_CBT2_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC CPO",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Pre",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2025_Pre_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Pre",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2024_Pre_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC Stenographer",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2024_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC NDA",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Math",
+          "GK"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Math",
+          "GK"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC CDS",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "English",
+          "GK",
+          "Math"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "English",
+          "GK",
+          "Math"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC GD Constable",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2026_CBT_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2025_CBT_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SBI PO",
+    "officialSite": "https://sbi.co.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2026_Prelims_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2025_Prelims_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS PO",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XVII/Prelims_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XVI/Prelims_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "BPSC",
+    "officialSite": "https://bpsc.bih.nic.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/73Pre_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/72Pre_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NTA NEET PG",
+    "officialSite": "https://nta.ac.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Single",
+        "shifts": 1,
+        "subjects": [
+          "Medicine",
+          "Surgery",
+          "Pediatrics",
+          "OBG"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://nta.ac.in/Download/NEET_PG_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Single",
+        "shifts": 1,
+        "subjects": [
+          "Medicine",
+          "Surgery",
+          "Pediatrics",
+          "OBG"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://nta.ac.in/Download/NEET_PG_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "Delhi Police Constable",
+    "officialSite": "https://delhipolice.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Computer"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://delhipolice.gov.in/cbct_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Computer"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://delhipolice.gov.in/cbct_2025_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC CSE Prelims",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Prelims",
+        "shifts": 2,
+        "subjects": [
+          "GS Paper 1",
+          "CSAT Paper 2"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Pre_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC CSE Mains",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "GS I",
+          "GS II",
+          "GS III",
+          "GS IV",
+          "Essay",
+          "Optional"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CSE_Mains_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC CAPF",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Written",
+        "shifts": 2,
+        "subjects": [
+          "General Ability",
+          "General Studies",
+          "Essay",
+          "Comprehension"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CAPF_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC CGL Tier 1",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2023,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2023_T1_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2022_T1_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2021_T1_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2020_T1_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2019_T1_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2018_T1_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2017_T1_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2016_T1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC CGL Tier 2",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2025_T2_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2024_T2_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2023_T2_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2022_T2_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2021_T2_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2020_T2_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2019_T2_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English",
+          "GK",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2018_T2_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2017_T2_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Tier 2",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2016_T2_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC CHSL Tier 1",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2023,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2023_T1_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2022_T1_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2021_T1_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2020_T1_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2019_T1_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Tier 1",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CHSL_2018_T1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC MTS",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/MTS_2025_CBT_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/MTS_2024_CBT_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/MTS_2023_CBT_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/MTS_2022_CBT_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/MTS_2021_CBT_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/MTS_2020_CBT_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/MTS_2019_CBT_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC CPO",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2023,
+        "tier": "Tier 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2023_Pre_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Tier 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2022_Pre_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Tier 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2021_Pre_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Tier 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2020_Pre_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Tier 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2019_Pre_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Tier 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CPO_2018_Pre_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC JE",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2025_P1_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2024_P1_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2023_P1_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2022_P1_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2021_P1_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2020_P1_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2019_P1_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Paper 1",
+        "shifts": 2,
+        "subjects": [
+          "General Awareness",
+          "General Engineering"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/JE_2018_P1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC GD Constable",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2023_CBT_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2022_CBT_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2021_CBT_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2020_CBT_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2019_CBT_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/GD_2018_CBT_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC Stenographer",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/Steno_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB NTPC CBT 1",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2022,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT1_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT1_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT1_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT1_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT1_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT1_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT1_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB NTPC CBT 2",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT 2",
+        "shifts": 2,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2024/NTPC_CBT2_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT 2",
+        "shifts": 2,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2024/NTPC_CBT2_2024_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT 2",
+        "shifts": 2,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT2_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT 2",
+        "shifts": 2,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT2_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT 2",
+        "shifts": 2,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_09_2019/NTPC_CBT2_2020_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB Group D",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_02_2018/GroupD_CBT_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_02_2018/GroupD_CBT_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_02_2018/GroupD_CBT_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_02_2018/GroupD_CBT_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_02_2018/GroupD_CBT_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB ALP",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2024/ALP_CBT1_2024_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2018/ALP_CBT1_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2018/ALP_CBT1_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2018/ALP_CBT1_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2018/ALP_CBT1_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_01_2018/ALP_CBT1_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RRB JE",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_03_2024/JE_CBT1_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_03_2024/JE_CBT1_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_03_2024/JE_CBT1_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_03_2024/JE_CBT1_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_03_2024/JE_CBT1_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_03_2024/JE_CBT1_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT 1",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/CEN_03_2024/JE_CBT1_2019_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS PO Prelims",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XV/Prelims_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XIV/Prelims_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XIII/Prelims_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XII/Prelims_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XI/Prelims_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-IX/Prelims_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-VIII/Prelims_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-VII/Prelims_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-VI/Prelims_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS PO Mains",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XVII/Mains_2026_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XVI/Mains_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XV/Mains_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XIV/Mains_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XIII/Mains_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XII/Mains_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-XI/Mains_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-IX/Mains_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-VIII/Mains_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-VII/Mains_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-PO-VI/Mains_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS Clerk Prelims",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XIV/Prelims_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XIII/Prelims_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XII/Prelims_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XI/Prelims_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-X/Prelims_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-IX/Prelims_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 5,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-VIII/Prelims_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-VII/Prelims_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-VI/Prelims_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS Clerk Mains",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XVI/Mains_2026_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XIV/Mains_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XIII/Mains_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XII/Mains_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-XI/Mains_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-X/Mains_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-IX/Mains_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-VIII/Mains_2018_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-VII/Mains_2017_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-CSA-VI/Mains_2016_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS SO",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-XIV/Prelims_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-XIII/Prelims_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-XII/Prelims_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-XI/Prelims_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-X/Prelims_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-IX/Prelims_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-VIII/Prelims_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "Professional Knowledge"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-SPL-VII/Prelims_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SBI PO Prelims",
+    "officialSite": "https://sbi.co.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2024_Prelims_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2023_Prelims_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2022_Prelims_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2021_Prelims_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2020_Prelims_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2019_Prelims_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2018_Prelims_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2017_Prelims_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2016_Prelims_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SBI PO Mains",
+    "officialSite": "https://sbi.co.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2026_Mains_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2025_Mains_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2024_Mains_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2023_Mains_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2022_Mains_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2021_Mains_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2020_Mains_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2019_Mains_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2018_Mains_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2017_Mains_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/PO_2016_Mains_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SBI Clerk Prelims",
+    "officialSite": "https://sbi.co.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2024_Prelims_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2023_Prelims_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2022_Prelims_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2021_Prelims_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2020_Prelims_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2019_Prelims_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 4,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2018_Prelims_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SBI Clerk Mains",
+    "officialSite": "https://sbi.co.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2026_Mains_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2024_Mains_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2023_Mains_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2022_Mains_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2021_Mains_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2020_Mains_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2019_Mains_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Mains",
+        "shifts": 1,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Computer"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://sbi.co.in/web/pdf/careers/JA_2018_Mains_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RBI Grade B",
+    "officialSite": "https://rbi.org.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Reasoning",
+          "Quant",
+          "English",
+          "GA",
+          "Economics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rbi.org.in/cursor-documents/GradeB_Phase1_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC NDA Maths",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2026_Maths_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2025_Maths_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2024_Maths_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2023_Maths_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2022_Maths_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2021_Maths_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2020_Maths_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2019_Maths_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2018_Maths_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2017_Maths_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2016_Maths_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC NDA GAT",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2026_GAT_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2025_GAT_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2024_GAT_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2023_GAT_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2022_GAT_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2021_GAT_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2020_GAT_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2019_GAT_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2018_GAT_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2017_GAT_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/NDA_2016_GAT_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC CDS Maths",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2026_Maths_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2025_Maths_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2024_Maths_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2023_Maths_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2022_Maths_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2021_Maths_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2020_Maths_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2019_Maths_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2018_Maths_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2017_Maths_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "Maths",
+        "shifts": 1,
+        "subjects": [
+          "Algebra",
+          "Trigonometry",
+          "Calculus",
+          "Geometry",
+          "Statistics"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2016_Maths_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPSC CDS GAT",
+    "officialSite": "https://upsc.gov.in",
+    "papers": [
+      {
+        "year": 2026,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2026_GAT_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2025_GAT_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2024_GAT_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2023_GAT_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2022_GAT_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2021_GAT_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2020_GAT_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2019_GAT_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2018_GAT_QP.pdf"
+      },
+      {
+        "year": 2017,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2017_GAT_QP.pdf"
+      },
+      {
+        "year": 2016,
+        "tier": "GAT",
+        "shifts": 1,
+        "subjects": [
+          "General Knowledge",
+          "English",
+          "Physics",
+          "Chemistry",
+          "History",
+          "Geography"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://upsc.gov.in/sites/default/files/CDS_2016_GAT_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UPPSC PCS Prelims",
+    "officialSite": "https://uppsc.up.nic.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://uppsc.up.nic.in/exams/pre_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "BPSC Prelims",
+    "officialSite": "https://bpsc.bih.nic.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/71Pre_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/70Pre_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/69Pre_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/68Pre_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/67Pre_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/66Pre_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://bpsc.bih.nic.in/Exam/65Pre_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "MPPSC Prelims",
+    "officialSite": "https://mppsc.mp.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://mppsc.mp.gov.in/pre_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://mppsc.mp.gov.in/pre_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://mppsc.mp.gov.in/pre_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://mppsc.mp.gov.in/pre_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://mppsc.mp.gov.in/pre_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://mppsc.mp.gov.in/pre_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://mppsc.mp.gov.in/pre_2019_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RPSC RAS Prelims",
+    "officialSite": "https://rpsc.rajasthan.gov.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Pre",
+        "shifts": 1,
+        "subjects": [
+          "GS",
+          "CSAT"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rpsc.rajasthan.gov.in/Exam/RAS_Pre_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "Delhi Police Constable",
+    "officialSite": "https://delhipolice.gov.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Computer"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://delhipolice.gov.in/cbct_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Computer"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://delhipolice.gov.in/cbct_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Computer"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://delhipolice.gov.in/cbct_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Computer"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://delhipolice.gov.in/cbct_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Computer"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://delhipolice.gov.in/cbct_2020_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "UP Police Constable",
+    "officialSite": "https://uppbpb.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Hindi"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://uppbpb.gov.in/constable_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Hindi"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://uppbpb.gov.in/constable_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Hindi"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://uppbpb.gov.in/constable_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Hindi"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://uppbpb.gov.in/constable_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Hindi"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://uppbpb.gov.in/constable_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Hindi"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://uppbpb.gov.in/constable_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "Hindi"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://uppbpb.gov.in/constable_2019_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "CTET Paper 1",
+    "officialSite": "https://ctet.nic.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2024_P1_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jan_2023_P1_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2022_P1_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2021_P1_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jan_2020_P1_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2019_P1_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths",
+          "EVS"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jul_2018_P1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "CTET Paper 2",
+    "officialSite": "https://ctet.nic.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2024_P2_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jan_2023_P2_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2022_P2_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2021_P2_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jan_2020_P2_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ctet.nic.in/CTET_Dec_2019_P2_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Child Dev",
+          "Pedagogy",
+          "Language",
+          "Maths/Science",
+          "Social Science"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ctet.nic.in/CTET_Jul_2018_P2_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "KVS PGT",
+    "officialSite": "https://kvs.ac.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Professional Knowledge",
+          "Reasoning",
+          "General English",
+          "General Hindi",
+          "Computer Literacy"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://kvs.ac.in/PGT_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Professional Knowledge",
+          "Reasoning",
+          "General English",
+          "General Hindi",
+          "Computer Literacy"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://kvs.ac.in/PGT_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Professional Knowledge",
+          "Reasoning",
+          "General English",
+          "General Hindi",
+          "Computer Literacy"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://kvs.ac.in/PGT_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Professional Knowledge",
+          "Reasoning",
+          "General English",
+          "General Hindi",
+          "Computer Literacy"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://kvs.ac.in/PGT_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Professional Knowledge",
+          "Reasoning",
+          "General English",
+          "General Hindi",
+          "Computer Literacy"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://kvs.ac.in/PGT_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Written",
+        "shifts": 1,
+        "subjects": [
+          "Professional Knowledge",
+          "Reasoning",
+          "General English",
+          "General Hindi",
+          "Computer Literacy"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://kvs.ac.in/PGT_2020_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NTA UGC NET",
+    "officialSite": "https://ugcnet.nta.ac.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Paper 1+2",
+        "shifts": 2,
+        "subjects": [
+          "Teaching Aptitude",
+          "Research Aptitude",
+          "Subject Paper"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ugcnet.nta.ac.in/UGCNET_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NTA CSIR NET",
+    "officialSite": "https://csirnet.nta.ac.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Part A",
+          "Part B",
+          "Part C"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://csirnet.nta.ac.in/CSIRNET_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NTA JEE Main",
+    "officialSite": "https://jeemain.nta.ac.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Session 1",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2025_S1_QP.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Session 2",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2025_S2_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Session 1",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2024_S1_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Session 2",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2024_S2_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Session 1",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2023_S1_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Session 2",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2023_S2_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Session 1",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2022_S1_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Session 2",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2022_S2_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Session 1",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2021_S1_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Session 2",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2021_S2_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Single",
+        "shifts": 2,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://jeemain.nta.ac.in/JEE_Main_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NTA JEE Advanced",
+    "officialSite": "https://jeeadv.ac.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2025/paper1.pdf"
+      },
+      {
+        "year": 2025,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2025/paper2.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2024/paper1.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2024/paper2.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2023/paper1.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2023/paper2.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2022/paper1.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2022/paper2.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2021/paper1.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2021/paper2.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2020/paper1.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2020/paper2.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2019/paper1.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2019/paper2.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Paper 1",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2018/paper1.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Paper 2",
+        "shifts": 1,
+        "subjects": [
+          "Physics",
+          "Chemistry",
+          "Maths"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://jeeadv.ac.in/2018/paper2.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC Selection Post",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/SelPost_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/SelPost_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/SelPost_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/SelPost_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "CBT",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/SelPost_2021_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/SelPost_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "CBT",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "GK",
+          "English"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/SelPost_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "SSC CGL Tier 3",
+    "officialSite": "https://ssc.gov.in",
+    "papers": [
+      {
+        "year": 2024,
+        "tier": "Tier 3",
+        "shifts": 1,
+        "subjects": [
+          "Descriptive English",
+          "Essay",
+          "Letter Writing"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2024_T3_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Tier 3",
+        "shifts": 1,
+        "subjects": [
+          "Descriptive English",
+          "Essay",
+          "Letter Writing"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2023_T3_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Tier 3",
+        "shifts": 1,
+        "subjects": [
+          "Descriptive English",
+          "Essay",
+          "Letter Writing"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2022_T3_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Tier 3",
+        "shifts": 1,
+        "subjects": [
+          "Descriptive English",
+          "Essay",
+          "Letter Writing"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2021_T3_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Tier 3",
+        "shifts": 1,
+        "subjects": [
+          "Descriptive English",
+          "Essay",
+          "Letter Writing"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ssc.nic.in/SSCFileServer/Portal/Reminder/CGLE_2019_T3_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "NTA CUET PG",
+    "officialSite": "https://cuet.nta.ac.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Single",
+        "shifts": 3,
+        "subjects": [
+          "Domain Subject",
+          "General Aptitude",
+          "Language"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://cuet.nta.ac.in/CUET_PG_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Single",
+        "shifts": 3,
+        "subjects": [
+          "Domain Subject",
+          "General Aptitude",
+          "Language"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://cuet.nta.ac.in/CUET_PG_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Single",
+        "shifts": 3,
+        "subjects": [
+          "Domain Subject",
+          "General Aptitude",
+          "Language"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://cuet.nta.ac.in/CUET_PG_2023_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "ESIC UDC",
+    "officialSite": "https://esic.nic.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "English",
+          "GK"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://esic.nic.in/UDC_2025_Phase1_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "English",
+          "GK"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://esic.nic.in/UDC_2024_Phase1_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "English",
+          "GK"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://esic.nic.in/UDC_2023_Phase1_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "English",
+          "GK"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://esic.nic.in/UDC_2022_Phase1_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Phase 1",
+        "shifts": 2,
+        "subjects": [
+          "Quant",
+          "Reasoning",
+          "English",
+          "GK"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://esic.nic.in/UDC_2021_Phase1_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "DRDO RAC",
+    "officialSite": "https://rac.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Gate Based",
+        "shifts": 1,
+        "subjects": [
+          "Technical",
+          "General Aptitude"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rac.gov.in/DRDO_RAC_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Gate Based",
+        "shifts": 1,
+        "subjects": [
+          "Technical",
+          "General Aptitude"
+        ],
+        "difficulty": "Moderate-Difficult",
+        "downloadUrl": "https://rac.gov.in/DRDO_RAC_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Gate Based",
+        "shifts": 1,
+        "subjects": [
+          "Technical",
+          "General Aptitude"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rac.gov.in/DRDO_RAC_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Gate Based",
+        "shifts": 1,
+        "subjects": [
+          "Technical",
+          "General Aptitude"
+        ],
+        "difficulty": "Difficult",
+        "downloadUrl": "https://rac.gov.in/DRDO_RAC_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Gate Based",
+        "shifts": 1,
+        "subjects": [
+          "Technical",
+          "General Aptitude"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rac.gov.in/DRDO_RAC_2021_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS RRB PO",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XIV/PO_Prelims_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XIII/PO_Prelims_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XII/PO_Prelims_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XI/PO_Prelims_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-X/PO_Prelims_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-IX/PO_Prelims_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-VIII/PO_Prelims_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-VII/PO_Prelims_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "IBPS RRB Clerk",
+    "officialSite": "https://ibps.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XIV/Clerk_Prelims_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XIII/Clerk_Prelims_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XII/Clerk_Prelims_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-XI/Clerk_Prelims_2022_QP.pdf"
+      },
+      {
+        "year": 2021,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-X/Clerk_Prelims_2021_QP.pdf"
+      },
+      {
+        "year": 2020,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-IX/Clerk_Prelims_2020_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-VIII/Clerk_Prelims_2019_QP.pdf"
+      },
+      {
+        "year": 2018,
+        "tier": "Prelims",
+        "shifts": 3,
+        "subjects": [
+          "Reasoning",
+          "Quant"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://ibps.in/wp-content/uploads/CRP-RRB-VII/Clerk_Prelims_2018_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RPF Constable",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_Constable_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_Constable_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_Constable_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Easy",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_Constable_2022_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_Constable_2019_QP.pdf"
+      }
+    ]
+  },
+  {
+    "exam": "RPF SI",
+    "officialSite": "https://rrbapply.gov.in",
+    "papers": [
+      {
+        "year": 2025,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_SI_2025_QP.pdf"
+      },
+      {
+        "year": 2024,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_SI_2024_QP.pdf"
+      },
+      {
+        "year": 2023,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_SI_2023_QP.pdf"
+      },
+      {
+        "year": 2022,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Easy-Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_SI_2022_QP.pdf"
+      },
+      {
+        "year": 2019,
+        "tier": "CBT",
+        "shifts": 3,
+        "subjects": [
+          "Math",
+          "Reasoning",
+          "GK",
+          "General Awareness"
+        ],
+        "difficulty": "Moderate",
+        "downloadUrl": "https://rrbapply.gov.in/RPF_SI_2019_QP.pdf"
+      }
+    ]
+  }
+]

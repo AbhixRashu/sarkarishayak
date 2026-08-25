@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const stateKeywords = ['UP', 'Uttar Pradesh', 'UPSSSC', 'UPPSC', 'UP Police', 'UPPCL', 'UP Basic Education', 'UP Women', 'UP Anganwadi'];
+
+const filteredJobs = jobs.filter(job => {
+  const text = (job.title + ' ' + job.organization + ' ' + job.slug + ' ' + job.category).toLowerCase();
+  return text.includes('upsssc') || text.includes('uppsc') || text.includes('up police') || text.includes('uppcl') || text.includes('up basic') || text.includes('up women') || text.includes('up anganwadi') || text.includes('uttar pradesh');
+});
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "States" },
+    { "@type": "ListItem", "position": 3, "name": "Uttar Pradesh" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to apply for UPSSSC jobs in Uttar Pradesh 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit upsssc.gov.in, register with your details, fill the application form, upload documents, pay the fee online and submit. You need a valid PET score for most UPSSSC Group C posts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is UPSSSC PET and is it mandatory for UP govt jobs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UPSSSC PET (Preliminary Eligibility Test) is a qualifying exam conducted by UP Subordinate Services Selection Commission. It is mandatory for applying to most Group C posts in Uttar Pradesh government departments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the major UP govt job exams in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Major exams include UPSSSC PET, UPSSSC various Group C posts, UPPSC PCS, UP Police Constable/SI, UPPCL JE/AE, and UP Basic Education Board teacher recruitment."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Uttar Pradesh Government Jobs 2026 | Sarkari Sahayak"
+  description="Uttar Pradesh Govt Jobs 2026 — UPSSSC, UPPSC, UP Police, UPPCL, UPSSSC PET sabki latest sarkari naukri. UP government vacancy 2026 apply online."
+  canonical="/states/uttar-pradesh"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/states/" style="color:var(--saffron);text-decoration:none">States</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Uttar Pradesh</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">State Govt Jobs</span>
+        <h1 class="section-title" style="font-size:34px">Uttar Pradesh Government Jobs 2026</h1>
+        <p class="section-sub">UPSSSC, UPPSC, UP Police, UPPCL — sabki latest UP sarkari naukri ek jagah.</p>
+      </div>
+
+      <div class="portal-row" style="margin-bottom:var(--sp-xl)">
+        <a href="https://upsssc.gov.in" target="_blank" rel="noopener" class="btn-primary">UPSSSC Portal ↗</a>
+        <a href="https://uppsc.up.nic.in" target="_blank" rel="noopener" class="btn-ghost">UPPSC Portal ↗</a>
+        <a href="/latest-jobs" class="btn-ghost">All Latest Jobs</a>
+      </div>
+
+      {filteredJobs.length > 0 ? (
+        <div class="tt-wrap">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th style="width:40%">Post / Recruitment</th>
+                <th>Organization</th>
+                <th style="text-align:center">Vacancies</th>
+                <th>Last Date</th>
+                <th style="text-align:center">Apply</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredJobs.map(job => (
+                <tr>
+                  <td>
+                    <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                    <br/>
+                    <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                  </td>
+                  <td style="white-space:nowrap">{job.organization}</td>
+                  <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                    {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                  </td>
+                  <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                  <td style="text-align:center">
+                    <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                      Apply ↗
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div class="no-results">Abhi koi UP-specific job open nahi hai. <a href="/latest-jobs" style="color:var(--saffron)">Saari jobs dekhein.</a></div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--soft);padding-block:var(--sp-xxl)">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:26px;margin-bottom:16px">Uttar Pradesh Govt Jobs — Complete Guide 2026</h2>
+      <div class="prose">
+        <p>Uttar Pradesh India ka sabse bada state hai sarkari naukri ke liharur perspective se. Har saal <strong>UPSSSC</strong>, <strong>UPPSC</strong>, <strong>UP Police</strong>, aur <strong>UPPCL</strong> hazaron posts nikalte hain UP ke youth ke liye.</p>
+
+        <p><strong>UPSSSC (UP Subordinate Services Selection Commission)</strong> Group C posts ke liye exam conduct karta hai. Har saal <strong>UPSSSC PET</strong> (Preliminary Eligibility Test) conducted hota hai jo ki Group C posts ke liye mandatory hai. Bina PET score ke aap UPSSSC ki kisi bhi Group C post ke liye apply nahi kar sakte.</p>
+
+        <p><strong>UPPSC (UP Public Service Commission)</strong>PCS (Provincial Civil Service) aur other State Services ke liye exam conduct karta hai. Isme SDM, DSP, BDO jaise prestigious posts milte hain.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Sarkari Naukri in Uttar Pradesh — Major Exams</h2>
+
+        <p><strong>UP Police Recruitment</strong> — UP Police Constable aur Sub Inspector ke liye badi vacancy har saal aati hai. Physical efficiency test aur written exam ke basis par selection hota hai.</p>
+
+        <p><strong>UPPCL (UP Power Corporation Limited)</strong> — JE, AE, aur other technical posts ke liye recruitment hota hai. Engineering graduates ke liye excellent opportunity.</p>
+
+        <p><strong>UP Basic Education Board</strong> — Teacher recruitment (TET based) primary aur secondary schools ke liye hota hai. CTET/TET qualified candidates apply kar sakte hain.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">How to Apply for UP Govt Jobs</h2>
+
+        <ul>
+          <li><strong>Step 1:</strong> Sabse pehle UPSSSC ki official website upsssc.gov.in par jaayein</li>
+          <li><strong>Step 2:</strong> Agar aapne PET nahi diya hai toh pehle PET ke liye register karein</li>
+          <li><strong>Step 3:</strong> desired post ka notification padhein aur eligibility check karein</li>
+          <li><strong>Step 4:</strong> Online application form bharein aur documents upload karein</li>
+          <li><strong>Step 5:</strong> Application fee online pay karein aur confirmation save karein</li>
+        </ul>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Tips for UP Govt Job Aspirants</h2>
+
+        <ul>
+          <li>UPSSSC PET dena zaroori hai Group C posts ke liye — isse ignore na karein</li>
+          <li>UPPSC PCS ki preparation ke liye 6-8 mahine ka consistent study plan banayein</li>
+          <li>UP Police physical test ki taiyari alag se karein — running, height, chest measurements</li>
+          <li>Sarkari result aur answer key ke liye official websites regularly check karein</li>
+          <li>Preparation ke liye previous year papers aur mock tests ka use karein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:24px;margin-bottom:20px">Frequently Asked Questions — UP Govt Jobs</h2>
+
+      <details class="faq-item">
+        <summary>How to apply for UPSSSC jobs in Uttar Pradesh 2026?</summary>
+        <p>Visit upsssc.gov.in, register with your details, fill the application form, upload documents, pay the fee online and submit. You need a valid PET score for most UPSSSC Group C posts.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is UPSSSC PET and is it mandatory for UP govt jobs?</summary>
+        <p>UPSSSC PET (Preliminary Eligibility Test) is a qualifying exam conducted by UP Subordinate Services Selection Commission. It is mandatory for applying to most Group C posts in Uttar Pradesh government departments.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What are the major UP govt job exams in 2026?</summary>
+        <p>Major exams include UPSSSC PET, UPSSSC various Group C posts, UPPSC PCS, UP Police Constable/SI, UPPCL JE/AE, and UP Basic Education Board teacher recruitment.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the age limit for UP govt jobs?</summary>
+        <p>Age limits vary by post. Generally, minimum age is 18 years and maximum is 40 years for Group C posts. For UPPSC PCS, the age limit is 21-32 years. SC/ST/OBC candidates get relaxation as per UP government rules.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How to get UP domicile certificate for government jobs?</summary>
+        <p>UP domicile certificate can be obtained from the tehsil office or through e-District portal (edistrict.up.gov.in). You need to provide proof of residence for at least 10 years in Uttar Pradesh.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

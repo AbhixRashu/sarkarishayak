@@ -1,0 +1,335 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const filteredJobs = jobs.filter(j => {
+  const q = (j.qualify + ' ' + (j.eligibility?.map(e => e.details).join(' ') || '')).toLowerCase();
+  return q.includes('post graduate') || q.includes('post-graduate') || q.includes('master') || q.includes('mba') || q.includes('m.com') || q.includes('m.sc') || q.includes('mca') || q.includes('m.tech') || q.includes('m.ed') || q.includes('ph.d') || q.includes('net');
+});
+
+const totalVacancies = filteredJobs.reduce((sum, j) => sum + (j.vacancies || 0), 0);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Qualifications" },
+    { "@type": "ListItem", "position": 3, "name": "Post Graduate Jobs" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Post graduate ke liye kaun kaun si government jobs hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Post graduate candidates UGC NET, CSIR NET, College Professor, University Lecturer, Research Scientist, ISRO/BARC Scientist, State PSC (PG level), NABARD Grade A (PG preference), IOCL Executive (Non-Engineering) jaisi government jobs ke liye apply kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Post graduate government job ki salary kitni hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Post graduate government jobs mein salary generally graduate se zyada hoti hai. College Professor ki starting salary Rs. 57,700 (Level-10) hoti hai. UGC NET qualified Assistant Professor mein Rs. 57,700-1,82,400 milta hai. Scientist/Engineer posts mein Rs. 56,100-1,77,500 hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "UGC NET ke liye kya eligibility hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UGC NET ke liye Master's Degree ya equivalent with minimum 55% marks (50% for reserved categories) zaroori hai. PhD holders ko age limit mein relaxation milti hai. JRF ke liye 30 years age limit hai aur Assistant Professor ke liye koi age limit nahi hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Post graduate ke baad professor kaise banein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Professor banne ke liye PG ke baad UGC NET/SET qualify karna zaroori hai. NET qualified candidates Assistant Professor ban sakte hain. PhD ke baad Associate Professor aur Professor ban sakte hain. State level SET exam bhi conduct hota hai state universities ke liye."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "MBA graduates ke liye kaun si government jobs hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MBA graduates ke liye IOCL Executive (Non-Engineering), NABARD Grade A, SIDBI Grade A, Bank PO (management cadre), SIDBI Assistant Manager, NABARD Assistant Manager jaisi posts available hain. Management background hone se banking aur PSU mein advantage milta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Research scientist government job kaise milegi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research Scientist ke liye CSIR NET/UGC NET qualify karna helpful hai. ISRO, BARC, DRDO, CSIR, ICAR jaise organizations mein Scientist/Engineer posts aati hain. PG + NET + PhD combination se best opportunities milti hain. GATE score bhi kuch PSU research posts ke liye useful hai."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Post Graduate Government Jobs 2026 | Sarkari Sahayak"
+  description="Post graduate sarkari naukri 2026 — UGC NET, CSIR NET, College Professor, Research Scientist, University Lecturer. PG level govt jobs with salary, eligibility, apply link."
+  canonical="/qualifications/post-graduate"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/qualifications" style="color:var(--saffron);text-decoration:none">Qualifications</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Post Graduate</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+
+      <div class="section-head center-head">
+        <span class="section-label">Master's Degree Level Jobs</span>
+        <h1 class="section-title">Post Graduate Government Jobs 2026</h1>
+        <p class="section-sub">Post graduate sarkari naukri 2026 — UGC NET, CSIR NET, College Professor, Research Scientist, University Lecturer. Sab PG level vacancies ek jagah.</p>
+      </div>
+
+      <div class="stats-row" style="margin-bottom:var(--sp-xl)">
+        <div class="stat">
+          <div class="stat-num">{filteredJobs.length}</div>
+          <div class="stat-label">Open Vacancies</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">{totalVacancies.toLocaleString('en-IN')}</div>
+          <div class="stat-label">Total Posts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">21-35</div>
+          <div class="stat-label">Typical Age Range</div>
+        </div>
+      </div>
+
+      <div class="tt-wrap">
+        <table class="tt-table">
+          <thead>
+            <tr>
+              <th style="width:40%">Post / Recruitment</th>
+              <th>Organization</th>
+              <th style="text-align:center">Vacancies</th>
+              <th>Last Date</th>
+              <th style="text-align:center">Apply</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredJobs.length > 0 ? filteredJobs.map(job => (
+              <tr>
+                <td>
+                  <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                  <br/>
+                  <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                </td>
+                <td style="white-space:nowrap">{job.organization}</td>
+                <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                  {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                </td>
+                <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                <td style="text-align:center">
+                  <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                    Apply ↗
+                  </a>
+                </td>
+              </tr>
+            )) : (
+              <tr>
+                <td colspan="5" style="text-align:center;padding:var(--sp-lg);color:var(--muted)">
+                  Currently no specific PG-level job notifications are open. Check back soon or explore graduate-level jobs with higher education qualifications.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Common PG Level Exams */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Major Post Graduate Level Exams 2026</div>
+        <div class="tt-wrap" style="margin-top:var(--sp-md)">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th>Exam Name</th>
+                <th>Conducting Body</th>
+                <th>Eligibility</th>
+                <th>Exam Date</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">UGC NET 2026</td>
+                <td>National Testing Agency (NTA)</td>
+                <td>Master's Degree with 55% marks</td>
+                <td style="font-family:var(--font-display);font-weight:600">June 2027</td>
+                <td style="font-size:13px">Assistant Professor / JRF eligibility</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">CSIR NET 2026</td>
+                <td>NTA / CSIR</td>
+                <td>M.Sc or equivalent in Science subjects</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="font-size:13px">Lectureship / JRF in Science</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">BPSC TRE 4.0 (Class 11-12)</td>
+                <td>Bihar Public Service Commission</td>
+                <td>PG + B.Ed + CTET/STET</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="font-size:13px">Senior School Teacher (32,388 posts)</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">IOCL Executive (Non-Engineering)</td>
+                <td>Indian Oil Corporation Limited</td>
+                <td>MBA/CA/ICWA/LLB/PGDBM</td>
+                <td style="font-family:var(--font-display);font-weight:600">October 2026</td>
+                <td style="font-size:13px">Executive in PSU (125 posts)</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">NABARD Grade A (Rajbhasha)</td>
+                <td>NABARD</td>
+                <td>PG in Hindi/English with 60% marks</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="font-size:13px">Grade A Officer in NABARD</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">RSSB Computer Instructor</td>
+                <td>Rajasthan Staff Selection Board</td>
+                <td>MCA/BCA with experience or M.Tech CS</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="font-size:13px">Computer Instructor (580 posts)</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">UPSC EPFO Assistant Commissioner</td>
+                <td>Union Public Service Commission</td>
+                <td>Degree + 5 years experience</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="font-size:13px">AC in EPFO (210 posts)</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">ISRO Scientist/Engineer</td>
+                <td>Indian Space Research Organisation</td>
+                <td>ME/M.Tech or equivalent</td>
+                <td style="font-family:var(--font-display);font-weight:600">As notified</td>
+                <td style="font-size:13px">Scientist/Engineer in ISRO</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">BARC Scientific Officer</td>
+                <td>Bhabha Atomic Research Centre</td>
+                <td>M.Sc/M.Tech with valid GATE score</td>
+                <td style="font-family:var(--font-display);font-weight:600">As notified</td>
+                <td style="font-size:13px">Scientific Officer in BARC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* SEO Content */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Post Graduate Sarkari Naukri 2026 — Complete Guide</div>
+        <div style="margin-top:var(--sp-md)">
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--strong);margin-bottom:var(--sp-sm);margin-top:var(--sp-lg)">Post Graduate Government Jobs 2026</h2>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">Post graduate sarkari naukri 2026</strong> mein PG qualified candidates ke liye specialized opportunities available hain. <strong>UGC NET, CSIR NET</strong> qualified candidates ko teaching aur research mein direct entry milti hai. <strong>College Professor, University Lecturer, Research Scientist</strong> jaise posts ke liye PG + NET combination sabse best hai. PSU organizations mein <strong>IOCL Executive, NABARD Grade A</strong> jaise posts bhi PG candidates ke liye hoti hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">UGC NET & CSIR NET — Teaching & Research Gateway</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">UGC NET 2026</strong> — National Eligibility Test qualified candidates Assistant Professor ban sakte hain aur JRF (Junior Research Fellowship) ke liye eligible hote hain. PG with 55% marks se eligible hain. UGC NET ke baad colleges aur universities mein directly lectureship mil sakti hai with salary Rs. 57,700-1,82,400 (Level-10).
+          </p>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">CSIR NET 2026</strong> — Science subjects (Chemical Sciences, Earth Sciences, Life Sciences, Mathematical Sciences, Physical Sciences) ke PG graduates ke liye hai. CSIR labs mein research assistant, scientist positions mil sakti hain. JRF ki salary Rs. 37,000+ HRA hoti hai.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">College Professor & University Lecturer</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            Teaching profession PG qualified candidates ke liye bahut rewarding career hai. <strong style="font-weight:500;color:var(--strong)">Assistant Professor</strong> — NET qualified candidates colleges mein padha sakte hain. Starting salary Rs. 57,700-1,82,400 (Level-10). <strong style="font-weight:500;color:var(--strong)">Associate Professor</strong> — PhD + 8 years experience ke baad promotion milta hai with Rs. 1,31,400-2,04,700 (Level-13A). <strong style="font-weight:500;color:var(--strong)">Professor</strong> — 15+ years experience ke baad Rs. 1,44,200-2,18,200 (Level-14) milta hai.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">Research Scientist — PSU & Government Labs</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">ISRO, BARC, DRDO, CSIR, ICAR</strong> jaise organizations mein Scientist/Engineer posts aati hain jo PG + GATE score based hoti hain. Inmein research projects mein kaam karne ka mauka milta hai with good salary (Rs. 56,100-1,77,500) aur reputation. State level par bhi Agriculture Research Scientist, Assistant Professor (State Universities) jaise posts aati hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">MBA & Professional Degree Holders — Special Options</h3>
+          <ul style="list-style:none;margin-bottom:var(--sp-sm)">
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">MBA:</strong> IOCL Executive, NABARD Grade A, SIDBI Grade A mein preference milta hai.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">M.Com / CA / ICWA:</strong> Accounts, Finance, Audit posts in Government departments.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">LLM:</strong> Judicial Services, Legal Advisor posts in Government departments.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">MCA / M.Tech:</strong> IT Officer, Technical posts in Banks, PSU, Government departments.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">M.Ed:</strong> Teacher Training institutes, DIET, B.Ed colleges mein faculty posts.</li>
+          </ul>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">PG Level Preparation Strategy</h3>
+          <ul style="list-style:none;margin-bottom:var(--sp-sm)">
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">NET/SET Focus:</strong> PG ke dauran hi NET preparation shuru karein — Paper 1 (Teaching Aptitude) aur Paper 2 (Subject specific).</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">PhD Advantage:</strong> Assistant Professor ke liye PhD optional ho raha hai lekin PhD holders ko preference aur better pay scale milta hai.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Research Publications:</strong> PG level par research papers publish karein — PSU Scientist posts mein useful hota hai.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">State Level Exams:</strong> RPSC, UPPSC, BPSC jaise State PSC mein PG level ke Lecturer/Professor posts aate hain.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Frequently Asked Questions</div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-xs);margin-top:var(--sp-md)">
+          <details class="faq-item">
+            <summary>Post graduate ke liye kaun kaun si government jobs hoti hain?</summary>
+            <p>Post graduate candidates UGC NET, CSIR NET, College Professor, University Lecturer, Research Scientist, ISRO/BARC Scientist, State PSC (PG level), NABARD Grade A (PG preference), IOCL Executive (Non-Engineering) jaisi government jobs ke liye apply kar sakte hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Post graduate government job ki salary kitni hoti hai?</summary>
+            <p>Post graduate government jobs mein salary generally graduate se zyada hoti hai. College Professor ki starting salary Rs. 57,700 (Level-10) hoti hai. UGC NET qualified Assistant Professor mein Rs. 57,700-1,82,400 milta hai. Scientist/Engineer posts mein Rs. 56,100-1,77,500 hota hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>UGC NET ke liye kya eligibility hai?</summary>
+            <p>UGC NET ke liye Master's Degree ya equivalent with minimum 55% marks (50% for reserved categories) zaroori hai. PhD holders ko age limit mein relaxation milti hai. JRF ke liye 30 years age limit hai aur Assistant Professor ke liye koi age limit nahi hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Post graduate ke baad professor kaise banein?</summary>
+            <p>Professor banne ke liye PG ke baad UGC NET/SET qualify karna zaroori hai. NET qualified candidates Assistant Professor ban sakte hain. PhD ke baad Associate Professor aur Professor ban sakte hain. State level SET exam bhi conduct hota hai state universities ke liye.</p>
+          </details>
+          <details class="faq-item">
+            <summary>MBA graduates ke liye kaun si government jobs hain?</summary>
+            <p>MBA graduates ke liye IOCL Executive (Non-Engineering), NABARD Grade A, SIDBI Grade A, Bank PO (management cadre), SIDBI Assistant Manager, NABARD Assistant Manager jaisi posts available hain. Management background hone se banking aur PSU mein advantage milta hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Research scientist government job kaise milegi?</summary>
+            <p>Research Scientist ke liye CSIR NET/UGC NET qualify karna helpful hai. ISRO, BARC, DRDO, CSIR, ICAR jaise organizations mein Scientist/Engineer posts aati hain. PG + NET + PhD combination se best opportunities milti hain. GATE score bhi kuch PSU research posts ke liye useful hai.</p>
+          </details>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div class="disclaimer" style="margin-top:var(--sp-xl)">
+        <span class="disc-icon">⚠️</span>
+        <p class="disc-text">Ye information <strong style="font-weight:500;color:var(--warning)">tentative</strong> hai. Final dates aur vacancies ke liye official websites — <strong style="font-weight:500;color:var(--warning)">ugcnet.nta.nic.in, csirhrdg.res.in, upsc.gov.in, iocl.com, nabard.org</strong> — regularly check karein.</p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

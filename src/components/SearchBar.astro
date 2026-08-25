@@ -1,0 +1,688 @@
+---
+// SearchBar.astro — Advanced search with fuzzy matching, voice search, smart filters, localStorage history
+---
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-modal">
+    <div class="search-header">
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search jobs, results, services... (try 'ssc cg', 'railway', 'aadhaar')" autocomplete="off" autofocus />
+      <button class="voice-btn" id="voiceBtn" title="Voice Search (Hindi/English)" aria-label="Voice search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+      </button>
+      <kbd class="search-kbd">ESC</kbd>
+    </div>
+    <div class="search-filters">
+      <button class="sf-btn active" data-filter="all">All</button>
+      <button class="sf-btn" data-filter="job">Jobs</button>
+      <button class="sf-btn" data-filter="result">Results</button>
+      <button class="sf-btn" data-filter="service">Services</button>
+      <button class="sf-btn" data-filter="admit-card">Admit Cards</button>
+      <button class="sf-btn" data-filter="syllabus">Syllabus</button>
+    </div>
+    <div class="search-results" id="searchResults">
+      <div class="search-empty">Type to search across 100+ pages...</div>
+    </div>
+    <div class="search-footer" id="searchFooter">
+      <span class="search-footer-hint">↑↓ Navigate · Enter Select · Esc Close</span>
+      <span class="search-footer-count" id="resultCount"></span>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+(function() {
+  'use strict';
+
+  const SEARCH_DATA = [
+    // Jobs
+    { type: 'job', title: 'SBI Clerk 2026', url: '/latest-jobs/sbi-clerk-2026/', org: 'SBI', tags: 'banking clerk po sbi', state: '', salary: '₹24,000-₹1,04,000', lastDate: 'Check Notification', qualify: 'Graduate' },
+    { type: 'job', title: 'IBPS Clerk 16th 2026', url: '/latest-jobs/ibps-clerk-16th-2026/', org: 'IBPS', tags: 'banking clerk ibps', state: '', salary: '₹19,900-₹63,200', lastDate: 'Check Notification', qualify: 'Graduate' },
+    { type: 'job', title: 'RSSB Junior Engineer 2026', url: '/latest-jobs/rssb-je-2026/', org: 'RSSB', tags: 'rajasthan engineering je je mechanical electrical', state: 'Rajasthan', salary: '₹33,800-₹1,06,700', lastDate: 'Check Notification', qualify: 'Diploma/Degree Engineering' },
+    { type: 'job', title: 'RVUNL Junior Engineer 2026', url: '/latest-jobs/rvunl-2026/', org: 'RVUNL', tags: 'rajasthan electrical je engineer', state: 'Rajasthan', salary: '₹33,800-₹1,06,700', lastDate: 'Check Notification', qualify: 'Degree Engineering' },
+    { type: 'job', title: 'UPSC EPFO 2026', url: '/latest-jobs/upsc-epfo-2026/', org: 'UPSC', tags: 'enforcement officer accounts officer upsc', state: '', salary: '₹47,600-₹1,51,100', lastDate: 'Check Notification', qualify: 'Graduate/Post Graduate' },
+    { type: 'job', title: 'RRB Junior Engineer 2026', url: '/latest-jobs/rrb-je-2026/', org: 'RRB', tags: 'railway engineering je mechanical electrical', state: '', salary: '₹35,400-₹1,12,400', lastDate: 'Check Notification', qualify: 'Diploma/Degree Engineering' },
+    { type: 'job', title: 'BPSC TRE 4.0 2026', url: '/latest-jobs/bpsc-tre-4-2026/', org: 'BPSC', tags: 'bihar teacher tre', state: 'Bihar', salary: '₹25,000-₹80,000', lastDate: 'Check Notification', qualify: 'Graduate + B.Ed/D.El.Ed' },
+    { type: 'job', title: 'Rajasthan Safai Karmchari 2026', url: '/latest-jobs/raj-safai-2026/', org: 'RSSB', tags: 'rajasthan safai sanitation worker', state: 'Rajasthan', salary: '₹18,000-₹56,900', lastDate: 'Check Notification', qualify: '10th Pass' },
+    { type: 'job', title: 'UPSSSC PET 2026', url: '/latest-jobs/upsssc-pet-2026/', org: 'UPSSSC', tags: 'up pradesh eligibility pet', state: 'Uttar Pradesh', salary: '₹5,200-₹20,200', lastDate: 'Check Notification', qualify: '10th Pass' },
+    { type: 'job', title: 'Bank of India LBO 2026', url: '/latest-jobs/bob-lbo-2026/', org: 'BOI', tags: 'banking local bank officer bob', state: '', salary: '₹36,000-₹63,840', lastDate: 'Check Notification', qualify: 'Graduate' },
+    { type: 'job', title: 'IOCL Executive 2026', url: '/latest-jobs/iocl-executive-2026/', org: 'IOCL', tags: 'oil gas executive iocl', state: '', salary: '₹40,000-₹1,40,000', lastDate: 'Check Notification', qualify: 'Degree Engineering/MBA' },
+    { type: 'job', title: 'MPESB Group 2 2026', url: '/latest-jobs/mpesb-group2-2026/', org: 'MPESB', tags: 'mp pradesh group 2 madhya pradesh', state: 'Madhya Pradesh', salary: '₹19,500-₹62,000', lastDate: 'Check Notification', qualify: 'Graduate' },
+    { type: 'job', title: 'Navy Agniveer SSR/MR 2026', url: '/latest-jobs/navy-agniveer-2026/', org: 'Indian Navy', tags: 'navy military agniveer ssr mr', state: '', salary: '₹30,000/month', lastDate: 'Check Notification', qualify: '10th/12th Pass' },
+    { type: 'job', title: 'RSSB Computer Instructor 2026', url: '/latest-jobs/rssb-computer-instructor-2026/', org: 'RSSB', tags: 'rajasthan computer instructor', state: 'Rajasthan', salary: '₹33,800-₹1,06,700', lastDate: 'Check Notification', qualify: 'BCA/MCA/B.Tech CS' },
+    { type: 'job', title: 'UP Anganwadi 2026', url: '/latest-jobs/up-anganwadi-2026/', org: 'UP Govt', tags: 'angawanwadi women up uttar pradesh', state: 'Uttar Pradesh', salary: '₹10,000-₹25,000', lastDate: 'Check Notification', qualify: '8th/10th Pass' },
+    // Results
+    { type: 'result', title: 'CBSE 12th Compartment Result 2026', url: '/results/cbse-12th-compartment-2026/', org: 'CBSE', tags: 'board 12th compartment cbse', state: '', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'BPSC 72 Pre Result 2026', url: '/results/bpsc-72-pre-2026/', org: 'BPSC', tags: 'bihar pcs pre bpsc', state: 'Bihar', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'KVS NVS Tier 2 Result 2026', url: '/results/kvs-nvs-tier2-2026/', org: 'KVS/NVS', tags: 'teacher pgt tgt kvs nvs', state: '', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'UPPSC Assistant Professor Result 2026', url: '/results/uppsc-assistant-prof-2026/', org: 'UPPSC', tags: 'up professor uppsc', state: 'Uttar Pradesh', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'SSC CHSL Result 2025', url: '/results/ssc-chsl-2025/', org: 'SSC', tags: 'chsl ldc deo ssc', state: '', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'RPSC Senior Teacher Result 2026', url: '/results/rpsc-senior-teacher-2026/', org: 'RPSC', tags: 'rajasthan teacher rpsc', state: 'Rajasthan', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'Delhi Police Constable Result 2026', url: '/results/delhi-police-constable-2026/', org: 'SSC', tags: 'delhi police constable ssc', state: 'Delhi', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'RSSB Conductor Result 2026', url: '/results/rssb-conductor-2026/', org: 'RSSB', tags: 'rajasthan bus conductor rssb', state: 'Rajasthan', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'SBI CBO Result 2026', url: '/results/sbi-cbo-2026/', org: 'SBI', tags: 'circle based officer sbi', state: '', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'UPSSSC Jr Assistant Result 2022', url: '/results/upsssc-jr-assistant-2022/', org: 'UPSSSC', tags: 'up assistant upsssc', state: 'Uttar Pradesh', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'BPSSC Havildar Result 2026', url: '/results/bpssc-havildar-2026/', org: 'BPSSC', tags: 'bihar havildar bpssc', state: 'Bihar', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'NEET UG Round 1 Allotment 2026', url: '/results/neet-ug-2026-round1/', org: 'NTA', tags: 'neet mbbs medical nta', state: '', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'RBSE 10th/12th Result 2026', url: '/results/rbse-result-2026/', org: 'RBSE', tags: 'rajasthan board 10th 12th rbse', state: 'Rajasthan', lastDate: 'May 2026', qualify: '' },
+    { type: 'result', title: 'RRB ALP Result 2025', url: '/results/rrb-alp-2025/', org: 'RRB', tags: 'railway loco pilot rrb', state: '', lastDate: 'Declared', qualify: '' },
+    { type: 'result', title: 'AIIMS CRE 5th Phase Result 2026', url: '/results/aiims-cre-5-2026/', org: 'AIIMS', tags: 'medical aiims cre', state: '', lastDate: 'Declared', qualify: '' },
+    // Services
+    { type: 'service', title: 'Aadhaar Card', url: '/service/aadhaar/', org: 'UIDAI', tags: 'aadhar card update new enrollment biometric', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'PAN Card', url: '/service/pan/', org: 'NSDL/UTIITSL', tags: 'pan card apply new correction', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Passport', url: '/service/passport/', org: 'MEA', tags: 'passport apply renewal police verification', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Driving License', url: '/service/driving-license/', org: 'Parivahan', tags: 'dl driving licence renewal learning test', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Ration Card', url: '/service/ration-card/', org: 'State Govt', tags: 'ration card apply new addition name', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Voter ID', url: '/service/voter-id/', org: 'ECI', tags: 'voter id card epic new registration', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'ITR Filing', url: '/service/itr-filing/', org: 'Income Tax', tags: 'income tax return itr filing online', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Birth Certificate', url: '/service/birth-certificate/', org: 'Municipality', tags: 'birth certificate janam praman patra', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Ayushman Bharat', url: '/service/ayushman-bharat/', org: 'NHA', tags: 'ayushman health insurance card', state: '', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Rajasthan SSO', url: '/raj/sso/', org: 'Rajasthan Govt', tags: 'sso single sign on rajasthan portal login', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'service', title: 'E-Mitra', url: '/raj/e-mitra/', org: 'Rajasthan Govt', tags: 'e mitra portal services rajasthan', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Bhu Naksha', url: '/raj/bhu-naksha/', org: 'Rajasthan Govt', tags: 'bhu naksha land map apna khata jamabandi', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Jan Aadhaar', url: '/raj/jan-aadhaar/', org: 'Rajasthan Govt', tags: 'jan aadhaar card registration', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'service', title: 'RBSE Board 2026', url: '/raj/rbse-board/', org: 'RBSE', tags: 'rajasthan board result rbse 10th 12th', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Chiranjeevi Yojana', url: '/raj/chiranjeevi-yojana/', org: 'Rajasthan Govt', tags: 'chiranjeevi health insurance scheme', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Rajasthan Police', url: '/raj/rajasthan-police/', org: 'Rajasthan Police', tags: 'police bharti constable si', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'service', title: 'Kisan Kalyan', url: '/raj/kisan-kalyan/', org: 'Rajasthan Govt', tags: 'kisan farmer scheme yojana', state: 'Rajasthan', lastDate: '', qualify: '' },
+    // Admit Cards
+    { type: 'admit-card', title: 'IBPS SO XVI Admit Card 2026', url: '/admit-cards/ibps-so-xvi-2026/', org: 'IBPS', tags: 'specialist officer ibps admit card', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'RRB ALP Status 2025', url: '/admit-cards/rrb-alp-2025-status/', org: 'RRB', tags: 'loco pilot admit rrb railway', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'NTA AIAPGET 2026', url: '/admit-cards/nta-aiapget-2026/', org: 'NTA', tags: 'ayurveda pg nta admit', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'SSC Selection Post 14th 2026', url: '/admit-cards/ssc-selection-post-14th-2026/', org: 'SSC', tags: 'selection post ssc admit', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'UPSSSC Lower PCS 2026', url: '/admit-cards/upsssc-lower-pcs-2026/', org: 'UPSSSC', tags: 'up pcs lower admit upsssc', state: 'Uttar Pradesh', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'UGC NET Re-exam 2026', url: '/admit-cards/ugc-net-reexam-2026/', org: 'UGC/NTA', tags: 'net jrf ugc nta admit', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'Coal India MT 2026', url: '/admit-cards/coal-india-mt-2026/', org: 'CIL', tags: 'coal india management trainee', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'NICL Assistant 2026', url: '/admit-cards/nicl-assistant-2026/', org: 'NICL', tags: 'insurance assistant nicl admit', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'UPSC CSM Mains 2026', url: '/admit-cards/upsc-cs-mains-2026/', org: 'UPSC', tags: 'civil services mains upsc admit', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'RSSB Computer Instructor 2026', url: '/admit-cards/rssb-computer-instructor-2026/', org: 'RSSB', tags: 'rajasthan computer rssb admit', state: 'Rajasthan', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'RRB Group D 2025', url: '/admit-cards/rrb-group-d-2025/', org: 'RRB', tags: 'railway group d rrb admit', state: '', lastDate: '', qualify: '' },
+    { type: 'admit-card', title: 'IBPS PO 2026', url: '/admit-cards/ibps-po-2026/', org: 'IBPS', tags: 'probationary officer po ibps admit', state: '', lastDate: '', qualify: '' },
+    // Syllabus
+    { type: 'syllabus', title: 'SSC CGL Syllabus 2026', url: '/syllabus/ssc-cgl/', org: 'SSC', tags: 'ssc cgl syllabus tier 1 tier 2 math english reasoning gk', state: '', lastDate: '', qualify: 'Graduate' },
+    { type: 'syllabus', title: 'SSC CHSL Syllabus 2026', url: '/syllabus/ssc-chsl/', org: 'SSC', tags: 'ssc chsl syllabus ldc deo 12th', state: '', lastDate: '', qualify: '12th Pass' },
+    { type: 'syllabus', title: 'UPSC CSE Syllabus 2026', url: '/syllabus/upsc-cse/', org: 'UPSC', tags: 'upsc cse civil services syllabus prelims mains', state: '', lastDate: '', qualify: 'Graduate' },
+    { type: 'syllabus', title: 'IBPS PO Syllabus 2026', url: '/syllabus/ibps-po/', org: 'IBPS', tags: 'ibps po syllabus preliminary mains', state: '', lastDate: '', qualify: 'Graduate' },
+    { type: 'syllabus', title: 'IBPS Clerk Syllabus 2026', url: '/syllabus/ibps-clerk/', org: 'IBPS', tags: 'ibps clerk syllabus preliminary', state: '', lastDate: '', qualify: 'Graduate' },
+    { type: 'syllabus', title: 'RRB NTPC Syllabus 2026', url: '/syllabus/rrb-ntpc/', org: 'RRB', tags: 'rrb ntpc syllabus railway', state: '', lastDate: '', qualify: 'Graduate' },
+    { type: 'syllabus', title: 'RRB Group D Syllabus 2026', url: '/syllabus/rrb-group-d/', org: 'RRB', tags: 'rrb group d syllabus railway', state: '', lastDate: '', qualify: '10th Pass' },
+    { type: 'syllabus', title: 'RRB JE Syllabus 2026', url: '/syllabus/rrb-je/', org: 'RRB', tags: 'rrb je syllabus railway junior engineer', state: '', lastDate: '', qualify: 'Diploma/Degree' },
+    { type: 'syllabus', title: 'SBI PO Syllabus 2026', url: '/syllabus/sbi-po/', org: 'SBI', tags: 'sbi po syllabus preliminary mains', state: '', lastDate: '', qualify: 'Graduate' },
+    { type: 'syllabus', title: 'SBI Clerk Syllabus 2026', url: '/syllabus/sbi-clerk/', org: 'SBI', tags: 'sbi clerk syllabus preliminary', state: '', lastDate: '', qualify: 'Graduate' },
+  ];
+
+  const overlay = document.getElementById('searchOverlay');
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  const resultCount = document.getElementById('resultCount');
+  const filterBtns = document.querySelectorAll('.sf-btn');
+  const voiceBtn = document.getElementById('voiceBtn');
+  let activeFilter = 'all';
+  let highlightedIndex = -1;
+  let currentResults = [];
+
+  const popularSearches = [
+    { label: 'SBI Clerk 2026', url: '/latest-jobs/sbi-clerk-2026/', icon: '🔥' },
+    { label: 'RBSE Result 2026', url: '/results/rbse-result-2026/', icon: '📊' },
+    { label: 'Aadhaar Card', url: '/service/aadhaar/', icon: '🏛️' },
+    { label: 'SSC CGL Syllabus', url: '/syllabus/ssc-cgl/', icon: '📚' },
+    { label: 'Eligibility Checker', url: '/tools/eligibility-checker/', icon: '🔍' },
+    { label: 'Cut-off Tracker', url: '/tools/cutoff-tracker/', icon: '📊' },
+    { label: 'UPSC CSE Syllabus', url: '/syllabus/upsc-cse/', icon: '📚' },
+    { label: 'Admit Cards', url: '/admit-cards/', icon: '🎫' },
+    { label: 'Exam Calendar 2026', url: '/exam-calendar/', icon: '📅' },
+    { label: 'Current Affairs', url: '/current-affairs/', icon: '📰' },
+  ];
+
+  function getRecentSearches() {
+    try {
+      return JSON.parse(localStorage.getItem('ss-recent-searches') || '[]');
+    } catch (e) { return []; }
+  }
+
+  function saveRecentSearch(query) {
+    if (!query || query.length < 2) return;
+    try {
+      let recent = getRecentSearches();
+      recent = recent.filter(r => r.toLowerCase() !== query.toLowerCase());
+      recent.unshift(query);
+      recent = recent.slice(0, 8);
+      localStorage.setItem('ss-recent-searches', JSON.stringify(recent));
+    } catch (e) {}
+  }
+
+  function fuzzyMatch(text, query) {
+    const t = text.toLowerCase();
+    const q = query.toLowerCase();
+    if (t.includes(q)) return { match: true, score: 100 - t.indexOf(q) };
+    let qi = 0, score = 0, lastIdx = -1;
+    for (let ti = 0; ti < t.length && qi < q.length; ti++) {
+      if (t[ti] === q[qi]) {
+        score += (lastIdx === ti - 1) ? 10 : 5;
+        lastIdx = ti;
+        qi++;
+      }
+    }
+    return qi === q.length ? { match: true, score } : { match: false, score: 0 };
+  }
+
+  function highlightMatch(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return text.replace(regex, '<mark>$1</mark>');
+  }
+
+  function showSuggestions() {
+    const recent = getRecentSearches();
+    let html = '';
+
+    if (recent.length > 0) {
+      html += `<div class="search-section">
+        <div class="search-section-title">🕐 Recent Searches</div>
+        ${recent.map(r => `
+          <a href="/search?q=${encodeURIComponent(r)}" class="search-result-item" data-query="${r}">
+            <span class="sri-icon">🕐</span>
+            <div class="sri-info"><div class="sri-title">${r}</div></div>
+            <button class="search-remove-btn" data-remove="${r}" title="Remove">×</button>
+          </a>
+        `).join('')}
+      </div>`;
+    }
+
+    html += `<div class="search-section">
+      <div class="search-section-title">🔥 Popular Searches</div>
+      ${popularSearches.map(item => `
+        <a href="${item.url}" class="search-result-item">
+          <span class="sri-icon">${item.icon}</span>
+          <div class="sri-info"><div class="sri-title">${item.label}</div></div>
+        </a>
+      `).join('')}
+    </div>
+    <div class="search-section">
+      <div class="search-section-title">Quick Links</div>
+      <a href="/latest-jobs/" class="search-result-item">
+        <span class="sri-icon">💼</span>
+        <div class="sri-info"><div class="sri-title">All Latest Jobs</div></div>
+      </a>
+      <a href="/results/" class="search-result-item">
+        <span class="sri-icon">📊</span>
+        <div class="sri-info"><div class="sri-title">All Results</div></div>
+      </a>
+      <a href="/syllabus/" class="search-result-item">
+        <span class="sri-icon">📚</span>
+        <div class="sri-info"><div class="sri-title">All Syllabus</div></div>
+      </a>
+      <a href="/tools/" class="search-result-item">
+        <span class="sri-icon">🛠️</span>
+        <div class="sri-info"><div class="sri-title">All Tools</div></div>
+      </a>
+    </div>`;
+
+    results.innerHTML = html;
+    resultCount.textContent = '';
+    bindRemoveBtns();
+  }
+
+  function bindRemoveBtns() {
+    results.querySelectorAll('.search-remove-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const val = btn.dataset.remove;
+        try {
+          let recent = getRecentSearches();
+          recent = recent.filter(r => r !== val);
+          localStorage.setItem('ss-recent-searches', JSON.stringify(recent));
+          if (input.value.trim()) performSearch(input.value);
+          else showSuggestions();
+        } catch (e) {}
+      });
+    });
+  }
+
+  function openSearch() {
+    overlay.classList.add('open');
+    setTimeout(() => input.focus(), 100);
+    document.body.classList.add('no-scroll');
+    showSuggestions();
+  }
+
+  function closeSearch() {
+    overlay.classList.remove('open');
+    input.value = '';
+    document.body.classList.remove('no-scroll');
+    highlightedIndex = -1;
+    currentResults = [];
+  }
+
+  function bindTriggers() {
+    document.querySelectorAll('[data-search-trigger]').forEach(el => {
+      el.addEventListener('click', openSearch);
+    });
+  }
+  bindTriggers();
+  document.addEventListener('DOMContentLoaded', bindTriggers);
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
+    if (e.key === 'Escape') closeSearch();
+  });
+
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeSearch(); });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      performSearch(input.value);
+    });
+  });
+
+  input.addEventListener('input', (e) => { highlightedIndex = -1; performSearch(e.target.value); });
+
+  input.addEventListener('keydown', (e) => {
+    const items = results.querySelectorAll('.search-result-item');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      highlightedIndex = Math.min(highlightedIndex + 1, items.length - 1);
+      updateHighlight(items);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      highlightedIndex = Math.max(highlightedIndex - 1, 0);
+      updateHighlight(items);
+    } else if (e.key === 'Enter' && highlightedIndex >= 0) {
+      e.preventDefault();
+      const item = items[highlightedIndex];
+      if (item && item.href) {
+        saveRecentSearch(input.value.trim());
+        window.location.href = item.href;
+      }
+    }
+  });
+
+  function updateHighlight(items) {
+    items.forEach((item, i) => {
+      item.classList.toggle('hl', i === highlightedIndex);
+      if (i === highlightedIndex) item.scrollIntoView({ block: 'nearest' });
+    });
+  }
+
+  function performSearch(query) {
+    const q = query.trim();
+    if (!q) { showSuggestions(); return; }
+
+    const scored = SEARCH_DATA.map(item => {
+      let score = 0;
+      const titleMatch = fuzzyMatch(item.title, q);
+      if (titleMatch.match) score += titleMatch.score * 2;
+      const orgMatch = fuzzyMatch(item.org, q);
+      if (orgMatch.match) score += orgMatch.score;
+      const tagMatch = fuzzyMatch(item.tags, q);
+      if (tagMatch.match) score += tagMatch.score;
+      const matchFilter = activeFilter === 'all' || item.type === activeFilter;
+      return { item, score, matchFilter };
+    }).filter(r => r.score > 0 && r.matchFilter)
+      .sort((a, b) => b.score - a.score);
+
+    currentResults = scored;
+
+    if (scored.length === 0) {
+      const recent = getRecentSearches();
+      let relatedHtml = '';
+      if (recent.length > 0) {
+        relatedHtml = `<div class="search-section"><div class="search-section-title">Try these recent searches</div>
+          ${recent.slice(0, 3).map(r => `<a href="/search?q=${encodeURIComponent(r)}" class="search-result-item"><span class="sri-icon">🕐</span><div class="sri-info"><div class="sri-title">${r}</div></div></a>`).join('')}
+        </div>`;
+      }
+      results.innerHTML = `
+        <div class="search-empty">
+          <div style="font-size:32px;margin-bottom:8px">🔍</div>
+          <div>"<strong>${q}</strong>" ke liye kuch nahi mila</div>
+          <div style="margin-top:4px;font-size:13px">Try different keywords ya check spelling</div>
+        </div>
+        ${relatedHtml}
+        <div class="search-section">
+          <div class="search-section-title">Latest Notifications</div>
+          <a href="/latest-jobs/" class="search-result-item"><span class="sri-icon">💼</span><div class="sri-info"><div class="sri-title">Latest Govt Jobs</div></div></a>
+          <a href="/results/" class="search-result-item"><span class="sri-icon">📊</span><div class="sri-info"><div class="sri-title">Check Results</div></div></a>
+        </div>
+      `;
+      resultCount.textContent = '0 results';
+      return;
+    }
+
+    const typeIcons = { job: '💼', result: '📊', service: '🏛️', 'admit-card': '🎫', syllabus: '📚' };
+    const typeLabels = { job: 'Job', result: 'Result', service: 'Service', 'admit-card': 'Admit Card', syllabus: 'Syllabus' };
+
+    results.innerHTML = scored.slice(0, 15).map(r => `
+      <a href="${r.item.url}" class="search-result-item">
+        <span class="sri-icon">${typeIcons[r.item.type]}</span>
+        <div class="sri-info">
+          <div class="sri-title">${highlightMatch(r.item.title, q)}</div>
+          <div class="sri-meta">${r.item.org} · <span class="sri-type">${typeLabels[r.item.type]}</span>${r.item.state ? ' · ' + r.item.state : ''}${r.item.salary ? ' · ' + r.item.salary : ''}</div>
+        </div>
+      </a>
+    `).join('');
+
+    resultCount.textContent = `${scored.length} result${scored.length > 1 ? 's' : ''}`;
+  }
+
+  // Voice Search
+  if (voiceBtn && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = 'hi-IN';
+
+    let isListening = false;
+
+    voiceBtn.addEventListener('click', () => {
+      if (isListening) {
+        recognition.stop();
+        return;
+      }
+      isListening = true;
+      voiceBtn.classList.add('listening');
+      voiceBtn.title = 'Listening...';
+      recognition.start();
+    });
+
+    recognition.onresult = (event) => {
+      let transcript = '';
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        transcript += event.results[i][0].transcript;
+      }
+      input.value = transcript;
+      performSearch(transcript);
+    };
+
+    recognition.onend = () => {
+      isListening = false;
+      voiceBtn.classList.remove('listening');
+      voiceBtn.title = 'Voice Search (Hindi/English)';
+    };
+
+    recognition.onerror = () => {
+      isListening = false;
+      voiceBtn.classList.remove('listening');
+      voiceBtn.title = 'Voice Search (Hindi/English)';
+    };
+  } else if (voiceBtn) {
+    voiceBtn.style.display = 'none';
+  }
+})();
+</script>
+
+<style is:global>
+  .search-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 10vh 16px 24px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .search-overlay.open {
+    opacity: 1; pointer-events: auto;
+  }
+
+  .search-modal {
+    width: 100%; max-width: 660px;
+    background: var(--card, #1c1d22);
+    border: 1px solid var(--hairline, rgba(255, 255, 255, 0.12));
+    border-radius: 20px;
+    box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    max-height: 75vh;
+    transform: scale(0.96) translateY(-10px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .search-overlay.open .search-modal {
+    transform: scale(1) translateY(0);
+  }
+
+  html[data-theme="light"] .search-modal {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .search-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--hairline, rgba(255, 255, 255, 0.08));
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .search-icon {
+    color: var(--saffron, #FF6B35);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .search-input {
+    flex: 1; min-width: 0;
+    background: none; border: none; outline: none;
+    font-size: 16px; font-weight: 500;
+    color: var(--strong, #f3f4f6);
+    font-family: inherit;
+  }
+  html[data-theme="light"] .search-input {
+    color: #111827;
+  }
+  .search-input::placeholder {
+    color: var(--muted, #9ca3af);
+    font-weight: 400;
+  }
+
+  .voice-btn {
+    width: 38px; height: 38px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--elevated, rgba(255, 255, 255, 0.06));
+    border: 1px solid var(--hairline, rgba(255, 255, 255, 0.1));
+    color: var(--body, #d1d5db);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+  }
+  .voice-btn:hover {
+    border-color: var(--saffron, #FF6B35);
+    color: var(--saffron, #FF6B35);
+    transform: scale(1.05);
+  }
+  .voice-btn.listening {
+    background: #FF6B35; color: #ffffff;
+    border-color: #FF6B35;
+    animation: voice-pulse 1.2s ease-in-out infinite;
+  }
+  @keyframes voice-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.6); }
+    50% { box-shadow: 0 0 0 12px rgba(255, 107, 53, 0); }
+  }
+
+  .search-kbd {
+    font-size: 11px; font-weight: 600;
+    padding: 4px 8px; border-radius: 6px;
+    background: var(--elevated, rgba(255, 255, 255, 0.06));
+    border: 1px solid var(--hairline, rgba(255, 255, 255, 0.1));
+    color: var(--muted, #9ca3af);
+    font-family: inherit;
+    letter-spacing: 0.5px;
+  }
+
+  .search-filters {
+    display: flex; gap: 8px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--hairline, rgba(255, 255, 255, 0.08));
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .search-filters::-webkit-scrollbar { display: none; }
+
+  .sf-btn {
+    font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 9999px;
+    background: var(--elevated, rgba(255, 255, 255, 0.05));
+    border: 1px solid var(--hairline, rgba(255, 255, 255, 0.1));
+    color: var(--muted, #9ca3af);
+    cursor: pointer; white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .sf-btn:hover {
+    color: var(--strong, #f3f4f6);
+    border-color: var(--saffron, #FF6B35);
+    background: rgba(255, 107, 53, 0.08);
+  }
+  .sf-btn.active {
+    background: var(--saffron, #FF6B35);
+    color: #ffffff;
+    border-color: var(--saffron, #FF6B35);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  }
+
+  .search-results {
+    flex: 1; overflow-y: auto;
+    padding: 12px 14px;
+  }
+
+  .search-empty {
+    text-align: center; padding: 44px 20px;
+    color: var(--muted, #9ca3af);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .search-section {
+    margin-bottom: 14px;
+  }
+  .search-section:last-child {
+    margin-bottom: 4px;
+  }
+  .search-section-title {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--muted, #9ca3af);
+    padding: 6px 12px;
+    margin-bottom: 4px;
+  }
+
+  .search-result-item {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s ease;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .search-result-item:hover,
+  .search-result-item.hl {
+    background: var(--elevated, rgba(255, 255, 255, 0.06));
+    border-color: var(--hairline, rgba(255, 255, 255, 0.08));
+    transform: translateX(2px);
+  }
+  html[data-theme="light"] .search-result-item:hover,
+  html[data-theme="light"] .search-result-item.hl {
+    background: rgba(255, 107, 53, 0.06);
+    border-color: rgba(255, 107, 53, 0.2);
+  }
+
+  .sri-icon {
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--canvas, rgba(0, 0, 0, 0.25));
+    border: 1px solid var(--hairline, rgba(255, 255, 255, 0.08));
+    display: flex; align-items: center; justify-content: center;
+  }
+  html[data-theme="light"] .sri-icon {
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+  }
+
+  .sri-info {
+    flex: 1; min-width: 0;
+    display: flex; flex-direction: column;
+    gap: 2px;
+  }
+  .sri-title {
+    font-size: 15px; font-weight: 600;
+    color: var(--strong, #f3f4f6);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  html[data-theme="light"] .sri-title {
+    color: #111827;
+  }
+  .sri-title mark {
+    background: rgba(255, 107, 53, 0.25);
+    color: var(--saffron, #FF6B35);
+    border-radius: 3px;
+    padding: 0 4px;
+    font-weight: 700;
+  }
+
+  .sri-meta {
+    font-size: 12px;
+    color: var(--muted, #9ca3af);
+    display: flex; align-items: center; gap: 6px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sri-type {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--saffron, #FF6B35);
+  }
+
+  .search-remove-btn {
+    position: absolute; right: 12px; top: 50%;
+    transform: translateY(-50%);
+    width: 26px; height: 26px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--muted, #9ca3af);
+    background: var(--canvas, rgba(0,0,0,0.2));
+    border: 1px solid var(--hairline, rgba(255,255,255,0.08));
+    cursor: pointer; opacity: 0; transition: all 0.15s;
+  }
+  .search-result-item:hover .search-remove-btn { opacity: 1; }
+  .search-remove-btn:hover {
+    color: #ef4444; border-color: rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.1);
+  }
+
+  .search-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px;
+    border-top: 1px solid var(--hairline, rgba(255, 255, 255, 0.08));
+    font-size: 12px; color: var(--muted, #9ca3af);
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .search-footer-hint { letter-spacing: 0.3px; }
+  .search-footer-count {
+    font-weight: 700;
+    color: var(--saffron, #FF6B35);
+  }
+
+  .search-results::-webkit-scrollbar { width: 6px; }
+  .search-results::-webkit-scrollbar-track { background: transparent; }
+  .search-results::-webkit-scrollbar-thumb {
+    background: var(--hairline, rgba(255, 255, 255, 0.15));
+    border-radius: 4px;
+  }
+</style>

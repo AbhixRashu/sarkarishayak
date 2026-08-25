@@ -1,0 +1,369 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import data from '../../data/current-affairs.json';
+
+export function getStaticPaths() {
+  return data.map(day => ({
+    params: { date: day.date },
+    props: { day }
+  }));
+}
+
+const { day } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+// Find prev/next day
+const currentDate = new Date(day.date + 'T00:00:00');
+const prevDay = data.find(d => {
+  const dDate = new Date(d.date + 'T00:00:00');
+  return dDate.getTime() === currentDate.getTime() - 86400000;
+});
+const nextDay = data.find(d => {
+  const dDate = new Date(d.date + 'T00:00:00');
+  return dDate.getTime() === currentDate.getTime() + 86400000;
+});
+
+const catLabels: Record<string, string> = {
+  National: 'राष्ट्रीय',
+  International: 'अंतर्राष्ट्रीय',
+  Economy: 'अर्थव्यवस्था',
+  Science: 'विज्ञान',
+  Sports: 'खेल',
+  Awards: 'पुरस्कार'
+};
+
+const catColors: Record<string, string> = {
+  National: 'var(--saffron)',
+  International: 'var(--m-blue-dark)',
+  Economy: 'var(--gold)',
+  Science: 'var(--success)',
+  Sports: '#e1306c',
+  Awards: 'var(--m-red)'
+};
+
+// Group questions by category
+const grouped: Record<string, typeof day.questions> = {};
+day.questions.forEach(q => {
+  if (!grouped[q.category]) grouped[q.category] = [];
+  grouped[q.category].push(q);
+});
+
+const totalQ = day.questions.length;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Current Affairs", "item": siteUrl + "/current-affairs/" },
+    { "@type": "ListItem", "position": 3, "name": day.title }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": day.title,
+  "datePublished": day.date,
+  "publisher": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "mainEntityOfPage": siteUrl + "/current-affairs/" + day.date
+};
+---
+
+<BaseLayout
+  title={`${day.title} | Daily Current Affairs | Sarkari Sahayak`}
+  description={`${day.date} के Daily Current Affairs — ${totalQ}+ महत्वपूर्ण प्रश्न UPSC, SSC CGL, IBPS, RRB की तैयारी के लिए।`}
+  canonical={`/current-affairs/${day.date}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/current-affairs/" style="color:var(--saffron);text-decoration:none">Current Affairs</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">{day.date}</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:860px;margin-inline:auto">
+
+      <!-- Header -->
+      <div style="margin-bottom:var(--sp-xl)">
+        <h1 class="d-title" style="font-size:28px;margin-bottom:8px">{day.title}</h1>
+        <p style="color:var(--body);font-size:15px;margin-bottom:16px">
+          {totalQ} महत्वपूर्ण प्रश्न — UPSC, SSC CGL, IBPS, RRB, State PCS की तैयारी के लिए
+        </p>
+
+        <!-- Category Filter Chips -->
+        <div class="chips-row" id="catFilter" role="group" aria-label="Category filter" style="justify-content:flex-start">
+          <button type="button" class="chip active" data-filter="all">सभी<span class="cnt">{totalQ}</span></button>
+          {day.categories.map(cat => {
+            const count = day.questions.filter(q => q.category === cat).length;
+            if (count === 0) return null;
+            return (
+              <button type="button" class="chip" data-filter={cat}>
+                {catLabels[cat] || cat}<span class="cnt">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="display:flex;gap:var(--sp-sm);margin-top:var(--sp-md);flex-wrap:wrap">
+          <button class="btn-primary" id="quizToggle" style="font-size:13px;height:40px;padding:0 18px">
+            🧠 Quiz Mode ON
+          </button>
+          <button class="btn-ghost" id="printBtn" style="height:40px;padding:0 16px;font-size:13px">
+            🖨️ प्रिंट / PDF
+          </button>
+          <a
+            class="btn-ghost"
+            href={`https://api.whatsapp.com/send?text=${encodeURIComponent(day.title + ' — UPSC SSC IBPS की तैयारी के लिए यहाँ पढ़ें: ' + siteUrl + '/current-affairs/' + day.date)}`}
+            target="_blank"
+            rel="noopener"
+            style="height:40px;padding:0 16px;font-size:13px"
+          >
+            📲 WhatsApp शेयर
+          </a>
+        </div>
+      </div>
+
+      <!-- Questions List -->
+      <div id="questionsList">
+        {day.questions.map((q, i) => {
+          const catColor = catColors[q.category] || 'var(--saffron)';
+          return (
+            <div class="qa-card" data-category={q.category} style={`border-left:3px solid ${catColor}`}>
+              <div class="qa-head">
+                <span class="qa-num">{i + 1}</span>
+                <span class="qa-cat" style={`color:${catColor};border-color:${catColor}40`}>
+                  {catLabels[q.category] || q.category}
+                </span>
+                <span class="qa-source" style="font-size:11px;color:var(--muted);margin-left:auto">{q.source}</span>
+              </div>
+              <div class="qa-question">{q.question}</div>
+              <button class="qa-reveal-btn" data-idx={i}>
+                <span class="reveal-text">उत्तर देखें ▾</span>
+                <span class="reveal-icon">→</span>
+              </button>
+              <div class="qa-answer" id={`answer-${i}`}>
+                <div class="qa-answer-text">
+                  <strong>उत्तर:</strong> {q.answer}
+                </div>
+                <div class="qa-explanation">
+                  <strong>व्याख्या:</strong> {q.explanation}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Prev / Next Navigation -->
+      <div style="display:flex;gap:var(--sp-sm);justify-content:space-between;margin-top:var(--sp-xl);flex-wrap:wrap">
+        {prevDay ? (
+          <a href={`/current-affairs/${prevDay.date}`} class="btn-ghost" style="height:44px;padding:0 20px;font-size:13px">
+            ← पिछला दिन ({prevDay.date})
+          </a>
+        ) : <div />}
+        {nextDay ? (
+          <a href={`/current-affairs/${nextDay.date}`} class="btn-primary" style="height:44px;padding:0 20px;font-size:13px">
+            अगला दिन ({nextDay.date}) →
+          </a>
+        ) : <div />}
+      </div>
+
+      <!-- Back to Index -->
+      <div style="text-align:center;margin-top:var(--sp-lg)">
+        <a href="/current-affairs/" class="btn-ghost" style="height:44px;padding:0 24px;font-size:13px">
+          ← सभी दिन देखें
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .qa-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      padding: var(--sp-md);
+      margin-bottom: var(--sp-sm);
+      transition: border-color .25s ease, transform .25s ease;
+    }
+    .qa-card:hover {
+      border-color: var(--saffron);
+      transform: translateX(2px);
+    }
+    .qa-card.quiz-mode .qa-answer {
+      display: none;
+    }
+    .qa-card.quiz-mode .qa-reveal-btn {
+      display: flex;
+    }
+    .qa-card:not(.quiz-mode) .qa-reveal-btn {
+      display: none;
+    }
+    .qa-card:not(.quiz-mode) .qa-answer {
+      display: block;
+    }
+    .qa-head {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-xs);
+      margin-bottom: var(--sp-xs);
+    }
+    .qa-num {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      background: var(--saffron);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .qa-cat {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid var(--hairline);
+    }
+    .qa-question {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--strong);
+      line-height: 1.6;
+      margin-bottom: var(--sp-sm);
+    }
+    .qa-reveal-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px 14px;
+      background: rgba(255,107,53,.07);
+      border: 1px solid rgba(255,107,53,.3);
+      color: var(--saffron);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .25s ease;
+    }
+    .qa-reveal-btn:hover {
+      background: rgba(255,107,53,.14);
+    }
+    .qa-answer {
+      margin-top: var(--sp-sm);
+      padding: var(--sp-sm);
+      background: rgba(15,163,54,.06);
+      border: 1px solid rgba(15,163,54,.25);
+    }
+    .qa-answer-text {
+      font-size: 15px;
+      color: var(--strong);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .qa-answer-text strong {
+      color: var(--success);
+      font-weight: 600;
+    }
+    .qa-explanation {
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .qa-explanation strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .qa-card.hidden {
+      display: none !important;
+    }
+  </style>
+
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Quiz mode toggle
+    var quizBtn = document.getElementById('quizToggle');
+    var cards = document.querySelectorAll('.qa-card');
+    var quizMode = true;
+
+    cards.forEach(function(c) { c.classList.add('quiz-mode'); });
+
+    if (quizBtn) {
+      quizBtn.addEventListener('click', function() {
+        quizMode = !quizMode;
+        cards.forEach(function(c) {
+          if (quizMode) {
+            c.classList.add('quiz-mode');
+          } else {
+            c.classList.remove('quiz-mode');
+          }
+        });
+        quizBtn.textContent = quizMode ? '🧠 Quiz Mode ON' : '📖 Quiz Mode OFF';
+      });
+    }
+
+    // Reveal buttons
+    document.querySelectorAll('.qa-reveal-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = btn.getAttribute('data-idx');
+        var answer = document.getElementById('answer-' + idx);
+        if (answer) {
+          var isVisible = answer.style.display === 'block';
+          answer.style.display = isVisible ? 'none' : 'block';
+          btn.querySelector('.reveal-text').textContent = isVisible ? 'उत्तर देखें ▾' : 'उत्तर छुपाएं ▴';
+        }
+      });
+    });
+
+    // Print button
+    var printBtn = document.getElementById('printBtn');
+    if (printBtn) {
+      printBtn.addEventListener('click', function() {
+        // Reveal all answers before printing
+        cards.forEach(function(c) { c.classList.remove('quiz-mode'); });
+        document.querySelectorAll('.qa-answer').forEach(function(a) { a.style.display = 'block'; });
+        setTimeout(function() { window.print(); }, 200);
+      });
+    }
+
+    // Category filter
+    var filterBtns = document.querySelectorAll('#catFilter .chip');
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        cards.forEach(function(card) {
+          var cat = card.getAttribute('data-category');
+          if (f === 'all' || cat === f) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+  </script>
+</BaseLayout>

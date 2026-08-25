@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import cutoffs from '../../data/cutoffs.json';
+import papers from '../../data/previous-papers.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": siteUrl + "/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Cut-off & PYQ Tracker" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "SSC CGL cut-off kitna jaata hai?", acceptedAnswer: { "@type": "Answer", "text": "SSC CGL 2025 Tier 1 cut-off: General 145, OBC 130, SC 115, ST 105, EWS 135 hai. Har saal 2-3 marks ka variation hota hai." } },
+    { "@type": "Question", "name": "IBPS Clerk cut-off kitna hota hai?", acceptedAnswer: { "@type": "Answer", "text": "IBPS Clerk 16th Prelims cut-off: General 72, OBC 66, SC 56, ST 49, EWS 69. Mains cut-off zyada hota hai ~85 (General)." } },
+    { "@type": "Question", "name": "UPSC CSE Prelims cut-off kitna hai?", acceptedAnswer: { "@type": "Answer", "text": "UPSC CSE 2026 Prelims cut-off: General 98, OBC 90, SC 82, ST 80. Har saal GS paper ke level ke hisaab se change hota hai." } }
+  ]
+};
+---
+
+<BaseLayout
+  title="Cut-off Marks & Previous Year Papers — All Exams | Sarkari Sahayak 2026"
+  description="SSC, IBPS, UPSC, RRB, UPPSC sabke previous year cut-off marks aur question papers dekhein. Free cut-off tracker."
+  canonical="/tools/cutoff-tracker/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/tools/" style="color:var(--saffron);text-decoration:none">Tools</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Cut-off & PYQ</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:900px;margin-inline:auto">
+      <h1 class="d-title" style="font-size:28px;margin-bottom:8px">📊 Cut-off Marks & Previous Year Papers</h1>
+      <p style="color:var(--body);font-size:16px;margin-bottom:24px">Major exams ke cut-off trends aur previous year papers — exam select karein.</p>
+
+      <!-- Filter -->
+      <div class="co-filters">
+        <button class="co-filter active" data-cat="all">All Exams</button>
+        <button class="co-filter" data-cat="banking">Banking</button>
+        <button class="co-filter" data-cat="central">Central Govt</button>
+        <button class="co-filter" data-cat="railway">Railway</button>
+        <button class="co-filter" data-cat="state">State PCS</button>
+        <button class="co-filter" data-cat="medical">Medical</button>
+      </div>
+
+      <!-- Cut-off Section -->
+      <h2 class="d-h" style="margin-top:24px">Latest Cut-off Marks (2025-26)</h2>
+      <div class="co-grid" id="cutoffGrid">
+        {cutoffs.map(exam => (
+          <div class="co-card" data-category={exam.category}>
+            <div class="co-card-head">
+              <h3 class="co-card-title">{exam.exam}</h3>
+              <span class="co-level">{exam.examLevel}</span>
+            </div>
+            <div class="co-tiers">
+              {Object.entries(exam.cutoffs).map(([tier, marks]) => (
+                <div class="co-tier">
+                  <div class="co-tier-name">{tier}</div>
+                  <div class="co-marks-row">
+                    {Object.entries(marks).map(([cat, score]) => (
+                      <span class={`co-mark ${cat === 'general' ? 'co-gen' : ''}`}>
+                        <span class="co-cat">{cat.toUpperCase()}</span>
+                        <span class="co-score">{score}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {exam.previousYears && (
+              <div class="co-trend">
+                <div class="co-trend-title">Previous Year (General)</div>
+                <div class="co-trend-items">
+                  {exam.previousYears.map(py => (
+                    <span class="co-trend-item">{py.year}: <b>{py.general}</b></span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- PYQ Section -->
+      <h2 class="d-h" style="margin-top:36px">Previous Year Question Papers</h2>
+      <div class="pyq-grid">
+        {papers.map(exam => (
+          <div class="pyq-card">
+            <h3 class="pyq-title">{exam.exam}</h3>
+            <div class="pyq-list">
+              {exam.papers.map(p => (
+                <div class="pyq-item">
+                  <span class="pyq-year">{p.year}</span>
+                  <span class="pyq-tier">{p.tier}</span>
+                  <span class="pyq-shifts">{p.shifts} shift{p.shifts > 1 ? 's' : ''}</span>
+                  <span class={`pyq-diff pyq-diff-${p.difficulty.toLowerCase().replace('-', '')}`}>{p.difficulty}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- FAQ -->
+      <h2 class="d-h" style="margin-top:36px">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        {faqSchema.mainEntity.map(f => (
+          <details class="faq-item">
+            <summary class="faq-q">{f.name}</summary>
+            <div class="faq-a">{f.acceptedAnswer.text}</div>
+          </details>
+        ))}
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .co-filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .co-filter {
+      font-size: 13px; padding: 6px 14px; border-radius: 20px;
+      background: var(--card); border: 1px solid var(--hairline);
+      color: var(--muted); cursor: pointer; font-family: var(--font-hindi); transition: all .15s;
+    }
+    .co-filter:hover { color: var(--strong); border-color: var(--saffron); }
+    .co-filter.active { background: var(--saffron); color: #fff; border-color: var(--saffron); }
+
+    .co-grid { display: grid; gap: 12px; }
+    .co-card {
+      padding: 16px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 12px;
+    }
+    .co-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .co-card-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--strong); }
+    .co-level { font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--elevated); color: var(--muted); }
+    .co-tier { margin-bottom: 8px; }
+    .co-tier-name { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--saffron); letter-spacing: .5px; margin-bottom: 6px; }
+    .co-marks-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .co-mark {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 6px 10px; background: var(--elevated); border-radius: 6px; min-width: 52px;
+    }
+    .co-mark.co-gen { border: 1px solid var(--saffron); }
+    .co-cat { font-size: 9px; font-weight: 600; color: var(--muted); letter-spacing: .5px; }
+    .co-score { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--strong); }
+    .co-trend { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--hairline); }
+    .co-trend-title { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+    .co-trend-items { display: flex; gap: 12px; }
+    .co-trend-item { font-size: 13px; color: var(--body); }
+    .co-trend-item b { color: var(--strong); }
+
+    .pyq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+    .pyq-card {
+      padding: 16px; background: var(--card); border: 1px solid var(--hairline); border-radius: 12px;
+    }
+    .pyq-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--strong); margin-bottom: 10px; }
+    .pyq-list { display: grid; gap: 6px; }
+    .pyq-item {
+      display: flex; align-items: center; gap: 8px; font-size: 13px;
+    }
+    .pyq-year { font-weight: 700; color: var(--saffron); min-width: 36px; }
+    .pyq-tier { color: var(--strong); font-weight: 500; }
+    .pyq-shifts { color: var(--muted); }
+    .pyq-diff {
+      font-size: 11px; padding: 1px 6px; border-radius: 4px; margin-left: auto;
+    }
+    .pyq-diff-easy, .pyq-diff-easymoderate { background: rgba(15,163,54,.1); color: var(--success); }
+    .pyq-diff-moderate { background: rgba(255,193,7,.1); color: var(--warning); }
+    .pyq-diff-moderatedifficult, .pyq-diff-difficult { background: rgba(239,68,68,.1); color: #ef4444; }
+
+    .faq-list { display: grid; gap: 8px; }
+    .faq-item {
+      padding: 12px 16px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .faq-q {
+      font-size: 15px; font-weight: 600; color: var(--strong); cursor: pointer;
+      font-family: var(--font-hindi); list-style: none;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before { content: '▸ '; color: var(--saffron); }
+    .faq-item[open] .faq-q::before { content: '▾ '; }
+    .faq-a { font-size: 14px; color: var(--body); margin-top: 8px; line-height: 1.6; padding-left: 18px; }
+  </style>
+
+  <script is:inline>
+  (function() {
+    const filterBtns = document.querySelectorAll('.co-filter');
+    const cards = document.querySelectorAll('.co-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        cards.forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+        });
+      });
+    });
+  })();
+  </script>
+
+  <!-- SEO Content -->
+  <div class="section">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+
+      <div class="d-section">
+        <h2 class="d-h">Cut-off Marks Kya Hota Hai?</h2>
+        <div class="steps-box">
+          <p style="font-size:15px;color:var(--body);line-height:1.7;margin-bottom:12px">
+            Cut-off marks woh minimum marks hain jo exam pass karne ke liye chahiye. Agar aapke marks cut-off se zyada hain to aap agle round ke liye eligible ho jate hain.
+            Har exam ka cut-off alag hota hai aur har category (General, OBC, SC, ST, EWS) ka alag cut-off hota hai.
+          </p>
+          <p style="font-size:15px;color:var(--body);line-height:1.7">
+            Cut-off marks <b>number of vacancies</b>, <b>exam difficulty</b>, aur <b>total candidates</b> ke hisaab se har saal change hota hai.
+            Isliye previous year cut-offs dekhna bahut zaroori hai — isse aapko idea lagta hai ki kitne marks chahiye.
+          </p>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Cut-off Kaise Calculate Hota Hai?</h2>
+        <div class="steps-box">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📊 <b>Vacancies:</b> Jitni zyada vacancies, utna kam cut-off hota hai</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📝 <b>Exam Difficulty:</b> Mushkil exam = kam cut-off, aasan exam = zyada cut-off</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">👥 <b>Candidates:</b> Zyada candidates ne diya = competition badhta hai = cut-up badhta hai</li>
+            <li style="padding:8px 0;font-size:15px">🏷️ <b>Category:</b> General ka sabse zyada, SC/ST ka sabse kam cut-off hota hai</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Category-wise Cut-off Trend (Last 3 Years)</h2>
+        <div class="steps-box">
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--hairline)">
+                  <th style="text-align:left;padding:10px;color:var(--strong)">Exam</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">General</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">OBC</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">SC</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">ST</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">SSC CGL Tier 1</td><td style="text-align:center">140-145</td><td style="text-align:center">125-130</td><td style="text-align:center">110-115</td><td style="text-align:center">100-105</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">IBPS Clerk Prelims</td><td style="text-align:center">68-74</td><td style="text-align:center">62-68</td><td style="text-align:center">52-58</td><td style="text-align:center">45-50</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">RRB NTPC CBT 1</td><td style="text-align:center">70-75</td><td style="text-align:center">63-68</td><td style="text-align:center">54-58</td><td style="text-align:center">48-52</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">UPPSC PCS Pre</td><td style="text-align:center">120-128</td><td style="text-align:center">108-115</td><td style="text-align:center">94-100</td><td style="text-align:center">88-95</td></tr>
+                <tr><td style="padding:8px 10px;font-weight:600">UPSC CSE Prelims</td><td style="text-align:center">90-98</td><td style="text-align:center">82-90</td><td style="text-align:center">75-82</td><td style="text-align:center">72-80</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="d-section">
+        <h2 class="d-h">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-q">Cut-off marks har saal kyun badalta hai?</summary>
+            <div class="faq-a">Cut-off exam difficulty, total vacancies, aur number of candidates ke hisaab se change hota hai. Agar exam aasan hai to cut-off badh jata hai, agar mushkil hai to kam ho jata hai.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">SC/ST ka cut-off itna kam kyun hota hai?</summary>
+            <div class="faq-a">Government policy ke anusar SC/ST aur OBC candidates ko reservation milti hai, isliye unka cut-off general category se kam rakha jata hai. Ye social justice aur equality ke liye hai.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Cut-off se 1 mark kam aaye to kya hoga?</summary>
+            <div class="faq-a">Agar aapke marks cut-off se 1-2 mark kam hain, to aap agle round ke liye eligible nahi honge. Lekin kuch exams mein waitlist chalti hai — agar saari seats nahi bharti hain to waitlist se call aa sakta hai.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">Previous year cut-off se is saal ka cut-off kaise predict karein?</summary>
+            <div class="faq-a">Previous year trends dekhein (is page par hain). Agar vacancies badhi hain to cut-off kam ho sakta hai. Agar exam aasan tha to cut-off badh sakta hai. Average leke ±5 marks ka range rakho.</div>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .faq-list { display: grid; gap: 8px; }
+    .faq-item {
+      padding: 12px 16px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .faq-q {
+      font-size: 15px; font-weight: 600; color: var(--strong); cursor: pointer;
+      font-family: var(--font-hindi); list-style: none;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before { content: '▸ '; color: var(--saffron); }
+    .faq-item[open] .faq-q::before { content: '▾ '; }
+    .faq-a { font-size: 14px; color: var(--body); margin-top: 8px; line-height: 1.6; padding-left: 18px; }
+  </style>
+</BaseLayout>

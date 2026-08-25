@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const filteredJobs = jobs.filter(job => {
+  const text = (job.title + ' ' + job.organization + ' ' + job.slug + ' ' + job.category).toLowerCase();
+  return text.includes('rajasthan') || text.includes('rssb') || text.includes('rsmssb') || text.includes('rpsc') || text.includes('rvunl') || text.includes('reet') || text.includes('raj safai') || text.includes('rajasthan staff') || text.includes('rajasthan local');
+});
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "States" },
+    { "@type": "ListItem", "position": 3, "name": "Rajasthan" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to apply for Rajasthan govt jobs through RSSB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit sso.rajasthan.gov.in, login with your SSO ID, go to Recruitment Portal, select the desired recruitment, fill the application form, upload documents, pay fee via e-Mitra or online, and submit. SSO ID is mandatory for all Rajasthan govt job applications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is RPSC and what exams does it conduct?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RPSC (Rajasthan Public Service Commission) conducts RAS (Rajasthan Administrative Services) exam, Rajasthan Police SI recruitment, and other state level exams for Group A and Group B posts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the main Rajasthan govt job exams in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Major Rajasthan exams include RPSC RAS, RSSB (Rajasthan Staff Selection Board) various posts, RSMSSB recruitment, REET (Teacher Eligibility Test), Rajasthan Police Constable/SI, and RVUNL technical recruitment."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Rajasthan Government Jobs 2026 | Sarkari Sahayak"
+  description="Rajasthan Govt Jobs 2026 — RPSC, Rajasthan Police, RSSB, REET sabki latest sarkari naukri. Rajasthan government vacancy 2026 apply online."
+  canonical="/states/rajasthan"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/states/" style="color:var(--saffron);text-decoration:none">States</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Rajasthan</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">State Govt Jobs</span>
+        <h1 class="section-title" style="font-size:34px">Rajasthan Government Jobs 2026</h1>
+        <p class="section-sub">RPSC, RSSB, RSMSSB, REET — sabki latest Rajasthan sarkari naukri ek jagah.</p>
+      </div>
+
+      <div class="portal-row" style="margin-bottom:var(--sp-xl)">
+        <a href="https://rpsc.rajasthan.gov.in" target="_blank" rel="noopener" class="btn-primary">RPSC Portal ↗</a>
+        <a href="https://sso.rajasthan.gov.in" target="_blank" rel="noopener" class="btn-ghost">Rajasthan SSO ↗</a>
+        <a href="https://rssb.rajasthan.gov.in" target="_blank" rel="noopener" class="btn-ghost">RSSB Portal ↗</a>
+        <a href="/latest-jobs" class="btn-ghost">All Latest Jobs</a>
+      </div>
+
+      {filteredJobs.length > 0 ? (
+        <div class="tt-wrap">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th style="width:40%">Post / Recruitment</th>
+                <th>Organization</th>
+                <th style="text-align:center">Vacancies</th>
+                <th>Last Date</th>
+                <th style="text-align:center">Apply</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredJobs.map(job => (
+                <tr>
+                  <td>
+                    <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                    <br/>
+                    <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                  </td>
+                  <td style="white-space:nowrap">{job.organization}</td>
+                  <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                    {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                  </td>
+                  <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                  <td style="text-align:center">
+                    <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                      Apply ↗
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div class="no-results">Abhi koi Rajasthan-specific job open nahi hai. <a href="/latest-jobs" style="color:var(--saffron)">Saari jobs dekhein.</a></div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--soft);padding-block:var(--sp-xxl)">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:26px;margin-bottom:16px">Rajasthan Govt Jobs — Complete Guide 2026</h2>
+      <div class="prose">
+        <p>Rajasthan India ka sabse bada state hai area ke hisaab se aur yahan sarkari naukri ki bahut demand hai. <strong>RPSC</strong>, <strong>RSSB (RSMSSB)</strong>, aur <strong>REET</strong> regular basis par recruitment drives conduct karte hain.</p>
+
+        <p><strong>RPSC (Rajasthan Public Service Commission)</strong> — RAS (Rajasthan Administrative Services) exam conduct karta hai jo ki Rajasthan ka sabse prestigious exam hai. SDM, SP, Tehsildar jaise posts milte hain iske through.</p>
+
+        <p><strong>RSSB / RSMSSB (Rajasthan Staff Selection Board)</strong> — Junior Engineer, Computer Instructor, Safai Karamchari, and other Group C posts ke liye recruitment hota hai. Rajasthan SSO ID ke through apply karna hota hai.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Sarkari Naukri in Rajasthan — Major Exams</h2>
+
+        <p><strong>REET (Rajasthan Eligibility Examination for Teachers)</strong> — Rajasthan me teachers banne ke liye REET qualification zaroori hai. Level 1 (Class 1-5) aur Level 2 (Class 6-8) ke liye alag papers hote hain.</p>
+
+        <p><strong>Rajasthan Police</strong> — Constable aur Sub Inspector posts ke liye regular recruitment hota hai. Physical Efficiency Test aur Written Exam ke basis par selection hota hai.</p>
+
+        <p><strong>RVUNL (Rajasthan Rajya Vidyut Utpadan Nigam Ltd)</strong> — Junior Engineer, Plant Attendant, and other technical posts ke liye recruitment hota hai. Engineering graduates ke liye excellent opportunity.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">How to Apply for Rajasthan Govt Jobs</h2>
+
+        <ul>
+          <li><strong>Step 1:</strong> SSO portal sso.rajasthan.gov.in par jaayein</li>
+          <li><strong>Step 2:</strong> Apne SSO ID se login karein (ya register karein)</li>
+          <li><strong>Step 3:</strong> Recruitment Portal section me jaayein</li>
+          <li><strong>Step 4:</strong> Desired recruitment select karein aur application form bharein</li>
+          <li><strong>Step 5:</strong> Documents upload karein aur fee pay karein (e-Mitra ya online)</li>
+          <li><strong>Step 6:</strong> Form submit karein aur confirmation save karein</li>
+        </ul>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Tips for Rajasthan Govt Job Aspirants</h2>
+
+        <ul>
+          <li>SSO ID bana ke rakhein — sabhi Rajasthan govt jobs ke liye ye mandatory hai</li>
+          <li>REET qualification le lein agar teacher banna chahte hain</li>
+          <li>RPSC RAS ki preparation ke liye Rajasthan GK par focus karein</li>
+          <li>RSSB previous year papers solve karein exam pattern samajhne ke liye</li>
+          <li>Rajasthan culture, history aur geography ki achhi preparation karein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:24px;margin-bottom:20px">Frequently Asked Questions — Rajasthan Govt Jobs</h2>
+
+      <details class="faq-item">
+        <summary>How to apply for Rajasthan govt jobs through RSSB?</summary>
+        <p>Visit sso.rajasthan.gov.in, login with your SSO ID, go to Recruitment Portal, select the desired recruitment, fill the application form, upload documents, pay fee via e-Mitra or online, and submit. SSO ID is mandatory for all Rajasthan govt job applications.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is RPSC and what exams does it conduct?</summary>
+        <p>RPSC (Rajasthan Public Service Commission) conducts RAS (Rajasthan Administrative Services) exam, Rajasthan Police SI recruitment, and other state level exams for Group A and Group B posts.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What are the main Rajasthan govt job exams in 2026?</summary>
+        <p>Major Rajasthan exams include RPSC RAS, RSSB (Rajasthan Staff Selection Board) various posts, RSMSSB recruitment, REET (Teacher Eligibility Test), Rajasthan Police Constable/SI, and RVUNL technical recruitment.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is REET and is it mandatory for teaching jobs in Rajasthan?</summary>
+        <p>REET (Rajasthan Eligibility Examination for Teachers) is mandatory for all teaching positions in Rajasthan government schools. It has two levels — Level 1 for Class 1-5 and Level 2 for Class 6-8. Without REET qualification, you cannot apply for government teaching posts in Rajasthan.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How to create SSO ID for Rajasthan government jobs?</summary>
+        <p>Visit sso.rajasthan.gov.in and click on 'Register'. You can register using Aadhaar number, Bhamashah ID, or Facebook/Google account. After registration, you get a unique SSO ID which is used for all Rajasthan government services including job applications.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the age limit for Rajasthan govt jobs?</summary>
+        <p>For most Group C posts, age limit is 18-40 years. For RPSC RAS, it is 21-40 years. SC/ST/OBC/female candidates get additional relaxation as per Rajasthan government rules. Check individual notifications for exact age limits.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

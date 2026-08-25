@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const categories = [
+  { id: 'gk', name: 'General Knowledge', nameHi: 'सामान्य ज्ञान', icon: '🧠', color: '#FF6B35', questions: 55, desc: 'Daily GK quiz for all competitive exams', difficulty: 'All Levels' },
+  { id: 'current-affairs', name: 'Current Affairs', nameHi: 'करंट अफेयर्स', icon: '📰', color: '#1c69d4', questions: 50, desc: 'Latest current affairs 2024-2026', difficulty: 'Medium' },
+  { id: 'ssc-cgl', name: 'SSC CGL Level', nameHi: 'SSC CGL स्तर', icon: '📝', color: '#e22718', questions: 50, desc: 'SSC CGL exam pattern questions', difficulty: 'Medium-Hard' },
+  { id: 'ibps', name: 'IBPS Level', nameHi: 'IBPS स्तर', icon: '🏦', color: '#FFC107', questions: 50, desc: 'Banking awareness + aptitude', difficulty: 'Medium' },
+  { id: 'railway', name: 'Railway Level', nameHi: 'रेलवे स्तर', icon: '🚂', color: '#0fa336', questions: 50, desc: 'RRB exam preparation', difficulty: 'Easy-Medium' },
+  { id: 'upsc', name: 'UPSC Prelims', nameHi: 'UPSC प्रीलिम्स', icon: '🏛️', color: '#8B5CF6', questions: 50, desc: 'Civil services preliminary level', difficulty: 'Hard' },
+  { id: 'reasoning', name: 'Reasoning', nameHi: 'रीजनिंग', icon: '🧩', color: '#EC4899', questions: 50, desc: 'Logical reasoning & puzzles', difficulty: 'All Levels' },
+  { id: 'mathematics', name: 'Mathematics', nameHi: 'गणित', icon: '🔢', color: '#14B8A6', questions: 50, desc: 'Quantitative aptitude problems', difficulty: 'All Levels' },
+  { id: 'hindi-grammar', name: 'Hindi Grammar', nameHi: 'हिंदी व्याकरण', icon: '📖', color: '#F97316', questions: 50, desc: 'Hindi grammar & literature', difficulty: 'All Levels' },
+  { id: 'english-grammar', name: 'English Grammar', nameHi: 'अंग्रेजी व्याकरण', icon: '🔤', color: '#6366F1', questions: 50, desc: 'English grammar & vocabulary', difficulty: 'All Levels' },
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Daily Quiz" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Daily Quiz kya hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Daily Quiz ek free online test hai jo competitive exam ki taiyari ke liye hai. Har roz naye questions milte hain GK, Current Affairs, Math, Reasoning aur bahut kuch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quiz khelne ke liye kya chahiye?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kuch nahi chahiye! Bilkul free hai. Phone ya computer par khel sakte hain. Registration ki zaroorat nahi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kitne questions hote hain har quiz mein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har quiz mein 10 random questions hote hain 50+ question bank se. 15 minute ka time milta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Score share kar sakte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan! Quiz khatam hone ke baad apna score WhatsApp par share kar sakte hain aur doston ko challenge kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Roz quiz khelne ka kya fayda hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roz khelne se streak banti hai, knowledge strong hoti hai, aur exam readiness badhti hai. Daily practice se confidence badhta hai."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Free Daily Quiz for Govt Exam Preparation | Sarkari Sahayak"
+  description="SSC CGL, IBPS, UPSC, Railway, GK — free daily quiz with timer, score, and WhatsApp share. 500+ questions across 10 categories. Roz quiz khelo!"
+  canonical="/quiz/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="quiz-hero">
+    <div class="container">
+      <div class="quiz-hero-content">
+        <div class="quiz-badge">FREE DAILY QUIZ</div>
+        <h1 class="quiz-title">Roz Quiz Khelo, <span class="accent">Exam Jeeto!</span></h1>
+        <p class="quiz-sub">500+ Questions · 10 Categories · Timer · Score Track · WhatsApp Share</p>
+        <div class="quiz-stats">
+          <div class="qs-item"><span class="qs-num">500+</span><span class="qs-label">Questions</span></div>
+          <div class="qs-item"><span class="qs-num">10</span><span class="qs-label">Categories</span></div>
+          <div class="qs-item"><span class="qs-num">FREE</span><span class="qs-label">Forever</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz-categories section">
+    <div class="container">
+      <div class="section-head center-head">
+        <div class="section-label">Choose Category</div>
+        <div class="section-title">Apna Category Chuno</div>
+        <div class="section-sub">Kisi bhi category par click karo aur quiz shuru karo</div>
+      </div>
+
+      <div class="cat-grid">
+        {categories.map((cat, i) => (
+          <a href={`/quiz/${cat.id}/`} class={`cat-card reveal`} style={`--cat-color: ${cat.color}`}>
+            <div class="cat-icon">{cat.icon}</div>
+            <div class="cat-info">
+              <h3 class="cat-name">{cat.name}</h3>
+              <div class="cat-name-hi">{cat.nameHi}</div>
+              <p class="cat-desc">{cat.desc}</p>
+            </div>
+            <div class="cat-meta">
+              <span class="cat-count">{cat.questions} Qs</span>
+              <span class="cat-diff">{cat.difficulty}</span>
+            </div>
+            <div class="cat-arrow">→</div>
+          </a>
+        ))}
+      </div>
+
+      {/* Features Section */}
+      <div class="features-section">
+        <div class="section-label">Features</div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <div class="feature-title">15 Min Timer</div>
+            <div class="feature-desc">Har quiz mein 15 minute ka time. Speed aur accuracy dono practice karo.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <div class="feature-title">Instant Score</div>
+            <div class="feature-desc">Turant pata chalo kitne sahi jawab diye. Har jawab ka explanation milega.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔥</div>
+            <div class="feature-title">Daily Streak</div>
+            <div class="feature-desc">Lagatar roz quiz khelo aur streak badhao. Streak dikha ke doston ko impress karo.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <div class="feature-title">WhatsApp Share</div>
+            <div class="feature-desc">Apna score WhatsApp par share karo aur doston ko challenge karo.</div>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div class="faq-section">
+        <div class="section-label">Frequently Asked Questions</div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Daily Quiz kya hai?</summary>
+            <p>Daily Quiz ek free online test hai jo competitive exam ki taiyari ke liye hai. Har roz naye questions milte hain GK, Current Affairs, Math, Reasoning aur bahut kuch.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quiz khelne ke liye kya chahiye?</summary>
+            <p>Kuch nahi chahiye! Bilkul free hai. Phone ya computer par khel sakte hain. Registration ki zaroorat nahi.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Kitne questions hote hain har quiz mein?</summary>
+            <p>Har quiz mein 10 random questions hote hain 50+ question bank se. 15 minute ka time milta hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Score share kar sakte hain?</summary>
+            <p>Haan! Quiz khatam hone ke baad apna score WhatsApp par share kar sakte hain aur doston ko challenge kar sakte hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Roz quiz khelne ka kya fayda hai?</summary>
+            <p>Roz khelne se streak banti hai, knowledge strong hoti hai, aur exam readiness badhti hai. Daily practice se confidence badhta hai.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .quiz-hero {
+      background: linear-gradient(160deg, #000 0%, #0d1b2a 50%, #1a0a00 100%);
+      padding: 80px 0 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    html[data-theme="light"] .quiz-hero {
+      background: linear-gradient(160deg, #f2f3f5 0%, #dfe9f4 55%, #eceff4 100%);
+    }
+    .quiz-hero::before {
+      content: ""; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(closest-side, rgba(255,107,53,.12), transparent 70%);
+    }
+    .quiz-hero-content { position: relative; z-index: 1; }
+    .quiz-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,107,53,.45); background: rgba(255,107,53,.07);
+      color: var(--saffron); padding: 10px 20px;
+      font-family: var(--font-display); font-weight: 700; font-size: 13px;
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: var(--sp-lg);
+    }
+    .quiz-title {
+      font-family: var(--font-display); font-weight: 700; font-size: 56px;
+      line-height: 1; text-transform: uppercase; color: var(--white); letter-spacing: .5px;
+    }
+    .quiz-title .accent {
+      background: linear-gradient(92deg, var(--saffron) 5%, var(--gold) 95%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .quiz-sub { max-width: 600px; margin: var(--sp-md) auto 0; font-size: 17px; color: var(--body); }
+    .quiz-stats {
+      display: flex; justify-content: center; gap: var(--sp-xl); margin-top: var(--sp-xl);
+    }
+    .qs-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .qs-num { font-family: var(--font-display); font-weight: 700; font-size: 36px; color: var(--saffron); }
+    .qs-label { font-size: 13px; color: var(--muted); letter-spacing: .5px; }
+
+    .cat-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-md);
+    }
+    .cat-card {
+      display: flex; align-items: center; gap: var(--sp-md);
+      background: var(--card); border: 1px solid var(--hairline);
+      padding: var(--sp-lg); cursor: pointer; text-decoration: none;
+      transition: all .3s ease; position: relative; overflow: hidden;
+    }
+    .cat-card::after {
+      content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%;
+      background: var(--cat-color); transform: scaleX(0); transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .cat-card:hover { border-color: var(--cat-color); transform: translateY(-3px); }
+    .cat-card:hover::after { transform: scaleX(1); }
+    .cat-icon { font-size: 40px; width: 60px; text-align: center; flex-shrink: 0; }
+    .cat-info { flex: 1; min-width: 0; }
+    .cat-name { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--white); margin-bottom: 2px; }
+    .cat-name-hi { font-size: 14px; color: var(--saffron); margin-bottom: 4px; }
+    .cat-desc { font-size: 13px; color: var(--muted); line-height: 1.4; }
+    .cat-meta { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; flex-shrink: 0; }
+    .cat-count {
+      font-family: var(--font-display); font-weight: 700; font-size: 13px;
+      color: var(--cat-color); border: 1px solid var(--cat-color); padding: 2px 8px;
+    }
+    .cat-diff { font-size: 11px; color: var(--muted); }
+    .cat-arrow {
+      font-size: 20px; color: var(--muted); transition: all .3s; flex-shrink: 0;
+    }
+    .cat-card:hover .cat-arrow { color: var(--cat-color); transform: translateX(4px); }
+
+    .features-section { margin-top: var(--sp-xxl); }
+    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-md); }
+    .feature-card {
+      background: var(--card); border: 1px solid var(--hairline);
+      padding: var(--sp-lg); text-align: center;
+    }
+    .feature-icon { font-size: 36px; margin-bottom: var(--sp-sm); }
+    .feature-title { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--white); margin-bottom: 6px; }
+    .feature-desc { font-size: 14px; color: var(--body); line-height: 1.6; }
+
+    .faq-section { margin-top: var(--sp-xxl); }
+    .faq-list { display: flex; flex-direction: column; gap: var(--sp-xs); max-width: 800px; margin-inline: auto; }
+
+    @media (max-width: 768px) {
+      .quiz-title { font-size: 36px; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .quiz-stats { gap: var(--sp-lg); }
+      .qs-num { font-size: 28px; }
+    }
+    @media (max-width: 420px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</BaseLayout>

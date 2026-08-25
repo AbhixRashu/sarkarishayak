@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: "Sarkari Sahayak kya hai?",
+    a: "Sarkari Sahayak ek free Hindi informational guide hai jo aapko government services ki jaankari step-by-step mein deta hai. Jaise Aadhaar update kaise karein, PAN card kaise apply karein, RBSE result kaise check karein — sab kuch Hindi mein, bilkul free."
+  },
+  {
+    q: "Kya yeh website officially sarkari hai?",
+    a: "Nahi. Sarkari Sahayak ek independent informational platform hai. Hum kisi bhi sarkari ya government body ke officially affiliated nahi hain. Hum sirf aapko sahi jaankari aur official links dene ki koshish karte hain."
+  },
+  {
+    q: "RBSE Result 2026 kaise check karein?",
+    a: "RBSE Board Result 2026 check karne ke liye aapko official website rajeduboard.rajasthan.gov.in ya results.rajasthan.gov.in pe jaana hoga. Wahan apna Roll Number daalkar result dekh sakte hain. Sarkari Sahayak pe aapko step-by-step guide milegi jismein screenshots aur screenshots bhi honge."
+  },
+  {
+    q: "Roll Number ya Registration Number kahan milega?",
+    a: "Roll Number aapke admit card pe hota hai. Agar admit card nahi hai, toh aap apne school/college se contact karke Roll Number le sakte hain. Kuch boards Roll Number ke bhi result dete hain — aapke school ka naam aur father's name se bhi search ho sakta hai."
+  },
+  {
+    q: "Kya yeh website ka content sahi hai?",
+    a: "Hum har jaankari ko official government websites se verify karke hi publish karte hain. Par kabhi-kabhi sarkari websites pe updates late aate hain, isliye humari team rose content update karti hai. Agar aapko koi galat jaankari dikhe, toh humein zaroor batayein — hum jaldi correct karenge."
+  },
+  {
+    q: "Kya main yahan se marksheet ya result download kar sakta hoon?",
+    a: "Nahi. Sarkari Sahayak ek informational guide hai, official result portal nahi. Aapko apna result check karne ke liye official board website pe jaana hoga. Hum aapko sirf woh dikhate hain ki official website pe kaise jaana hai aur kaise check karna hai."
+  },
+  {
+    q: "Kya yeh services ke liye koi fees hai?",
+    a: "Sarkari Sahayak pe aapko jo bhi fees dikhti hai — jaise Aadhaar update fees, PAN card fees, passport fees — woh sab government websites ki officially listed fees hai. Sarkari Sahayak khud koi charges nahi lagata. Humara platform bilkul free hai."
+  },
+  {
+    q: "Website ko kitni baar update kiya jaata hai?",
+    a: "Humari team rose content update karti hai. Board results, admit cards, aur job notifications ke liye hum real-time updates dete hain. Important government changes ke liye hum jaldi se jaldi content update karte hain taaki aapko sahi jaankari mile."
+  },
+  {
+    q: "Kya mujhe koi account banana padega?",
+    a: "Nahi. Sarkari Sahayak pe koi account ya login ki zaroorat nahi. Sab kuch bilkul free aur open hai. Aap bina kisi registration ke sab guides access kar sakte hain."
+  },
+  {
+    q: "Kya aap Hindi mein bhi guide dete hain?",
+    a: "Haan! Sarkari Sahayak ka poora platform Hindi mein hai. Har guide, har step, har explanation — sab Hindi mein hai taaki aapko koi dikkat na ho."
+  }
+];
+---
+
+<BaseLayout
+  title="FAQs | Sarkari Sahayak 2026"
+  description="Sarkari Sahayak ke frequently asked questions — RBSE result, roll number, fees, website authenticity, update frequency ke baare mein jaaniye."
+  canonical="/faq"
+>
+  <section class="section">
+    <div class="container" style="max-width:800px">
+
+      <div class="section-head center-head">
+        <p class="section-label">FAQ</p>
+        <h1 class="section-title">Frequently Asked Questions</h1>
+        <p class="section-sub">Aapke sabse zyada poochhe jaane wale sawaalon ke jawaab</p>
+      </div>
+
+      <div style="margin-top:var(--sp-xl)">
+        {faqs.map((faq) => (
+          <details class="faq-item">
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <div class="prose" style="margin-top:var(--sp-xl); text-align:center">
+        <p>
+          <strong>Sawaal ka jawaab nahi mila?</strong><br/>
+          Humse <a href="/contact" class="mini-link">seedha contact karein</a> — hum aapke sawaal ka jawaab denge.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

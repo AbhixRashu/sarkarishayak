@@ -1,0 +1,593 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Competitor Comparison" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Sarkari Sahayak vs Competitors — Detailed Comparison 2026"
+  description="Compare Sarkari Sahayak with SarkariResult, Testbook, Adda247, Gradeup. Features, data, tools — sab dekho."
+  canonical="/competitor-comparison/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Competitor Comparison</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:960px;margin-inline:auto">
+
+      <h1 class="d-title" style="font-size:28px;margin-bottom:8px">⚔️ Sarkari Sahayak vs Competitors</h1>
+      <p style="color:var(--body);font-size:16px;margin-bottom:32px">Honest comparison — kahan strong hai, kahan lack hai. Sab transparent.</p>
+
+      <!-- ===== OVERVIEW CARDS ===== -->
+      <div class="comp-overview">
+          <div class="comp-card comp-card-us">
+          <div class="comp-card-head">🇮🇳 Sarkari Sahayak</div>
+          <div class="comp-card-tag">450 Jobs • 900+ Pages • FREE • Tools</div>
+        </div>
+        <div class="comp-card comp-card-them">
+          <div class="comp-card-head">📊 SarkariResult.com</div>
+          <div class="comp-card-tag">Biggest • Most Jobs • Hindi</div>
+        </div>
+        <div class="comp-card comp-card-them">
+          <div class="comp-card-head">📚 Testbook</div>
+          <div class="comp-card-tag">Mock Tests • Live Classes • Paid</div>
+        </div>
+        <div class="comp-card comp-card-them">
+          <div class="comp-card-head">🎯 Adda247</div>
+          <div class="comp-card-tag">Bilingual • Community • Paid</div>
+        </div>
+      </div>
+
+      <!-- ===== DATA COMPARISON ===== -->
+      <h2 class="d-h" style="margin-top:36px">📊 Data Comparison (Numbers)</h2>
+      <div style="overflow-x:auto">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th class="comp-us">Sarkari Sahayak</th>
+              <th>SarkariResult</th>
+              <th>Testbook</th>
+              <th>Adda247</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Latest Jobs</strong></td>
+              <td class="comp-us">450</td>
+              <td>500+</td>
+              <td>200+</td>
+              <td>300+</td>
+            </tr>
+            <tr>
+              <td><strong>Results</strong></td>
+              <td class="comp-us">120</td>
+              <td>100+</td>
+              <td>50+</td>
+              <td>60+</td>
+            </tr>
+            <tr>
+              <td><strong>Admit Cards</strong></td>
+              <td class="comp-us">87</td>
+              <td>100+</td>
+              <td>50+</td>
+              <td>60+</td>
+            </tr>
+            <tr>
+              <td><strong>Answer Keys</strong></td>
+              <td class="comp-us">79</td>
+              <td>80+</td>
+              <td>30+</td>
+              <td>40+</td>
+            </tr>
+            <tr>
+              <td><strong>Cutoff Tracker</strong></td>
+              <td class="comp-us">36 exams ✅</td>
+              <td>Basic ❌</td>
+              <td>50+ ✅</td>
+              <td>30+ ✅</td>
+            </tr>
+            <tr>
+              <td><strong>PYQ Papers (PDF)</strong></td>
+              <td class="comp-us">77 exams</td>
+              <td>100+</td>
+              <td>30,000+</td>
+              <td>50+</td>
+            </tr>
+            <tr>
+              <td><strong>Syllabus</strong></td>
+              <td class="comp-us">31 exams</td>
+              <td>20+</td>
+              <td>1000+</td>
+              <td>100+</td>
+            </tr>
+            <tr>
+              <td><strong>Current Affairs</strong></td>
+              <td class="comp-us">660+ Qs ✅</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Scholarships</strong></td>
+              <td class="comp-us">31 schemes ✅</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Sarkari Yojana</strong></td>
+              <td class="comp-us">54 schemes ✅</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Total Pages</strong></td>
+              <td class="comp-us">900+</td>
+              <td>2000+</td>
+              <td>5000+</td>
+              <td>3000+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===== FEATURES COMPARISON ===== -->
+      <h2 class="d-h" style="margin-top:36px">🛠️ Features Comparison</h2>
+      <div style="overflow-x:auto">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th class="comp-us">Sarkari Sahayak</th>
+              <th>SarkariResult</th>
+              <th>Testbook</th>
+              <th>Adda247</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hindi Content</strong></td>
+              <td class="comp-us">✅ Full Hindi</td>
+              <td>✅ Full Hindi</td>
+              <td>❌ English + Some Hindi</td>
+              <td>✅ Bilingual</td>
+            </tr>
+            <tr>
+              <td><strong>Dark Theme</strong></td>
+              <td class="comp-us">✅ Yes</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Age Calculator</strong></td>
+              <td class="comp-us">✅ 54 exams</td>
+              <td>❌ No</td>
+              <td>✅ Basic</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Salary Calculator</strong></td>
+              <td class="comp-us">✅ 7th CPC</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Eligibility Checker</strong></td>
+              <td class="comp-us">✅ Yes</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Exam Calendar</strong></td>
+              <td class="comp-us">✅ 25+ exams</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Employment News</strong></td>
+              <td class="comp-us">✅ Weekly</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>State-wise Pages</strong></td>
+              <td class="comp-us">✅ 4 states</td>
+              <td>✅ 30+ states</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Qualification-wise</strong></td>
+              <td class="comp-us">✅ 4 levels</td>
+              <td>✅ Yes</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Mock Tests</strong></td>
+              <td class="comp-us">❌ No</td>
+              <td>❌ No</td>
+              <td>✅ 1,50,000+</td>
+              <td>✅ 10,000+</td>
+            </tr>
+            <tr>
+              <td><strong>Live Classes</strong></td>
+              <td class="comp-us">❌ No</td>
+              <td>❌ No</td>
+              <td>✅ Free + Paid</td>
+              <td>✅ Free + Paid</td>
+            </tr>
+            <tr>
+              <td><strong>Video Lectures</strong></td>
+              <td class="comp-us">❌ No</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Current Affairs Daily</strong></td>
+              <td class="comp-us">✅ 660+ Qs</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Scholarships</strong></td>
+              <td class="comp-us">✅ 31 schemes</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>Sarkari Yojana</strong></td>
+              <td class="comp-us">✅ 54 schemes</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+              <td>❌ No</td>
+            </tr>
+            <tr>
+              <td><strong>WhatsApp Channel</strong></td>
+              <td class="comp-us">❌ No</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Push Notifications</strong></td>
+              <td class="comp-us">❌ No</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Mobile App</strong></td>
+              <td class="comp-us">❌ No</td>
+              <td>❌ No</td>
+              <td>✅ Android + iOS</td>
+              <td>✅ Android + iOS</td>
+            </tr>
+            <tr>
+              <td><strong>Community Forum</strong></td>
+              <td class="comp-us">❌ No</td>
+              <td>❌ No</td>
+              <td>✅ Yes</td>
+              <td>✅ Yes</td>
+            </tr>
+            <tr>
+              <td><strong>Paid Courses</strong></td>
+              <td class="comp-us">❌ No (Free)</td>
+              <td>❌ No (Free)</td>
+              <td>✅ ₹299-₹15,000</td>
+              <td>✅ ₹399-₹12,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ===== OUR ADVANTAGES ===== -->
+      <h2 class="d-h" style="margin-top:36px">✅ Hamare Advantages (Kahan Strong Hai)</h2>
+      <div class="comp-adv-grid">
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">🆓</span>
+          <h3>100% Free Tools</h3>
+          <p>Age Calculator, Salary Calculator, Eligibility Checker, Cutoff Tracker — sab free. Competitors sirf basic dete hain ya paid mein.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">🌙</span>
+          <h3>Dark Theme</h3>
+          <p>India ka pehla govt job portal jo dark mode deta hai. Raat ko padhai karte waqt aankhon pe strain kam hota hai.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">📊</span>
+          <h3>36 Exams Cutoff Tracker</h3>
+          <p>3-year trends ke saath detailed cutoff data. SarkariResult ke paas yeh feature hi nahi hai.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">📰</span>
+          <h3>Daily Current Affairs (660+ Qs)</h3>
+          <p>30 days, 660+ exam-relevant questions with quiz mode. SarkariResult ke paas yeh bilkul nahi hai.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">🎓</span>
+          <h3>Scholarship Portal (31 Schemes)</h3>
+          <p>Central, State, SC/ST, Minority, Girl Child — sab scholarships ek jagah. Kisi competitor ke paas nahi.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">🏛️</span>
+          <h3>Sarkari Yojana (54 Schemes)</h3>
+          <p>PM Awas, Ayushman Bharat, MGNREGA, PM Kisan — 54 govt schemes with eligibility & application steps. Unique feature.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">📰</span>
+          <h3>Weekly Employment News</h3>
+          <p>Govt Employment News newspaper jaisa format. Weekly updates ke saath. Competitors ke paas yeh nahi.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">🔍</span>
+          <h3>54 Exam Age Calculator</h3>
+          <p>Sabse zyada exams covered. Har exam ki cutoff date se exact age check. Kisi competitor ke paas itna detail nahi.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-green">
+          <span class="comp-adv-icon">📚</span>
+          <h3>77 Exams PYQ Papers</h3>
+          <p>Year-wise previous year papers with difficulty analysis. Topic-wise pattern aur important topics bhi milte hain.</p>
+        </div>
+      </div>
+
+      <!-- ===== OUR WEAKNESSES ===== -->
+      <h2 class="d-h" style="margin-top:36px">⚠️ Hamari Weaknesses (Kahan Lack Hai)</h2>
+      <div class="comp-adv-grid">
+        <div class="comp-adv-card comp-adv-red">
+          <span class="comp-adv-icon">📉</span>
+            <h3>Jobs Count (450 vs 500+)</h3>
+            <p>SarkariResult ke paas 500+ jobs hain, humare paas 450 hai. Gap bahut kam ho gaya hai — abhi bhi target 500+ cross karna hai.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-red">
+          <span class="comp-adv-icon">📱</span>
+          <h3>No Mobile App</h3>
+          <p>Testbook aur Adda247 ke Android + iOS apps hain. Humare paas sirf website hai.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-red">
+          <span class="comp-adv-icon">📺</span>
+          <h3>No Video/Live Classes</h3>
+          <p>Testbook aur Adda247 free + paid live classes dete hain. Humare paas koi video content nahi.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-red">
+          <span class="comp-adv-icon">📝</span>
+          <h3>No Mock Tests</h3>
+          <p>Testbook ke paas 1,50,000+ mock tests hain. Humare paas zero hai.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-red">
+          <span class="comp-adv-icon">📲</span>
+          <h3>No WhatsApp/Notifications</h3>
+          <p>SarkariResult, Testbook, Adda247 sab WhatsApp channel dete hain. Humare paas push notification bhi nahi.</p>
+        </div>
+        <div class="comp-adv-card comp-adv-red">
+          <span class="comp-adv-icon">📰</span>
+          <h3>State Pages (4 vs 30+)</h3>
+          <p>SarkariResult ke paas 30+ state pages hain. Humare paas sirf 4 states (UP, Bihar, MP, Rajasthan).</p>
+        </div>
+      </div>
+
+      <!-- ===== MARKET POSITION ===== -->
+      <h2 class="d-h" style="margin-top:36px">🎯 Market Position — Kahan Stand Karte Hai</h2>
+      <div class="comp-position">
+        <div class="comp-pos-item">
+          <div class="comp-pos-rank">#1</div>
+          <div class="comp-pos-body">
+            <h3>SarkariResult.com</h3>
+            <p>Sabse bada portal. 2000+ pages, 500+ jobs, 30+ state pages. Hindi mein. Lekin koi tools nahi, koi dark mode nahi, koi interactive features nahi.</p>
+          </div>
+        </div>
+        <div class="comp-pos-item">
+          <div class="comp-pos-rank">#2</div>
+          <div class="comp-pos-body">
+            <h3>Testbook.com</h3>
+            <p>Preparation platform. 1,50,000+ mock tests, live classes, video lectures. Paid model (₹299-₹15,000). Hindi content limited hai.</p>
+          </div>
+        </div>
+        <div class="comp-pos-item">
+          <div class="comp-pos-rank">#3</div>
+          <div class="comp-pos-body">
+            <h3>Adda247.com</h3>
+            <p>Bilingual content. Community support. Mock tests + live classes. UPSC + Defence strong. Hindi + English dono mein content.</p>
+          </div>
+        </div>
+        <div class="comp-pos-item comp-pos-us">
+          <div class="comp-pos-rank">🏆</div>
+          <div class="comp-pos-body">
+            <h3>govtjob.salarypitcher.com</h3>
+            <p>450+ jobs, 900+ pages, free tools, dark theme, Hindi-first. Daily CA, Scholarships, Yojana — unique sections jo competitors ke paas nahi. Data tezi se grow ho raha hai.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== IMPROVEMENT PLAN ===== -->
+      <h2 class="d-h" style="margin-top:36px">🚀 Improvement Roadmap</h2>
+      <div class="comp-roadmap">
+        <div class="comp-road-item">
+          <span class="comp-road-pri comp-road-high">HIGH</span>
+          <div class="comp-road-body">
+            <h3>500+ Jobs Target</h3>
+            <p>Abhi 450 jobs hai. Target: 500+ jobs cross karna hai — har category mein.</p>
+          </div>
+        </div>
+        <div class="comp-road-item">
+          <span class="comp-road-pri comp-road-high">HIGH</span>
+          <div class="comp-road-body">
+            <h3>10+ State Pages</h3>
+            <p>Abhi 4 states hain (UP, Bihar, MP, Rajasthan). Delhi, WB, Karnataka, TN, AP bhi chahiye.</p>
+          </div>
+        </div>
+        <div class="comp-road-item">
+          <span class="comp-road-pri comp-road-high">HIGH</span>
+          <div class="comp-road-body">
+            <h3>Daily Current Affairs</h3>
+            <p>Weekly employment news hai. Daily current affairs + quiz add karna hai.</p>
+          </div>
+        </div>
+        <div class="comp-road-item">
+          <span class="comp-road-pri comp-road-med">MEDIUM</span>
+          <div class="comp-road-body">
+            <h3>WhatsApp Channel</h3>
+            <p>Job alerts ke liye WhatsApp channel banana hai.</p>
+          </div>
+        </div>
+        <div class="comp-road-item">
+          <span class="comp-road-pri comp-road-med">MEDIUM</span>
+          <div class="comp-road-body">
+            <h3>Push Notifications</h3>
+            <p>Browser notifications enable karna hai — new job aaye to turant pata chale.</p>
+          </div>
+        </div>
+        <div class="comp-road-item">
+          <span class="comp-road-pri comp-road-low">LOW</span>
+          <div class="comp-road-body">
+            <h3>Mock Tests (Future)</h3>
+            <p>Free mock test integration — third party API se. Abhi priority kam hai.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FINAL VERDICT ===== -->
+      <h2 class="d-h" style="margin-top:36px">🎯 Final Verdict</h2>
+      <div class="comp-verdict">
+        <div class="comp-ver-box comp-ver-us">
+          <h3>Sarkari Sahayak — Kahan Best Hai</h3>
+          <ul>
+            <li>✅ Free tools (Age Calc, Salary, Eligibility, Cutoff) — kisi ke paas nahi</li>
+            <li>✅ Dark theme — India ka pehla govt job portal</li>
+            <li>✅ Hindi-first approach — pure Hinglish content</li>
+            <li>✅ 36 exam cutoff tracker with trends</li>
+            <li>✅ Daily Current Affairs — 660+ exam-relevant questions</li>
+            <li>✅ Scholarship Portal — 31 schemes (unique, no competitor has)</li>
+            <li>✅ Sarkari Yojana — 54 govt schemes (unique, no competitor has)</li>
+            <li>✅ 77 exams PYQ papers with difficulty analysis</li>
+            <li>✅ 31 exams detailed syllabus with weightage</li>
+            <li>✅ 120 results, 87 admit cards, 79 answer keys</li>
+          </ul>
+        </div>
+        <div class="comp-ver-box comp-ver-them">
+          <h3>Competitors — Kahan Better Hai</h3>
+          <ul>
+            <li>📊 SarkariResult: More jobs (500+), 30+ state pages</li>
+            <li>📚 Testbook: 1,50,000+ mock tests, live classes, app</li>
+            <li>🎯 Adda247: Bilingual, community, video content</li>
+            <li>📲 Sabke paas: WhatsApp, Push notifications, Mobile app</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="color:var(--muted);font-size:13px;margin-top:24px;text-align:center">
+        * Data as of August 2026. Competitor numbers approximate hain based on public information.
+      </p>
+
+    </div>
+  </div>
+
+  <style is:global>
+    .comp-overview { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+    .comp-card {
+      padding: 16px; border-radius: 12px; text-align: center;
+      border: 1px solid var(--hairline);
+    }
+    .comp-card-us { background: rgba(255,107,53,.08); border-color: var(--saffron); }
+    .comp-card-them { background: var(--card); }
+    .comp-card-head { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--strong); margin-bottom: 4px; }
+    .comp-card-tag { font-size: 11px; color: var(--muted); }
+
+    .comp-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .comp-table th, .comp-table td { padding: 10px 12px; border-bottom: 1px solid var(--hairline); text-align: center; }
+    .comp-table th { background: var(--elevated); color: var(--strong); font-size: 13px; font-weight: 700; }
+    .comp-table th:first-child, .comp-table td:first-child { text-align: left; }
+    .comp-table th.comp-us { color: var(--saffron); }
+    .comp-table td.comp-us { color: var(--saffron); font-weight: 700; }
+
+    .comp-adv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .comp-adv-card {
+      padding: 18px; border-radius: 12px; border: 1px solid var(--hairline);
+      background: var(--card);
+    }
+    .comp-adv-green { border-left: 3px solid #0fa336; }
+    .comp-adv-red { border-left: 3px solid #ef4444; }
+    .comp-adv-icon { font-size: 24px; display: block; margin-bottom: 8px; }
+    .comp-adv-card h3 { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--strong); margin-bottom: 6px; }
+    .comp-adv-card p { font-size: 13px; color: var(--body); line-height: 1.5; }
+
+    .comp-position { display: grid; gap: 12px; }
+    .comp-pos-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 12px;
+    }
+    .comp-pos-us { border-color: var(--saffron); background: rgba(255,107,53,.04); }
+    .comp-pos-rank {
+      font-family: var(--font-display); font-size: 24px; font-weight: 800;
+      color: var(--saffron); min-width: 40px; text-align: center;
+    }
+    .comp-pos-body h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--strong); margin-bottom: 4px; }
+    .comp-pos-body p { font-size: 14px; color: var(--body); line-height: 1.5; }
+
+    .comp-roadmap { display: grid; gap: 10px; }
+    .comp-road-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 18px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .comp-road-pri {
+      font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+    }
+    .comp-road-high { background: rgba(239,68,68,.12); color: #ef4444; }
+    .comp-road-med { background: rgba(255,193,7,.12); color: #f59e0b; }
+    .comp-road-low { background: rgba(15,163,54,.12); color: #0fa336; }
+    .comp-road-body h3 { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--strong); margin-bottom: 3px; }
+    .comp-road-body p { font-size: 13px; color: var(--body); }
+
+    .comp-verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .comp-ver-box {
+      padding: 20px; border-radius: 12px; border: 1px solid var(--hairline);
+    }
+    .comp-ver-us { background: rgba(255,107,53,.06); border-color: var(--saffron); }
+    .comp-ver-them { background: var(--card); }
+    .comp-ver-box h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--strong); margin-bottom: 12px; }
+    .comp-ver-box ul { list-style: none; padding: 0; margin: 0; }
+    .comp-ver-box li { font-size: 14px; color: var(--body); padding: 5px 0; line-height: 1.5; }
+
+    @media (max-width: 860px) {
+      .comp-overview { grid-template-columns: 1fr 1fr; }
+      .comp-adv-grid { grid-template-columns: 1fr; }
+      .comp-verdict { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .comp-overview { grid-template-columns: 1fr; }
+    }
+  </style>
+</BaseLayout>

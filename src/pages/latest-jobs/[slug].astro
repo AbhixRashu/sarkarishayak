@@ -1,0 +1,941 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+export function getStaticPaths() {
+  return jobs.map(job => ({
+    params: { slug: job.slug },
+    props: { job },
+  }));
+}
+
+const { job } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const jobPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": job.title,
+  "description": `${job.title} — ${job.organization}. ${job.vacancies || 'Multiple'} vacancies. Last date: ${job.lastDate}. Apply online.`,
+  "datePosted": job.startDate || new Date().toISOString().split('T')[0],
+  "validThrough": job.lastDate ? job.lastDate.split('/').reverse().join('-') : undefined,
+  "employmentType": "FULL_TIME",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": job.organization,
+    "sameAs": job.applyUrl || siteUrl
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    }
+  },
+  "baseSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "INR",
+    "value": {
+      "@type": "QuantitativeValue",
+      "minValue": job.feeGeneral ? parseInt(job.feeGeneral.replace(/[^\d]/g, '')) : undefined,
+      "unitText": "APPLICATION FEE"
+    }
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": job.organization,
+    "value": job.advNumber || job.slug
+  },
+  "applicationContact": {
+    "@type": "Organization",
+    "name": job.organization
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Latest Jobs", "item": siteUrl + "/latest-jobs/" },
+    { "@type": "ListItem", "position": 3, "name": job.shortTitle || job.title }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `${job.shortTitle || job.title} ka exam kab hoga?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi. Hamari website par regular check karte rahein.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `${job.shortTitle || job.title} mein kitni vacancy hai?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Is recruitment mein total ${job.vacancies ? job.vacancies.toLocaleString('en-IN') : 'TBA'} posts hain. ${job.vacancyDetails ? job.vacancyDetails.map(v => v.postName + ': ' + v.posts).join(', ') : 'Detailed vacancy breakdown official notification mein hai.'}`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `${job.shortTitle || job.title} ke liye online apply kaise karein?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein. Step-by-step guide hamari website par uplabdh hai.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `${job.shortTitle || job.title} ki eligibility kya hai?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${job.qualify || 'Educational qualification: Check official notification'}. Age limit: ${job.ageMin || 18}-${job.ageMax || 40} years. Age relaxation SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `${job.shortTitle || job.title} ki last date kya hai?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Online apply ki last date ${job.lastDate} hai. Fee payment ki last date bhi ${job.feePaymentLastDate || job.lastDate} hai. Deri na karein, last date ke pehle apply kar lein.`
+      }
+    }
+  ]
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": `${job.shortTitle || job.title} — Online Apply Kaise Karein`,
+  "description": `Step-by-step guide for ${job.shortTitle || job.title} online application.`,
+  "step": (job.howToApply || [
+    'Visit the official website of the recruiting organization.',
+    'Find the relevant recruitment notification.',
+    'Register and fill the online application form.',
+    'Upload required documents (photograph, signature, certificates).',
+    'Pay the application fee online.',
+    'Submit the form and save/print the confirmation.',
+  ]).map((step, i) => ({
+    "@type": "HowToStep",
+    "position": i + 1,
+    "text": step
+  }))
+};
+
+const eventSchema = job.examDate && job.examDate !== 'To be announced' ? {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": `${job.shortTitle || job.title} — ${job.examDate}`,
+  "startDate": job.examDate,
+  "organizer": {
+    "@type": "Organization",
+    "name": job.organization
+  },
+  "location": {
+    "@type": "Place",
+    "name": "India",
+    "address": { "@type": "PostalAddress", "addressCountry": "IN" }
+  },
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+} : null;
+
+const lastUpdated = new Date().toLocaleDateString('hi-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const d = {
+  advNo: job.advNumber || 'Check Official Notification',
+  applyStart: job.startDate || job.lastDate,
+  lastDateApply: job.lastDate,
+  feeLastDate: job.feePaymentLastDate || job.lastDate,
+  correctionDate: job.correctionDate || 'N/A',
+  examDate: job.examDate || 'To be announced',
+  resultDate: job.resultDate || 'To be announced',
+  feeGeneral: job.feeGeneral || '₹800–₹1000',
+  feeSCST: job.feeSC_ST || '₹300–₹400',
+  feePH: job.feePH || '₹0 (Exempted)',
+  ageMin: job.ageMin || 18,
+  ageMax: job.ageMax || 40,
+  ageRelaxation: 'SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs, Ex-Servicemen: as per Govt rules.',
+  posts: job.vacancyDetails || [{ postName: job.title.replace(/ Online Form.*/, '').replace(/ —.*/, ''), posts: job.vacancies || 'TBA' }],
+  qualifications: job.eligibility || [{ postName: job.qualify || 'Post Name', details: job.qualify ? `${job.qualify} from a recognized University/Institution.` : 'Check Official Notification' }],
+  howToApply: job.howToApply || [
+    'Visit the official website of the recruiting organization.',
+    'Find the relevant recruitment notification.',
+    'Register and fill the online application form.',
+    'Upload required documents (photograph, signature, certificates).',
+    'Pay the application fee online.',
+    'Submit the form and save/print the confirmation.',
+  ],
+  selectionProcess: job.selectionProcess || ['Written Examination', 'Skill/Physical Test (if applicable)', 'Document Verification', 'Final Merit List'],
+  links: job.importantLinks || [
+    { label: 'Apply Online', url: job.applyUrl || '#' },
+    { label: 'Download Notification', url: '#' },
+    { label: 'Official Website', url: '#' },
+  ],
+};
+---
+
+<BaseLayout title={`${job.title} | Sarkari Sahayak 2026`} description={`${job.title} — ${job.organization}. Vacancies: ${job.vacancies || 'TBA'}. Last Date: ${job.lastDate}. Apply online now.`} canonical={`/latest-jobs/${job.slug}`}>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jobPostingSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(howToSchema)} />
+    {eventSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(eventSchema)} />}
+  </Fragment>
+  <main class="job-detail-page">
+
+    <!-- breadcrumb -->
+    <div class="jd-breadcrumb">
+      <div class="container">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/latest-jobs/">Latest Jobs</a>
+        <span>/</span>
+        <span class="current">{job.shortTitle || job.title}</span>
+      </div>
+    </div>
+
+    <div class="container jd-wrap">
+
+      <!-- hero header -->
+      <div class="jd-hero">
+        <div class="jd-hero-badge">{job.category?.toUpperCase() || 'GOVT JOB'}</div>
+        <h1 class="jd-hero-title">{job.title}</h1>
+        <div class="jd-hero-org">{job.organization}</div>
+        {d.advNo && <div class="jd-hero-adv">Adv. No: {d.advNo}</div>}
+        <div class="jd-hero-meta">
+          <span class="jd-meta-chip">👥 {job.vacancies ? job.vacancies.toLocaleString('en-IN') : 'TBA'} Posts</span>
+          <span class="jd-meta-chip deadline">⏰ Last Date: {job.lastDate}</span>
+          <span class="jd-meta-chip">📋 {job.qualify || 'Graduate'}</span>
+        </div>
+      </div>
+
+      <!-- two column layout -->
+      <div class="jd-grid">
+
+        <!-- main content -->
+        <div class="jd-main">
+
+          <!-- Important Dates -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">📅</span> Important Dates</h2>
+            <div class="jd-dates-grid">
+              <div class="jd-date-item">
+                <div class="jd-date-label">Application Start</div>
+                <div class="jd-date-val">{d.applyStart}</div>
+              </div>
+              <div class="jd-date-item highlight">
+                <div class="jd-date-label">Last Date to Apply</div>
+                <div class="jd-date-val">{d.lastDateApply}</div>
+              </div>
+              <div class="jd-date-item">
+                <div class="jd-date-label">Fee Payment Last Date</div>
+                <div class="jd-date-val">{d.feeLastDate}</div>
+              </div>
+              <div class="jd-date-item">
+                <div class="jd-date-label">Correction Window</div>
+                <div class="jd-date-val">{d.correctionDate}</div>
+              </div>
+              <div class="jd-date-item">
+                <div class="jd-date-label">Exam Date</div>
+                <div class="jd-date-val">{d.examDate}</div>
+              </div>
+              <div class="jd-date-item">
+                <div class="jd-date-label">Result Date</div>
+                <div class="jd-date-val">{d.resultDate}</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Vacancy Details -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">👥</span> Vacancy Details <span class="jd-head-total">Total: {job.vacancies ? job.vacancies.toLocaleString('en-IN') : 'TBA'} Posts</span></h2>
+            <div class="jd-table-wrap">
+              <table class="jd-table">
+                <thead>
+                  <tr>
+                    <th>Post Name</th>
+                    <th class="center">No. of Posts</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {d.posts.map((p) => (
+                    <tr>
+                      <td class="bold">{p.postName}</td>
+                      <td class="center gold">{p.posts}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Educational Qualification -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">🎓</span> Educational Qualification</h2>
+            <div class="jd-table-wrap">
+              <table class="jd-table">
+                <thead>
+                  <tr>
+                    <th>Post Name</th>
+                    <th>Eligibility</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {d.qualifications.map((q) => (
+                    <tr>
+                      <td class="bold">{q.postName}</td>
+                      <td>{q.details}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Age Limit -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">🎂</span> Age Limit</h2>
+            <div class="jd-age-row">
+              <div class="jd-age-box">
+                <div class="jd-age-label">Minimum Age</div>
+                <div class="jd-age-num">{d.ageMin} Years</div>
+              </div>
+              <div class="jd-age-box">
+                <div class="jd-age-label">Maximum Age</div>
+                <div class="jd-age-num">{d.ageMax} Years</div>
+              </div>
+            </div>
+            <p class="jd-age-note"><strong>Age Relaxation:</strong> {d.ageRelaxation}</p>
+          </section>
+
+          <!-- How To Apply -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">📝</span> How To Apply</h2>
+            <ol class="jd-steps">
+              {d.howToApply.map((step, i) => (
+                <li>
+                  <span class="jd-step-num">{i + 1}</span>
+                  <span class="jd-step-text">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <!-- Mode of Selection -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">✅</span> Mode of Selection</h2>
+            <ul class="jd-selection">
+              {d.selectionProcess.map((step, i) => (
+                <li>
+                  <span class="jd-sel-num">{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+        </div>
+
+        <!-- sidebar -->
+        <aside class="jd-side">
+
+          <!-- Application Fee -->
+          <div class="jd-card jd-side-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">💰</span> Application Fee</h2>
+            <div class="jd-fee-list">
+              <div class="jd-fee-item">
+                <span class="jd-fee-cat">General / OBC / EWS</span>
+                <span class="jd-fee-amt">{d.feeGeneral}</span>
+              </div>
+              <div class="jd-fee-item">
+                <span class="jd-fee-cat">SC / ST</span>
+                <span class="jd-fee-amt">{d.feeSCST}</span>
+              </div>
+              <div class="jd-fee-item">
+                <span class="jd-fee-cat">PH (Divyang)</span>
+                <span class="jd-fee-amt">{d.feePH}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Important Links -->
+          <div class="jd-card jd-side-card jd-links-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">🔗</span> Important Links</h2>
+            <div class="jd-links-list">
+              {d.links.map(link => (
+                <a href={link.url} target="_blank" rel="noopener" class="jd-link-item">
+                  <span class="jd-link-label">{link.label}</span>
+                  <span class="jd-link-arrow">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="jd-card jd-side-card jd-quick-card">
+            <h3 class="jd-quick-title">Quick Actions</h3>
+            <a href={job.applyUrl || '#'} target="_blank" rel="noopener" class="jd-apply-btn">
+              Apply Online Now →
+            </a>
+            <a href="/latest-jobs/" class="jd-more-jobs-btn">
+              View More Jobs →
+            </a>
+          </div>
+
+          <!-- Useful Tools -->
+          <div class="jd-card jd-side-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">🛠️</span> Useful Tools</h2>
+            <div class="jd-tools-list">
+              <a href="/tools/age-calculator/" class="jd-tool-item">
+                <span class="jd-tool-icon">🎂</span>
+                <div class="jd-tool-info">
+                  <span class="jd-tool-name">Age Calculator</span>
+                  <span class="jd-tool-desc">Check your eligibility</span>
+                </div>
+                <span class="jd-tool-arrow">→</span>
+              </a>
+              <a href="/tools/salary-calculator/" class="jd-tool-item">
+                <span class="jd-tool-icon">💰</span>
+                <div class="jd-tool-info">
+                  <span class="jd-tool-name">Salary Calculator</span>
+                  <span class="jd-tool-desc">7th CPC in-hand salary</span>
+                </div>
+                <span class="jd-tool-arrow">→</span>
+              </a>
+              <a href="/tools/eligibility-checker/" class="jd-tool-item">
+                <span class="jd-tool-icon">🔍</span>
+                <div class="jd-tool-info">
+                  <span class="jd-tool-name">Eligibility Checker</span>
+                  <span class="jd-tool-desc">Find matching govt jobs</span>
+                </div>
+                <span class="jd-tool-arrow">→</span>
+              </a>
+              <a href="/tools/cutoff-tracker/" class="jd-tool-item">
+                <span class="jd-tool-icon">📊</span>
+                <div class="jd-tool-info">
+                  <span class="jd-tool-name">Cut-off Tracker</span>
+                  <span class="jd-tool-desc">Previous year trends</span>
+                </div>
+                <span class="jd-tool-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- disclaimer -->
+      <div class="jd-disclaimer">
+        <p><strong>Disclaimer:</strong> यह जानकारी आधिकारिक अधिसूचनाओं से ली गई है। सभी विवरणों की पुष्टि आधिकारिक वेबसाइट से करें। Sarkari Sahayak इस जानकारी की सटीकता की गारंटी नहीं देता।</p>
+        <p style="margin-top:8px;font-size:13px;color:var(--muted)">🕐 Last Updated: {lastUpdated}</p>
+      </div>
+
+      <!-- Internal Links Section -->
+      <div class="jd-related-links">
+        <h3 class="jd-related-title">सम्बंधित पेज</h3>
+        <div class="jd-related-grid">
+          <a href={`/syllabus/${job.slug.replace(/-20\d{2}$/, '')}/`} class="jd-related-item">
+            <span class="jd-related-icon">📚</span>
+            <span>{job.shortTitle || job.title} Syllabus</span>
+          </a>
+          <a href="/cutoffs/" class="jd-related-item">
+            <span class="jd-related-icon">📊</span>
+            <span>Cut-off Marks</span>
+          </a>
+          <a href="/admit-cards/" class="jd-related-item">
+            <span class="jd-related-icon">🎫</span>
+            <span>Admit Card</span>
+          </a>
+          <a href="/results/" class="jd-related-item">
+            <span class="jd-related-icon">✅</span>
+            <span>Results</span>
+          </a>
+          <a href="/latest-jobs/" class="jd-related-item">
+            <span class="jd-related-icon">💼</span>
+            <span>More Jobs</span>
+          </a>
+          <a href="/exam-calendar/" class="jd-related-item">
+            <span class="jd-related-icon">📅</span>
+            <span>Exam Calendar</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <style>
+    .job-detail-page {
+      padding-top: 80px;
+    }
+
+    /* breadcrumb */
+    .jd-breadcrumb {
+      padding: 16px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .jd-breadcrumb a {
+      color: var(--saffron);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .jd-breadcrumb a:hover { color: var(--accent); }
+    .jd-breadcrumb span { margin: 0 8px; }
+    .jd-breadcrumb .current { color: var(--strong); font-weight: 500; }
+
+    .jd-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .jd-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, rgba(28,105,212,.15) 100%);
+      border: 1px solid var(--hairline);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .jd-hero-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--saffron);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .jd-hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .jd-hero-org {
+      font-size: 16px;
+      color: var(--saffron);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .jd-hero-adv {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .jd-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .jd-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--body);
+      font-weight: 500;
+    }
+    .jd-meta-chip.deadline {
+      background: rgba(255,107,53,.15);
+      border-color: rgba(255,107,53,.3);
+      color: var(--saffron);
+      font-weight: 700;
+    }
+
+    /* grid */
+    .jd-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* cards */
+    .jd-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .jd-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      background: linear-gradient(90deg, var(--navy) 0%, rgba(28,105,212,.08) 100%);
+      border-bottom: 1px solid var(--hairline);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .5px;
+    }
+    .jd-head-icon { font-size: 20px; }
+    .jd-head-total {
+      margin-left: auto;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* dates grid */
+    .jd-dates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--hairline);
+    }
+    .jd-date-item {
+      padding: 16px 20px;
+      background: var(--card);
+    }
+    .jd-date-item.highlight {
+      background: rgba(255,107,53,.06);
+    }
+    .jd-date-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .jd-date-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+    }
+    .jd-date-item.highlight .jd-date-val {
+      color: var(--saffron);
+      font-size: 18px;
+    }
+
+    /* tables */
+    .jd-table-wrap {
+      padding: 0;
+    }
+    .jd-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .jd-table th {
+      padding: 12px 20px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--elevated);
+      border-bottom: 2px solid var(--hairline);
+    }
+    .jd-table th.center { text-align: center; }
+    .jd-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--hairline);
+      color: var(--body);
+      line-height: 1.5;
+    }
+    .jd-table td.bold { font-weight: 600; color: var(--strong); }
+    .jd-table td.center { text-align: center; }
+    .jd-table td.gold { color: var(--gold); font-weight: 700; font-size: 17px; }
+    .jd-table tr:last-child td { border-bottom: none; }
+
+    /* age */
+    .jd-age-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 20px;
+    }
+    .jd-age-box {
+      text-align: center;
+      padding: 16px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .jd-age-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .jd-age-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--white);
+    }
+    .jd-age-note {
+      padding: 0 20px 20px;
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+
+    /* steps */
+    .jd-steps {
+      list-style: none;
+      padding: 16px 20px;
+      margin: 0;
+    }
+    .jd-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 15px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .jd-steps li:last-child { border-bottom: none; }
+    .jd-step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--saffron);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    /* selection */
+    .jd-selection {
+      list-style: none;
+      padding: 16px 20px;
+      margin: 0;
+    }
+    .jd-selection li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 15px;
+      color: var(--body);
+    }
+    .jd-selection li:last-child { border-bottom: none; }
+    .jd-sel-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 50%;
+    }
+
+    /* sidebar */
+    .jd-side-card { position: sticky; top: 90px; }
+
+    /* fee */
+    .jd-fee-list {
+      padding: 16px 20px;
+    }
+    .jd-fee-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .jd-fee-item:last-child { border-bottom: none; }
+    .jd-fee-cat {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body);
+    }
+    .jd-fee-amt {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--saffron);
+    }
+
+    /* links */
+    .jd-links-card {
+      margin-top: 20px;
+    }
+    .jd-links-list {
+      padding: 8px 12px;
+    }
+    .jd-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 15px;
+      font-weight: 500;
+      transition: all .2s;
+      border: 1px solid transparent;
+    }
+    .jd-link-item:hover {
+      background: rgba(255,107,53,.06);
+      border-color: rgba(255,107,53,.2);
+      color: var(--saffron);
+    }
+    .jd-link-label { flex: 1; }
+    .jd-link-arrow {
+      font-size: 18px;
+      color: var(--saffron);
+      transition: transform .2s;
+    }
+    .jd-link-item:hover .jd-link-arrow { transform: translateX(4px); }
+
+    /* quick actions */
+    .jd-quick-card {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .jd-quick-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--strong);
+      margin-bottom: 14px;
+    }
+    .jd-apply-btn {
+      display: block;
+      padding: 14px;
+      background: var(--saffron);
+      color: #000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all .2s;
+    }
+    .jd-apply-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+    .jd-more-jobs-btn {
+      display: block;
+      padding: 12px;
+      background: transparent;
+      color: var(--saffron);
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--saffron);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .jd-more-jobs-btn:hover {
+      background: rgba(255,107,53,.08);
+    }
+
+    /* useful tools */
+    .jd-tools-list { padding: 8px 12px; }
+    .jd-tool-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px; border-radius: 10px; text-decoration: none;
+      color: var(--body); transition: all .15s; border: 1px solid transparent;
+    }
+    .jd-tool-item:hover { background: rgba(15,163,54,.06); border-color: rgba(15,163,54,.2); }
+    .jd-tool-icon { font-size: 24px; width: 36px; text-align: center; flex-shrink: 0; }
+    .jd-tool-info { flex: 1; min-width: 0; }
+    .jd-tool-name { display: block; font-size: 14px; font-weight: 600; color: var(--strong); }
+    .jd-tool-desc { display: block; font-size: 12px; color: var(--muted); margin-top: 1px; }
+    .jd-tool-arrow { font-size: 16px; color: var(--success); transition: transform .15s; }
+    .jd-tool-item:hover .jd-tool-arrow { transform: translateX(4px); }
+
+    /* disclaimer */
+    .jd-disclaimer {
+      padding: 20px 24px;
+      background: rgba(244,180,0,.06);
+      border: 1px solid rgba(244,180,0,.2);
+      border-radius: 12px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .jd-disclaimer p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--body);
+    }
+
+    /* related links */
+    .jd-related-links {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .jd-related-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .jd-related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .jd-related-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all .2s;
+    }
+    .jd-related-item:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+      background: rgba(255,107,53,.06);
+    }
+    .jd-related-icon { font-size: 18px; }
+
+    /* mobile */
+    @media (max-width: 860px) {
+      .jd-grid {
+        grid-template-columns: 1fr;
+      }
+      .jd-hero-title { font-size: 22px; }
+      .jd-hero { padding: 24px 20px; }
+      .jd-dates-grid { grid-template-columns: 1fr; }
+      .jd-age-row { grid-template-columns: 1fr; }
+      .jd-side-card { position: static; }
+    }
+  </style>
+</BaseLayout>

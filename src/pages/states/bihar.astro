@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const filteredJobs = jobs.filter(job => {
+  const text = (job.title + ' ' + job.organization + ' ' + job.slug + ' ' + job.category).toLowerCase();
+  return text.includes('bpsc') || text.includes('bihar') || text.includes('bssc') || text.includes('bceceb') || text.includes('bihar police');
+});
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "States" },
+    { "@type": "ListItem", "position": 3, "name": "Bihar" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to apply for BPSC exams in Bihar 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visit bpsc.bih.nic.in, register online, fill the application form, upload required documents, pay the application fee online and submit. For teacher recruitment (TRE), you need CTET/STET qualification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is BPSC TRE and who can apply?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BPSC TRE (Teacher Recruitment Exam) is conducted by Bihar Public Service Commission for recruiting teachers in Bihar government schools. Candidates need Graduation + B.Ed/D.El.Ed and CTET/STET qualification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the main Bihar govt job exams in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Major Bihar govt exams include BPSC CCE (Combined Competitive Exam), BPSC TRE (Teacher Recruitment), Bihar Police Constable/SI, BSSC Inter Level/Graduate Level, and BCECEB various recruitment drives."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Bihar Government Jobs 2026 | Sarkari Sahayak"
+  description="Bihar Govt Jobs 2026 — BPSC, Bihar Police, BSSC, BCECEB sabki latest sarkari naukri. Bihar government vacancy 2026 apply online."
+  canonical="/states/bihar"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/states/" style="color:var(--saffron);text-decoration:none">States</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Bihar</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">State Govt Jobs</span>
+        <h1 class="section-title" style="font-size:34px">Bihar Government Jobs 2026</h1>
+        <p class="section-sub">BPSC, Bihar Police, BSSC, BCECEB — sabki latest Bihar sarkari naukri ek jagah.</p>
+      </div>
+
+      <div class="portal-row" style="margin-bottom:var(--sp-xl)">
+        <a href="https://bpsc.bih.nic.in" target="_blank" rel="noopener" class="btn-primary">BPSC Portal ↗</a>
+        <a href="/latest-jobs" class="btn-ghost">All Latest Jobs</a>
+      </div>
+
+      {filteredJobs.length > 0 ? (
+        <div class="tt-wrap">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th style="width:40%">Post / Recruitment</th>
+                <th>Organization</th>
+                <th style="text-align:center">Vacancies</th>
+                <th>Last Date</th>
+                <th style="text-align:center">Apply</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredJobs.map(job => (
+                <tr>
+                  <td>
+                    <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                    <br/>
+                    <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                  </td>
+                  <td style="white-space:nowrap">{job.organization}</td>
+                  <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                    {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                  </td>
+                  <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                  <td style="text-align:center">
+                    <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                      Apply ↗
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div class="no-results">Abhi koi Bihar-specific job open nahi hai. <a href="/latest-jobs" style="color:var(--saffron)">Saari jobs dekhein.</a></div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--soft);padding-block:var(--sp-xxl)">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:26px;margin-bottom:16px">Bihar Govt Jobs — Complete Guide 2026</h2>
+      <div class="prose">
+        <p>Bihar me sarkari naukri ki demand hamesha se bahut high rahi hai. <strong>BPSC</strong> (Bihar Public Service Commission) aur <strong>BSSC</strong> (Bihar Staff Selection Commission) har saal hazaron posts nikalte hain Bihar ke youth ke liye.</p>
+
+        <p><strong>BPSC Combined Competitive Exam (CCE)</strong> — Ye exam SDM, DSP, BDO, District Commandant jaise prestigious posts ke liye conduct hota hai. Isme Prelims, Mains aur Interview teen stages hote hain.</p>
+
+        <p><strong>BPSC TRE (Teacher Recruitment Exam)</strong> — Bihar me teachers ki bahut zaroorat hai. BPSC TRE ke through Class 1-12 tak ke teachers recruit hote hain. Iske liye Graduation + B.Ed/D.El.Ed aur CTET/STET qualification zaroori hai.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Sarkari Naukri in Bihar — Major Exams</h2>
+
+        <p><strong>Bihar Police</strong> — Bihar Police me Constable, Sub Inspector aur other posts ke liye regular recruitment hota hai. Physical Efficiency Test aur Written Exam ke basis par selection hota hai.</p>
+
+        <p><strong>BSSC</strong> — Bihar Staff Selection Commission Inter Level aur Graduate Level posts ke liye exams conduct karta hai. Clerk, Steno, Junior Engineer jaise posts milte hain.</p>
+
+        <p><strong>BCECEB</strong> — Bihar Combined Entrance Competitive Examination Board engineering, medical aur agriculture courses ke liye entrance exam conduct karta hai aur various government posts ke liye bhi recruitment karta hai.</p>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">How to Apply for Bihar Govt Jobs</h2>
+
+        <ul>
+          <li><strong>Step 1:</strong> BPSC ki official website bpsc.bih.nic.in par jaayein</li>
+          <li><strong>Step 2:</strong> Desired exam/notification ka link dhundhein</li>
+          <li><strong>Step 3:</strong> Registration karein aur login credentials note karein</li>
+          <li><strong>Step 4:</strong> Application form bharein aur required documents upload karein</li>
+          <li><strong>Step 5:</strong> Application fee online pay karein aur confirmation print karein</li>
+        </ul>
+
+        <h2 style="font-size:22px;margin:24px 0 12px;color:var(--strong)">Tips for Bihar Govt Job Aspirants</h2>
+
+        <ul>
+          <li>BPSC CCE ki preparation ke liye NCERT books se basic strong banayein</li>
+          <li>Current affairs daily padhein — Bihar specific news par bhi dhyan de</li>
+          <li>Previous year papers solve karein toh exam pattern samajh aayega</li>
+          <li>Physical test ki taiyari regular exercise aur running se karein (Police posts ke liye)</li>
+          <li>Online mock tests ka use karein aur time management practice karein</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:860px">
+      <h2 class="d-title" style="font-size:24px;margin-bottom:20px">Frequently Asked Questions — Bihar Govt Jobs</h2>
+
+      <details class="faq-item">
+        <summary>How to apply for BPSC exams in Bihar 2026?</summary>
+        <p>Visit bpsc.bih.nic.in, register online, fill the application form, upload required documents, pay the application fee online and submit. For teacher recruitment (TRE), you need CTET/STET qualification.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is BPSC TRE and who can apply?</summary>
+        <p>BPSC TRE (Teacher Recruitment Exam) is conducted by Bihar Public Service Commission for recruiting teachers in Bihar government schools. Candidates need Graduation + B.Ed/D.El.Ed and CTET/STET qualification.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What are the main Bihar govt job exams in 2026?</summary>
+        <p>Major Bihar govt exams include BPSC CCE (Combined Competitive Exam), BPSC TRE (Teacher Recruitment), Bihar Police Constable/SI, BSSC Inter Level/Graduate Level, and BCECEB various recruitment drives.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the age limit for BPSC CCE exam?</summary>
+        <p>For BPSC CCE, the age limit is 21-32 years for General category. OBC candidates get 3 years relaxation (up to 35 years) and SC/ST candidates get 5 years relaxation (up to 37 years).</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many attempts are allowed for BPSC exams?</summary>
+        <p>For BPSC CCE, General category candidates get 6 attempts, OBC candidates get 9 attempts, and SC/ST candidates have unlimited attempts within the age limit.</p>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": siteUrl + "/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Salary Calculator" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "7th CPC mein in-hand salary kaise nikalein?", acceptedAnswer: { "@type": "Answer", "text": "7th Pay Commission ke anusar: Basic Pay + DA + HRA + TA - (NPS 10% + Professional Tax) = In-hand salary. DA abhi 50% hai, HRA city ke hisaab se 8%/16%/27% hota hai." } },
+    { "@type": "Question", "name": "SBI Clerk ki in-hand salary kitni hai 2026 mein?", acceptedAnswer: { "@type": "Answer", "text": "SBI Clerk ki starting in-hand salary ₹26,000-28,000 per month hai (7th CPC Level 3). Basic Pay ₹19,900 hai with DA, HRA aur allowances." } },
+    { "@type": "Question", "name": "SSC CGL ki salary kitni hoti hai?", acceptedAnswer: { "@type": "Answer", "text": "SSC CGL ke posts ki salary alag hoti hai. Group B posts (Income Tax Inspector, etc.) ki starting ₹44,900-1,42,400 (Level 7) hai. In-hand ₹50,000-65,000/month depending on city." } }
+  ]
+};
+
+const payLevels = [
+  { level: 1, pay: '18000-56900', min: 18000, example: 'Postal Assistant, MTS' },
+  { level: 2, pay: '19900-63200', min: 19900, example: 'SBI Clerk, SSC CHSL LDC' },
+  { level: 3, pay: '21700-69100', min: 21700, example: 'Railway ALP, SSC GD' },
+  { level: 4, pay: '25500-81100', min: 25500, example: 'SSC CHSL DEO, Postal Inspector' },
+  { level: 5, pay: '29200-92300', min: 29200, example: 'SSC CGL (4600 GP), NTPC Grad' },
+  { level: 6, pay: '35400-112400', min: 35400, example: 'Bank PO, Insurance AO' },
+  { level: 7, pay: '44900-142400', min: 44900, example: 'SSC CGL Inspector, Income Tax' },
+  { level: 8, pay: '47600-151100', min: 47600, example: 'ASO, Assistant Director' },
+  { level: 9, pay: '53100-167800', min: 53100, example: 'Under Secretary, Deputy Collector' },
+  { level: 10, pay: '56100-177500', min: 56100, example: 'Section Officer, DSP' },
+  { level: 11, pay: '67700-208700', min: 67700, example: 'Joint Secretary, DIG' },
+  { level: 12, pay: '78800-209200', min: 78800, example: 'Additional Secretary, IG' },
+  { level: 13, pay: '123100-215900', min: 123100, example: 'Principal Secretary, ADG' },
+  { level: 14, pay: '144200-218200', min: 144200, example: 'Secretary, DGP' },
+];
+
+const hraPercent = { 'x': 27, 'y': 18, 'z': 9 };
+---
+
+<BaseLayout
+  title="Govt Job Salary Calculator 2026 — 7th CPC In-Hand Salary | Sarkari Sahayak"
+  description="SSC CGL, IBPS PO, SBI Clerk, Railway NTPC ki in-hand salary calculate karein. 7th Pay Commission DA, HRA, NPS ke saath. Free salary calculator."
+  canonical="/tools/salary-calculator/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/tools/" style="color:var(--saffron);text-decoration:none">Tools</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Salary Calculator</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+
+      <div class="d-header">
+        <div class="d-icon">💰</div>
+        <div>
+          <h1 class="d-title">Salary Calculator — 7th CPC</h1>
+          <div class="d-sub">In-hand salary jaanein — Basic, DA, HRA, NPS sab calculate karein</div>
+        </div>
+      </div>
+
+      <!-- Calculator -->
+      <div class="sal-form">
+        <div class="sal-row">
+          <div class="sal-field">
+            <label class="sal-label">Pay Level (7th CPC)</label>
+            <select id="levelInput" class="sal-input">
+              {payLevels.map(l => (
+                <option value={l.level}>Level {l.level} — ₹{l.pay} ({l.example})</option>
+              ))}
+            </select>
+          </div>
+          <div class="sal-field">
+            <label class="sal-label">City Category</label>
+            <select id="cityInput" class="sal-input">
+              <option value="x">X City (Metro) — 27% HRA</option>
+              <option value="y">Y City (10L+) — 18% HRA</option>
+              <option value="z">Z City (Others) — 9% HRA</option>
+            </select>
+          </div>
+        </div>
+        <div class="sal-row">
+          <div class="sal-field">
+            <label class="sal-label">DA Rate (%)</label>
+            <input type="number" id="daInput" class="sal-input" value="50" min="0" max="100" />
+          </div>
+          <div class="sal-field">
+            <label class="sal-label">NPS Contribution</label>
+            <select id="npsInput" class="sal-input">
+              <option value="10">10% of (Basic + DA) — Govt Employee</option>
+              <option value="0">0% — No NPS</option>
+            </select>
+          </div>
+        </div>
+        <button class="sal-btn" id="calcBtn">💰 Calculate Salary</button>
+      </div>
+
+      <!-- Result -->
+      <div id="salResult" style="display:none" class="sal-result">
+        <div class="sr-top">
+          <div class="sr-main">
+            <div class="sr-amount" id="srInHand">₹--</div>
+            <div class="sr-label">Monthly In-Hand Salary</div>
+          </div>
+          <div class="sr-annual">
+            <div class="sr-annual-label">Annual CTC</div>
+            <div class="sr-annual-amount" id="srAnnual">₹--</div>
+          </div>
+        </div>
+        <div class="sr-breakdown" id="srBreakdown"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEO Content -->
+  <div class="section">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+      <div class="d-section">
+        <h2 class="d-h">7th Pay Commission Kya Hai?</h2>
+        <div class="steps-box">
+          <p style="font-size:15px;color:var(--body);line-height:1.7;margin-bottom:12px">
+            7th Central Pay Commission (CPC) ne January 2016 se central government employees ki salary restructure ki.
+            Ab salary <b>Pay Levels (1-18)</b> mein hoti hai with Basic Pay, DA (Dearness Allowance), HRA (House Rent Allowance),
+            aur TA (Transport Allowance).
+          </p>
+          <p style="font-size:15px;color:var(--body);line-height:1.7">
+            <b>DA</b> inflation ke hisaab se badhta hai — abhi <b>50%</b> hai (August 2026). <b>HRA</b> city ke hisaab se hota hai —
+            Metro (X) mein 27%, 10 lakh+ population (Y) mein 18%, aur baaki (Z) mein 9%. <b>NPS</b> mein 10% basic+DA se kat-ta hai
+            jo retirement ke liye jaata hai.
+          </p>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Major Govt Jobs ki Salary (In-Hand)</h2>
+        <div class="steps-box">
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--hairline)">
+                  <th style="text-align:left;padding:10px;color:var(--strong)">Post</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Level</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Basic Pay</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">In-Hand (X City)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">SBI Clerk</td><td style="text-align:center">3</td><td style="text-align:center">₹19,900</td><td style="text-align:center;color:var(--success)">₹26,000-28,000</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">IBPS Clerk</td><td style="text-align:center">3</td><td style="text-align:center">₹19,900</td><td style="text-align:center;color:var(--success)">₹25,000-27,000</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">SSC CGL (4600 GP)</td><td style="text-align:center">7</td><td style="text-align:center">₹44,900</td><td style="text-align:center;color:var(--success)">₹55,000-65,000</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">IBPS/SBI PO</td><td style="text-align:center">7</td><td style="text-align:center">₹36,000</td><td style="text-align:center;color:var(--success)">₹42,000-52,000</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">Railway ALP</td><td style="text-align:center">3</td><td style="text-align:center">₹21,700</td><td style="text-align:center;color:var(--success)">₹29,000-33,000</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px;font-weight:600">Railway Group D</td><td style="text-align:center">1</td><td style="text-align:center">₹18,000</td><td style="text-align:center;color:var(--success)">₹22,000-25,000</td></tr>
+                <tr><td style="padding:8px 10px;font-weight:600">UPSC IAS (Entry)</td><td style="text-align:center">10</td><td style="text-align:center">₹56,100</td><td style="text-align:center;color:var(--success)">₹65,000-80,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="d-section">
+        <h2 class="d-h">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-q">NPS kya hai aur salary mein se kitna kat-ta hai?</summary>
+            <div class="faq-a">NPS (National Pension System) mein employee ka 10% (Basic + DA) kat-ta hai jo retirement fund mein jaata hai. Government bhi 14% contribute karti hai. Agar aap NPS nahi chahte to "No NPS" select kar sakte hain.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">HRA mein HRA milta hai ya house milega?</summary>
+            <div class="faq-a">HRA cash milta hai. Agar aapke paas khud ka ghar hai to bhi HRA milta hai (lekin home loan interest se adjusted ho sakta hai). Government quarters mile to HRA kat jata hai.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">DA kab badhta hai?</summary>
+            <div class="faq-a">DA har saal January aur July mein 2 baar revise hota hai. Central Government employees ke liye DA Abhi 50% (January 2024) se hai. Har 6 mahine mein CPI inflation ke hisaabse badhta hai.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .sal-form {
+      padding: 28px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 14px; margin-top: 20px; transition: box-shadow .2s;
+    }
+    .sal-form:hover { box-shadow: 0 4px 20px rgba(15,163,54,.08); }
+    .sal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+    .sal-field { display: flex; flex-direction: column; gap: 7px; }
+    .sal-label { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .sal-input {
+      padding: 12px 16px; background: var(--elevated); border: 1.5px solid var(--hairline);
+      border-radius: 10px; color: var(--strong); font-size: 15px;
+      font-family: var(--font-hindi); transition: all .2s;
+    }
+    .sal-input:focus { border-color: var(--success); outline: none; box-shadow: 0 0 0 3px rgba(15,163,54,.1); }
+    .sal-btn {
+      width: 100%; padding: 16px; margin-top: 8px;
+      background: linear-gradient(135deg, var(--success), #0d8a2e);
+      border: none; border-radius: 12px; color: #fff;
+      font-size: 17px; font-weight: 700; cursor: pointer;
+      font-family: var(--font-hindi); transition: all .15s;
+      box-shadow: 0 4px 12px rgba(15,163,54,.3);
+    }
+    .sal-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,163,54,.4); }
+    .sal-btn:active { transform: translateY(0); }
+
+    .sal-result {
+      padding: 32px 24px; background: var(--card); border: 2px solid var(--success);
+      border-radius: 14px; margin-top: 24px; animation: fadeSlideUp .3s ease;
+    }
+    .sr-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .sr-main { text-align: center; flex: 1; }
+    .sr-amount { font-family: var(--font-display); font-size: 48px; font-weight: 700; color: var(--success); line-height: 1; }
+    .sr-label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 6px; }
+    .sr-annual { text-align: center; padding: 14px 24px; background: var(--elevated); border-radius: 12px; }
+    .sr-annual-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .sr-annual-amount { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--strong); margin-top: 2px; }
+
+    .sr-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sr-item {
+      display: flex; justify-content: space-between; padding: 12px 16px;
+      background: var(--elevated); border-radius: 10px; transition: transform .1s;
+    }
+    .sr-item:hover { transform: translateX(2px); }
+    .sr-item-label { font-size: 13px; color: var(--body); }
+    .sr-item-value { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--strong); }
+    .sr-item.deduct .sr-item-value { color: #ef4444; }
+    .sr-total {
+      grid-column: 1/-1; display: flex; justify-content: space-between;
+      padding: 14px 18px; background: rgba(15,163,54,.1); border: 1px solid rgba(15,163,54,.3);
+      border-radius: 10px; margin-top: 6px;
+    }
+    .sr-total .sr-item-label { font-weight: 700; color: var(--success); font-size: 15px; }
+    .sr-total .sr-item-value { font-size: 20px; color: var(--success); }
+
+    .faq-list { display: grid; gap: 8px; }
+    .faq-item { padding: 14px 18px; background: var(--card); border: 1px solid var(--hairline); border-radius: 12px; transition: border-color .15s; }
+    .faq-item:hover { border-color: var(--saffron); }
+    .faq-q { font-size: 15px; font-weight: 600; color: var(--strong); cursor: pointer; font-family: var(--font-hindi); list-style: none; }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before { content: '▸ '; color: var(--saffron); }
+    .faq-item[open] .faq-q::before { content: '▾ '; }
+    .faq-a { font-size: 14px; color: var(--body); margin-top: 10px; line-height: 1.7; padding-left: 18px; }
+
+    @media (max-width: 600px) {
+      .sal-row, .sr-breakdown { grid-template-columns: 1fr; }
+      .sr-top { flex-direction: column; gap: 16px; }
+      .sal-form { padding: 20px; }
+      .sr-amount { font-size: 40px; }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script is:inline define:vars={{ payLevels: JSON.stringify(payLevels), hraPercent: JSON.stringify(hraPercent) }}>
+  (function() {
+    const levels = JSON.parse(payLevels);
+    const hra = JSON.parse(hraPercent);
+
+    document.getElementById('calcBtn').addEventListener('click', () => {
+      const level = parseInt(document.getElementById('levelInput').value);
+      const city = document.getElementById('cityInput').value;
+      const daRate = parseInt(document.getElementById('daInput').value) || 50;
+      const npsRate = parseInt(document.getElementById('npsInput').value) || 0;
+
+      const payData = levels.find(l => l.level === level);
+      if (!payData) return;
+
+      const basic = payData.min;
+      const da = Math.round(basic * daRate / 100);
+      const hraAmt = Math.round(basic * hra[city] / 100);
+      const ta = level <= 3 ? 3600 : level <= 5 ? 7200 : 16200;
+      const gross = basic + da + hraAmt + ta;
+      const nps = Math.round((basic + da) * npsRate / 100);
+      const profTax = 200;
+      const totalDeduction = nps + profTax;
+      const inHand = gross - totalDeduction;
+      const annual = inHand * 12;
+
+      document.getElementById('srInHand').textContent = '₹' + inHand.toLocaleString('en-IN');
+      document.getElementById('srAnnual').textContent = '₹' + annual.toLocaleString('en-IN');
+
+      document.getElementById('srBreakdown').innerHTML = `
+        <div class="sr-item"><span class="sr-item-label">Basic Pay</span><span class="sr-item-value">₹${basic.toLocaleString('en-IN')}</span></div>
+        <div class="sr-item"><span class="sr-item-label">DA (${daRate}%)</span><span class="sr-item-value">₹${da.toLocaleString('en-IN')}</span></div>
+        <div class="sr-item"><span class="sr-item-label">HRA (${hra[city]}%)</span><span class="sr-item-value">₹${hraAmt.toLocaleString('en-IN')}</span></div>
+        <div class="sr-item"><span class="sr-item-label">TA</span><span class="sr-item-value">₹${ta.toLocaleString('en-IN')}</span></div>
+        <div class="sr-item deduct"><span class="sr-item-label">NPS (${npsRate}%)</span><span class="sr-item-value">-₹${nps.toLocaleString('en-IN')}</span></div>
+        <div class="sr-item deduct"><span class="sr-item-label">Prof. Tax</span><span class="sr-item-value">-₹${profTax}</span></div>
+        <div class="sr-total"><span class="sr-item-label">In-Hand Salary</span><span class="sr-item-value">₹${inHand.toLocaleString('en-IN')}</span></div>
+      `;
+
+      document.getElementById('salResult').style.display = 'block';
+    });
+  })();
+  </script>
+</BaseLayout>

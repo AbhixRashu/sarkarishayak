@@ -1,0 +1,516 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import admitCards from '../../data/admit-cards.json';
+
+export function getStaticPaths() {
+  return admitCards.map(ac => ({
+    params: { slug: ac.slug },
+    props: { admitCard: ac },
+  }));
+}
+
+const { admitCard } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Admit Cards", "item": siteUrl + "/admit-cards/" },
+    { "@type": "ListItem", "position": 3, "name": admitCard.title }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": admitCard.title,
+  "description": `${admitCard.title} — ${admitCard.organization}. Download admit card.`,
+  "author": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "publisher": { "@type": "Organization", "name": "Sarkari Sahayak" }
+};
+---
+
+<BaseLayout
+  title={`${admitCard.title} | Sarkari Sahayak 2026`}
+  description={`${admitCard.title} — ${admitCard.organization}। Download admit card, check exam date, steps & direct links at Sarkari Sahayak.`}
+  canonical={`/admit-cards/${admitCard.slug}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+  <main class="ac-detail-page">
+
+    <!-- breadcrumb -->
+    <div class="ac-breadcrumb">
+      <div class="container">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/admit-cards/">Admit Cards</a>
+        <span>/</span>
+        <span class="current">{admitCard.title}</span>
+      </div>
+    </div>
+
+    <div class="container ac-wrap">
+
+      <!-- hero header -->
+      <div class="ac-hero">
+        <div class="ac-hero-badge">{admitCard.category?.toUpperCase() || 'ADMIT CARD'}</div>
+        <h1 class="ac-hero-title">{admitCard.title}</h1>
+        <div class="ac-hero-org">{admitCard.organization}</div>
+        <div class="ac-hero-meta">
+          <span class="ac-meta-chip">📅 Release: {admitCard.releaseDate}</span>
+          <span class="ac-meta-chip deadline">📝 Exam: {admitCard.examDate}</span>
+          <span class="ac-meta-chip verified">✓ Verified</span>
+        </div>
+      </div>
+
+      <!-- two column layout -->
+      <div class="ac-grid">
+
+        <!-- main content -->
+        <div class="ac-main">
+
+          <!-- Description -->
+          <section class="ac-card">
+            <h2 class="ac-card-head"><span class="ac-head-icon">📋</span> Overview</h2>
+            <div class="ac-desc">
+              <p><strong class="ac-strong">{admitCard.organization}</strong> ने <strong class="ac-strong">{admitCard.title}</strong> जारी कर दिया है। जिन भी उम्मीदवारों ने इस भर्ती परीक्षा के लिए आवेदन किया था, वे नीचे दिए गए steps के माध्यम से अपना Admit Card download कर सकते हैं। Admit Card download करने के लिए आपके पास Registration Number / Roll Number और Date of Birth होना चाहिए।</p>
+            </div>
+          </section>
+
+          <!-- Important Dates -->
+          <section class="ac-card">
+            <h2 class="ac-card-head"><span class="ac-head-icon">📅</span> Important Dates</h2>
+            <div class="ac-dates-grid">
+              <div class="ac-date-item">
+                <div class="ac-date-label">Admit Card Released</div>
+                <div class="ac-date-val">{admitCard.releaseDate}</div>
+              </div>
+              <div class="ac-date-item highlight">
+                <div class="ac-date-label">Exam Date</div>
+                <div class="ac-date-val">{admitCard.examDate}</div>
+              </div>
+              <div class="ac-date-item">
+                <div class="ac-date-label">Organization</div>
+                <div class="ac-date-val">{admitCard.organization}</div>
+              </div>
+              <div class="ac-date-item">
+                <div class="ac-date-label">Category</div>
+                <div class="ac-date-val">{admitCard.category || 'Government'}</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- How to Download -->
+          <section class="ac-card">
+            <h2 class="ac-card-head"><span class="ac-head-icon">⬇️</span> How to Download Admit Card</h2>
+            <ol class="ac-steps">
+              {admitCard.howToDownload?.map((step, i) => (
+                <li>
+                  <span class="ac-step-num">{i + 1}</span>
+                  <span class="ac-step-text">{step.replace(/^Step \d+:\s*/, '')}</span>
+                </li>
+              )) || (
+                <>
+                  <li>
+                    <span class="ac-step-num">1</span>
+                    <span class="ac-step-text">Official Website पर जाएं — {admitCard.organization} की official website या नीचे दिए गए direct link पर click करें।</span>
+                  </li>
+                  <li>
+                    <span class="ac-step-num">2</span>
+                    <span class="ac-step-text">Admit Card / Hall Ticket Link पर क्लिक करें — Login section में Admit Card download का option ढूंढें।</span>
+                  </li>
+                  <li>
+                    <span class="ac-step-num">3</span>
+                    <span class="ac-step-text">Login Credentials दर्ज करें — अपना Registration Number / Roll Number और Date of Birth / Password भरें।</span>
+                  </li>
+                  <li>
+                    <span class="ac-step-num">4</span>
+                    <span class="ac-step-text">Admit Card Download करें — Download button पर click करें। PDF खुलने पर Check करें कि सभी details सही हैं।</span>
+                  </li>
+                  <li>
+                    <span class="ac-step-num">5</span>
+                    <span class="ac-step-text">Print लें — Admit Card की 2-3 printed copies ज़रूर लें। Exam hall में original ID proof और photo copy साथ लेकर जाएं।</span>
+                  </li>
+                </>
+              )}
+            </ol>
+          </section>
+
+        </div>
+
+        <!-- sidebar -->
+        <aside class="ac-side">
+
+          <!-- Important Links -->
+          <div class="ac-card ac-side-card ac-links-card">
+            <h2 class="ac-card-head"><span class="ac-head-icon">🔗</span> Important Links</h2>
+            <div class="ac-links-list">
+              {[
+                { label: 'Download Admit Card', url: admitCard.downloadUrl },
+                { label: 'Check Exam City', url: admitCard.examCityUrl },
+                { label: 'Official Website', url: admitCard.officialUrl },
+              ].map(link => (
+                <a href={link.url && link.url !== '#' ? link.url : '#'} target="_blank" rel="noopener" class={`ac-link-item${!link.url || link.url === '#' ? ' coming-soon' : ''}`}>
+                  <div class="ac-link-info">
+                    <span class="ac-link-label">{link.label}</span>
+                    {!link.url || link.url === '#' ? (
+                      <span class="ac-link-soon">Coming Soon</span>
+                    ) : null}
+                  </div>
+                  <span class="ac-link-arrow">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="ac-card ac-side-card ac-quick-card">
+            <h3 class="ac-quick-title">Quick Actions</h3>
+            <a href={admitCard.downloadUrl && admitCard.downloadUrl !== '#' ? admitCard.downloadUrl : '#'} target="_blank" rel="noopener" class="ac-download-btn">
+              Download Admit Card →
+            </a>
+            <a href="/admit-cards/" class="ac-more-btn">
+              View More Admit Cards →
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+
+      <!-- disclaimer -->
+      <div class="ac-disclaimer">
+        <p><strong>Disclaimer:</strong> यह जानकारी सामान्य सूचना के लिए है। Sarkari Sahayak इसकी प्रामाणिकता की गारंटी नहीं देता। कृपया official website से latest notification ज़रूर verify करें। डेटा अगस्त 2026 तक updated है।</p>
+      </div>
+
+    </div>
+  </main>
+
+  <style>
+    .ac-detail-page {
+      padding-top: 80px;
+    }
+
+    /* breadcrumb */
+    .ac-breadcrumb {
+      padding: 16px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .ac-breadcrumb a {
+      color: var(--saffron);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .ac-breadcrumb a:hover { color: var(--accent); }
+    .ac-breadcrumb span { margin: 0 8px; }
+    .ac-breadcrumb .current { color: var(--strong); font-weight: 500; }
+
+    .ac-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .ac-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, rgba(28,105,212,.15) 100%);
+      border: 1px solid var(--hairline);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .ac-hero-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--saffron);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .ac-hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .ac-hero-org {
+      font-size: 16px;
+      color: var(--saffron);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .ac-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ac-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--body);
+      font-weight: 500;
+    }
+    .ac-meta-chip.deadline {
+      background: rgba(255,107,53,.15);
+      border-color: rgba(255,107,53,.3);
+      color: var(--saffron);
+      font-weight: 700;
+    }
+    .ac-meta-chip.verified {
+      background: rgba(15,163,54,.12);
+      border-color: rgba(15,163,54,.3);
+      color: #0fa336;
+      font-weight: 600;
+    }
+
+    /* grid */
+    .ac-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* cards */
+    .ac-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .ac-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      background: linear-gradient(90deg, var(--navy) 0%, rgba(28,105,212,.08) 100%);
+      border-bottom: 1px solid var(--hairline);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .5px;
+    }
+    .ac-head-icon { font-size: 20px; }
+
+    /* description */
+    .ac-desc {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--body);
+    }
+    .ac-desc p {
+      margin: 0;
+    }
+    .ac-strong {
+      color: var(--strong);
+      font-weight: 600;
+    }
+
+    /* dates grid */
+    .ac-dates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--hairline);
+    }
+    .ac-date-item {
+      padding: 16px 20px;
+      background: var(--card);
+    }
+    .ac-date-item.highlight {
+      background: rgba(255,107,53,.06);
+    }
+    .ac-date-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .ac-date-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+    }
+    .ac-date-item.highlight .ac-date-val {
+      color: var(--saffron);
+      font-size: 18px;
+    }
+
+    /* steps */
+    .ac-steps {
+      list-style: none;
+      padding: 16px 20px;
+      margin: 0;
+    }
+    .ac-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 16px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .ac-steps li:last-child { border-bottom: none; }
+    .ac-step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--saffron);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    /* sidebar */
+    .ac-side-card { position: sticky; top: 90px; }
+
+    /* links */
+    .ac-links-card {
+      margin-top: 0;
+    }
+    .ac-links-list {
+      padding: 8px 12px;
+    }
+    .ac-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 15px;
+      font-weight: 500;
+      transition: all .2s;
+      border: 1px solid transparent;
+    }
+    .ac-link-item:hover {
+      background: rgba(255,107,53,.06);
+      border-color: rgba(255,107,53,.2);
+      color: var(--saffron);
+    }
+    .ac-link-item.coming-soon {
+      opacity: .55;
+      cursor: default;
+    }
+    .ac-link-item.coming-soon:hover {
+      background: transparent;
+      border-color: transparent;
+      color: var(--body);
+    }
+    .ac-link-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ac-link-label { flex: 1; }
+    .ac-link-soon {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .ac-link-arrow {
+      font-size: 18px;
+      color: var(--saffron);
+      transition: transform .2s;
+    }
+    .ac-link-item:hover .ac-link-arrow { transform: translateX(4px); }
+
+    /* quick actions */
+    .ac-quick-card {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .ac-quick-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--strong);
+      margin-bottom: 14px;
+    }
+    .ac-download-btn {
+      display: block;
+      padding: 14px;
+      background: var(--saffron);
+      color: #000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all .2s;
+    }
+    .ac-download-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+    .ac-more-btn {
+      display: block;
+      padding: 12px;
+      background: transparent;
+      color: var(--saffron);
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid var(--saffron);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .ac-more-btn:hover {
+      background: rgba(255,107,53,.08);
+    }
+
+    /* disclaimer */
+    .ac-disclaimer {
+      padding: 20px 24px;
+      background: rgba(244,180,0,.06);
+      border: 1px solid rgba(244,180,0,.2);
+      border-radius: 12px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .ac-disclaimer p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--body);
+      margin: 0;
+    }
+
+    /* mobile */
+    @media (max-width: 860px) {
+      .ac-grid {
+        grid-template-columns: 1fr;
+      }
+      .ac-hero-title { font-size: 22px; }
+      .ac-hero { padding: 24px 20px; }
+      .ac-dates-grid { grid-template-columns: 1fr; }
+      .ac-side-card { position: static; }
+    }
+  </style>
+</BaseLayout>

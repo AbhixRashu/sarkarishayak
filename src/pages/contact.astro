@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Us | Sarkari Sahayak 2026"
+  description="Sarkari Sahayak se sampark karein — feedback, suggestions, ya kisi bhi sawaal ke liye humein email karein."
+  canonical="/contact"
+>
+  <section class="section">
+    <div class="container" style="max-width:800px">
+
+      <div class="section-head center-head">
+        <p class="section-label">Contact</p>
+        <h1 class="section-title">Contact Us</h1>
+        <p class="section-sub">Koi sawaal hai? Feedback dena chahte hain? Humse sampark karein.</p>
+      </div>
+
+      <div class="tool-box" style="margin-top:var(--sp-xl)">
+        <div class="tool-title">✉️ Contact Form</div>
+
+        <form id="contactForm" novalidate>
+          <div class="c-field" id="field-name">
+            <label class="f-label" for="contact-name">Aapka Naam</label>
+            <input type="text" class="c-input" id="contact-name" name="name" placeholder="Apna poora naam daalein" required>
+            <span class="c-err">Kripya apna naam daalein.</span>
+          </div>
+
+          <div class="c-field" id="field-email">
+            <label class="f-label" for="contact-email">Email Address</label>
+            <input type="email" class="c-input" id="contact-email" name="email" placeholder="name@example.com" required>
+            <span class="c-err">Kripya sahi email address daalein.</span>
+          </div>
+
+          <div class="c-field" id="field-topic">
+            <label class="f-label" for="contact-topic">Vishay (Topic)</label>
+            <select class="c-input" id="contact-topic" name="topic" required>
+              <option value="" disabled selected>Topic chunein...</option>
+              <option value="feedback">Feedback / Suggestion</option>
+              <option value="bug">Bug Report / Website Issue</option>
+              <option value="content">Content Request / Missing Guide</option>
+              <option value="correction">Information Correction</option>
+              <option value="collaboration">Collaboration / Partnership</option>
+              <option value="other">Any Other</option>
+            </select>
+            <span class="c-err">Kripya ek topic chunein.</span>
+          </div>
+
+          <div class="c-field" id="field-message">
+            <label class="f-label" for="contact-message">Aapka Sandesh (Message)</label>
+            <textarea class="c-textarea" id="contact-message" name="message" placeholder="Apna sandesh yahan likhein..." rows="5" required></textarea>
+            <span class="c-err">Kripya apna message daalein.</span>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%">Message Bhejein →</button>
+        </form>
+      </div>
+
+      <div class="prose" style="margin-top:var(--sp-xl)">
+        <div class="section-head">
+          <p class="section-label">Email</p>
+          <h2 class="section-title" style="font-size:28px">Seedha Email Karein</h2>
+        </div>
+        <p>
+          Agar aap form use nahi karna chahte, toh seedha humein email karein:
+        </p>
+        <p style="font-size:16px">
+          <strong>Email:</strong> <a href="mailto:hello@govtjob.salarypitcher.com" class="mini-link">hello@govtjob.salarypitcher.com</a>
+        </p>
+        <p>
+          Hum <strong>24-48 hours</strong> mein aapke email ka reply dene ki koshish karte hain. Weekend ya government holidays pe thoda delay ho sakta hai.
+        </p>
+      </div>
+
+      <div class="prose" style="margin-top:var(--sp-xl)">
+        <div class="section-head">
+          <p class="section-label">Guidelines</p>
+          <h2 class="section-title" style="font-size:28px">Contact Guidelines</h2>
+        </div>
+        <ul>
+          <li><strong>Clear Subject:</strong> Apne message mein topic ya sawaal clearly mention karein</li>
+          <li><strong>Official Queries:</strong> Sarkari processes se related sawaal ke liye pehle official website check karein — hum sirf guide karte hain, process nahi karte</li>
+          <li><strong>Patience Rakhein:</strong> Humari chhoti team hai, par hum har message ka jawab dete hain</li>
+          <li><strong>No Spam:</strong> Repeated messages ya promotional content na bhejein</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer" style="margin-top:var(--sp-xl)">
+        <span class="disc-icon">⚠️</span>
+        <div class="disc-text">
+          <strong>Note:</strong> Sarkari Sahayak ek informational platform hai. Hum sarkari processes ko handle nahi karte. Agar aapko kisi government service ke baare mein sawaal hai, toh kripya directly official website ya helpline pe sampark karein.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script is:inline>
+  (function () {
+    var form = document.getElementById('contactForm');
+    if (!form) return;
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function markErr(field, show) {
+      var el = document.getElementById('field-' + field);
+      if (el) el.classList.toggle('err', show);
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('contact-name');
+      var email = document.getElementById('contact-email');
+      var topic = document.getElementById('contact-topic');
+      var message = document.getElementById('contact-message');
+
+      var valid = true;
+
+      if (!name.value.trim()) { markErr('name', true); valid = false; } else { markErr('name', false); }
+      if (!validateEmail(email.value)) { markErr('email', true); valid = false; } else { markErr('email', false); }
+      if (!topic.value) { markErr('topic', true); valid = false; } else { markErr('topic', false); }
+      if (!message.value.trim()) { markErr('message', true); valid = false; } else { markErr('message', false); }
+
+      if (!valid) return;
+
+      if (window._ssToast) {
+        window._ssToast('Message send ho gaya! Jald hi aapko reply milega. 🎉', 'info');
+      }
+      form.reset();
+    });
+  })();
+  </script>
+</BaseLayout>

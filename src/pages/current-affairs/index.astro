@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import data from '../../data/current-affairs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+// Group by month
+const months: Record<string, typeof data> = {};
+data.forEach(day => {
+  const monthKey = 'August 2026';
+  if (!months[monthKey]) months[monthKey] = [];
+  months[monthKey].push(day);
+});
+
+// Get all unique categories
+const allCats = [...new Set(data.flatMap(d => d.categories))];
+const catLabels: Record<string, string> = {
+  National: 'राष्ट्रीय',
+  International: 'अंतर्राष्ट्रीय',
+  Economy: 'अर्थव्यवस्था',
+  Science: 'विज्ञान',
+  Sports: 'खेल',
+  Awards: 'पुरस्कार'
+};
+
+const totalQuestions = data.reduce((sum, d) => sum + d.questions.length, 0);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Daily Current Affairs" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Daily Current Affairs August 2026 | UPSC, SSC, IBPS Preparation | Sarkari Sahayak"
+  description="रोज़ाना Current Affairs 2026 — UPSC, SSC CGL, IBPS, RRB, State PCS की तैयारी के लिए। August 2026 के सभी दैनिक करेंट अफेयर्स हिंदी में।"
+  canonical="/current-affairs/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Current Affairs</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+      <div class="section-head center-head">
+        <span class="section-label">Daily Current Affairs 2026</span>
+        <h1 class="section-title">दैनिक करेंट अफेयर्स</h1>
+        <p class="section-sub">UPSC, SSC CGL, IBPS, RRB, State PCS की तैयारी के लिए रोज़ाना अपडेट</p>
+      </div>
+
+      <div class="stats-row" style="margin-bottom:var(--sp-xl)">
+        <div class="stat">
+          <span class="stat-num">{data.length}<em>+</em></span>
+          <span class="stat-label">दिन</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">{totalQuestions}<em>+</em></span>
+          <span class="stat-label">प्रश्न</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">{allCats.length}</span>
+          <span class="stat-label">श्रेणियाँ</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">24<em>/7</em></span>
+          <span class="stat-label">अपडेट</span>
+        </div>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="chips-row" id="caFilters" role="group" aria-label="Category filters">
+        <button type="button" class="chip active" data-filter="all">सभी<span class="cnt">{data.length}</span></button>
+        {allCats.map(cat => (
+          <button type="button" class="chip" data-filter={cat}>
+            {catLabels[cat] || cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Day List -->
+      <div class="guide-list" style="margin-top:var(--sp-xl)" id="caList">
+        {data.map((day, i) => (
+          <a href={`/current-affairs/${day.date}`} class="guide-item" data-category={day.categories.join(',')}>
+            <span class="guide-num">{i + 1}</span>
+            <div class="guide-body">
+              <span class="guide-title">{day.title}</span>
+              <div class="guide-tags">
+                <span class="gtag gtag-cat">{day.questions.length} प्रश्न</span>
+                <span class="gtag gtag-time">{day.date}</span>
+                {day.categories.slice(0, 3).map(cat => (
+                  <span class="gtag">{catLabels[cat] || cat}</span>
+                ))}
+              </div>
+            </div>
+            <span class="guide-arrow">→</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="no-results" id="noResults" style="display:none">
+        <em>कोई परिणाम नहीं मिला</em> — अलग श्रेणी चुनें
+      </div>
+    </div>
+  </section>
+
+  <!-- Share / Actions -->
+  <section class="section" style="padding-top:0">
+    <div class="container" style="max-width:700px;margin-inline:auto;text-align:center">
+      <div style="display:flex;gap:var(--sp-sm);justify-content:center;flex-wrap:wrap">
+        <button class="btn-primary" onclick="window.print()" style="font-size:13px;height:42px;padding:0 20px">
+          🖨️ प्रिंट / PDF
+        </button>
+        <a
+          class="btn-ghost"
+          href="https://api.whatsapp.com/send?text=Daily%20Current%20Affairs%20August%202026%20-%20UPSC%20SSC%20IBPS%20की%20तैयारी%20के%20लिए%20यहाँ%20पढ़ें%0Ahttps://govtjob.salarypitcher.com/current-affairs/"
+          target="_blank"
+          rel="noopener"
+          style="height:42px;padding:0 20px;font-size:13px"
+        >
+          📲 WhatsApp पर शेयर करें
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Content -->
+  <section class="section" style="padding-top:0">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+      <div class="d-section">
+        <h2 class="d-h">Current Affairs क्यों ज़रूरी है?</h2>
+        <div class="steps-box">
+          <p style="font-size:15px;color:var(--body);line-height:1.7;margin-bottom:12px">
+            UPSC, SSC CGL, IBPS, RRB, State PCS जैसी परीक्षाओं में <b>Current Affairs</b> से लगभग <b>25-40%</b> प्रश्न आते हैं।
+            रोज़ाना Current Affairs पढ़ने से आपकी तैयारी मजबूत होती है और परीक्षा में बेहतर अंक आते हैं।
+          </p>
+          <p style="font-size:15px;color:var(--body);line-height:1.7">
+            हमारे <b>Daily Current Affairs</b> में हर दिन 20+ महत्वपूर्ण प्रश्न दिए जाते हैं जो <b>PIB, The Hindu, Indian Express</b> जैसे स्रोतों से लिए गए हैं।
+            हर प्रश्न का उत्तर और व्याख्या भी दी गई है।
+          </p>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">कैसे पढ़ें?</h2>
+        <div class="steps-box">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📅 <b>दिन चुनें:</b> ऊपर दी गई लिस्ट से कोई भी दिन चुनें</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📝 <b>प्रश्न पढ़ें:</b> सबसे पहले प्रश्न अपने आप से पूछें</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">✅ <b>उत्तर देखें:</b> क्लिक करके उत्तर और व्याख्या देखें</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">🖨️ <b>प्रिंट करें:</b> PDF बनाकर पढ़ सकते हैं</li>
+            <li style="padding:8px 0;font-size:15px">📲 <b>शेयर करें:</b> WhatsApp पर दोस्तों को भेजें</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var filterBtns = document.querySelectorAll('#caFilters .chip');
+    var items = document.querySelectorAll('#caList .guide-item');
+    var noResults = document.getElementById('noResults');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        var visible = 0;
+        items.forEach(function(item) {
+          var cats = item.getAttribute('data-category') || '';
+          if (f === 'all' || cats.indexOf(f) !== -1) {
+            item.style.display = '';
+            visible++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        if (noResults) noResults.style.display = visible === 0 ? '' : 'none';
+      });
+    });
+  });
+  </script>
+</BaseLayout>

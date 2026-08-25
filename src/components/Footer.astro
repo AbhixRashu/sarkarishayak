@@ -1,0 +1,90 @@
+---
+const currentYear = new Date().getFullYear();
+const lastUpdated = new Date().toLocaleDateString('hi-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const nationalServices = [
+  { href: '/service/aadhaar', label: 'आधार कार्ड' },
+  { href: '/service/pan', label: 'PAN Card / PAN 2.0' },
+  { href: '/service/passport', label: 'पासपोर्ट' },
+  { href: '/service/driving-license', label: 'ड्राइविंग लाइसेंस' },
+  { href: '/service/voter-id', label: 'वोटर आईडी' },
+  { href: '/service/itr-filing', label: 'ITR Filing 2026' },
+];
+
+const rajasthanServices = [
+  { href: '/raj/sso', label: 'SSO Portal' },
+  { href: '/raj/e-mitra', label: 'e-Mitra Services' },
+  { href: '/raj/bhu-naksha', label: 'Bhu-Naksha / Apna Khata' },
+  { href: '/raj/rbse-board', label: 'RBSE Result 2026' },
+  { href: '/raj/chiranjeevi-yojana', label: 'Chiranjeevi Yojana' },
+  { href: '/raj/jan-aadhaar', label: 'Jan Aadhaar Card' },
+];
+
+const aboutLegal = [
+  { href: '/about/', label: 'About Us' },
+  { href: '/contact/', label: 'Contact Us' },
+  { href: '/faq/', label: 'FAQs' },
+  { href: '/privacy/', label: 'Privacy Policy' },
+  { href: '/terms/', label: 'Terms of Service' },
+  { href: '/disclaimer/', label: 'Official Disclaimer' },
+];
+---
+
+<footer class="site-footer" id="footer">
+  <div class="m-stripe"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-col f-brand">
+        <a class="logo" href="/" aria-label="सरकारी सहायक">
+          <span class="logo-flag">🇮🇳</span>
+          <span class="logo-text">
+            <span class="logo-hi">सरकारी सहायक</span>
+            <span class="logo-en">Govt Jobs · Salary Pitcher</span>
+          </span>
+        </a>
+        <p class="footer-desc">
+          भारत का भरोसेमंद हिंदी सरकारी गाइड। आधार से RBSE Result 2026 तक — हर सरकारी काम की आसान
+          step-by-step जानकारी, बिल्कुल मुफ्त। Rajasthan ke liye SSO, e-Mitra, Bhu-Naksha aur Board updates.
+        </p>
+        <p class="made-with">An Initiative of <a href="https://salarypitcher.com" target="_blank" rel="noopener" style="color:var(--saffron);text-decoration:underline">Salary Pitcher</a> · Made with <em>❤️</em> for India 🇮🇳</p>
+        <div class="social-row" aria-label="Social media links">
+          <a class="soc x" href="https://x.com/intent/post?text=%E0%A4%B8%E0%A4%B0%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%B8%E0%A4%B9%E0%A4%BE%E0%A4%AF%E0%A4%95%20%E0%A4%95%E0%A4%BE%20%E0%A4%B8%E0%A4%9B%20%E0%A4%95%E0%A4%BE%E0%A4%AE%20%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82%F0%9F%87%AE%F0%9F%87%B3%20https%3A%2F%2Fgovtjob.salarypitcher.com" target="_blank" rel="noopener" aria-label="X (Twitter) Share" title="Share on X">𝕏</a>
+          <a class="soc fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgovtjob.salarypitcher.com&quote=%E0%A4%B8%E0%A4%B0%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%B8%E0%A4%B9%E0%A4%BE%E0%A4%AF%E0%A4%95%20%E0%A4%95%E0%A4%BE%20%E0%A4%B8%E0%A5%8D%E0%A4%B9%20%E0%A4%95%E0%A4%BE%E0%A4%AE%20%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82" target="_blank" rel="noopener" aria-label="Facebook Share" title="Share on Facebook">f</a>
+        </div>
+      </div>
+
+      <div class="f-col">
+        <h4>National Services</h4>
+        <ul>
+          {nationalServices.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <h4>राजस्थान</h4>
+        <ul>
+          {rajasthanServices.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <h4>About &amp; Legal</h4>
+        <ul>
+          {aboutLegal.map(link => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {currentYear} govtjob.salarypitcher.com — सभी अधिकार सुरक्षित | A Salary Pitcher Initiative</span>
+      <span style="font-size:11px;color:var(--muted)">Last Updated: {lastUpdated}</span>
+      <span class="jay-hind">जय हिन्द <span class="tri-flag" aria-hidden="true"></span></span>
+    </div>
+  </div>
+</footer>

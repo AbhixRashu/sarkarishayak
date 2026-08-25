@@ -1,0 +1,399 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Tools", "item": siteUrl + "/tools/" },
+    { "@type": "ListItem", "position": 3, "name": "Eligibility Checker" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Eligibility Checker — Govt Job Match | Sarkari Sahayak 2026"
+  description="Apni age, education aur category daalke dekhein kaunsi govt jobs aapke liye eligible hain. Free eligibility checker tool."
+  canonical="/tools/eligibility-checker/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/tools/" style="color:var(--saffron);text-decoration:none">Tools</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Eligibility Checker</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+
+      <div class="d-header">
+        <div class="d-icon">🔍</div>
+        <div>
+          <h1 class="d-title">Eligibility Checker 2026</h1>
+          <div class="d-sub">Apni details daalo — matching govt jobs dikhao</div>
+        </div>
+      </div>
+
+      <!-- Checker Form -->
+      <div class="ec-form">
+        <div class="ec-row">
+          <div class="ec-field">
+            <label class="ec-label">Date of Birth</label>
+            <input type="date" id="dobInput" class="ec-input" max="2008-01-01" min="1960-01-01" />
+            <div class="ec-hint" id="ageDisplay">Age: --</div>
+          </div>
+          <div class="ec-field">
+            <label class="ec-label">Education</label>
+            <select id="eduInput" class="ec-input">
+              <option value="">Select...</option>
+              <option value="10th">10th Pass</option>
+              <option value="12th">12th Pass</option>
+              <option value="graduate">Graduate (Any)</option>
+              <option value="btech">B.Tech / Engineering</option>
+              <option value="postgraduate">Post Graduate</option>
+              <option value="mba">MBA</option>
+              <option value="llb">LLB</option>
+              <option value="medical">Medical (MBBS/BDS)</option>
+            </select>
+          </div>
+        </div>
+        <div class="ec-row">
+          <div class="ec-field">
+            <label class="ec-label">Category</label>
+            <select id="catInput" class="ec-input">
+              <option value="general">General / UR</option>
+              <option value="obc">OBC</option>
+              <option value="sc">SC</option>
+              <option value="st">ST</option>
+              <option value="ews">EWS</option>
+            </select>
+          </div>
+          <div class="ec-field">
+            <label class="ec-label">State</label>
+            <select id="stateInput" class="ec-input">
+              <option value="all">All India</option>
+              <option value="rajasthan">Rajasthan</option>
+              <option value="up">Uttar Pradesh</option>
+              <option value="bihar">Bihar</option>
+              <option value="mp">Madhya Pradesh</option>
+            </select>
+          </div>
+        </div>
+        <button class="ec-btn" id="checkBtn">🔍 Check Eligible Jobs</button>
+      </div>
+
+      <!-- Results -->
+      <div id="ecResults" style="display:none">
+        <h2 class="d-h" style="margin-top:24px">Aapke liye <span id="resultCount">0</span> Jobs Eligible Hain</h2>
+        <div id="ecResultsList" class="ec-results"></div>
+      </div>
+
+      <!-- No results -->
+      <div id="ecNoResults" style="display:none" class="ec-no-results">
+        <div class="ec-nr-icon">😔</div>
+        <div class="ec-nr-text">Koi matching job nahi mili. Filters change karke try karein.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .ec-form {
+      padding: 24px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 12px; margin-top: 20px;
+    }
+    .ec-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .ec-field { display: flex; flex-direction: column; gap: 6px; }
+    .ec-label {
+      font-size: 13px; font-weight: 600; color: var(--strong);
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+    .ec-input {
+      padding: 10px 14px; background: var(--elevated); border: 1px solid var(--hairline);
+      border-radius: 8px; color: var(--strong); font-size: 15px;
+      font-family: var(--font-hindi); transition: border-color .15s;
+    }
+    .ec-input:focus { border-color: var(--saffron); outline: none; }
+    .ec-hint { font-size: 12px; color: var(--saffron); font-weight: 600; }
+    .ec-btn {
+      width: 100%; padding: 14px; margin-top: 8px;
+      background: linear-gradient(135deg, var(--saffron), #e85d26);
+      border: none; border-radius: 10px; color: #fff;
+      font-size: 16px; font-weight: 700; cursor: pointer;
+      font-family: var(--font-hindi); transition: transform .1s;
+    }
+    .ec-btn:hover { transform: scale(1.01); }
+    .ec-btn:active { transform: scale(0.99); }
+    .ec-results { display: grid; gap: 10px; }
+    .ec-card {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 16px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 10px; text-decoration: none; transition: all .15s;
+    }
+    .ec-card:hover { border-color: var(--saffron); background: var(--elevated); }
+    .ec-card-icon { font-size: 24px; width: 40px; text-align: center; flex-shrink: 0; }
+    .ec-card-info { flex: 1; min-width: 0; }
+    .ec-card-title { font-size: 15px; font-weight: 600; color: var(--strong); }
+    .ec-card-org { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .ec-card-meta {
+      display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap;
+    }
+    .ec-tag {
+      font-size: 11px; padding: 2px 8px; border-radius: 4px;
+      background: var(--elevated); color: var(--muted);
+    }
+    .ec-tag.match { background: rgba(15,163,54,.1); color: var(--success); }
+    .ec-tag.warn { background: rgba(244,180,0,.1); color: var(--warning); }
+    .ec-match-score {
+      font-size: 12px; font-weight: 700; color: var(--success);
+      white-space: nowrap;
+    }
+    .ec-no-results {
+      text-align: center; padding: 40px 20px;
+      background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 12px; margin-top: 20px;
+    }
+    .ec-nr-icon { font-size: 40px; margin-bottom: 12px; }
+    .ec-nr-text { color: var(--muted); font-size: 15px; }
+    @media (max-width: 600px) {
+      .ec-row { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script is:inline define:vars={{ jobs: JSON.stringify(jobs) }}>
+  (function() {
+    const allJobs = JSON.parse(jobs);
+    const dobInput = document.getElementById('dobInput');
+    const eduInput = document.getElementById('eduInput');
+    const catInput = document.getElementById('catInput');
+    const stateInput = document.getElementById('stateInput');
+    const checkBtn = document.getElementById('checkBtn');
+    const resultsDiv = document.getElementById('ecResults');
+    const resultsList = document.getElementById('ecResultsList');
+    const noResults = document.getElementById('ecNoResults');
+    const ageDisplay = document.getElementById('ageDisplay');
+    const resultCount = document.getElementById('resultCount');
+
+    const eduLevels = { '10th': 1, '12th': 2, 'graduate': 3, 'btech': 3, 'postgraduate': 4, 'mba': 4, 'llb': 4, 'medical': 4 };
+
+    dobInput.addEventListener('change', () => {
+      if (dobInput.value) {
+        const age = calcAge(new Date(dobInput.value));
+        ageDisplay.textContent = 'Age: ' + age + ' years';
+        ageDisplay.style.color = age < 18 ? 'var(--warning)' : 'var(--saffron)';
+      }
+    });
+
+    checkBtn.addEventListener('click', () => {
+      const dob = dobInput.value;
+      const edu = eduInput.value;
+      const cat = catInput.value;
+      if (!dob || !edu) { alert('DOB aur Education dono select karein!'); return; }
+
+      const age = calcAge(new Date(dob));
+      const eduLevel = eduLevels[edu] || 3;
+      const results = [];
+
+      allJobs.forEach(job => {
+        let score = 0;
+        const reasons = [];
+
+        // Age check
+        if (job.ageMin && age >= job.ageMin) { score += 30; reasons.push('Age OK (Min: ' + job.ageMin + ')'); }
+        else if (job.ageMin && age < job.ageMin) { return; }
+
+        if (job.ageMax) {
+          const maxAge = cat === 'sc' || cat === 'st' ? job.ageMax + 5 : cat === 'obc' ? job.ageMax + 3 : job.ageMax;
+          if (age <= maxAge) { score += 20; reasons.push('Age under limit'); }
+          else { return; }
+        } else { score += 20; }
+
+        // Education check
+        const jobEdu = (job.qualify || '').toLowerCase();
+        let jobEduLevel = 3;
+        if (jobEdu.includes('10th') || jobEdu.includes('matric')) jobEduLevel = 1;
+        else if (jobEdu.includes('12th') || jobEdu.includes('inter') || jobEdu.includes('senior secondary')) jobEduLevel = 2;
+        else if (jobEdu.includes('graduate') || jobEdu.includes('bachelor') || jobEdu.includes('degree')) jobEduLevel = 3;
+        else if (jobEdu.includes('post graduate') || jobEdu.includes('master') || jobEdu.includes('mba') || jobEdu.includes('m.tech')) jobEduLevel = 4;
+
+        if (eduLevel >= jobEduLevel) { score += 30; reasons.push('Education: ' + edu + ' OK'); }
+        else { return; }
+
+        // Category relaxation
+        score += 10;
+        if (cat !== 'general') reasons.push(cat.toUpperCase() + ' relaxation apply');
+
+        // Vacancy bonus
+        if (job.vacancies > 1000) { score += 10; reasons.push(job.vacancies + ' vacancies'); }
+        else if (job.vacancies > 100) { score += 5; }
+
+        results.push({ job, score, reasons });
+      });
+
+      results.sort((a, b) => b.score - a.score);
+
+      if (results.length === 0) {
+        resultsDiv.style.display = 'none';
+        noResults.style.display = 'block';
+        return;
+      }
+
+      noResults.style.display = 'none';
+      resultsDiv.style.display = 'block';
+      resultCount.textContent = results.length;
+
+      resultsList.innerHTML = results.slice(0, 20).map(r => {
+        const scoreColor = r.score >= 80 ? 'var(--success)' : r.score >= 60 ? 'var(--saffron)' : 'var(--warning)';
+        return `
+          <a href="/latest-jobs/${r.job.slug}/" class="ec-card">
+            <div class="ec-card-icon">💼</div>
+            <div class="ec-card-info">
+              <div class="ec-card-title">${r.job.shortTitle || r.job.title}</div>
+              <div class="ec-card-org">${r.job.organization}</div>
+              <div class="ec-card-meta">
+                ${r.reasons.map(r => '<span class="ec-tag match">' + r + '</span>').join('')}
+                ${r.job.lastDate ? '<span class="ec-tag">Last: ' + r.job.lastDate + '</span>' : ''}
+              </div>
+            </div>
+            <div class="ec-match-score" style="color:${scoreColor}">${r.score}%</div>
+          </a>
+        `;
+      }).join('');
+    });
+
+    function calcAge(dob) {
+      const today = new Date();
+      let age = today.getFullYear() - dob.getFullYear();
+      const m = today.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+      return age;
+    }
+  })();
+  </script>
+
+  <!-- SEO Content -->
+  <div class="section">
+    <div class="container" style="max-width:800px;margin-inline:auto">
+
+      <div class="d-section">
+        <h2 class="d-h">Eligibility Checker Kya Hai?</h2>
+        <div class="steps-box">
+          <p style="font-size:15px;color:var(--body);line-height:1.7;margin-bottom:12px">
+            Government jobs ke liye apply karne se pehle ye jaanna zaroori hai ki aap eligible hain ya nahi.
+            Har job ki alag eligibility hoti hai — kuch mein 10th chahiye, kuch mein graduate, aur age limit bhi alag hoti hai.
+          </p>
+          <p style="font-size:15px;color:var(--body);line-height:1.7;margin-bottom:12px">
+            Ye tool aapki <b>date of birth</b>, <b>education level</b>, aur <b>category</b> (General/OBC/SC/ST/EWS) ke basis par
+            saari current govt jobs filter kar deta hai. Har job ke saath <b>match percentage</b> bhi dikhata hai — kitni suitable hai aapke liye.
+          </p>
+          <p style="font-size:15px;color:var(--body);line-height:1.7">
+            <b>Age relaxation</b> bhi automatically apply hoti hai — SC/ST ko 5 saal, OBC ko 3 saal, aur PH candidates ko 10 saal ki relaxation milti hai central govt jobs mein.
+          </p>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Kaise Use Karein?</h2>
+        <div class="steps-box">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📌 <b>Step 1:</b> Apni Date of Birth select karein — age automatically calculate ho jayegi</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📝 <b>Step 2:</b> Education level choose karein (10th/12th/Graduate/PG etc.)</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">🏷️ <b>Step 3:</b> Apna category select karein (General/OBC/SC/ST/EWS)</li>
+            <li style="padding:8px 0;font-size:15px">🔍 <b>Step 4:</b> "Check Eligible Jobs" button dabayein — matching jobs dikh jayengi</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Age Relaxation Rules (Central Govt Jobs)</h2>
+        <div class="steps-box">
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:14px">
+              <thead>
+                <tr style="border-bottom:2px solid var(--hairline)">
+                  <th style="text-align:left;padding:10px;color:var(--strong)">Category</th>
+                  <th style="text-align:center;padding:10px;color:var(--strong)">Relaxation</th>
+                  <th style="text-align:left;padding:10px;color:var(--strong)">Example (Max 30)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">General</td><td style="text-align:center">No relaxation</td><td>Max 30 years</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">OBC (Non-Creamy)</td><td style="text-align:center;color:var(--success)">+3 years</td><td>Max 33 years</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">SC / ST</td><td style="text-align:center;color:var(--success)">+5 years</td><td>Max 35 years</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">EWS</td><td style="text-align:center">No relaxation</td><td>Max 30 years</td></tr>
+                <tr style="border-bottom:1px solid var(--hairline)"><td style="padding:8px 10px">PH (PwD)</td><td style="text-align:center;color:var(--success)">+10 years</td><td>Max 40 years</td></tr>
+                <tr><td style="padding:8px 10px">Ex-Servicemen</td><td style="text-align:center;color:var(--success)">As per Govt rules</td><td>Varies</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-section">
+        <h2 class="d-h">Education Level Kya Matlab Hai?</h2>
+        <div class="steps-box">
+          <ul style="list-style:none;padding:0;margin:0">
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px"><b>10th Pass:</b> SSC CHSL (LDC/DEO), RRB Group D, Police Constable, army tradesman</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px"><b>12th Pass:</b> SSC CHSL, NTS, RRB NTPC (some posts), State Police Sub-Inspector</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px"><b>Graduate:</b> SSC CGL, UPSC CSE, IBPS PO/Clerk, SBI PO/Clerk, UPPSC PCS, RPSC</li>
+            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px"><b>B.Tech/Engineering:</b> RRB JE/SSE, SSC JE, ISRO, DRDO, BHEL, ONGC</li>
+            <li style="padding:8px 0;font-size:15px"><b>Post Graduate:</b> UGC NET, Assistant Professor, University Lecturer, Research Fellow</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="d-section">
+        <h2 class="d-h">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-q">Govt job mein age limit kaise calculate hoti hai?</summary>
+            <div class="faq-a">Age calculation ki cutoff date har notification mein likhi hoti hai. Generally last date of application apply hoti hai. Example: agar notification mein "age as on 01/01/2026" likha hai, to 1 Jan 2026 ko aapki age check hogi.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">SC/ST ko kitni age relaxation milti hai?</summary>
+            <div class="faq-a">Central government jobs mein SC/ST candidates ko 5 saal ki age relaxation milti hai. Agar general category ki age limit 30 hai, to SC/ST ke liye 35 ho jayegi.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">EWS category ko age relaxation milti hai kya?</summary>
+            <div class="faq-a">Nahi, EWS category ko age relaxation nahi milti hai. General category jaisi hi age limit hoti hai. Lekin reservation seats milti hain.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q">10th pass ke liye kaunsi govt jobs hain?</summary>
+            <div class="faq-a">10th pass ke liye: SSC CHSL (LDC/DEO), RRB Group D, Rajasthan Police Constable, Indian Army Agniveer, State Government Class IV posts, aur bahut si state-level jobs hain.</div>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .faq-list { display: grid; gap: 8px; }
+    .faq-item {
+      padding: 12px 16px; background: var(--card); border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .faq-q {
+      font-size: 15px; font-weight: 600; color: var(--strong); cursor: pointer;
+      font-family: var(--font-hindi); list-style: none;
+    }
+    .faq-q::-webkit-details-marker { display: none; }
+    .faq-q::before { content: '▸ '; color: var(--saffron); }
+    .faq-item[open] .faq-q::before { content: '▾ '; }
+    .faq-a { font-size: 14px; color: var(--body); margin-top: 8px; line-height: 1.6; padding-left: 18px; }
+  </style>
+</BaseLayout>

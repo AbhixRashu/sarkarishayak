@@ -1,0 +1,503 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import answerKeys from '../../data/answer-keys.json';
+
+export function getStaticPaths() {
+  return answerKeys.map(ak => ({
+    params: { slug: ak.slug },
+    props: { answerKey: ak },
+  }));
+}
+
+const { answerKey } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+const isKeyAvailable = answerKey.keyUrl && answerKey.keyUrl !== '#';
+const isObjectionAvailable = answerKey.objectionUrl && answerKey.objectionUrl !== '#';
+const isOfficialAvailable = answerKey.officialUrl && answerKey.officialUrl !== '#';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Answer Keys", "item": siteUrl + "/answer-keys/" },
+    { "@type": "ListItem", "position": 3, "name": answerKey.title }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": answerKey.title,
+  "description": `${answerKey.title} — ${answerKey.organization}. Download answer key.`,
+  "author": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "publisher": { "@type": "Organization", "name": "Sarkari Sahayak" }
+};
+---
+
+<BaseLayout
+  title={`${answerKey.title} | Sarkari Sahayak 2026`}
+  description={`${answerKey.title} — ${answerKey.organization}. Download answer key, raise objection, steps and direct links at Sarkari Sahayak.`}
+  canonical={`/answer-keys/${answerKey.slug}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+  <div class="ak-detail-page">
+    <div class="container">
+
+      <nav class="ak-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="ak-bc-sep">/</span>
+        <a href="/answer-keys">Answer Keys</a>
+        <span class="ak-bc-sep">/</span>
+        <span class="ak-bc-current">{answerKey.title}</span>
+      </nav>
+
+      <div class="ak-hero">
+        <div class="ak-hero-badge">
+          <span class="ak-hero-badge-dot"></span>
+          Answer Key {answerKey.releaseDate}
+        </div>
+        <h1 class="ak-hero-title">{answerKey.title}</h1>
+        <div class="ak-hero-org">{answerKey.organization}</div>
+        <div class="ak-hero-tags">
+          <span class="ak-tag ak-tag-cat">{answerKey.category}</span>
+          <span class="ak-tag ak-tag-verified">&#10003; Verified Official Link</span>
+          {answerKey.objectionDeadline && (
+            <span class="ak-tag ak-tag-deadline">Objection by {answerKey.objectionDeadline}</span>
+          )}
+        </div>
+      </div>
+
+      <div class="ak-grid">
+
+        <div class="ak-main">
+
+          <div class="ak-card">
+            <p class="ak-desc">
+              <strong>{answerKey.organization}</strong> ne <strong>{answerKey.title}</strong> jaari kar diya hai. Jin bhi ummidvaron ne yeh pariksha di thi, ve neeche diye gaye steps ke madhyam se provisional answer key download kar sakte hain. Yadi aapko kisi answer mein aapatti hai, toh objection window band hone se pehle apni aapatti darj karein.
+            </p>
+          </div>
+
+          <div class="ak-card">
+            <div class="ak-card-head">Important Dates</div>
+            <div class="ak-dates-grid">
+              <div class="ak-date-item">
+                <span class="ak-date-label">Answer Key Released</span>
+                <span class="ak-date-val">{answerKey.releaseDate}</span>
+              </div>
+              <div class="ak-date-item">
+                <span class="ak-date-label">Objection Deadline</span>
+                <span class="ak-date-val ak-date-warn">{answerKey.objectionDeadline}</span>
+              </div>
+              <div class="ak-date-item">
+                <span class="ak-date-label">Organization</span>
+                <span class="ak-date-val">{answerKey.organization}</span>
+              </div>
+              <div class="ak-date-item">
+                <span class="ak-date-label">Category</span>
+                <span class="ak-date-val">{answerKey.category}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ak-card">
+            <div class="ak-card-head">How to Check / Download Answer Key</div>
+            <ol class="ak-steps">
+              {(answerKey.howToCheck && answerKey.howToCheck.length > 0 ? answerKey.howToCheck : [
+                `Visit ${answerKey.organization} official website.`,
+                "Click on Answer Key / Latest Updates section.",
+                "Login with Registration Number / Roll Number and Password / DOB.",
+                "Download the answer key PDF for your paper set / shift.",
+                "Submit objection online if needed before the deadline."
+              ]).map((step: string, i: number) => (
+                <li class="ak-step">
+                  <span class="ak-step-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="ak-step-text">{step.replace(/^Step \d+:\s*/i, '')}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div class="ak-card">
+            <div class="ak-disclaimer">
+              <strong>Disclaimer:</strong> Yeh jaankaari saamanya soochna ke liye hai. Sarkari Sahayak iski praamaanikta ki guarantee nahi deta. Kripya official website se latest notification zaroor verify karein. Data August 2026 tak updated hai.
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="ak-sidebar">
+
+          <div class="ak-card">
+            <div class="ak-card-head">Important Links</div>
+            <div class="ak-links-list">
+              <a
+                class="ak-link-item"
+                href={isKeyAvailable ? answerKey.keyUrl : '#'}
+                target={isKeyAvailable ? '_blank' : undefined}
+                rel={isKeyAvailable ? 'noopener noreferrer' : undefined}
+              >
+                <span class="ak-link-label">Download Answer Key</span>
+                <span class="ak-link-arrow">{isKeyAvailable ? '\u2192' : 'Coming Soon'}</span>
+              </a>
+              <a
+                class={`ak-link-item ak-link-objection ${!isObjectionAvailable ? 'ak-link-disabled' : ''}`}
+                href={isObjectionAvailable ? answerKey.objectionUrl : '#'}
+                target={isObjectionAvailable ? '_blank' : undefined}
+                rel={isObjectionAvailable ? 'noopener noreferrer' : undefined}
+              >
+                <span class="ak-link-label">Raise Objection</span>
+                <span class="ak-link-arrow">{isObjectionAvailable ? '\u2192' : 'Coming Soon'}</span>
+              </a>
+              <a
+                class={`ak-link-item ${!isOfficialAvailable ? 'ak-link-disabled' : ''}`}
+                href={isOfficialAvailable ? answerKey.officialUrl : '#'}
+                target={isOfficialAvailable ? '_blank' : undefined}
+                rel={isOfficialAvailable ? 'noopener noreferrer' : undefined}
+              >
+                <span class="ak-link-label">Official Website</span>
+                <span class="ak-link-arrow">{isOfficialAvailable ? '\u2192' : 'Coming Soon'}</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="ak-card ak-quick-actions">
+            <div class="ak-card-head">Quick Actions</div>
+            {isKeyAvailable ? (
+              <a class="btn-primary ak-action-btn" href={answerKey.keyUrl} target="_blank" rel="noopener noreferrer">
+                Download Answer Key
+              </a>
+            ) : (
+              <button class="btn-primary ak-action-btn" disabled>Answer Key Coming Soon</button>
+            )}
+            {isObjectionAvailable ? (
+              <a class="btn-ghost ak-action-btn ak-objection-btn" href={answerKey.objectionUrl} target="_blank" rel="noopener noreferrer">
+                Raise Objection
+              </a>
+            ) : (
+              <button class="btn-ghost ak-action-btn" disabled>Objection Link Coming Soon</button>
+            )}
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .ak-detail-page {
+    padding-top: 80px;
+  }
+
+  .ak-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 20px 0 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+  }
+  .ak-breadcrumb a {
+    color: var(--saffron);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .ak-breadcrumb a:hover {
+    color: var(--gold);
+  }
+  .ak-bc-sep {
+    color: var(--hairline);
+  }
+  .ak-bc-current {
+    color: var(--strong);
+  }
+
+  .ak-hero {
+    margin-top: var(--sp-lg);
+    padding: var(--sp-xl) var(--sp-lg);
+    background: linear-gradient(160deg, rgba(0,102,177,.12) 0%, rgba(226,39,24,.06) 100%);
+    border: 1px solid var(--hairline);
+    border-bottom: 3px solid var(--saffron);
+    text-align: center;
+  }
+  .ak-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    padding: 8px 18px;
+    border: 1px solid rgba(255,107,53,.4);
+    background: rgba(255,107,53,.08);
+    margin-bottom: var(--sp-md);
+  }
+  .ak-hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--success);
+    animation: ak-pulse 1.6s infinite;
+  }
+  @keyframes ak-pulse {
+    50% { opacity: 0.25; }
+  }
+  .ak-hero-title {
+    font-family: var(--font-hindi);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: var(--sp-xs);
+  }
+  .ak-hero-org {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--m-blue-light);
+    margin-bottom: var(--sp-md);
+  }
+  html[data-theme="light"] .ak-hero-org {
+    color: var(--m-blue-dark);
+  }
+  .ak-hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .ak-tag {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--hairline);
+    color: var(--muted);
+  }
+  .ak-tag-cat {
+    color: var(--saffron);
+    border-color: rgba(255,107,53,.45);
+  }
+  .ak-tag-verified {
+    color: var(--success);
+    border-color: rgba(15,163,54,.5);
+    background: rgba(15,163,54,.08);
+  }
+  .ak-tag-deadline {
+    color: var(--m-red);
+    border-color: rgba(226,39,24,.45);
+    background: rgba(226,39,24,.08);
+  }
+
+  .ak-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: var(--sp-lg);
+    margin-top: var(--sp-lg);
+    padding-bottom: var(--sp-xxl);
+  }
+
+  .ak-card {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    padding: var(--sp-lg);
+    margin-bottom: var(--sp-lg);
+  }
+  .ak-card-head {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    padding-bottom: var(--sp-sm);
+    border-bottom: 2px solid var(--hairline);
+    margin-bottom: var(--sp-md);
+  }
+
+  .ak-desc {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--body);
+  }
+  .ak-desc strong {
+    color: var(--strong);
+    font-weight: 500;
+  }
+
+  .ak-dates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .ak-date-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    background: var(--elevated);
+    border: 1px solid var(--hairline-strong);
+  }
+  .ak-date-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .ak-date-val {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--strong);
+  }
+  .ak-date-warn {
+    color: var(--m-red);
+  }
+
+  .ak-steps {
+    list-style: none;
+    padding: 0;
+  }
+  .ak-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--body);
+    border-bottom: 1px solid var(--hairline-strong);
+  }
+  .ak-step:last-child {
+    border-bottom: none;
+  }
+  .ak-step-num {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--saffron);
+    color: #000;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .ak-step-text {
+    padding-top: 7px;
+  }
+
+  .ak-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ak-link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px var(--sp-md);
+    border-bottom: 1px solid var(--hairline-strong);
+    text-decoration: none;
+    transition: background 0.2s ease;
+    cursor: pointer;
+  }
+  .ak-link-item:last-child {
+    border-bottom: none;
+  }
+  .ak-link-item:hover {
+    background: rgba(255,107,53,.06);
+  }
+  .ak-link-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--strong);
+  }
+  .ak-link-arrow {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--saffron);
+    flex-shrink: 0;
+  }
+  .ak-link-objection .ak-link-label {
+    color: var(--m-red);
+  }
+  .ak-link-objection .ak-link-arrow {
+    color: var(--m-red);
+  }
+  .ak-link-objection:hover {
+    background: rgba(226,39,24,.06);
+  }
+  .ak-link-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .ak-quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+  }
+  .ak-action-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .ak-disclaimer {
+    background: rgba(244,180,0,.08);
+    border: 1px solid rgba(244,180,0,.3);
+    padding: var(--sp-md) var(--sp-lg);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--body);
+  }
+  .ak-disclaimer strong {
+    color: var(--warning);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .ak-grid {
+      grid-template-columns: 1fr;
+    }
+    .ak-sidebar {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ak-hero-title {
+      font-size: 22px;
+    }
+    .ak-dates-grid {
+      grid-template-columns: 1fr;
+    }
+    .ak-card-head {
+      font-size: 15px;
+    }
+  }
+</style>

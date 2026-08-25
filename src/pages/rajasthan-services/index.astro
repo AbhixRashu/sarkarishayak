@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import services from '../../data/services.json';
+
+const rajServices = services.filter(s => s.category === 'rajasthan');
+
+function difficultyClass(d) {
+  if (d === 'Easy') return 't-easy';
+  if (d === 'Medium') return 't-medium';
+  return 't-complex';
+}
+function modeClass(m) {
+  return m.toLowerCase().includes('online') ? 't-online' : 't-offline';
+}
+---
+
+<BaseLayout
+  title="Rajasthan Government Services | Sarkari Sahayak 2026"
+  description="राजस्थान की सभी सरकारी सेवाओं की जानकारी हिंदी में — SSO, e-Mitra, Jan Aadhaar, Bhu-Naksha, Chiranjeevi Yojana, राजस्थान पुलिस। Step-by-step guide 2026।"
+  canonical="/rajasthan-services"
+>
+  <section class="section-raj">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">Rajasthan Services</span>
+        <h1 class="section-title">Rajasthan ki Sarkari Seva</h1>
+        <p class="section-sub">SSO, e-Mitra, Jan Aadhaar se lekar Chiranjeevi Yojana tak — Rajasthan ke sabhi govt portals ki Hindi guide</p>
+      </div>
+
+      <div class="raj-grid">
+        {rajServices.map(service => (
+          <a href={`/raj/${service.slug}`} class="raj-item">
+            <span class="raj-icon">{service.icon}</span>
+            <div class="raj-info">
+              <span class="raj-title">{service.titleHi}</span>
+              <span class="raj-sub">{service.titleEn}</span>
+            </div>
+            <div class="tags" style="margin-top:auto">
+              <span class={`tag ${difficultyClass(service.difficulty)}`}>{service.difficulty}</span>
+              <span class={`tag ${modeClass(service.mode)}`}>{service.mode}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

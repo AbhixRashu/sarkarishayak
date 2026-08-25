@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobs from '../../data/latest-jobs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const filteredJobs = jobs.filter(j => {
+  const q = (j.qualify + ' ' + (j.eligibility?.map(e => e.details).join(' ') || '')).toLowerCase();
+  return q.includes('12th') || q.includes('higher secondary') || q.includes('10+2');
+});
+
+const totalVacancies = filteredJobs.reduce((sum, j) => sum + (j.vacancies || 0), 0);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Qualifications" },
+    { "@type": "ListItem", "position": 3, "name": "12th Pass Jobs" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "12th pass ke liye kaun kaun si government jobs hoti hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "12th pass candidates SSC CHSL, SSC MTS, SSC Stenographer, NDA, Indian Navy SSR/AA, Indian Air Force Agniveer Vayu, BSF Head Constable, CRPF ASI/HC, Delhi Police Constable, FCI, State LDC/Clerk jaisi government jobs ke liye apply kar sakte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "12th pass government job ki salary kitni hoti hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "12th pass government jobs mein salary post ke hisaab se alag hoti hai. SSC CHSL LDC mein starting salary Rs. 19,900-63,200 (Level-2) hoti hai. NDA mein Rs. 56,100 (Level-10) milta hai. Indian Navy SSR mein Rs. 21,700-69,100 milta hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "12th pass ke baad NDA ke liye apply kar sakte hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, 12th pass (Physics, Maths for Air Force/Navy, any stream for Army) candidates NDA ke liye apply kar sakte hain. NDA ka exam UPSC conduct karta hai aur ismein written exam, SSB interview aur medical examination hota hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "SSC CHSL aur SSC MTS mein kya difference hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SSC CHSL (10+2 level) mein LDC, DEO, Postal Assistant jaise posts milte hain. SSC MTS (Matriculation level) mein peon, watchman, gardener jaise Group C posts milte hain. CHSL ka level zyada hota hai aur salary bhi better hoti hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "12th pass ke baad kaun sa course karein government job ke liye?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "12th pass ke baad BCA, B.Com, BA, BSc, Diploma in Engineering, ITI, NDA, Banking courses kar sakte hain. Agar immediate job chahiye toh SSC CHSL, SSC MTS, NDA ke liye apply karein. Technical career ke liye diploma ya engineering karein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "12th pass air force mein kaise jaayein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Indian Air Force mein 12th pass ke baad Agniveer Vayu ke liye apply kar sakte hain. Iske alawa NDA ke through flying branch mein bhi ja sakte hain. Agniveer Vayu mein 12th with Physics, Maths aur English zaroori hai with minimum 50% marks."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="12th Pass Government Jobs 2026 | Sarkari Sahayak"
+  description="12th pass sarkari naukri 2026 — SSC CHSL, SSC MTS, NDA, Indian Navy, BSF Head Constable, Delhi Police, FCI, State LDC. Higher secondary level vacancy with salary and eligibility."
+  canonical="/qualifications/12th-pass"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/qualifications" style="color:var(--saffron);text-decoration:none">Qualifications</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">12th Pass</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:var(--sp-lg)">
+    <div class="container">
+
+      <div class="section-head center-head">
+        <span class="section-label">Higher Secondary Level Jobs</span>
+        <h1 class="section-title">12th Pass Government Jobs 2026</h1>
+        <p class="section-sub">12th pass sarkari naukri 2026 — SSC CHSL, NDA, Indian Navy, BSF Head Constable, Delhi Police, FCI. Sab 12th pass level vacancies ek jagah.</p>
+      </div>
+
+      <div class="stats-row" style="margin-bottom:var(--sp-xl)">
+        <div class="stat">
+          <div class="stat-num">{filteredJobs.length}</div>
+          <div class="stat-label">Open Vacancies</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">{totalVacancies.toLocaleString('en-IN')}</div>
+          <div class="stat-label">Total Posts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">18-27</div>
+          <div class="stat-label">Typical Age Range</div>
+        </div>
+      </div>
+
+      <div class="tt-wrap">
+        <table class="tt-table">
+          <thead>
+            <tr>
+              <th style="width:40%">Post / Recruitment</th>
+              <th>Organization</th>
+              <th style="text-align:center">Vacancies</th>
+              <th>Last Date</th>
+              <th style="text-align:center">Apply</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredJobs.map(job => (
+              <tr>
+                <td>
+                  <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                  <br/>
+                  <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                </td>
+                <td style="white-space:nowrap">{job.organization}</td>
+                <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                  {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                </td>
+                <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                <td style="text-align:center">
+                  <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                    Apply ↗
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Exam Table */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Major 12th Pass Level Exams 2026</div>
+        <div class="tt-wrap" style="margin-top:var(--sp-md)">
+          <table class="tt-table">
+            <thead>
+              <tr>
+                <th>Exam Name</th>
+                <th>Conducting Body</th>
+                <th>Eligibility</th>
+                <th>Exam Date</th>
+                <th>Vacancies</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">SSC CHSL 2026</td>
+                <td>Staff Selection Commission</td>
+                <td>12th Pass from recognized board</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">—</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">SSC Stenographer 2026</td>
+                <td>Staff Selection Commission</td>
+                <td>12th Pass with stenography skills</td>
+                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">1,200</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Delhi Police Constable 2026</td>
+                <td>Staff Selection Commission / Delhi Police</td>
+                <td>12th Pass from recognized board</td>
+                <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">5,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">BSF Head Constable 2026</td>
+                <td>Border Security Force</td>
+                <td>12th Pass from recognized board</td>
+                <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">1,500</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">CRPF ASI & Head Constable 2026</td>
+                <td>Central Reserve Police Force</td>
+                <td>12th/Graduate depending on post</td>
+                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">3,500</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Indian Air Force Agniveer Vayu 2026</td>
+                <td>Indian Air Force</td>
+                <td>12th with Physics, Maths, English</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">4,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Indian Navy SSR & AA 2026</td>
+                <td>Indian Navy</td>
+                <td>12th Pass with Physics, Chemistry, Maths</td>
+                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">5,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Indian Army Agniveer (Technical/Clerk)</td>
+                <td>Indian Army</td>
+                <td>12th Pass with 45-60% marks depending on category</td>
+                <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">9,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">UPSSSC PET 2026</td>
+                <td>UP Subordinate Services Selection Commission</td>
+                <td>10th/12th Pass from UP Board</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--muted)">Qualifying</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* SEO Content */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">12th Pass Sarkari Naukri 2026 — Complete Guide</div>
+        <div style="margin-top:var(--sp-md)">
+          <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--strong);margin-bottom:var(--sp-sm);margin-top:var(--sp-lg)">12th Pass Government Jobs 2026</h2>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">12th pass sarkari naukri 2026</strong> mein bahut badi sankhya mein vacancies aati hain. <strong>SSC CHSL, SSC Stenographer</strong> jaise central level ke exams hain toh <strong>Delhi Police Constable, BSF Head Constable</strong> jaise paramilitary forces ke liye bhi 12th pass se apply ho sakta hai. Defence sector mein <strong>NDA, Indian Navy SSR/AA, Air Force Agniveer Vayu</strong> jaise prestigious opportunities hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">Higher Secondary Level Vacancy — Key Recruitments</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">SSC CHSL 2026</strong> — Combined Higher Secondary Level exam ke through Lower Division Clerk (LDC), Data Entry Operator (DEO), Postal Assistant/Sorting Assistant jaise Group B aur Group C posts bharte hain. Eligibility sirf 12th pass hai aur bade vacancies aate hain.
+          </p>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">NDA (National Defence Academy)</strong> — UPSC ka NDA exam 12th pass candidates ke liye Army, Navy aur Air Force officer banne ka sabse prestigious rasta hai. 12th with Physics & Maths (for Air Force/Navy) ya any stream (for Army) se apply kar sakte hain. Written exam ke baad SSB interview aur medical hota hai.
+          </p>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">Indian Navy SSR & AA 2026</strong> — Senior Secondary Recruit (SSR) aur Artificer Apprentice (AA) ke liye 12th Pass with Physics, Chemistry aur Mathematics zaroori hai. Navy mein 5,000+ vacancies aati hain with good salary and career growth.
+          </p>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            <strong style="font-weight:500;color:var(--strong)">BSF & CRPF Head Constable</strong> — Central Armed Police Forces mein Head Constable (Ministerial) ke liye 12th Pass zaroori hai. Typing speed 35 wpm (English) ya 30 wpm (Hindi) required hoti hai. In posts mein government accommodation, medical aur pension jaise benefits milte hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">12th Pass Govt Jobs — Salary & Benefits</h3>
+          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
+            12th pass government jobs mein salary level 10th pass se better hoti hai. <strong style="font-weight:500;color:var(--strong)">SSC CHSL LDC</strong> mein starting salary Rs. 19,900-63,200 (Pay Level-2) hoti hai. <strong style="font-weight:500;color:var(--strong)">NDA</strong> mein training ke dauran Rs. 56,100 (Level-10) milta hai. <strong style="font-weight:500;color:var(--strong)">Indian Navy SSR</strong> mein Rs. 21,700-69,100 (Level-3) milta hai. In sab ke saath DA, HRA, Ration, Medical aur Pension jaise benefits bhi milte hain.
+          </p>
+
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">12th Pass ke Baad Career Options</h3>
+          <ul style="list-style:none;margin-bottom:var(--sp-sm)">
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Government Jobs:</strong> SSC CHSL, NDA, Navy SSR, BSF HC ke liye directly apply karein.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Higher Education:</strong> Graduation (BA/BSc/BCom) karein taaki CGL, UPSC jaise exams de sakein.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Diploma/Engineering:</strong> Diploma in Engineering se technical government jobs mil sakti hain.</li>
+            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Professional Courses:</strong> BCA, BBA, B.Pharm, B.Sc Nursing jaise professional courses bhi kar sakte hain.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* FAQ */}
+      <div style="margin-top:var(--sp-xl)">
+        <div class="section-label">Frequently Asked Questions</div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-xs);margin-top:var(--sp-md)">
+          <details class="faq-item">
+            <summary>12th pass ke liye kaun kaun si government jobs hoti hain?</summary>
+            <p>12th pass candidates SSC CHSL, SSC MTS, SSC Stenographer, NDA, Indian Navy SSR/AA, Indian Air Force Agniveer Vayu, BSF Head Constable, CRPF ASI/HC, Delhi Police Constable, FCI, State LDC/Clerk jaisi government jobs ke liye apply kar sakte hain.</p>
+          </details>
+          <details class="faq-item">
+            <summary>12th pass government job ki salary kitni hoti hai?</summary>
+            <p>12th pass government jobs mein salary post ke hisaab se alag hoti hai. SSC CHSL LDC mein starting salary Rs. 19,900-63,200 (Level-2) hoti hai. NDA mein Rs. 56,100 (Level-10) milta hai. Indian Navy SSR mein Rs. 21,700-69,100 milta hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>12th pass ke baad NDA ke liye apply kar sakte hain?</summary>
+            <p>Haan, 12th pass (Physics, Maths for Air Force/Navy, any stream for Army) candidates NDA ke liye apply kar sakte hain. NDA ka exam UPSC conduct karta hai aur ismein written exam, SSB interview aur medical examination hota hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>SSC CHSL aur SSC MTS mein kya difference hai?</summary>
+            <p>SSC CHSL (10+2 level) mein LDC, DEO, Postal Assistant jaise posts milte hain. SSC MTS (Matriculation level) mein peon, watchman, gardener jaise Group C posts milte hain. CHSL ka level zyada hota hai aur salary bhi better hoti hai.</p>
+          </details>
+          <details class="faq-item">
+            <summary>12th pass ke baad kaun sa course karein government job ke liye?</summary>
+            <p>12th pass ke baad BCA, B.Com, BA, BSc, Diploma in Engineering, ITI, NDA, Banking courses kar sakte hain. Agar immediate job chahiye toh SSC CHSL, SSC MTS, NDA ke liye apply karein. Technical career ke liye diploma ya engineering karein.</p>
+          </details>
+          <details class="faq-item">
+            <summary>12th pass air force mein kaise jaayein?</summary>
+            <p>Indian Air Force mein 12th pass ke baad Agniveer Vayu ke liye apply kar sakte hain. Iske alawa NDA ke through flying branch mein bhi ja sakte hain. Agniveer Vayu mein 12th with Physics, Maths aur English zaroori hai with minimum 50% marks.</p>
+          </details>
+        </div>
+      </div>
+
+      {/* Disclaimer */}
+      <div class="disclaimer" style="margin-top:var(--sp-xl)">
+        <span class="disc-icon">⚠️</span>
+        <p class="disc-text">Ye information <strong style="font-weight:500;color:var(--warning)">tentative</strong> hai. Final dates aur vacancies ke liye official websites — <strong style="font-weight:500;color:var(--warning)">ssc.nic.in, upsc.gov.in, joinindiannavy.gov.in, bsf.gov.in</strong> — regularly check karein.</p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

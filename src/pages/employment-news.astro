@@ -1,0 +1,388 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Employment News" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Employment News kya hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employment News (Rozgar Samachar) Bharat Sarkar ka weekly publication hai jo har hafte government job vacancies publish karta hai. Ismein central aur state government ki naukri ke notifications milte hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Employment News kaise use karein job preparation ke liye?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Employment News ka use karke aap naye job openings track kar sakte hain, application deadlines jaan sakte hain, aur apni preparation accordingly plan kar sakte hain. Sarkari Sahayak par aapko har hafte latest employment news milta hai."
+      }
+    }
+  ]
+};
+
+const weeks = [
+  {
+    week: "18–24 Aug 2026",
+    label: "This Week",
+    entries: [
+      { title: "IOCL Apprentice 2026", org: "Indian Oil Corporation Limited", posts: 433, apply: "https://iocl.com", lastDate: "30 Sep 2026", category: "Maharatna" },
+      { title: "IBPS Clerk XVI", org: "Institute of Banking Personnel Selection", posts: 11403, apply: "https://ibps.in", lastDate: "21 Sep 2026", category: "Banking" },
+      { title: "RRB JE CBT-1", org: "Railway Recruitment Board", posts: 4029, apply: "https://rrbapply.gov.in", lastDate: "22 Sep 2026", category: "Railway" },
+      { title: "Bank of Baroda LBO", org: "Bank of Baroda", posts: 2482, apply: "https://bankofbaroda.in", lastDate: "28 Aug 2026", category: "Banking" },
+    ]
+  },
+  {
+    week: "11–17 Aug 2026",
+    label: "Last Week",
+    entries: [
+      { title: "RRB NTPC Graduate Level", org: "Railway Recruitment Board", posts: 10883, apply: "https://rrbapply.gov.in", lastDate: "15 Sep 2026", category: "Railway" },
+      { title: "SBI PO 2026", org: "State Bank of India", posts: 2000, apply: "https://sbi.co.in", lastDate: "12 Sep 2026", category: "Banking" },
+      { title: "UPSC CSE 2026", org: "Union Public Service Commission", posts: 1105, apply: "https://upsconline.nic.in", lastDate: "14 Sep 2026", category: "Civil Services" },
+    ]
+  },
+  {
+    week: "4–10 Aug 2026",
+    label: "2 Weeks Ago",
+    entries: [
+      { title: "SSC CGL 2026", org: "Staff Selection Commission", posts: 17725, apply: "https://ssc.nic.in", lastDate: "08 Sep 2026", category: "SSC" },
+      { title: "SSC CHSL 2026", org: "Staff Selection Commission", posts: 3712, apply: "https://ssc.nic.in", lastDate: "05 Sep 2026", category: "SSC" },
+      { title: "BPSC 73rd CCE", org: "Bihar Public Service Commission", posts: 2035, apply: "https://bpsc.bih.nic.in", lastDate: "02 Sep 2026", category: "State PSC" },
+    ]
+  },
+  {
+    week: "28 Jul – 3 Aug 2026",
+    label: "3 Weeks Ago",
+    entries: [
+      { title: "UPPSC PCS 2026", org: "Uttar Pradesh Public Service Commission", posts: 534, apply: "https://uppsc.up.nic.in", lastDate: "28 Aug 2026", category: "State PSC" },
+      { title: "RPSC RAS 2026", org: "Rajasthan Public Service Commission", posts: 750, apply: "https://rpsc.rajasthan.gov.in", lastDate: "25 Aug 2026", category: "State PSC" },
+      { title: "REET 2026", org: "Rajasthan Eligibility Exam for Teachers", posts: 32000, apply: "https://reetbser.com", lastDate: "22 Aug 2026", category: "Teaching" },
+    ]
+  },
+  {
+    week: "21–27 Jul 2026",
+    label: "4 Weeks Ago",
+    entries: [
+      { title: "RRB Group D 2026", org: "Railway Recruitment Board", posts: 32438, apply: "https://rrbapply.gov.in", lastDate: "20 Aug 2026", category: "Railway" },
+      { title: "Railway ALP 2025 Results", org: "Railway Recruitment Board", posts: 0, apply: "https://rrbapply.gov.in", lastDate: "Results Declared", category: "Railway" },
+      { title: "SSC GD 2026", org: "Staff Selection Commission", posts: 26146, apply: "https://ssc.nic.in", lastDate: "18 Aug 2026", category: "SSC" },
+    ]
+  }
+];
+
+const importantDates = [
+  { date: "21 Aug 2026", event: "RPSC RAS 2026 — Application Closed" },
+  { date: "22 Aug 2026", event: "REET 2026 — Last Date to Apply" },
+  { date: "22 Aug 2026", event: "RRB JE CBT-1 — Admit Card Expected" },
+  { date: "25 Aug 2026", event: "RPSC RAS 2026 — Last Date to Apply" },
+  { date: "28 Aug 2026", event: "UPPSC PCS 2026 — Last Date to Apply" },
+  { date: "28 Aug 2026", event: "Bank of Baroda LBO — Last Date to Apply" },
+  { date: "02 Sep 2026", event: "BPSC 73rd CCE — Last Date to Apply" },
+  { date: "05 Sep 2026", event: "SSC CHSL 2026 — Last Date to Apply" },
+  { date: "08 Sep 2026", event: "SSC CGL 2026 — Last Date to Apply" },
+  { date: "12 Sep 2026", event: "SBI PO 2026 — Last Date to Apply" },
+  { date: "14 Sep 2026", event: "UPSC CSE 2026 — Last Date to Apply" },
+  { date: "15 Sep 2026", event: "RRB NTPC — Last Date to Apply" },
+  { date: "21 Sep 2026", event: "IBPS Clerk XVI — Last Date to Apply" },
+  { date: "22 Sep 2026", event: "RRB JE CBT-1 — Last Date to Apply" },
+  { date: "30 Sep 2026", event: "IOCL Apprentice — Last Date to Apply" },
+];
+---
+
+<BaseLayout
+  title="Employment News Weekly 2026 | Sarkari Sahayak"
+  description="Employment News 2026 ki latest government job vacancies dekhein. Weekly govt job notifications with apply links, last dates, aur post details — Hindi mein."
+  canonical="/employment-news"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Employment News</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:860px;margin-inline:auto">
+      <h1 class="d-title" style="font-size:28px;margin-bottom:4px">Employment News Weekly 2026</h1>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:var(--sp-lg)">Rozgar Samachar — Har hafte ki government job notifications</p>
+
+      <div class="en-badge-row">
+        <span class="en-badge en-badge-live"><span class="live-dot"></span> LIVE THIS WEEK</span>
+        <span class="en-badge">5 WEEKS ARCHIVE</span>
+        <span class="en-badge">19 NOTIFICATIONS</span>
+      </div>
+
+      <div class="en-intro">
+        <p><strong>Employment News</strong> (jise <strong>Rozgar Samachar</strong> bhi kehte hain) Bharat Sarkar ka official weekly publication hai jo har Saturday publish hota hai. Ismein central government, state government, PSUs, aur autonomous bodies ki nayi job vacancies, exam results, admit cards, aur upcoming exam dates ki jaankari milti hai.</p>
+        <p>Sarkari Sahayak par aapko har hafte <strong>Employment News ki latest vacancies</strong> Hindi mein milti hain — apply links, last dates, post count sab ek jagah. Apni preparation ke hisab se job choose karein aur time se apply karein.</p>
+      </div>
+
+      {weeks.map((week, wi) => (
+        <div class={`en-week-block ${wi === 0 ? 'en-week-current' : ''}`}>
+          <div class="en-week-header">
+            <div>
+              <h2 class="en-week-title">Week of {week.week}</h2>
+              <span class="en-week-label">{week.label}</span>
+            </div>
+            <span class="en-post-count">{week.entries.reduce((sum, e) => sum + e.posts, 0).toLocaleString('en-IN')} Posts</span>
+          </div>
+
+          <div class="en-entries">
+            {week.entries.map(entry => (
+              <div class="en-entry">
+                <div class="en-entry-top">
+                  <span class={`en-cat en-cat-${entry.category.toLowerCase().replace(/\s+/g, '-')}`}>{entry.category}</span>
+                  {entry.posts > 0 && <span class="en-posts">{entry.posts.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="en-entry-title">{entry.title}</h3>
+                <p class="en-entry-org">{entry.org}</p>
+                <div class="en-entry-footer">
+                  <div class="en-dates">
+                    <span class="en-date-item">
+                      <span class="en-date-label">Last Date</span>
+                      <span class="en-date-val">{entry.lastDate}</span>
+                    </span>
+                  </div>
+                  <a href={entry.apply} target="_blank" rel="noopener" class="en-apply-btn">Apply Official Site ↗</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="en-dates-section">
+        <h2 class="en-section-title">This Week's Important Dates</h2>
+        <p class="en-section-sub">Aane wale application deadlines — time se apply karein!</p>
+        <div class="tt-wrap">
+          <table class="tt-table en-dates-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Event</th>
+              </tr>
+            </thead>
+            <tbody>
+              {importantDates.map(d => (
+                <tr>
+                  <td style="white-space:nowrap;font-family:var(--font-display);font-weight:700;color:var(--saffron)">{d.date}</td>
+                  <td>{d.event}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="en-seo-content">
+        <h2 class="en-section-title">Employment News Kya Hai?</h2>
+        <div class="prose">
+          <p><strong>Employment News</strong> (Rozgar Samachar) India ka sabse trusted weekly government job publication hai jo <strong>1976</strong> se publish ho raha hai. Yeh <strong>Employment News & Programmes</strong> ministry ke under aata hai aur har Saturday market mein milta hai.</p>
+          <p>Ismein ye cheezein milti hain:</p>
+          <ul>
+            <li>Central Government ki nayi vacancies — SSC, UPSC, IBPS, Railways, Defence</li>
+            <li>State Government ki job notifications — RPSC, UPPSC, BPSC, MPPSC</li>
+            <li>PSUs aur Autonomous Bodies ki recruitment — IOCL, BHEL, NTPC</li>
+            <li>Exam results, admit cards, aur interview schedules</li>
+            <li>Sarkari exams ki dates aur important updates</li>
+          </ul>
+
+          <h3 class="en-sub-heading">Employment News Se Job Preparation Kaise Karein?</h3>
+          <ul>
+            <li><strong>Weekly track karein</strong> — Har hafte naye notifications aate hain, unhe regularly follow karein</li>
+            <li><strong>Eligibility check karein</strong> — Age limit, education qualification, category-wise posts dekhein</li>
+            <li><strong>Apply on time</strong> — Last date se pehle apply karein, last minute rush se bachein</li>
+            <li><strong>Preparation plan banayein</strong> — Exam date ke hisab se syllabus cover karein</li>
+            <li><strong>Previous papers solve karein</strong> — Pattern samajhne ke liye purane papers dekhein</li>
+          </ul>
+
+          <h3 class="en-sub-heading">Sarkari Sahayak Par Employment News</h3>
+          <p>Hum aapke liye har hafte Employment News ki <strong>top government job notifications</strong> Hindi mein lekar aate hain. Har entry mein:</p>
+          <ul>
+            <li>Vacancy ka complete details — organization, posts, category</li>
+            <li>Direct apply link — official website se seedha connect</li>
+            <li>Last date to apply — taaki aap timely apply kar sakein</li>
+            <li>Important dates — exam schedule, admit card dates</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="en-faq">
+        <h2 class="en-section-title">Frequently Asked Questions</h2>
+
+        <details class="faq-item">
+          <summary>Employment News kya hai?</summary>
+          <p>Employment News (Rozgar Samachar) Bharat Sarkar ka weekly publication hai jo har hafte government job vacancies publish karta hai. Ismein central aur state government ki naukri ke notifications milte hain. Yeh 1976 se publish ho raha hai aur sabse trusted source hai sarkari jobs ke liye.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Employment News kaise use karein job preparation ke liye?</summary>
+          <p>Employment News ka use karke aap naye job openings track kar sakte hain, application deadlines jaan sakte hain, aur apni preparation accordingly plan kar sakte hain. Sarkari Sahayak par aapko har hafte latest employment news milta hai Hindi mein — sirf top vacancies ke saath.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Employment News kab publish hota hai?</summary>
+          <p>Employment News har Saturday ko publish hota hai. Sarkari Sahayak par aapko hafte ke andar hi latest notifications mil jaate hain — aapko Saturday tak wait nahi karna padta.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Kya Employment News sirf central government ki jobs dikhata hai?</summary>
+          <p>Nahi, Employment News mein central government, state government, PSUs, autonomous bodies, aur contractual positions sab ki vacancies aati hain. Sarkari Sahayak par aapko state-wise aur category-wise filtering bhi milti hai.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .en-badge-row { display: flex; flex-wrap: wrap; gap: var(--sp-xs); margin-bottom: var(--sp-lg); }
+    .en-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-display); font-weight: 700; font-size: 11px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 6px 14px; border: 1px solid var(--hairline); color: var(--muted);
+    }
+    .en-badge-live { border-color: rgba(15,163,54,.5); color: var(--success); background: rgba(15,163,54,.08); }
+
+    .en-intro {
+      background: var(--card); border: 1px solid var(--hairline);
+      padding: var(--sp-lg); margin-bottom: var(--sp-xl);
+    }
+    .en-intro p { font-size: 16px; line-height: 1.75; color: var(--body); margin-bottom: var(--sp-sm); }
+    .en-intro p:last-child { margin-bottom: 0; }
+    .en-intro strong { color: var(--strong); font-weight: 500; }
+
+    .en-week-block { margin-bottom: var(--sp-xl); }
+    .en-week-current { position: relative; }
+    .en-week-current::before {
+      content: ""; position: absolute; left: -20px; top: 0; bottom: 0;
+      width: 3px; background: var(--saffron);
+    }
+    @media (max-width: 768px) { .en-week-current::before { left: 0; } }
+    .en-week-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: var(--sp-sm); border-bottom: 1px solid var(--hairline);
+      margin-bottom: var(--sp-md); gap: var(--sp-sm); flex-wrap: wrap;
+    }
+    .en-week-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 20px; color: var(--white); letter-spacing: .5px;
+    }
+    .en-week-label {
+      display: inline-block; margin-top: 2px;
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--saffron);
+    }
+    .en-post-count {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 13px; color: var(--muted); letter-spacing: 1px;
+    }
+
+    .en-entries { display: grid; gap: var(--sp-sm); }
+    .en-entry {
+      background: var(--card); border: 1px solid var(--hairline);
+      padding: var(--sp-md) var(--sp-lg);
+      transition: border-color .25s ease, transform .25s ease;
+    }
+    .en-entry:hover { border-color: var(--saffron); transform: translateY(-1px); }
+    .en-entry-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; gap: var(--sp-xs); }
+    .en-cat {
+      font-family: var(--font-display); font-weight: 700; font-size: 10px;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 10px; border: 1px solid var(--hairline); color: var(--muted);
+    }
+    .en-cat-maharatna { color: var(--success); border-color: rgba(15,163,54,.45); background: rgba(15,163,54,.08); }
+    .en-cat-banking { color: var(--m-blue-dark); border-color: rgba(28,105,212,.45); background: rgba(28,105,212,.08); }
+    .en-cat-railway { color: var(--saffron); border-color: rgba(255,107,53,.45); background: rgba(255,107,53,.08); }
+    .en-cat-ssc { color: var(--gold); border-color: rgba(255,193,7,.45); background: rgba(255,193,7,.08); }
+    .en-cat-civil-services { color: #a78bfa; border-color: rgba(167,139,250,.45); background: rgba(167,139,250,.08); }
+    .en-cat-state-psc { color: #f472b6; border-color: rgba(244,114,182,.45); background: rgba(244,114,182,.08); }
+    .en-cat-teaching { color: #34d399; border-color: rgba(52,211,153,.45); background: rgba(52,211,153,.08); }
+    .en-posts {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 12px; color: var(--gold); letter-spacing: .5px;
+    }
+    .en-entry-title {
+      font-family: var(--font-hindi); font-weight: 700;
+      font-size: 18px; color: var(--white); margin-bottom: 2px;
+    }
+    .en-entry-org { font-size: 14px; color: var(--muted); margin-bottom: var(--sp-sm); }
+    .en-entry-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--sp-sm); flex-wrap: wrap;
+    }
+    .en-dates { display: flex; gap: var(--sp-md); }
+    .en-date-item { display: flex; flex-direction: column; }
+    .en-date-label {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .en-date-val {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 14px; color: var(--strong);
+    }
+    .en-apply-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-display); font-weight: 700; font-size: 12px;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 8px 18px; border: 1px solid var(--saffron);
+      color: var(--saffron); transition: all .25s ease; white-space: nowrap;
+    }
+    .en-apply-btn:hover { background: var(--saffron); color: #000; }
+
+    .en-dates-section {
+      background: var(--card); border: 1px solid var(--hairline);
+      padding: var(--sp-lg); margin-bottom: var(--sp-xl);
+    }
+    .en-dates-section .en-dates-table { margin-bottom: 0; }
+    .en-dates-section .en-dates-table td:last-child { color: var(--strong); }
+
+    .en-section-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 22px; color: var(--white); margin-bottom: var(--sp-xs);
+    }
+    .en-section-sub {
+      font-size: 14px; color: var(--muted); margin-bottom: var(--sp-lg);
+    }
+    .en-sub-heading {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 18px; color: var(--saffron); margin-top: var(--sp-lg); margin-bottom: var(--sp-sm);
+    }
+
+    .en-seo-content { margin-bottom: var(--sp-xl); }
+    .en-seo-content .prose p { margin-bottom: var(--sp-sm); }
+
+    .en-faq { margin-bottom: var(--sp-xl); }
+    .en-faq .faq-item { margin-bottom: var(--sp-xs); }
+
+    @media (max-width: 768px) {
+      .en-week-current::before { left: 0; }
+      .en-entry { padding: var(--sp-sm) var(--sp-md); }
+      .en-entry-footer { flex-direction: column; align-items: flex-start; }
+      .en-apply-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</BaseLayout>

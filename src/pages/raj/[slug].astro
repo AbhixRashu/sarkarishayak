@@ -1,0 +1,930 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import services from '../../data/services.json';
+
+export function getStaticPaths() {
+  return services
+    .filter(s => s.category === 'rajasthan')
+    .map(service => ({
+      params: { slug: service.slug },
+      props: { service },
+    }));
+}
+
+const { service } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const related = (service.relatedServices || [])
+  .map(slug => services.find(s => s.slug === slug))
+  .filter(Boolean);
+
+const faqSchema = service.faq && service.faq.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": service.faq.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+} : null;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Rajasthan Services", "item": siteUrl + "/rajasthan-services/" },
+    { "@type": "ListItem", "position": 3, "name": service.titleHi }
+  ]
+};
+---
+
+<BaseLayout title={`${service.titleHi} — ${service.titleEn} | Sarkari Sahayak 2026`} description={service.intro.slice(0, 160)}>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    {faqSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />}
+  </Fragment>
+  <!-- breadcrumb -->
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/rajasthan-services/" style="color:var(--saffron);text-decoration:none">Rajasthan Services</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">{service.titleHi}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- service detail -->
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:780px;margin-inline:auto">
+
+      <!-- header -->
+      <div class="d-header">
+        <div class="d-icon">{service.icon}</div>
+        <div>
+          <h1 class="d-title">{service.titleHi}</h1>
+          <div class="d-sub">{service.titleEn}</div>
+        </div>
+      </div>
+
+      <!-- badge row -->
+      <div class="badge-row">
+        <span class={`bchip ${service.difficulty === 'Easy' ? 't-easy' : service.difficulty === 'Medium' ? 't-medium' : 't-complex'}`}>{service.difficulty}</span>
+        <span class={`bchip ${service.mode === 'Online' ? 't-online' : service.mode === 'Hybrid' ? 't-online' : 't-offline'}`}>{service.mode}</span>
+        <span class="bchip">⏱ {service.readTime}</span>
+        <span class="bchip v2026">✓ Verified 2026</span>
+      </div>
+
+      <!-- intro -->
+      <p class="d-intro">{service.intro}</p>
+
+      <!-- key points -->
+      {service.keyPoints && service.keyPoints.length > 0 && (
+        <div class="d-section">
+          <h2 class="d-h">मुख्य बातें</h2>
+          <div class="key-points-grid">
+            {service.keyPoints.map(point => (
+              <div class="key-point-card">
+                <span class="kp-icon">✅</span>
+                <span>{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- documents checklist -->
+      <div class="d-section">
+        <h2 class="d-h">Documents Required</h2>
+        <div class="check-progress"><i id="docProg"></i></div>
+        <ul class="doc-list" id="docList">
+          {service.docs.map((doc, i) => (
+            <li>
+              <input type="checkbox" id={`doc${i}`} />
+              <span>{doc}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- step-by-step -->
+      <div class="d-section">
+        <h2 class="d-h">Step-by-Step Process</h2>
+        <ol class="steps-list">
+          {service.steps.map(step => (
+            <li set:html={step.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>')} />
+          ))}
+        </ol>
+      </div>
+
+      <!-- fees table -->
+      <div class="d-section">
+        <h2 class="d-h">Fees</h2>
+        <table class="fee-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            {service.fees.map(([item, cost]) => (
+              <tr>
+                <td>{item}</td>
+                <td>{cost}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- time info -->
+      <div class="d-section">
+        <h2 class="d-h">Time Required</h2>
+        <div class="time-chip">⏱ {service.timeInfo}</div>
+      </div>
+
+      <!-- pro tips -->
+      <div class="d-section">
+        <h2 class="d-h">Pro Tips</h2>
+        <div class="tip-box">
+          <ul>
+            {service.tips.map(tip => (
+              <li>{tip}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- processing time (NEW) -->
+      {service.processingTime && (
+        <div class="d-section">
+          <h2 class="d-h">Processing Time</h2>
+          <div class="proc-grid">
+            {Object.entries(service.processingTime).map(([key, val]) => (
+              <div class="proc-card">
+                <div class="proc-label">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</div>
+                <div class="proc-value">{val}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- comparison table (NEW) -->
+      {service.comparison && (
+        <div class="d-section">
+          <h2 class="d-h">Comparison</h2>
+          <div class="table-wrap">
+            <table class="fee-table comp-table">
+              <thead>
+                <tr>
+                  {service.comparison.headers.map(h => (
+                    <th>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {service.comparison.rows.map(row => (
+                  <tr>
+                    {row.map(cell => (
+                      <td>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <!-- types / categories (NEW) -->
+      {service.types && typeof service.types === 'object' && !Array.isArray(service.types) && (
+        <div class="d-section">
+          <h2 class="d-h">Types / Categories</h2>
+          <div class="types-grid">
+            {Object.entries(service.types).map(([key, val]) => (
+              <div class="type-card">
+                <div class="type-key">{key.toUpperCase()}</div>
+                <div class="type-val">{val}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {service.types && Array.isArray(service.types) && (
+        <div class="d-section">
+          <h2 class="d-h">Types / Categories</h2>
+          <ul class="types-list">
+            {service.types.map(t => (
+              <li>{t}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <!-- update limits (NEW) -->
+      {service.updateLimits && (
+        <div class="d-section">
+          <h2 class="d-h">Update Limits</h2>
+          <div class="limits-grid">
+            {Object.entries(service.updateLimits).map(([key, val]) => (
+              <div class="limit-card">
+                <div class="limit-key">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</div>
+                <div class="limit-val">{val}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- important dates (NEW) -->
+      {service.importantDates && (
+        <div class="d-section">
+          <h2 class="d-h">Important Dates & Deadlines</h2>
+          <div class="dates-grid">
+            {Object.entries(service.importantDates).map(([key, val]) => (
+              <div class="date-card">
+                <div class="date-key">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</div>
+                <div class="date-val">{val}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- eligibility (NEW) -->
+      {service.eligibility && (
+        <div class="d-section">
+          <h2 class="d-h">Eligibility Criteria</h2>
+          <ul class="elig-list">
+            {service.eligibility.map(item => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <!-- linked schemes (NEW) -->
+      {service.linkedSchemes && (
+        <div class="d-section">
+          <h2 class="d-h">Linked Schemes & Services</h2>
+          <div class="linked-grid">
+            {service.linkedSchemes.map(scheme => (
+              <span class="linked-chip">{scheme}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- helpline (NEW) -->
+      {service.helpline && (
+        <div class="d-section">
+          <h2 class="d-h">Helpline</h2>
+          <div class="helpline-box">
+            <span class="hl-icon">📞</span>
+            <span class="hl-number">{service.helpline}</span>
+          </div>
+        </div>
+      )}
+
+      <!-- rejection reasons (NEW) -->
+      {service.rejectionReasons && (
+        <div class="d-section">
+          <h2 class="d-h">Common Rejection Reasons</h2>
+          <div class="reject-box">
+            <ul>
+              {service.rejectionReasons.map(reason => (
+                <li>{reason}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      <!-- RBSE 2026 Result Stats -->
+      {service.result2026 && (
+        <div class="d-section">
+          <h2 class="d-h">2026 Result Statistics</h2>
+          {service.result2026.class10 && (
+            <div class="result-block">
+              <h3 class="rbse-stream">Class 10th</h3>
+              <div class="stat-cards">
+                <div class="stat-card"><div class="sc-label">Pass %</div><div class="sc-value">{service.result2026.class10.passPercentage}</div></div>
+                <div class="stat-card"><div class="sc-label">Girls</div><div class="sc-value">{service.result2026.class10.girlsPassPercentage}</div></div>
+                <div class="stat-card"><div class="sc-label">Boys</div><div class="sc-value">{service.result2026.class10.boysPassPercentage}</div></div>
+                <div class="stat-card"><div class="sc-label">Students</div><div class="sc-value">{service.result2026.class10.totalStudentsAppeared}</div></div>
+              </div>
+              <div class="result-detail"><b>Exam:</b> {service.result2026.class10.examDates} ({service.result2026.class10.examTiming})</div>
+              <div class="result-detail"><b>Result:</b> {service.result2026.class10.resultDate}</div>
+              <div class="result-detail"><b>Top District:</b> {service.result2026.class10.topDistrict}</div>
+              {service.result2026.class10.toppers && <div class="result-detail"><b>Toppers:</b> {service.result2026.class10.toppers}</div>}
+            </div>
+          )}
+          {service.result2026.class12 && (
+            <div class="result-block">
+              <h3 class="rbse-stream">Class 12th</h3>
+              <div class="stat-cards">
+                <div class="stat-card"><div class="sc-label">Overall</div><div class="sc-value">{service.result2026.class12.overallPassPercentage}</div></div>
+                {service.result2026.class12.streams && Object.entries(service.result2026.class12.streams).map(([stream, pct]) => (
+                  <div class="stat-card"><div class="sc-label">{stream}</div><div class="sc-value">{pct}</div></div>
+                ))}
+              </div>
+              <div class="result-detail"><b>Exam:</b> {service.result2026.class12.examDates}</div>
+              <div class="result-detail"><b>Result:</b> {service.result2026.class12.resultDate}</div>
+              <div class="result-detail"><b>Top Districts:</b> {service.result2026.class12.topDistricts}</div>
+              {service.result2026.class12.toppers && (
+                <div class="toppers-grid">
+                  {Object.entries(service.result2026.class12.toppers).map(([stream, info]) => (
+                    <div class="topper-card"><div class="topper-stream">{stream}</div><div class="topper-name">{info}</div></div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+          {service.result2026.class5 && (
+            <div class="result-block">
+              <h3 class="rbse-stream">Class 5th & 8th</h3>
+              <div class="stat-cards">
+                <div class="stat-card"><div class="sc-label">Class 5 Pass</div><div class="sc-value">{service.result2026.class5.passPercentage}</div></div>
+                <div class="stat-card"><div class="sc-label">Class 8 Pass</div><div class="sc-value">{service.result2026.class8.passPercentage}</div></div>
+              </div>
+              <div class="result-detail"><b>Portal:</b> rajshaladarpan.nic.in</div>
+              <div class="result-detail"><b>Result:</b> {service.result2026.class5.resultDate}</div>
+            </div>
+          )}
+        </div>
+      )}
+
+      <!-- Grading System -->
+      {service.gradingSystem && (
+        <div class="d-section">
+          <h2 class="d-h">Grading System</h2>
+          <div class="grading-grid">
+            {Object.entries(service.gradingSystem).map(([grade, desc]) => (
+              <div class="grade-card"><div class="grade-letter">{grade}</div><div class="grade-desc">{desc}</div></div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Supplementary Exam -->
+      {service.supplementaryExam && (
+        <div class="d-section">
+          <h2 class="d-h">Supplementary Exam 2026</h2>
+          <div class="supp-box">
+            <div class="supp-row"><b>Eligibility:</b> {service.supplementaryExam.eligibility}</div>
+            <div class="supp-row"><b>Form Dates:</b> {service.supplementaryExam.formDates}</div>
+            <div class="supp-row"><b>Practical:</b> {service.supplementaryExam.practicalExamDate}</div>
+            <div class="supp-row"><b>Theory:</b> {service.supplementaryExam.theoryExamDates}</div>
+            <div class="supp-row"><b>Result:</b> {service.supplementaryExam.resultExpected}</div>
+            {service.supplementaryExam.importantNote && (
+              <div class="supp-note">{service.supplementaryExam.importantNote}</div>
+            )}
+          </div>
+        </div>
+      )}
+
+      <!-- District-wise Top 10 -->
+      {service.districtWiseTop10 && (
+        <div class="d-section">
+          <h2 class="d-h">Top 10 Districts (10th Pass %)</h2>
+          <div class="district-list">
+            {service.districtWiseTop10.map((d, i) => (
+              <div class="district-item"><span class="dist-rank">#{i + 1}</span><span>{d}</span></div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- FAQ -->
+      {service.faq && service.faq.length > 0 && (
+        <div class="d-section">
+          <h2 class="d-h">अक्सर पूछे जाने वाले सवाल (FAQ)</h2>
+          <div class="faq-section">
+            {service.faq.map(item => (
+              <details class="faq-item">
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- portal button -->
+      <div class="d-section">
+        <h2 class="d-h">Official Portal</h2>
+        <div class="portal-row">
+          <a href={service.portalUrl} target="_blank" rel="noopener" class="btn-primary">
+            {service.portalName} →
+          </a>
+        </div>
+      </div>
+
+      <!-- related services -->
+      {related.length > 0 && (
+        <div class="d-section">
+          <h2 class="d-h">संबंधित सेवाएं</h2>
+          <div class="related-grid">
+            {related.map(r => (
+              <a href={`/raj/${r.slug}`} class="related-card">
+                <span class="related-icon">{r.icon}</span>
+                <div>
+                  <div class="related-hi">{r.titleHi}</div>
+                  <div class="related-en">{r.titleEn}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- disclaimer -->
+      <div class="sim-note">
+        <p>⚠️ यह गाइड सामान्य जानकारी के लिए है। असली प्रक्रिया और फीस में बदलाव हो सकता है — हमेशा official portal देखें। डेटा अगस्त 2026 तक updated है।</p>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .key-points-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .key-point-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .kp-icon {
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .faq-section {
+      display: grid;
+      gap: 8px;
+    }
+    .faq-item {
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--card);
+    }
+    .faq-item summary {
+      padding: 14px 16px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--saffron);
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after {
+      content: '−';
+    }
+    .faq-item p {
+      padding: 0 16px 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--body);
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .related-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--body);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .related-card:hover {
+      border-color: var(--saffron);
+      box-shadow: 0 2px 12px rgba(255,107,53,.1);
+    }
+    .related-icon {
+      font-size: 28px;
+    }
+    .related-hi {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    .related-en {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    /* Processing Time */
+    .proc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .proc-card {
+      padding: 14px 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .proc-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .proc-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--strong);
+    }
+    /* Comparison Table */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .comp-table th {
+      background: var(--bg);
+      font-weight: 700;
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 2px solid var(--hairline);
+    }
+    .comp-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+    .comp-table td:first-child {
+      font-weight: 600;
+      color: var(--strong);
+    }
+    /* Types Grid */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .type-card {
+      padding: 14px 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .type-key {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--saffron);
+      margin-bottom: 4px;
+    }
+    .type-val {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--body);
+    }
+    .types-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .types-list li {
+      padding: 12px 14px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    /* Update Limits */
+    .limits-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .limit-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .limit-key {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--strong);
+    }
+    .limit-val {
+      font-size: 15px;
+      color: var(--body);
+      text-align: right;
+      max-width: 60%;
+    }
+    /* Important Dates */
+    .dates-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .date-card {
+      padding: 10px 14px;
+      background: var(--card);
+      border-left: 3px solid var(--saffron);
+      border-radius: 0 10px 10px 0;
+    }
+    .date-key {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .date-val {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--strong);
+    }
+    /* Eligibility */
+    .elig-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .elig-list li {
+      padding: 12px 14px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      font-size: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .elig-list li::before {
+      content: '✓';
+      color: var(--saffron);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    /* Linked Schemes */
+    .linked-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .linked-chip {
+      padding: 8px 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--strong);
+    }
+    /* Helpline */
+    .helpline-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(255,107,53,.08), rgba(255,107,53,.03));
+      border: 1px solid rgba(255,107,53,.2);
+      border-radius: 12px;
+    }
+    .hl-icon {
+      font-size: 24px;
+    }
+    .hl-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--saffron);
+      letter-spacing: .5px;
+    }
+    /* Rejection Reasons */
+    .reject-box {
+      padding: 4px 0;
+    }
+    .reject-box ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .reject-box li {
+      padding: 12px 14px;
+      background: rgba(239,68,68,.04);
+      border: 1px solid rgba(239,68,68,.15);
+      border-radius: 10px;
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .reject-box li::before {
+      content: '✗';
+      color: #ef4444;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    /* RBSE Result Stats */
+    .result-block {
+      padding: 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+    .rbse-stream {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--saffron);
+      margin-bottom: 12px;
+      letter-spacing: .5px;
+    }
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stat-card {
+      padding: 12px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .sc-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .sc-value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--success);
+    }
+    .result-detail {
+      font-size: 14px;
+      color: var(--body);
+      padding: 4px 0;
+    }
+    .result-detail b {
+      color: var(--strong);
+    }
+    .toppers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .topper-card {
+      padding: 10px 12px;
+      background: rgba(255,193,7,.08);
+      border: 1px solid rgba(255,193,7,.3);
+      border-radius: 8px;
+    }
+    .topper-stream {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .topper-name {
+      font-size: 13px;
+      color: var(--strong);
+    }
+    /* Grading System */
+    .grading-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 8px;
+    }
+    .grade-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+    }
+    .grade-letter {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--saffron);
+      min-width: 28px;
+    }
+    .grade-desc {
+      font-size: 13px;
+      color: var(--body);
+    }
+    /* Supplementary Exam */
+    .supp-box {
+      padding: 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+    }
+    .supp-row {
+      padding: 6px 0;
+      font-size: 14px;
+      color: var(--body);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .supp-row:last-child { border-bottom: none; }
+    .supp-row b { color: var(--strong); }
+    .supp-note {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: rgba(239,68,68,.06);
+      border: 1px solid rgba(239,68,68,.2);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--strong);
+    }
+    /* District List */
+    .district-list {
+      display: grid;
+      gap: 6px;
+    }
+    .district-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .dist-rank {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--saffron);
+      min-width: 24px;
+    }
+  </style>
+</BaseLayout>
+
+<script is:inline>
+(function() {
+  var checkboxes = document.querySelectorAll('#docList input[type="checkbox"]');
+  var prog = document.getElementById('docProg');
+  function updateProgress() {
+    var checked = 0;
+    checkboxes.forEach(function(cb) { if (cb.checked) checked++; });
+    var pct = checkboxes.length ? Math.round((checked / checkboxes.length) * 100) : 0;
+    if (prog) prog.style.width = pct + '%';
+  }
+  checkboxes.forEach(function(cb) { cb.addEventListener('change', updateProgress); });
+})();
+</script>

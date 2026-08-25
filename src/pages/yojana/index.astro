@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import yojanas from '../../data/yojana.json';
+
+const categories = [...new Set(yojanas.map(y => y.category))];
+const categoryLabels = {
+  housing: 'Housing',
+  employment: 'Employment',
+  education: 'Education',
+  health: 'Health',
+  agriculture: 'Agriculture',
+  women: 'Women',
+  youth: 'Youth',
+  social: 'Social Security'
+};
+const categoryIcons = {
+  housing: '🏠',
+  employment: '💼',
+  education: '📚',
+  health: '🏥',
+  agriculture: '🌾',
+  women: '👩',
+  youth: '🧑',
+  social: '🛡️'
+};
+---
+
+<BaseLayout
+  title="Sarkari Yojana 2026 | सरकारी योजनाएँ | Sarkari Sahayak"
+  description="50+ सरकारी योजनाएँ — PM Awas, MGNREGA, Ayushman Bharat, PM Kisan, Ujjwala। हर योजना की पूरी जानकारी हिंदी में। Apply Online, Eligibility, Benefits।"
+  canonical="/yojana"
+>
+  <section class="section">
+    <div class="container">
+      <div class="section-head center-head">
+        <span class="section-label">Sarkari Yojana 2026</span>
+        <h1 class="section-title">सरकारी योजनाएँ</h1>
+        <p class="section-sub">Housing, Employment, Education, Health — सभी सरकारी योजनाओं की जानकारी एक जगह</p>
+      </div>
+
+      <div class="chips-row" id="yojanaFilters" role="group" aria-label="Yojana category filters">
+        <button type="button" class="chip active" data-filter="all">
+          All<span class="cnt">{yojanas.length}</span>
+        </button>
+        {categories.map(cat => (
+          <button type="button" class="chip" data-filter={cat}>
+            {categoryIcons[cat]} {categoryLabels[cat] || cat}
+            <span class="cnt">{yojanas.filter(y => y.category === cat).length}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="search-wrap" style="margin:var(--sp-lg) auto 0;">
+        <div class="search-bar">
+          <input type="text" id="yojanaSearch" placeholder="योजना खोजें... (जैसे PM Kisan, Ayushman, MGNREGA)" autocomplete="off" />
+          <button class="search-btn" type="button">Search</button>
+        </div>
+      </div>
+
+      <div class="yojana-grid" id="yojanaGrid">
+        {yojanas.map((yojana) => (
+          <a href={`/yojana/${yojana.slug}`} class="yojana-card" data-category={yojana.category} data-name={yojana.name.toLowerCase()}>
+            <div class="ycat-badge">{categoryIcons[yojana.category]} {categoryLabels[yojana.category]}</div>
+            <h3 class="yname">{yojana.name}</h3>
+            <div class="yministry">{yojana.ministry}</div>
+            <div class="ydesc">{yojana.shortDescription}</div>
+            <div class="ymeta">
+              <span class="ym-chip">📅 {yojana.launchDate}</span>
+              {yojana.budget !== 'N/A' && <span class="ym-chip budget">💰 {yojana.budget}</span>}
+            </div>
+            <span class="yarrow">→</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="no-results" id="noResults" style="display:none;">
+        <em>कोई योजना नहीं मिली।</em> कृपया अलग keyword से खोजें।
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var filterBtns = document.querySelectorAll('#yojanaFilters .chip');
+    var cards = document.querySelectorAll('#yojanaGrid .yojana-card');
+    var searchInput = document.getElementById('yojanaSearch');
+    var noResults = document.getElementById('noResults');
+    var activeCategory = 'all';
+
+    function applyFilters() {
+      var query = (searchInput.value || '').toLowerCase().trim();
+      var visible = 0;
+
+      cards.forEach(function(card) {
+        var cardCat = card.getAttribute('data-category');
+        var cardName = card.getAttribute('data-name');
+        var catMatch = activeCategory === 'all' || cardCat === activeCategory;
+        var searchMatch = !query || cardName.indexOf(query) !== -1;
+
+        if (catMatch && searchMatch) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      noResults.style.display = visible === 0 ? '' : 'none';
+    }
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeCategory = btn.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', applyFilters);
+  });
+  </script>
+
+  <style>
+    .yojana-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-lg);
+      margin-top: var(--sp-xl);
+    }
+
+    .yojana-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      padding: var(--sp-lg);
+      cursor: pointer;
+      overflow: hidden;
+      text-decoration: none;
+      transition: border-color .3s ease, transform .3s ease;
+    }
+    .yojana-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 4px;
+      width: 100%;
+      background: var(--m-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s ease;
+    }
+    .yojana-card:hover {
+      border-color: #fff;
+      transform: translateY(-4px);
+    }
+    html[data-theme="light"] .yojana-card:hover { border-color: #14151a; }
+    .yojana-card:hover::after { transform: scaleX(1); }
+
+    .ycat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--saffron);
+      padding: 4px 10px;
+      border: 1px solid rgba(255,107,53,.4);
+      background: rgba(255,107,53,.06);
+      width: fit-content;
+    }
+
+    .yname {
+      font-family: var(--font-hindi);
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 1.3;
+      color: var(--white);
+    }
+    .yministry {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--m-blue-light);
+    }
+    html[data-theme="light"] .yministry { color: var(--m-blue-dark); }
+
+    .ydesc {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--body);
+      line-height: 1.6;
+    }
+
+    .ymeta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-xs);
+      margin-top: auto;
+      padding-top: var(--sp-xs);
+    }
+    .ym-chip {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--hairline);
+      color: var(--muted);
+    }
+    .ym-chip.budget {
+      color: var(--gold);
+      border-color: rgba(255,193,7,.4);
+    }
+
+    .yarrow {
+      position: absolute;
+      top: var(--sp-md);
+      right: var(--sp-md);
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1;
+      transition: .3s;
+    }
+    .yojana-card:hover .yarrow {
+      color: var(--saffron);
+      transform: translate(3px, -3px);
+    }
+
+    .search-wrap {
+      width: min(640px, 100%);
+    }
+
+    @media (max-width: 1024px) {
+      .yojana-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .yojana-grid { grid-template-columns: 1fr; }
+      .yname { font-size: 17px; }
+    }
+  </style>
+</BaseLayout>

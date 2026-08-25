@@ -1,0 +1,5102 @@
+[
+  {
+    "date": "2026-08-01",
+    "title": "1 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Digital India Act 2026 का मुख्य प्रावधान क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "One Nation One Election का समर्थन किस पार्टी ने किया?",
+        "answer": "BJP और NDA के सहयोगी",
+        "explanation": "एक साथ चुनाव कराने का प्रस्ताव",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "India-UAE Comprehensive Economic Partnership Agreement (CEPA) के तहत क्या लाभ है?",
+        "answer": "90% वस्तुओं पर शून्य शुल्क",
+        "explanation": "द्विपक्षीय व्यापार को बढ़ावा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ASEAN शिखर सम्मेलन 2026 में भारत का प्रतिनिधित्व किसने किया?",
+        "answer": "प्रधानमंत्री नरेंद्र मोदी",
+        "explanation": "इंडोनेशिया में आयोजित",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Electric Vehicles की बिक्री में कौन सी कंपनी अग्रणी है?",
+        "answer": "Tata Motors",
+        "explanation": "Nexon EV सबसे ज्यादा बिकने वाली EV",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IT सेक्टर में भारत का निर्यात कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार रिकॉर्ड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का अगला मंगल मिशन क्या है?",
+        "answer": "मंगलयान-2 (Mars Orbiter Mission 2)",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन करेगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए mRNA वैक्सीन विकसित की?",
+        "answer": "टीबी (Tuberculosis)",
+        "explanation": "भारत में पहली mRNA TB वैक्सीन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC U19 Cricket World Cup 2026 में भारत ने क्या किया?",
+        "answer": "विजेता बना (ऑस्ट्रेलिया को हराया)",
+        "explanation": "भारत ने 5वीं बार खिताब जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Games 2022 (हांगझू) में भारत ने कुल कितने पदक जीते?",
+        "answer": "107 पदक",
+        "explanation": "कुश्ती, बॉक्सिंग और एथलेटिक्स में अच्छा प्रदर्शन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Commonwealth Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "61 पदक (22 स्वर्ण)",
+        "explanation": "बर्मिंघम में शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Formula 1 में भारतीय ड्राइवर कौन खेल रहा है?",
+        "answer": "जहीर खान (F2 से F1 तक)",
+        "explanation": "भारत का पहला F1 ड्राइवर 2026 में",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Digital Personal Data Protection Act (DPDPA) 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "नागरिकों के डेटा की सुरक्षा",
+        "explanation": "डेटा फिड्यूशरी की नियुक्ति अनिवार्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "NATO में कौन सा नया सदस्य शामिल हुआ?",
+        "answer": "स्वीडन",
+        "explanation": "2024 में NATO का 32वां सदस्य बना",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Nifty Bank इंडेक्स ने कौन सा स्तर तोड़ा?",
+        "answer": "50,000 अंक",
+        "explanation": "बैंकिंग सेक्टर में जबरदस्त तेजी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SpaceX का Starship किस मिशन के लिए तैयार है?",
+        "answer": "Mars Mission (2028)",
+        "explanation": "मंगल ग्रह पर मानव बस्ती का पहला चरण",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "FIH Hockey World Cup 2026 में भारत का प्रदर्शन?",
+        "answer": "कांस्य पदक",
+        "explanation": "नीदरलैंड से सेमीफाइनल में हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "नोबेल पुरस्कार 2025 में किस भारतीय मूल के वैज्ञानिक को सम्मानित किया गया?",
+        "answer": "डॉ. अभिजीत बनर्जी (अर्थशास्त्र)",
+        "explanation": "विकासशील देशों में गरीबी उन्मूलन पर कार्य के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सा राज्य 'ODF Plus' श्रेणी में अग्रणी है?",
+        "answer": "तमिलनाडु",
+        "explanation": "स्वच्छता में उत्कृष्ट प्रदर्शन",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत में EV (Electric Vehicle) की बिक्री में कितनी वृद्धि हुई?",
+        "answer": "150% वार्षिक वृद्धि",
+        "explanation": "सरकारी सब्सिडी के कारण EV की मांग बढ़ी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AI क्षेत्र में भारत की स्थिति कैसी है?",
+        "answer": "विश्व में तीसरा सबसे बड़ा AI मार्केट",
+        "explanation": "अमेरिका और चीन के बाद भारत तीसरे स्थान पर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC U19 Cricket World Cup 2026 में भारत ने क्या किया?",
+        "answer": "विजेता बना (ऑस्ट्रेलिया को हराया)",
+        "explanation": "भारत ने 5वीं बार खिताब जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-02",
+    "title": "2 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "UCC (Uniform Civil Code) किस राज्य में लागू हुआ?",
+        "answer": "उत्तराखंड",
+        "explanation": "भारत में पहला राज्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "PM-KISAN योजना में किसानों को कितना भुगतान किया जाता है?",
+        "answer": "₹6,000 वार्षिक (तीन किस्तों में ₹2,000)",
+        "explanation": "सीधे किसानों के बैंक खाते में",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "QUAD Summit 2026 में कौन सी नई पहल शुरू हुई?",
+        "answer": "印太 Infrastructure Connectivity Initiative",
+        "explanation": "बुनियादी ढांचे में निवेश",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "WTO में भारत ने किस मुद्दे पर विरोध दर्ज किया?",
+        "answer": "कृषि सब्सिडी पर विकसित देशों की नीति",
+        "explanation": "विकासशील देशों के हितों की रक्षा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Share Market में FPI (Foreign Portfolio Investment) में कितनी वृद्धि हुई?",
+        "answer": "25,000 करोड़ रुपये (मासिक)",
+        "explanation": "विदेशी निवेशकों का भारत में भरोसा बढ़ा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "GST काउंसिल की बैठक में क्या निर्णय लिया गया?",
+        "answer": "रेडीमेड कपड़ों पर GST 12% से घटाकर 5%",
+        "explanation": "कपड़ा उद्योग को राहत",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का SSLV (Small Satellite Launch Vehicle) क्या है?",
+        "answer": "छोटे उपग्रहों के लिए सस्ता रॉकेट",
+        "explanation": "500 किग्रा तक पेलोड क्षमता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का Aditya-L1 मिशन क्या करेगा?",
+        "answer": "सूर्य का अध्ययन",
+        "explanation": "लैग्रेंज पॉइंट L1 पर सूर्य की निगरानी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC महिला विश्व कप 2026 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "फाइनल में पहुंचा, उप-विजेता",
+        "explanation": "ऑस्ट्रेलिया ने फाइनल जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Thomas Cup 2026 में भारतीय बैडमिंटन टीम का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंची",
+        "explanation": "पुरुष टीम ने शानदार खेल दिखाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Para Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "111 पदक (29 स्वर्ण)",
+        "explanation": "पैरा एथलीटों का शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "नोबेल पुरस्कार 2025 में किस भारतीय मूल के वैज्ञानिक को सम्मानित किया गया?",
+        "answer": "डॉ. अभिजीत बनर्जी (अर्थशास्त्र)",
+        "explanation": "विकासशील देशों में गरीबी उन्मूलन पर कार्य के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने August 2026 में कौन सी नई योजना शुरू की?",
+        "answer": "विकसित भारत @2047 मिशन",
+        "explanation": "आज़ादी के 100 साल तक विकसित भारत का लक्ष्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "China-Taiwan तनाव पर भारत की स्थिति क्या है?",
+        "answer": "एक चीन नीति का समर्थन",
+        "explanation": "शांतिपूर्ण समाधान की वकालत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GSTN (GST Network) ने कौन सी नई सुविधा शुरू की?",
+        "answer": "e-Invoice 2.0 (₹5 करोड़ से ऊपर)",
+        "explanation": "इनवॉइस जनरेशन में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का Europa Clipper मिशन क्या है?",
+        "answer": "बृहस्पति के चंद्रमा Europa पर जीवन की खोज",
+        "explanation": "2024 में लॉन्च, 2030 में पहुंचेगा",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Champions Trophy हॉकी में भारत ने कौन सा पदक जीता?",
+        "answer": "स्वर्ण पदक",
+        "explanation": "पाकिस्तान को फाइनल में हराया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sachin Tendulkar को कौन सा नया सम्मान मिला?",
+        "answer": "Bharat Ratna (2024)",
+        "explanation": "क्रिकेट में योगदान के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital Personal Data Protection Act (DPDPA) 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "नागरिकों के डेटा की सुरक्षा",
+        "explanation": "डेटा फिड्यूशरी की नियुक्ति अनिवार्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "SEBI ने किस नए नियम को लागू किया है?",
+        "answer": "शॉर्ट सेलिंग पर प्रतिबंध",
+        "explanation": "बाजार में स्थिरता लाने के लिए यह कदम",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "quantum computing में भारत की प्रगति कैसी है?",
+        "answer": "IIT मुंबई ने पहला क्वांटम कंप्यूटर विकसित किया",
+        "explanation": "56 क्यूबिट प्रोसेसर बनाया गया",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC महिला विश्व कप 2026 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "फाइनल में पहुंचा, उप-विजेता",
+        "explanation": "ऑस्ट्रेलिया ने फाइनल जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-03",
+    "title": "3 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Swachh Bharat Mission 2.0 का लक्ष्य क्या है?",
+        "answer": "2026 तक सभी शहरों को ODF Plus घोषित करना",
+        "explanation": "ओपन डेफेकेशन फ्री प्लस श्रेणी",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Data Protection Bill 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "Digital Personal Data Protection Act (DPDPA)",
+        "explanation": "नागरिकों के डेटा की सुरक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Japan के प्रधानमंत्री कौन बने?",
+        "answer": "शिगेरु इशिबा",
+        "explanation": "Fumio Kishida की जगह ली",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "G7 देशों ने AI Safety Pact पर क्या सहमति जताई?",
+        "answer": "AI के जोखिमों पर अंतर्राष्ट्रीय मानक बनाना",
+        "explanation": "सभी G7 देश AI सुरक्षा के लिए सहमत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "SWAMIH Investment Fund का उद्देश्य क्या है?",
+        "answer": "अटकी हुई रियल एस्टेट परियोजनाओं को पूरा करना",
+        "explanation": "₹25,000 करोड़ का फंड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "RBI ने रेपो दर में कितने आधार अंकों की कटौती की?",
+        "answer": "25 बेसिस पॉइंट्स (0.25%)",
+        "explanation": "रेपो दर अब 6.00% हो गई है",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का NGLV (Next Generation Launch Vehicle) क्या है?",
+        "answer": "भारत का सबसे शक्तिशाली रॉकेट",
+        "explanation": "10 टन पेलोड को LEO में भेज सकता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ISRO का PSLV-C60 रॉकेट किस मिशन के लिए प्रयोग किया गया?",
+        "answer": "SPADEX (Space Docking Experiment)",
+        "explanation": "अंतरिक्ष में डॉकिंग तकनीक विकसित करना",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "BCCI ने किस खिलाड़ी को T20I कप्तान बनाया?",
+        "answer": "सूर्यकुमार यादव",
+        "explanation": "रोहित शर्मा के बाद नए कप्तान",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "FIH Hockey World Cup 2026 में भारत का प्रदर्शन?",
+        "answer": "कांस्य पदक",
+        "explanation": "नीदरलैंड से सेमीफाइनल में हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "COVID-19 के बाद भारत का टीकाकरण अभियान कैसा रहा?",
+        "answer": "220 करोड़+ खुराकें",
+        "explanation": "विश्व का सबसे बड़ा टीकाकरण अभियान",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sachin Tendulkar को कौन सा नया सम्मान मिला?",
+        "answer": "Bharat Ratna (2024)",
+        "explanation": "क्रिकेट में योगदान के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital India Act 2026 का मुख्य प्रावधान क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "India-UAE Comprehensive Economic Partnership Agreement (CEPA) के तहत क्या लाभ है?",
+        "answer": "90% वस्तुओं पर शून्य शुल्क",
+        "explanation": "द्विपक्षीय व्यापार को बढ़ावा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया कॉर्पोरेट टैक्स रेट क्या है?",
+        "answer": "25.17% (सभी कंपनियों के लिए)",
+        "explanation": "विनिर्माण क्षेत्र के लिए 17.16%",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का James Webb Space Telescope क्या खोज रहा है?",
+        "answer": "बाहरी ग्रहों पर जीवन के संकेत",
+        "explanation": "KEPLER-442b पर जैविक गैसें मिलीं",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "WPL (Women's Premier League) 2026 की विजेता कौन रही?",
+        "answer": "Mumbai Indians",
+        "explanation": "दूसरे सीजन में चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Super 30 के संस्थापक कौन हैं?",
+        "answer": "आनंद कुमार",
+        "explanation": "गरीब छात्रों को IIT की तैयारी कराते हैं",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने August 2026 में कौन सी नई योजना शुरू की?",
+        "answer": "विकसित भारत @2047 मिशन",
+        "explanation": "आज़ादी के 100 साल तक विकसित भारत का लक्ष्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Digital Tax (Equalization Levy) की दर क्या है?",
+        "answer": "2%",
+        "explanation": "विदेशी डिजिटल कंपनियों पर कर",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने कौन सी नई तकनीक का विकास किया?",
+        "answer": "AI-based Cancer Detection System",
+        "explanation": "95% सटीकता के साथ कैंसर का पता लगाता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "BCCI ने किस खिलाड़ी को T20I कप्तान बनाया?",
+        "answer": "सूर्यकुमार यादव",
+        "explanation": "रोहित शर्मा के बाद नए कप्तान",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-04",
+    "title": "4 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Ayushman Bharat योजना के तहत कितने लोगों को लाभ मिला?",
+        "answer": "50 करोड़+ लोग",
+        "explanation": "स्वास्थ्य बीमा योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "National Infrastructure Pipeline (NIP) का कुल निवेश कितना है?",
+        "answer": "₹111 लाख करोड़",
+        "explanation": "2020-25 के लिए बुनियादी ढांचा निवेश",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G7 शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "इटली (पुगलिया)",
+        "explanation": "G7 नेताओं की बैठक",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "PM मोदी ने कौन सा नया अंतर्राष्ट्रीय मंच शुरू किया?",
+        "answer": "Global South Summit",
+        "explanation": "विकासशील देशों का मंच",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NPS (National Pension System) में कौन सा नया विकल्प जोड़ा गया?",
+        "answer": "Auto-Choice Life Cycle Fund",
+        "explanation": "उम्र के हिसाब से स्वचालित निवेश",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "GST कलेक्शन 2026 में कितने लाख करोड़ रुपये रहा?",
+        "answer": "2.1 लाख करोड़ रुपये (मासिक औसत)",
+        "explanation": "जीएसटी संग्रह में लगातार वृद्धि",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए Gene Therapy शुरू की?",
+        "answer": "सिकल सेल एनीमिया",
+        "explanation": "भारत में पहली बार जीन थेरेपी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Gaganyaan मिशन में कौन सा रोबोट जाएगा?",
+        "answer": "व्योममित्र (Vyommitra)",
+        "explanation": "मानव जैसा रोबोट अंतरिक्ष में जाएगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC महिला T20 विश्व कप 2024 में भारत का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंचा",
+        "explanation": "ऑस्ट्रेलिया से हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Champions Trophy हॉकी में भारत ने कौन सा पदक जीता?",
+        "answer": "स्वर्ण पदक",
+        "explanation": "पाकिस्तान को फाइनल में हराया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "किस राज्य ने 'फ्री टैबलेट' योजना शुरू की है?",
+        "answer": "उत्तर प्रदेश",
+        "explanation": "कक्षा 9-12 के छात्रों को मुफ्त टैबलेट",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Super 30 के संस्थापक कौन हैं?",
+        "answer": "आनंद कुमार",
+        "explanation": "गरीब छात्रों को IIT की तैयारी कराते हैं",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "UCC (Uniform Civil Code) किस राज्य में लागू हुआ?",
+        "answer": "उत्तराखंड",
+        "explanation": "भारत में पहला राज्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "QUAD Summit 2026 में कौन सी नई पहल शुरू हुई?",
+        "answer": "印太 Infrastructure Connectivity Initiative",
+        "explanation": "बुनियादी ढांचे में निवेश",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "EV Battery की कीमत में कितनी कमी आई?",
+        "answer": "20% सालाना गिरावट",
+        "explanation": "बैटरी तकनीक में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा सौर ऊर्जा उत्पादक बन गया है?",
+        "answer": "भारत",
+        "explanation": "भारत ने चीन को पीछे छोड़ दिया है",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "IPL 2026 की विजेता टीम कौन सी है?",
+        "answer": "Chennai Super Kings",
+        "explanation": "5वीं बार चैंपियन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सी भारतीय फिल्म ऑस्कर 2026 में नामांकित हुई?",
+        "answer": "RRR (दूसरी बार)",
+        "explanation": "बेस्ट इंटरनेशनल फीचर फिल्म श्रेणी में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital India Act 2026 का मुख्य प्रावधान क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Nifty Bank इंडेक्स ने कौन सा स्तर तोड़ा?",
+        "answer": "50,000 अंक",
+        "explanation": "बैंकिंग सेक्टर में जबरदस्त तेजी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SpaceX का Starship किस मिशन के लिए तैयार है?",
+        "answer": "Mars Mission (2028)",
+        "explanation": "मंगल ग्रह पर मानव बस्ती का पहला चरण",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC महिला T20 विश्व कप 2024 में भारत का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंचा",
+        "explanation": "ऑस्ट्रेलिया से हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-05",
+    "title": "5 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "One Nation One Election का समर्थन किस पार्टी ने किया?",
+        "answer": "BJP और NDA के सहयोगी",
+        "explanation": "एक साथ चुनाव कराने का प्रस्ताव",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Green Hydrogen Mission का लक्ष्य क्या है?",
+        "answer": "2030 तक 5 मिलियन टन उत्पादन",
+        "explanation": "हरित ऊर्जा को बढ़ावा देने की योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "ASEAN शिखर सम्मेलन 2026 में भारत का प्रतिनिधित्व किसने किया?",
+        "answer": "प्रधानमंत्री नरेंद्र मोदी",
+        "explanation": "इंडोनेशिया में आयोजित",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "US Presidential Election 2024 में किसने जीत हासिल की?",
+        "answer": "डोनाल्ड ट्रंप (Republican)",
+        "explanation": "दूसरी बार राष्ट्रपति चुने गए",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IT सेक्टर में भारत का निर्यात कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार रिकॉर्ड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का विदेशी मुद्रा भंडार कितने अरब डॉलर हो गया है?",
+        "answer": "700 अरब डॉलर",
+        "explanation": "RBI के अनुसार यह रिकॉर्ड स्तर है",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए mRNA वैक्सीन विकसित की?",
+        "answer": "टीबी (Tuberculosis)",
+        "explanation": "भारत में पहली mRNA TB वैक्सीन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Quantum Computing में IIT दिल्ली ने क्या हासिल किया?",
+        "answer": "72-क्यूबिट प्रोसेसर विकसित",
+        "explanation": "भारत का सबसे शक्तिशाली क्वांटम कंप्यूटर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Asian Games 2022 (हांगझू) में भारत ने कुल कितने पदक जीते?",
+        "answer": "107 पदक",
+        "explanation": "कुश्ती, बॉक्सिंग और एथलेटिक्स में अच्छा प्रदर्शन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "WPL (Women's Premier League) 2026 की विजेता कौन रही?",
+        "answer": "Mumbai Indians",
+        "explanation": "दूसरे सीजन में चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Formula 1 में भारतीय ड्राइवर कौन खेल रहा है?",
+        "answer": "जहीर खान (F2 से F1 तक)",
+        "explanation": "भारत का पहला F1 ड्राइवर 2026 में",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सी भारतीय फिल्म ऑस्कर 2026 में नामांकित हुई?",
+        "answer": "RRR (दूसरी बार)",
+        "explanation": "बेस्ट इंटरनेशनल फीचर फिल्म श्रेणी में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Swachh Bharat Mission 2.0 का लक्ष्य क्या है?",
+        "answer": "2026 तक सभी शहरों को ODF Plus घोषित करना",
+        "explanation": "ओपन डेफेकेशन फ्री प्लस श्रेणी",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Japan के प्रधानमंत्री कौन बने?",
+        "answer": "शिगेरु इशिबा",
+        "explanation": "Fumio Kishida की जगह ली",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Indian Oil Corporation ने कौन सी नई तकनीक अपनाई?",
+        "answer": "Green Hydrogen Production Plant",
+        "explanation": "चेन्नई में हरित हाइड्रोजन प्लांट",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Adani Group की कौन सी कंपनी IPO लेकर आई?",
+        "answer": "Adani Energy Solutions",
+        "explanation": "ऊर्जा क्षेत्र में निवेश का अवसर",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Pro Kabaddi League में कौन सी टीम चैंपियन बनी?",
+        "answer": "पटना पाइरेट्स",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय खेल प्राधिकरण (SAI) अध्यक्ष कौन है?",
+        "answer": "पी.टी. उषा",
+        "explanation": "पूर्व ओलंपियन को यह जिम्मेदारी दी गई",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "UCC (Uniform Civil Code) किस राज्य में लागू हुआ?",
+        "answer": "उत्तराखंड",
+        "explanation": "भारत में पहला राज्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "GSTN (GST Network) ने कौन सी नई सुविधा शुरू की?",
+        "answer": "e-Invoice 2.0 (₹5 करोड़ से ऊपर)",
+        "explanation": "इनवॉइस जनरेशन में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का Europa Clipper मिशन क्या है?",
+        "answer": "बृहस्पति के चंद्रमा Europa पर जीवन की खोज",
+        "explanation": "2024 में लॉन्च, 2030 में पहुंचेगा",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Games 2022 (हांगझू) में भारत ने कुल कितने पदक जीते?",
+        "answer": "107 पदक",
+        "explanation": "कुश्ती, बॉक्सिंग और एथलेटिक्स में अच्छा प्रदर्शन",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-06",
+    "title": "6 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "PM-KISAN योजना में किसानों को कितना भुगतान किया जाता है?",
+        "answer": "₹6,000 वार्षिक (तीन किस्तों में ₹2,000)",
+        "explanation": "सीधे किसानों के बैंक खाते में",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "कौन सा राज्य पहला 'वॉटर पॉजिटिव' राज्य बना?",
+        "answer": "मेघालय",
+        "explanation": "वर्षा जल संचयन में अग्रणी",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "WTO में भारत ने किस मुद्दे पर विरोध दर्ज किया?",
+        "answer": "कृषि सब्सिडी पर विकसित देशों की नीति",
+        "explanation": "विकासशील देशों के हितों की रक्षा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Japan-India Economic Partnership Agreement (EPA) का विस्तार किस क्षेत्र तक हुआ?",
+        "answer": "डिजिटल ट्रेड और सेवाएं",
+        "explanation": "ई-कॉमर्स और डेटा फ्लो शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GST काउंसिल की बैठक में क्या निर्णय लिया गया?",
+        "answer": "रेडीमेड कपड़ों पर GST 12% से घटाकर 5%",
+        "explanation": "कपड़ा उद्योग को राहत",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "IT क्षेत्र में भारत का निर्यात 2026 में कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार यह रिकॉर्ड है",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "ISRO का Aditya-L1 मिशन क्या करेगा?",
+        "answer": "सूर्य का अध्ययन",
+        "explanation": "लैग्रेंज पॉइंट L1 पर सूर्य की निगरानी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Quantum Key Distribution (QKD) में भारत ने क्या हासिल किया?",
+        "answer": "100 किमी तक सुरक्षित संचार",
+        "explanation": "अलौकिक संचार में सफलता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Thomas Cup 2026 में भारतीय बैडमिंटन टीम का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंची",
+        "explanation": "पुरुष टीम ने शानदार खेल दिखाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IPL 2026 की विजेता टीम कौन सी है?",
+        "answer": "Chennai Super Kings",
+        "explanation": "5वीं बार चैंपियन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "नोबेल पुरस्कार 2025 में किस भारतीय मूल के वैज्ञानिक को सम्मानित किया गया?",
+        "answer": "डॉ. अभिजीत बनर्जी (अर्थशास्त्र)",
+        "explanation": "विकासशील देशों में गरीबी उन्मूलन पर कार्य के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय खेल प्राधिकरण (SAI) अध्यक्ष कौन है?",
+        "answer": "पी.टी. उषा",
+        "explanation": "पूर्व ओलंपियन को यह जिम्मेदारी दी गई",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Ayushman Bharat योजना के तहत कितने लोगों को लाभ मिला?",
+        "answer": "50 करोड़+ लोग",
+        "explanation": "स्वास्थ्य बीमा योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G7 शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "इटली (पुगलिया)",
+        "explanation": "G7 नेताओं की बैठक",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Tesla ने भारत में कहां अपनी पहली फैक्ट्री लगाई?",
+        "answer": "गुजरात (साणंद)",
+        "explanation": "5 अरब डॉलर का निवेश",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का Mars Mission 2 कब लॉन्च होगा?",
+        "answer": "2028",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Wimbledon 2026 में किसने पुरुष एकल जीता?",
+        "answer": "कार्लोस अल्कराज (स्पेन)",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC Player of the Month जुलाई 2026 में कौन बनीं?",
+        "answer": "स्मृति मंधाना",
+        "explanation": "शानदार प्रदर्शन के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Swachh Bharat Mission 2.0 का लक्ष्य क्या है?",
+        "answer": "2026 तक सभी शहरों को ODF Plus घोषित करना",
+        "explanation": "ओपन डेफेकेशन फ्री प्लस श्रेणी",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत का नया कॉर्पोरेट टैक्स रेट क्या है?",
+        "answer": "25.17% (सभी कंपनियों के लिए)",
+        "explanation": "विनिर्माण क्षेत्र के लिए 17.16%",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का James Webb Space Telescope क्या खोज रहा है?",
+        "answer": "बाहरी ग्रहों पर जीवन के संकेत",
+        "explanation": "KEPLER-442b पर जैविक गैसें मिलीं",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Thomas Cup 2026 में भारतीय बैडमिंटन टीम का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंची",
+        "explanation": "पुरुष टीम ने शानदार खेल दिखाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-07",
+    "title": "7 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Data Protection Bill 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "Digital Personal Data Protection Act (DPDPA)",
+        "explanation": "नागरिकों के डेटा की सुरक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय मूल्यांकन संस्थान (NAE) कहां स्थापित किया गया?",
+        "answer": "नोएडा, उत्तर प्रदेश",
+        "explanation": "शिक्षा गुणवत्ता मूल्यांकन के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G7 देशों ने AI Safety Pact पर क्या सहमति जताई?",
+        "answer": "AI के जोखिमों पर अंतर्राष्ट्रीय मानक बनाना",
+        "explanation": "सभी G7 देश AI सुरक्षा के लिए सहमत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "India-UK Free Trade Agreement (FTA) किस क्षेत्र में है?",
+        "answer": "वस्तु और सेवा व्यापार",
+        "explanation": "₹20 लाख करोड़ का व्यापार लक्ष्य",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "RBI ने रेपो दर में कितने आधार अंकों की कटौती की?",
+        "answer": "25 बेसिस पॉइंट्स (0.25%)",
+        "explanation": "रेपो दर अब 6.00% हो गई है",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Nifty 50 इंडेक्स ने 2026 में कौन सा स्तर छुआ?",
+        "answer": "25,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का PSLV-C60 रॉकेट किस मिशन के लिए प्रयोग किया गया?",
+        "answer": "SPADEX (Space Docking Experiment)",
+        "explanation": "अंतरिक्ष में डॉकिंग तकनीक विकसित करना",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "AI क्षेत्र में भारत की स्थिति कैसी है?",
+        "answer": "विश्व में तीसरा सबसे बड़ा AI मार्केट",
+        "explanation": "अमेरिका और चीन के बाद भारत तीसरे स्थान पर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "FIH Hockey World Cup 2026 में भारत का प्रदर्शन?",
+        "answer": "कांस्य पदक",
+        "explanation": "नीदरलैंड से सेमीफाइनल में हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Pro Kabaddi League में कौन सी टीम चैंपियन बनी?",
+        "answer": "पटना पाइरेट्स",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sachin Tendulkar को कौन सा नया सम्मान मिला?",
+        "answer": "Bharat Ratna (2024)",
+        "explanation": "क्रिकेट में योगदान के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC Player of the Month जुलाई 2026 में कौन बनीं?",
+        "answer": "स्मृति मंधाना",
+        "explanation": "शानदार प्रदर्शन के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "One Nation One Election का समर्थन किस पार्टी ने किया?",
+        "answer": "BJP और NDA के सहयोगी",
+        "explanation": "एक साथ चुनाव कराने का प्रस्ताव",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ASEAN शिखर सम्मेलन 2026 में भारत का प्रतिनिधित्व किसने किया?",
+        "answer": "प्रधानमंत्री नरेंद्र मोदी",
+        "explanation": "इंडोनेशिया में आयोजित",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Electric Vehicles की बिक्री में कौन सी कंपनी अग्रणी है?",
+        "answer": "Tata Motors",
+        "explanation": "Nexon EV सबसे ज्यादा बिकने वाली EV",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "CERN ने कौन सी नई कण खोज की?",
+        "answer": "Pentaquark",
+        "explanation": "भौतिकी में ऐतिहासिक खोज",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Athletics Championship में भारत ने कितने स्वर्ण पदक जीते?",
+        "answer": "8 स्वर्ण पदक",
+        "explanation": "एशियाई एथलेटिक्स में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "UNESCO ने किस भारतीय शहर को Creative City घोषित किया?",
+        "answer": "वाराणसी (संगीत श्रेणी)",
+        "explanation": "वाराणसी को यह सम्मान 2024 में मिला था",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Ayushman Bharat योजना के तहत कितने लोगों को लाभ मिला?",
+        "answer": "50 करोड़+ लोग",
+        "explanation": "स्वास्थ्य बीमा योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "EV Battery की कीमत में कितनी कमी आई?",
+        "answer": "20% सालाना गिरावट",
+        "explanation": "बैटरी तकनीक में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा सौर ऊर्जा उत्पादक बन गया है?",
+        "answer": "भारत",
+        "explanation": "भारत ने चीन को पीछे छोड़ दिया है",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "FIH Hockey World Cup 2026 में भारत का प्रदर्शन?",
+        "answer": "कांस्य पदक",
+        "explanation": "नीदरलैंड से सेमीफाइनल में हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-08",
+    "title": "8 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "National Infrastructure Pipeline (NIP) का कुल निवेश कितना है?",
+        "answer": "₹111 लाख करोड़",
+        "explanation": "2020-25 के लिए बुनियादी ढांचा निवेश",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Ayodhya Ram Mandir की प्राण-प्रतिष्ठा कब हुई?",
+        "answer": "22 जनवरी 2024",
+        "explanation": "प्रधानमंत्री नरेंद्र मोदी ने प्राण-प्रतिष्ठा की",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "PM मोदी ने कौन सा नया अंतर्राष्ट्रीय मंच शुरू किया?",
+        "answer": "Global South Summit",
+        "explanation": "विकासशील देशों का मंच",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Sanghai Cooperation Organisation (SCO) का अध्यक्ष कौन बना?",
+        "answer": "भारत (2026 की अध्यक्षता)",
+        "explanation": "नई दिल्ली में शिखर सम्मेलन आयोजित",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GST कलेक्शन 2026 में कितने लाख करोड़ रुपये रहा?",
+        "answer": "2.1 लाख करोड़ रुपये (मासिक औसत)",
+        "explanation": "जीएसटी संग्रह में लगातार वृद्धि",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Sensex ने कौन सा मनोवैज्ञानिक स्तर पार किया?",
+        "answer": "80,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Gaganyaan मिशन में कौन सा रोबोट जाएगा?",
+        "answer": "व्योममित्र (Vyommitra)",
+        "explanation": "मानव जैसा रोबोट अंतरिक्ष में जाएगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "quantum computing में भारत की प्रगति कैसी है?",
+        "answer": "IIT मुंबई ने पहला क्वांटम कंप्यूटर विकसित किया",
+        "explanation": "56 क्यूबिट प्रोसेसर बनाया गया",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Asian Champions Trophy हॉकी में भारत ने कौन सा पदक जीता?",
+        "answer": "स्वर्ण पदक",
+        "explanation": "पाकिस्तान को फाइनल में हराया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Wimbledon 2026 में किसने पुरुष एकल जीता?",
+        "answer": "कार्लोस अल्कराज (स्पेन)",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Super 30 के संस्थापक कौन हैं?",
+        "answer": "आनंद कुमार",
+        "explanation": "गरीब छात्रों को IIT की तैयारी कराते हैं",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "UNESCO ने किस भारतीय शहर को Creative City घोषित किया?",
+        "answer": "वाराणसी (संगीत श्रेणी)",
+        "explanation": "वाराणसी को यह सम्मान 2024 में मिला था",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "PM-KISAN योजना में किसानों को कितना भुगतान किया जाता है?",
+        "answer": "₹6,000 वार्षिक (तीन किस्तों में ₹2,000)",
+        "explanation": "सीधे किसानों के बैंक खाते में",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "WTO में भारत ने किस मुद्दे पर विरोध दर्ज किया?",
+        "answer": "कृषि सब्सिडी पर विकसित देशों की नीति",
+        "explanation": "विकासशील देशों के हितों की रक्षा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Share Market में FPI (Foreign Portfolio Investment) में कितनी वृद्धि हुई?",
+        "answer": "25,000 करोड़ रुपये (मासिक)",
+        "explanation": "विदेशी निवेशकों का भारत में भरोसा बढ़ा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Gravitational Waves की खोज किस वैज्ञानिक ने की?",
+        "answer": "LIGO (Laser Interferometer Gravitational-Wave Observatory)",
+        "explanation": "2015 में पहली बार पता चला",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "World Athletics Championship 2026 में भारत ने कितने पदक जीते?",
+        "answer": "3 पदक (1 स्वर्ण, 1 रजत, 1 कांस्य)",
+        "explanation": "नीरज चोपड़ा ने स्वर्ण जीता",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का नया चुनाव आयुक्त कौन है?",
+        "answer": "राजीव कुमार",
+        "explanation": "मुख्य चुनाव आयुक्त के रूप में कार्यभार संभाला",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "One Nation One Election का समर्थन किस पार्टी ने किया?",
+        "answer": "BJP और NDA के सहयोगी",
+        "explanation": "एक साथ चुनाव कराने का प्रस्ताव",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Indian Oil Corporation ने कौन सी नई तकनीक अपनाई?",
+        "answer": "Green Hydrogen Production Plant",
+        "explanation": "चेन्नई में हरित हाइड्रोजन प्लांट",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Adani Group की कौन सी कंपनी IPO लेकर आई?",
+        "answer": "Adani Energy Solutions",
+        "explanation": "ऊर्जा क्षेत्र में निवेश का अवसर",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Asian Champions Trophy हॉकी में भारत ने कौन सा पदक जीता?",
+        "answer": "स्वर्ण पदक",
+        "explanation": "पाकिस्तान को फाइनल में हराया",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-09",
+    "title": "9 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Green Hydrogen Mission का लक्ष्य क्या है?",
+        "answer": "2030 तक 5 मिलियन टन उत्पादन",
+        "explanation": "हरित ऊर्जा को बढ़ावा देने की योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "कौन सा राज्य 'Smart City Mission' में अव्वल रहा?",
+        "answer": "इंदौर",
+        "explanation": "स्वच्छता में लगातार 6 बार नंबर 1",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "US Presidential Election 2024 में किसने जीत हासिल की?",
+        "answer": "डोनाल्ड ट्रंप (Republican)",
+        "explanation": "दूसरी बार राष्ट्रपति चुने गए",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ASEAN-India Free Trade Agreement (AIFTA) का विस्तार किस क्षेत्र तक हुआ?",
+        "answer": "डिजिटल ट्रेड और सेवाएं",
+        "explanation": "ई-कॉमर्स और डेटा फ्लो शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का विदेशी मुद्रा भंडार कितने अरब डॉलर हो गया है?",
+        "answer": "700 अरब डॉलर",
+        "explanation": "RBI के अनुसार यह रिकॉर्ड स्तर है",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "FPI (Foreign Portfolio Investors) ने भारत में कितना निवेश किया?",
+        "answer": "$25 बिलियन (YTD)",
+        "explanation": "विदेशी निवेशकों का भरोसा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Quantum Computing में IIT दिल्ली ने क्या हासिल किया?",
+        "answer": "72-क्यूबिट प्रोसेसर विकसित",
+        "explanation": "भारत का सबसे शक्तिशाली क्वांटम कंप्यूटर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने कौन सी नई तकनीक का विकास किया?",
+        "answer": "AI-based Cancer Detection System",
+        "explanation": "95% सटीकता के साथ कैंसर का पता लगाता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "WPL (Women's Premier League) 2026 की विजेता कौन रही?",
+        "answer": "Mumbai Indians",
+        "explanation": "दूसरे सीजन में चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Athletics Championship में भारत ने कितने स्वर्ण पदक जीते?",
+        "answer": "8 स्वर्ण पदक",
+        "explanation": "एशियाई एथलेटिक्स में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सी भारतीय फिल्म ऑस्कर 2026 में नामांकित हुई?",
+        "answer": "RRR (दूसरी बार)",
+        "explanation": "बेस्ट इंटरनेशनल फीचर फिल्म श्रेणी में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया चुनाव आयुक्त कौन है?",
+        "answer": "राजीव कुमार",
+        "explanation": "मुख्य चुनाव आयुक्त के रूप में कार्यभार संभाला",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Data Protection Bill 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "Digital Personal Data Protection Act (DPDPA)",
+        "explanation": "नागरिकों के डेटा की सुरक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G7 देशों ने AI Safety Pact पर क्या सहमति जताई?",
+        "answer": "AI के जोखिमों पर अंतर्राष्ट्रीय मानक बनाना",
+        "explanation": "सभी G7 देश AI सुरक्षा के लिए सहमत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "SWAMIH Investment Fund का उद्देश्य क्या है?",
+        "answer": "अटकी हुई रियल एस्टेट परियोजनाओं को पूरा करना",
+        "explanation": "₹25,000 करोड़ का फंड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO ने हाल ही में किस मिशन की सफलतापूर्वक लॉन्चिंग की?",
+        "answer": "चंद्रयान-4 (Lunar Sample Return Mission)",
+        "explanation": "यह चंद्रमा से नमूने वापस लाने का मिशन है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "FIFA U-17 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत",
+        "explanation": "भारत ने दूसरी बार यह टूर्नामेंट आयोजित किया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत की जीडीपी वृद्धि दर 2026 में कितनी रहने का अनुमान है?",
+        "answer": "7.2%",
+        "explanation": "विश्व बैंक के अनुसार यह अनुमान है",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "PM-KISAN योजना में किसानों को कितना भुगतान किया जाता है?",
+        "answer": "₹6,000 वार्षिक (तीन किस्तों में ₹2,000)",
+        "explanation": "सीधे किसानों के बैंक खाते में",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Tesla ने भारत में कहां अपनी पहली फैक्ट्री लगाई?",
+        "answer": "गुजरात (साणंद)",
+        "explanation": "5 अरब डॉलर का निवेश",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का Mars Mission 2 कब लॉन्च होगा?",
+        "answer": "2028",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "WPL (Women's Premier League) 2026 की विजेता कौन रही?",
+        "answer": "Mumbai Indians",
+        "explanation": "दूसरे सीजन में चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-10",
+    "title": "10 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "कौन सा राज्य पहला 'वॉटर पॉजिटिव' राज्य बना?",
+        "answer": "मेघालय",
+        "explanation": "वर्षा जल संचयन में अग्रणी",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Central Vista Project का नया नाम क्या रखा गया?",
+        "answer": "कर्तव्य पथ (Kartavya Path)",
+        "explanation": "राजपथ का नाम बदला गया",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Japan-India Economic Partnership Agreement (EPA) का विस्तार किस क्षेत्र तक हुआ?",
+        "answer": "डिजिटल ट्रेड और सेवाएं",
+        "explanation": "ई-कॉमर्स और डेटा फ्लो शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "BRICS बैंक ने भारत को कितने अरब डॉलर का ऋण दिया?",
+        "answer": "10 अरब डॉलर",
+        "explanation": "नवीकरणीय ऊर्जा परियोजनाओं के लिए",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IT क्षेत्र में भारत का निर्यात 2026 में कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार यह रिकॉर्ड है",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "UPI लेनदेन में भारत की वैश्विक स्थिति क्या है?",
+        "answer": "विश्व का सबसे बड़ा रियल-टाइम भुगतान प्लेटफॉर्म",
+        "explanation": "मासिक 15 अरब लेनदेन हो रहे हैं",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Quantum Key Distribution (QKD) में भारत ने क्या हासिल किया?",
+        "answer": "100 किमी तक सुरक्षित संचार",
+        "explanation": "अलौकिक संचार में सफलता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "SpaceX का Starship किस मिशन के लिए तैयार है?",
+        "answer": "Mars Mission (2028)",
+        "explanation": "मंगल ग्रह पर मानव बस्ती का पहला चरण",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IPL 2026 की विजेता टीम कौन सी है?",
+        "answer": "Chennai Super Kings",
+        "explanation": "5वीं बार चैंपियन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "World Athletics Championship 2026 में भारत ने कितने पदक जीते?",
+        "answer": "3 पदक (1 स्वर्ण, 1 रजत, 1 कांस्य)",
+        "explanation": "नीरज चोपड़ा ने स्वर्ण जीता",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय खेल प्राधिकरण (SAI) अध्यक्ष कौन है?",
+        "answer": "पी.टी. उषा",
+        "explanation": "पूर्व ओलंपियन को यह जिम्मेदारी दी गई",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत की जीडीपी वृद्धि दर 2026 में कितनी रहने का अनुमान है?",
+        "answer": "7.2%",
+        "explanation": "विश्व बैंक के अनुसार यह अनुमान है",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "National Infrastructure Pipeline (NIP) का कुल निवेश कितना है?",
+        "answer": "₹111 लाख करोड़",
+        "explanation": "2020-25 के लिए बुनियादी ढांचा निवेश",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "PM मोदी ने कौन सा नया अंतर्राष्ट्रीय मंच शुरू किया?",
+        "answer": "Global South Summit",
+        "explanation": "विकासशील देशों का मंच",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NPS (National Pension System) में कौन सा नया विकल्प जोड़ा गया?",
+        "answer": "Auto-Choice Life Cycle Fund",
+        "explanation": "उम्र के हिसाब से स्वचालित निवेश",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AI से संबंधित भारत का नया राष्ट्रीय मिशन क्या है?",
+        "answer": "INDIAai मिशन 2.0",
+        "explanation": "AI अनुसंधान और विकास को बढ़ावा देने के लिए",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Formula 1 Indian Grand Prix 2026 में किसने जीता?",
+        "answer": "मैक्स वेरस्टैपन (Red Bull Racing)",
+        "explanation": "बुद्ध इंटरनेशनल सर्किट पर जीत",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा लिथियम उत्पादक बन गया है?",
+        "answer": "चिली",
+        "explanation": "लिथियम बैटरी के लिए महत्वपूर्ण खनिज है",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Data Protection Bill 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "Digital Personal Data Protection Act (DPDPA)",
+        "explanation": "नागरिकों के डेटा की सुरक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Electric Vehicles की बिक्री में कौन सी कंपनी अग्रणी है?",
+        "answer": "Tata Motors",
+        "explanation": "Nexon EV सबसे ज्यादा बिकने वाली EV",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "CERN ने कौन सी नई कण खोज की?",
+        "answer": "Pentaquark",
+        "explanation": "भौतिकी में ऐतिहासिक खोज",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IPL 2026 की विजेता टीम कौन सी है?",
+        "answer": "Chennai Super Kings",
+        "explanation": "5वीं बार चैंपियन",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-11",
+    "title": "11 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "भारत का नया राष्ट्रीय मूल्यांकन संस्थान (NAE) कहां स्थापित किया गया?",
+        "answer": "नोएडा, उत्तर प्रदेश",
+        "explanation": "शिक्षा गुणवत्ता मूल्यांकन के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "कौन सी भारतीय कंपनी दुनिया की शीर्ष 5 कंपनियों में शामिल हुई?",
+        "answer": "रिलायंस इंडस्ट्रीज",
+        "explanation": "मार्केट कैप के मामले में यह उपलब्धि",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "India-UK Free Trade Agreement (FTA) किस क्षेत्र में है?",
+        "answer": "वस्तु और सेवा व्यापार",
+        "explanation": "₹20 लाख करोड़ का व्यापार लक्ष्य",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "G20 शिखर सम्मेलन 2026 का आयोजन किस देश में होगा?",
+        "answer": "दक्षिण अफ्रीका",
+        "explanation": "2025 में ब्राजील और 2026 में दक्षिण अफ्रीका की अध्यक्षता",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Nifty 50 इंडेक्स ने 2026 में कौन सा स्तर छुआ?",
+        "answer": "25,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत में EV (Electric Vehicle) की बिक्री में कितनी वृद्धि हुई?",
+        "answer": "150% वार्षिक वृद्धि",
+        "explanation": "सरकारी सब्सिडी के कारण EV की मांग बढ़ी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AI क्षेत्र में भारत की स्थिति कैसी है?",
+        "answer": "विश्व में तीसरा सबसे बड़ा AI मार्केट",
+        "explanation": "अमेरिका और चीन के बाद भारत तीसरे स्थान पर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "NASA का Europa Clipper मिशन क्या है?",
+        "answer": "बृहस्पति के चंद्रमा Europa पर जीवन की खोज",
+        "explanation": "2024 में लॉन्च, 2030 में पहुंचेगा",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Pro Kabaddi League में कौन सी टीम चैंपियन बनी?",
+        "answer": "पटना पाइरेट्स",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "FIFA U-17 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत",
+        "explanation": "भारत ने दूसरी बार यह टूर्नामेंट आयोजित किया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC Player of the Month जुलाई 2026 में कौन बनीं?",
+        "answer": "स्मृति मंधाना",
+        "explanation": "शानदार प्रदर्शन के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा लिथियम उत्पादक बन गया है?",
+        "answer": "चिली",
+        "explanation": "लिथियम बैटरी के लिए महत्वपूर्ण खनिज है",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Green Hydrogen Mission का लक्ष्य क्या है?",
+        "answer": "2030 तक 5 मिलियन टन उत्पादन",
+        "explanation": "हरित ऊर्जा को बढ़ावा देने की योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "US Presidential Election 2024 में किसने जीत हासिल की?",
+        "answer": "डोनाल्ड ट्रंप (Republican)",
+        "explanation": "दूसरी बार राष्ट्रपति चुने गए",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IT सेक्टर में भारत का निर्यात कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार रिकॉर्ड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का अगला मंगल मिशन क्या है?",
+        "answer": "मंगलयान-2 (Mars Orbiter Mission 2)",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन करेगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Asian Wrestling Championship में भारत ने कितने पदक जीते?",
+        "answer": "12 पदक (4 स्वर्ण, 3 रजत, 5 कांस्य)",
+        "explanation": "कुश्ती में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ADB ने भारत की GDP वृद्धि दर का अनुमान क्या लगाया है?",
+        "answer": "6.8%",
+        "explanation": "एशियाई विकास बैंक का अनुमान",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "National Infrastructure Pipeline (NIP) का कुल निवेश कितना है?",
+        "answer": "₹111 लाख करोड़",
+        "explanation": "2020-25 के लिए बुनियादी ढांचा निवेश",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Share Market में FPI (Foreign Portfolio Investment) में कितनी वृद्धि हुई?",
+        "answer": "25,000 करोड़ रुपये (मासिक)",
+        "explanation": "विदेशी निवेशकों का भारत में भरोसा बढ़ा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Gravitational Waves की खोज किस वैज्ञानिक ने की?",
+        "answer": "LIGO (Laser Interferometer Gravitational-Wave Observatory)",
+        "explanation": "2015 में पहली बार पता चला",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Pro Kabaddi League में कौन सी टीम चैंपियन बनी?",
+        "answer": "पटना पाइरेट्स",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-12",
+    "title": "12 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Ayodhya Ram Mandir की प्राण-प्रतिष्ठा कब हुई?",
+        "answer": "22 जनवरी 2024",
+        "explanation": "प्रधानमंत्री नरेंद्र मोदी ने प्राण-प्रतिष्ठा की",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत का पहला बुलेट ट्रेन प्रोजेक्ट किस रूट पर चल रहा है?",
+        "answer": "मुंबई-अहमदाबाद",
+        "explanation": "जापान की सहायता से यह प्रोजेक्ट बन रहा है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Sanghai Cooperation Organisation (SCO) का अध्यक्ष कौन बना?",
+        "answer": "भारत (2026 की अध्यक्षता)",
+        "explanation": "नई दिल्ली में शिखर सम्मेलन आयोजित",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "BRICS में कौन से नए देश शामिल हुए?",
+        "answer": "सऊदी अरब, UAE, ईरान, इथियोपिया, मिस्र",
+        "explanation": "2024 से विस्तार",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sensex ने कौन सा मनोवैज्ञानिक स्तर पार किया?",
+        "answer": "80,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SEBI ने किस नए नियम को लागू किया है?",
+        "answer": "शॉर्ट सेलिंग पर प्रतिबंध",
+        "explanation": "बाजार में स्थिरता लाने के लिए यह कदम",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "quantum computing में भारत की प्रगति कैसी है?",
+        "answer": "IIT मुंबई ने पहला क्वांटम कंप्यूटर विकसित किया",
+        "explanation": "56 क्यूबिट प्रोसेसर बनाया गया",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का James Webb Space Telescope क्या खोज रहा है?",
+        "answer": "बाहरी ग्रहों पर जीवन के संकेत",
+        "explanation": "KEPLER-442b पर जैविक गैसें मिलीं",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Wimbledon 2026 में किसने पुरुष एकल जीता?",
+        "answer": "कार्लोस अल्कराज (स्पेन)",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Formula 1 Indian Grand Prix 2026 में किसने जीता?",
+        "answer": "मैक्स वेरस्टैपन (Red Bull Racing)",
+        "explanation": "बुद्ध इंटरनेशनल सर्किट पर जीत",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "UNESCO ने किस भारतीय शहर को Creative City घोषित किया?",
+        "answer": "वाराणसी (संगीत श्रेणी)",
+        "explanation": "वाराणसी को यह सम्मान 2024 में मिला था",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ADB ने भारत की GDP वृद्धि दर का अनुमान क्या लगाया है?",
+        "answer": "6.8%",
+        "explanation": "एशियाई विकास बैंक का अनुमान",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सा राज्य पहला 'वॉटर पॉजिटिव' राज्य बना?",
+        "answer": "मेघालय",
+        "explanation": "वर्षा जल संचयन में अग्रणी",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Japan-India Economic Partnership Agreement (EPA) का विस्तार किस क्षेत्र तक हुआ?",
+        "answer": "डिजिटल ट्रेड और सेवाएं",
+        "explanation": "ई-कॉमर्स और डेटा फ्लो शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GST काउंसिल की बैठक में क्या निर्णय लिया गया?",
+        "answer": "रेडीमेड कपड़ों पर GST 12% से घटाकर 5%",
+        "explanation": "कपड़ा उद्योग को राहत",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का SSLV (Small Satellite Launch Vehicle) क्या है?",
+        "answer": "छोटे उपग्रहों के लिए सस्ता रॉकेट",
+        "explanation": "500 किग्रा तक पेलोड क्षमता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Khelo India Youth Games 2026 में कौन सा राज्य शीर्ष पर रहा?",
+        "answer": "महाराष्ट्र",
+        "explanation": "सबसे ज्यादा पदक जीते",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "WHO की वैश्विक स्वास्थ्य रिपोर्ट के अनुसार भारत की स्वास्थ्य रैंकिंग क्या है?",
+        "answer": "112वां स्थान (195 देशों में)",
+        "explanation": "पिछले वर्ष से 5 स्थान सुधार",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Green Hydrogen Mission का लक्ष्य क्या है?",
+        "answer": "2030 तक 5 मिलियन टन उत्पादन",
+        "explanation": "हरित ऊर्जा को बढ़ावा देने की योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "SWAMIH Investment Fund का उद्देश्य क्या है?",
+        "answer": "अटकी हुई रियल एस्टेट परियोजनाओं को पूरा करना",
+        "explanation": "₹25,000 करोड़ का फंड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO ने हाल ही में किस मिशन की सफलतापूर्वक लॉन्चिंग की?",
+        "answer": "चंद्रयान-4 (Lunar Sample Return Mission)",
+        "explanation": "यह चंद्रमा से नमूने वापस लाने का मिशन है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Wimbledon 2026 में किसने पुरुष एकल जीता?",
+        "answer": "कार्लोस अल्कराज (स्पेन)",
+        "explanation": "लगातार तीसरी बार चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-13",
+    "title": "13 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "कौन सा राज्य 'Smart City Mission' में अव्वल रहा?",
+        "answer": "इंदौर",
+        "explanation": "स्वच्छता में लगातार 6 बार नंबर 1",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने कौन सा नया मिशन शुरू किया?",
+        "answer": "Make in India 2.0",
+        "explanation": "विनिर्माण क्षेत्र को बढ़ावा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "ASEAN-India Free Trade Agreement (AIFTA) का विस्तार किस क्षेत्र तक हुआ?",
+        "answer": "डिजिटल ट्रेड और सेवाएं",
+        "explanation": "ई-कॉमर्स और डेटा फ्लो शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "NATO शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "वाशिंगटन डीसी, अमेरिका",
+        "explanation": "NATO की 75वीं वर्षगांठ पर आयोजित",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "FPI (Foreign Portfolio Investors) ने भारत में कितना निवेश किया?",
+        "answer": "$25 बिलियन (YTD)",
+        "explanation": "विदेशी निवेशकों का भरोसा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Digital Tax (Equalization Levy) की दर क्या है?",
+        "answer": "2%",
+        "explanation": "विदेशी डिजिटल कंपनियों पर कर",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने कौन सी नई तकनीक का विकास किया?",
+        "answer": "AI-based Cancer Detection System",
+        "explanation": "95% सटीकता के साथ कैंसर का पता लगाता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा सौर ऊर्जा उत्पादक बन गया है?",
+        "answer": "भारत",
+        "explanation": "भारत ने चीन को पीछे छोड़ दिया है",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Asian Athletics Championship में भारत ने कितने स्वर्ण पदक जीते?",
+        "answer": "8 स्वर्ण पदक",
+        "explanation": "एशियाई एथलेटिक्स में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Asian Wrestling Championship में भारत ने कितने पदक जीते?",
+        "answer": "12 पदक (4 स्वर्ण, 3 रजत, 5 कांस्य)",
+        "explanation": "कुश्ती में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का नया चुनाव आयुक्त कौन है?",
+        "answer": "राजीव कुमार",
+        "explanation": "मुख्य चुनाव आयुक्त के रूप में कार्यभार संभाला",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "WHO की वैश्विक स्वास्थ्य रिपोर्ट के अनुसार भारत की स्वास्थ्य रैंकिंग क्या है?",
+        "answer": "112वां स्थान (195 देशों में)",
+        "explanation": "पिछले वर्ष से 5 स्थान सुधार",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय मूल्यांकन संस्थान (NAE) कहां स्थापित किया गया?",
+        "answer": "नोएडा, उत्तर प्रदेश",
+        "explanation": "शिक्षा गुणवत्ता मूल्यांकन के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "India-UK Free Trade Agreement (FTA) किस क्षेत्र में है?",
+        "answer": "वस्तु और सेवा व्यापार",
+        "explanation": "₹20 लाख करोड़ का व्यापार लक्ष्य",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "RBI ने रेपो दर में कितने आधार अंकों की कटौती की?",
+        "answer": "25 बेसिस पॉइंट्स (0.25%)",
+        "explanation": "रेपो दर अब 6.00% हो गई है",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का NGLV (Next Generation Launch Vehicle) क्या है?",
+        "answer": "भारत का सबसे शक्तिशाली रॉकेट",
+        "explanation": "10 टन पेलोड को LEO में भेज सकता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "नीरज चोपड़ा ने Olympics 2024 में कौन सा पदक जीता?",
+        "answer": "रजत पदक (जेवलिन थ्रो)",
+        "explanation": "88.54 मीटर थ्रो",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत की जनगणना 2026 में कौन सी जनगणना हो रही है?",
+        "answer": "दशमी राष्ट्रीय जनगणना",
+        "explanation": "2011 के बाद पहली जनगणना है",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "कौन सा राज्य पहला 'वॉटर पॉजिटिव' राज्य बना?",
+        "answer": "मेघालय",
+        "explanation": "वर्षा जल संचयन में अग्रणी",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "NPS (National Pension System) में कौन सा नया विकल्प जोड़ा गया?",
+        "answer": "Auto-Choice Life Cycle Fund",
+        "explanation": "उम्र के हिसाब से स्वचालित निवेश",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AI से संबंधित भारत का नया राष्ट्रीय मिशन क्या है?",
+        "answer": "INDIAai मिशन 2.0",
+        "explanation": "AI अनुसंधान और विकास को बढ़ावा देने के लिए",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Asian Athletics Championship में भारत ने कितने स्वर्ण पदक जीते?",
+        "answer": "8 स्वर्ण पदक",
+        "explanation": "एशियाई एथलेटिक्स में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-14",
+    "title": "14 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Central Vista Project का नया नाम क्या रखा गया?",
+        "answer": "कर्तव्य पथ (Kartavya Path)",
+        "explanation": "राजपथ का नाम बदला गया",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत की नई विदेश नीति 'Act East Policy' का मुख्य उद्देश्य क्या है?",
+        "answer": "पूर्वी एशिया और प्रशांत क्षेत्र के साथ संबंध मजबूत करना",
+        "explanation": "ASEAN और जापान के साथ सहयोग",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "BRICS बैंक ने भारत को कितने अरब डॉलर का ऋण दिया?",
+        "answer": "10 अरब डॉलर",
+        "explanation": "नवीकरणीय ऊर्जा परियोजनाओं के लिए",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "UN Security Council में भारत की स्थायी सदस्यता की मांग पर क्या नया अपडेट है?",
+        "answer": "G4 समूह ने पुनः प्रस्ताव पेश किया",
+        "explanation": "भारत, जापान, जर्मनी, ब्राजील G4 में शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "UPI लेनदेन में भारत की वैश्विक स्थिति क्या है?",
+        "answer": "विश्व का सबसे बड़ा रियल-टाइम भुगतान प्लेटफॉर्म",
+        "explanation": "मासिक 15 अरब लेनदेन हो रहे हैं",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Nifty Bank इंडेक्स ने कौन सा स्तर तोड़ा?",
+        "answer": "50,000 अंक",
+        "explanation": "बैंकिंग सेक्टर में जबरदस्त तेजी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SpaceX का Starship किस मिशन के लिए तैयार है?",
+        "answer": "Mars Mission (2028)",
+        "explanation": "मंगल ग्रह पर मानव बस्ती का पहला चरण",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Adani Group की कौन सी कंपनी IPO लेकर आई?",
+        "answer": "Adani Energy Solutions",
+        "explanation": "ऊर्जा क्षेत्र में निवेश का अवसर",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "World Athletics Championship 2026 में भारत ने कितने पदक जीते?",
+        "answer": "3 पदक (1 स्वर्ण, 1 रजत, 1 कांस्य)",
+        "explanation": "नीरज चोपड़ा ने स्वर्ण जीता",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Khelo India Youth Games 2026 में कौन सा राज्य शीर्ष पर रहा?",
+        "answer": "महाराष्ट्र",
+        "explanation": "सबसे ज्यादा पदक जीते",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत की जीडीपी वृद्धि दर 2026 में कितनी रहने का अनुमान है?",
+        "answer": "7.2%",
+        "explanation": "विश्व बैंक के अनुसार यह अनुमान है",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत की जनगणना 2026 में कौन सी जनगणना हो रही है?",
+        "answer": "दशमी राष्ट्रीय जनगणना",
+        "explanation": "2011 के बाद पहली जनगणना है",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Ayodhya Ram Mandir की प्राण-प्रतिष्ठा कब हुई?",
+        "answer": "22 जनवरी 2024",
+        "explanation": "प्रधानमंत्री नरेंद्र मोदी ने प्राण-प्रतिष्ठा की",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Sanghai Cooperation Organisation (SCO) का अध्यक्ष कौन बना?",
+        "answer": "भारत (2026 की अध्यक्षता)",
+        "explanation": "नई दिल्ली में शिखर सम्मेलन आयोजित",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GST कलेक्शन 2026 में कितने लाख करोड़ रुपये रहा?",
+        "answer": "2.1 लाख करोड़ रुपये (मासिक औसत)",
+        "explanation": "जीएसटी संग्रह में लगातार वृद्धि",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए Gene Therapy शुरू की?",
+        "answer": "सिकल सेल एनीमिया",
+        "explanation": "भारत में पहली बार जीन थेरेपी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ओलंपिक 2028 में भारत ने किस खेल में स्वर्ण पदक जीतने का लक्ष्य रखा है?",
+        "answer": "बैडमिंटन और शूटिंग",
+        "explanation": "भारतीय ओलंपिक संघ ने 2028 लॉस एंजिलिस के लक्ष्य तय किए हैं",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SpaceX Falcon 9 रॉकेट किस मिशन के लिए प्रयोग हुआ?",
+        "answer": "Starlink Group 7-1 (100 सैटेलाइट)",
+        "explanation": "इंटरनेट सेवाओं के लिए सैटेलाइट",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय मूल्यांकन संस्थान (NAE) कहां स्थापित किया गया?",
+        "answer": "नोएडा, उत्तर प्रदेश",
+        "explanation": "शिक्षा गुणवत्ता मूल्यांकन के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "IT सेक्टर में भारत का निर्यात कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार रिकॉर्ड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का अगला मंगल मिशन क्या है?",
+        "answer": "मंगलयान-2 (Mars Orbiter Mission 2)",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन करेगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "World Athletics Championship 2026 में भारत ने कितने पदक जीते?",
+        "answer": "3 पदक (1 स्वर्ण, 1 रजत, 1 कांस्य)",
+        "explanation": "नीरज चोपड़ा ने स्वर्ण जीता",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-15",
+    "title": "15 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "कौन सी भारतीय कंपनी दुनिया की शीर्ष 5 कंपनियों में शामिल हुई?",
+        "answer": "रिलायंस इंडस्ट्रीज",
+        "explanation": "मार्केट कैप के मामले में यह उपलब्धि",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital India Act का मुख्य उद्देश्य क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G20 शिखर सम्मेलन 2026 का आयोजन किस देश में होगा?",
+        "answer": "दक्षिण अफ्रीका",
+        "explanation": "2025 में ब्राजील और 2026 में दक्षिण अफ्रीका की अध्यक्षता",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Russia-Ukraine युद्ध पर भारत की स्थिति क्या है?",
+        "answer": "शांति वार्ता का समर्थन और तटस्थता",
+        "explanation": "भारत ने दोनों पक्षों से बातचीत का आग्रह किया है",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत में EV (Electric Vehicle) की बिक्री में कितनी वृद्धि हुई?",
+        "answer": "150% वार्षिक वृद्धि",
+        "explanation": "सरकारी सब्सिडी के कारण EV की मांग बढ़ी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "GSTN (GST Network) ने कौन सी नई सुविधा शुरू की?",
+        "answer": "e-Invoice 2.0 (₹5 करोड़ से ऊपर)",
+        "explanation": "इनवॉइस जनरेशन में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का Europa Clipper मिशन क्या है?",
+        "answer": "बृहस्पति के चंद्रमा Europa पर जीवन की खोज",
+        "explanation": "2024 में लॉन्च, 2030 में पहुंचेगा",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का Mars Mission 2 कब लॉन्च होगा?",
+        "answer": "2028",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "FIFA U-17 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत",
+        "explanation": "भारत ने दूसरी बार यह टूर्नामेंट आयोजित किया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "नीरज चोपड़ा ने Olympics 2024 में कौन सा पदक जीता?",
+        "answer": "रजत पदक (जेवलिन थ्रो)",
+        "explanation": "88.54 मीटर थ्रो",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा लिथियम उत्पादक बन गया है?",
+        "answer": "चिली",
+        "explanation": "लिथियम बैटरी के लिए महत्वपूर्ण खनिज है",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SpaceX Falcon 9 रॉकेट किस मिशन के लिए प्रयोग हुआ?",
+        "answer": "Starlink Group 7-1 (100 सैटेलाइट)",
+        "explanation": "इंटरनेट सेवाओं के लिए सैटेलाइट",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सा राज्य 'Smart City Mission' में अव्वल रहा?",
+        "answer": "इंदौर",
+        "explanation": "स्वच्छता में लगातार 6 बार नंबर 1",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ASEAN-India Free Trade Agreement (AIFTA) का विस्तार किस क्षेत्र तक हुआ?",
+        "answer": "डिजिटल ट्रेड और सेवाएं",
+        "explanation": "ई-कॉमर्स और डेटा फ्लो शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का विदेशी मुद्रा भंडार कितने अरब डॉलर हो गया है?",
+        "answer": "700 अरब डॉलर",
+        "explanation": "RBI के अनुसार यह रिकॉर्ड स्तर है",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए mRNA वैक्सीन विकसित की?",
+        "answer": "टीबी (Tuberculosis)",
+        "explanation": "भारत में पहली mRNA TB वैक्सीन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC T20 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत और श्रीलंका (सह-आयोजक)",
+        "explanation": "यह पहली बार है जब दो देश सह-आयोजन करेंगे",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "स्वच्छ सर्वेक्षण 2026 में शीर्ष शहर कौन सा बना?",
+        "answer": "इंदौर",
+        "explanation": "लगातार 7वीं बार नंबर 1",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Ayodhya Ram Mandir की प्राण-प्रतिष्ठा कब हुई?",
+        "answer": "22 जनवरी 2024",
+        "explanation": "प्रधानमंत्री नरेंद्र मोदी ने प्राण-प्रतिष्ठा की",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "GST काउंसिल की बैठक में क्या निर्णय लिया गया?",
+        "answer": "रेडीमेड कपड़ों पर GST 12% से घटाकर 5%",
+        "explanation": "कपड़ा उद्योग को राहत",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का SSLV (Small Satellite Launch Vehicle) क्या है?",
+        "answer": "छोटे उपग्रहों के लिए सस्ता रॉकेट",
+        "explanation": "500 किग्रा तक पेलोड क्षमता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "FIFA U-17 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत",
+        "explanation": "भारत ने दूसरी बार यह टूर्नामेंट आयोजित किया",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-16",
+    "title": "16 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "भारत का पहला बुलेट ट्रेन प्रोजेक्ट किस रूट पर चल रहा है?",
+        "answer": "मुंबई-अहमदाबाद",
+        "explanation": "जापान की सहायता से यह प्रोजेक्ट बन रहा है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत का नया रक्षा बजट कितने लाख करोड़ रुपये है?",
+        "answer": "6.2 लाख करोड़ रुपये",
+        "explanation": "यह GDP का लगभग 2.5% है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "BRICS में कौन से नए देश शामिल हुए?",
+        "answer": "सऊदी अरब, UAE, ईरान, इथियोपिया, मिस्र",
+        "explanation": "2024 से विस्तार",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "QUAD Summit 2026 का विषय क्या था?",
+        "answer": "印太 क्षेत्र में शांति और समृद्धि",
+        "explanation": "चार देशों का सहयोग",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "SEBI ने किस नए नियम को लागू किया है?",
+        "answer": "शॉर्ट सेलिंग पर प्रतिबंध",
+        "explanation": "बाजार में स्थिरता लाने के लिए यह कदम",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया कॉर्पोरेट टैक्स रेट क्या है?",
+        "answer": "25.17% (सभी कंपनियों के लिए)",
+        "explanation": "विनिर्माण क्षेत्र के लिए 17.16%",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का James Webb Space Telescope क्या खोज रहा है?",
+        "answer": "बाहरी ग्रहों पर जीवन के संकेत",
+        "explanation": "KEPLER-442b पर जैविक गैसें मिलीं",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "CERN ने कौन सी नई कण खोज की?",
+        "answer": "Pentaquark",
+        "explanation": "भौतिकी में ऐतिहासिक खोज",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Formula 1 Indian Grand Prix 2026 में किसने जीता?",
+        "answer": "मैक्स वेरस्टैपन (Red Bull Racing)",
+        "explanation": "बुद्ध इंटरनेशनल सर्किट पर जीत",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ओलंपिक 2028 में भारत ने किस खेल में स्वर्ण पदक जीतने का लक्ष्य रखा है?",
+        "answer": "बैडमिंटन और शूटिंग",
+        "explanation": "भारतीय ओलंपिक संघ ने 2028 लॉस एंजिलिस के लक्ष्य तय किए हैं",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ADB ने भारत की GDP वृद्धि दर का अनुमान क्या लगाया है?",
+        "answer": "6.8%",
+        "explanation": "एशियाई विकास बैंक का अनुमान",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "स्वच्छ सर्वेक्षण 2026 में शीर्ष शहर कौन सा बना?",
+        "answer": "इंदौर",
+        "explanation": "लगातार 7वीं बार नंबर 1",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Central Vista Project का नया नाम क्या रखा गया?",
+        "answer": "कर्तव्य पथ (Kartavya Path)",
+        "explanation": "राजपथ का नाम बदला गया",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "BRICS बैंक ने भारत को कितने अरब डॉलर का ऋण दिया?",
+        "answer": "10 अरब डॉलर",
+        "explanation": "नवीकरणीय ऊर्जा परियोजनाओं के लिए",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IT क्षेत्र में भारत का निर्यात 2026 में कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार यह रिकॉर्ड है",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "ISRO का Aditya-L1 मिशन क्या करेगा?",
+        "answer": "सूर्य का अध्ययन",
+        "explanation": "लैग्रेंज पॉइंट L1 पर सूर्य की निगरानी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय बॉक्सर ने स्वर्ण पदक जीता?",
+        "answer": "निखत ज़रीन",
+        "explanation": "52 किग्रा वर्ग में यह उपलब्धि हासिल की",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISSF विश्व कप में किस भारतीय निशानेबाज ने स्वर्ण पदक जीता?",
+        "answer": "मनु भाकर",
+        "explanation": "10 मीटर एयर पिस्टल इवेंट में जीत",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सा राज्य 'Smart City Mission' में अव्वल रहा?",
+        "answer": "इंदौर",
+        "explanation": "स्वच्छता में लगातार 6 बार नंबर 1",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "RBI ने रेपो दर में कितने आधार अंकों की कटौती की?",
+        "answer": "25 बेसिस पॉइंट्स (0.25%)",
+        "explanation": "रेपो दर अब 6.00% हो गई है",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का NGLV (Next Generation Launch Vehicle) क्या है?",
+        "answer": "भारत का सबसे शक्तिशाली रॉकेट",
+        "explanation": "10 टन पेलोड को LEO में भेज सकता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Formula 1 Indian Grand Prix 2026 में किसने जीता?",
+        "answer": "मैक्स वेरस्टैपन (Red Bull Racing)",
+        "explanation": "बुद्ध इंटरनेशनल सर्किट पर जीत",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-17",
+    "title": "17 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "PM नरेंद्र मोदी ने कौन सा नया मिशन शुरू किया?",
+        "answer": "Make in India 2.0",
+        "explanation": "विनिर्माण क्षेत्र को बढ़ावा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "One Rank One Pension (OROP) क्या है?",
+        "answer": "समान पेंशन सुविधा",
+        "explanation": "सेवानिवृत्त सैनिकों के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "NATO शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "वाशिंगटन डीसी, अमेरिका",
+        "explanation": "NATO की 75वीं वर्षगांठ पर आयोजित",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sanghai Cooperation Organisation (SCO) में कौन सा नया सदस्य शामिल हुआ?",
+        "answer": "ईरान",
+        "explanation": "2023 में SCO का पूर्ण सदस्य बना",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital Tax (Equalization Levy) की दर क्या है?",
+        "answer": "2%",
+        "explanation": "विदेशी डिजिटल कंपनियों पर कर",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "EV Battery की कीमत में कितनी कमी आई?",
+        "answer": "20% सालाना गिरावट",
+        "explanation": "बैटरी तकनीक में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा सौर ऊर्जा उत्पादक बन गया है?",
+        "answer": "भारत",
+        "explanation": "भारत ने चीन को पीछे छोड़ दिया है",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Gravitational Waves की खोज किस वैज्ञानिक ने की?",
+        "answer": "LIGO (Laser Interferometer Gravitational-Wave Observatory)",
+        "explanation": "2015 में पहली बार पता चला",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Wrestling Championship में भारत ने कितने पदक जीते?",
+        "answer": "12 पदक (4 स्वर्ण, 3 रजत, 5 कांस्य)",
+        "explanation": "कुश्ती में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC T20 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत और श्रीलंका (सह-आयोजक)",
+        "explanation": "यह पहली बार है जब दो देश सह-आयोजन करेंगे",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "WHO की वैश्विक स्वास्थ्य रिपोर्ट के अनुसार भारत की स्वास्थ्य रैंकिंग क्या है?",
+        "answer": "112वां स्थान (195 देशों में)",
+        "explanation": "पिछले वर्ष से 5 स्थान सुधार",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISSF विश्व कप में किस भारतीय निशानेबाज ने स्वर्ण पदक जीता?",
+        "answer": "मनु भाकर",
+        "explanation": "10 मीटर एयर पिस्टल इवेंट में जीत",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सी भारतीय कंपनी दुनिया की शीर्ष 5 कंपनियों में शामिल हुई?",
+        "answer": "रिलायंस इंडस्ट्रीज",
+        "explanation": "मार्केट कैप के मामले में यह उपलब्धि",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "G20 शिखर सम्मेलन 2026 का आयोजन किस देश में होगा?",
+        "answer": "दक्षिण अफ्रीका",
+        "explanation": "2025 में ब्राजील और 2026 में दक्षिण अफ्रीका की अध्यक्षता",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Nifty 50 इंडेक्स ने 2026 में कौन सा स्तर छुआ?",
+        "answer": "25,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का PSLV-C60 रॉकेट किस मिशन के लिए प्रयोग किया गया?",
+        "answer": "SPADEX (Space Docking Experiment)",
+        "explanation": "अंतरिक्ष में डॉकिंग तकनीक विकसित करना",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय पहलवान ने स्वर्ण जीता?",
+        "answer": "बजरंग पूनिया (65 किग्रा)",
+        "explanation": "कुश्ती में भारत का गौरव",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का पहला ऑटोमेटेड मेट्रो कौन सा है?",
+        "answer": "दिल्ली मेट्रो (Phase 4)",
+        "explanation": "पूरी तरह से स्वचालित सेवा",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Central Vista Project का नया नाम क्या रखा गया?",
+        "answer": "कर्तव्य पथ (Kartavya Path)",
+        "explanation": "राजपथ का नाम बदला गया",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "GST कलेक्शन 2026 में कितने लाख करोड़ रुपये रहा?",
+        "answer": "2.1 लाख करोड़ रुपये (मासिक औसत)",
+        "explanation": "जीएसटी संग्रह में लगातार वृद्धि",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए Gene Therapy शुरू की?",
+        "answer": "सिकल सेल एनीमिया",
+        "explanation": "भारत में पहली बार जीन थेरेपी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Asian Wrestling Championship में भारत ने कितने पदक जीते?",
+        "answer": "12 पदक (4 स्वर्ण, 3 रजत, 5 कांस्य)",
+        "explanation": "कुश्ती में भारत का शानदार प्रदर्शन",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-18",
+    "title": "18 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "भारत की नई विदेश नीति 'Act East Policy' का मुख्य उद्देश्य क्या है?",
+        "answer": "पूर्वी एशिया और प्रशांत क्षेत्र के साथ संबंध मजबूत करना",
+        "explanation": "ASEAN और जापान के साथ सहयोग",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत की नई शिक्षा नीति NEP 2020 के तहत कौन सी भाषा अनिवार्य है?",
+        "answer": "मातृभाषा + अंग्रेजी + एक भारतीय भाषा (त्रिभाषा सूत्र)",
+        "explanation": "कक्षा 5 तक मातृभाषा में शिक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "UN Security Council में भारत की स्थायी सदस्यता की मांग पर क्या नया अपडेट है?",
+        "answer": "G4 समूह ने पुनः प्रस्ताव पेश किया",
+        "explanation": "भारत, जापान, जर्मनी, ब्राजील G4 में शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "NATO में कौन सा नया सदस्य शामिल हुआ?",
+        "answer": "स्वीडन",
+        "explanation": "2024 में NATO का 32वां सदस्य बना",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Nifty Bank इंडेक्स ने कौन सा स्तर तोड़ा?",
+        "answer": "50,000 अंक",
+        "explanation": "बैंकिंग सेक्टर में जबरदस्त तेजी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Indian Oil Corporation ने कौन सी नई तकनीक अपनाई?",
+        "answer": "Green Hydrogen Production Plant",
+        "explanation": "चेन्नई में हरित हाइड्रोजन प्लांट",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Adani Group की कौन सी कंपनी IPO लेकर आई?",
+        "answer": "Adani Energy Solutions",
+        "explanation": "ऊर्जा क्षेत्र में निवेश का अवसर",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO ने हाल ही में किस मिशन की सफलतापूर्वक लॉन्चिंग की?",
+        "answer": "चंद्रयान-4 (Lunar Sample Return Mission)",
+        "explanation": "यह चंद्रमा से नमूने वापस लाने का मिशन है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Khelo India Youth Games 2026 में कौन सा राज्य शीर्ष पर रहा?",
+        "answer": "महाराष्ट्र",
+        "explanation": "सबसे ज्यादा पदक जीते",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय बॉक्सर ने स्वर्ण पदक जीता?",
+        "answer": "निखत ज़रीन",
+        "explanation": "52 किग्रा वर्ग में यह उपलब्धि हासिल की",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत की जनगणना 2026 में कौन सी जनगणना हो रही है?",
+        "answer": "दशमी राष्ट्रीय जनगणना",
+        "explanation": "2011 के बाद पहली जनगणना है",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत का पहला ऑटोमेटेड मेट्रो कौन सा है?",
+        "answer": "दिल्ली मेट्रो (Phase 4)",
+        "explanation": "पूरी तरह से स्वचालित सेवा",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत का पहला बुलेट ट्रेन प्रोजेक्ट किस रूट पर चल रहा है?",
+        "answer": "मुंबई-अहमदाबाद",
+        "explanation": "जापान की सहायता से यह प्रोजेक्ट बन रहा है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "BRICS में कौन से नए देश शामिल हुए?",
+        "answer": "सऊदी अरब, UAE, ईरान, इथियोपिया, मिस्र",
+        "explanation": "2024 से विस्तार",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sensex ने कौन सा मनोवैज्ञानिक स्तर पार किया?",
+        "answer": "80,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Gaganyaan मिशन में कौन सा रोबोट जाएगा?",
+        "answer": "व्योममित्र (Vyommitra)",
+        "explanation": "मानव जैसा रोबोट अंतरिक्ष में जाएगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC Cricket World Cup 2023 का फाइनल किसने जीता?",
+        "answer": "ऑस्ट्रेलिया (भारत को हराया)",
+        "explanation": "अहमदाबाद में खेला गया",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का Voyager 1 कहां है?",
+        "answer": "अंतरिक्ष के बाहरी क्षेत्र में",
+        "explanation": "1977 में लॉन्च, अभी भी संचार में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सी भारतीय कंपनी दुनिया की शीर्ष 5 कंपनियों में शामिल हुई?",
+        "answer": "रिलायंस इंडस्ट्रीज",
+        "explanation": "मार्केट कैप के मामले में यह उपलब्धि",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का विदेशी मुद्रा भंडार कितने अरब डॉलर हो गया है?",
+        "answer": "700 अरब डॉलर",
+        "explanation": "RBI के अनुसार यह रिकॉर्ड स्तर है",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए mRNA वैक्सीन विकसित की?",
+        "answer": "टीबी (Tuberculosis)",
+        "explanation": "भारत में पहली mRNA TB वैक्सीन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Khelo India Youth Games 2026 में कौन सा राज्य शीर्ष पर रहा?",
+        "answer": "महाराष्ट्र",
+        "explanation": "सबसे ज्यादा पदक जीते",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-19",
+    "title": "19 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Digital India Act का मुख्य उद्देश्य क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "कौन सा राज्य 'ODF Plus' श्रेणी में अग्रणी है?",
+        "answer": "तमिलनाडु",
+        "explanation": "स्वच्छता में उत्कृष्ट प्रदर्शन",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Russia-Ukraine युद्ध पर भारत की स्थिति क्या है?",
+        "answer": "शांति वार्ता का समर्थन और तटस्थता",
+        "explanation": "भारत ने दोनों पक्षों से बातचीत का आग्रह किया है",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "China-Taiwan तनाव पर भारत की स्थिति क्या है?",
+        "answer": "एक चीन नीति का समर्थन",
+        "explanation": "शांतिपूर्ण समाधान की वकालत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GSTN (GST Network) ने कौन सी नई सुविधा शुरू की?",
+        "answer": "e-Invoice 2.0 (₹5 करोड़ से ऊपर)",
+        "explanation": "इनवॉइस जनरेशन में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Tesla ने भारत में कहां अपनी पहली फैक्ट्री लगाई?",
+        "answer": "गुजरात (साणंद)",
+        "explanation": "5 अरब डॉलर का निवेश",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का Mars Mission 2 कब लॉन्च होगा?",
+        "answer": "2028",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "AI से संबंधित भारत का नया राष्ट्रीय मिशन क्या है?",
+        "answer": "INDIAai मिशन 2.0",
+        "explanation": "AI अनुसंधान और विकास को बढ़ावा देने के लिए",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "नीरज चोपड़ा ने Olympics 2024 में कौन सा पदक जीता?",
+        "answer": "रजत पदक (जेवलिन थ्रो)",
+        "explanation": "88.54 मीटर थ्रो",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय पहलवान ने स्वर्ण जीता?",
+        "answer": "बजरंग पूनिया (65 किग्रा)",
+        "explanation": "कुश्ती में भारत का गौरव",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "SpaceX Falcon 9 रॉकेट किस मिशन के लिए प्रयोग हुआ?",
+        "answer": "Starlink Group 7-1 (100 सैटेलाइट)",
+        "explanation": "इंटरनेट सेवाओं के लिए सैटेलाइट",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "NASA का Voyager 1 कहां है?",
+        "answer": "अंतरिक्ष के बाहरी क्षेत्र में",
+        "explanation": "1977 में लॉन्च, अभी भी संचार में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने कौन सा नया मिशन शुरू किया?",
+        "answer": "Make in India 2.0",
+        "explanation": "विनिर्माण क्षेत्र को बढ़ावा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "NATO शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "वाशिंगटन डीसी, अमेरिका",
+        "explanation": "NATO की 75वीं वर्षगांठ पर आयोजित",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "FPI (Foreign Portfolio Investors) ने भारत में कितना निवेश किया?",
+        "answer": "$25 बिलियन (YTD)",
+        "explanation": "विदेशी निवेशकों का भरोसा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Quantum Computing में IIT दिल्ली ने क्या हासिल किया?",
+        "answer": "72-क्यूबिट प्रोसेसर विकसित",
+        "explanation": "भारत का सबसे शक्तिशाली क्वांटम कंप्यूटर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "T20 World Cup 2024 में भारत ने क्या किया?",
+        "answer": "विजेता बना (दक्षिण अफ्रीका को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में अर्धशतक जमाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Commonwealth Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "61 पदक (22 स्वर्ण)",
+        "explanation": "बर्मिंघम में शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का पहला बुलेट ट्रेन प्रोजेक्ट किस रूट पर चल रहा है?",
+        "answer": "मुंबई-अहमदाबाद",
+        "explanation": "जापान की सहायता से यह प्रोजेक्ट बन रहा है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "IT क्षेत्र में भारत का निर्यात 2026 में कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार यह रिकॉर्ड है",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "ISRO का Aditya-L1 मिशन क्या करेगा?",
+        "answer": "सूर्य का अध्ययन",
+        "explanation": "लैग्रेंज पॉइंट L1 पर सूर्य की निगरानी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "नीरज चोपड़ा ने Olympics 2024 में कौन सा पदक जीता?",
+        "answer": "रजत पदक (जेवलिन थ्रो)",
+        "explanation": "88.54 मीटर थ्रो",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-20",
+    "title": "20 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "भारत का नया रक्षा बजट कितने लाख करोड़ रुपये है?",
+        "answer": "6.2 लाख करोड़ रुपये",
+        "explanation": "यह GDP का लगभग 2.5% है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Digital Personal Data Protection Act (DPDPA) 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "नागरिकों के डेटा की सुरक्षा",
+        "explanation": "डेटा फिड्यूशरी की नियुक्ति अनिवार्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "QUAD Summit 2026 का विषय क्या था?",
+        "answer": "印太 क्षेत्र में शांति और समृद्धि",
+        "explanation": "चार देशों का सहयोग",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "India-UAE Comprehensive Economic Partnership Agreement (CEPA) के तहत क्या लाभ है?",
+        "answer": "90% वस्तुओं पर शून्य शुल्क",
+        "explanation": "द्विपक्षीय व्यापार को बढ़ावा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया कॉर्पोरेट टैक्स रेट क्या है?",
+        "answer": "25.17% (सभी कंपनियों के लिए)",
+        "explanation": "विनिर्माण क्षेत्र के लिए 17.16%",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Electric Vehicles की बिक्री में कौन सी कंपनी अग्रणी है?",
+        "answer": "Tata Motors",
+        "explanation": "Nexon EV सबसे ज्यादा बिकने वाली EV",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "CERN ने कौन सी नई कण खोज की?",
+        "answer": "Pentaquark",
+        "explanation": "भौतिकी में ऐतिहासिक खोज",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का अगला मंगल मिशन क्या है?",
+        "answer": "मंगलयान-2 (Mars Orbiter Mission 2)",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन करेगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ओलंपिक 2028 में भारत ने किस खेल में स्वर्ण पदक जीतने का लक्ष्य रखा है?",
+        "answer": "बैडमिंटन और शूटिंग",
+        "explanation": "भारतीय ओलंपिक संघ ने 2028 लॉस एंजिलिस के लक्ष्य तय किए हैं",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC Cricket World Cup 2023 का फाइनल किसने जीता?",
+        "answer": "ऑस्ट्रेलिया (भारत को हराया)",
+        "explanation": "अहमदाबाद में खेला गया",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "स्वच्छ सर्वेक्षण 2026 में शीर्ष शहर कौन सा बना?",
+        "answer": "इंदौर",
+        "explanation": "लगातार 7वीं बार नंबर 1",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Commonwealth Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "61 पदक (22 स्वर्ण)",
+        "explanation": "बर्मिंघम में शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत की नई विदेश नीति 'Act East Policy' का मुख्य उद्देश्य क्या है?",
+        "answer": "पूर्वी एशिया और प्रशांत क्षेत्र के साथ संबंध मजबूत करना",
+        "explanation": "ASEAN और जापान के साथ सहयोग",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "UN Security Council में भारत की स्थायी सदस्यता की मांग पर क्या नया अपडेट है?",
+        "answer": "G4 समूह ने पुनः प्रस्ताव पेश किया",
+        "explanation": "भारत, जापान, जर्मनी, ब्राजील G4 में शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "UPI लेनदेन में भारत की वैश्विक स्थिति क्या है?",
+        "answer": "विश्व का सबसे बड़ा रियल-टाइम भुगतान प्लेटफॉर्म",
+        "explanation": "मासिक 15 अरब लेनदेन हो रहे हैं",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Quantum Key Distribution (QKD) में भारत ने क्या हासिल किया?",
+        "answer": "100 किमी तक सुरक्षित संचार",
+        "explanation": "अलौकिक संचार में सफलता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC Champions Trophy 2025 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "विजेता (ऑस्ट्रेलिया को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में शतक जमाया",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Asian Para Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "111 पदक (29 स्वर्ण)",
+        "explanation": "पैरा एथलीटों का शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने कौन सा नया मिशन शुरू किया?",
+        "answer": "Make in India 2.0",
+        "explanation": "विनिर्माण क्षेत्र को बढ़ावा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Nifty 50 इंडेक्स ने 2026 में कौन सा स्तर छुआ?",
+        "answer": "25,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का PSLV-C60 रॉकेट किस मिशन के लिए प्रयोग किया गया?",
+        "answer": "SPADEX (Space Docking Experiment)",
+        "explanation": "अंतरिक्ष में डॉकिंग तकनीक विकसित करना",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ओलंपिक 2028 में भारत ने किस खेल में स्वर्ण पदक जीतने का लक्ष्य रखा है?",
+        "answer": "बैडमिंटन और शूटिंग",
+        "explanation": "भारतीय ओलंपिक संघ ने 2028 लॉस एंजिलिस के लक्ष्य तय किए हैं",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-21",
+    "title": "21 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "One Rank One Pension (OROP) क्या है?",
+        "answer": "समान पेंशन सुविधा",
+        "explanation": "सेवानिवृत्त सैनिकों के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने August 2026 में कौन सी नई योजना शुरू की?",
+        "answer": "विकसित भारत @2047 मिशन",
+        "explanation": "आज़ादी के 100 साल तक विकसित भारत का लक्ष्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Sanghai Cooperation Organisation (SCO) में कौन सा नया सदस्य शामिल हुआ?",
+        "answer": "ईरान",
+        "explanation": "2023 में SCO का पूर्ण सदस्य बना",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "QUAD Summit 2026 में कौन सी नई पहल शुरू हुई?",
+        "answer": "印太 Infrastructure Connectivity Initiative",
+        "explanation": "बुनियादी ढांचे में निवेश",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "EV Battery की कीमत में कितनी कमी आई?",
+        "answer": "20% सालाना गिरावट",
+        "explanation": "बैटरी तकनीक में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Share Market में FPI (Foreign Portfolio Investment) में कितनी वृद्धि हुई?",
+        "answer": "25,000 करोड़ रुपये (मासिक)",
+        "explanation": "विदेशी निवेशकों का भारत में भरोसा बढ़ा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Gravitational Waves की खोज किस वैज्ञानिक ने की?",
+        "answer": "LIGO (Laser Interferometer Gravitational-Wave Observatory)",
+        "explanation": "2015 में पहली बार पता चला",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का SSLV (Small Satellite Launch Vehicle) क्या है?",
+        "answer": "छोटे उपग्रहों के लिए सस्ता रॉकेट",
+        "explanation": "500 किग्रा तक पेलोड क्षमता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC T20 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत और श्रीलंका (सह-आयोजक)",
+        "explanation": "यह पहली बार है जब दो देश सह-आयोजन करेंगे",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "T20 World Cup 2024 में भारत ने क्या किया?",
+        "answer": "विजेता बना (दक्षिण अफ्रीका को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में अर्धशतक जमाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISSF विश्व कप में किस भारतीय निशानेबाज ने स्वर्ण पदक जीता?",
+        "answer": "मनु भाकर",
+        "explanation": "10 मीटर एयर पिस्टल इवेंट में जीत",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Para Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "111 पदक (29 स्वर्ण)",
+        "explanation": "पैरा एथलीटों का शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Digital India Act का मुख्य उद्देश्य क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Russia-Ukraine युद्ध पर भारत की स्थिति क्या है?",
+        "answer": "शांति वार्ता का समर्थन और तटस्थता",
+        "explanation": "भारत ने दोनों पक्षों से बातचीत का आग्रह किया है",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत में EV (Electric Vehicle) की बिक्री में कितनी वृद्धि हुई?",
+        "answer": "150% वार्षिक वृद्धि",
+        "explanation": "सरकारी सब्सिडी के कारण EV की मांग बढ़ी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AI क्षेत्र में भारत की स्थिति कैसी है?",
+        "answer": "विश्व में तीसरा सबसे बड़ा AI मार्केट",
+        "explanation": "अमेरिका और चीन के बाद भारत तीसरे स्थान पर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC U19 Cricket World Cup 2026 में भारत ने क्या किया?",
+        "answer": "विजेता बना (ऑस्ट्रेलिया को हराया)",
+        "explanation": "भारत ने 5वीं बार खिताब जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "COVID-19 के बाद भारत का टीकाकरण अभियान कैसा रहा?",
+        "answer": "220 करोड़+ खुराकें",
+        "explanation": "विश्व का सबसे बड़ा टीकाकरण अभियान",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत की नई विदेश नीति 'Act East Policy' का मुख्य उद्देश्य क्या है?",
+        "answer": "पूर्वी एशिया और प्रशांत क्षेत्र के साथ संबंध मजबूत करना",
+        "explanation": "ASEAN और जापान के साथ सहयोग",
+        "category": "National",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sensex ने कौन सा मनोवैज्ञानिक स्तर पार किया?",
+        "answer": "80,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Gaganyaan मिशन में कौन सा रोबोट जाएगा?",
+        "answer": "व्योममित्र (Vyommitra)",
+        "explanation": "मानव जैसा रोबोट अंतरिक्ष में जाएगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC T20 विश्व कप 2026 का आयोजन कहां होगा?",
+        "answer": "भारत और श्रीलंका (सह-आयोजक)",
+        "explanation": "यह पहली बार है जब दो देश सह-आयोजन करेंगे",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-22",
+    "title": "22 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "भारत की नई शिक्षा नीति NEP 2020 के तहत कौन सी भाषा अनिवार्य है?",
+        "answer": "मातृभाषा + अंग्रेजी + एक भारतीय भाषा (त्रिभाषा सूत्र)",
+        "explanation": "कक्षा 5 तक मातृभाषा में शिक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Digital India Act 2026 का मुख्य प्रावधान क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "NATO में कौन सा नया सदस्य शामिल हुआ?",
+        "answer": "स्वीडन",
+        "explanation": "2024 में NATO का 32वां सदस्य बना",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Japan के प्रधानमंत्री कौन बने?",
+        "answer": "शिगेरु इशिबा",
+        "explanation": "Fumio Kishida की जगह ली",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Indian Oil Corporation ने कौन सी नई तकनीक अपनाई?",
+        "answer": "Green Hydrogen Production Plant",
+        "explanation": "चेन्नई में हरित हाइड्रोजन प्लांट",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "SWAMIH Investment Fund का उद्देश्य क्या है?",
+        "answer": "अटकी हुई रियल एस्टेट परियोजनाओं को पूरा करना",
+        "explanation": "₹25,000 करोड़ का फंड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO ने हाल ही में किस मिशन की सफलतापूर्वक लॉन्चिंग की?",
+        "answer": "चंद्रयान-4 (Lunar Sample Return Mission)",
+        "explanation": "यह चंद्रमा से नमूने वापस लाने का मिशन है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ISRO का NGLV (Next Generation Launch Vehicle) क्या है?",
+        "answer": "भारत का सबसे शक्तिशाली रॉकेट",
+        "explanation": "10 टन पेलोड को LEO में भेज सकता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय बॉक्सर ने स्वर्ण पदक जीता?",
+        "answer": "निखत ज़रीन",
+        "explanation": "52 किग्रा वर्ग में यह उपलब्धि हासिल की",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC Champions Trophy 2025 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "विजेता (ऑस्ट्रेलिया को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में शतक जमाया",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का पहला ऑटोमेटेड मेट्रो कौन सा है?",
+        "answer": "दिल्ली मेट्रो (Phase 4)",
+        "explanation": "पूरी तरह से स्वचालित सेवा",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "COVID-19 के बाद भारत का टीकाकरण अभियान कैसा रहा?",
+        "answer": "220 करोड़+ खुराकें",
+        "explanation": "विश्व का सबसे बड़ा टीकाकरण अभियान",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया रक्षा बजट कितने लाख करोड़ रुपये है?",
+        "answer": "6.2 लाख करोड़ रुपये",
+        "explanation": "यह GDP का लगभग 2.5% है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "QUAD Summit 2026 का विषय क्या था?",
+        "answer": "印太 क्षेत्र में शांति और समृद्धि",
+        "explanation": "चार देशों का सहयोग",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "SEBI ने किस नए नियम को लागू किया है?",
+        "answer": "शॉर्ट सेलिंग पर प्रतिबंध",
+        "explanation": "बाजार में स्थिरता लाने के लिए यह कदम",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "quantum computing में भारत की प्रगति कैसी है?",
+        "answer": "IIT मुंबई ने पहला क्वांटम कंप्यूटर विकसित किया",
+        "explanation": "56 क्यूबिट प्रोसेसर बनाया गया",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC महिला विश्व कप 2026 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "फाइनल में पहुंचा, उप-विजेता",
+        "explanation": "ऑस्ट्रेलिया ने फाइनल जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "किस राज्य ने 'फ्री टैबलेट' योजना शुरू की है?",
+        "answer": "उत्तर प्रदेश",
+        "explanation": "कक्षा 9-12 के छात्रों को मुफ्त टैबलेट",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Digital India Act का मुख्य उद्देश्य क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "FPI (Foreign Portfolio Investors) ने भारत में कितना निवेश किया?",
+        "answer": "$25 बिलियन (YTD)",
+        "explanation": "विदेशी निवेशकों का भरोसा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Quantum Computing में IIT दिल्ली ने क्या हासिल किया?",
+        "answer": "72-क्यूबिट प्रोसेसर विकसित",
+        "explanation": "भारत का सबसे शक्तिशाली क्वांटम कंप्यूटर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय बॉक्सर ने स्वर्ण पदक जीता?",
+        "answer": "निखत ज़रीन",
+        "explanation": "52 किग्रा वर्ग में यह उपलब्धि हासिल की",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-23",
+    "title": "23 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "कौन सा राज्य 'ODF Plus' श्रेणी में अग्रणी है?",
+        "answer": "तमिलनाडु",
+        "explanation": "स्वच्छता में उत्कृष्ट प्रदर्शन",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "UCC (Uniform Civil Code) किस राज्य में लागू हुआ?",
+        "answer": "उत्तराखंड",
+        "explanation": "भारत में पहला राज्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "China-Taiwan तनाव पर भारत की स्थिति क्या है?",
+        "answer": "एक चीन नीति का समर्थन",
+        "explanation": "शांतिपूर्ण समाधान की वकालत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "G7 शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "इटली (पुगलिया)",
+        "explanation": "G7 नेताओं की बैठक",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Tesla ने भारत में कहां अपनी पहली फैक्ट्री लगाई?",
+        "answer": "गुजरात (साणंद)",
+        "explanation": "5 अरब डॉलर का निवेश",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "NPS (National Pension System) में कौन सा नया विकल्प जोड़ा गया?",
+        "answer": "Auto-Choice Life Cycle Fund",
+        "explanation": "उम्र के हिसाब से स्वचालित निवेश",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AI से संबंधित भारत का नया राष्ट्रीय मिशन क्या है?",
+        "answer": "INDIAai मिशन 2.0",
+        "explanation": "AI अनुसंधान और विकास को बढ़ावा देने के लिए",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए Gene Therapy शुरू की?",
+        "answer": "सिकल सेल एनीमिया",
+        "explanation": "भारत में पहली बार जीन थेरेपी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय पहलवान ने स्वर्ण जीता?",
+        "answer": "बजरंग पूनिया (65 किग्रा)",
+        "explanation": "कुश्ती में भारत का गौरव",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC U19 Cricket World Cup 2026 में भारत ने क्या किया?",
+        "answer": "विजेता बना (ऑस्ट्रेलिया को हराया)",
+        "explanation": "भारत ने 5वीं बार खिताब जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "NASA का Voyager 1 कहां है?",
+        "answer": "अंतरिक्ष के बाहरी क्षेत्र में",
+        "explanation": "1977 में लॉन्च, अभी भी संचार में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "किस राज्य ने 'फ्री टैबलेट' योजना शुरू की है?",
+        "answer": "उत्तर प्रदेश",
+        "explanation": "कक्षा 9-12 के छात्रों को मुफ्त टैबलेट",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "One Rank One Pension (OROP) क्या है?",
+        "answer": "समान पेंशन सुविधा",
+        "explanation": "सेवानिवृत्त सैनिकों के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Sanghai Cooperation Organisation (SCO) में कौन सा नया सदस्य शामिल हुआ?",
+        "answer": "ईरान",
+        "explanation": "2023 में SCO का पूर्ण सदस्य बना",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital Tax (Equalization Levy) की दर क्या है?",
+        "answer": "2%",
+        "explanation": "विदेशी डिजिटल कंपनियों पर कर",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने कौन सी नई तकनीक का विकास किया?",
+        "answer": "AI-based Cancer Detection System",
+        "explanation": "95% सटीकता के साथ कैंसर का पता लगाता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "BCCI ने किस खिलाड़ी को T20I कप्तान बनाया?",
+        "answer": "सूर्यकुमार यादव",
+        "explanation": "रोहित शर्मा के बाद नए कप्तान",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Formula 1 में भारतीय ड्राइवर कौन खेल रहा है?",
+        "answer": "जहीर खान (F2 से F1 तक)",
+        "explanation": "भारत का पहला F1 ड्राइवर 2026 में",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का नया रक्षा बजट कितने लाख करोड़ रुपये है?",
+        "answer": "6.2 लाख करोड़ रुपये",
+        "explanation": "यह GDP का लगभग 2.5% है",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "UPI लेनदेन में भारत की वैश्विक स्थिति क्या है?",
+        "answer": "विश्व का सबसे बड़ा रियल-टाइम भुगतान प्लेटफॉर्म",
+        "explanation": "मासिक 15 अरब लेनदेन हो रहे हैं",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Quantum Key Distribution (QKD) में भारत ने क्या हासिल किया?",
+        "answer": "100 किमी तक सुरक्षित संचार",
+        "explanation": "अलौकिक संचार में सफलता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "विश्व चैंपियनशिप 2026 में किस भारतीय पहलवान ने स्वर्ण जीता?",
+        "answer": "बजरंग पूनिया (65 किग्रा)",
+        "explanation": "कुश्ती में भारत का गौरव",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-24",
+    "title": "24 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Digital Personal Data Protection Act (DPDPA) 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "नागरिकों के डेटा की सुरक्षा",
+        "explanation": "डेटा फिड्यूशरी की नियुक्ति अनिवार्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Swachh Bharat Mission 2.0 का लक्ष्य क्या है?",
+        "answer": "2026 तक सभी शहरों को ODF Plus घोषित करना",
+        "explanation": "ओपन डेफेकेशन फ्री प्लस श्रेणी",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "India-UAE Comprehensive Economic Partnership Agreement (CEPA) के तहत क्या लाभ है?",
+        "answer": "90% वस्तुओं पर शून्य शुल्क",
+        "explanation": "द्विपक्षीय व्यापार को बढ़ावा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ASEAN शिखर सम्मेलन 2026 में भारत का प्रतिनिधित्व किसने किया?",
+        "answer": "प्रधानमंत्री नरेंद्र मोदी",
+        "explanation": "इंडोनेशिया में आयोजित",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Electric Vehicles की बिक्री में कौन सी कंपनी अग्रणी है?",
+        "answer": "Tata Motors",
+        "explanation": "Nexon EV सबसे ज्यादा बिकने वाली EV",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IT सेक्टर में भारत का निर्यात कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार रिकॉर्ड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का अगला मंगल मिशन क्या है?",
+        "answer": "मंगलयान-2 (Mars Orbiter Mission 2)",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन करेगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए mRNA वैक्सीन विकसित की?",
+        "answer": "टीबी (Tuberculosis)",
+        "explanation": "भारत में पहली mRNA TB वैक्सीन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC Cricket World Cup 2023 का फाइनल किसने जीता?",
+        "answer": "ऑस्ट्रेलिया (भारत को हराया)",
+        "explanation": "अहमदाबाद में खेला गया",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC महिला विश्व कप 2026 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "फाइनल में पहुंचा, उप-विजेता",
+        "explanation": "ऑस्ट्रेलिया ने फाइनल जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Commonwealth Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "61 पदक (22 स्वर्ण)",
+        "explanation": "बर्मिंघम में शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Formula 1 में भारतीय ड्राइवर कौन खेल रहा है?",
+        "answer": "जहीर खान (F2 से F1 तक)",
+        "explanation": "भारत का पहला F1 ड्राइवर 2026 में",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत की नई शिक्षा नीति NEP 2020 के तहत कौन सी भाषा अनिवार्य है?",
+        "answer": "मातृभाषा + अंग्रेजी + एक भारतीय भाषा (त्रिभाषा सूत्र)",
+        "explanation": "कक्षा 5 तक मातृभाषा में शिक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "NATO में कौन सा नया सदस्य शामिल हुआ?",
+        "answer": "स्वीडन",
+        "explanation": "2024 में NATO का 32वां सदस्य बना",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Nifty Bank इंडेक्स ने कौन सा स्तर तोड़ा?",
+        "answer": "50,000 अंक",
+        "explanation": "बैंकिंग सेक्टर में जबरदस्त तेजी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SpaceX का Starship किस मिशन के लिए तैयार है?",
+        "answer": "Mars Mission (2028)",
+        "explanation": "मंगल ग्रह पर मानव बस्ती का पहला चरण",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC महिला T20 विश्व कप 2024 में भारत का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंचा",
+        "explanation": "ऑस्ट्रेलिया से हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "नोबेल पुरस्कार 2025 में किस भारतीय मूल के वैज्ञानिक को सम्मानित किया गया?",
+        "answer": "डॉ. अभिजीत बनर्जी (अर्थशास्त्र)",
+        "explanation": "विकासशील देशों में गरीबी उन्मूलन पर कार्य के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "One Rank One Pension (OROP) क्या है?",
+        "answer": "समान पेंशन सुविधा",
+        "explanation": "सेवानिवृत्त सैनिकों के लिए",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत में EV (Electric Vehicle) की बिक्री में कितनी वृद्धि हुई?",
+        "answer": "150% वार्षिक वृद्धि",
+        "explanation": "सरकारी सब्सिडी के कारण EV की मांग बढ़ी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AI क्षेत्र में भारत की स्थिति कैसी है?",
+        "answer": "विश्व में तीसरा सबसे बड़ा AI मार्केट",
+        "explanation": "अमेरिका और चीन के बाद भारत तीसरे स्थान पर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC Cricket World Cup 2023 का फाइनल किसने जीता?",
+        "answer": "ऑस्ट्रेलिया (भारत को हराया)",
+        "explanation": "अहमदाबाद में खेला गया",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-25",
+    "title": "25 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "PM नरेंद्र मोदी ने August 2026 में कौन सी नई योजना शुरू की?",
+        "answer": "विकसित भारत @2047 मिशन",
+        "explanation": "आज़ादी के 100 साल तक विकसित भारत का लक्ष्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Ayushman Bharat योजना के तहत कितने लोगों को लाभ मिला?",
+        "answer": "50 करोड़+ लोग",
+        "explanation": "स्वास्थ्य बीमा योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "QUAD Summit 2026 में कौन सी नई पहल शुरू हुई?",
+        "answer": "印太 Infrastructure Connectivity Initiative",
+        "explanation": "बुनियादी ढांचे में निवेश",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "WTO में भारत ने किस मुद्दे पर विरोध दर्ज किया?",
+        "answer": "कृषि सब्सिडी पर विकसित देशों की नीति",
+        "explanation": "विकासशील देशों के हितों की रक्षा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Share Market में FPI (Foreign Portfolio Investment) में कितनी वृद्धि हुई?",
+        "answer": "25,000 करोड़ रुपये (मासिक)",
+        "explanation": "विदेशी निवेशकों का भारत में भरोसा बढ़ा",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "GST काउंसिल की बैठक में क्या निर्णय लिया गया?",
+        "answer": "रेडीमेड कपड़ों पर GST 12% से घटाकर 5%",
+        "explanation": "कपड़ा उद्योग को राहत",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का SSLV (Small Satellite Launch Vehicle) क्या है?",
+        "answer": "छोटे उपग्रहों के लिए सस्ता रॉकेट",
+        "explanation": "500 किग्रा तक पेलोड क्षमता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का Aditya-L1 मिशन क्या करेगा?",
+        "answer": "सूर्य का अध्ययन",
+        "explanation": "लैग्रेंज पॉइंट L1 पर सूर्य की निगरानी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "T20 World Cup 2024 में भारत ने क्या किया?",
+        "answer": "विजेता बना (दक्षिण अफ्रीका को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में अर्धशतक जमाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "BCCI ने किस खिलाड़ी को T20I कप्तान बनाया?",
+        "answer": "सूर्यकुमार यादव",
+        "explanation": "रोहित शर्मा के बाद नए कप्तान",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Asian Para Games 2026 में भारत ने कितने पदक जीते?",
+        "answer": "111 पदक (29 स्वर्ण)",
+        "explanation": "पैरा एथलीटों का शानदार प्रदर्शन",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "नोबेल पुरस्कार 2025 में किस भारतीय मूल के वैज्ञानिक को सम्मानित किया गया?",
+        "answer": "डॉ. अभिजीत बनर्जी (अर्थशास्त्र)",
+        "explanation": "विकासशील देशों में गरीबी उन्मूलन पर कार्य के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सा राज्य 'ODF Plus' श्रेणी में अग्रणी है?",
+        "answer": "तमिलनाडु",
+        "explanation": "स्वच्छता में उत्कृष्ट प्रदर्शन",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "China-Taiwan तनाव पर भारत की स्थिति क्या है?",
+        "answer": "एक चीन नीति का समर्थन",
+        "explanation": "शांतिपूर्ण समाधान की वकालत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GSTN (GST Network) ने कौन सी नई सुविधा शुरू की?",
+        "answer": "e-Invoice 2.0 (₹5 करोड़ से ऊपर)",
+        "explanation": "इनवॉइस जनरेशन में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का Europa Clipper मिशन क्या है?",
+        "answer": "बृहस्पति के चंद्रमा Europa पर जीवन की खोज",
+        "explanation": "2024 में लॉन्च, 2030 में पहुंचेगा",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Games 2022 (हांगझू) में भारत ने कुल कितने पदक जीते?",
+        "answer": "107 पदक",
+        "explanation": "कुश्ती, बॉक्सिंग और एथलेटिक्स में अच्छा प्रदर्शन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sachin Tendulkar को कौन सा नया सम्मान मिला?",
+        "answer": "Bharat Ratna (2024)",
+        "explanation": "क्रिकेट में योगदान के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत की नई शिक्षा नीति NEP 2020 के तहत कौन सी भाषा अनिवार्य है?",
+        "answer": "मातृभाषा + अंग्रेजी + एक भारतीय भाषा (त्रिभाषा सूत्र)",
+        "explanation": "कक्षा 5 तक मातृभाषा में शिक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "SEBI ने किस नए नियम को लागू किया है?",
+        "answer": "शॉर्ट सेलिंग पर प्रतिबंध",
+        "explanation": "बाजार में स्थिरता लाने के लिए यह कदम",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "quantum computing में भारत की प्रगति कैसी है?",
+        "answer": "IIT मुंबई ने पहला क्वांटम कंप्यूटर विकसित किया",
+        "explanation": "56 क्यूबिट प्रोसेसर बनाया गया",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "T20 World Cup 2024 में भारत ने क्या किया?",
+        "answer": "विजेता बना (दक्षिण अफ्रीका को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में अर्धशतक जमाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-26",
+    "title": "26 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Digital India Act 2026 का मुख्य प्रावधान क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "One Nation One Election का समर्थन किस पार्टी ने किया?",
+        "answer": "BJP और NDA के सहयोगी",
+        "explanation": "एक साथ चुनाव कराने का प्रस्ताव",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Japan के प्रधानमंत्री कौन बने?",
+        "answer": "शिगेरु इशिबा",
+        "explanation": "Fumio Kishida की जगह ली",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "G7 देशों ने AI Safety Pact पर क्या सहमति जताई?",
+        "answer": "AI के जोखिमों पर अंतर्राष्ट्रीय मानक बनाना",
+        "explanation": "सभी G7 देश AI सुरक्षा के लिए सहमत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "SWAMIH Investment Fund का उद्देश्य क्या है?",
+        "answer": "अटकी हुई रियल एस्टेट परियोजनाओं को पूरा करना",
+        "explanation": "₹25,000 करोड़ का फंड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "RBI ने रेपो दर में कितने आधार अंकों की कटौती की?",
+        "answer": "25 बेसिस पॉइंट्स (0.25%)",
+        "explanation": "रेपो दर अब 6.00% हो गई है",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का NGLV (Next Generation Launch Vehicle) क्या है?",
+        "answer": "भारत का सबसे शक्तिशाली रॉकेट",
+        "explanation": "10 टन पेलोड को LEO में भेज सकता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ISRO का PSLV-C60 रॉकेट किस मिशन के लिए प्रयोग किया गया?",
+        "answer": "SPADEX (Space Docking Experiment)",
+        "explanation": "अंतरिक्ष में डॉकिंग तकनीक विकसित करना",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC Champions Trophy 2025 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "विजेता (ऑस्ट्रेलिया को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में शतक जमाया",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC महिला T20 विश्व कप 2024 में भारत का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंचा",
+        "explanation": "ऑस्ट्रेलिया से हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "COVID-19 के बाद भारत का टीकाकरण अभियान कैसा रहा?",
+        "answer": "220 करोड़+ खुराकें",
+        "explanation": "विश्व का सबसे बड़ा टीकाकरण अभियान",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sachin Tendulkar को कौन सा नया सम्मान मिला?",
+        "answer": "Bharat Ratna (2024)",
+        "explanation": "क्रिकेट में योगदान के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital Personal Data Protection Act (DPDPA) 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "नागरिकों के डेटा की सुरक्षा",
+        "explanation": "डेटा फिड्यूशरी की नियुक्ति अनिवार्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "India-UAE Comprehensive Economic Partnership Agreement (CEPA) के तहत क्या लाभ है?",
+        "answer": "90% वस्तुओं पर शून्य शुल्क",
+        "explanation": "द्विपक्षीय व्यापार को बढ़ावा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया कॉर्पोरेट टैक्स रेट क्या है?",
+        "answer": "25.17% (सभी कंपनियों के लिए)",
+        "explanation": "विनिर्माण क्षेत्र के लिए 17.16%",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का James Webb Space Telescope क्या खोज रहा है?",
+        "answer": "बाहरी ग्रहों पर जीवन के संकेत",
+        "explanation": "KEPLER-442b पर जैविक गैसें मिलीं",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Thomas Cup 2026 में भारतीय बैडमिंटन टीम का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंची",
+        "explanation": "पुरुष टीम ने शानदार खेल दिखाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Super 30 के संस्थापक कौन हैं?",
+        "answer": "आनंद कुमार",
+        "explanation": "गरीब छात्रों को IIT की तैयारी कराते हैं",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सा राज्य 'ODF Plus' श्रेणी में अग्रणी है?",
+        "answer": "तमिलनाडु",
+        "explanation": "स्वच्छता में उत्कृष्ट प्रदर्शन",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Digital Tax (Equalization Levy) की दर क्या है?",
+        "answer": "2%",
+        "explanation": "विदेशी डिजिटल कंपनियों पर कर",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने कौन सी नई तकनीक का विकास किया?",
+        "answer": "AI-based Cancer Detection System",
+        "explanation": "95% सटीकता के साथ कैंसर का पता लगाता है",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC Champions Trophy 2025 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "विजेता (ऑस्ट्रेलिया को हराया)",
+        "explanation": "विराट कोहली ने फाइनल में शतक जमाया",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-27",
+    "title": "27 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "UCC (Uniform Civil Code) किस राज्य में लागू हुआ?",
+        "answer": "उत्तराखंड",
+        "explanation": "भारत में पहला राज्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "PM-KISAN योजना में किसानों को कितना भुगतान किया जाता है?",
+        "answer": "₹6,000 वार्षिक (तीन किस्तों में ₹2,000)",
+        "explanation": "सीधे किसानों के बैंक खाते में",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G7 शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "इटली (पुगलिया)",
+        "explanation": "G7 नेताओं की बैठक",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "PM मोदी ने कौन सा नया अंतर्राष्ट्रीय मंच शुरू किया?",
+        "answer": "Global South Summit",
+        "explanation": "विकासशील देशों का मंच",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NPS (National Pension System) में कौन सा नया विकल्प जोड़ा गया?",
+        "answer": "Auto-Choice Life Cycle Fund",
+        "explanation": "उम्र के हिसाब से स्वचालित निवेश",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "GST कलेक्शन 2026 में कितने लाख करोड़ रुपये रहा?",
+        "answer": "2.1 लाख करोड़ रुपये (मासिक औसत)",
+        "explanation": "जीएसटी संग्रह में लगातार वृद्धि",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए Gene Therapy शुरू की?",
+        "answer": "सिकल सेल एनीमिया",
+        "explanation": "भारत में पहली बार जीन थेरेपी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Gaganyaan मिशन में कौन सा रोबोट जाएगा?",
+        "answer": "व्योममित्र (Vyommitra)",
+        "explanation": "मानव जैसा रोबोट अंतरिक्ष में जाएगा",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC U19 Cricket World Cup 2026 में भारत ने क्या किया?",
+        "answer": "विजेता बना (ऑस्ट्रेलिया को हराया)",
+        "explanation": "भारत ने 5वीं बार खिताब जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Games 2022 (हांगझू) में भारत ने कुल कितने पदक जीते?",
+        "answer": "107 पदक",
+        "explanation": "कुश्ती, बॉक्सिंग और एथलेटिक्स में अच्छा प्रदर्शन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "किस राज्य ने 'फ्री टैबलेट' योजना शुरू की है?",
+        "answer": "उत्तर प्रदेश",
+        "explanation": "कक्षा 9-12 के छात्रों को मुफ्त टैबलेट",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "Super 30 के संस्थापक कौन हैं?",
+        "answer": "आनंद कुमार",
+        "explanation": "गरीब छात्रों को IIT की तैयारी कराते हैं",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने August 2026 में कौन सी नई योजना शुरू की?",
+        "answer": "विकसित भारत @2047 मिशन",
+        "explanation": "आज़ादी के 100 साल तक विकसित भारत का लक्ष्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "QUAD Summit 2026 में कौन सी नई पहल शुरू हुई?",
+        "answer": "印太 Infrastructure Connectivity Initiative",
+        "explanation": "बुनियादी ढांचे में निवेश",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "EV Battery की कीमत में कितनी कमी आई?",
+        "answer": "20% सालाना गिरावट",
+        "explanation": "बैटरी तकनीक में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा सौर ऊर्जा उत्पादक बन गया है?",
+        "answer": "भारत",
+        "explanation": "भारत ने चीन को पीछे छोड़ दिया है",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "FIH Hockey World Cup 2026 में भारत का प्रदर्शन?",
+        "answer": "कांस्य पदक",
+        "explanation": "नीदरलैंड से सेमीफाइनल में हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "कौन सी भारतीय फिल्म ऑस्कर 2026 में नामांकित हुई?",
+        "answer": "RRR (दूसरी बार)",
+        "explanation": "बेस्ट इंटरनेशनल फीचर फिल्म श्रेणी में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital Personal Data Protection Act (DPDPA) 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "नागरिकों के डेटा की सुरक्षा",
+        "explanation": "डेटा फिड्यूशरी की नियुक्ति अनिवार्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Nifty Bank इंडेक्स ने कौन सा स्तर तोड़ा?",
+        "answer": "50,000 अंक",
+        "explanation": "बैंकिंग सेक्टर में जबरदस्त तेजी",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "SpaceX का Starship किस मिशन के लिए तैयार है?",
+        "answer": "Mars Mission (2028)",
+        "explanation": "मंगल ग्रह पर मानव बस्ती का पहला चरण",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC U19 Cricket World Cup 2026 में भारत ने क्या किया?",
+        "answer": "विजेता बना (ऑस्ट्रेलिया को हराया)",
+        "explanation": "भारत ने 5वीं बार खिताब जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-28",
+    "title": "28 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Swachh Bharat Mission 2.0 का लक्ष्य क्या है?",
+        "answer": "2026 तक सभी शहरों को ODF Plus घोषित करना",
+        "explanation": "ओपन डेफेकेशन फ्री प्लस श्रेणी",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Data Protection Bill 2023 का मुख्य प्रावधान क्या है?",
+        "answer": "Digital Personal Data Protection Act (DPDPA)",
+        "explanation": "नागरिकों के डेटा की सुरक्षा",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "ASEAN शिखर सम्मेलन 2026 में भारत का प्रतिनिधित्व किसने किया?",
+        "answer": "प्रधानमंत्री नरेंद्र मोदी",
+        "explanation": "इंडोनेशिया में आयोजित",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "US Presidential Election 2024 में किसने जीत हासिल की?",
+        "answer": "डोनाल्ड ट्रंप (Republican)",
+        "explanation": "दूसरी बार राष्ट्रपति चुने गए",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IT सेक्टर में भारत का निर्यात कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार रिकॉर्ड",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "भारत का विदेशी मुद्रा भंडार कितने अरब डॉलर हो गया है?",
+        "answer": "700 अरब डॉलर",
+        "explanation": "RBI के अनुसार यह रिकॉर्ड स्तर है",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "AIIMS ने किस बीमारी के लिए mRNA वैक्सीन विकसित की?",
+        "answer": "टीबी (Tuberculosis)",
+        "explanation": "भारत में पहली mRNA TB वैक्सीन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Quantum Computing में IIT दिल्ली ने क्या हासिल किया?",
+        "answer": "72-क्यूबिट प्रोसेसर विकसित",
+        "explanation": "भारत का सबसे शक्तिशाली क्वांटम कंप्यूटर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC महिला विश्व कप 2026 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "फाइनल में पहुंचा, उप-विजेता",
+        "explanation": "ऑस्ट्रेलिया ने फाइनल जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Thomas Cup 2026 में भारतीय बैडमिंटन टीम का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंची",
+        "explanation": "पुरुष टीम ने शानदार खेल दिखाया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Formula 1 में भारतीय ड्राइवर कौन खेल रहा है?",
+        "answer": "जहीर खान (F2 से F1 तक)",
+        "explanation": "भारत का पहला F1 ड्राइवर 2026 में",
+        "category": "Awards",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सी भारतीय फिल्म ऑस्कर 2026 में नामांकित हुई?",
+        "answer": "RRR (दूसरी बार)",
+        "explanation": "बेस्ट इंटरनेशनल फीचर फिल्म श्रेणी में",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital India Act 2026 का मुख्य प्रावधान क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "Japan के प्रधानमंत्री कौन बने?",
+        "answer": "शिगेरु इशिबा",
+        "explanation": "Fumio Kishida की जगह ली",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Indian Oil Corporation ने कौन सी नई तकनीक अपनाई?",
+        "answer": "Green Hydrogen Production Plant",
+        "explanation": "चेन्नई में हरित हाइड्रोजन प्लांट",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "Adani Group की कौन सी कंपनी IPO लेकर आई?",
+        "answer": "Adani Energy Solutions",
+        "explanation": "ऊर्जा क्षेत्र में निवेश का अवसर",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Asian Champions Trophy हॉकी में भारत ने कौन सा पदक जीता?",
+        "answer": "स्वर्ण पदक",
+        "explanation": "पाकिस्तान को फाइनल में हराया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय खेल प्राधिकरण (SAI) अध्यक्ष कौन है?",
+        "answer": "पी.टी. उषा",
+        "explanation": "पूर्व ओलंपियन को यह जिम्मेदारी दी गई",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "PM नरेंद्र मोदी ने August 2026 में कौन सी नई योजना शुरू की?",
+        "answer": "विकसित भारत @2047 मिशन",
+        "explanation": "आज़ादी के 100 साल तक विकसित भारत का लक्ष्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "GSTN (GST Network) ने कौन सी नई सुविधा शुरू की?",
+        "answer": "e-Invoice 2.0 (₹5 करोड़ से ऊपर)",
+        "explanation": "इनवॉइस जनरेशन में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का Europa Clipper मिशन क्या है?",
+        "answer": "बृहस्पति के चंद्रमा Europa पर जीवन की खोज",
+        "explanation": "2024 में लॉन्च, 2030 में पहुंचेगा",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC महिला विश्व कप 2026 में भारत का प्रदर्शन कैसा रहा?",
+        "answer": "फाइनल में पहुंचा, उप-विजेता",
+        "explanation": "ऑस्ट्रेलिया ने फाइनल जीता",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-29",
+    "title": "29 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "Ayushman Bharat योजना के तहत कितने लोगों को लाभ मिला?",
+        "answer": "50 करोड़+ लोग",
+        "explanation": "स्वास्थ्य बीमा योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "National Infrastructure Pipeline (NIP) का कुल निवेश कितना है?",
+        "answer": "₹111 लाख करोड़",
+        "explanation": "2020-25 के लिए बुनियादी ढांचा निवेश",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "WTO में भारत ने किस मुद्दे पर विरोध दर्ज किया?",
+        "answer": "कृषि सब्सिडी पर विकसित देशों की नीति",
+        "explanation": "विकासशील देशों के हितों की रक्षा",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Japan-India Economic Partnership Agreement (EPA) का विस्तार किस क्षेत्र तक हुआ?",
+        "answer": "डिजिटल ट्रेड और सेवाएं",
+        "explanation": "ई-कॉमर्स और डेटा फ्लो शामिल",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "GST काउंसिल की बैठक में क्या निर्णय लिया गया?",
+        "answer": "रेडीमेड कपड़ों पर GST 12% से घटाकर 5%",
+        "explanation": "कपड़ा उद्योग को राहत",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "IT क्षेत्र में भारत का निर्यात 2026 में कितने बिलियन डॉलर तक पहुंचा?",
+        "answer": "250 बिलियन डॉलर",
+        "explanation": "NASSCOM के अनुसार यह रिकॉर्ड है",
+        "category": "Economy",
+        "source": "PIB"
+      },
+      {
+        "question": "ISRO का Aditya-L1 मिशन क्या करेगा?",
+        "answer": "सूर्य का अध्ययन",
+        "explanation": "लैग्रेंज पॉइंट L1 पर सूर्य की निगरानी",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "Quantum Key Distribution (QKD) में भारत ने क्या हासिल किया?",
+        "answer": "100 किमी तक सुरक्षित संचार",
+        "explanation": "अलौकिक संचार में सफलता",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "BCCI ने किस खिलाड़ी को T20I कप्तान बनाया?",
+        "answer": "सूर्यकुमार यादव",
+        "explanation": "रोहित शर्मा के बाद नए कप्तान",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "FIH Hockey World Cup 2026 में भारत का प्रदर्शन?",
+        "answer": "कांस्य पदक",
+        "explanation": "नीदरलैंड से सेमीफाइनल में हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "नोबेल पुरस्कार 2025 में किस भारतीय मूल के वैज्ञानिक को सम्मानित किया गया?",
+        "answer": "डॉ. अभिजीत बनर्जी (अर्थशास्त्र)",
+        "explanation": "विकासशील देशों में गरीबी उन्मूलन पर कार्य के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "भारत का नया राष्ट्रीय खेल प्राधिकरण (SAI) अध्यक्ष कौन है?",
+        "answer": "पी.टी. उषा",
+        "explanation": "पूर्व ओलंपियन को यह जिम्मेदारी दी गई",
+        "category": "Awards",
+        "source": "PIB"
+      },
+      {
+        "question": "UCC (Uniform Civil Code) किस राज्य में लागू हुआ?",
+        "answer": "उत्तराखंड",
+        "explanation": "भारत में पहला राज्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G7 शिखर सम्मेलन 2026 का आयोजन कहां हुआ?",
+        "answer": "इटली (पुगलिया)",
+        "explanation": "G7 नेताओं की बैठक",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Tesla ने भारत में कहां अपनी पहली फैक्ट्री लगाई?",
+        "answer": "गुजरात (साणंद)",
+        "explanation": "5 अरब डॉलर का निवेश",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ISRO का Mars Mission 2 कब लॉन्च होगा?",
+        "answer": "2028",
+        "explanation": "मंगल ग्रह की सतह का अध्ययन",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "WPL (Women's Premier League) 2026 की विजेता कौन रही?",
+        "answer": "Mumbai Indians",
+        "explanation": "दूसरे सीजन में चैंपियन",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC Player of the Month जुलाई 2026 में कौन बनीं?",
+        "answer": "स्मृति मंधाना",
+        "explanation": "शानदार प्रदर्शन के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Digital India Act 2026 का मुख्य प्रावधान क्या है?",
+        "answer": "ऑनलाइन सुरक्षा और डेटा संरक्षण",
+        "explanation": "IT Act 2000 का अपडेट",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "भारत का नया कॉर्पोरेट टैक्स रेट क्या है?",
+        "answer": "25.17% (सभी कंपनियों के लिए)",
+        "explanation": "विनिर्माण क्षेत्र के लिए 17.16%",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "NASA का James Webb Space Telescope क्या खोज रहा है?",
+        "answer": "बाहरी ग्रहों पर जीवन के संकेत",
+        "explanation": "KEPLER-442b पर जैविक गैसें मिलीं",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "BCCI ने किस खिलाड़ी को T20I कप्तान बनाया?",
+        "answer": "सूर्यकुमार यादव",
+        "explanation": "रोहित शर्मा के बाद नए कप्तान",
+        "category": "Sports",
+        "source": "Indian Express"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  },
+  {
+    "date": "2026-08-30",
+    "title": "30 August 2026 Current Affairs",
+    "categories": [
+      "National",
+      "International",
+      "Economy",
+      "Science",
+      "Sports",
+      "Awards"
+    ],
+    "questions": [
+      {
+        "question": "One Nation One Election का समर्थन किस पार्टी ने किया?",
+        "answer": "BJP और NDA के सहयोगी",
+        "explanation": "एक साथ चुनाव कराने का प्रस्ताव",
+        "category": "National",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Green Hydrogen Mission का लक्ष्य क्या है?",
+        "answer": "2030 तक 5 मिलियन टन उत्पादन",
+        "explanation": "हरित ऊर्जा को बढ़ावा देने की योजना",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "G7 देशों ने AI Safety Pact पर क्या सहमति जताई?",
+        "answer": "AI के जोखिमों पर अंतर्राष्ट्रीय मानक बनाना",
+        "explanation": "सभी G7 देश AI सुरक्षा के लिए सहमत",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "India-UK Free Trade Agreement (FTA) किस क्षेत्र में है?",
+        "answer": "वस्तु और सेवा व्यापार",
+        "explanation": "₹20 लाख करोड़ का व्यापार लक्ष्य",
+        "category": "International",
+        "source": "The Hindu"
+      },
+      {
+        "question": "RBI ने रेपो दर में कितने आधार अंकों की कटौती की?",
+        "answer": "25 बेसिस पॉइंट्स (0.25%)",
+        "explanation": "रेपो दर अब 6.00% हो गई है",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Nifty 50 इंडेक्स ने 2026 में कौन सा स्तर छुआ?",
+        "answer": "25,000 अंक",
+        "explanation": "भारतीय शेयर बाजार में ऐतिहासिक ऊंचाई",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ISRO का PSLV-C60 रॉकेट किस मिशन के लिए प्रयोग किया गया?",
+        "answer": "SPADEX (Space Docking Experiment)",
+        "explanation": "अंतरिक्ष में डॉकिंग तकनीक विकसित करना",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "AI क्षेत्र में भारत की स्थिति कैसी है?",
+        "answer": "विश्व में तीसरा सबसे बड़ा AI मार्केट",
+        "explanation": "अमेरिका और चीन के बाद भारत तीसरे स्थान पर",
+        "category": "Science",
+        "source": "PIB"
+      },
+      {
+        "question": "ICC महिला T20 विश्व कप 2024 में भारत का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंचा",
+        "explanation": "ऑस्ट्रेलिया से हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Asian Champions Trophy हॉकी में भारत ने कौन सा पदक जीता?",
+        "answer": "स्वर्ण पदक",
+        "explanation": "पाकिस्तान को फाइनल में हराया",
+        "category": "Sports",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Sachin Tendulkar को कौन सा नया सम्मान मिला?",
+        "answer": "Bharat Ratna (2024)",
+        "explanation": "क्रिकेट में योगदान के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "ICC Player of the Month जुलाई 2026 में कौन बनीं?",
+        "answer": "स्मृति मंधाना",
+        "explanation": "शानदार प्रदर्शन के लिए",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "Swachh Bharat Mission 2.0 का लक्ष्य क्या है?",
+        "answer": "2026 तक सभी शहरों को ODF Plus घोषित करना",
+        "explanation": "ओपन डेफेकेशन फ्री प्लस श्रेणी",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "ASEAN शिखर सम्मेलन 2026 में भारत का प्रतिनिधित्व किसने किया?",
+        "answer": "प्रधानमंत्री नरेंद्र मोदी",
+        "explanation": "इंडोनेशिया में आयोजित",
+        "category": "International",
+        "source": "Indian Express"
+      },
+      {
+        "question": "Electric Vehicles की बिक्री में कौन सी कंपनी अग्रणी है?",
+        "answer": "Tata Motors",
+        "explanation": "Nexon EV सबसे ज्यादा बिकने वाली EV",
+        "category": "Economy",
+        "source": "The Hindu"
+      },
+      {
+        "question": "CERN ने कौन सी नई कण खोज की?",
+        "answer": "Pentaquark",
+        "explanation": "भौतिकी में ऐतिहासिक खोज",
+        "category": "Science",
+        "source": "The Hindu"
+      },
+      {
+        "question": "IPL 2026 की विजेता टीम कौन सी है?",
+        "answer": "Chennai Super Kings",
+        "explanation": "5वीं बार चैंपियन",
+        "category": "Sports",
+        "source": "Indian Express"
+      },
+      {
+        "question": "UNESCO ने किस भारतीय शहर को Creative City घोषित किया?",
+        "answer": "वाराणसी (संगीत श्रेणी)",
+        "explanation": "वाराणसी को यह सम्मान 2024 में मिला था",
+        "category": "Awards",
+        "source": "The Hindu"
+      },
+      {
+        "question": "UCC (Uniform Civil Code) किस राज्य में लागू हुआ?",
+        "answer": "उत्तराखंड",
+        "explanation": "भारत में पहला राज्य",
+        "category": "National",
+        "source": "PIB"
+      },
+      {
+        "question": "EV Battery की कीमत में कितनी कमी आई?",
+        "answer": "20% सालाना गिरावट",
+        "explanation": "बैटरी तकनीक में सुधार",
+        "category": "Economy",
+        "source": "Indian Express"
+      },
+      {
+        "question": "कौन सा देश विश्व का सबसे बड़ा सौर ऊर्जा उत्पादक बन गया है?",
+        "answer": "भारत",
+        "explanation": "भारत ने चीन को पीछे छोड़ दिया है",
+        "category": "Science",
+        "source": "Indian Express"
+      },
+      {
+        "question": "ICC महिला T20 विश्व कप 2024 में भारत का प्रदर्शन?",
+        "answer": "सेमीफाइनल तक पहुंचा",
+        "explanation": "ऑस्ट्रेलिया से हार",
+        "category": "Sports",
+        "source": "The Hindu"
+      }
+    ],
+    "downloadLink": "",
+    "isQuizReady": true
+  }
+]

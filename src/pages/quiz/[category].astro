@@ -1,0 +1,575 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { gkQuestions } from '../../data/quiz/gk';
+import { currentAffairsQuestions } from '../../data/quiz/current-affairs';
+import { sscCglQuestions } from '../../data/quiz/ssc-cgl';
+import { ibpsQuestions } from '../../data/quiz/ibps';
+import { railwayQuestions } from '../../data/quiz/railway';
+import { upscQuestions } from '../../data/quiz/upsc';
+import { reasoningQuestions } from '../../data/quiz/reasoning';
+import { mathematicsQuestions } from '../../data/quiz/mathematics';
+import { hindiGrammarQuestions } from '../../data/quiz/hindi-grammar';
+import { englishGrammarQuestions } from '../../data/quiz/english-grammar';
+
+export function getStaticPaths() {
+  return [
+    { params: { category: 'gk' }, props: { category: 'gk', name: 'General Knowledge', nameHi: 'सामान्य ज्ञान', icon: '🧠', questions: gkQuestions } },
+    { params: { category: 'current-affairs' }, props: { category: 'current-affairs', name: 'Current Affairs', nameHi: 'करंट अफेयर्स', icon: '📰', questions: currentAffairsQuestions } },
+    { params: { category: 'ssc-cgl' }, props: { category: 'ssc-cgl', name: 'SSC CGL Level', nameHi: 'SSC CGL स्तर', icon: '📝', questions: sscCglQuestions } },
+    { params: { category: 'ibps' }, props: { category: 'ibps', name: 'IBPS Level', nameHi: 'IBPS स्तर', icon: '🏦', questions: ibpsQuestions } },
+    { params: { category: 'railway' }, props: { category: 'railway', name: 'Railway Level', nameHi: 'रेलवे स्तर', icon: '🚂', questions: railwayQuestions } },
+    { params: { category: 'upsc' }, props: { category: 'upsc', name: 'UPSC Prelims', nameHi: 'UPSC प्रीलिम्स', icon: '🏛️', questions: upscQuestions } },
+    { params: { category: 'reasoning' }, props: { category: 'reasoning', name: 'Reasoning', nameHi: 'रीजनिंग', icon: '🧩', questions: reasoningQuestions } },
+    { params: { category: 'mathematics' }, props: { category: 'mathematics', name: 'Mathematics', nameHi: 'गणित', icon: '🔢', questions: mathematicsQuestions } },
+    { params: { category: 'hindi-grammar' }, props: { category: 'hindi-grammar', name: 'Hindi Grammar', nameHi: 'हिंदी व्याकरण', icon: '📖', questions: hindiGrammarQuestions } },
+    { params: { category: 'english-grammar' }, props: { category: 'english-grammar', name: 'English Grammar', nameHi: 'अंग्रेजी व्याकरण', icon: '🔤', questions: englishGrammarQuestions } },
+  ];
+}
+
+const { category, name, nameHi, icon, questions } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Quiz", "item": siteUrl + "/quiz/" },
+    { "@type": "ListItem", "position": 3, name: name }
+  ]
+};
+---
+
+<BaseLayout
+  title={`${name} Daily Quiz — Free Practice Test | Sarkari Sahayak`}
+  description={`${name} daily quiz with 10 random questions, 15 min timer, instant score, and WhatsApp share. Free practice for govt exams.`}
+  canonical={`/quiz/${category}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <section class="quiz-page">
+    <div class="container">
+
+      {/* Breadcrumb */}
+      <nav class="q-breadcrumb">
+        <a href="/">Home</a> <span>/</span>
+        <a href="/quiz/">Quiz</a> <span>/</span>
+        <span>{name}</span>
+      </nav>
+
+      {/* Quiz Container */}
+      <div class="quiz-container" id="quizContainer">
+
+        {/* Start Screen */}
+        <div class="quiz-screen active" id="startScreen">
+          <div class="q-start-card">
+            <div class="q-start-icon">{icon}</div>
+            <h1 class="q-start-title">{name}</h1>
+            <div class="q-start-hi">{nameHi}</div>
+            <div class="q-start-meta">
+              <span>📋 10 Questions</span>
+              <span>⏱️ 15 Minutes</span>
+              <span>📊 Instant Result</span>
+            </div>
+            <div class="q-start-info">
+              <p>Har baar 10 random questions milenge question bank se. Score turant milega with explanations.</p>
+            </div>
+
+            {/* Streak Display */}
+            <div class="q-streak" id="streakDisplay" style="display:none">
+              <span class="streak-fire">🔥</span>
+              <span id="streakCount">0</span> din ka streak!
+            </div>
+
+            <button class="q-start-btn" id="startBtn">Quiz Shuru Karo →</button>
+
+            <div class="q-start-links">
+              <a href="/quiz/">← Categories</a>
+              <a href="/exam-calendar/">Exam Calendar →</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Quiz Screen */}
+        <div class="quiz-screen" id="quizScreen">
+          <div class="q-top-bar">
+            <div class="q-progress">
+              <span id="qCurrent">1</span> / <span id="qTotal">10</span>
+            </div>
+            <div class="q-timer" id="qTimer">
+              <span class="timer-icon">⏱️</span>
+              <span id="timerDisplay">15:00</span>
+            </div>
+            <div class="q-score-live" id="qScoreLive">
+              Score: <span id="liveScore">0</span>
+            </div>
+          </div>
+
+          <div class="q-progress-bar">
+            <div class="q-progress-fill" id="progressFill"></div>
+          </div>
+
+          <div class="q-question-card" id="questionCard">
+            <div class="q-number" id="qNumber">Question 1</div>
+            <div class="q-text" id="qText"></div>
+            <div class="q-options" id="qOptions"></div>
+          </div>
+
+          <div class="q-actions">
+            <button class="q-skip-btn" id="skipBtn">Skip →</button>
+            <button class="q-next-btn" id="nextBtn" style="display:none">Next Question →</button>
+          </div>
+        </div>
+
+        {/* Result Screen */}
+        <div class="quiz-screen" id="resultScreen">
+          <div class="q-result-card">
+            <div class="q-result-icon" id="resultIcon">🎉</div>
+            <h2 class="q-result-title" id="resultTitle">Bahut Badhiya!</h2>
+            <div class="q-result-score">
+              <span class="rs-num" id="finalScore">0</span>
+              <span class="rs-of">/ 10</span>
+            </div>
+            <div class="q-result-msg" id="resultMsg"></div>
+
+            <div class="q-result-stats">
+              <div class="rs-item"><span class="rs-label">Correct</span><span class="rs-val green" id="correctCount">0</span></div>
+              <div class="rs-item"><span class="rs-label">Wrong</span><span class="rs-val red" id="wrongCount">0</span></div>
+              <div class="rs-item"><span class="rs-label">Skipped</span><span class="rs-val yellow" id="skippedCount">0</span></div>
+              <div class="rs-item"><span class="rs-label">Accuracy</span><span class="rs-val" id="accuracy">0%</span></div>
+            </div>
+
+            {/* Streak */}
+            <div class="q-result-streak" id="resultStreak" style="display:none">
+              🔥 <span id="resultStreakCount">0</span> din ka streak!
+            </div>
+
+            {/* Share */}
+            <div class="q-share-section">
+              <p class="q-share-label">Apna score share karo:</p>
+              <div class="q-share-buttons">
+                <a class="q-share-btn whatsapp" id="whatsappShare" href="#" target="_blank">
+                  📱 WhatsApp
+                </a>
+                <button class="q-share-btn copy" id="copyScore">
+                  📋 Copy Score
+                </button>
+              </div>
+            </div>
+
+            {/* Explanation Review */}
+            <div class="q-review-section" id="reviewSection">
+              <h3 class="q-review-title">📝 Answer Review</h3>
+              <div id="reviewList"></div>
+            </div>
+
+            <div class="q-result-actions">
+              <a href={`/quiz/${category}/`} class="q-retry-btn">🔄 Retry Quiz</a>
+              <a href="/quiz/" class="q-category-btn">📂 All Categories</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ category, name, questionsJSON: JSON.stringify(questions) }}>
+  (function() {
+    'use strict';
+
+    const ALL_QUESTIONS = questionsJSON;
+    const QUIZ_LENGTH = 10;
+    const TIME_LIMIT = 15 * 60;
+    let quizQuestions = [];
+    let currentQ = 0;
+    let score = 0;
+    let timeLeft = TIME_LIMIT;
+    let timer = null;
+    let answers = [];
+    let answered = false;
+
+    const startScreen = document.getElementById('startScreen');
+    const quizScreen = document.getElementById('quizScreen');
+    const resultScreen = document.getElementById('resultScreen');
+    const startBtn = document.getElementById('startBtn');
+    const skipBtn = document.getElementById('skipBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    // Load streak
+    function getStreak() {
+      try {
+        const data = JSON.parse(localStorage.getItem('ss-quiz-stats') || '{}');
+        const today = new Date().toDateString();
+        if (data.lastDate === today) return data.streak || 0;
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        if (data.lastDate === yesterday) return data.streak || 0;
+        return 0;
+      } catch(e) { return 0; }
+    }
+
+    function updateStreak() {
+      try {
+        const data = JSON.parse(localStorage.getItem('ss-quiz-stats') || '{}');
+        const today = new Date().toDateString();
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        if (data.lastDate === today) return data.streak || 0;
+        if (data.lastDate === yesterday) {
+          data.streak = (data.streak || 0) + 1;
+        } else {
+          data.streak = 1;
+        }
+        data.lastDate = today;
+        data.totalQuizzes = (data.totalQuizzes || 0) + 1;
+        data.totalQuestions = (data.totalQuestions || 0) + QUIZ_LENGTH;
+        data.totalCorrect = (data.totalCorrect || 0) + score;
+        localStorage.setItem('ss-quiz-stats', JSON.stringify(data));
+        return data.streak;
+      } catch(e) { return 1; }
+    }
+
+    function shuffleArray(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function startQuiz() {
+      quizQuestions = shuffleArray(ALL_QUESTIONS).slice(0, QUIZ_LENGTH);
+      currentQ = 0;
+      score = 0;
+      answers = [];
+      timeLeft = TIME_LIMIT;
+      answered = false;
+
+      startScreen.classList.remove('active');
+      quizScreen.classList.add('active');
+      resultScreen.classList.remove('active');
+
+      document.getElementById('qTotal').textContent = QUIZ_LENGTH;
+      loadQuestion();
+      startTimer();
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        timeLeft--;
+        const min = Math.floor(timeLeft / 60);
+        const sec = timeLeft % 60;
+        document.getElementById('timerDisplay').textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          finishQuiz();
+        }
+      }, 1000);
+    }
+
+    function loadQuestion() {
+      const q = quizQuestions[currentQ];
+      answered = false;
+      document.getElementById('qCurrent').textContent = currentQ + 1;
+      document.getElementById('qNumber').textContent = `Question ${currentQ + 1}`;
+      document.getElementById('qText').textContent = q.question;
+      document.getElementById('progressFill').style.width = `${((currentQ) / QUIZ_LENGTH) * 100}%`;
+      document.getElementById('liveScore').textContent = score;
+      document.getElementById('nextBtn').style.display = 'none';
+      document.getElementById('skipBtn').style.display = '';
+
+      const optionsHtml = q.options.map((opt, i) =>
+        `<button class="q-option" data-idx="${i}">${opt}</button>`
+      ).join('');
+      document.getElementById('qOptions').innerHTML = optionsHtml;
+
+      document.querySelectorAll('.q-option').forEach(btn => {
+        btn.addEventListener('click', () => selectAnswer(parseInt(btn.dataset.idx)));
+      });
+    }
+
+    function selectAnswer(idx) {
+      if (answered) return;
+      answered = true;
+      const q = quizQuestions[currentQ];
+      const isCorrect = idx === q.correct;
+
+      if (isCorrect) score++;
+
+      answers.push({ question: q, selected: idx, correct: q.correct, isCorrect });
+
+      document.querySelectorAll('.q-option').forEach((btn, i) => {
+        btn.classList.add('disabled');
+        if (i === q.correct) btn.classList.add('correct');
+        if (i === idx && !isCorrect) btn.classList.add('wrong');
+      });
+
+      document.getElementById('skipBtn').style.display = 'none';
+      document.getElementById('nextBtn').style.display = '';
+      document.getElementById('liveScore').textContent = score;
+    }
+
+    function skipQuestion() {
+      if (answered) return;
+      const q = quizQuestions[currentQ];
+      answers.push({ question: q, selected: -1, correct: q.correct, isCorrect: false });
+      nextQuestion();
+    }
+
+    function nextQuestion() {
+      currentQ++;
+      if (currentQ >= QUIZ_LENGTH) {
+        finishQuiz();
+      } else {
+        loadQuestion();
+      }
+    }
+
+    function finishQuiz() {
+      clearInterval(timer);
+      quizScreen.classList.remove('active');
+      resultScreen.classList.add('active');
+
+      const streak = updateStreak();
+      const skipped = answers.filter(a => a.selected === -1).length;
+      const wrong = answers.filter(a => !a.isCorrect && a.selected !== -1).length;
+      const accuracyVal = QUIZ_LENGTH > 0 ? Math.round((score / QUIZ_LENGTH) * 100) : 0;
+
+      document.getElementById('finalScore').textContent = score;
+      document.getElementById('correctCount').textContent = score;
+      document.getElementById('wrongCount').textContent = wrong;
+      document.getElementById('skippedCount').textContent = skipped;
+      document.getElementById('accuracy').textContent = accuracyVal + '%';
+
+      let icon = '🎉', title = 'Bahut Badhiya!', msg = '';
+      if (score === 10) { icon = '🏆'; title = 'Perfect Score!'; msg = 'Kamaal! Tum toh genius ho!'; }
+      else if (score >= 8) { icon = '🌟'; title = 'Excellent!'; msg = 'Bohot achha! Exam mein top karoge!'; }
+      else if (score >= 6) { icon = '👍'; title = 'Good Job!'; msg = 'Achha score hai! Thodi aur practice karo.'; }
+      else if (score >= 4) { icon = '💪'; title = 'Keep Trying!'; msg = 'Practice makes perfect. Roz quiz khelo!'; }
+      else { icon = '📚'; title = 'Padhai Karo!'; msg = 'Topics revise karo aur phir try karo.'; }
+
+      document.getElementById('resultIcon').textContent = icon;
+      document.getElementById('resultTitle').textContent = title;
+      document.getElementById('resultMsg').textContent = msg;
+
+      if (streak > 1) {
+        document.getElementById('resultStreak').style.display = '';
+        document.getElementById('resultStreakCount').textContent = streak;
+      }
+
+      // WhatsApp share
+      const shareText = `Aaj ka ${name} quiz mein ${score}/10 mila! 🎯\nAccuracy: ${accuracyVal}%\n🔥 ${streak} din ka streak!\n\nTum bhi try karo: ${window.location.href}`;
+      document.getElementById('whatsappShare').href = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+
+      // Copy score
+      document.getElementById('copyScore').onclick = () => {
+        navigator.clipboard.writeText(shareText).then(() => {
+          document.getElementById('copyScore').textContent = '✅ Copied!';
+          setTimeout(() => { document.getElementById('copyScore').textContent = '📋 Copy Score'; }, 2000);
+        });
+      };
+
+      // Review section
+      let reviewHtml = '';
+      answers.forEach((a, i) => {
+        const statusClass = a.isCorrect ? 'correct' : a.selected === -1 ? 'skipped' : 'wrong';
+        const statusText = a.isCorrect ? '✅ Correct' : a.selected === -1 ? '⏭️ Skipped' : '❌ Wrong';
+        reviewHtml += `
+          <div class="review-item ${statusClass}">
+            <div class="review-q">${i + 1}. ${a.question.question}</div>
+            <div class="review-opts">
+              ${a.question.options.map((opt, oi) => {
+                let cls = '';
+                if (oi === a.correct) cls = 'correct-opt';
+                if (oi === a.selected && !a.isCorrect) cls = 'wrong-opt';
+                return `<span class="review-opt ${cls}">${opt}</span>`;
+              }).join('')}
+            </div>
+            <div class="review-status">${statusText}</div>
+            <div class="review-explain">${a.question.explanation}</div>
+          </div>`;
+      });
+      document.getElementById('reviewList').innerHTML = reviewHtml;
+    }
+
+    startBtn.addEventListener('click', startQuiz);
+    skipBtn.addEventListener('click', skipQuestion);
+    nextBtn.addEventListener('click', nextQuestion);
+
+    // Show streak on start screen
+    const streak = getStreak();
+    if (streak > 0) {
+      document.getElementById('streakDisplay').style.display = '';
+      document.getElementById('streakCount').textContent = streak;
+    }
+  })();
+  </script>
+
+  <style>
+    .quiz-page { padding: 24px 0 var(--sp-xxl); min-height: 80vh; }
+    .q-breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: var(--sp-lg); }
+    .q-breadcrumb a { color: var(--saffron); text-decoration: none; }
+    .q-breadcrumb span { margin: 0 8px; }
+
+    .quiz-container { max-width: 720px; margin: 0 auto; }
+    .quiz-screen { display: none; }
+    .quiz-screen.active { display: block; }
+
+    /* Start Screen */
+    .q-start-card {
+      background: var(--card); border: 1px solid var(--hairline); padding: var(--sp-xl);
+      text-align: center;
+    }
+    .q-start-icon { font-size: 64px; margin-bottom: var(--sp-md); }
+    .q-start-title { font-family: var(--font-display); font-weight: 700; font-size: 32px; color: var(--white); margin-bottom: 4px; }
+    .q-start-hi { font-size: 18px; color: var(--saffron); margin-bottom: var(--sp-lg); }
+    .q-start-meta { display: flex; justify-content: center; gap: var(--sp-lg); margin-bottom: var(--sp-lg); font-size: 15px; color: var(--body); }
+    .q-start-info { max-width: 480px; margin: 0 auto var(--sp-lg); font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .q-streak {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
+      background: rgba(255,107,53,.1); border: 1px solid rgba(255,107,53,.3);
+      font-size: 18px; font-weight: 700; color: var(--saffron); margin-bottom: var(--sp-lg);
+    }
+    .streak-fire { font-size: 24px; animation: fire-pulse 1s infinite; }
+    @keyframes fire-pulse { 50% { transform: scale(1.2); } }
+
+    .q-start-btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 16px 40px;
+      background: var(--saffron); color: #000; font-family: var(--font-display);
+      font-weight: 700; font-size: 16px; letter-spacing: 1.5px; text-transform: uppercase;
+      border: none; cursor: pointer; transition: all .25s; margin-bottom: var(--sp-lg);
+    }
+    .q-start-btn:hover { background: var(--gold); transform: translateY(-2px); }
+    .q-start-links { display: flex; justify-content: center; gap: var(--sp-lg); font-size: 14px; }
+    .q-start-links a { color: var(--saffron); text-decoration: none; }
+    .q-start-links a:hover { text-decoration: underline; }
+
+    /* Quiz Screen */
+    .q-top-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: var(--sp-md) 0; margin-bottom: var(--sp-sm);
+    }
+    .q-progress { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--strong); }
+    .q-timer {
+      display: flex; align-items: center; gap: 6px; padding: 8px 16px;
+      background: rgba(255,107,53,.1); border: 1px solid rgba(255,107,53,.3);
+      font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--saffron);
+    }
+    .q-score-live { font-size: 14px; color: var(--muted); }
+    .q-score-live span { color: var(--saffron); font-weight: 700; }
+
+    .q-progress-bar { height: 4px; background: var(--elevated); margin-bottom: var(--sp-lg); overflow: hidden; }
+    .q-progress-fill { height: 100%; background: var(--saffron); transition: width .3s ease; }
+
+    .q-question-card {
+      background: var(--card); border: 1px solid var(--hairline); padding: var(--sp-xl);
+      margin-bottom: var(--sp-md);
+    }
+    .q-number { font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: var(--sp-md); }
+    .q-text { font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.5; margin-bottom: var(--sp-lg); }
+
+    .q-options { display: flex; flex-direction: column; gap: var(--sp-sm); }
+    .q-option {
+      display: block; width: 100%; text-align: left; padding: 16px 20px;
+      background: var(--elevated); border: 1px solid var(--hairline);
+      color: var(--body); font-size: 16px; cursor: pointer; transition: all .2s;
+    }
+    .q-option:hover:not(.disabled) { border-color: var(--saffron); color: var(--white); background: rgba(255,107,53,.06); }
+    .q-option.correct { background: rgba(15,163,54,.15); border-color: var(--success); color: var(--success); }
+    .q-option.wrong { background: rgba(226,39,24,.15); border-color: var(--m-red); color: var(--m-red); }
+    .q-option.disabled { cursor: default; opacity: .7; }
+    .q-option.disabled:hover { border-color: var(--hairline); color: var(--body); background: var(--elevated); }
+    .q-option.correct:hover, .q-option.wrong:hover { opacity: 1; }
+
+    .q-actions { display: flex; gap: var(--sp-sm); }
+    .q-skip-btn {
+      flex: 1; padding: 14px; background: transparent; border: 1px solid var(--hairline);
+      color: var(--muted); font-family: var(--font-display); font-weight: 700; font-size: 14px;
+      letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s;
+    }
+    .q-skip-btn:hover { border-color: var(--muted); color: var(--body); }
+    .q-next-btn {
+      flex: 1; padding: 14px; background: var(--saffron); border: none;
+      color: #000; font-family: var(--font-display); font-weight: 700; font-size: 14px;
+      letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all .2s;
+    }
+    .q-next-btn:hover { background: var(--gold); }
+
+    /* Result Screen */
+    .q-result-card { background: var(--card); border: 1px solid var(--hairline); padding: var(--sp-xl); text-align: center; }
+    .q-result-icon { font-size: 64px; margin-bottom: var(--sp-md); }
+    .q-result-title { font-family: var(--font-display); font-weight: 700; font-size: 32px; color: var(--white); margin-bottom: var(--sp-md); }
+    .q-result-score { margin-bottom: var(--sp-md); }
+    .rs-num { font-family: var(--font-display); font-weight: 700; font-size: 72px; color: var(--saffron); line-height: 1; }
+    .rs-of { font-size: 24px; color: var(--muted); }
+    .q-result-msg { font-size: 16px; color: var(--body); margin-bottom: var(--sp-lg); }
+
+    .q-result-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-sm);
+      margin-bottom: var(--sp-lg); padding: var(--sp-md);
+      background: var(--elevated); border: 1px solid var(--hairline);
+    }
+    .rs-item { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+    .rs-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .rs-val { font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--strong); }
+    .rs-val.green { color: var(--success); }
+    .rs-val.red { color: var(--m-red); }
+    .rs-val.yellow { color: var(--gold); }
+
+    .q-result-streak {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
+      background: rgba(255,107,53,.1); border: 1px solid rgba(255,107,53,.3);
+      font-size: 18px; font-weight: 700; color: var(--saffron); margin-bottom: var(--sp-lg);
+    }
+
+    .q-share-section { margin-bottom: var(--sp-lg); }
+    .q-share-label { font-size: 14px; color: var(--muted); margin-bottom: var(--sp-sm); }
+    .q-share-buttons { display: flex; gap: var(--sp-sm); justify-content: center; }
+    .q-share-btn {
+      padding: 12px 24px; font-family: var(--font-display); font-weight: 700; font-size: 14px;
+      letter-spacing: .5px; border: 1px solid var(--hairline); cursor: pointer; transition: all .2s;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .q-share-btn.whatsapp { background: #25D366; color: #fff; border-color: #25D366; }
+    .q-share-btn.whatsapp:hover { background: #1da851; }
+    .q-share-btn.copy { background: var(--elevated); color: var(--body); }
+    .q-share-btn.copy:hover { border-color: var(--saffron); color: var(--saffron); }
+
+    .q-review-section { text-align: left; margin-bottom: var(--sp-lg); }
+    .q-review-title { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--white); margin-bottom: var(--sp-md); }
+    .review-item { padding: var(--sp-md); border: 1px solid var(--hairline); margin-bottom: var(--sp-sm); background: var(--elevated); }
+    .review-item.correct { border-left: 3px solid var(--success); }
+    .review-item.wrong { border-left: 3px solid var(--m-red); }
+    .review-item.skipped { border-left: 3px solid var(--gold); }
+    .review-q { font-size: 15px; font-weight: 600; color: var(--strong); margin-bottom: 8px; }
+    .review-opts { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .review-opt { font-size: 13px; padding: 4px 10px; background: var(--soft); color: var(--body); }
+    .review-opt.correct-opt { background: rgba(15,163,54,.15); color: var(--success); border: 1px solid rgba(15,163,54,.4); }
+    .review-opt.wrong-opt { background: rgba(226,39,24,.15); color: var(--m-red); border: 1px solid rgba(226,39,24,.4); }
+    .review-status { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .review-explain { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    .q-result-actions { display: flex; gap: var(--sp-sm); justify-content: center; }
+    .q-retry-btn, .q-category-btn {
+      padding: 14px 24px; font-family: var(--font-display); font-weight: 700; font-size: 14px;
+      letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all .2s;
+    }
+    .q-retry-btn { background: var(--saffron); color: #000; border: none; }
+    .q-retry-btn:hover { background: var(--gold); }
+    .q-category-btn { background: transparent; color: var(--body); border: 1px solid var(--hairline); }
+    .q-category-btn:hover { border-color: var(--saffron); color: var(--saffron); }
+
+    @media (max-width: 600px) {
+      .q-start-title { font-size: 24px; }
+      .q-start-meta { flex-direction: column; gap: var(--sp-xs); }
+      .q-text { font-size: 17px; }
+      .rs-num { font-size: 56px; }
+      .q-result-stats { grid-template-columns: repeat(2, 1fr); }
+      .q-share-buttons { flex-direction: column; }
+      .q-result-actions { flex-direction: column; }
+    }
+  </style>
+</BaseLayout>

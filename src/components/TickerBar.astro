@@ -1,0 +1,28 @@
+---
+import latestJobs from '../data/latest-jobs.json';
+
+const tickerJobs = latestJobs.slice(0, 6);
+---
+
+<div class="ticker-bar" aria-label="2026 exam updates">
+  <div class="ticker-label"><span class="live-dot"></span>Live</div>
+  <div class="ticker-viewport">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        {tickerJobs.map(j => (
+          <a href={`/latest-jobs/${j.slug}/`} class="tick-item">
+            🔔 <strong>{j.shortTitle || j.title.replace(/ Online Form.*/, '')}:</strong> {j.vacancies ? `${j.vacancies.toLocaleString('en-IN')} Posts — ` : ''}Last Date: {j.lastDate} →
+          </a>
+        ))}
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+        {tickerJobs.map(j => (
+          <a href={`/latest-jobs/${j.slug}/`} class="tick-item">
+            🔔 <strong>{j.shortTitle || j.title.replace(/ Online Form.*/, '')}:</strong> {j.vacancies ? `${j.vacancies.toLocaleString('en-IN')} Posts — ` : ''}Last Date: {j.lastDate} →
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+

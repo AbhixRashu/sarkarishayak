@@ -1,0 +1,1493 @@
+[
+  {
+    "name": "PM Awas Yojana Urban 2.0",
+    "slug": "pm-awas-yojana-urban-2",
+    "category": "housing",
+    "launchDate": "01 November 2024",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "budget": "₹10,000 Crore",
+    "eligibility": "शहरी क्षेत्रों में रहने वाले परिवार जिनकी वार्षिक आय ₹3 लाख से कम हो। EWS और LIG श्रेणी के परिवार आवेदन कर सकते हैं।",
+    "benefits": "प्रधानमंत्री आवास योजना शहरी 2.0 के तहत ₹2.67 लाख तक की सब्सिडी दी जाती है। घर खरीदने, बनाने या किराए पर घर के लिए आर्थिक सहायता मिलती है।",
+    "applicationProcess": [
+      "PMAY की आधिकारिक वेबसाइट pmaymis.gov.in पर जाएँ",
+      "Urban 2.0 के लिए 'Apply Online' पर क्लिक करें",
+      "आधार कार्ड से रजिस्ट्रेशन करें",
+      "सभी जरूरी दस्तावेज अपलोड करें",
+      "सब्सिडी के लिए बैंक विवरण भरें",
+      "आवेदन सबमिट करें और रेफरेंस नंबर सेव करें"
+    ],
+    "documents": ["आधार कार्ड", "आय प्रमाण पत्र", "राशन कार्ड", "बैंक पासबुक", "पासपोर्ट साइज फोटो", "स्व-घोषणा पत्र"],
+    "officialWebsite": "https://pmaymis.gov.in",
+    "helpline": "1800-11-6161",
+    "shortDescription": "PM Awas Yojana Urban 2.0 — शहरी गरीब परिवारों को ₹2.67 लाख सब्सिडी। 2024 में लॉन्च।",
+    "importantDates": ["Application Start: 01 November 2024", "Last Date: 31 December 2025", "Subsidy Disbursement: Within 30 Days"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmaymis.gov.in"},
+      {"label": "Apply Online", "url": "https://pmaymis.gov.in/pmayurban/"},
+      {"label": "Check Status", "url": "https://pmaymis.gov.in/pmayurban/benefitlast.asp"}
+    ],
+    "stateImplementation": "National — सभी शहरी क्षेत्रों में लागू"
+  },
+  {
+    "name": "PM Awas Yojana Gramin",
+    "slug": "pm-awas-yojana-gramin",
+    "category": "housing",
+    "launchDate": "20 November 2016",
+    "ministry": "Ministry of Rural Development",
+    "budget": "₹20,000 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों में बेघर परिवार, कच्चे मकान में रहने वाले परिवार, BPL परिवार, SC/ST और अन्य पिछड़ा वर्ग।",
+    "benefits": "पक्का घर बनाने के लिए ₹1.20 लाख (मैदानी क्षेत्र) और ₹1.30 लाख (पहाड़ी/कठिन क्षेत्र) की सहायता राशि। शौचालय निर्माण के लिए ₹12,000 अतिरिक्त।",
+    "applicationProcess": [
+      "ग्राम पंचायत या ब्लॉक कार्यालय में संपर्क करें",
+      "AwaasPlus ऐप या वेबसाइट पर आवेदन करें",
+      "BPL सूची में नाम होना जरूरी है",
+      "आधार कार्ड और बैंक खाता लिंक करें",
+      "ग्राम सभा से स्वीकृति प्राप्त करें",
+      "किस्तों में सहायता राशि प्राप्त होगी"
+    ],
+    "documents": ["आधार कार्ड", "BPL प्रमाण पत्र", "बैंक पासबुक", "जमीन के कागजात", "शपथ पत्र", "फोटो"],
+    "officialWebsite": "https://pmayg.nic.in",
+    "helpline": "1800-11-6446",
+    "shortDescription": "PM Awas Yojana Gramin — ग्रामीण गरीबों को ₹1.30 लाख तक की सहायता। पक्का घर हर किसी का अधिकार।",
+    "importantDates": ["Application Start: Ongoing", "Target Completion: 2024-2025", "Installment Release: Quarterly"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmayg.nic.in"},
+      {"label": "Check Name in List", "url": "https://pmayg.nic.in/netiay/home.aspx"},
+      {"label": "AwaasPlus App", "url": "https://awaasplus.nic.in/"}
+    ],
+    "stateImplementation": "National — सभी ग्रामीण क्षेत्रों में लागू"
+  },
+  {
+    "name": "PMAY Subsidy Calculator",
+    "slug": "pmay-subsidy-calculator",
+    "category": "housing",
+    "launchDate": "01 January 2017",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "budget": "N/A",
+    "eligibility": "PMAY योजना के सभी पात्र लाभार्थी जो सब्सिडी की गणना करना चाहते हैं।",
+    "benefits": "अपनी आय, ऋण राशि और ऋण अवधि के आधार पर सब्सिडी की सटीक राशि जानें। CLSS कैलकुलेटर से पता करें कि कितनी सब्सिडी मिल सकती है।",
+    "applicationProcess": [
+      "PMAY कैलकुलेटर वेबसाइट पर जाएँ",
+      "अपनी वार्षिक आय दर्ज करें",
+      "ऋण की राशि और अवधि भरें",
+      "ब्याज दर चुनें",
+      "Calculate बटन दबाएँ",
+      "सब्सिडी राशि और EMI की जानकारी प्राप्त करें"
+    ],
+    "documents": ["आधार कार्ड", "आय प्रमाण पत्र", "बैंक स्टेटमेंट"],
+    "officialWebsite": "https://pmaymis.gov.in/tool",
+    "helpline": "1800-11-6161",
+    "shortDescription": "PMAY Subsidy Calculator — जानें कितनी सब्सिडी मिलेगी। Quick calculation tool।",
+    "importantDates": ["Tool Available: 24x7", "Last Updated: 2024"],
+    "importantLinks": [
+      {"label": "Subsidy Calculator", "url": "https://pmaymis.gov.in/tool"},
+      {"label": "PMAY Portal", "url": "https://pmaymis.gov.in"}
+    ],
+    "stateImplementation": "National — Online Tool"
+  },
+  {
+    "name": "Pradhan Mantri Awas Yojana - Housing for All",
+    "slug": "pradhan-mantri-awas-yojana-housing-for-all",
+    "category": "housing",
+    "launchDate": "25 June 2015",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "budget": "₹50,000 Crore",
+    "eligibility": "2011 की जनगणना में शहरी क्षेत्रों में बेघर या कच्चे मकान वाले परिवार। EWS, LIG, MIG-I और MIG-II श्रेणियाँ।",
+    "benefits": "हर शहरी परिवार को 2022 तक पक्का घर उपलब्ध कराना। सब्सिडी, किफायती घर निर्माण और क्रेडिट लिंक्ड सब्सिडी जैसी कई योजनाएँ।",
+    "applicationProcess": [
+      "PMAY-U की वेबसाइट पर जाएँ",
+      "Benefits Assessment Tool से अपनी पात्रता जाँचें",
+      "Online Application Form भरें",
+      "जरूरी दस्तावेज अपलोड करें",
+      "बैंक खाता विवरण दें",
+      "आवेदन सबमिट करें"
+    ],
+    "documents": ["आधार कार्ड", "आय प्रमाण पत्र", "राशन कार्ड", "पते का प्रमाण", "बैंक पासबुक", "शपथ पत्र"],
+    "officialWebsite": "https://pmaymis.gov.in",
+    "helpline": "1800-11-6161",
+    "shortDescription": "Housing for All — PMAY के तहत हर शहरी परिवार को पक्का घर। सब्सिडी और ऋण सुविधा।",
+    "importantDates": ["Launch Date: 25 June 2015", "Target: 2022 (Extended)", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmaymis.gov.in"},
+      {"label": "Check Eligibility", "url": "https://pmaymis.gov.in/tool"},
+      {"label": "Guidelines", "url": "https://pmaymis.gov.in/pmawayojana.aspx"}
+    ],
+    "stateImplementation": "National — सभी शहरी क्षेत्रों में लागू"
+  },
+  {
+    "name": "Credit Linked Subsidy Service (CLSS)",
+    "slug": "credit-linked-subsidy-service-clss",
+    "category": "housing",
+    "launchDate": "01 January 2017",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "budget": "₹12,000 Crore",
+    "eligibility": "PMAY के तहत ऋण लेने वाले पात्र लाभार्थी। EWS, LIG, MIG-I और MIG-II श्रेणी के लिए अलग-अलग सब्सिडी दर।",
+    "benefits": "बैंक से लिए गए होम लोन पर 3% तक की सब्सिडी। EWS को 6.5%, LIG को 6.5%, MIG-I को 4% और MIG-II को 3% सब्सिडी।",
+    "applicationProcess": [
+      "किसी भी बैंक या HFC से होम लोन के लिए आवेदन करें",
+      "CLSS के लिए अलग से आवेदन करें",
+      "PMAY पोर्टल पर रजिस्टर करें",
+      "बैंक से सब्सिडी राशि का डिस्बर्समेंट करवाएँ",
+      "सब्सिडी सीधे बैंक खाते में आएगी"
+    ],
+    "documents": ["आधार कार्ड", "आय प्रमाण पत्र", "बैंक स्टेटमेंट", "प्रॉपर्टी के कागजात", "लोन सैंक्शन लेटर"],
+    "officialWebsite": "https://pmaymis.gov.in",
+    "helpline": "1800-11-6161",
+    "shortDescription": "CLSS — होम लोन पर 3% तक सब्सिडी। EWS से MIG-II तक सभी के लिए।",
+    "importantDates": ["CLSS Active Since: 2017", "Subsidy Direct Benefit Transfer: 2024"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmaymis.gov.in"},
+      {"label": "CLSS Calculator", "url": "https://pmaymis.gov.in/tool"},
+      {"label": "List of HFCs", "url": "https://pmaymis.gov.in/pmawayojana.aspx"}
+    ],
+    "stateImplementation": "National — सभी बैंकों और HFCs में लागू"
+  },
+  {
+    "name": "BLC Housing Scheme",
+    "slug": "blc-housing-scheme",
+    "category": "housing",
+    "launchDate": "01 April 2020",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "budget": "₹5,000 Crore",
+    "eligibility": "शहरी क्षेत्रों में बेघर परिवार जो किराये पर रह रहे हैं या अनौपचारिक बस्तियों में रह रहे हैं।",
+    "benefits": "पक्का घर बनाने के लिए ₹1.50 लाख तक की सब्सिडी। बैंक ऋण पर क्रेडिट लिंक्ड सब्सिडी।",
+    "applicationProcess": [
+      "PMAY-U पोर्टल पर BLC श्रेणी में आवेदन करें",
+      "नगरपालिका या नगर निगम से संपर्क करें",
+      "जरूरी दस्तावेज जमा करें",
+      "Verification के बाद सब्सिडी मिलेगी"
+    ],
+    "documents": ["आधार कार्ड", "आय प्रमाण पत्र", "किराये की रसीद", "बैंक पासबुक"],
+    "officialWebsite": "https://pmaymis.gov.in",
+    "helpline": "1800-11-6161",
+    "shortDescription": "BLC Housing Scheme — शहरी बेघर परिवारों के लिए ₹1.50 लाख सब्सिडी।",
+    "importantDates": ["Application Start: 2020", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmaymis.gov.in"},
+      {"label": "Apply Online", "url": "https://pmaymis.gov.in/pmayurban/"}
+    ],
+    "stateImplementation": "National — Urban Local Bodies के माध्यम से"
+  },
+  {
+    "name": "EWS Housing Scheme",
+    "slug": "ews-housing-scheme",
+    "category": "housing",
+    "launchDate": "01 June 2015",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "budget": "₹10,000 Crore",
+    "eligibility": "EWS (Economically Weaker Section) श्रेणी — वार्षिक आय ₹3 लाख से कम। शहरी क्षेत्र में रहने वाले परिवार।",
+    "benefits": "₹2.67 लाख तक की सब्सिडी। पक्का घर बनाने या खरीदने के लिए किफायती ऋण। 6.5% ब्याज दर पर सब्सिडी।",
+    "applicationProcess": [
+      "PMAY-U पोर्टल पर EWS श्रेणी में आवेदन करें",
+      "आधार कार्ड से रजिस्ट्रेशन करें",
+      "बैंक खाता विवरण दें",
+      "Property Documents अपलोड करें",
+      "सब्सिडी के लिए आवेदन सबमिट करें"
+    ],
+    "documents": ["आधार कार्ड", "आय प्रमाण पत्र (₹3 लाख से कम)", "राशन कार्ड", "बैंक पासबुक", "पासपोर्ट साइज फोटो"],
+    "officialWebsite": "https://pmaymis.gov.in",
+    "helpline": "1800-11-6161",
+    "shortDescription": "EWS Housing — आर्थिक रूप से कमजोर वर्ग के लिए ₹2.67 लाख सब्सिडी।",
+    "importantDates": ["Application Start: 2015", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmaymis.gov.in"},
+      {"label": "Apply Now", "url": "https://pmaymis.gov.in/pmayurban/"}
+    ],
+    "stateImplementation": "National — सभी शहरी क्षेत्रों में लागू"
+  },
+  {
+    "name": "Pradhan Mantri Gramin Awaas Yojana",
+    "slug": "pradhan-mantri-gramin-awas-yojana",
+    "category": "housing",
+    "launchDate": "20 November 2016",
+    "ministry": "Ministry of Rural Development",
+    "budget": "₹25,000 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों में बेघर परिवार, कच्चे मकान वाले, BPL परिवार, दिव्यांग और अनुसूचित जाति/जनजाति।",
+    "benefits": "पक्का घर बनाने के लिए ₹1.20 लाख की सहायता। शौचालय निर्माण के लिए अतिरिक्त राशि। MGNREGA के तहत मजदूरी भी मिलती है।",
+    "applicationProcess": [
+      "ग्राम पंचायत में आवेदन करें",
+      "AwaasPlus App से भी आवेदन संभव",
+      "BPL सूची में नाम होना जरूरी",
+      "ग्राम सभा से स्वीकृति लें",
+      "किस्तों में सहायता प्राप्त होगी"
+    ],
+    "documents": ["आधार कार्ड", "BPL कार्ड", "बैंक पासबुक", "जमीन रिकॉर्ड", "फोटो"],
+    "officialWebsite": "https://pmayg.nic.in",
+    "helpline": "1800-11-6446",
+    "shortDescription": "PM Gramin Awaas — ग्रामीण भारत में हर परिवार को पक्का घर। ₹1.20 लाख सहायता।",
+    "importantDates": ["Launch: 2016", "Target: 2024 (Extended)", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmayg.nic.in"},
+      {"label": "Check Name", "url": "https://pmayg.nic.in/netiay/home.aspx"},
+      {"label": "Progress Report", "url": "https://rhreporting.nic.in/netiay/"}
+    ],
+    "stateImplementation": "National — ग्राम पंचायतों के माध्यम से"
+  },
+  {
+    "name": "MGNREGA",
+    "slug": "mgnrega-mahatma-gandhi-national-rural-employment",
+    "category": "employment",
+    "launchDate": "02 February 2006",
+    "ministry": "Ministry of Rural Development",
+    "budget": "₹86,000 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों में रहने वाला कोई भी वयस्क परिवार जो काम करने के लिए तैयार हो। 18 वर्ष से अधिक आयु।",
+    "benefits": "प्रत्येक ग्रामीण परिवार को कम से कम 100 दिन के रोजगार की गारंटी। कम से कम ₹272 प्रति दिन मजदूरी (2024-25)।",
+    "applicationProcess": [
+      "ग्राम पंचायत कार्यालय में आवेदन करें",
+      "Job Card के लिए आवेदन दें",
+      "15 दिन में Job Card मिलेगा",
+      "जब काम चाहिए तो Gram Rozgar Sahayak को बोलें",
+      "7 दिन में काम मिलना चाहिए",
+      "नहीं मिले तो unemployment allowance मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "राशन कार्ड", "बैंक पासबुक", "पासपोर्ट साइज फोटो", "मनरेगा जॉब कार्ड"],
+    "officialWebsite": "https://nrega.nic.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "MGNREGA — हर ग्रामीण परिवार को 100 दिन का रोजगार। ₹272/दिन मजदूरी।",
+    "importantDates": ["Launch: 2006", "Work Demand: Year Round", "Payment: Within 15 Days"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://nrega.nic.in"},
+      {"label": "Job Card Search", "url": "https://nrega.nic.in/netnrega_mis.aspx"},
+      {"label": "Work Demand Online", "url": "https://nrega.nic.in/profile/wdms.aspx"}
+    ],
+    "stateImplementation": "National — सभी ग्राम पंचायतों में लागू"
+  },
+  {
+    "name": "PM SVANidhi (Street Vendor's AtmaNirbhar Nidhi)",
+    "slug": "pm-svanidhi-street-vendors",
+    "category": "employment",
+    "launchDate": "01 June 2020",
+    "ministry": "Ministry of Housing and Urban Affairs",
+    "budget": "₹2,000 Crore",
+    "eligibility": "शहरी क्षेत्रों में काम करने वाले स्ट्रीट वेंडर जो COVID-19 से प्रभावित हुए हैं। 2020 से पहले से काम कर रहे वेंडर।",
+    "benefits": "₹10,000 तक का कोलैटरल-फ्री वर्किंग कैपिटल लोन। समय पर चुकाने पर 7% ब्याज सब्सिडी। Digital transactions पर अतिरिक्त प्रोत्साहन।",
+    "applicationProcess": [
+      "PM SVANidhi वेबसाइट पर जाएँ",
+      "पहचान पत्र (Vendor Certificate) अपलोड करें",
+      "आधार कार्ड और बैंक खाता दें",
+      "बैंक से लोन के लिए आवेदन करें",
+      "लोन 30 दिन में मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "Vendor Certificate", "बैंक पासबुक", "फोटो", "मोबाइल नंबर"],
+    "officialWebsite": "https://pmsvanidhi.mohua.gov.in",
+    "helpline": "1800-11-6161",
+    "shortDescription": "PM SVANidhi — स्ट्रीट वेंडर्स को ₹10,000 का फ्री लोन। 7% ब्याज सब्सिडी।",
+    "importantDates": ["Launch: June 2020", "Loan Disbursement: Within 30 Days", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmsvanidhi.mohua.gov.in"},
+      {"label": "Apply Online", "url": "https://pmsvanidhi.mohua.gov.in/"},
+      {"label": "Check Status", "url": "https://pmsvanidhi.mohua.gov.in/VendorSearch"}
+    ],
+    "stateImplementation": "National — सभी शहरी क्षेत्रों में लागू"
+  },
+  {
+    "name": "Startup India Seed Fund",
+    "slug": "startup-india-seed-fund",
+    "category": "employment",
+    "launchDate": "21 January 2021",
+    "ministry": "Department for Promotion of Industry and Internal Trade",
+    "budget": "₹945 Crore",
+    "eligibility": "DPIIT द्वारा मान्यता प्राप्त Startup। कंपनी 10 साल से पुरानी नहीं होनी चाहिए। Turnover ₹100 करोड़ से कम हो।",
+    "benefits": "Seed Fund के रूप में ₹20 लाख से ₹5 करोड़ तक की वित्तीय सहायता। ब्याज सब्सिडी और गारंटी सहायता।",
+    "applicationProcess": [
+      "Startup India वेबसाइट पर रजिस्टर करें",
+      "DPIIT Recognition प्राप्त करें",
+      "Seed Fund के लिए आवेदन करें",
+      "Incubator के माध्यम से आवेदन भी संभव",
+      "Evaluation Committee द्वारा Selection",
+      "Funds सीधे Startup को मिलेंगे"
+    ],
+    "documents": ["Company Registration Certificate", "DPIIT Recognition Letter", "Business Plan", "PAN Card", "Bank Account Details", "Aadhaar Card"],
+    "officialWebsite": "https://www.startupindia.gov.in",
+    "helpline": "1800-115-565",
+    "shortDescription": "Startup India Seed Fund — नए Startup को ₹5 करोड़ तक Seed Funding।",
+    "importantDates": ["Launch: 2021", "Application: Year Round", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.startupindia.gov.in"},
+      {"label": "Apply for Seed Fund", "url": "https://seedfund.startupindia.gov.in/"},
+      {"label": "DPIIT Recognition", "url": "https://www.startupindia.gov.in/content/diac/en/StartupIndiaCertification.html"}
+    ],
+    "stateImplementation": "National — ऑनलाइन आवेदन"
+  },
+  {
+    "name": "Pradhan Mantri Mudra Loan Yojana",
+    "slug": "pradhan-mantri-mudra-loan-yojana",
+    "category": "employment",
+    "launchDate": "08 April 2015",
+    "ministry": "Department of Financial Services",
+    "budget": "₹3,00,000 Crore",
+    "eligibility": "गैर-कृषि क्षेत्र में काम करने वाले छोटे व्यापारी, MSME, और startup। बैंक, NBFC या MFIs से ऋण ले सकते हैं।",
+    "benefits": "Shishu: ₹50,000 तक, Kishore: ₹5 लाख तक, Tarun: ₹10 लाख तक बिना गारंटी ऋण। 0% से 12% तक ब्याज दर।",
+    "applicationProcess": [
+      "किसी भी बैंक, NBFC या MFIs में जाएँ",
+      "Mudra Loan Application Form भरें",
+      "Business Plan और दस्तावेज जमा करें",
+      "Verification के बाद ऋण मिलेगा",
+      "Shishu/Kishore/Tarun श्रेणी चुनें"
+    ],
+    "documents": ["आधार कार्ड", "PAN Card", "Business Plan", "Photo", "बैंक पासबुक (पिछले 6 महीने)", "Business Registration"],
+    "officialWebsite": "https://www.mudra.org.in",
+    "helpline": "1800-180-1111",
+    "shortDescription": "Mudra Loan — छोटे व्यापार को ₹10 लाख तक बिना गारंटी ऋण। Shishu, Kishore, Tarun।",
+    "importantDates": ["Launch: 2015", "Applications: Year Round", "Disbursement: 7-30 Days"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.mudra.org.in"},
+      {"label": "Apply Online", "url": "https://www.mudra.org.in/"},
+      {"label": "Track Application", "url": "https://www.mudra.org.in/"}
+    ],
+    "stateImplementation": "National — सभी बैंकों में लागू"
+  },
+  {
+    "name": "PM Rozgar Yojana",
+    "slug": "pm-rozgar-yojana",
+    "category": "employment",
+    "launchDate": "02 October 1993",
+    "ministry": "Ministry of Employment Generation and Training",
+    "budget": "₹5,000 Crore",
+    "eligibility": "18-45 वर्ष की आयु के बेरोजगार युवा। स्नातक या उससे अधिक शिक्षित। परिवार की वार्षिक आय ₹40,000 से कम।",
+    "benefits": "स्वरोजगार के लिए ₹2 लाख तक का ऋण (सब्सिडी सहित)। प्रोजेक्ट की लागत का 25-30% सब्सिडी।",
+    "applicationProcess": [
+      "KVIC या District Industries Centre में आवेदन करें",
+      "प्रोजेक्ट रिपोर्ट तैयार करें",
+      "Training Program में भाग लें",
+      "बैंक से ऋण के लिए आवेदन करें",
+      "सब्सिडी के लिए अलग से आवेदन करें"
+    ],
+    "documents": ["आधार कार्ड", "शैक्षिक प्रमाण पत्र", "बेरोजगारी प्रमाण पत्र", "बैंक पासबुक", "प्रोजेक्ट रिपोर्ट", "फोटो"],
+    "officialWebsite": "https://www.kvic.gov.in",
+    "helpline": "1800-180-6763",
+    "shortDescription": "PM Rozgar Yojana — बेरोजगार युवाओं को ₹2 लाख तक सब्सिडी। स्वरोजगार योजना।",
+    "importantDates": ["Launch: 1993", "Updated: 2024", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.kvic.gov.in"},
+      {"label": "Apply Online", "url": "https://www.kvic.gov.in/"}
+    ],
+    "stateImplementation": "National — District Industries Centre के माध्यम से"
+  },
+  {
+    "name": "Deen Dayal Upadhyaya Grameen Kaushalya Yojana",
+    "slug": "deen-dayal-upadhyaya-grameen-kaushalya-yojana",
+    "category": "employment",
+    "launchDate": "25 September 2014",
+    "ministry": "Ministry of Rural Development",
+    "budget": "₹6,000 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों के बेरोजगार युवा। 15-35 वर्ष आयु। BPL परिवार से होना चाहिए।",
+    "benefits": "Free Skill Training (3-6 महीने)। Training के दौरान ₹1,000-2,000 स्टाइपेंड। Placement Guaranteed।",
+    "applicationProcess": [
+      "DDU-GKY वेबसाइट पर जाएँ",
+      "नजदीकी Training Center ढूँढें",
+      "Skill Training Course के लिए आवेदन करें",
+      "Training में भाग लें",
+      "Training पूरी करने पर Certificate मिलेगा",
+      "Placement में मदद मिलेगी"
+    ],
+    "documents": ["आधार कार्ड", "BPL Certificate", "शैक्षिक प्रमाण पत्र", "बैंक पासबुक", "फोटो", "जाति प्रमाण पत्र"],
+    "officialWebsite": "https://ddugky.gov.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "DDU-GKY — ग्रामीण युवाओं को Free Skill Training + Placement।",
+    "importantDates": ["Launch: 2014", "Training: Year Round", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://ddugky.gov.in"},
+      {"label": "Find Training Center", "url": "https://ddugky.gov.in/"},
+      {"label": "Apply Online", "url": "https://ddugky.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Prime Minister's Employment Generation Programme",
+    "slug": "prime-ministers-employment-generation-programme",
+    "category": "employment",
+    "launchDate": "24 September 2008",
+    "ministry": "Ministry of Micro, Small and Medium Enterprises",
+    "budget": "₹3,000 Crore",
+    "eligibility": "18 वर्ष से अधिक आयु का कोई भी नागरिक। स्वरोजगार शुरू करने के लिए।",
+    "benefits": "KVIC के माध्यम से ₹25 लाख तक ऋण (Manufacturing) और ₹10 लाख तक (Service Sector)। 15-35% सब्सिडी।",
+    "applicationProcess": [
+      "KVIC वेबसाइट पर जाएँ",
+      "PMEGP Application Form भरें",
+      "प्रोजेक्ट रिपोर्ट तैयार करें",
+      "Online या District Industries Centre में जमा करें",
+      "Interview के बाद Approval",
+      "बैंक से ऋण मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "PAN Card", "शैक्षिक प्रमाण पत्र", "प्रोजेक्ट रिपोर्ट", "बैंक पासबुक", "फोटो"],
+    "officialWebsite": "https://www.kvic.gov.in",
+    "helpline": "1800-180-6763",
+    "shortDescription": "PMEGP — स्वरोजगार के लिए ₹25 लाख तक ऋण + सब्सिडी। KVIC।",
+    "importantDates": ["Launch: 2008", "Applications: Year Round", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.kvic.gov.in"},
+      {"label": "Apply Online", "url": "https://www.kvic.gov.in/"}
+    ],
+    "stateImplementation": "National — District Industries Centre के माध्यम से"
+  },
+  {
+    "name": "National Career Service Portal",
+    "slug": "national-career-service-portal",
+    "category": "employment",
+    "launchDate": "20 July 2015",
+    "ministry": "Ministry of Labour and Employment",
+    "budget": "₹500 Crore",
+    "eligibility": "सभी नागरिक — नौकरी चाहने वाले और नियोक्ता दोनों। 18 वर्ष से अधिक आयु।",
+    "benefits": "Free Job Portal पर Registration। नौकरी मिलने की सुविधा। Career Counselling। Skill Development Courses की जानकारी।",
+    "applicationProcess": [
+      "ncs.gov.in पर जाएँ",
+      "Free Registration करें",
+      "Resume/CV अपलोड करें",
+      "Jobs Search करें और Apply करें",
+      "Employers भी Register कर सकते हैं"
+    ],
+    "documents": ["आधार कार्ड", "Resume/CV", "शैक्षिक प्रमाण पत्र", "Experience Certificate (अगर हो)"],
+    "officialWebsite": "https://ncs.gov.in",
+    "helpline": "1800-425-1017",
+    "shortDescription": "NCS Portal — Free Job Portal। नौकरी खोजें, Register करें, Career Counselling पाएँ।",
+    "importantDates": ["Launch: 2015", "Registration: Free", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://ncs.gov.in"},
+      {"label": "Register Now", "url": "https://ncs.gov.in/"}
+    ],
+    "stateImplementation": "National — ऑनलाइन Portal"
+  },
+  {
+    "name": "PM Scholarship Scheme (PMSS)",
+    "slug": "pm-scholarship-scheme-pmss",
+    "category": "education",
+    "launchDate": "01 October 2006",
+    "ministry": "Ministry of Defence",
+    "budget": "₹1,200 Crore",
+    "eligibility": "शहीद/अपंग सैनिकों के बच्चे। 12वीं पास और Professional Course में Admission लिया हो।",
+    "benefits": "Engineering/Medical के लिए ₹2,500-3,000 प्रति माह छात्रवृत्ति। MBA/MCA के लिए ₹2,000 प्रति माह। 5 साल तक।",
+    "applicationProcess": [
+      "स्कीम की वेबसाइट पर जाएँ",
+      "Online Application Form भरें",
+      "शहीद/अपंग सैनिक का Certificate अपलोड करें",
+      "शैक्षिक प्रमाण पत्र दें",
+      "Verification के बाद Scholarship मिलेगी"
+    ],
+    "documents": ["आधार कार्ड", "शहीद Certificate", "12वीं Marksheet", "Admission Letter", "बैंक पासबुक", "फोटो"],
+    "officialWebsite": "https://www.scholarships.gov.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "PM Scholarship — शहीद सैनिकों के बच्चों को ₹3,000/माह छात्रवृत्ति।",
+    "importantDates": ["Application Start: October", "Last Date: November-December", "Disbursement: January-March"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.scholarships.gov.in"},
+      {"label": "Apply Online", "url": "https://www.scholarships.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "National Scholarship Portal (NSP)",
+    "slug": "national-scholarship-portal-nsp",
+    "category": "education",
+    "launchDate": "15 November 2015",
+    "ministry": "Ministry of Electronics and Information Technology",
+    "budget": "₹2,500 Crore",
+    "eligibility": "SC/ST/OBC/Minority/EWS श्रेणी के छात्र। 50% से अधिक अंक होने चाहिए। वार्षिक आय निर्धारित सीमा से कम।",
+    "benefits": "Pre-Matric और Post-Matric Scholarship। ₹1,000 से ₹50,000 तक की छात्रवृत्ति। सभी श्रेणियों के लिए अलग-अलग योजनाएँ।",
+    "applicationProcess": [
+      "nsp.gov.in पर जाएँ",
+      "New Registration करें",
+      "One Time Registration (OTR) पूरा करें",
+      "Scholarship के लिए Apply करें",
+      "दस्तावेज अपलोड करें",
+      "Institute के Through Verification"
+    ],
+    "documents": ["आधार कार्ड", "शैक्षिक प्रमाण पत्र", "आय प्रमाण पत्र", "जाति प्रमाण पत्र", "बैंक पासबुक", "फोटो"],
+    "officialWebsite": "https://scholarships.gov.in",
+    "helpline": "0120-6619540",
+    "shortDescription": "NSP — हर श्रेणी के छात्रों के लिए Scholarship Portal। ₹1,000 से ₹50,000।",
+    "importantDates": ["Registration Start: July-August", "Last Date: October-November", "Disbursement: January-March"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://scholarships.gov.in"},
+      {"label": "New Registration", "url": "https://scholarships.gov.in/"},
+      {"label": "Check Status", "url": "https://scholarships.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Mid-Day Meal Scheme",
+    "slug": "mid-day-meal-scheme",
+    "category": "education",
+    "launchDate": "15 August 1995",
+    "ministry": "Ministry of Education",
+    "budget": "₹13,000 Crore",
+    "eligibility": "सरकारी स्कूलों में पढ़ने वाले कक्षा 1 से 8 तक के सभी बच्चे।",
+    "benefits": "मुफ्त गर्म भोजन (6 दिन/सप्ताह)। प्रति बच्चा प्रतिदिन ₹5.45 (कक्षा 1-5) और ₹8.17 (कक्षा 6-8)। पोषण में सुधार और स्कूल ड्रॉपआउट में कमी।",
+    "applicationProcess": [
+      "सरकारी स्कूल में बच्चे का Admission करवाएँ",
+      "बच्चे का नाम Mid-Day Meal Register में दर्ज होगा",
+      "रोज स्कूल में मुफ्त भोजन मिलेगा",
+      "कोई अलग आवेदन की जरूरत नहीं"
+    ],
+    "documents": ["स्कूल Admission Receipt", "आधार कार्ड (अगर हो)", "बच्चे का फोटो"],
+    "officialWebsite": "https://middaymeal.gov.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "MDM Scheme — सरकारी स्कूलों में मुफ्त गर्म भोजन। कक्षा 1-8 तक।",
+    "importantDates": ["Launch: 1995", "Operational: 365 Days", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://middaymeal.gov.in"},
+      {"label": "Track Progress", "url": "https://middaymeal.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Samagra Shiksha Abhiyan",
+    "slug": "samagra-shiksha-abhiyan",
+    "category": "education",
+    "launchDate": "24 May 2018",
+    "ministry": "Ministry of Education",
+    "budget": "₹37,000 Crore",
+    "eligibility": "सरकारी स्कूलों में पढ़ने वाले सभी बच्चे। प्री-स्कूल से कक्षा 12 तक।",
+    "benefits": "Quality Education, Infrastructure Development, Teacher Training, Digital Education, Sports और Vocational Education। समग्र शिक्षा विकास।",
+    "applicationProcess": [
+      "स्कूल के माध्यम से automatic benefit मिलता है",
+      "कोई individual application नहीं",
+      "राज्य सरकार के माध्यम से implementation"
+    ],
+    "documents": ["स्कूल Admission", "आधार कार्ड"],
+    "officialWebsite": "https://samagra.gov.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Samagra Shiksha — सभी बच्चों के लिए समग्र शिक्षा। Pre-school से Class 12 तक।",
+    "importantDates": ["Launch: 2018", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://samagra.gov.in"},
+      {"label": "Portal", "url": "https://samagra.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Beti Bachao Beti Padhao",
+    "slug": "beti-bachao-beti-padhao",
+    "category": "education",
+    "launchDate": "22 January 2015",
+    "ministry": "Ministry of Women and Child Development",
+    "budget": "₹1,000 Crore",
+    "eligibility": "बेटियों के जन्म से लेकर शिक्षा तक। सभी जिलों में लागू। विशेष रूप से बेटियों की संख्या कम वाले क्षेत्रों में।",
+    "benefits": "बेटी के जन्म पर ₹2,000 (Sukanya Samriddhi Account)। बेटियों को स्कूल भेजने के लिए जागरूकता। Gender Ratio में सुधार।",
+    "applicationProcess": [
+      "बेटी के जन्म के बाद Sukanya Samriddhi Account खोलें",
+      "बैंक में ₹250 से शुरू करें",
+      "बेटी को स्कूल में Admission दिलाएँ",
+      "Government School में पढ़ाएँ"
+    ],
+    "documents": ["बेटी का जन्म प्रमाण पत्र", "माता-पिता का आधार कार्ड", "बैंक पासबुक"],
+    "officialWebsite": "https://betibachao.nic.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Beti Bachao Beti Padhao — बेटी बचाओ, बेटी पढ़ाओ। बेटियों के लिए सरकारी योजनाएँ।",
+    "importantDates": ["Launch: 2015", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://betibachao.nic.in"},
+      {"label": "Sukanya Samriddhi Account", "url": "https://www.indiapost.gov.in/VAS/Pages/SuccessStories.aspx"}
+    ],
+    "stateImplementation": "National — सभी जिलों में लागू"
+  },
+  {
+    "name": "Atal Innovation Mission",
+    "slug": "atal-innovation-mission",
+    "category": "education",
+    "launchDate": "15 August 2015",
+    "ministry": "NITI Aayog",
+    "budget": "₹500 Crore",
+    "eligibility": "स्कूल और कॉलेज के छात्र जो Innovation और Entrepreneurship में रुचि रखते हैं।",
+    "benefits": "Atal Tinkering Labs (ATL) — स्कूलों में Innovation Labs। ₹10-20 लाख का Grant। STEM Learning, Robotics, AI/ML।",
+    "applicationProcess": [
+      "ATL के लिए School Apply करें",
+      "AIM Portal पर Registration करें",
+      "NITI Aayog द्वारा Selection",
+      "Grant मिलने पर Lab Setup करें",
+      "Students को Train करें"
+    ],
+    "documents": ["School Registration", "Principal का Letter", "Lab Setup Plan"],
+    "officialWebsite": "https://aim.gov.in",
+    "helpline": "011-23040143",
+    "shortDescription": "AIM — Atal Tinkering Labs। स्कूलों में Innovation Labs। ₹20 लाख Grant।",
+    "importantDates": ["Launch: 2015", "ATL Applications: Year Round", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://aim.gov.in"},
+      {"label": "Apply for ATL", "url": "https://aim.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में स्कूलों में लागू"
+  },
+  {
+    "name": "PM Young Achievers Scholarship",
+    "slug": "pm-young-achievers-scholarship",
+    "category": "education",
+    "launchDate": "01 January 2022",
+    "ministry": "Ministry of Education",
+    "budget": "₹500 Crore",
+    "eligibility": "उत्कृष्ट छात्र जिन्होंने Board Exams में Top किया हो। Class 10 और 12 के Topers।",
+    "benefits": "₹20,000-50,000 तक की छात्रवृत्ति। Higher Education के लिए विशेष सहायता। International Study के लिए Additional Support।",
+    "applicationProcess": [
+      "Board Exam में Top करें",
+      "स्वचालित रूप से Selection होगा",
+      "Scholarship के लिए Apply करें",
+      "Verification के बाद राशि मिलेगी"
+    ],
+    "documents": ["Board Exam Marksheet", "आधार कार्ड", "बैंक पासबुक", "Admission Letter"],
+    "officialWebsite": "https://scholarships.gov.in",
+    "helpline": "0120-6619540",
+    "shortDescription": "PM Young Achievers — Board Toppers को ₹50,000 तक Scholarship।",
+    "importantDates": ["Application Start: After Board Results", "Last Date: August-September", "Disbursement: October"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://scholarships.gov.in"},
+      {"label": "Apply Online", "url": "https://scholarships.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Ayushman Bharat - PM Jan Arogya Yojana",
+    "slug": "ayushman-bharat-pm-jan-arogya-yojana",
+    "category": "health",
+    "launchDate": "23 September 2018",
+    "ministry": "Ministry of Health and Family Welfare",
+    "budget": "₹6,400 Crore",
+    "eligibility": "SECC 2011 Data के अनुसार पात्र परिवार। ग्रामीण में 5 श्रेणियाँ और शहरी में 11 श्रेणियाँ। वार्षिक आय ₹5 लाख से कम।",
+    "benefits": "₹5 लाख तक का मुफ्त इलाज प्रति परिवार प्रति वर्ष। 1,929 Package शामिल। Cashless और Paperless Treatment।",
+    "applicationProcess": [
+      "Ayushman Bharat वेबसाइट पर जाएँ",
+      "अपना नाम Beneficiary List में ढूँढें",
+      "e-Card बनवाएँ",
+      "Listed Hospital में जाएँ",
+      "Treatment करवाएँ — Cashless",
+      "No Documents Required at Hospital"
+    ],
+    "documents": ["आधार कार्ड", "Ration Card", "Photo ID"],
+    "officialWebsite": "https://abdm.gov.in",
+    "helpline": "14555 / 1800-111-565",
+    "shortDescription": "Ayushman Bharat — ₹5 लाख तक मुफ्त इलाज। देश की सबसे बड़ी Health Scheme।",
+    "importantDates": ["Launch: 2018", "Status: Active", "Hospitals: 24,000+"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://abdm.gov.in"},
+      {"label": "Check Eligibility", "url": "https://mera.pmjay.gov.in/"},
+      {"label": "Find Hospital", "url": "https://hospitals.pmjay.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में 24,000+ Hospitals"
+  },
+  {
+    "name": "Ayushman Bharat Health Account (ABHA)",
+    "slug": "ayushman-bharat-health-account-abha",
+    "category": "health",
+    "launchDate": "27 September 2021",
+    "ministry": "Ministry of Health and Family Welfare",
+    "budget": "₹500 Crore",
+    "eligibility": "सभी भारतीय नागरिक। 14 वर्ष से अधिक आयु के सभी व्यक्ति।",
+    "benefits": "Digital Health ID — सभी Medical Records एक जगह। 14-digit ABHA Number। किसी भी Hospital में Digital Records Access।",
+    "applicationProcess": [
+      "abdm.gov.in या Health ID App पर जाएँ",
+      "आधार से Health ID बनाएँ",
+      "14-digit ABHA Number मिलेगा",
+      "अपने Medical Records जोड़ें",
+      "किसी भी Hospital में Share करें"
+    ],
+    "documents": ["आधार कार्ड", "मोबाइल नंबर"],
+    "officialWebsite": "https://abdm.gov.in",
+    "helpline": "1800-111-565",
+    "shortDescription": "ABHA Health ID — सभी Medical Records Digital। 14-digit Health ID।",
+    "importantDates": ["Launch: 2021", "Status: Active", "Users: 50 Crore+"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://abdm.gov.in"},
+      {"label": "Create Health ID", "url": "https://healthid.abdm.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी नागरिकों के लिए"
+  },
+  {
+    "name": "Janani Suraksha Yojana",
+    "slug": "janani-suraksha-yojana",
+    "category": "health",
+    "launchDate": "12 April 2005",
+    "ministry": "Ministry of Health and Family Welfare",
+    "budget": "₹2,000 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों में BPL परिवार की गर्भवती महिलाएँ। शहरी क्षेत्रों में भी विस्तारित।",
+    "benefits": "Hospital में प्रसव पर ₹1,400 (ग्रामीण) और ₹1,000 (शहरी)। Home Delivery पर ₹500। Institutional Delivery को बढ़ावा।",
+    "applicationProcess": [
+      "ASHA Worker से संपर्क करें",
+      "प्रेगनेंसी रजिस्टर करवाएँ",
+      "Hospital में Registration करवाएँ",
+      "Delivery के बाद Cash Incentive मिलेगा",
+      "Bank Account में Direct Transfer"
+    ],
+    "documents": ["आधार कार्ड", "BPL Card", "प्रेगनेंसी Registration Slip", "बैंक पासबुक"],
+    "officialWebsite": "https://nhm.gov.in",
+    "helpline": "1800-180-1104",
+    "shortDescription": "JSY — गर्भवती महिलाओं को ₹1,400 प्रसव सहायता। Institutional Delivery।",
+    "importantDates": ["Launch: 2005", "Status: Active", "Coverage: All Districts"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://nhm.gov.in"},
+      {"label": "Check Eligibility", "url": "https://nhm.gov.in/"}
+    ],
+    "stateImplementation": "National — ASHA Workers के माध्यम से"
+  },
+  {
+    "name": "Pradhan Mantri Jan Aushadhi Yojana",
+    "slug": "pradhan-mantri-jan-aushadhi-yojana",
+    "category": "health",
+    "launchDate": "01 November 2008",
+    "ministry": "Department of Pharmaceuticals",
+    "budget": "₹1,200 Crore",
+    "eligibility": "सभी नागरिक। कोई भी व्यक्ति Generic Medicines सस्ते दामों पर खरीद सकता है।",
+    "benefits": "Brand Medicines की तुलना में 50-90% सस्ती Generic Medicines। Janaushadhi Kendras पर उपलब्ध। 1,900+ Medicines और 270+ Surgical Items।",
+    "applicationProcess": [
+      "नजदीकी Jan Aushadhi Kendra ढूँढें",
+      "Doctor से Prescription लें",
+      "Generic Medicine खरीदें",
+      "50-90% बचत होगी",
+      "Online Order भी संभव"
+    ],
+    "documents": ["Doctor का Prescription", "Photo ID"],
+    "officialWebsite": "https://janaushadhi.gov.in",
+    "helpline": "1800-180-8080",
+    "shortDescription": "Jan Aushadhi — Generic Medicines 50-90% सस्ती। 1,900+ Medicines।",
+    "importantDates": ["Launch: 2008", "Kendras: 10,000+", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://janaushadhi.gov.in"},
+      {"label": "Find Kendra", "url": "https://janaushadhi.gov.in/"},
+      {"label": "Online Order", "url": "https://janaushadhi.gov.in/"}
+    ],
+    "stateImplementation": "National — 10,000+ Kendras पूरे देश में"
+  },
+  {
+    "name": "National Health Mission",
+    "slug": "national-health-mission",
+    "category": "health",
+    "launchDate": "01 April 2005",
+    "ministry": "Ministry of Health and Family Welfare",
+    "budget": "₹29,000 Crore",
+    "eligibility": "सभी नागरिक, विशेष रूप से ग्रामीण और शहरी गरीब परिवार।",
+    "benefits": "Primary Health Centers, Sub-Centers, Community Health Centers। Free Treatment, Medicines, और Diagnostic Services।",
+    "applicationProcess": [
+      "नजदीकी PHC/CHC में जाएँ",
+      "Free Registration करवाएँ",
+      "Doctor Consultation Free",
+      "Free Medicines मिलेंगी",
+      "Free Diagnostic Tests"
+    ],
+    "documents": ["आधार कार्ड (optional)", "Ration Card"],
+    "officialWebsite": "https://nhm.gov.in",
+    "helpline": "1800-180-1104",
+    "shortDescription": "NHM — हर नागरिक को Free Health Services। PHC, CHC में मुफ्त इलाज।",
+    "importantDates": ["Launch: 2005", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://nhm.gov.in"},
+      {"label": "Find Health Center", "url": "https://nrhm-mis.nic.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "PM Ayushman Bharat Health Infrastructure Mission",
+    "slug": "pm-ayushman-bharat-health-infrastructure-mission",
+    "category": "health",
+    "launchDate": "25 November 2021",
+    "ministry": "Ministry of Health and Family Welfare",
+    "budget": "₹64,180 Crore",
+    "eligibility": "सभी राज्य और केंद्र शासित प्रदेश। Health Infrastructure का विकास।",
+    "benefits": "Critical Care Hospital Blocks, Mobile Medical Units, Testing Labs, Telemedicine Centers। Health Infrastructure को मजबूत करना।",
+    "applicationProcess": [
+      "State Government के माध्य से Implementation",
+      "District Hospital में Critical Care Block",
+      "Block Level पर Public Health Unit",
+      "15,000 Health facilities को Upgrade"
+    ],
+    "documents": ["N/A — Institutional Implementation"],
+    "officialWebsite": "https://nhm.gov.in",
+    "helpline": "1800-180-1104",
+    "shortDescription": "Health Infrastructure Mission — ₹64,180 Crore से Health Infrastructure मजबूत करना।",
+    "importantDates": ["Launch: 2021", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://nhm.gov.in"},
+      {"label": "Mission Guidelines", "url": "https://nhm.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Mission Indradhanush",
+    "slug": "mission-indradhanush",
+    "category": "health",
+    "launchDate": "25 December 2014",
+    "ministry": "Ministry of Health and Family Welfare",
+    "budget": "₹2,500 Crore",
+    "eligibility": "0-2 वर्ष के बच्चे और गर्भवती महिलाएँ जिनका Vaccination नहीं हुआ।",
+    "benefits": "7 Vaccine-Free — DPT, Hepatitis-B, Measles, Polio, Rotavirus, Pneumococcal, Japanese Encephalitis। 90%+ Vaccination Coverage का लक्ष्य।",
+    "applicationProcess": [
+      "नजदीकी Health Center में जाएँ",
+      "ASHA Worker से संपर्क करें",
+      "बच्चे का Vaccination Schedule जानें",
+      "Free Vaccination करवाएँ",
+      "Immunization Card बनवाएँ"
+    ],
+    "documents": ["Immunization Card", "आधार कार्ड (optional)"],
+    "officialWebsite": "https://nhm.gov.in",
+    "helpline": "1800-180-1104",
+    "shortDescription": "Mission Indradhanush — बच्चों को 7 Free Vaccines। 90% Coverage का लक्ष्य।",
+    "importantDates": ["Launch: 2014", "Rounds: Year Round", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://nhm.gov.in"},
+      {"label": "Vaccination Schedule", "url": "https://nhm.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी जिलों में लागू"
+  },
+  {
+    "name": "PM Kisan Samman Nidhi",
+    "slug": "pm-kisan-saman-nidhi",
+    "category": "agriculture",
+    "launchDate": "24 February 2019",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "budget": "₹87,000 Crore",
+    "eligibility": "सभी किसान परिवार जिनके पास 2 हेक्टेयर तक खेती योग्य जमीन हो।",
+    "benefits": "₹6,000 प्रति वर्ष — ₹2,000 की 3 किस्तें। सीधे बैंक खाते में Direct Benefit Transfer।",
+    "applicationProcess": [
+      "pmkisan.gov.in पर जाएँ",
+      "Farmer Registration पर क्लिक करें",
+      "आधार कार्ड और बैंक खाता दें",
+      "Land Records अपलोड करें",
+      "E-KYC पूरा करें",
+      "किस्तों में पैसा आएगा"
+    ],
+    "documents": ["आधार कार्ड", "बैंक पासबुक", "Land Records (खतियान)", "फोटो"],
+    "officialWebsite": "https://pmkisan.gov.in",
+    "helpline": "155261 / 011-24300606",
+    "shortDescription": "PM Kisan — हर किसान को ₹6,000/वर्ष। 3 किस्तों में। Direct Transfer।",
+    "importantDates": ["Launch: 2019", "Kist 1: April-July", "Kist 2: August-November", "Kist 3: December-March"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmkisan.gov.in"},
+      {"label": "Check Status", "url": "https://pmkisan.gov.in/BeneficiaryStatus.aspx"},
+      {"label": "E-KYC", "url": "https://pmkisan.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Pradhan Mantri Fasal Bima Yojana",
+    "slug": "pradhan-mantri-fasal-bima-yojana",
+    "category": "agriculture",
+    "launchDate": "13 January 2016",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "budget": "₹30,000 Crore",
+    "eligibility": "सभी किसान — अनिवार्य और स्वैच्छिक। Rabi और Kharif दोनों फसलों के लिए।",
+    "benefits": "फसल खराब होने पर Insurance Claim। Kharif: 2%, Rabi: 1.5%, Commercial: 5% Premium। बाकी सरकार भरती है।",
+    "applicationProcess": [
+      "Crop Insurance Portal पर जाएँ",
+      "Bank/FCA/CSC में आवेदन करें",
+      "Land Records और Seed Certificate दें",
+      "Premium का भुगतान करें",
+      "Claim मिलेगा अगर फसल खराब हो"
+    ],
+    "documents": ["आधार कार्ड", "Land Records", "Seed Receipt", "Bank Passbook", "Sowing Certificate"],
+    "officialWebsite": "https://pmfby.gov.in",
+    "helpline": "1800-180-1551",
+    "shortDescription": "PM Fasal Bima — फसल खराब होने पर Insurance। Premium 2% से शुरू।",
+    "importantDates": ["Kharif: June-July", "Rabi: October-November", "Claim: Within 2 Months"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmfby.gov.in"},
+      {"label": "Apply Online", "url": "https://pmfby.gov.in/"},
+      {"label": "Check Claim Status", "url": "https://pmfby.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Kisan Credit Card (KCC)",
+    "slug": "kisan-credit-card-kcc",
+    "category": "agriculture",
+    "launchDate": "01 August 1998",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "budget": "₹1,00,000 Crore",
+    "eligibility": "सभी किसान — व्यक्तिगत, संयुक्त या समूह। मत्स्य पालक और पशुपालक भी।",
+    "benefits": "₹3 लाख तक का क्रेडिट लिमिट। 4% ब्याज दर (सब्सिडी सहित)। Crop Insurance भी शामिल। ATM Card मिलेगा।",
+    "applicationProcess": [
+      "बैंक शाखा में जाएँ",
+      "KCC Application Form भरें",
+      "Land Records और Identity Proof दें",
+      "Bank Verification करेगा",
+      "KCC Card मिलेगा",
+      "ATM से पैसे निकाल सकते हैं"
+    ],
+    "documents": ["आधार कार्ड", "Land Records", "Bank Passbook", "Photo", "तालिका/गिरदा"],
+    "officialWebsite": "https://www.sbi.co.in",
+    "helpline": "1800-180-1111",
+    "shortDescription": "KCC — किसान क्रेडिट कार्ड। ₹3 लाख तक Loan 4% ब्याज पर।",
+    "importantDates": ["Launch: 1998", "Status: Active", "Banks: All Commercial Banks"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.sbi.co.in"},
+      {"label": "Apply for KCC", "url": "https://www.sbi.co.in/"}
+    ],
+    "stateImplementation": "National — सभी बैंकों में लागू"
+  },
+  {
+    "name": "PM Krishi Sinchai Yojana",
+    "slug": "pm-krishi-sinchai-yojana",
+    "category": "agriculture",
+    "launchDate": "01 July 2015",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "budget": "₹15,000 Crore",
+    "eligibility": "सभी किसान, विशेष रूप से सूखे क्षेत्रों में। Irrigation की सुविधा नहीं है।",
+    "benefits": "55% सब्सिडी — Sprinkler/Drip Irrigation। 45% सब्सिडी — Tube Well/Pump। Water Conservation को बढ़ावा।",
+    "applicationProcess": [
+      "Agriculture Department में जाएँ",
+      "PMKSY Application Form भरें",
+      "Land Records और Bank Account दें",
+      "Equipment के लिए Apply करें",
+      "Subsidy के साथ Equipment मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "Land Records", "Bank Passbook", "Quotation of Equipment", "Photo"],
+    "officialWebsite": "https://pmksy.gov.in",
+    "helpline": "1800-180-1551",
+    "shortDescription": "PM Krishi Sinchai — Irrigation के लिए 55% सब्सिडी। Drip/Sprinkler।",
+    "importantDates": ["Launch: 2015", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pmksy.gov.in"},
+      {"label": "Apply Online", "url": "https://pmksy.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "e-NAM (National Agriculture Market)",
+    "slug": "e-nam-national-agriculture-market",
+    "category": "agriculture",
+    "launchDate": "14 April 2016",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "budget": "₹2,000 Crore",
+    "eligibility": "सभी किसान जो अपनी उपज बेचना चाहते हैं। Mandis में Registration जरूरी।",
+    "benefits": "Online Mandi — पूरे देश में अपनी उपज बेचें। Price Discovery में मदद। बिचौलियों का खात्मा। Better Prices।",
+    "applicationProcess": [
+      "नजदीकी Mandi में Registration करें",
+      "e-NAM Portal पर जाएँ",
+      "अपनी उपज List करें",
+      "Online Bidding होगी",
+      "Best Price मिलेगा",
+      "Payment Direct Bank Account में"
+    ],
+    "documents": ["आधार कार्ड", "Bank Passbook", "Land Records", "Mandi Registration"],
+    "officialWebsite": "https://enam.gov.in",
+    "helpline": "1800-180-1551",
+    "shortDescription": "e-NAM — Online Agriculture Market। पूरे देश में उपज बेचें। बेहतर दाम।",
+    "importantDates": ["Launch: 2016", "Mandis: 1,000+", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://enam.gov.in"},
+      {"label": "Register as Farmer", "url": "https://enam.gov.in/"}
+    ],
+    "stateImplementation": "National — 1,000+ Mandis Connected"
+  },
+  {
+    "name": "Paramparagat Krishi Vikas Yojana",
+    "slug": "paramparagat-krishi-vikas-yojana",
+    "category": "agriculture",
+    "launchDate": "01 April 2015",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "budget": "₹2,000 Crore",
+    "eligibility": "सभी किसान जो Organic Farming करना चाहते हैं। 50 हेक्टेयर तक के क्लस्टर में।",
+    "benefits": "Organic Farming के लिए ₹50,000/हेक्टेयर (3 साल में)। Certification Cost में सहायता। Premium Prices।",
+    "applicationProcess": [
+      "Agriculture Department में जाएँ",
+      "PKVY Application Form भरें",
+      "50 हेक्टेयर का Cluster बनाएँ",
+      "Organic Farming Training लें",
+      "Certification के लिए Apply करें",
+      "Subsidy मिलेगी"
+    ],
+    "documents": ["आधार कार्ड", "Land Records", "Bank Passbook", "Cluster Registration"],
+    "officialWebsite": "https://pkvy.gov.in",
+    "helpline": "1800-180-1551",
+    "shortDescription": "PKVY — Organic Farming को बढ़ावा। ₹50,000/हेक्टेयर सहायता।",
+    "importantDates": ["Launch: 2015", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://pkvy.gov.in"},
+      {"label": "Apply Online", "url": "https://pkvy.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Ujjwala Yojana (Free LPG Connection)",
+    "slug": "ujjwala-yojana-free-lpg-connection",
+    "category": "women",
+    "launchDate": "01 May 2016",
+    "ministry": "Ministry of Petroleum and Natural Gas",
+    "budget": "₹12,800 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों की BPL महिलाएँ। SC/ST/BC/Minority प्राथमिकता। जिनके पास LPG Connection नहीं है।",
+    "benefits": "Free LPG Connection (₹1,600 तक)। Free First Refill। Smoke-free Kitchen। महिलाओं के स्वास्थ्य में सुधार।",
+    "applicationProcess": [
+      "नजदीकी LPG Distributor के पास जाएँ",
+      "Ujjwala Application Form भरें",
+      "BPL Certificate और आधार कार्ड दें",
+      "Bank Account विवरण दें",
+      "Free LPG Connection मिलेगा",
+      "First Refill भी Free"
+    ],
+    "documents": ["आधार कार्ड", "BPL Certificate", "बैंक पासबुक", "Photo", "Address Proof"],
+    "officialWebsite": "https://mylpg.in",
+    "helpline": "1800-233-3555",
+    "shortDescription": "Ujjwala Yojana — BPL महिलाओं को Free LPG Connection। Smoke-free Kitchen।",
+    "importantDates": ["Launch: 2016", "Connections: 9+ Crore", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://mylpg.in"},
+      {"label": "Check Eligibility", "url": "https://mylpg.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Mahila Shakti Kendra",
+    "slug": "mahila-shakti-kendra",
+    "category": "women",
+    "launchDate": "24 November 2017",
+    "ministry": "Ministry of Women and Child Development",
+    "budget": "₹3,000 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों की सभी महिलाएँ। Block Level पर स्थापित।",
+    "benefits": "Women Empowerment, Skill Development, Digital Literacy, Legal Awareness, Health Services। Block Level पर One-Stop Solution।",
+    "applicationProcess": [
+      "नजदीकी Mahila Shakti Kendra पर जाएँ",
+      "Free Registration करें",
+      "Skill Development Courses में भाग लें",
+      "Legal Aid और Counseling पाएँ",
+      "Government Schemes की जानकारी लें"
+    ],
+    "documents": ["आधार कार्ड", "Photo", "Education Certificate"],
+    "officialWebsite": "https://wcd.nic.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Mahila Shakti Kendra — Block Level पर महिला सशक्तिकरण केंद्र।",
+    "importantDates": ["Launch: 2017", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://wcd.nic.in"},
+      {"label": "Find Center", "url": "https://wcd.nic.in/"}
+    ],
+    "stateImplementation": "National — Block Level पर लागू"
+  },
+  {
+    "name": "One Stop Centre (Sakhi Centre)",
+    "slug": "one-stop-centre-sakhi-centre",
+    "category": "women",
+    "launchDate": "01 April 2015",
+    "ministry": "Ministry of Women and Child Development",
+    "budget": "₹1,500 Crore",
+    "eligibility": "पीड़ित महिलाएँ — Domestic Violence, Sexual Assault, Acid Attack, Trafficking से प्रभावित।",
+    "benefits": "Free Shelter, Medical Treatment, Legal Aid, Counseling, Police Assistance — सब एक जगह। 24x7 Helpline।",
+    "applicationProcess": [
+      "181 Helpline पर Call करें",
+      "नजदीकी Sakhi Centre में जाएँ",
+      "Free Registration करवाएँ",
+      "Medical Treatment मिलेगा",
+      "Legal Aid और Counseling मिलेगी",
+      "Shelter भी मिल सकता है"
+    ],
+    "documents": ["ID Proof (अगर हो)", "Photo"],
+    "officialWebsite": "https://wcd.nic.in",
+    "helpline": "181",
+    "shortDescription": "Sakhi Centre — पीड़ित महिलाओं के लिए One-Stop Centre। 24x7 सहायता।",
+    "importantDates": ["Launch: 2015", "Centres: 700+", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://wcd.nic.in"},
+      {"label": "Find Centre", "url": "https://wcd.nic.in/"}
+    ],
+    "stateImplementation": "National — 700+ Centres पूरे देश में"
+  },
+  {
+    "name": "Pradhan Mantri Matru Vandana Yojana",
+    "slug": "pradhan-mantri-matru-vandana-yojana",
+    "category": "women",
+    "launchDate": "01 January 2017",
+    "ministry": "Ministry of Women and Child Development",
+    "budget": "₹2,500 Crore",
+    "eligibility": "गर्भवती और स्तनपान कराने वाली महिलाएँ। पहली बच्चे की माँ। असंगठित क्षेत्र की महिलाएँ।",
+    "benefits": "₹5,000 की तीन किस्तें — ₹1,000 + ₹2,000 + ₹2,000। Total ₹5,000। Maternity Benefit।",
+    "applicationProcess": [
+      "CSC/Anganwadi Center में जाएँ",
+      "PMMVY Registration Form भरें",
+      "आधार और Bank Account दें",
+      "Pregnancy Registration Certificate दें",
+      "तीन किस्तों में ₹5,000 मिलेंगे"
+    ],
+    "documents": ["आधार कार्ड", "Bank Passbook", "Pregnancy Certificate", "Photo", "Husband's Aadhaar"],
+    "officialWebsite": "https://wcd.nic.in/schemes/pradhan-mantri-matru-vandana-yojana",
+    "helpline": "1800-180-5678",
+    "shortDescription": "PMMVY — गर्भवती महिलाओं को ₹5,000 Maternity Benefit। 3 किस्तें।",
+    "importantDates": ["Launch: 2017", "Kist 1: ₹1,000", "Kist 2: ₹2,000", "Kist 3: ₹2,000"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://wcd.nic.in"},
+      {"label": "Apply at CSC", "url": "https://www.csc.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Working Women Hostel Scheme",
+    "slug": "working-women-hostel-scheme",
+    "category": "women",
+    "launchDate": "01 April 2017",
+    "ministry": "Ministry of Women and Child Development",
+    "budget": "₹500 Crore",
+    "eligibility": "कामकाजी महिलाएँ जो अकेली रहती हैं। सरकारी/प्राइवेट कर्मचारी। विवाहित या अविवाहित।",
+    "benefits": "सस्ते किराए पर Hostel Room। सुरक्षित आवास। सभी शहरों में Working Women Hostels।",
+    "applicationProcess": [
+      "नजदीकी Working Women Hostel में संपर्क करें",
+      "Application Form भरें",
+      "Employment Proof दें",
+      "Rent का भुगतान करें",
+      "Room मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "Employment Letter", "Photo", "Salary Slip"],
+    "officialWebsite": "https://wcd.nic.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Working Women Hostel — कामकाजी महिलाओं के लिए सस्ते Hostels।",
+    "importantDates": ["Launch: 2017", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://wcd.nic.in"},
+      {"label": "Find Hostel", "url": "https://wcd.nic.in/"}
+    ],
+    "stateImplementation": "National — शहरी क्षेत्रों में लागू"
+  },
+  {
+    "name": "PM Yuva Yojana",
+    "slug": "pm-yuva-yojana",
+    "category": "youth",
+    "launchDate": "22 January 2021",
+    "ministry": "Ministry of Education",
+    "budget": "₹500 Crore",
+    "eligibility": "18-35 वर्ष आयु के युवा। उद्यमिता और Innovation में रुचि।",
+    "benefits": "Mentorship, Training, Seed Capital। Startup और Business के लिए सहायता। International Exposure।",
+    "applicationProcess": [
+      "Startup India Portal पर जाएँ",
+      "PM Yuva के लिए Apply करें",
+      "Business Plan Submit करें",
+      "Selection के बाद Training मिलेगी",
+      "Seed Funding दी जाएगी"
+    ],
+    "documents": ["आधार कार्ड", "PAN Card", "Business Plan", "Education Certificate"],
+    "officialWebsite": "https://www.startupindia.gov.in",
+    "helpline": "1800-115-565",
+    "shortDescription": "PM Yuva — युवाओं के लिए Mentorship + Seed Capital। Startup Support।",
+    "importantDates": ["Launch: 2021", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.startupindia.gov.in"},
+      {"label": "Apply Online", "url": "https://www.startupindia.gov.in/"}
+    ],
+    "stateImplementation": "National — ऑनलाइन Portal"
+  },
+  {
+    "name": "NSDC Skill Training",
+    "slug": "nsdc-skill-training",
+    "category": "youth",
+    "launchDate": "31 July 2008",
+    "ministry": "Ministry of Skill Development and Entrepreneurship",
+    "budget": "₹10,000 Crore",
+    "eligibility": "15-45 वर्ष आयु के युवा। 10वीं पास से लेकर Graduate तक।",
+    "benefits": "Free Skill Training (200+ Courses)। Placement Assistance। NSDC Certification। International Job Opportunities।",
+    "applicationProcess": [
+      "Skill India Portal पर जाएँ",
+      "Course Select करें",
+      "Training Partner के पास जाएँ",
+      "Free Training में भाग लें",
+      "Examination दें",
+      "Certificate और Placement मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "शैक्षिक प्रमाण पत्र", "बैंक पासबुक", "Photo"],
+    "officialWebsite": "https://www.nsdcindia.org",
+    "helpline": "1800-102-6000",
+    "shortDescription": "NSDC Skill Training — 200+ Courses। Free Training + Placement।",
+    "importantDates": ["Launch: 2008", "Courses: 200+", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.nsdcindia.org"},
+      {"label": "Find Training Center", "url": "https://www.skillindiadigital.gov.in/"}
+    ],
+    "stateImplementation": "National — 15,000+ Training Centers"
+  },
+  {
+    "name": "Skill India Digital",
+    "slug": "skill-india-digital",
+    "category": "youth",
+    "launchDate": "15 August 2022",
+    "ministry": "Ministry of Skill Development and Entrepreneurship",
+    "budget": "₹2,000 Crore",
+    "eligibility": "सभी नागरिक जो Skill Development में रुचि रखते हैं। 15+ वर्ष आयु।",
+    "benefits": "Digital Platform पर Free Skill Courses। Mobile App से Learning। DigiLocker में Certificate। Job Matching।",
+    "applicationProcess": [
+      "Skill India Digital App Download करें",
+      "Mobile Number से Register करें",
+      "Course Select करें",
+      "Free Online Learning करें",
+      "Assessment दें",
+      "Digital Certificate मिलेगा"
+    ],
+    "documents": ["Mobile Number", "आधार कार्ड (Optional)"],
+    "officialWebsite": "https://www.skillindiadigital.gov.in",
+    "helpline": "1800-102-6000",
+    "shortDescription": "Skill India Digital — Free Online Skill Courses। Mobile App से Learning।",
+    "importantDates": ["Launch: 2022", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.skillindiadigital.gov.in"},
+      {"label": "Download App", "url": "https://www.skillindiadigital.gov.in/"}
+    ],
+    "stateImplementation": "National — ऑनलाइन Platform"
+  },
+  {
+    "name": "National Apprenticeship Promotion Scheme",
+    "slug": "national-apprenticeship-promotion-scheme",
+    "category": "youth",
+    "launchDate": "01 August 2016",
+    "ministry": "Ministry of Skill Development and Entrepreneurship",
+    "budget": "₹10,000 Crore",
+    "eligibility": "14-21 वर्ष आयु के युवा। ITI/Diploma/Graduate। Industry में Apprenticeship के लिए।",
+    "benefits": "Apprenticeship के दौरान ₹1,500-8,000 Stipend। 15% Government Contribution। Industry Experience।",
+    "applicationProcess": [
+      "apprenticeship.gov.in पर जाएँ",
+      "Apprentice/Company दोनों Register करें",
+      "Contract Sign करें",
+      "Training Period में Stipend मिलेगा",
+      "Completion Certificate मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "शैक्षिक प्रमाण पत्र", "Bank Passbook", "Photo"],
+    "officialWebsite": "https://apprenticeship.gov.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "NAPS — Industry में Apprenticeship। ₹8,000 तक Stipend + Certificate।",
+    "importantDates": ["Launch: 2016", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://apprenticeship.gov.in"},
+      {"label": "Register", "url": "https://apprenticeship.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "PM Entrance Scholarship",
+    "slug": "pm-entrance-scholarship",
+    "category": "youth",
+    "launchDate": "01 August 2022",
+    "ministry": "Ministry of Education",
+    "budget": "₹500 Crore",
+    "eligibility": "NEET, JEE, CUET में Top करने वाले छात्र। OBC/SC/ST/EWS श्रेणी।",
+    "benefits": "पढ़ाई का पूरा खर्चा। Tuition Fee + Hostel + Living Expenses। ₹50,000-2,00,000 तक।",
+    "applicationProcess": [
+      "Scholarship Portal पर Register करें",
+      "Entrance Exam Score दें",
+      "Category Certificate अपलोड करें",
+      "Verification के बाद Scholarship मिलेगी"
+    ],
+    "documents": ["आधार कार्ड", "Entrance Exam Score Card", "Category Certificate", "Admission Letter", "Bank Passbook"],
+    "officialWebsite": "https://scholarships.gov.in",
+    "helpline": "0120-6619540",
+    "shortDescription": "PM Entrance Scholarship — NEET/JEE/CUET Toppers को Full Scholarship।",
+    "importantDates": ["Application Start: August", "Last Date: October", "Disbursement: November-December"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://scholarships.gov.in"},
+      {"label": "Apply Online", "url": "https://scholarships.gov.in/"}
+    ],
+    "stateImplementation": "National — सभी राज्यों में लागू"
+  },
+  {
+    "name": "Atal Pension Yojana",
+    "slug": "atal-pension-yojana",
+    "category": "social",
+    "launchDate": "01 June 2015",
+    "ministry": "Department of Financial Services",
+    "budget": "₹5,000 Crore",
+    "eligibility": "18-40 वर्ष आयु के नागरिक। Bank Account होना जरूरी। Aadhaar Linked Account।",
+    "benefits": "60 वर्ष के बाद ₹1,000 से ₹5,000 प्रति माह Pension। Government भी ₹1,000-2,000 Contribution करेगी।",
+    "applicationProcess": [
+      "Bank में जाएँ (SBI, PNB, etc.)",
+      "Atal Pension Yojana Form भरें",
+      "Aadhaar और Bank Account दें",
+      "Pension Amount Choose करें",
+      "Monthly Premium का Auto-Debit Setup करें",
+      "60 साल के बाद Pension मिलेगी"
+    ],
+    "documents": ["आधार कार्ड", "Bank Passbook", "Mobile Number", "Nominee Details"],
+    "officialWebsite": "https://www.npscra.nsdl.co.in",
+    "helpline": "1800-180-1111",
+    "shortDescription": "Atal Pension — 60 साल के बाद ₹5,000/माह Pension। Government Contribution।",
+    "importantDates": ["Launch: 2015", "Enrollment: Year Round", "Pension Start: Age 60"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.npscra.nsdl.co.in"},
+      {"label": "Enroll Now", "url": "https://www.npscra.nsdl.co.in/"}
+    ],
+    "stateImplementation": "National — सभी बैंकों में लागू"
+  },
+  {
+    "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+    "slug": "pradhan-mantri-jeevan-jyoti-bima-yojana",
+    "category": "social",
+    "launchDate": "09 May 2015",
+    "ministry": "Department of Financial Services",
+    "budget": "₹2,000 Crore",
+    "eligibility": "18-50 वर्ष आयु के नागरिक। Bank Account होना जरूरी। ₹2 लाख का Life Insurance।",
+    "benefits": "₹2 लाख का Life Insurance Cover। सिर्फ ₹436/वर्ष Premium (₹36.33/माह)। Death पर नॉमिनी को ₹2 लाख।",
+    "applicationProcess": [
+      "Bank में जाएँ",
+      "PJJBY Form भरें",
+      "Aadhaar और Bank Account दें",
+      "Nominee का नाम दें",
+      "₹436 का Auto-Debit होगा",
+      "1 साल का Insurance Active"
+    ],
+    "documents": ["आधार कार्ड", "Bank Passbook", "Nominee Details"],
+    "officialWebsite": "https://www.jeevanjyotibima.in",
+    "helpline": "1800-180-1111",
+    "shortDescription": "PMJJBY — ₹436/वर्ष में ₹2 लाख Life Insurance। Bank Account से Auto-Debit।",
+    "importantDates": ["Launch: 2015", "Premium: ₹436/Year", "Renewal: May"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.jeevanjyotibima.in"},
+      {"label": "Enroll at Bank", "url": "https://www.jeevanjyotibima.in/"}
+    ],
+    "stateImplementation": "National — सभी बैंकों में लागू"
+  },
+  {
+    "name": "Pradhan Mantri Suraksha Bima Yojana",
+    "slug": "pradhan-mantri-suraksha-bima-yojana",
+    "category": "social",
+    "launchDate": "09 May 2015",
+    "ministry": "Department of Financial Services",
+    "budget": "₹1,000 Crore",
+    "eligibility": "18-70 वर्ष आयु के नागरिक। Bank Account होना जरूरी। ₹2 लाख का Accident Insurance।",
+    "benefits": "₹2 लाख (Death/Total Disability) और ₹1 लाख (Partial Disability)। सिर्फ ₹20/वर्ष Premium।",
+    "applicationProcess": [
+      "Bank में जाएँ",
+      "PBSBY Form भरें",
+      "Aadhaar और Bank Account दें",
+      "Nominee का नाम दें",
+      "₹20 का Auto-Debit होगा",
+      "1 साल का Accident Insurance Active"
+    ],
+    "documents": ["आधार कार्ड", "Bank Passbook", "Nominee Details"],
+    "officialWebsite": "https://www.surbhabima.in",
+    "helpline": "1800-180-1111",
+    "shortDescription": "PMSBY — ₹20/वर्ष में ₹2 लाख Accident Insurance। दुर्घटना से सुरक्षा।",
+    "importantDates": ["Launch: 2015", "Premium: ₹20/Year", "Renewal: June"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.surbhabima.in"},
+      {"label": "Enroll at Bank", "url": "https://www.surbhabima.in/"}
+    ],
+    "stateImplementation": "National — सभी बैंकों में लागू"
+  },
+  {
+    "name": "PM Gramin Bima Yojana",
+    "slug": "pm-gramin-bima-yojana",
+    "category": "social",
+    "launchDate": "15 January 2015",
+    "ministry": "Department of Financial Services",
+    "budget": "₹500 Crore",
+    "eligibility": "ग्रामीण क्षेत्रों के BPL परिवार। 18-59 वर्ष आयु। Premium सब्सिडी Government देती है।",
+    "benefits": "₹20,000 (Natural Death) और ₹30,000-1,00,000 (Accidental Death/Disability)। न्यूनतम Premium।",
+    "applicationProcess": [
+      "CSC/बैंक में जाएँ",
+      "PMBBY Form भरें",
+      "BPL Certificate और आधार दें",
+      "Nominee Details दें",
+      "Premium का भुगतान करें",
+      "Policy Document मिलेगा"
+    ],
+    "documents": ["आधार कार्ड", "BPL Certificate", "Bank Passbook", "Nominee Details", "Photo"],
+    "officialWebsite": "https://www.jansuraksha.gov.in",
+    "helpline": "1800-180-1111",
+    "shortDescription": "PM Gramin Bima — ग्रामीण BPL परिवारों के लिए सस्ता Life Insurance।",
+    "importantDates": ["Launch: 2015", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://www.jansuraksha.gov.in"},
+      {"label": "Enroll at CSC", "url": "https://www.csc.gov.in/"}
+    ],
+    "stateImplementation": "National — ग्रामीण क्षेत्रों में लागू"
+  },
+  {
+    "name": "National Social Assistance Programme",
+    "slug": "national-social-assistance-programme",
+    "category": "social",
+    "launchDate": "15 August 1995",
+    "ministry": "Ministry of Rural Development",
+    "budget": "₹9,000 Crore",
+    "eligibility": "BPL परिवार — विधवा, बुजुर्ग, दिव्यांग, गरीब महिलाएँ। 60 वर्ष से अधिक आयु।",
+    "benefits": "Old Age Pension: ₹200-500/माह। Widow Pension: ₹200-500/माह। Disability Pension: ₹200-500/माह।",
+    "applicationProcess": [
+      "ग्राम पंचायत में जाएँ",
+      "NSAP Application Form भरें",
+      "BPL Certificate और आधार दें",
+      "Category (Widow/Old Age/Disability) के हिसाब से Form",
+      "Verification के बाद Pension मिलेगी",
+      "Bank Account में Direct Transfer"
+    ],
+    "documents": ["आधार कार्ड", "BPL Certificate", "Age Proof", "Bank Passbook", "Death Certificate (Widow)", "Disability Certificate"],
+    "officialWebsite": "https://nsap.nic.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "NSAP — बुजुर्ग, विधवा, दिव्यांग को Monthly Pension। BPL परिवार।",
+    "importantDates": ["Launch: 1995", "Pension: Monthly", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://nsap.nic.in"},
+      {"label": "Apply Online", "url": "https://nsap.nic.in/"}
+    ],
+    "stateImplementation": "National — ग्राम पंचायतों के माध्यम से"
+  },
+  {
+    "name": "PM Kanya Sumangala Yojana (UP)",
+    "slug": "pm-kanya-sumangala-yojana",
+    "category": "social",
+    "launchDate": "01 October 2019",
+    "ministry": "Department of Women and Child Development, UP",
+    "budget": "₹1,200 Crore",
+    "eligibility": "उत्तर प्रदेश के निवासी। बेटी का जन्म 01 April 2019 या उसके बाद हुआ हो। परिवार की वार्षिक आय ₹3 लाख से कम।",
+    "benefits": "₹15,000 तक की राशि — जन्म पर ₹2,000, Class 1 में ₹2,000, Class 6 में ₹2,000, Class 9 मे�.js ₹3,000, Graduation में ₹5,000, Diploma में ₹5,000।",
+    "applicationProcess": [
+      "UP Kanya Sumangala Portal पर जाएँ",
+      "बेटी का Registration करें",
+      "आधार और Bank Account दें",
+      "जन्म प्रमाण पत्र अपलोड करें",
+      "Verification के बाद राशि मिलेगी",
+      "हर Milestone पर किस्त आएगी"
+    ],
+    "documents": ["बेटी का जन्म प्रमाण पत्र", "माता-पिता का आधार", "Bank Passbook", "BPL Certificate"],
+    "officialWebsite": "https://kanyasumangala.up.gov.in",
+    "helpline": "1800-180-5678",
+    "shortDescription": "Kanya Sumangala — UP की बेटियों को ₹15,000। हर Milestone पर किस्त।",
+    "importantDates": ["Launch: 2019", "State: Uttar Pradesh", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://kanyasumangala.up.gov.in"},
+      {"label": "Register Now", "url": "https://kanyasumangala.up.gov.in/"}
+    ],
+    "stateImplementation": "Uttar Pradesh — केवल UP निवासी"
+  },
+  {
+    "name": "Ladli Laxmi Yojana (MP)",
+    "slug": "ladli-laxmi-yojana-mp",
+    "category": "social",
+    "launchDate": "01 April 2007",
+    "ministry": "Ministry of Women and Child Development, MP",
+    "budget": "₹500 Crore",
+    "eligibility": "मध्य प्रदेश की बेटियाँ। 2006 या बाद में जन्मी। माता-पिता का Income Tax में न होना।",
+    "benefits": "₹1,18,000 तक की राशि — 5 किस्तों में। Class 6 से Graduation तक ₹6,000 प्रति वर्ष। Age 21 पर ₹2 लाख।",
+    "applicationProcess": [
+      "MP e-District Portal पर जाएँ",
+      "Ladli Laxmi Form भरें",
+      "बेटी का जन्म प्रमाण पत्र दें",
+      "माता-पिता का आधार और Income Certificate दें",
+      "Bank Account (Sukanya Samriddhi) जोड़ें",
+      "हर Milestone पर किस्त मिलेगी"
+    ],
+    "documents": ["बेटी का जन्म प्रमाण पत्र", "माता-पिता का आधार", "Income Certificate", "Bank Passbook"],
+    "officialWebsite": "https://ladlilaxmi.mp.gov.in",
+    "helpline": "1800-233-0001",
+    "shortDescription": "Ladli Laxmi — MP की बेटियों को ₹1,18,000। Graduation तक किस्तें।",
+    "importantDates": ["Launch: 2007", "State: Madhya Pradesh", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website", "url": "https://ladlilaxmi.mp.gov.in"},
+      {"label": "Apply Online", "url": "https://ladlilaxmi.mp.gov.in/"}
+    ],
+    "stateImplementation": "Madhya Pradesh — केवल MP निवासी"
+  },
+  {
+    "name": "Ladli Scheme (Haryana/Himachal)",
+    "slug": "ladli-scheme-haryana-himachal",
+    "category": "social",
+    "launchDate": "20 August 2015",
+    "ministry": "Department of Women and Child Development, Haryana",
+    "budget": "₹200 Crore",
+    "eligibility": "हरियाणा/हिमाचल की बेटियाँ। 2015 या बाद में जन्मी। दो बेटियों तक।",
+    "benefits": "बेटी के जन्म पर ₹21,000, Class 1 में ₹11,000, Class 6 में ₹11,000, Class 9 में ₹11,000, Class 12 में ₹11,000, Graduation में ₹21,000।",
+    "applicationProcess": [
+      "e-Disha Kendra पर जाएँ",
+      "Ladli Scheme Form भरें",
+      "बेटी का जन्म प्रमाण पत्र दें",
+      "माता-पिता का आधार दें",
+      "Bank Account जोड़ें",
+      "हर कक्षा में किस्त मिलेगी"
+    ],
+    "documents": ["बेटी का जन्म प्रमाण पत्र", "माता-पिता का आधार", "Bank Passbook", "Ration Card"],
+    "officialWebsite": "https://wcdharyana.gov.in",
+    "helpline": "1800-180-2229",
+    "shortDescription": "Ladli Scheme — Haryana/Himachal की बेटियों को ₹86,000। Education Support।",
+    "importantDates": ["Launch: 2015", "States: Haryana, Himachal Pradesh", "Status: Active"],
+    "importantLinks": [
+      {"label": "Official Website (Haryana)", "url": "https://wcdharyana.gov.in"},
+      {"label": "Apply at e-Disha", "url": "https://edisha.gov.in/"}
+    ],
+    "stateImplementation": "Haryana, Himachal Pradesh — चुनिंदा राज्य"
+  }
+]

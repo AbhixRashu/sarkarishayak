@@ -1,0 +1,640 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import scholarships from '../../data/scholarships.json';
+
+export function getStaticPaths() {
+  return scholarships.map(s => ({
+    params: { slug: s.slug },
+    props: { scholarship: s },
+  }));
+}
+
+const { scholarship } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Scholarships", "item": siteUrl + "/scholarship/" },
+    { "@type": "ListItem", "position": 3, "name": scholarship.name }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": scholarship.name,
+  "description": scholarship.shortDescription || scholarship.name,
+  "author": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "publisher": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "datePublished": new Date().toISOString().split('T')[0]
+};
+
+const categoryLabels = {
+  'central': 'Central Govt',
+  'state': 'State Govt',
+  'sc-st': 'SC/ST',
+  'minority': 'Minority',
+  'girl-child': 'Girl Child',
+  'sports': 'Sports',
+  'disability': 'Disability',
+  'technical': 'Technical'
+};
+
+const dateItems = (scholarship.importantDates || []).map(d => {
+  const [label, ...rest] = d.split(':');
+  return { label: label.trim(), value: rest.join(':').trim() };
+});
+
+const links = scholarship.importantLinks || [];
+
+const relatedScholarships = scholarships
+  .filter(s => s.slug !== scholarship.slug && (s.category === scholarship.category || s.ministry === scholarship.ministry))
+  .slice(0, 4);
+---
+
+<BaseLayout
+  title={`${scholarship.name} 2026 | Apply Online | Sarkari Sahayak`}
+  description={`${scholarship.name} — ${scholarship.ministry}. Amount: ${scholarship.amount}. Eligibility, last date, documents & apply online at Sarkari Sahayak.`}
+  canonical={`/scholarship/${scholarship.slug}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+  <main class="sch-detail-page">
+
+    <div class="rd-breadcrumb container">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/scholarship/">Scholarships</a>
+      <span>/</span>
+      <span class="current">{scholarship.name}</span>
+    </div>
+
+    <div class="container rd-wrap">
+
+      <div class="rd-hero">
+        <div class="rd-hero-badge">{categoryLabels[scholarship.category] || scholarship.category}</div>
+        <h1 class="rd-hero-title">{scholarship.name}</h1>
+        <div class="rd-hero-org">{scholarship.ministry}</div>
+        <div class="rd-hero-meta">
+          <span class="rd-meta-chip">💰 {scholarship.amount}</span>
+          <span class="rd-meta-chip">📅 Last Date: {scholarship.lastDate}</span>
+          <span class="rd-meta-chip verified">✓ Verified 2026</span>
+        </div>
+      </div>
+
+      <div class="rd-grid">
+
+        <div class="rd-main">
+
+          <section class="rd-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">ℹ️</span> Scholarship ke baare mein</h2>
+            <div class="rd-body-text">
+              <p><strong>{scholarship.ministry}</strong> द्वारा चलाई जाने वाली <strong>{scholarship.name}</strong> scholarship छात्रों को आर्थिक सहायता प्रदान करती है। {scholarship.benefits}</p>
+              <p><strong>Amount:</strong> {scholarship.amount}</p>
+              <p><strong>Official Portal:</strong> <a href={scholarship.officialPortal} target="_blank" rel="noopener" style="color:var(--saffron);text-decoration:underline">{scholarship.officialPortal}</a></p>
+              <p><strong>Helpline:</strong> {scholarship.helpline}</p>
+            </div>
+          </section>
+
+          <section class="rd-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">✅</span> Eligibility Criteria</h2>
+            <div class="rd-body-text">
+              <div class="eligibility-table">
+                <div class="elig-row">
+                  <div class="elig-label">Education</div>
+                  <div class="elig-val">{scholarship.eligibility.education}</div>
+                </div>
+                <div class="elig-row">
+                  <div class="elig-label">Income Limit</div>
+                  <div class="elig-val">{scholarship.eligibility.income}</div>
+                </div>
+                <div class="elig-row">
+                  <div class="elig-label">Category</div>
+                  <div class="elig-val">{scholarship.eligibility.category}</div>
+                </div>
+                <div class="elig-row">
+                  <div class="elig-label">Minimum Marks</div>
+                  <div class="elig-val">{scholarship.eligibility.marks}</div>
+                </div>
+                <div class="elig-row">
+                  <div class="elig-label">Other Conditions</div>
+                  <div class="elig-val">{scholarship.eligibility.other}</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {dateItems.length > 0 && (
+            <section class="rd-card">
+              <h2 class="rd-card-head"><span class="rd-head-icon">📅</span> Important Dates</h2>
+              <div class="rd-dates-grid">
+                {dateItems.map((d, i) => (
+                  <div class={`rd-date-item${d.label.toLowerCase().includes('last') ? ' highlight' : ''}`}>
+                    <div class="rd-date-label">{d.label}</div>
+                    <div class="rd-date-val">{d.value}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section class="rd-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">📝</span> Application Process</h2>
+            <ol class="rd-steps">
+              {scholarship.applicationProcess.map((step, i) => (
+                <li>
+                  <span class="rd-step-num">{i + 1}</span>
+                  <span class="rd-step-text">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section class="rd-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">📄</span> Documents Required</h2>
+            <div class="rd-body-text">
+              <ul class="doc-checklist">
+                {scholarship.documents.map((doc) => (
+                  <li>
+                    <input type="checkbox" class="doc-check" />
+                    <span>{doc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <section class="rd-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">🔄</span> Renewal Conditions</h2>
+            <div class="rd-body-text">
+              <p>{scholarship.renewal}</p>
+            </div>
+          </section>
+
+          <div class="rd-disclaimer">
+            <p><strong>Disclaimer:</strong> यह जानकारी आधिकारिक अधिसूचनाओं से ली गई है। सभी विवरणों की पुष्टि आधिकारिक वेबसाइट से करें। Sarkari Sahayak इस जानकारी की सटीकता की गारंटी नहीं देता। Scholarship amounts और dates में बदलाव हो सकता है।</p>
+          </div>
+
+        </div>
+
+        <aside class="rd-side">
+
+          <div class="rd-card rd-side-card rd-links-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">🔗</span> Important Links</h2>
+            <div class="rd-links-list">
+              {links.map(link => (
+                <a href={link.url && link.url !== '#' ? link.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
+                  <span class="rd-link-label">{link.label}</span>
+                  <span class="rd-link-arrow">{link.url && link.url !== '#' ? '→' : 'Coming Soon'}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="rd-card rd-side-card rd-quick-card">
+            <h3 class="rd-quick-title">Quick Actions</h3>
+            <a href={scholarship.officialPortal} target="_blank" rel="noopener" class="rd-apply-btn">
+              Apply Online →
+            </a>
+            <a href="/scholarship/" class="rd-more-btn">
+              View More Scholarships →
+            </a>
+          </div>
+
+          <div class="rd-card rd-side-card">
+            <h2 class="rd-card-head"><span class="rd-head-icon">💡</span> Quick Tips</h2>
+            <div class="tip-box">
+              <ul>
+                <li>Documents hamesha ready rakhein</li>
+                <li>Deadline se pehle apply karein</li>
+                <li>NSP Portal par registration zaroor karein</li>
+                <li>Bank account Aadhaar se link ho</li>
+                <li>Renewal ka time na chhode</li>
+              </ul>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+
+      {relatedScholarships.length > 0 && (
+        <section class="related-section">
+          <h2 class="rd-card-head" style="border-radius:14px 14px 0 0"><span class="rd-head-icon">📚</span> Related Scholarships</h2>
+          <div class="related-grid">
+            {relatedScholarships.map((rel) => (
+              <a href={`/scholarship/${rel.slug}`} class="related-card">
+                <span class="related-cat">{categoryLabels[rel.category] || rel.category}</span>
+                <h4 class="related-title">{rel.name}</h4>
+                <span class="related-amount">{rel.amount}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </div>
+  </main>
+
+  <style>
+    .sch-detail-page {
+      padding-top: 80px;
+    }
+
+    .rd-breadcrumb {
+      padding: 16px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .rd-breadcrumb a {
+      color: var(--saffron);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .rd-breadcrumb a:hover { color: var(--accent); }
+    .rd-breadcrumb span { margin: 0 8px; }
+    .rd-breadcrumb .current { color: var(--strong); font-weight: 500; }
+
+    .rd-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .rd-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, rgba(15,163,54,.15) 100%);
+      border: 1px solid var(--hairline);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .rd-hero-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--success);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .rd-hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .rd-hero-org {
+      font-size: 16px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .rd-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .rd-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--body);
+      font-weight: 500;
+    }
+    .rd-meta-chip.verified {
+      background: rgba(15,163,54,.12);
+      border-color: rgba(15,163,54,.3);
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .rd-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .rd-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .rd-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      background: linear-gradient(90deg, var(--navy) 0%, rgba(28,105,212,.08) 100%);
+      border-bottom: 1px solid var(--hairline);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .5px;
+    }
+    .rd-head-icon { font-size: 20px; }
+
+    .rd-body-text {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--body);
+    }
+    .rd-body-text p {
+      margin-bottom: 12px;
+    }
+    .rd-body-text p:last-child {
+      margin-bottom: 0;
+    }
+    .rd-body-text strong {
+      color: var(--strong);
+    }
+
+    .eligibility-table {
+      display: flex;
+      flex-direction: column;
+    }
+    .elig-row {
+      display: flex;
+      border-bottom: 1px solid var(--hairline-strong);
+    }
+    .elig-row:last-child {
+      border-bottom: none;
+    }
+    .elig-label {
+      flex: 0 0 160px;
+      padding: 14px 16px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: var(--elevated);
+    }
+    .elig-val {
+      flex: 1;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: var(--strong);
+    }
+
+    .rd-dates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--hairline);
+    }
+    .rd-date-item {
+      padding: 16px 20px;
+      background: var(--card);
+    }
+    .rd-date-item.highlight {
+      background: rgba(255,107,53,.06);
+    }
+    .rd-date-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .rd-date-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+    }
+    .rd-date-item.highlight .rd-date-val {
+      color: var(--saffron);
+      font-size: 18px;
+    }
+
+    .rd-steps {
+      list-style: none;
+      padding: 16px 20px;
+      margin: 0;
+    }
+    .rd-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 16px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .rd-steps li:last-child { border-bottom: none; }
+    .rd-step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--saffron);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    .doc-checklist {
+      list-style: none;
+      padding: 0;
+    }
+    .doc-checklist li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--hairline-strong);
+      font-size: 15px;
+      color: var(--body);
+      cursor: pointer;
+    }
+    .doc-checklist li:last-child { border-bottom: none; }
+    .doc-check {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--saffron);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .doc-check:checked + span {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+
+    .rd-side-card { position: sticky; top: 90px; }
+
+    .rd-links-card {
+      margin-top: 0;
+    }
+    .rd-links-list {
+      padding: 8px 12px;
+    }
+    .rd-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 16px;
+      font-weight: 500;
+      transition: all .2s;
+      border: 1px solid transparent;
+    }
+    .rd-link-item:hover {
+      background: rgba(255,107,53,.06);
+      border-color: rgba(255,107,53,.2);
+      color: var(--saffron);
+    }
+    .rd-link-label { flex: 1; }
+    .rd-link-arrow {
+      font-size: 18px;
+      color: var(--saffron);
+      transition: transform .2s;
+    }
+    .rd-link-item:hover .rd-link-arrow { transform: translateX(4px); }
+
+    .rd-quick-card {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .rd-quick-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+      margin-bottom: 14px;
+    }
+    .rd-apply-btn {
+      display: block;
+      padding: 14px;
+      background: var(--success);
+      color: #000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all .2s;
+    }
+    .rd-apply-btn:hover {
+      background: #0d8a2e;
+      transform: translateY(-1px);
+    }
+    .rd-more-btn {
+      display: block;
+      padding: 12px;
+      background: transparent;
+      color: var(--saffron);
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid var(--saffron);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .rd-more-btn:hover {
+      background: rgba(255,107,53,.08);
+    }
+
+    .rd-disclaimer {
+      padding: 20px 24px;
+      background: rgba(244,180,0,.06);
+      border: 1px solid rgba(244,180,0,.2);
+      border-radius: 12px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .rd-disclaimer p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--body);
+    }
+
+    .related-section {
+      margin-top: var(--sp-xl);
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-md);
+    }
+    .related-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      padding: var(--sp-md);
+      text-decoration: none;
+      transition: border-color .3s, transform .3s;
+    }
+    .related-card:hover {
+      border-color: var(--saffron);
+      transform: translateY(-2px);
+    }
+    .related-cat {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 6px;
+    }
+    .related-title {
+      font-family: var(--font-hindi);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--strong);
+      line-height: 1.3;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .related-amount {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--success);
+      margin-top: auto;
+    }
+
+    @media (max-width: 860px) {
+      .rd-grid {
+        grid-template-columns: 1fr;
+      }
+      .rd-hero-title { font-size: 22px; }
+      .rd-hero { padding: 24px 20px; }
+      .rd-dates-grid { grid-template-columns: 1fr; }
+      .rd-side-card { position: static; }
+      .elig-row { flex-direction: column; }
+      .elig-label { flex: none; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</BaseLayout>

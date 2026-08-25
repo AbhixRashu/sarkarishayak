@@ -1,0 +1,406 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import scholarships from '../../data/scholarships.json';
+
+const categories = [...new Set(scholarships.map(s => s.category))];
+const categoryLabels = {
+  'central': 'Central Govt',
+  'state': 'State Govt',
+  'sc-st': 'SC/ST',
+  'minority': 'Minority',
+  'girl-child': 'Girl Child',
+  'sports': 'Sports',
+  'disability': 'Disability',
+  'technical': 'Technical'
+};
+const categoryIcons = {
+  'central': '🏛️',
+  'state': '🗺️',
+  'sc-st': '🤝',
+  'minority': '🕌',
+  'girl-child': '👧',
+  'sports': '🏅',
+  'disability': '♿',
+  'technical': '🎓'
+};
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Scholarships", "item": siteUrl + "/scholarship/" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "India mein kitni scholarships available hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "India mein 100 se zyada scholarships available hain — Central, State, SC/ST, OBC, Minority, Girl Child, Sports, Disability aur Technical categories mein. NSP Portal par 60+ scholarships ek jagah mil jati hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Scholarship ke liye kaise apply karein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zyada tar scholarships NSP Portal (scholarships.gov.in) par available hain. Wahan register karke apni profile complete karein, eligible schemes select karein, documents upload karein aur form submit karein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Scholarship ka paisa kab milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scholarship ka paisa Direct Benefit Transfer (DBT) ke through bank account mein aata hai. Application submit karne ke 2-3 months ke andar paisa aa jata hai."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Scholarship 2026 | Government Scholarships India | Sarkari Sahayak"
+  description="India ki sabhi Government Scholarships ek jagah — NSP, Central, State, SC/ST, OBC, Minority, Girl Child, Sports, Disability. Apply karein, check karein, last date dekhein।"
+  canonical="/scholarship"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center-head">
+        <span class="section-label">Scholarship 2026</span>
+        <h1 class="section-title">Government Scholarships</h1>
+        <p class="section-sub">India ki sabhi scholarships ek jagah — Central, State, SC/ST, OBC, Minority, Girl Child, Sports, Disability sab milega</p>
+      </div>
+
+      <div class="sch-search-wrap">
+        <input
+          type="text"
+          class="sch-search-input"
+          id="schSearch"
+          placeholder="Search scholarships — naam, ministry, category..."
+          autocomplete="off"
+        />
+        <span class="sch-search-icon">🔍</span>
+      </div>
+
+      <div class="chips-row" id="schFilters" role="group" aria-label="Scholarship category filters">
+        <button type="button" class="chip active" data-filter="all">All<span class="cnt">{scholarships.length}</span></button>
+        {categories.map(cat => (
+          <button type="button" class="chip" data-filter={cat}>
+            {categoryIcons[cat] || ''} {categoryLabels[cat] || cat}
+            <span class="cnt">{scholarships.filter(s => s.category === cat).length}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="filter-note" id="filterNote">Showing all {scholarships.length} scholarships</div>
+
+      <div class="sch-grid" id="schList">
+        {scholarships.map((sch) => (
+          <a href={`/scholarship/${sch.slug}`} class="sch-card" data-category={sch.category} data-name={sch.name.toLowerCase()} data-search={`${sch.name} ${sch.ministry} ${sch.category} ${sch.shortDescription}`.toLowerCase()}>
+            <div class="sch-card-head">
+              <span class="sch-cat-badge">{categoryIcons[sch.category] || ''} {categoryLabels[sch.category] || sch.category}</span>
+              <span class="sch-amount-badge">{sch.amount}</span>
+            </div>
+            <h3 class="sch-card-title">{sch.name}</h3>
+            <p class="sch-card-ministry">{sch.ministry}</p>
+            <p class="sch-card-desc">{sch.shortDescription}</p>
+            <div class="sch-card-footer">
+              <div class="sch-card-meta">
+                <span class="sch-meta-item">📅 Last: {sch.lastDate}</span>
+              </div>
+              <span class="sch-card-arrow">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="no-results" id="noResults" style="display:none">
+        <p>😕 Koi scholarship nahi mili <em>"<span id="noResultsQuery"></span>"</em> ke liye.</p>
+        <p style="margin-top:8px;font-size:13px">Koi aur keyword try karein ya category filter change karein.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--soft)">
+    <div class="container">
+      <div class="section-head center-head">
+        <span class="section-label">Quick Info</span>
+        <h2 class="section-title">Scholarship ke baare mein</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>India mein kitni scholarships available hain?</summary>
+          <p>India mein 100 se zyada scholarships available hain — Central, State, SC/ST, OBC, Minority, Girl Child, Sports, Disability aur Technical categories mein. NSP Portal par 60+ scholarships ek jagah mil jati hain. Sarkari Sahayak par aapko sabhi scholarships ka consolidated information milta hai.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Scholarship ke liye kaise apply karein?</summary>
+          <p>Zyada tar scholarships NSP Portal (scholarships.gov.in) par available hain. Wahan register karke apni profile complete karein, eligible schemes select karein, documents upload karein aur form submit karein. Kuch scholarships state portals ya ministry websites par bhi available hain.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Scholarship ka paisa kab milta hai?</summary>
+          <p>Scholarship ka paisa Direct Benefit Transfer (DBT) ke through bank account mein aata hai. Application submit karne ke 2-3 months ke andar paisa aa jata hai. Aap NSP Portal par apna status check kar sakte hain.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Kya ek student multiple scholarships apply kar sakta hai?</summary>
+          <p>Haan, ek student multiple scholarships ke liye apply kar sakta hai, lekin ek hi time par ek scholarship se zyada nahi mil sakta. Agar aapko 2-3 scholarships milti hain, toh aapko jo highest amount de woh choose karni hoti hai.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var filterBtns = document.querySelectorAll('#schFilters .chip');
+    var items = document.querySelectorAll('#schList .sch-card');
+    var searchInput = document.getElementById('schSearch');
+    var noResults = document.getElementById('noResults');
+    var noResultsQuery = document.getElementById('noResultsQuery');
+    var filterNote = document.getElementById('filterNote');
+    var activeFilter = 'all';
+
+    function updateView() {
+      var q = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      var shown = 0;
+
+      items.forEach(function(item) {
+        var catMatch = activeFilter === 'all' || item.getAttribute('data-category') === activeFilter;
+        var searchMatch = !q || item.getAttribute('data-search').indexOf(q) !== -1;
+
+        if (catMatch && searchMatch) {
+          item.style.display = '';
+          shown++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      if (noResults) {
+        noResults.style.display = shown === 0 ? '' : 'none';
+        if (noResultsQuery) noResultsQuery.textContent = q || activeFilter;
+      }
+      if (filterNote) {
+        var catLabel = activeFilter === 'all' ? 'all' : (activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1));
+        filterNote.textContent = 'Showing ' + shown + ' scholarship' + (shown !== 1 ? 's' : '') + (q ? ' for "' + q + '"' : '') + (activeFilter !== 'all' ? ' in ' + catLabel : '');
+      }
+    }
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeFilter = btn.getAttribute('data-filter');
+        updateView();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', updateView);
+    }
+
+    updateView();
+  });
+  </script>
+
+  <style>
+    .sch-search-wrap {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto var(--sp-lg);
+    }
+    .sch-search-input {
+      width: 100%;
+      height: 52px;
+      padding: 0 16px 0 48px;
+      background: var(--soft);
+      border: 1px solid var(--hairline);
+      color: var(--white);
+      font-family: var(--font-hindi);
+      font-size: 16px;
+      transition: border-color .25s;
+    }
+    .sch-search-input:focus {
+      outline: none;
+      border-color: var(--saffron);
+    }
+    .sch-search-input::placeholder {
+      color: var(--muted);
+    }
+    .sch-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      pointer-events: none;
+    }
+
+    .sch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-md);
+      margin-top: var(--sp-xl);
+    }
+
+    .sch-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      padding: var(--sp-lg);
+      text-decoration: none;
+      transition: border-color .3s, transform .3s;
+      position: relative;
+    }
+    .sch-card:hover {
+      border-color: var(--saffron);
+      transform: translateY(-4px);
+    }
+    .sch-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 100%;
+      background: var(--m-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s;
+    }
+    .sch-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .sch-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-xs);
+      margin-bottom: var(--sp-sm);
+    }
+    .sch-cat-badge {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--hairline);
+      color: var(--muted);
+    }
+    .sch-amount-badge {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .5px;
+      padding: 4px 10px;
+      background: rgba(15,163,54,.1);
+      border: 1px solid rgba(15,163,54,.4);
+      color: var(--success);
+      white-space: nowrap;
+    }
+
+    .sch-card-title {
+      font-family: var(--font-hindi);
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.3;
+      color: var(--white);
+      margin-bottom: 4px;
+      transition: color .25s;
+    }
+    .sch-card:hover .sch-card-title {
+      color: var(--saffron);
+    }
+
+    .sch-card-ministry {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--m-blue-light);
+      margin-bottom: var(--sp-sm);
+    }
+    html[data-theme="light"] .sch-card-ministry {
+      color: var(--m-blue-dark);
+    }
+
+    .sch-card-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--body);
+      line-height: 1.6;
+      margin-bottom: auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .sch-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: var(--sp-md);
+      padding-top: var(--sp-sm);
+      border-top: 1px solid var(--hairline-strong);
+    }
+    .sch-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-xs);
+    }
+    .sch-meta-item {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: .5px;
+      color: var(--muted);
+    }
+    .sch-card-arrow {
+      color: var(--muted);
+      font-size: 20px;
+      transition: color .3s, transform .3s;
+    }
+    .sch-card:hover .sch-card-arrow {
+      color: var(--saffron);
+      transform: translateX(4px);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1024px) {
+      .sch-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .sch-grid {
+        grid-template-columns: 1fr;
+      }
+      .sch-card-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</BaseLayout>

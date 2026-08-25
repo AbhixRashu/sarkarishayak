@@ -1,0 +1,564 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import yojanas from '../../data/yojana.json';
+
+export function getStaticPaths() {
+  return yojanas.map(y => ({
+    params: { slug: y.slug },
+    props: { yojana: y },
+  }));
+}
+
+const { yojana } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Yojana", "item": siteUrl + "/yojana/" },
+    { "@type": "ListItem", "position": 3, "name": yojana.name }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": yojana.name,
+  "description": yojana.shortDescription || yojana.name,
+  "author": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "publisher": { "@type": "Organization", "name": "Sarkari Sahayak" },
+  "datePublished": new Date().toISOString().split('T')[0]
+};
+
+const categoryLabels = {
+  housing: 'Housing',
+  employment: 'Employment',
+  education: 'Education',
+  health: 'Health',
+  agriculture: 'Agriculture',
+  women: 'Women',
+  youth: 'Youth',
+  social: 'Social Security'
+};
+
+const related = yojanas.filter(y => y.category === yojana.category && y.slug !== yojana.slug).slice(0, 4);
+---
+
+<BaseLayout
+  title={`${yojana.name} | Sarkari Sahayak 2026`}
+  description={`${yojana.shortDescription} — ${yojana.ministry}. Eligibility, Benefits, Application Process, Documents — सब कुछ हिंदी में।`}
+  canonical={`/yojana/${yojana.slug}`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <main class="yojana-detail-page">
+
+    <div class="yd-breadcrumb container">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/yojana/">Yojana</a>
+      <span>/</span>
+      <span class="current">{yojana.name}</span>
+    </div>
+
+    <div class="container yd-wrap">
+
+      <div class="yd-hero">
+        <div class="yd-hero-badge">{categoryLabels[yojana.category] || yojana.category}</div>
+        <h1 class="yd-hero-title">{yojana.name}</h1>
+        <div class="yd-hero-ministry">{yojana.ministry}</div>
+        <div class="yd-hero-meta">
+          <span class="yd-meta-chip">📅 Launch: {yojana.launchDate}</span>
+          {yojana.budget !== 'N/A' && <span class="yd-meta-chip budget">💰 Budget: {yojana.budget}</span>}
+          <span class="yd-meta-chip verified">✓ Verified 2026</span>
+        </div>
+      </div>
+
+      <div class="yd-grid">
+
+        <div class="yd-main">
+
+          <section class="yd-card">
+            <h2 class="yd-card-head"><span class="yd-head-icon">ℹ️</span> योजना के बारे में</h2>
+            <div class="yd-body-text">
+              <p><strong>{yojana.name}</strong> — {yojana.shortDescription}</p>
+              <p><strong>{yojana.ministry}</strong> द्वारा इस योजना को चलाया जा रहा है। यह योजना {yojana.stateImplementation} लागू है। इस योजना के तहत पात्र लाभार्थियों को कई सुविधाएँ मिलती हैं।</p>
+              <p>नीचे इस योजना की पूरी जानकारी दी गई है — Eligibility, Benefits, Application Process, Documents Required और Important Links।</p>
+            </div>
+          </section>
+
+          <section class="yd-card">
+            <h2 class="yd-card-head"><span class="yd-head-icon">👤</span> पात्रता (Eligibility)</h2>
+            <div class="yd-body-text">
+              <p>{yojana.eligibility}</p>
+            </div>
+          </section>
+
+          <section class="yd-card">
+            <h2 class="yd-card-head"><span class="yd-head-icon">🎁</span> लाभ (Benefits)</h2>
+            <div class="yd-body-text">
+              <p>{yojana.benefits}</p>
+            </div>
+          </section>
+
+          <section class="yd-card">
+            <h2 class="yd-card-head"><span class="yd-head-icon">📋</span> आवेदन प्रक्रिया (Application Process)</h2>
+            <ol class="yd-steps">
+              {yojana.applicationProcess.map((step, i) => (
+                <li>
+                  <span class="yd-step-num">{i + 1}</span>
+                  <span class="yd-step-text">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section class="yd-card">
+            <h2 class="yd-card-head"><span class="yd-head-icon">📄</span> जरूरी दस्तावेज (Documents Required)</h2>
+            <div class="yd-docs-grid">
+              {yojana.documents.map(doc => (
+                <div class="yd-doc-item">✓ {doc}</div>
+              ))}
+            </div>
+          </section>
+
+          {yojana.importantDates.length > 0 && (
+            <section class="yd-card">
+              <h2 class="yd-card-head"><span class="yd-head-icon">📅</span> महत्वपूर्ण तिथियाँ (Important Dates)</h2>
+              <div class="yd-dates-grid">
+                {yojana.importantDates.map(date => {
+                  const [label, ...rest] = date.split(':');
+                  return (
+                    <div class="yd-date-item">
+                      <div class="yd-date-label">{label.trim()}</div>
+                      <div class="yd-date-val">{rest.join(':').trim()}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          <div class="yd-disclaimer">
+            <p><strong>Disclaimer:</strong> यह जानकारी आधिकारिक अधिसूचनाओं से ली गई है। सभी विवरणों की पुष्टि आधिकारिक वेबसाइट से करें। Sarkari Sahayak इस जानकारी की सटीकता की गारंटी नहीं देता।</p>
+          </div>
+
+        </div>
+
+        <aside class="yd-side">
+
+          <div class="yd-card yd-side-card yd-links-card">
+            <h2 class="yd-card-head"><span class="yd-head-icon">🔗</span> Important Links</h2>
+            <div class="yd-links-list">
+              {yojana.importantLinks.map(link => (
+                <a href={link.url && link.url !== '#' ? link.url : undefined} target="_blank" rel="noopener" class="yd-link-item">
+                  <span class="yd-link-label">{link.label}</span>
+                  <span class="yd-link-arrow">{link.url && link.url !== '#' ? '→' : 'Coming Soon'}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="yd-card yd-side-card yd-quick-card">
+            <h3 class="yd-quick-title">Quick Info</h3>
+            <div class="yd-info-row">
+              <span class="yd-info-label">Ministry</span>
+              <span class="yd-info-val">{yojana.ministry}</span>
+            </div>
+            <div class="yd-info-row">
+              <span class="yd-info-label">Launch Date</span>
+              <span class="yd-info-val">{yojana.launchDate}</span>
+            </div>
+            {yojana.budget !== 'N/A' && (
+              <div class="yd-info-row">
+                <span class="yd-info-label">Budget</span>
+                <span class="yd-info-val budget">{yojana.budget}</span>
+              </div>
+            )}
+            <div class="yd-info-row">
+              <span class="yd-info-label">Helpline</span>
+              <span class="yd-info-val">{yojana.helpline}</span>
+            </div>
+            <div class="yd-info-row">
+              <span class="yd-info-label">Coverage</span>
+              <span class="yd-info-val">{yojana.stateImplementation}</span>
+            </div>
+          </div>
+
+          <div class="yd-card yd-side-card yd-quick-card">
+            <a href={yojana.importantLinks[0]?.url && yojana.importantLinks[0].url !== '#' ? yojana.importantLinks[0].url : '#'} target="_blank" rel="noopener" class="yd-apply-btn">
+              Official Website →
+            </a>
+            <a href="/yojana/" class="yd-more-btn">
+              View All Schemes →
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+
+      {related.length > 0 && (
+        <section class="yd-related">
+          <h2 class="yd-related-head">Related Schemes — {categoryLabels[yojana.category]}</h2>
+          <div class="yd-related-grid">
+            {related.map(rel => (
+              <a href={`/yojana/${rel.slug}`} class="yd-related-card">
+                <h4 class="yr-name">{rel.name}</h4>
+                <div class="yr-ministry">{rel.ministry}</div>
+                <p class="yr-desc">{rel.shortDescription}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </div>
+  </main>
+
+  <style>
+    .yojana-detail-page { padding-top: 80px; }
+
+    .yd-breadcrumb {
+      padding: 16px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .yd-breadcrumb a {
+      color: var(--saffron);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .yd-breadcrumb a:hover { color: var(--accent); }
+    .yd-breadcrumb span { margin: 0 8px; }
+    .yd-breadcrumb .current { color: var(--strong); font-weight: 500; }
+
+    .yd-wrap { max-width: 1100px; margin: 0 auto; }
+
+    .yd-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, rgba(28,105,212,.15) 100%);
+      border: 1px solid var(--hairline);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .yd-hero-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--saffron);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .yd-hero-title {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .yd-hero-ministry {
+      font-size: 16px;
+      color: var(--saffron);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .yd-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .yd-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--body);
+      font-weight: 500;
+    }
+    .yd-meta-chip.budget { background: rgba(255,193,7,.1); border-color: rgba(255,193,7,.3); color: var(--gold); }
+    .yd-meta-chip.verified {
+      background: rgba(15,163,54,.12);
+      border-color: rgba(15,163,54,.3);
+      color: var(--success, #0fa336);
+      font-weight: 700;
+    }
+
+    .yd-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .yd-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .yd-card-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      background: linear-gradient(90deg, var(--navy) 0%, rgba(28,105,212,.08) 100%);
+      border-bottom: 1px solid var(--hairline);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .5px;
+    }
+    .yd-head-icon { font-size: 20px; }
+
+    .yd-body-text {
+      padding: 20px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--body);
+    }
+    .yd-body-text p { margin-bottom: 12px; }
+    .yd-body-text p:last-child { margin-bottom: 0; }
+    .yd-body-text strong { color: var(--strong); }
+
+    .yd-steps {
+      list-style: none;
+      padding: 16px 20px;
+      margin: 0;
+    }
+    .yd-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 16px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+    .yd-steps li:last-child { border-bottom: none; }
+    .yd-step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--saffron);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      border-radius: 8px;
+    }
+
+    .yd-docs-grid {
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .yd-doc-item {
+      padding: 10px 14px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline-strong);
+      font-size: 14px;
+      color: var(--body);
+    }
+
+    .yd-dates-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--hairline);
+    }
+    .yd-date-item {
+      padding: 16px 20px;
+      background: var(--card);
+    }
+    .yd-date-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .yd-date-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+    }
+
+    .yd-side-card { position: sticky; top: 90px; }
+
+    .yd-links-card { margin-top: 0; }
+    .yd-links-list { padding: 8px 12px; }
+    .yd-link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 16px;
+      font-weight: 500;
+      transition: all .2s;
+      border: 1px solid transparent;
+    }
+    .yd-link-item:hover {
+      background: rgba(255,107,53,.06);
+      border-color: rgba(255,107,53,.2);
+      color: var(--saffron);
+    }
+    .yd-link-label { flex: 1; }
+    .yd-link-arrow {
+      font-size: 18px;
+      color: var(--saffron);
+      transition: transform .2s;
+    }
+    .yd-link-item:hover .yd-link-arrow { transform: translateX(4px); }
+
+    .yd-quick-card {
+      margin-top: 20px;
+      padding: 20px;
+    }
+    .yd-quick-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--strong);
+      margin-bottom: 14px;
+    }
+    .yd-info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--hairline-strong);
+      font-size: 14px;
+    }
+    .yd-info-row:last-child { border-bottom: none; }
+    .yd-info-label { color: var(--muted); flex-shrink: 0; }
+    .yd-info-val { color: var(--strong); font-weight: 600; text-align: right; }
+    .yd-info-val.budget { color: var(--gold); }
+
+    .yd-apply-btn {
+      display: block;
+      padding: 14px;
+      background: var(--saffron);
+      color: #000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all .2s;
+    }
+    .yd-apply-btn:hover { background: var(--accent); transform: translateY(-1px); }
+    .yd-more-btn {
+      display: block;
+      padding: 12px;
+      background: transparent;
+      color: var(--saffron);
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid var(--saffron);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .yd-more-btn:hover { background: rgba(255,107,53,.08); }
+
+    .yd-disclaimer {
+      padding: 20px 24px;
+      background: rgba(244,180,0,.06);
+      border: 1px solid rgba(244,180,0,.2);
+      border-radius: 12px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .yd-disclaimer p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--body);
+    }
+
+    .yd-related {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--hairline);
+    }
+    .yd-related-head {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .yd-related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-md);
+    }
+    .yd-related-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      padding: var(--sp-md);
+      text-decoration: none;
+      transition: border-color .3s, transform .3s;
+    }
+    .yd-related-card:hover {
+      border-color: var(--saffron);
+      transform: translateY(-2px);
+    }
+    .yr-name {
+      font-family: var(--font-hindi);
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .yr-ministry {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--m-blue-light);
+      margin-bottom: 6px;
+    }
+    html[data-theme="light"] .yr-ministry { color: var(--m-blue-dark); }
+    .yr-desc {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 860px) {
+      .yd-grid { grid-template-columns: 1fr; }
+      .yd-hero-title { font-size: 22px; }
+      .yd-hero { padding: 24px 20px; }
+      .yd-dates-grid { grid-template-columns: 1fr; }
+      .yd-docs-grid { grid-template-columns: 1fr; }
+      .yd-side-card { position: static; }
+      .yd-related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .yd-related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</BaseLayout>
