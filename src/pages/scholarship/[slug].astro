@@ -58,7 +58,7 @@ const relatedScholarships = scholarships
 <BaseLayout
   title={`${scholarship.name} 2026 | Apply Online | Sarkari Sahayak`}
   description={`${scholarship.name} — ${scholarship.ministry}. Amount: ${scholarship.amount}. Eligibility, last date, documents & apply online at Sarkari Sahayak.`}
-  canonical={`/scholarship/${scholarship.slug}`}
+  canonical={`/scholarship/${scholarship.slug}/`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

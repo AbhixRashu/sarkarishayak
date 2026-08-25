@@ -49,7 +49,7 @@ const related = yojanas.filter(y => y.category === yojana.category && y.slug !==
 <BaseLayout
   title={`${yojana.name} | Sarkari Sahayak 2026`}
   description={`${yojana.shortDescription} — ${yojana.ministry}. Eligibility, Benefits, Application Process, Documents — सब कुछ हिंदी में।`}
-  canonical={`/yojana/${yojana.slug}`}
+  canonical={`/yojana/${yojana.slug}/`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

@@ -73,7 +73,7 @@ const articleSchema = {
 <BaseLayout
   title={`${day.title} | Daily Current Affairs | Sarkari Sahayak`}
   description={`${day.date} के Daily Current Affairs — ${totalQ}+ महत्वपूर्ण प्रश्न UPSC, SSC CGL, IBPS, RRB की तैयारी के लिए।`}
-  canonical={`/current-affairs/${day.date}`}
+  canonical={`/current-affairs/${day.date}/`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

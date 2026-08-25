@@ -38,7 +38,7 @@ const articleSchema = {
 <BaseLayout
   title={`${answerKey.title} | Sarkari Sahayak 2026`}
   description={`${answerKey.title} — ${answerKey.organization}. Download answer key, raise objection, steps and direct links at Sarkari Sahayak.`}
-  canonical={`/answer-keys/${answerKey.slug}`}
+  canonical={`/answer-keys/${answerKey.slug}/`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
