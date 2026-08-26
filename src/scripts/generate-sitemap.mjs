@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, readdirSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -24,17 +24,25 @@ const answerKeys = loadJson('answer-keys.json');
 const syllabus = loadJson('syllabus.json');
 const yojanas = loadJson('yojana.json');
 const scholarships = loadJson('scholarships.json');
+const cutoffs = loadJson('cutoffs.json');
 
 const today = new Date().toISOString().split('T')[0];
 
 const staticPages = [
   { loc: '/', priority: '1.0', changefreq: 'daily' },
-  { loc: '/national-services/', priority: '0.9', changefreq: 'weekly' },
-  { loc: '/rajasthan-services/', priority: '0.9', changefreq: 'weekly' },
   { loc: '/latest-jobs/', priority: '0.9', changefreq: 'daily' },
   { loc: '/results/', priority: '0.9', changefreq: 'daily' },
   { loc: '/admit-cards/', priority: '0.9', changefreq: 'daily' },
   { loc: '/answer-keys/', priority: '0.9', changefreq: 'daily' },
+  { loc: '/cutoffs/', priority: '0.9', changefreq: 'daily' },
+  { loc: '/syllabus/', priority: '0.8', changefreq: 'weekly' },
+  { loc: '/pyq/', priority: '0.8', changefreq: 'weekly' },
+  { loc: '/quiz/', priority: '0.8', changefreq: 'daily' },
+  { loc: '/current-affairs/', priority: '0.8', changefreq: 'daily' },
+  { loc: '/yojana/', priority: '0.9', changefreq: 'daily' },
+  { loc: '/scholarship/', priority: '0.8', changefreq: 'weekly' },
+  { loc: '/national-services/', priority: '0.9', changefreq: 'weekly' },
+  { loc: '/rajasthan-services/', priority: '0.9', changefreq: 'weekly' },
   { loc: '/employment-news/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/exam-calendar/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/competitor-comparison/', priority: '0.7', changefreq: 'monthly' },
@@ -53,24 +61,27 @@ const staticPages = [
   { loc: '/tools/salary-calculator/', priority: '0.8', changefreq: 'weekly' },
   
   // Qualifications
+  { loc: '/qualifications/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/qualifications/10th-pass/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/qualifications/12th-pass/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/qualifications/graduate/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/qualifications/post-graduate/', priority: '0.8', changefreq: 'weekly' },
 
   // States
+  { loc: '/states/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/states/rajasthan/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/states/uttar-pradesh/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/states/bihar/', priority: '0.8', changefreq: 'weekly' },
   { loc: '/states/madhya-pradesh/', priority: '0.8', changefreq: 'weekly' },
 
-  // Yojana & Scholarships
-  { loc: '/yojana/', priority: '0.9', changefreq: 'daily' },
-  { loc: '/scholarship/', priority: '0.8', changefreq: 'weekly' },
-  { loc: '/current-affairs/', priority: '0.8', changefreq: 'daily' },
-
-  // Syllabus Hub
-  { loc: '/syllabus/', priority: '0.8', changefreq: 'weekly' },
+  // Quiz Categories
+  { loc: '/quiz/gk-gs/', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/quiz/maths/', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/quiz/reasoning/', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/quiz/english/', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/quiz/hindi/', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/quiz/computer/', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/quiz/rajasthan-gk/', priority: '0.7', changefreq: 'weekly' },
 ];
 
 const nationalServices = [
@@ -116,7 +127,7 @@ for (const s of rajServices) {
 }
 
 // Jobs
-const MIN_SLUG_LEN = 10; // filter out garbage slugs like "7-yojana", "1-yojana"
+const MIN_SLUG_LEN = 10;
 for (const j of jobs) {
   if (!j.slug || j.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
@@ -160,11 +171,24 @@ for (const k of answerKeys) {
   </url>`);
 }
 
+// Cutoff pages
+for (const c of cutoffs) {
+  const slug = c.id || c.slug;
+  if (!slug) continue;
+  urls.push(`  <url>
+    <loc>https://govtjob.salarypitcher.com/cutoffs/${slug}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`);
+}
+
 // Syllabus pages
 for (const s of syllabus) {
-  if (!s.slug) continue;
+  const slug = s.id || s.slug;
+  if (!slug) continue;
   urls.push(`  <url>
-    <loc>https://govtjob.salarypitcher.com/syllabus/${s.slug}/</loc>
+    <loc>https://govtjob.salarypitcher.com/syllabus/${slug}/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

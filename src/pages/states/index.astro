@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobsData from '../../data/latest-jobs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const stateList = [
+  {
+    name: 'Rajasthan',
+    slug: 'rajasthan',
+    hindiName: 'राजस्थान',
+    icon: '🏰',
+    portals: ['RPSC', 'RSSB', 'Rajasthan SSO', 'e-Mitra'],
+    description: 'Rajasthan Police, REET, RPSC RAS, Junior Accountant, Lab Assistant, Patwari aur state board updates.'
+  },
+  {
+    name: 'Uttar Pradesh',
+    slug: 'uttar-pradesh',
+    hindiName: 'उत्तर प्रदेश',
+    icon: '🏛️',
+    portals: ['UPPSC', 'UPSSSC', 'UPPRPB Police', 'UPTET'],
+    description: 'UP Police Constable, UPSSSC PET, UP PCS, Lekhpal, RO/ARO aur State Education vacancies.'
+  },
+  {
+    name: 'Madhya Pradesh',
+    slug: 'madhya-pradesh',
+    hindiName: 'मध्य प्रदेश',
+    icon: '🌲',
+    portals: ['MPPSC', 'MPESB (Vyapam)', 'MP Police', 'MPTET'],
+    description: 'MP Police, MPPSC State Service, Patwari, Forest Guard, MP High Court aur Samvida Shikshak jobs.'
+  },
+  {
+    name: 'Bihar',
+    slug: 'bihar',
+    hindiName: 'बिहार',
+    icon: '🌾',
+    portals: ['BPSC', 'BSSC', 'BPSSC Police', 'STET/TRE'],
+    description: 'BPSC Teacher TRE 4.0, Bihar Police Daroga, BSSC CGL, Revenue Officer aur state vacancies.'
+  }
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "States" }
+  ]
+};
+---
+
+<BaseLayout
+  title="State-wise Govt Jobs 2026 — Rajasthan, UP, MP, Bihar | Sarkari Sahayak"
+  description="State-wise Sarkari Naukri 2026. Rajasthan, Uttar Pradesh, Madhya Pradesh, Bihar ke latest vacancies, official portals, SSO links aur notifications."
+  canonical="/states/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">State-wise Jobs</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:960px;margin-inline:auto">
+
+      <div class="states-hub-head">
+        <span class="states-pill">🇮🇳 All Indian States & UTs</span>
+        <h1 class="d-title" style="font-size:clamp(24px, 4vw, 32px);margin:8px 0">State-wise Govt Jobs & Services 2026</h1>
+        <p style="color:var(--body);font-size:16px;margin-bottom:24px">
+          Apne rajya ke anusaar sarkari bharti notifications, official recruitment commissions aur state portal services dekhein.
+        </p>
+      </div>
+
+      <div class="states-grid">
+        {stateList.map(st => {
+          const count = jobsData.filter(j => {
+            const t = (j.title || '').toLowerCase();
+            const s = (j.slug || '').toLowerCase();
+            const org = (j.organization || '').toLowerCase();
+            return t.includes(st.slug) || s.includes(st.slug) || org.includes(st.slug) || t.includes(st.name.toLowerCase());
+          }).length;
+
+          return (
+            <div class="state-card">
+              <div class="sc-top">
+                <div class="sc-icon">{st.icon}</div>
+                <div>
+                  <h2 class="sc-title"><a href={`/states/${st.slug}/`}>{st.name} ({st.hindiName})</a></h2>
+                  <div class="sc-badge">{count > 0 ? `${count} Active Notifications` : 'Active Portals & Jobs'}</div>
+                </div>
+              </div>
+              <p class="sc-desc">{st.description}</p>
+              
+              <div class="sc-portals">
+                <span class="sc-portals-label">Key Portals:</span>
+                {st.portals.map(p => (
+                  <span class="sc-portal-tag">{p}</span>
+                ))}
+              </div>
+
+              <div class="sc-action">
+                <a href={`/states/${st.slug}/`} class="btn-primary" style="display:block;text-align:center;height:40px;line-height:40px;text-decoration:none;border-radius:8px">
+                  Explore {st.name} Jobs & Portals →
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .states-hub-head { margin-bottom: 24px; }
+    .states-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--saffron);
+      background: rgba(235,94,40,0.1);
+      border: 1px solid rgba(235,94,40,0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .states-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .state-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all .2s;
+    }
+    .state-card:hover {
+      border-color: var(--saffron);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .sc-top { display: flex; align-items: center; gap: 12px; }
+    .sc-icon { font-size: 32px; }
+    .sc-title { font-size: 18px; font-weight: 700; margin: 0; }
+    .sc-title a { color: var(--strong); text-decoration: none; }
+    .sc-title a:hover { color: var(--saffron); }
+    .sc-badge { font-size: 11px; color: #10b981; font-weight: 600; margin-top: 2px; }
+    .sc-desc { font-size: 13px; color: var(--body); line-height: 1.5; margin: 0; }
+    .sc-portals { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .sc-portals-label { font-size: 11px; font-weight: 600; color: var(--muted); }
+    .sc-portal-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--elevated);
+      color: var(--strong);
+      border: 1px solid var(--hairline);
+    }
+  </style>
+</BaseLayout>

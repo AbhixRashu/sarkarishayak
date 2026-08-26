@@ -15,14 +15,15 @@ const breadcrumbSchema = {
 ---
 
 <BaseLayout
-  title="Exam Syllabus 2026 — SSC, IBPS, UPSC, RRB | Sarkari Sahayak"
-  description="SSC CGL, IBPS Clerk, UPSC CSE, RRB NTPC sabke exam syllabus dekhein. Detailed topic-wise syllabus with book recommendations."
+  title="Exam Syllabus 2026 — SSC, IBPS, UPSC, RRB, State Exams | Sarkari Sahayak"
+  description="SSC CGL, CHSL, IBPS PO, Clerk, UPSC CSE, RRB NTPC, State PSC sabhi sarkari exams ke detailed topic-wise syllabus, exam pattern, marking scheme aur recommended books."
   canonical="/syllabus/"
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
+  <!-- Breadcrumb -->
   <div class="section" style="padding-bottom:0">
     <div class="container">
       <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
@@ -34,13 +35,25 @@ const breadcrumbSchema = {
   </div>
 
   <div class="section" style="padding-top:var(--sp-lg)">
-    <div class="container" style="max-width:800px;margin-inline:auto">
-      <h1 class="d-title" style="font-size:28px;margin-bottom:8px">📚 Exam Syllabus 2026</h1>
-      <p style="color:var(--body);font-size:16px;margin-bottom:24px">Major govt exams ke detailed syllabus aur recommended books.</p>
+    <div class="container" style="max-width:960px;margin-inline:auto">
+      
+      <div class="syll-hub-header">
+        <div class="syll-pill">📚 Exam Patterns & Schemes</div>
+        <h1 class="d-title" style="font-size:clamp(24px, 4vw, 32px);margin:8px 0">Govt Exam Syllabus 2026</h1>
+        <p style="color:var(--body);font-size:16px;margin-bottom:20px">
+          SSC, Banking, UPSC, Railway aur State Level exams ke topic-wise syllabus, exam pattern aur book recommendations.
+        </p>
 
-      <div class="syll-grid">
+        <!-- Search Bar -->
+        <div class="syll-search-wrap">
+          <span class="ss-icon">🔍</span>
+          <input type="text" id="syllSearch" placeholder="Search syllabus (e.g. SSC CGL, RRB NTPC, UPSC, IBPS)..." aria-label="Search syllabus" />
+        </div>
+      </div>
+
+      <div class="syll-grid" id="syllGrid">
         {syllabusData.map(exam => (
-          <a href={`/syllabus/${exam.id}/`} class="syll-card">
+          <a href={`/syllabus/${exam.id}/`} class="syll-card" data-title={exam.exam.toLowerCase()} data-org={(exam.organization || '').toLowerCase()}>
             <div class="syll-head">
               <h2 class="syll-title">{exam.exam}</h2>
               <span class="syll-level">{exam.level}</span>
@@ -53,35 +66,208 @@ const breadcrumbSchema = {
               <span>{exam.duration}</span>
             </div>
             <div class="syll-subjects">
-              {exam.subjects.slice(0, 3).map(s => (
+              {exam.subjects && exam.subjects.slice(0, 3).map(s => (
                 <span class="syll-subject-tag">{s.name}</span>
               ))}
-              {exam.subjects.length > 3 && <span class="syll-subject-tag">+{exam.subjects.length - 3} more</span>}
+              {exam.subjects && exam.subjects.length > 3 && <span class="syll-subject-tag">+{exam.subjects.length - 3} more</span>}
             </div>
-            <div class="syll-cta">View Full Syllabus →</div>
+            <div class="syll-cta">View Full Syllabus & Pattern →</div>
           </a>
         ))}
       </div>
+
+      <div id="noSyllResults" class="syll-no-res" style="display:none">
+        <p>Koi syllabus match nahi hua. Search query badal kar dekhein.</p>
+      </div>
+
+      <!-- Related Navigation Links -->
+      <div class="syll-quick-nav">
+        <h3 style="font-size:16px;font-weight:700;color:var(--strong);margin-bottom:12px">Explore More Study Material</h3>
+        <div class="sq-grid">
+          <a href="/cutoffs/" class="sq-item">
+            <span>📊</span>
+            <strong>Cut-off Marks</strong>
+          </a>
+          <a href="/pyq/" class="sq-item">
+            <span>📑</span>
+            <strong>Previous Year Papers</strong>
+          </a>
+          <a href="/quiz/" class="sq-item">
+            <span>🎯</span>
+            <strong>Daily Practice Quiz</strong>
+          </a>
+          <a href="/current-affairs/" class="sq-item">
+            <span>📰</span>
+            <strong>Current Affairs</strong>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <script is:inline>
+    const syllSearch = document.getElementById('syllSearch');
+    const cards = document.querySelectorAll('#syllGrid .syll-card');
+    const noRes = document.getElementById('noSyllResults');
+
+    if (syllSearch) {
+      syllSearch.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        let count = 0;
+        cards.forEach(card => {
+          const title = card.getAttribute('data-title') || '';
+          const org = card.getAttribute('data-org') || '';
+          if (!query || title.includes(query) || org.includes(query)) {
+            card.style.display = 'block';
+            count++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        if (noRes) noRes.style.display = count === 0 ? 'block' : 'none';
+      });
+    }
+  </script>
+
   <style>
-    .syll-grid { display: grid; gap: 12px; }
+    .syll-hub-header { margin-bottom: 24px; }
+    .syll-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--saffron);
+      background: rgba(235,94,40,0.1);
+      border: 1px solid rgba(235,94,40,0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .syll-search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-top: 14px;
+    }
+    .ss-icon { font-size: 16px; color: var(--muted); }
+    .syll-search-wrap input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 15px;
+      color: var(--strong);
+      width: 100%;
+    }
+    .syll-search-wrap input::placeholder { color: var(--muted); }
+
+    .syll-grid { display: grid; gap: 14px; }
     .syll-card {
-      display: block; padding: 20px; background: var(--card);
-      border: 1px solid var(--hairline); border-radius: 12px;
-      text-decoration: none; transition: all .2s;
+      display: block;
+      padding: 20px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all .2s;
     }
-    .syll-card:hover { border-color: var(--saffron); transform: translateY(-1px); }
-    .syll-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-    .syll-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--strong); }
-    .syll-level { font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--elevated); color: var(--muted); }
-    .syll-meta { font-size: 13px; color: var(--body); display: flex; gap: 6px; margin-bottom: 10px; }
-    .syll-subjects { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    .syll-card:hover {
+      border-color: var(--saffron);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .syll-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .syll-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--strong);
+      margin: 0;
+    }
+    .syll-level {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--elevated);
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .syll-meta {
+      font-size: 13px;
+      color: var(--body);
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .syll-subjects {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
     .syll-subject-tag {
-      font-size: 12px; padding: 3px 10px; border-radius: 6px;
-      background: var(--elevated); color: var(--body);
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--elevated);
+      color: var(--body);
+      border: 1px solid var(--hairline);
     }
-    .syll-cta { font-size: 14px; font-weight: 600; color: var(--saffron); }
+    .syll-cta {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--saffron);
+    }
+
+    .syll-no-res {
+      text-align: center;
+      padding: 30px;
+      background: var(--card);
+      border: 1px dashed var(--hairline);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    .syll-quick-nav {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 32px;
+    }
+    .sq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .sq-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--strong);
+      text-decoration: none;
+      font-size: 13px;
+      transition: all .2s;
+    }
+    .sq-item:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+      transform: translateY(-1px);
+    }
   </style>
 </BaseLayout>

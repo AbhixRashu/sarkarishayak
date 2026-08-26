@@ -1,0 +1,469 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import cutoffsData from '../../data/cutoffs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const categories = ['all', 'central', 'railway', 'banking', 'upsc', 'defence', 'police', 'state', 'teaching'];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Cut-Off Marks" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Sarkari Exam Cut-off Marks kya hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cut-off marks wo minimum qualifying marks hote hain jo kisi bhi sarkari pariksha (SSC, RRB, IBPS, UPSC आदि) ke agle charan ya final selection ke liye candidate ko prapt karne zaroori hote hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Category-wise Cut-off Marks kaise decide hote hain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cut-off marks kul vacancies, pariksha mein baithe candidates ki sankhya, question paper ki difficulty level aur category-wise reservation rules ke aadhar par tay kiye jaate hain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Previous Year Cut-off Marks check karna kyu zaroori hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pichle saalon ke cut-off score se candidates ko safe score target set karne aur apni preparation strategy plan karne mein madad milti hai."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Govt Exam Cut-Off Marks 2026 — Category-Wise Previous & Expected Cutoffs | Sarkari Sahayak"
+  description="SSC CGL, CHSL, RRB NTPC, IBPS PO, SBI Clerk, UPSC CSE sabhi sarkari exams ke category-wise (General, OBC, SC, ST, EWS) expected & previous year cut-off marks dekhein."
+  canonical="/cutoffs/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <!-- Breadcrumb -->
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Cut-Off Marks</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:1100px;margin-inline:auto">
+      
+      <!-- Page Header -->
+      <div class="cutoff-hub-head">
+        <div class="cutoff-badge-pill">📊 Cut-Off Trends & Analytics</div>
+        <h1 class="d-title" style="font-size:clamp(24px, 4vw, 34px);margin:10px 0 8px">Govt Exam Cut-Off Marks 2026</h1>
+        <p style="color:var(--body);font-size:16px;max-width:700px;line-height:1.6">
+          SSC, Banking, Railway, UPSC, Police aur State PSC exams ke official previous year marks aur 2026 expected cut-offs. Category-wise UR, OBC, SC, ST, EWS data analysis.
+        </p>
+
+        <!-- Quick Tool Highlight -->
+        <div class="cutoff-tool-banner">
+          <div class="ctb-icon">🎯</div>
+          <div class="ctb-text">
+            <strong>Cut-off Prediction & Safe Score Tracker</strong>
+            <span>Apne category aur marks ke anusaar safe score analyze karein hamare free cutoff tool se.</span>
+          </div>
+          <a href="/tools/cutoff-tracker/" class="btn-primary" style="height:38px;padding:0 18px;font-size:13px;white-space:nowrap">
+            Open Cutoff Tracker →
+          </a>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="cutoff-controls">
+        <div class="cutoff-search-box">
+          <span class="cs-icon">🔍</span>
+          <input type="text" id="cutoffSearch" placeholder="Search exam (e.g. SSC CGL, RRB NTPC, IBPS PO)..." aria-label="Search exam cutoffs" />
+        </div>
+
+        <div class="cutoff-chips" id="cutoffFilterChips" role="group" aria-label="Filter by category">
+          <button type="button" class="chip active" data-cat="all">All Exams ({cutoffsData.length})</button>
+          {categories.filter(c => c !== 'all').map(cat => {
+            const count = cutoffsData.filter(c => (c.category || '').toLowerCase() === cat).length;
+            if (count === 0) return null;
+            return (
+              <button type="button" class="chip" data-cat={cat}>
+                {cat.toUpperCase()} ({count})
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Cutoff Grid -->
+      <div class="cutoff-grid" id="cutoffGrid">
+        {cutoffsData.map(exam => {
+          const firstTierKey = exam.cutoffs ? Object.keys(exam.cutoffs)[0] : null;
+          const firstTier = firstTierKey ? exam.cutoffs[firstTierKey] : null;
+          const prevYearLatest = exam.previousYears && exam.previousYears[0] ? exam.previousYears[0] : null;
+
+          return (
+            <div class="cutoff-card" data-cat={(exam.category || 'other').toLowerCase()} data-name={exam.exam.toLowerCase()} data-org={(exam.organization || '').toLowerCase()}>
+              <div class="cc-head">
+                <div>
+                  <div class="cc-org">{exam.organization || 'Govt of India'} · <span style="text-transform:capitalize">{exam.category}</span></div>
+                  <h2 class="cc-title"><a href={`/cutoffs/${exam.id}/`}>{exam.exam}</a></h2>
+                </div>
+                {exam.examLevel && <span class="cc-level-badge">{exam.examLevel}</span>}
+              </div>
+
+              {firstTier && (
+                <div class="cc-scores-table">
+                  <div class="cc-tier-label">{firstTierKey?.toUpperCase() || 'QUALIFYING'} CUT-OFF (2026 Expected / Official)</div>
+                  <div class="cc-scores-row">
+                    <div class="cc-score-box">
+                      <span class="cc-cat">GEN/UR</span>
+                      <span class="cc-val">{firstTier.general || '-'}</span>
+                    </div>
+                    <div class="cc-score-box">
+                      <span class="cc-cat">OBC</span>
+                      <span class="cc-val">{firstTier.obc || '-'}</span>
+                    </div>
+                    <div class="cc-score-box">
+                      <span class="cc-cat">EWS</span>
+                      <span class="cc-val">{firstTier.ews || '-'}</span>
+                    </div>
+                    <div class="cc-score-box">
+                      <span class="cc-cat">SC</span>
+                      <span class="cc-val">{firstTier.sc || '-'}</span>
+                    </div>
+                    <div class="cc-score-box">
+                      <span class="cc-cat">ST</span>
+                      <span class="cc-val">{firstTier.st || '-'}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {prevYearLatest && (
+                <div class="cc-prev-info">
+                  <span class="cc-prev-label">Year {prevYearLatest.year} UR Cutoff:</span>
+                  <span class="cc-prev-val">{prevYearLatest.general} Marks</span>
+                  {firstTier && firstTier.general && (
+                    <span class="cc-trend-badge">
+                      {firstTier.general > prevYearLatest.general ? '▲ +' + (firstTier.general - prevYearLatest.general) : '▼ ' + (firstTier.general - prevYearLatest.general)} vs {prevYearLatest.year}
+                    </span>
+                  )}
+                </div>
+              )}
+
+              <div class="cc-foot">
+                <a href={`/cutoffs/${exam.id}/`} class="cc-btn-primary">
+                  View Full Category Cut-off Breakdown →
+                </a>
+                <a href="/syllabus/" class="cc-btn-sec" title="Check Syllabus">
+                  📚 Syllabus
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div id="noCutoffResults" class="cutoff-no-res" style="display:none">
+        <p>Koi exam match nahi hua. Search term badal kar try karein.</p>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="cutoff-faq-section">
+        <h2 class="d-h" style="margin-bottom:16px">Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-list">
+          {faqSchema.mainEntity.map(faq => (
+            <details class="faq-item">
+              <summary class="faq-quest">{faq.name}</summary>
+              <p class="faq-ans">{faq.acceptedAnswer.text}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script is:inline>
+    const searchInput = document.getElementById('cutoffSearch');
+    const chipBtns = document.querySelectorAll('#cutoffFilterChips .chip');
+    const cards = document.querySelectorAll('#cutoffGrid .cutoff-card');
+    const noRes = document.getElementById('noCutoffResults');
+
+    let activeCat = 'all';
+    let searchQuery = '';
+
+    function filterCards() {
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat') || '';
+        const name = card.getAttribute('data-name') || '';
+        const org = card.getAttribute('data-org') || '';
+
+        const matchesCat = activeCat === 'all' || cat === activeCat;
+        const matchesSearch = !searchQuery || name.includes(searchQuery) || org.includes(searchQuery);
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (noRes) {
+        noRes.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        filterCards();
+      });
+    }
+
+    chipBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        chipBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat') || 'all';
+        filterCards();
+      });
+    });
+  </script>
+
+  <style>
+    .cutoff-hub-head { margin-bottom: 28px; }
+    .cutoff-badge-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--saffron);
+      background: rgba(235, 94, 40, 0.1);
+      border: 1px solid rgba(235, 94, 40, 0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    .cutoff-tool-banner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 18px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(28,105,212,0.08) 0%, rgba(235,94,40,0.08) 100%);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      flex-wrap: wrap;
+    }
+    .ctb-icon { font-size: 28px; }
+    .ctb-text { flex: 1; min-width: 240px; display: flex; flex-direction: column; gap: 2px; }
+    .ctb-text strong { color: var(--strong); font-size: 15px; }
+    .ctb-text span { color: var(--muted); font-size: 13px; }
+
+    .cutoff-controls { margin-bottom: 24px; }
+    .cutoff-search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+    }
+    .cs-icon { font-size: 16px; color: var(--muted); }
+    .cutoff-search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 15px;
+      color: var(--strong);
+      width: 100%;
+    }
+    .cutoff-search-box input::placeholder { color: var(--muted); }
+
+    .cutoff-chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .cutoff-chips .chip {
+      white-space: nowrap;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--body);
+      transition: all .2s;
+    }
+    .cutoff-chips .chip.active,
+    .cutoff-chips .chip:hover {
+      background: var(--saffron);
+      border-color: var(--saffron);
+      color: #fff;
+    }
+
+    .cutoff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .cutoff-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .cutoff-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--saffron);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .cc-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .cc-org { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .5px; }
+    .cc-title { font-size: 18px; font-weight: 700; margin: 4px 0 0; }
+    .cc-title a { color: var(--strong); text-decoration: none; }
+    .cc-title a:hover { color: var(--saffron); }
+    .cc-level-badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--elevated);
+      color: var(--saffron);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cc-scores-table {
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .cc-tier-label { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+    .cc-scores-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      text-align: center;
+    }
+    .cc-score-box { display: flex; flex-direction: column; gap: 2px; }
+    .cc-cat { font-size: 10px; font-weight: 600; color: var(--muted); }
+    .cc-val { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--strong); }
+
+    .cc-prev-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .cc-prev-val { font-weight: 600; color: var(--strong); }
+    .cc-trend-badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .cc-foot {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .cc-btn-primary {
+      flex: 1;
+      text-align: center;
+      background: var(--saffron);
+      color: #fff;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: opacity .2s;
+    }
+    .cc-btn-primary:hover { opacity: 0.9; }
+    .cc-btn-sec {
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      color: var(--body);
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .cc-btn-sec:hover { border-color: var(--saffron); color: var(--saffron); }
+
+    .cutoff-no-res {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--card);
+      border: 1px dashed var(--hairline);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    .cutoff-faq-section {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item {
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .faq-quest { font-weight: 600; color: var(--strong); cursor: pointer; }
+    .faq-ans { margin-top: 8px; color: var(--body); font-size: 14px; line-height: 1.6; }
+  </style>
+</BaseLayout>

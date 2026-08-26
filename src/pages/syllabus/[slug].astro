@@ -1,15 +1,207 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import syllabusData from '../../data/syllabus.json';
+import jobsData from '../../data/latest-jobs.json';
 
 export function getStaticPaths() {
-  return syllabusData.map(exam => ({
-    params: { slug: exam.id },
-    props: { exam },
-  }));
+  const paths = [];
+  const handledSlugs = new Set();
+
+  // 1. All explicitly curated syllabi from syllabus.json
+  for (const exam of syllabusData) {
+    if (exam.id && !handledSlugs.has(exam.id)) {
+      paths.push({
+        params: { slug: exam.id },
+        props: { exam, isJobSpecific: false }
+      });
+      handledSlugs.add(exam.id);
+    }
+  }
+
+  // Helper function to synthesize subjects for any job based on title / category / qualification
+  function generateJobSyllabus(job: any, slug: string) {
+    const title = (job.title || job.shortTitle || 'Govt Exam').toLowerCase();
+    const org = job.organization || 'Govt of India';
+    const isTech = /engineer|je|ae|technical|polytechnic|diploma|iti|scientist|computer|programmer|assistant engineer|junior engineer/i.test(title);
+    const isTeaching = /teacher|pgt|tgt|prt|faculty|professor|reet|ctet|tet/i.test(title);
+    const isPolice = /police|constable|si|inspector|asi|security|daroga|commando/i.test(title);
+    const isDefense = /defence|army|navy|airforce|agniveer|bsf|crpf|cisf|itbp|ssb/i.test(title);
+    const isBanking = /bank|ibps|sbi|rbi|clerk|po|specialist officer/i.test(title);
+    const isRajasthan = /rajasthan|rpsc|rssb|rvunl|jaipur|jodhpur|rspcb|rbse/i.test(title) || /rajasthan/i.test(org);
+
+    const subjects = [];
+
+    // Subject 1: Reasoning & Intelligence
+    subjects.push({
+      name: "General Intelligence & Reasoning",
+      tier: "Tier 1 / CBT",
+      questions: isTech ? 25 : 30,
+      marks: isTech ? 50 : 60,
+      topics: [
+        "Analogies & Classification",
+        "Coding-Decoding & Series",
+        "Blood Relations & Direction Sense",
+        "Syllogisms & Venn Diagrams",
+        "Puzzles & Seating Arrangement",
+        "Non-Verbal Reasoning & Figure Series"
+      ]
+    });
+
+    // Subject 2: Quantitative Aptitude / Mathematics
+    subjects.push({
+      name: "Quantitative Aptitude & Mathematics",
+      tier: "Tier 1 / CBT",
+      questions: isTech ? 25 : 30,
+      marks: isTech ? 50 : 60,
+      topics: [
+        "Number System & Simplification",
+        "Percentage, Ratio & Proportion",
+        "Profit, Loss & Discount",
+        "Simple & Compound Interest",
+        "Time & Work, Time & Distance",
+        "Mensuration & Basic Algebra",
+        "Data Interpretation (Charts & Graphs)"
+      ]
+    });
+
+    // Subject 3: General Awareness / GK (Specialized for State if applicable)
+    const gkTopics = [
+      "Current Affairs (National & International)",
+      "Indian Polity, Constitution & Governance",
+      "History of India & National Movement",
+      "Geography (Physical, Economic & Environmental)",
+      "General Science (Physics, Chemistry, Biology)",
+      "Economic Issues & Government Schemes"
+    ];
+    if (isRajasthan) {
+      gkTopics.unshift("Rajasthan History, Art, Culture & Heritage", "Rajasthan Geography, Economy & Polity");
+    }
+    subjects.push({
+      name: isRajasthan ? "General Awareness & Rajasthan GK" : "General Awareness & Current Affairs",
+      tier: "Tier 1 / CBT",
+      questions: isTech ? 25 : 30,
+      marks: isTech ? 50 : 60,
+      topics: gkTopics
+    });
+
+    // Subject 4: Language (English / Hindi)
+    subjects.push({
+      name: "General Hindi & English Language",
+      tier: "Tier 1 / CBT",
+      questions: 20,
+      marks: 40,
+      topics: [
+        "Reading Comprehension & Cloze Test",
+        "Grammar, Spotting Errors & Sentence Correction",
+        "Synonyms, Antonyms & Idioms/Phrases",
+        "Vyakaran (Sandhi, Samas, Muhavare, Vakya Shuddhi)",
+        "One Word Substitution & Vocabulary"
+      ]
+    });
+
+    // Subject 5: Technical / Professional Discipline if engineering/tech/teaching
+    if (isTech) {
+      subjects.push({
+        name: "Concerned Engineering / Technical Discipline",
+        tier: "Core Technical Section",
+        questions: 60,
+        marks: 120,
+        topics: [
+          "Core Domain Fundamentals & Principles",
+          "Applied Mathematics & Engineering Concepts",
+          "Design, Measurements & Instrumentation",
+          "Safety Standards, Codes & Project Planning",
+          "Practical Applications & Problem Solving"
+        ]
+      });
+    } else if (isTeaching) {
+      subjects.push({
+        name: "Pedagogy, Child Development & Teaching Methodology",
+        tier: "Domain Knowledge",
+        questions: 30,
+        marks: 60,
+        topics: [
+          "Child Development & Learning Principles",
+          "Pedagogical Strategies & Curriculum Planning",
+          "Educational Psychology & Classroom Management",
+          "Inclusive Education & RTE Act Guidelines"
+        ]
+      });
+    } else if (isPolice || isDefense) {
+      subjects.push({
+        name: "Physical & Mental Fitness, Law & Security Awareness",
+        tier: "Stage 2 / PST/PET",
+        questions: 20,
+        marks: 40,
+        topics: [
+          "Basic Law, Human Rights & Police Regulations",
+          "Internal Security & Disaster Management",
+          "Physical Efficiency Test (PET) Benchmarks",
+          "Medical & Physical Standards"
+        ]
+      });
+    }
+
+    const totalQuestions = subjects.reduce((sum, s) => sum + s.questions, 0);
+    const totalMarks = subjects.reduce((sum, s) => sum + s.marks, 0);
+
+    return {
+      id: slug,
+      exam: job.title || job.shortTitle || 'Govt Exam',
+      organization: org,
+      fullName: `${job.title || job.shortTitle || 'Govt'} Examination 2026`,
+      level: job.qualify || 'Competitive Graduate / Diploma Level',
+      tiers: isTech ? 2 : (isPolice ? 2 : 1),
+      totalMarks: totalMarks,
+      duration: isTech ? '120 Minutes (2 Hours)' : '90-120 Minutes',
+      negativeMarking: '0.25 to 0.33 (1/3rd or 1/4th mark per incorrect answer)',
+      subjects: subjects,
+      books: [
+        { name: "Lucent's General Knowledge (Latest 2026 Edition)", subject: "General Awareness" },
+        { name: "Quantitative Aptitude by R.S. Aggarwal", subject: "Mathematics" },
+        { name: "A Modern Approach to Verbal & Non-Verbal Reasoning (R.S. Aggarwal)", subject: "Reasoning" },
+        { name: "General English / Samanya Hindi for Competitive Exams", subject: "Language" }
+      ],
+      jobRef: job
+    };
+  }
+
+  // 2. Generate static paths for ALL jobs in latest-jobs.json (both exact slug & normalized slug)
+  for (const job of jobsData) {
+    if (!job.slug) continue;
+    const baseSlug = job.slug.replace(/-20\d{2}$/, '');
+
+    const slugsToProcess = [job.slug, baseSlug];
+
+    for (const s of slugsToProcess) {
+      if (s && !handledSlugs.has(s)) {
+        // Try finding matching curated syllabus
+        const match = syllabusData.find(ex =>
+          s.includes(ex.id) ||
+          ex.id.includes(s) ||
+          (job.organization && ex.organization && ex.organization.toLowerCase() === job.organization.toLowerCase())
+        );
+
+        if (match) {
+          paths.push({
+            params: { slug: s },
+            props: { exam: { ...match, id: s, exam: job.shortTitle || job.title || match.exam }, isJobSpecific: true }
+          });
+        } else {
+          paths.push({
+            params: { slug: s },
+            props: { exam: generateJobSyllabus(job, s), isJobSpecific: true }
+          });
+        }
+        handledSlugs.add(s);
+      }
+    }
+  }
+
+  return paths;
 }
 
-const { exam } = Astro.props;
+const { exam, isJobSpecific } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
 
 const breadcrumbSchema = {
@@ -22,16 +214,26 @@ const breadcrumbSchema = {
   ]
 };
 
-const faqEntity = exam.subjects.slice(0, 3).map(s => {
-  const topicList = s.topics.join(', ');
+const faqEntity = (exam.subjects || []).slice(0, 3).map(s => {
+  const topicList = (s.topics || []).join(', ');
   return {
     "@type": "Question",
-    "name": exam.exam + " mein " + s.name + " ka syllabus kya hai?",
-    acceptedAnswer: {
+    "name": `${exam.exam} mein ${s.name} ka syllabus kya hai?`,
+    "acceptedAnswer": {
       "@type": "Answer",
-      "text": s.name + " mein " + topicList + " jaise topics cover hote hain. Total " + s.questions + " questions aate hain (" + s.marks + " marks)."
+      "text": `${s.name} mein ${topicList} jaise topics cover hote hain. Total ${s.questions} questions aate hain (${s.marks} marks).`
     }
   };
+});
+
+// Add extra common FAQs
+faqEntity.push({
+  "@type": "Question",
+  "name": `${exam.exam} mein negative marking hoti hai kya?`,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": `Haan, ${exam.exam} mein negative marking ka niyam lagoo hota hai: ${exam.negativeMarking || '1/3rd ya 1/4th marks kaate jaate hain galat uttar par'}.`
+  }
 });
 
 const faqSchema = {
@@ -42,8 +244,8 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title={`${exam.exam} Syllabus 2026 — ${exam.fullName} | Sarkari Sahayak`}
-  description={`${exam.exam} complete syllabus with topic-wise breakdown. ${exam.organization} exam. ${exam.totalMarks} marks, ${exam.duration}. Books recommended.`}
+  title={`${exam.exam} Syllabus 2026 — Topic-Wise Exam Pattern & Marking Scheme | Sarkari Sahayak`}
+  description={`${exam.exam} complete syllabus with subject & topic-wise breakdown. ${exam.organization} exam: ${exam.totalMarks} marks, ${exam.duration}. Best books & preparation tips.`}
   canonical={`/syllabus/${exam.id}/`}
 >
   <Fragment slot="head">
@@ -51,6 +253,7 @@ const faqSchema = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
+  <!-- Breadcrumb -->
   <div class="section" style="padding-bottom:0">
     <div class="container">
       <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
@@ -64,51 +267,66 @@ const faqSchema = {
   </div>
 
   <div class="section" style="padding-top:var(--sp-lg)">
-    <div class="container" style="max-width:800px;margin-inline:auto">
+    <div class="container" style="max-width:880px;margin-inline:auto">
 
+      <!-- Header -->
       <div class="d-header">
         <div class="d-icon">📚</div>
         <div>
-          <h1 class="d-title">{exam.exam}</h1>
-          <div class="d-sub">{exam.fullName} · {exam.organization}</div>
+          <h1 class="d-title">{exam.exam} Syllabus 2026</h1>
+          <div class="d-sub">{exam.fullName || exam.exam} · {exam.organization}</div>
         </div>
       </div>
 
-      <!-- Overview -->
+      <!-- Quick Action / Related Job Banner if job-specific -->
+      {exam.jobRef && (
+        <div class="syll-job-banner">
+          <div class="sjb-icon">💼</div>
+          <div class="sjb-info">
+            <strong>{exam.exam} — Official Recruitment 2026</strong>
+            <span>Check application dates, eligibility, vacancy details and online apply link.</span>
+          </div>
+          <a href={`/latest-jobs/${exam.jobRef.slug}/`} class="btn-primary" style="height:36px;padding:0 16px;font-size:12px;white-space:nowrap">
+            View Job Details →
+          </a>
+        </div>
+      )}
+
+      <!-- Overview Grid -->
       <div class="syll-overview">
         <div class="syll-ov-item">
           <div class="syll-ov-label">Level</div>
-          <div class="syll-ov-value">{exam.level}</div>
+          <div class="syll-ov-value">{exam.level || 'Graduate / 12th'}</div>
         </div>
         <div class="syll-ov-item">
-          <div class="syll-ov-label">Tiers</div>
-          <div class="syll-ov-value">{exam.tiers}</div>
+          <div class="syll-ov-label">Tiers / Stages</div>
+          <div class="syll-ov-value">{exam.tiers} Stage{exam.tiers > 1 ? 's' : ''}</div>
         </div>
         <div class="syll-ov-item">
           <div class="syll-ov-label">Total Marks</div>
-          <div class="syll-ov-value">{exam.totalMarks}</div>
+          <div class="syll-ov-value">{exam.totalMarks} Marks</div>
         </div>
         <div class="syll-ov-item">
-          <div class="syll-ov-label">Duration</div>
+          <div class="syll-ov-label">Exam Duration</div>
           <div class="syll-ov-value">{exam.duration}</div>
         </div>
         <div class="syll-ov-item" style="grid-column:1/-1">
           <div class="syll-ov-label">Negative Marking</div>
-          <div class="syll-ov-value">{exam.negativeMarking}</div>
+          <div class="syll-ov-value" style="font-size:15px;color:var(--saffron)">{exam.negativeMarking}</div>
         </div>
       </div>
 
-      <!-- Subjects -->
-      <h2 class="d-h">Subject-wise Syllabus</h2>
+      <!-- Subject-wise Syllabus Accordion -->
+      <h2 class="d-h" style="margin-bottom:14px">Subject-wise Syllabus & Exam Pattern</h2>
       <div class="syll-subjects-list">
-        {exam.subjects.map((subject, i) => (
+        {exam.subjects && exam.subjects.map((subject, i) => (
           <details class="syll-subject" open={i === 0}>
             <summary class="syll-subject-head">
               <span class="syll-subject-name">{subject.name}</span>
-              <span class="syll-subject-meta">{subject.questions}Q · {subject.marks} Marks · {subject.tier}</span>
+              <span class="syll-subject-meta">{subject.questions} Qs · {subject.marks} Marks · {subject.tier}</span>
             </summary>
             <div class="syll-topics">
-              {subject.topics.map(topic => (
+              {subject.topics && subject.topics.map(topic => (
                 <span class="syll-topic">{topic}</span>
               ))}
             </div>
@@ -116,32 +334,76 @@ const faqSchema = {
         ))}
       </div>
 
-      {/* Recommended Books */}
+      <!-- Recommended Books -->
       {exam.books && exam.books.length > 0 && (
-        <>
-          <h2 class="d-h">Recommended Books</h2>
+        <div style="margin-top:28px">
+          <h2 class="d-h" style="margin-bottom:14px">Recommended Books & Study Material</h2>
           <div class="syll-books">
             {exam.books.map(book => (
               <div class="syll-book">
-                <span class="syll-book-name">{book.name}</span>
+                <span class="syll-book-name">📖 {book.name}</span>
                 <span class="syll-book-subject">{book.subject}</span>
               </div>
             ))}
           </div>
-        </>
+        </div>
       )}
 
-      {/* Tips */}
-      <div class="d-section">
-        <h2 class="d-h">Preparation Tips</h2>
+      <!-- Preparation Tips -->
+      <div class="d-section" style="margin-top:28px">
+        <h2 class="d-h" style="margin-bottom:14px">Preparation Strategy & Tips</h2>
         <div class="steps-box">
           <ul style="list-style:none;padding:0;margin:0">
-            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📌 <b>Strong subjects pehle</b> — jo subject strong hai usse start karein, confidence badhega</li>
-            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📝 <b>Previous year papers solve karein</b> — pattern samajhne ke liye minimum 5 saal ke papers karein</li>
-            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">⏰ <b>Daily 2-3 hours study</b> — consistency zaroori hai, roz padho chahe 2 ghante hi sahi</li>
-            <li style="padding:8px 0;border-bottom:1px solid var(--hairline);font-size:15px">📊 <b>Mock tests weekly</b> — har hafte 1 mock test do aur analysis karo</li>
-            <li style="padding:8px 0;font-size:15px">📖 <b>NCERT se start karein</b> — basics clear karo phir advanced books pe jao</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--hairline);font-size:14px">📌 <strong>Syllabus Analysis:</strong> Sabse pehle exam pattern aur topic weightage ko achhi tarah samajhein.</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--hairline);font-size:14px">📝 <strong>Previous Year Question Papers (PYQs):</strong> Pichle 5 saal ke question papers solve karein taaki exam trend samajh aaye.</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--hairline);font-size:14px">⏰ <strong>Time Management:</strong> Daily time-table banakar sabhi subjects (Reasoning, Math, GK, Language) ko samay dein.</li>
+            <li style="padding:10px 0;border-bottom:1px solid var(--hairline);font-size:14px">📊 <strong>Weekly Mock Tests:</strong> Har hafte kam se kam 1-2 online mock tests dein aur weak areas ka analysis karein.</li>
+            <li style="padding:10px 0;font-size:14px">📰 <strong>Current Affairs & Revision:</strong> Rozana national aur state current affairs padhein aur short notes banayein.</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Related Navigation Links -->
+      <div class="syll-related-links">
+        <h3 class="srl-title">सम्बंधित पेज व टूल्स</h3>
+        <div class="srl-grid">
+          <a href="/cutoffs/" class="srl-item">
+            <span class="srl-icon">📊</span>
+            <span>Cut-Off Marks</span>
+          </a>
+          <a href="/pyq/" class="srl-item">
+            <span class="srl-icon">📑</span>
+            <span>Previous Year Papers</span>
+          </a>
+          <a href="/latest-jobs/" class="srl-item">
+            <span class="srl-icon">💼</span>
+            <span>Latest Jobs</span>
+          </a>
+          <a href="/admit-cards/" class="srl-item">
+            <span class="srl-icon">🎫</span>
+            <span>Admit Cards</span>
+          </a>
+          <a href="/results/" class="srl-item">
+            <span class="srl-icon">✅</span>
+            <span>Exam Results</span>
+          </a>
+          <a href="/quiz/" class="srl-item">
+            <span class="srl-icon">🎯</span>
+            <span>Practice Quiz</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="d-section" style="margin-top:28px">
+        <h2 class="d-h" style="margin-bottom:14px">Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-list">
+          {faqEntity.map(faq => (
+            <details class="faq-item">
+              <summary class="faq-quest">{faq.name}</summary>
+              <p class="faq-ans">{faq.acceptedAnswer.text}</p>
+            </details>
+          ))}
         </div>
       </div>
 
@@ -149,25 +411,54 @@ const faqSchema = {
   </div>
 
   <style>
+    .syll-job-banner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: linear-gradient(135deg, rgba(28,105,212,0.08) 0%, rgba(235,94,40,0.08) 100%);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .sjb-icon { font-size: 24px; }
+    .sjb-info { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 2px; }
+    .sjb-info strong { color: var(--strong); font-size: 14px; }
+    .sjb-info span { color: var(--muted); font-size: 12px; }
+
     .syll-overview {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 10px; margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
     }
     .syll-ov-item {
-      padding: 14px; background: var(--card); border: 1px solid var(--hairline);
-      border-radius: 10px; text-align: center;
+      padding: 14px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      text-align: center;
     }
     .syll-ov-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: .5px; }
-    .syll-ov-value { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--strong); margin-top: 4px; }
+    .syll-ov-value { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--strong); margin-top: 4px; }
 
     .syll-subjects-list { display: grid; gap: 10px; }
     .syll-subject {
-      background: var(--card); border: 1px solid var(--hairline);
-      border-radius: 10px; overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      overflow: hidden;
     }
     .syll-subject-head {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 16px; cursor: pointer; list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      cursor: pointer;
+      list-style: none;
+      flex-wrap: wrap;
+      gap: 8px;
     }
     .syll-subject-head::-webkit-details-marker { display: none; }
     .syll-subject-head::before { content: '▸ '; color: var(--saffron); }
@@ -175,21 +466,84 @@ const faqSchema = {
     .syll-subject-name { font-weight: 700; color: var(--strong); font-size: 15px; }
     .syll-subject-meta { font-size: 12px; color: var(--muted); }
     .syll-topics {
-      display: flex; flex-wrap: wrap; gap: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
       padding: 0 16px 14px;
     }
     .syll-topic {
-      font-size: 13px; padding: 4px 10px; border-radius: 6px;
-      background: var(--elevated); color: var(--body);
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--elevated);
+      color: var(--body);
+      border: 1px solid var(--hairline);
     }
 
     .syll-books { display: grid; gap: 8px; }
     .syll-book {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 14px; background: var(--card); border: 1px solid var(--hairline);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
       border-radius: 8px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .syll-book-name { font-size: 14px; font-weight: 600; color: var(--strong); }
     .syll-book-subject { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--elevated); color: var(--saffron); }
+
+    .steps-box {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .syll-related-links {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 28px;
+    }
+    .srl-title { font-size: 16px; font-weight: 700; color: var(--strong); margin-bottom: 12px; }
+    .srl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 10px;
+    }
+    .srl-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--strong);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all .2s;
+    }
+    .srl-item:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+      transform: translateY(-1px);
+    }
+    .srl-icon { font-size: 16px; }
+
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .faq-quest { font-weight: 600; color: var(--strong); cursor: pointer; }
+    .faq-ans { margin-top: 8px; color: var(--body); font-size: 14px; line-height: 1.6; }
   </style>
 </BaseLayout>

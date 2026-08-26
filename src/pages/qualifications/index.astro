@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import jobsData from '../../data/latest-jobs.json';
+
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const qualList = [
+  {
+    slug: '10th-pass',
+    title: '10th Pass Govt Jobs',
+    hindi: '10वीं पास सरकारी नौकरियां',
+    icon: '📘',
+    exams: ['SSC MTS & Havaldar', 'RRB Group D (Trackman, Helper)', 'Indian Army GD / Tradesman', 'Post Office GDS', 'State Police Constable'],
+    desc: 'Matriculation (10th pass) candidates ke liye Central & State government vacancies, salary aur direct apply links.'
+  },
+  {
+    slug: '12th-pass',
+    title: '12th Pass Govt Jobs',
+    hindi: '12वीं पास सरकारी नौकरियां',
+    icon: '📗',
+    exams: ['SSC CHSL (LDC, JSA, DEO)', 'RRB NTPC Under Graduate Posts', 'NDA / Airforce Agniveer', 'State Police Constable & SI', 'DRDO CEPTAM'],
+    desc: 'Intermediate / Higher Secondary pass candidates ke liye clerical, technical aur defence recruitment notifications.'
+  },
+  {
+    slug: 'graduate',
+    title: 'Graduate Level Govt Jobs',
+    hindi: 'ग्रेजुएट पास सरकारी नौकरियां',
+    icon: '🎓',
+    exams: ['SSC CGL (Inspector, ASO, Auditor)', 'IBPS / SBI PO & Clerk', 'RRB NTPC Graduate Posts', 'UPSC CSE (IAS, IPS, IFS)', 'State PSC Officer'],
+    desc: 'BA, BSc, BCom, BTech, BBA aur sabhi degree holders ke liye prestigious Group A, B aur C officer bharti.'
+  },
+  {
+    slug: 'post-graduate',
+    title: 'Post Graduate Govt Jobs',
+    hindi: 'पोस्ट ग्रेजुएट सरकारी नौकरियां',
+    icon: '🎖️',
+    exams: ['UGC NET & Assistant Professor', 'State PGT Teacher Recruitment', 'Scientist & Specialist Officer', 'State University Faculty', 'RBI Grade B / SEBI Officer'],
+    desc: 'MA, MSc, MCom, MTech, MBA aur PhD degree holders ke liye administrative, research aur teaching positions.'
+  }
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Qualifications" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Govt Jobs by Qualification 2026 — 10th, 12th, Graduate, Post Graduate | Sarkari Sahayak"
+  description="Apni educational qualification ke anusaar Sarkari Naukri dhundein. 10th pass, 12th pass, Graduate aur Post Graduate candidates ke liye all active vacancies."
+  canonical="/qualifications/"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">Jobs by Qualification</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:960px;margin-inline:auto">
+
+      <div class="qual-hub-head">
+        <span class="qual-pill">🎓 Qualification Based Filter</span>
+        <h1 class="d-title" style="font-size:clamp(24px, 4vw, 32px);margin:8px 0">Govt Jobs by Educational Qualification 2026</h1>
+        <p style="color:var(--body);font-size:16px;margin-bottom:24px">
+          Apni degree aur qualification ke hisaab se apply karne yogya sabhi sarkari bhartiyaan aur eligibility criteria dekhein.
+        </p>
+      </div>
+
+      <div class="qual-grid">
+        {qualList.map(q => (
+          <div class="qual-card">
+            <div class="qc-top">
+              <div class="qc-icon">{q.icon}</div>
+              <div>
+                <h2 class="qc-title"><a href={`/qualifications/${q.slug}/`}>{q.title}</a></h2>
+                <div class="qc-hi">{q.hindi}</div>
+              </div>
+            </div>
+            <p class="qc-desc">{q.desc}</p>
+            <div class="qc-exams">
+              <span class="qc-exams-label">Popular Exams:</span>
+              {q.exams.map(e => (
+                <span class="qc-exam-tag">{e}</span>
+              ))}
+            </div>
+            <div class="qc-action">
+              <a href={`/qualifications/${q.slug}/`} class="btn-primary" style="display:block;text-align:center;height:40px;line-height:40px;text-decoration:none;border-radius:8px">
+                View {q.title} →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .qual-hub-head { margin-bottom: 24px; }
+    .qual-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--saffron);
+      background: rgba(235,94,40,0.1);
+      border: 1px solid rgba(235,94,40,0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .qual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 18px;
+    }
+    .qual-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all .2s;
+    }
+    .qual-card:hover {
+      border-color: var(--saffron);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+    .qc-top { display: flex; align-items: center; gap: 12px; }
+    .qc-icon { font-size: 32px; }
+    .qc-title { font-size: 18px; font-weight: 700; margin: 0; }
+    .qc-title a { color: var(--strong); text-decoration: none; }
+    .qc-title a:hover { color: var(--saffron); }
+    .qc-hi { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .qc-desc { font-size: 13px; color: var(--body); line-height: 1.5; margin: 0; }
+    .qc-exams { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .qc-exams-label { font-size: 11px; font-weight: 600; color: var(--muted); }
+    .qc-exam-tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--elevated);
+      color: var(--strong);
+      border: 1px solid var(--hairline);
+    }
+  </style>
+</BaseLayout>

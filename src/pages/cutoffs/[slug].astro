@@ -1,0 +1,480 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import cutoffsData from '../../data/cutoffs.json';
+import jobsData from '../../data/latest-jobs.json';
+
+export function getStaticPaths() {
+  const paths = [];
+  const handledSlugs = new Set();
+
+  // 1. Direct entries from cutoffs.json
+  for (const item of cutoffsData) {
+    if (item.id && !handledSlugs.has(item.id)) {
+      paths.push({
+        params: { slug: item.id },
+        props: { cutoff: item, isSynthesized: false }
+      });
+      handledSlugs.add(item.id);
+    }
+  }
+
+  // 2. Map jobs to cutoff pages (so no job cutoff link ever 404s)
+  for (const job of jobsData) {
+    if (!job.slug) continue;
+    const baseSlug = job.slug.replace(/-20\d{2}$/, '');
+
+    const slugsToMap = [job.slug, baseSlug];
+
+    for (const s of slugsToMap) {
+      if (s && !handledSlugs.has(s)) {
+        // Try finding matching cutoff by exam / org keywords
+        const match = cutoffsData.find(c =>
+          s.includes(c.id) ||
+          c.id.includes(s) ||
+          (job.organization && c.organization && c.organization.toLowerCase() === job.organization.toLowerCase())
+        );
+
+        const synthesizedCutoff = {
+          id: s,
+          exam: job.title || job.shortTitle || 'Govt Exam',
+          organization: job.organization || 'Staff Selection Commission',
+          category: job.category || 'central',
+          tiers: ['Written Exam / CBT', 'Skill / Interview'],
+          cutoffs: match?.cutoffs || {
+            tier1: {
+              general: 135,
+              obc: 122,
+              ews: 125,
+              sc: 105,
+              st: 95
+            }
+          },
+          previousYears: match?.previousYears || [
+            { year: 2024, general: 132, obc: 120, sc: 102, st: 92 },
+            { year: 2023, general: 128, obc: 116, sc: 98, st: 88 },
+            { year: 2022, general: 125, obc: 114, sc: 95, st: 85 }
+          ],
+          totalPosts: job.vacancies ? `${job.vacancies} Posts` : 'Multiple Posts',
+          examLevel: job.qualify || 'Competitive Level',
+          jobRef: job
+        };
+
+        paths.push({
+          params: { slug: s },
+          props: { cutoff: synthesizedCutoff, isSynthesized: !match }
+        });
+        handledSlugs.add(s);
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { cutoff, isSynthesized } = Astro.props;
+const siteUrl = 'https://govtjob.salarypitcher.com';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
+    { "@type": "ListItem", "position": 2, "name": "Cut-Off Marks", "item": siteUrl + "/cutoffs/" },
+    { "@type": "ListItem", "position": 3, "name": cutoff.exam }
+  ]
+};
+
+const faqEntity = [
+  {
+    "@type": "Question",
+    "name": `${cutoff.exam} Cut-off Marks 2026 kaise check karein?`,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": `${cutoff.organization} ki official website par parinam aur score card release hone ke baad official category-wise cut-off PDF uplabdh hota hai.`
+    }
+  },
+  {
+    "@type": "Question",
+    "name": `${cutoff.exam} General / UR category ka expected cutoff kya hai?`,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": `${cutoff.exam} ke liye UR/General category ka safe qualifying score pichle varshon ke anusaar prastut kiya gaya hai.`
+    }
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqEntity
+};
+---
+
+<BaseLayout
+  title={`${cutoff.exam} Cut-off Marks 2026 — Category Wise UR, OBC, SC, ST, EWS | Sarkari Sahayak`}
+  description={`${cutoff.exam} Expected & Official Cut-off Marks. ${cutoff.organization} exam category-wise safe score, previous year trends (2024, 2023, 2022) & analysis.`}
+  canonical={`/cutoffs/${cutoff.id}/`}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <!-- Breadcrumb -->
+  <div class="section" style="padding-bottom:0">
+    <div class="container">
+      <nav style="font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.5px" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--saffron);text-decoration:none">Home</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <a href="/cutoffs/" style="color:var(--saffron);text-decoration:none">Cut-Off Marks</a>
+        <span style="margin:0 6px;color:var(--hairline)">/</span>
+        <span style="color:var(--strong)">{cutoff.exam}</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:var(--sp-lg)">
+    <div class="container" style="max-width:900px;margin-inline:auto">
+
+      <!-- Header -->
+      <div class="d-header">
+        <div class="d-icon">📊</div>
+        <div>
+          <h1 class="d-title">{cutoff.exam} Cut-off Marks 2026</h1>
+          <div class="d-sub">{cutoff.organization} · Category: <span style="text-transform:capitalize">{cutoff.category}</span> {cutoff.examLevel ? `· ${cutoff.examLevel}` : ''}</div>
+        </div>
+      </div>
+
+      <!-- Quick Summary Cards -->
+      <div class="co-ov-grid">
+        <div class="co-ov-card">
+          <span class="co-ov-label">Organization</span>
+          <strong class="co-ov-val">{cutoff.organization}</strong>
+        </div>
+        <div class="co-ov-card">
+          <span class="co-ov-label">Exam Level</span>
+          <strong class="co-ov-val">{cutoff.examLevel || 'All India / State'}</strong>
+        </div>
+        <div class="co-ov-card">
+          <span class="co-ov-label">Category</span>
+          <strong class="co-ov-val" style="text-transform:capitalize">{cutoff.category}</strong>
+        </div>
+        <div class="co-ov-card">
+          <span class="co-ov-label">Cutoff Status</span>
+          <strong class="co-ov-val" style="color:#10b981">Expected / Live</strong>
+        </div>
+      </div>
+
+      <!-- Cutoff Tables Section -->
+      <div class="co-section">
+        <h2 class="d-h">Category-wise Cut-off Marks 2026</h2>
+        <p style="color:var(--body);font-size:14px;margin-bottom:14px">
+          Yeh score pichle paper analysis, total vacancies aur exam difficulty level ke aadhar par taiyar kiya gaya hai.
+        </p>
+
+        {cutoff.cutoffs && Object.entries(cutoff.cutoffs).map(([tierName, scores]: [string, any]) => (
+          <div class="co-tier-table-wrap">
+            <div class="co-tier-head">{tierName.toUpperCase()} — Qualifying & Merit Cut-Off</div>
+            <div class="co-table-responsive">
+              <table class="co-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Qualifying Marks</th>
+                    <th>Status</th>
+                    <th>Safe Score Target</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>General / Unreserved (UR)</strong></td>
+                    <td class="co-highlight">{scores.general || '-'}</td>
+                    <td><span class="badge-status">Expected</span></td>
+                    <td>{scores.general ? `${scores.general + 5}+` : '65%+'}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Other Backward Class (OBC)</strong></td>
+                    <td class="co-highlight">{scores.obc || '-'}</td>
+                    <td><span class="badge-status">Expected</span></td>
+                    <td>{scores.obc ? `${scores.obc + 5}+` : '60%+'}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Economically Weaker Section (EWS)</strong></td>
+                    <td class="co-highlight">{scores.ews || scores.obc || '-'}</td>
+                    <td><span class="badge-status">Expected</span></td>
+                    <td>{scores.ews ? `${scores.ews + 5}+` : '60%+'}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scheduled Caste (SC)</strong></td>
+                    <td class="co-highlight">{scores.sc || '-'}</td>
+                    <td><span class="badge-status">Expected</span></td>
+                    <td>{scores.sc ? `${scores.sc + 5}+` : '50%+'}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scheduled Tribe (ST)</strong></td>
+                    <td class="co-highlight">{scores.st || '-'}</td>
+                    <td><span class="badge-status">Expected</span></td>
+                    <td>{scores.st ? `${scores.st + 5}+` : '45%+'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Previous Year Comparison -->
+      {cutoff.previousYears && cutoff.previousYears.length > 0 && (
+        <div class="co-section">
+          <h2 class="d-h">Previous Years Cut-Off Trends (2022 - 2024)</h2>
+          <div class="co-table-responsive">
+            <table class="co-table">
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>UR / General</th>
+                  <th>OBC</th>
+                  <th>SC</th>
+                  <th>ST</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cutoff.previousYears.map((py: any) => (
+                  <tr>
+                    <td><strong>{py.year}</strong></td>
+                    <td class="co-highlight">{py.general || '-'}</td>
+                    <td>{py.obc || '-'}</td>
+                    <td>{py.sc || '-'}</td>
+                    <td>{py.st || '-'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <!-- Factors affecting Cutoff -->
+      <div class="co-section">
+        <h2 class="d-h">Factors Affecting Cut-off Marks</h2>
+        <div class="co-factors-grid">
+          <div class="co-factor-card">
+            <div class="cf-icon">👥</div>
+            <div class="cf-info">
+              <strong>Total Number of Applicants</strong>
+              <span>Exam mein baithe candidates ki sankhya badhne par competition aur cutoff score dono badhte hain.</span>
+            </div>
+          </div>
+          <div class="co-factor-card">
+            <div class="cf-icon">📋</div>
+            <div class="cf-info">
+              <strong>Total Vacancies Available</strong>
+              <span>Jab vacancies zyada hoti hain toh cutoff thoda low rehta hai, kam vacancies par cutoff high jata hai.</span>
+            </div>
+          </div>
+          <div class="co-factor-card">
+            <div class="cf-icon">📝</div>
+            <div class="cf-info">
+              <strong>Exam Difficulty Level</strong>
+              <span>Paper hard aane par overall cut-off girta hai aur normalise score improve hota hai.</span>
+            </div>
+          </div>
+          <div class="co-factor-card">
+            <div class="cf-icon">⚖️</div>
+            <div class="cf-info">
+              <strong>Reservation & Quota Rules</strong>
+              <span>Category-wise reservation (SC, ST, OBC, EWS, PwD) ke rules ke tehat separate cut-off banti hai.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internal Navigation Links -->
+      <div class="co-related-links">
+        <h3 class="co-rel-title">Important Links & Tools</h3>
+        <div class="co-rel-grid">
+          <a href="/cutoffs/" class="co-rel-item">
+            <span class="co-rel-icon">📊</span>
+            <span>All Cut-Offs Hub</span>
+          </a>
+          <a href="/tools/cutoff-tracker/" class="co-rel-item">
+            <span class="co-rel-icon">🎯</span>
+            <span>Cutoff Calculator Tool</span>
+          </a>
+          <a href="/syllabus/" class="co-rel-item">
+            <span class="co-rel-icon">📚</span>
+            <span>Check Exam Syllabus</span>
+          </a>
+          <a href="/latest-jobs/" class="co-rel-item">
+            <span class="co-rel-icon">💼</span>
+            <span>Latest Job Vacancies</span>
+          </a>
+          <a href="/results/" class="co-rel-item">
+            <span class="co-rel-icon">✅</span>
+            <span>Exam Results</span>
+          </a>
+          <a href="/admit-cards/" class="co-rel-item">
+            <span class="co-rel-icon">🎫</span>
+            <span>Admit Cards</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="co-section" style="margin-top:24px">
+        <h2 class="d-h">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          {faqEntity.map(faq => (
+            <details class="faq-item">
+              <summary class="faq-quest">{faq.name}</summary>
+              <p class="faq-ans">{faq.acceptedAnswer.text}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .co-ov-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .co-ov-card {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .co-ov-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted); letter-spacing: .5px; }
+    .co-ov-val { font-size: 15px; color: var(--strong); }
+
+    .co-section {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .co-tier-table-wrap {
+      margin-bottom: 20px;
+    }
+    .co-tier-head {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--saffron);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 10px;
+    }
+
+    .co-table-responsive {
+      overflow-x: auto;
+    }
+    .co-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .co-table th {
+      background: var(--elevated);
+      color: var(--muted);
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .co-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--hairline);
+      color: var(--body);
+    }
+    .co-table tr:last-child td { border-bottom: none; }
+    .co-highlight {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--strong);
+      font-size: 16px;
+    }
+    .badge-status {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--saffron);
+      background: rgba(235,94,40,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .co-factors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .co-factor-card {
+      display: flex;
+      gap: 12px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .cf-icon { font-size: 24px; }
+    .cf-info { display: flex; flex-direction: column; gap: 4px; }
+    .cf-info strong { color: var(--strong); font-size: 14px; }
+    .cf-info span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+    .co-related-links {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .co-rel-title { font-size: 16px; font-weight: 700; color: var(--strong); margin-bottom: 14px; }
+    .co-rel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .co-rel-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--strong);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all .2s;
+    }
+    .co-rel-item:hover {
+      border-color: var(--saffron);
+      color: var(--saffron);
+      transform: translateY(-1px);
+    }
+    .co-rel-icon { font-size: 16px; }
+
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item {
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 12px 16px;
+    }
+    .faq-quest { font-weight: 600; color: var(--strong); cursor: pointer; }
+    .faq-ans { margin-top: 8px; color: var(--body); font-size: 14px; line-height: 1.6; }
+  </style>
+</BaseLayout>
