@@ -433,8 +433,15 @@ export async function runLiveAgent() {
         execSync(`node "${sitemapScript}"`, { stdio: 'ignore' });
         console.log('✓ Sitemap regenerated successfully.');
       }
+
+      // Auto-ping Google Indexing API
+      const pingScript = path.join(ROOT, 'src/scripts/google-index-ping.mjs');
+      if (fs.existsSync(pingScript)) {
+        console.log('🚀 [Live Agent] Auto-submitting latest updates to Google Indexing API...');
+        execSync(`node "${pingScript}" --limit=20`, { stdio: 'inherit' });
+      }
     } catch (e) {
-      console.warn('⚠️ Sitemap regeneration warning:', e.message);
+      console.warn('⚠️ Post-update hook warning:', e.message);
     }
   }
 

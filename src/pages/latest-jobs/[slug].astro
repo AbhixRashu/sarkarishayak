@@ -18,8 +18,9 @@ const jobPostingSchema = {
   "title": job.title,
   "description": `${job.title} — ${job.organization}. ${job.vacancies || 'Multiple'} vacancies. Last date: ${job.lastDate}. Apply online.`,
   "datePosted": job.startDate || new Date().toISOString().split('T')[0],
-  "validThrough": job.lastDate ? job.lastDate.split('/').reverse().join('-') : undefined,
+  "validThrough": job.lastDate && job.lastDate.includes('/') ? job.lastDate.split('/').reverse().join('-') : "2026-12-31",
   "employmentType": "FULL_TIME",
+  "directApply": true,
   "hiringOrganization": {
     "@type": "Organization",
     "name": job.organization,
