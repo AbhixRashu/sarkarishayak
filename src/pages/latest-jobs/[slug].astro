@@ -62,53 +62,6 @@ const breadcrumbSchema = {
   ]
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": `${job.shortTitle || job.title} ka exam kab hoga?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi. Hamari website par regular check karte rahein.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": `${job.shortTitle || job.title} mein kitni vacancy hai?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Is recruitment mein total ${job.vacancies ? job.vacancies.toLocaleString('en-IN') : 'TBA'} posts hain. ${job.vacancyDetails ? job.vacancyDetails.map(v => v.postName + ': ' + v.posts).join(', ') : 'Detailed vacancy breakdown official notification mein hai.'}`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": `${job.shortTitle || job.title} ke liye online apply kaise karein?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein. Step-by-step guide hamari website par uplabdh hai.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": `${job.shortTitle || job.title} ki eligibility kya hai?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `${job.qualify || 'Educational qualification: Check official notification'}. Age limit: ${job.ageMin || 18}-${job.ageMax || 40} years. Age relaxation SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": `${job.shortTitle || job.title} ki last date kya hai?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Online apply ki last date ${job.lastDate} hai. Fee payment ki last date bhi ${job.feePaymentLastDate || job.lastDate} hai. Deri na karein, last date ke pehle apply kar lein.`
-      }
-    }
-  ]
-};
-
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
@@ -150,6 +103,7 @@ const lastUpdated = new Date().toLocaleDateString('hi-IN', { year: 'numeric', mo
 
 const d = {
   advNo: job.advNumber || 'Check Official Notification',
+  postDate: job.postDate || job.startDate,
   applyStart: job.startDate || job.lastDate,
   lastDateApply: job.lastDate,
   feeLastDate: job.feePaymentLastDate || job.lastDate,
@@ -178,6 +132,36 @@ const d = {
     { label: 'Download Notification', url: '#' },
     { label: 'Official Website', url: '#' },
   ],
+  examPattern: job.examPattern || [
+    { stage: 'Prelims', subjects: 'Reasoning, English, Quantitative Aptitude, General Awareness', questions: 200, maxMarks: 200, duration: '120 minutes' },
+    { stage: 'Mains', subjects: 'Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge', questions: 200, maxMarks: 200, duration: '120 minutes' }
+  ],
+  salaryDetails: job.salaryDetails || {
+    payScale: job.salary || 'As per 7th Pay Commission Matrix',
+    grossSalary: '₹60,000 to ₹70,000 (including allowances)',
+    allowances: 'Dearness Allowance, HRA, Special Allowance, Medical Benefits'
+  },
+  faq: job.faq || [
+    { question: `${job.shortTitle || job.title} ka exam kab hoga?`, answer: 'Exam date abhi officially announce nahi hui hai.' },
+    { question: `${job.shortTitle || job.title} mein kitni vacancy hai?`, answer: `Is recruitment mein total ${job.vacancies ? job.vacancies.toLocaleString('en-IN') : 'TBA'} posts hain.` },
+    { question: `${job.shortTitle || job.title} ke liye online apply kaise karein?`, answer: 'Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein.' },
+    { question: `${job.shortTitle || job.title} ki eligibility kya hai?`, answer: `Educational qualification: ${job.qualify || 'Check official notification'}. Age limit: ${job.ageMin || 18}-${job.ageMax || 40} years.` },
+    { question: `${job.shortTitle || job.title} ki last date kya hai?`, answer: `Online apply ki last date ${job.lastDate} hai.` }
+  ],
+  socialLinks: job.socialLinks || { telegram: '#', whatsapp: '#', facebook: '#' },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": d.faq.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer
+    }
+  }))
 };
 ---
 
@@ -348,6 +332,67 @@ const d = {
             </ul>
           </section>
 
+          <!-- Exam Pattern -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">📝</span> Exam Pattern</h2>
+            <div class="jd-table-wrap">
+              <table class="jd-table">
+                <thead>
+                  <tr>
+                    <th>Stage</th>
+                    <th>Subjects</th>
+                    <th class="center">Questions</th>
+                    <th class="center">Max Marks</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {d.examPattern.map((ep) => (
+                    <tr>
+                      <td class="bold">{ep.stage}</td>
+                      <td>{ep.subjects}</td>
+                      <td class="center">{ep.questions}</td>
+                      <td class="center gold">{ep.maxMarks}</td>
+                      <td>{ep.duration}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Salary Details -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">💰</span> Salary & Pay Scale</h2>
+            <div class="jd-salary-wrap">
+              <div class="jd-salary-row">
+                <div class="jd-salary-label">Pay Scale</div>
+                <div class="jd-salary-val">{d.salaryDetails.payScale}</div>
+              </div>
+              <div class="jd-salary-row">
+                <div class="jd-salary-label">Approximate Gross Salary (Monthly)</div>
+                <div class="jd-salary-val gold">{d.salaryDetails.grossSalary}</div>
+              </div>
+              <div class="jd-salary-row">
+                <div class="jd-salary-label">Additional Allowances</div>
+                <div class="jd-salary-val">{d.salaryDetails.allowances}</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ -->
+          <section class="jd-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">❓</span> Frequently Asked Questions</h2>
+            <div class="jd-faq-wrap">
+              {d.faq.map((f, i) => (
+                <details class="jd-faq-item" {...(i === 0 ? { open: true } : {})}>
+                  <summary class="jd-faq-q">{f.question}</summary>
+                  <div class="jd-faq-a">{f.answer}</div>
+                </details>
+              ))}
+            </div>
+          </section>
+
         </div>
 
         <!-- sidebar -->
@@ -382,6 +427,31 @@ const d = {
                   <span class="jd-link-arrow">→</span>
                 </a>
               ))}
+            </div>
+          </div>
+
+          <!-- Follow Us -->
+          <div class="jd-card jd-side-card jd-social-card">
+            <h2 class="jd-card-head"><span class="jd-head-icon">📱</span> Follow Us</h2>
+            <div class="jd-social-list">
+              {d.socialLinks.telegram && d.socialLinks.telegram !== '#' && (
+                <a href={d.socialLinks.telegram} target="_blank" rel="noopener" class="jd-social-item telegram">
+                  <span class="jd-social-icon">✈️</span>
+                  <span>Telegram</span>
+                </a>
+              )}
+              {d.socialLinks.whatsapp && d.socialLinks.whatsapp !== '#' && (
+                <a href={d.socialLinks.whatsapp} target="_blank" rel="noopener" class="jd-social-item whatsapp">
+                  <span class="jd-social-icon">💬</span>
+                  <span>WhatsApp</span>
+                </a>
+              )}
+              {d.socialLinks.facebook && d.socialLinks.facebook !== '#' && (
+                <a href={d.socialLinks.facebook} target="_blank" rel="noopener" class="jd-social-item facebook">
+                  <span class="jd-social-icon">📘</span>
+                  <span>Facebook</span>
+                </a>
+              )}
             </div>
           </div>
 
@@ -943,5 +1013,87 @@ const d = {
       .jd-age-row { grid-template-columns: 1fr; }
       .jd-side-card { position: static; }
     }
+
+    /* salary */
+    .jd-salary-wrap { padding: 20px; }
+    .jd-salary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .jd-salary-row:last-child { border-bottom: none; }
+    .jd-salary-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body);
+    }
+    .jd-salary-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--strong);
+      text-align: right;
+      max-width: 60%;
+    }
+    .jd-salary-val.gold { color: var(--gold); font-size: 16px; }
+
+    /* faq */
+    .jd-faq-wrap { padding: 8px 12px; }
+    .jd-faq-item {
+      border: 1px solid var(--hairline);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .jd-faq-q {
+      padding: 14px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--strong);
+      cursor: pointer;
+      background: var(--elevated);
+      transition: background .2s;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .jd-faq-q::-webkit-details-marker { display: none; }
+    .jd-faq-q::before {
+      content: '▶';
+      font-size: 10px;
+      color: var(--saffron);
+      transition: transform .2s;
+    }
+    details[open] .jd-faq-q::before { transform: rotate(90deg); }
+    .jd-faq-q:hover { background: rgba(255,107,53,.06); }
+    .jd-faq-a {
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.7;
+      border-top: 1px solid var(--hairline);
+      background: var(--card);
+    }
+
+    /* social */
+    .jd-social-card { margin-top: 20px; }
+    .jd-social-list { padding: 8px 12px; }
+    .jd-social-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--body);
+      font-size: 14px;
+      font-weight: 600;
+      transition: all .15s;
+      border: 1px solid transparent;
+    }
+    .jd-social-item:hover { background: rgba(255,255,255,.05); border-color: var(--hairline); }
+    .jd-social-icon { font-size: 20px; width: 28px; text-align: center; }
   </style>
 </BaseLayout>

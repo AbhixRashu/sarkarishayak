@@ -107,11 +107,81 @@ async function syncGovtJobs() {
               organization: /upsc/i.test(title) ? 'UPSC' : /ssc/i.test(title) ? 'SSC' : /rrb|railway/i.test(title) ? 'Railway' : 'Govt of India',
               category: /banking|sbi|ibps/i.test(title) ? 'banking' : /rrb|railway/i.test(title) ? 'railway' : /upsc|ssc/i.test(title) ? 'central' : 'other',
               vacancies: 1000,
+              postDate: pubDate,
               startDate: pubDate,
               lastDate: 'Check Notification',
               applyUrl: rawLink || 'https://govtjob.salarypitcher.com/latest-jobs/',
               salary: 'As per 7th Pay Commission',
               qualify: 'Graduate / 10th / 12th',
+              feeGeneral: 'Check Notification',
+              feeSC_ST: 'Check Notification',
+              feePH: 'Check Notification',
+              ageMin: 18,
+              ageMax: 40,
+              examDate: 'To be announced',
+              resultDate: 'To be announced',
+              howToApply: [
+                'Visit the official website of the recruiting organization.',
+                'Find the relevant recruitment notification.',
+                'Register and fill the online application form.',
+                'Upload required documents (photograph, signature, certificates).',
+                'Pay the application fee online.',
+                'Submit the form and save/print the confirmation.',
+              ],
+              selectionProcess: ['Written Examination', 'Skill/Physical Test (if applicable)', 'Document Verification', 'Final Merit List'],
+              importantLinks: [
+                { label: 'Apply Online', url: rawLink || '#' },
+                { label: 'Download Notification', url: '#' },
+                { label: 'Official Website', url: '#' },
+              ],
+              examPattern: [
+                {
+                  stage: 'Prelims',
+                  subjects: 'Reasoning, English, Quantitative Aptitude, General Awareness',
+                  questions: 200,
+                  maxMarks: 200,
+                  duration: '120 minutes'
+                },
+                {
+                  stage: 'Mains',
+                  subjects: 'Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge',
+                  questions: 200,
+                  maxMarks: 200,
+                  duration: '120 minutes'
+                }
+              ],
+              salaryDetails: {
+                payScale: 'As per 7th Pay Commission',
+                grossSalary: '₹60,000 to ₹70,000 (including allowances)',
+                allowances: 'Dearness Allowance, HRA, Special Allowance, Medical Benefits'
+              },
+              faq: [
+                {
+                  question: `${title.slice(0, 35)} ka exam kab hoga?`,
+                  answer: 'Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi.'
+                },
+                {
+                  question: `${title.slice(0, 35)} mein kitni vacancy hai?`,
+                  answer: 'Is recruitment mein total 1000 posts hain. Detailed vacancy breakdown official notification mein hai.'
+                },
+                {
+                  question: `${title.slice(0, 35)} ke liye online apply kaise karein?`,
+                  answer: 'Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein.'
+                },
+                {
+                  question: `${title.slice(0, 35)} ki eligibility kya hai?`,
+                  answer: 'Educational qualification: Graduate / 10th / 12th. Age limit: 18-40 years. Age relaxation SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs.'
+                },
+                {
+                  question: `${title.slice(0, 35)} ki last date kya hai?`,
+                  answer: 'Online apply ki last date abhi officially announce nahi hui hai. Check official notification.'
+                }
+              ],
+              socialLinks: {
+                telegram: '#',
+                whatsapp: '#',
+                facebook: '#'
+              },
               autoSynced: true
             });
             existingJobSlugs.add(slug);
