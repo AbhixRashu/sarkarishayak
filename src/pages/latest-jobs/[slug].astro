@@ -82,23 +82,7 @@ const howToSchema = {
   }))
 };
 
-const eventSchema = job.examDate && job.examDate !== 'To be announced' ? {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": `${job.shortTitle || job.title} — ${job.examDate}`,
-  "startDate": job.examDate,
-  "organizer": {
-    "@type": "Organization",
-    "name": job.organization
-  },
-  "location": {
-    "@type": "Place",
-    "name": "India",
-    "address": { "@type": "PostalAddress", "addressCountry": "IN" }
-  },
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-} : null;
+
 
 const lastUpdated = new Date().toLocaleDateString('hi-IN', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -178,7 +162,6 @@ const faqSchema = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(howToSchema)} />
-    {eventSchema && <script type="application/ld+json" is:inline set:html={JSON.stringify(eventSchema)} />}
   </Fragment>
   <main class="job-detail-page">
 
