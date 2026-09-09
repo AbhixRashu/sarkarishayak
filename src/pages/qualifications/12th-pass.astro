@@ -11,13 +11,60 @@ const filteredJobs = jobs.filter(j => {
 
 const totalVacancies = filteredJobs.reduce((sum, j) => sum + (j.vacancies || 0), 0);
 
+function parseDate(d: string): Date | null {
+  if (!d || d.toLowerCase().includes('check official') || d.toLowerCase().includes('soon')) return null;
+  const parts = d.split('/');
+  if (parts.length === 3) {
+    const [dd, mm, yyyy] = parts.map(Number);
+    if (yyyy && mm && dd) return new Date(yyyy, mm - 1, dd);
+  }
+  const iso = new Date(d);
+  return isNaN(iso.getTime()) ? null : iso;
+}
+
+const now = new Date();
+
+const jobsWithDates = filteredJobs.map(j => ({
+  ...j,
+  _lastDateObj: parseDate(j.lastDate),
+  _postDateObj: parseDate(j.postDate),
+}));
+
+const openJobs = jobsWithDates.filter(j => {
+  if (!j._lastDateObj) return true;
+  return j._lastDateObj >= now;
+});
+
+const closingSoon = openJobs
+  .filter(j => j._lastDateObj && j._lastDateObj >= now)
+  .sort((a, b) => a._lastDateObj!.getTime() - b._lastDateObj!.getTime())
+  .slice(0, 10);
+
+const latestJobs = [...jobsWithDates]
+  .sort((a, b) => (b._postDateObj?.getTime() || 0) - (a._postDateObj?.getTime() || 0))
+  .slice(0, 10);
+
+const highestSalary = [...openJobs]
+  .sort((a, b) => b.vacancies - a.vacancies)
+  .slice(0, 8);
+
+const centralJobs = openJobs.filter(j => j.category === 'central' || j.category === 'ssc').slice(0, 8);
+const stateJobs = openJobs.filter(j => j.category === 'state' || j.category === 'rajasthan' || j.category === 'psc').slice(0, 8);
+const policeJobs = openJobs.filter(j => j.category === 'police' || j.category === 'defence' || j.title.toLowerCase().includes('police') || j.title.toLowerCase().includes('constable')).slice(0, 8);
+const railwayJobs = openJobs.filter(j => j.category === 'railway' || j.title.toLowerCase().includes('railway') || j.title.toLowerCase().includes('rrb')).slice(0, 8);
+const sscJobs = openJobs.filter(j => j.category === 'ssc' || j.title.toLowerCase().includes('ssc')).slice(0, 8);
+const onlineFormJobs = openJobs.filter(j => j.applyUrl && j.applyUrl !== '#').slice(0, 8);
+
+const states = [...new Set(filteredJobs.map(j => j.state).filter(Boolean))].sort();
+const categories = [...new Set(filteredJobs.map(j => j.category))].sort();
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
-    { "@type": "ListItem", "position": 2, "name": "Qualifications" },
-    { "@type": "ListItem", "position": 3, "name": "12th Pass Jobs" }
+    { "@type": "ListItem", "position": 2, "name": "Qualifications", "item": siteUrl + "/qualifications/" },
+    { "@type": "ListItem", "position": 3, "name": "12th Pass Govt Jobs 2026", "item": siteUrl + "/qualifications/12th-pass/" }
   ]
 };
 
@@ -27,10 +74,65 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Which government jobs are available after 12th pass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "After 12th pass, candidates can apply for SSC CHSL (LDC, DEO, Postal Assistant), SSC Stenographer, SSC Selection Post, Delhi Police Constable, BSF/CRPF/CISF Head Constable, Indian Navy SSR/AA, Indian Air Force Agniveer Vayu, Indian Army Agniveer, RRB NTPC Undergraduate, UPSSSC PET, State Police Constable, and many more government jobs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which 12th pass govt jobs are currently open?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currently open 12th pass government jobs include SSC CHSL 2026 (12,000 posts), SSC Stenographer (1,200 posts), Delhi Police Constable (5,000+ posts), BSF Head Constable (1,500+ posts), Indian Navy Agniveer SSR (8,000 posts), Indian Air Force Agniveer Vayu, RRB NTPC UG, and multiple state police constable recruitments. Check the listings above for exact last dates and apply links."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I apply for a 12th pass government job online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To apply online for 12th pass government jobs: 1) Visit the official website mentioned in the notification (ssc.nic.in for SSC exams, joinindiannavy.gov.in for Navy, etc.). 2) Register with a valid email and mobile number. 3) Fill the online application form. 4) Upload required documents (photo, signature, certificates). 5) Pay the application fee online. 6) Submit and download the confirmation page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which 12th pass government jobs have the highest salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The highest salary 12th pass government jobs include: UPSC NDA (Officer rank, Level-10, Rs. 56,100+ starting), SSC CHSL DEO (Level-4, Rs. 25,500-81,100), Indian Coast Guard Navik, BSF/CISF ASI Steno (Level-5, Rs. 29,200-92,300), and Delhi Police Head Constable Ministerial (Level-4). Armed forces Agniveer positions also offer Rs. 30,000-40,000 monthly stipend."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the age limit for 12th pass govt jobs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Age limits vary by job: SSC CHSL — 18-27 years, Delhi Police Constable — 18-25 years, BSF/CRPF Head Constable — 18-25 years, Indian Navy SSR — 17-21 years, Agniveer Vayu — 17-23 years, RRB NTPC UG — 18-30 years, State Police Constable — 18-25 years (varies by state). Age relaxation applies for SC/ST (5 years), OBC (3 years), PwD (10 years), and Ex-servicemen as per government rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there 12th pass government jobs in Rajasthan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Rajasthan offers multiple 12th pass government jobs including Rajasthan Police Constable (15,000+ posts), RPSC Hospital Assistant, RSSB various posts, and Rajasthan State PSC recruitments. Candidates from Rajasthan can also apply for all India SSC, Railway, and Defence jobs."
+      }
+    }
+  ]
+};
+
+const faqSchemaHindi = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
       "name": "12th pass ke liye kaun kaun si government jobs hoti hain?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "12th pass candidates SSC CHSL, SSC MTS, SSC Stenographer, NDA, Indian Navy SSR/AA, Indian Air Force Agniveer Vayu, BSF Head Constable, CRPF ASI/HC, Delhi Police Constable, FCI, State LDC/Clerk jaisi government jobs ke liye apply kar sakte hain."
+        "text": "12th pass candidates SSC CHSL, SSC Stenographer, SSC Selection Post, Delhi Police Constable, BSF/CRPF/CISF Head Constable, Indian Navy SSR/AA, Air Force Agniveer Vayu, Army Agniveer, RRB NTPC UG, UPSSSC PET, State Police Constable jaisi government jobs ke liye apply kar sakte hain."
       }
     },
     {
@@ -38,39 +140,15 @@ const faqSchema = {
       "name": "12th pass government job ki salary kitni hoti hai?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "12th pass government jobs mein salary post ke hisaab se alag hoti hai. SSC CHSL LDC mein starting salary Rs. 19,900-63,200 (Level-2) hoti hai. NDA mein Rs. 56,100 (Level-10) milta hai. Indian Navy SSR mein Rs. 21,700-69,100 milta hai."
+        "text": "12th pass government jobs mein salary post ke hisaab se alag hoti hai. SSC CHSL LDC mein Rs. 19,900-63,200 (Level-2), DEO mein Rs. 25,500-81,100 (Level-4), NDA mein Rs. 56,100 (Level-10), Navy SSR mein Rs. 21,700-69,100 (Level-3) milta hai. Agniveer mein Rs. 30,000-40,000 monthly stipend milta hai."
       }
     },
     {
       "@type": "Question",
-      "name": "12th pass ke baad NDA ke liye apply kar sakte hain?",
+      "name": "12th pass govt job ki age limit kya hoti hai?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Haan, 12th pass (Physics, Maths for Air Force/Navy, any stream for Army) candidates NDA ke liye apply kar sakte hain. NDA ka exam UPSC conduct karta hai aur ismein written exam, SSB interview aur medical examination hota hai."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "SSC CHSL aur SSC MTS mein kya difference hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SSC CHSL (10+2 level) mein LDC, DEO, Postal Assistant jaise posts milte hain. SSC MTS (Matriculation level) mein peon, watchman, gardener jaise Group C posts milte hain. CHSL ka level zyada hota hai aur salary bhi better hoti hai."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "12th pass ke baad kaun sa course karein government job ke liye?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "12th pass ke baad BCA, B.Com, BA, BSc, Diploma in Engineering, ITI, NDA, Banking courses kar sakte hain. Agar immediate job chahiye toh SSC CHSL, SSC MTS, NDA ke liye apply karein. Technical career ke liye diploma ya engineering karein."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "12th pass air force mein kaise jaayein?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Indian Air Force mein 12th pass ke baad Agniveer Vayu ke liye apply kar sakte hain. Iske alawa NDA ke through flying branch mein bhi ja sakte hain. Agniveer Vayu mein 12th with Physics, Maths aur English zaroori hai with minimum 50% marks."
+        "text": "Age limit job ke hisaab se alag hoti hai: SSC CHSL — 18-27, Delhi Police — 18-25, BSF/CRPF HC — 18-25, Navy SSR — 17-21, Agniveer Vayu — 17-23, RRB NTPC — 18-30, State Police — 18-25 years. SC/ST ko 5 saal, OBC ko 3 saal, PwD ko 10 saal ki relaxation milti hai."
       }
     }
   ]
@@ -78,13 +156,15 @@ const faqSchema = {
 ---
 
 <BaseLayout
-  title="12th Pass Government Jobs 2026 | Sarkari Sahayak"
-  description="12th pass sarkari naukri 2026 — SSC CHSL, SSC MTS, NDA, Indian Navy, BSF Head Constable, Delhi Police, FCI, State LDC. Higher secondary level vacancy with salary and eligibility."
+  title="12th Pass Govt Jobs 2026 – Latest Vacancy, Online Form & Salary"
+  description="Find the latest 12th Pass Govt Jobs 2026 with vacancy, salary, eligibility, age limit, last date, selection process and official apply links. Updated regularly."
   canonical="/qualifications/12th-pass/"
+  keywords="12th pass govt job, 12th pass govt job online form, 12 pass govt job vacancy, 12th pass government job vacancy, sarkari job for 12th pass, 12th pass government jobs 2026, 12th pass govt jobs online apply, 12th pass govt jobs with salary, 12th pass govt jobs latest vacancy"
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchemaHindi)} />
   </Fragment>
 
   <div class="section" style="padding-bottom:0">
@@ -94,7 +174,7 @@ const faqSchema = {
         <span style="margin:0 6px;color:var(--hairline)">/</span>
         <a href="/qualifications" style="color:var(--saffron);text-decoration:none">Qualifications</a>
         <span style="margin:0 6px;color:var(--hairline)">/</span>
-        <span style="color:var(--strong)">12th Pass</span>
+        <span style="color:var(--strong)">12th Pass Govt Jobs</span>
       </nav>
     </div>
   </div>
@@ -103,14 +183,14 @@ const faqSchema = {
     <div class="container">
 
       <div class="section-head center-head">
-        <span class="section-label">Higher Secondary Level Jobs</span>
-        <h1 class="section-title">12th Pass Government Jobs 2026</h1>
-        <p class="section-sub">12th pass sarkari naukri 2026 — SSC CHSL, NDA, Indian Navy, BSF Head Constable, Delhi Police, FCI. Sab 12th pass level vacancies ek jagah.</p>
+        <span class="section-label">Sarkari Naukri After 12th</span>
+        <h1 class="section-title">12th Pass Govt Jobs 2026</h1>
+        <p class="section-sub">Latest 12th pass sarkari naukri — vacancy, salary, eligibility, last date, selection process aur official apply links. Updated daily.</p>
       </div>
 
-      <div class="stats-row" style="margin-bottom:var(--sp-xl)">
+      <div class="stats-row" style="margin-bottom:var(--sp-lg)">
         <div class="stat">
-          <div class="stat-num">{filteredJobs.length}</div>
+          <div class="stat-num">{openJobs.length}</div>
           <div class="stat-label">Open Vacancies</div>
         </div>
         <div class="stat">
@@ -118,50 +198,382 @@ const faqSchema = {
           <div class="stat-label">Total Posts</div>
         </div>
         <div class="stat">
-          <div class="stat-num">18-27</div>
+          <div class="stat-num">18–27</div>
           <div class="stat-label">Typical Age Range</div>
         </div>
       </div>
 
-      <div class="tt-wrap">
-        <table class="tt-table">
-          <thead>
-            <tr>
-              <th style="width:40%">Post / Recruitment</th>
-              <th>Organization</th>
-              <th style="text-align:center">Vacancies</th>
-              <th>Last Date</th>
-              <th style="text-align:center">Apply</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredJobs.map(job => (
-              <tr>
-                <td>
-                  <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
-                  <br/>
-                  <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
-                </td>
-                <td style="white-space:nowrap">{job.organization}</td>
-                <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
-                  {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
-                </td>
-                <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
-                <td style="text-align:center">
-                  <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
-                    Apply ↗
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div class="twelve-filters" id="twelveFilters">
+        <div class="twelve-filter-row">
+          <div class="twelve-filter-group">
+            <label class="twelve-filter-label">Sort By</label>
+            <select class="twelve-select" id="sortSelect" onchange="sortJobs()">
+              <option value="latest">Latest First</option>
+              <option value="closing">Closing Soon</option>
+              <option value="salary">Highest Vacancies</option>
+            </select>
+          </div>
+          <div class="twelve-filter-group">
+            <label class="twelve-filter-label">State</label>
+            <select class="twelve-select" id="stateSelect" onchange="filterJobs()">
+              <option value="all">All States</option>
+              {states.map(s => <option value={s}>{s}</option>)}
+            </select>
+          </div>
+          <div class="twelve-filter-group">
+            <label class="twelve-filter-label">Category</label>
+            <select class="twelve-select" id="catSelect" onchange="filterJobs()">
+              <option value="all">All Categories</option>
+              <option value="defence">Defence / Armed Forces</option>
+              <option value="central">Central Govt</option>
+              <option value="ssc">SSC</option>
+              <option value="railway">Railway</option>
+              <option value="police">Police</option>
+              <option value="state">State Govt</option>
+              <option value="rajasthan">Rajasthan</option>
+              <option value="psc">State PSC</option>
+              <option value="teaching">Teaching</option>
+            </select>
+          </div>
+        </div>
       </div>
 
-      {/* Exam Table */}
-      <div style="margin-top:var(--sp-xl)">
-        <div class="section-label">Major 12th Pass Level Exams 2026</div>
-        <div class="tt-wrap" style="margin-top:var(--sp-md)">
+      {/* All Filterable Jobs */}
+      <div class="twelve-section" id="allJobsSection">
+        <div class="twelve-section-head">
+          <span class="section-label">All 12th Pass Government Jobs</span>
+        </div>
+        <div class="tt-wrap">
+          <table class="tt-table" id="twelveJobsTable">
+            <thead>
+              <tr>
+                <th style="width:35%">Post / Recruitment</th>
+                <th>Organization</th>
+                <th style="text-align:center">Vacancies</th>
+                <th>Last Date</th>
+                <th>Qualification</th>
+                <th style="text-align:center">Apply</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredJobs.map(job => (
+                <tr data-category={job.category} data-state={job.state || ''} data-lastdate={job.lastDate || ''} data-vacancies={job.vacancies || 0}>
+                  <td>
+                    <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                    {job.salary ? <><br/><span style="font-size:12px;color:var(--muted)">{job.salary}</span></> : null}
+                  </td>
+                  <td style="white-space:nowrap">{job.organization}</td>
+                  <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                    {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                  </td>
+                  <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
+                  <td style="font-size:12px;color:var(--muted)">{job.qualify}</td>
+                  <td style="text-align:center">
+                    <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                      Apply ↗
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* 🔥 Latest 12th Pass Govt Jobs */}
+      {latestJobs.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">🔥 Latest 12th Pass Govt Jobs</span>
+          </div>
+          <div class="twelve-cards">
+            {latestJobs.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">{job.category}</span>
+                  {job.vacancies > 0 && <span class="twelve-card-vac">{job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                  {job.ageMax && <span>🎂 Age: {job.ageMin}-{job.ageMax} yrs</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                  {job.applyUrl && job.applyUrl !== '#' && <span class="twelve-card-apply">Apply Online ↗</span>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ⏰ Closing Soon */}
+      {closingSoon.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">⏰ Closing Soon — Apply Before Last Date</span>
+          </div>
+          <div class="twelve-cards">
+            {closingSoon.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card twelve-card-urgent">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-urgent-badge">Closing Soon</span>
+                  <span class="twelve-card-cat">{job.category}</span>
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                  {job.vacancies > 0 && <span>👥 {job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                  {job.applyUrl && job.applyUrl !== '#' && <span class="twelve-card-apply">Apply Now ↗</span>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 💰 Highest Vacancies */}
+      {highestSalary.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">💰 Highest Vacancies</span>
+          </div>
+          <div class="twelve-cards">
+            {highestSalary.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">{job.category}</span>
+                  {job.vacancies > 0 && <span class="twelve-card-vac">{job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                  {job.ageMax && <span>🎂 Age: {job.ageMin}-{job.ageMax} yrs</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 🏛 Central Government Jobs */}
+      {centralJobs.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">🏛 Central Government Jobs</span>
+          </div>
+          <div class="twelve-cards">
+            {centralJobs.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">{job.category}</span>
+                  {job.vacancies > 0 && <span class="twelve-card-vac">{job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                  {job.applyUrl && job.applyUrl !== '#' && <span class="twelve-card-apply">Apply ↗</span>}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 🏢 State Government Jobs */}
+      {stateJobs.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">🏢 State Government Jobs</span>
+          </div>
+          <div class="twelve-cards">
+            {stateJobs.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">{job.category}</span>
+                  {job.state && <span class="twelve-card-state">{job.state}</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                  {job.vacancies > 0 && <span>👥 {job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 👮 Police Jobs */}
+      {policeJobs.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">👮 Police & Defence Jobs</span>
+          </div>
+          <div class="twelve-cards">
+            {policeJobs.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">{job.category}</span>
+                  {job.vacancies > 0 && <span class="twelve-card-vac">{job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                  {job.ageMax && <span>🎂 Age: {job.ageMin}-{job.ageMax} yrs</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 🚆 Railway Jobs */}
+      {railwayJobs.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">🚆 Railway Jobs</span>
+          </div>
+          <div class="twelve-cards">
+            {railwayJobs.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">Railway</span>
+                  {job.vacancies > 0 && <span class="twelve-card-vac">{job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                  {job.salary && <span>💰 {job.salary}</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 📋 SSC / Clerk / Office Jobs */}
+      {sscJobs.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">📋 SSC / Clerk / Office Jobs</span>
+          </div>
+          <div class="twelve-cards">
+            {sscJobs.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">{job.category}</span>
+                  {job.vacancies > 0 && <span class="twelve-card-vac">{job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                  {job.salary && <span>💰 {job.salary}</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 📝 Jobs with Online Form / Apply Online */}
+      {onlineFormJobs.length > 0 && (
+        <div class="twelve-section">
+          <div class="twelve-section-head">
+            <span class="section-label">📝 Apply Online — 12th Pass Govt Jobs</span>
+          </div>
+          <div class="twelve-cards">
+            {onlineFormJobs.map(job => (
+              <a href={`/latest-jobs/${job.slug}`} class="twelve-card">
+                <div class="twelve-card-top">
+                  <span class="twelve-card-cat">{job.category}</span>
+                  {job.vacancies > 0 && <span class="twelve-card-vac">{job.vacancies.toLocaleString('en-IN')} Posts</span>}
+                </div>
+                <h3 class="twelve-card-title">{job.shortTitle || job.title}</h3>
+                <p class="twelve-card-org">{job.organization}</p>
+                <div class="twelve-card-meta">
+                  {job.lastDate && <span>📅 Last Date: {job.lastDate}</span>}
+                </div>
+                <div class="twelve-card-footer">
+                  <span class="twelve-card-qualify">{job.qualify}</span>
+                  <span class="twelve-card-apply">Apply Online ↗</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Which Job is Best For You? */}
+      <div class="twelve-section">
+        <div class="twelve-section-head">
+          <span class="section-label">Which 12th Pass Govt Job Is Best For You?</span>
+        </div>
+        <div class="twelve-best-grid">
+          <a href="/latest-jobs/ssc-chsl-2026-1" class="twelve-best-card">
+            <span class="twelve-best-icon">💰</span>
+            <span class="twelve-best-title">Best Salary</span>
+            <span class="twelve-best-desc">SSC CHSL DEO — Level-4, Rs. 25,500–81,100</span>
+          </a>
+          <a href="/qualifications/12th-pass/" class="twelve-best-card">
+            <span class="twelve-best-icon">⏰</span>
+            <span class="twelve-best-title">Closing Soon</span>
+            <span class="twelve-best-desc">Check above for jobs with nearest last dates</span>
+          </a>
+          <a href="/qualifications/12th-pass/" class="twelve-best-card">
+            <span class="twelve-best-icon">🏛</span>
+            <span class="twelve-best-title">Central Govt</span>
+            <span class="twelve-best-desc">SSC CHSL, SSC Stenographer, NDA</span>
+          </a>
+          <a href="/raj/rajasthan-university/" class="twelve-best-card">
+            <span class="twelve-best-icon">🏢</span>
+            <span class="twelve-best-title">Rajasthan Govt</span>
+            <span class="twelve-best-desc">Rajasthan Police Constable, RSSB Posts</span>
+          </a>
+          <a href="/tools/age-calculator/" class="twelve-best-card">
+            <span class="twelve-best-icon">🔍</span>
+            <span class="twelve-best-title">Check Your Eligibility</span>
+            <span class="twelve-best-desc">Use Age Calculator to verify age criteria</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Major Exams Table */}
+      <div class="twelve-section">
+        <div class="twelve-section-head">
+          <span class="section-label">Major 12th Pass Level Exams 2026</span>
+        </div>
+        <div class="tt-wrap">
           <table class="tt-table">
             <thead>
               <tr>
@@ -178,20 +590,41 @@ const faqSchema = {
                 <td>Staff Selection Commission</td>
                 <td>12th Pass from recognized board</td>
                 <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
-                <td style="text-align:center;font-weight:700;color:var(--gold)">—</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">3,954</td>
               </tr>
               <tr>
                 <td style="font-weight:500;color:var(--strong)">SSC Stenographer 2026</td>
                 <td>Staff Selection Commission</td>
                 <td>12th Pass with stenography skills</td>
                 <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
-                <td style="text-align:center;font-weight:700;color:var(--gold)">1,200</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">1,590</td>
               </tr>
               <tr>
                 <td style="font-weight:500;color:var(--strong)">Delhi Police Constable 2026</td>
                 <td>Staff Selection Commission / Delhi Police</td>
                 <td>12th Pass from recognized board</td>
                 <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">7,547</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">RRB NTPC UG 2026</td>
+                <td>Railway Recruitment Board</td>
+                <td>12th Pass from recognized board</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">3,445</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">Indian Navy Agniveer SSR 2026</td>
+                <td>Indian Navy</td>
+                <td>12th Pass with Physics, Chemistry, Maths</td>
+                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">8,000</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500;color:var(--strong)">IAF Agniveer Vayu 2026</td>
+                <td>Indian Air Force</td>
+                <td>12th with Physics, Maths, English</td>
+                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
                 <td style="text-align:center;font-weight:700;color:var(--gold)">5,000</td>
               </tr>
               <tr>
@@ -199,35 +632,21 @@ const faqSchema = {
                 <td>Border Security Force</td>
                 <td>12th Pass from recognized board</td>
                 <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
-                <td style="text-align:center;font-weight:700;color:var(--gold)">1,500</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">3,000</td>
               </tr>
               <tr>
                 <td style="font-weight:500;color:var(--strong)">CRPF ASI & Head Constable 2026</td>
                 <td>Central Reserve Police Force</td>
                 <td>12th/Graduate depending on post</td>
                 <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
-                <td style="text-align:center;font-weight:700;color:var(--gold)">3,500</td>
-              </tr>
-              <tr>
-                <td style="font-weight:500;color:var(--strong)">Indian Air Force Agniveer Vayu 2026</td>
-                <td>Indian Air Force</td>
-                <td>12th with Physics, Maths, English</td>
-                <td style="font-family:var(--font-display);font-weight:600">November 2026</td>
-                <td style="text-align:center;font-weight:700;color:var(--gold)">4,000</td>
-              </tr>
-              <tr>
-                <td style="font-weight:500;color:var(--strong)">Indian Navy SSR & AA 2026</td>
-                <td>Indian Navy</td>
-                <td>12th Pass with Physics, Chemistry, Maths</td>
-                <td style="font-family:var(--font-display);font-weight:600">December 2026</td>
                 <td style="text-align:center;font-weight:700;color:var(--gold)">5,000</td>
               </tr>
               <tr>
-                <td style="font-weight:500;color:var(--strong)">Indian Army Agniveer (Technical/Clerk)</td>
+                <td style="font-weight:500;color:var(--strong)">Indian Army Agniveer 2026</td>
                 <td>Indian Army</td>
                 <td>12th Pass with 45-60% marks depending on category</td>
                 <td style="font-family:var(--font-display);font-weight:600">January 2027</td>
-                <td style="text-align:center;font-weight:700;color:var(--gold)">9,000</td>
+                <td style="text-align:center;font-weight:700;color:var(--gold)">40,000</td>
               </tr>
               <tr>
                 <td style="font-weight:500;color:var(--strong)">UPSSSC PET 2026</td>
@@ -241,71 +660,189 @@ const faqSchema = {
         </div>
       </div>
 
-      {/* SEO Content */}
-      <div style="margin-top:var(--sp-xl)">
-        <div class="section-label">12th Pass Sarkari Naukri 2026 — Complete Guide</div>
-        <div style="margin-top:var(--sp-md)">
-          <h2 style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--strong);margin-bottom:var(--sp-sm);margin-top:var(--sp-lg)">12th Pass Government Jobs 2026</h2>
-          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
-            <strong style="font-weight:500;color:var(--strong)">12th pass sarkari naukri 2026</strong> mein bahut badi sankhya mein vacancies aati hain. <strong>SSC CHSL, SSC Stenographer</strong> jaise central level ke exams hain toh <strong>Delhi Police Constable, BSF Head Constable</strong> jaise paramilitary forces ke liye bhi 12th pass se apply ho sakta hai. Defence sector mein <strong>NDA, Indian Navy SSR/AA, Air Force Agniveer Vayu</strong> jaise prestigious opportunities hain.
+      {/* SEO Content — H2/H3 Structure */}
+      <div class="twelve-section">
+        <div class="twelve-section-head">
+          <span class="section-label">12th Pass Govt Jobs 2026 — Complete Guide</span>
+        </div>
+
+        <div class="twelve-prose">
+          <h2>12th Pass Government Jobs 2026</h2>
+          <p>
+            After completing 12th (Higher Secondary / 10+2), candidates become eligible for a wide range of government jobs in India. From <strong>SSC CHSL</strong> and <strong>SSC Stenographer</strong> to <strong>Delhi Police Constable</strong>, <strong>BSF Head Constable</strong>, <strong>Indian Navy Agniveer SSR</strong>, and <strong>Indian Air Force Agniveer Vayu</strong> — there are hundreds of 12th pass level vacancies announced every year across central, state, defence, and railway departments.
           </p>
 
-          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">Higher Secondary Level Vacancy — Key Recruitments</h3>
-          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
-            <strong style="font-weight:500;color:var(--strong)">SSC CHSL 2026</strong> — Combined Higher Secondary Level exam ke through Lower Division Clerk (LDC), Data Entry Operator (DEO), Postal Assistant/Sorting Assistant jaise Group B aur Group C posts bharte hain. Eligibility sirf 12th pass hai aur bade vacancies aate hain.
-          </p>
-          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
-            <strong style="font-weight:500;color:var(--strong)">NDA (National Defence Academy)</strong> — UPSC ka NDA exam 12th pass candidates ke liye Army, Navy aur Air Force officer banne ka sabse prestigious rasta hai. 12th with Physics & Maths (for Air Force/Navy) ya any stream (for Army) se apply kar sakte hain. Written exam ke baad SSB interview aur medical hota hai.
-          </p>
-          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
-            <strong style="font-weight:500;color:var(--strong)">Indian Navy SSR & AA 2026</strong> — Senior Secondary Recruit (SSR) aur Artificer Apprentice (AA) ke liye 12th Pass with Physics, Chemistry aur Mathematics zaroori hai. Navy mein 5,000+ vacancies aati hain with good salary and career growth.
-          </p>
-          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
-            <strong style="font-weight:500;color:var(--strong)">BSF & CRPF Head Constable</strong> — Central Armed Police Forces mein Head Constable (Ministerial) ke liye 12th Pass zaroori hai. Typing speed 35 wpm (English) ya 30 wpm (Hindi) required hoti hai. In posts mein government accommodation, medical aur pension jaise benefits milte hain.
+          <h2>Latest 12th Pass Government Job Vacancies</h2>
+          <p>
+            The table above lists all currently open 12th pass government jobs with real vacancy numbers, last dates, and official apply links. Jobs are updated regularly as new notifications are released by SSC, UPSC, Railway, CAPFs, and state governments.
           </p>
 
-          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">12th Pass Govt Jobs — Salary & Benefits</h3>
-          <p style="font-size:15px;line-height:1.75;color:var(--body);margin-bottom:var(--sp-sm)">
-            12th pass government jobs mein salary level 10th pass se better hoti hai. <strong style="font-weight:500;color:var(--strong)">SSC CHSL LDC</strong> mein starting salary Rs. 19,900-63,200 (Pay Level-2) hoti hai. <strong style="font-weight:500;color:var(--strong)">NDA</strong> mein training ke dauran Rs. 56,100 (Level-10) milta hai. <strong style="font-weight:500;color:var(--strong)">Indian Navy SSR</strong> mein Rs. 21,700-69,100 (Level-3) milta hai. In sab ke saath DA, HRA, Ration, Medical aur Pension jaise benefits bhi milte hain.
+          <h2>12th Pass Govt Job Online Form</h2>
+          <p>
+            Most 12th pass government jobs now accept online applications. Candidates need to register on the official portal (ssc.nic.in for SSC, joinindiannavy.gov.in for Navy, rrbcdg.gov.in for Railway, etc.), fill the form, upload documents, and pay the fee online. Always apply through the official website — never through third-party portals.
           </p>
 
-          <h3 style="font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--saffron);margin-bottom:var(--sp-xs);margin-top:var(--sp-md)">12th Pass ke Baad Career Options</h3>
-          <ul style="list-style:none;margin-bottom:var(--sp-sm)">
-            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Government Jobs:</strong> SSC CHSL, NDA, Navy SSR, BSF HC ke liye directly apply karein.</li>
-            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Higher Education:</strong> Graduation (BA/BSc/BCom) karein taaki CGL, UPSC jaise exams de sakein.</li>
-            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Diploma/Engineering:</strong> Diploma in Engineering se technical government jobs mil sakti hain.</li>
-            <li style="position:relative;padding-left:20px;margin-bottom:8px;font-size:15px;line-height:1.7;color:var(--body)"><span style="position:absolute;left:0;color:var(--saffron)">—</span> <strong style="font-weight:500;color:var(--strong)">Professional Courses:</strong> BCA, BBA, B.Pharm, B.Sc Nursing jaise professional courses bhi kar sakte hain.</li>
+          <h2>12th Pass Govt Jobs — Salary & Pay Scale</h2>
+          <p>
+            Salary for 12th pass government jobs varies by post and pay level:
+          </p>
+          <ul>
+            <li><strong>SSC CHSL LDC:</strong> Rs. 19,900–63,200 (Pay Level-2)</li>
+            <li><strong>SSC CHSL DEO:</strong> Rs. 25,500–81,100 (Pay Level-4)</li>
+            <li><strong>BSF/CISF/CRPF Head Constable:</strong> Rs. 25,500–81,100 (Pay Level-4)</li>
+            <li><strong>BSF/CISF ASI Steno:</strong> Rs. 29,200–92,300 (Pay Level-5)</li>
+            <li><strong>Delhi Police Head Constable Ministerial:</strong> Rs. 25,500–81,100 (Pay Level-4)</li>
+            <li><strong>RRB NTPC UG:</strong> Rs. 19,900–63,200 (Pay Level-2 to 3)</li>
+            <li><strong>Agniveer (Navy/Air Force/Army):</strong> Rs. 30,000–40,000 monthly stipend</li>
+            <li><strong>UPSC NDA:</strong> Rs. 56,100 (Level-10) during training</li>
+          </ul>
+          <p>All posts include Dearness Allowance (DA), House Rent Allowance (HRA), Transport Allowance, Medical Benefits, and pension under NPS/GPS.</p>
+
+          <h2>Eligibility for 12th Pass Government Jobs</h2>
+          <p>
+            The basic eligibility for 12th pass government jobs is passing 10+2 from a recognized board. Some posts require specific subjects:
+          </p>
+          <ul>
+            <li><strong>Any stream:</strong> SSC CHSL, Delhi Police Constable, BSF HC, SSC Stenographer</li>
+            <li><strong>12th Science (Physics + Maths):</strong> Indian Air Force Agniveer Vayu, NDA (Air Force/Navy), Indian Coast Guard Navik GD</li>
+            <li><strong>12th Science (Physics + Chemistry + Maths):</strong> Indian Navy SSR/AA</li>
+            <li><strong>With Typing:</strong> Delhi Police HC Ministerial, BSF HC Ministerial, CRPF HC Ministerial</li>
+            <li><strong>With Shorthand:</strong> BSF ASI Steno, CISF ASI Steno</li>
+          </ul>
+
+          <h2>Age Limit</h2>
+          <p>
+            Age limits vary by recruiting body. The general range is 18–27 years for SSC exams, 18–25 for CAPF/Police, 17–23 for Agniveer, and 18–30 for Railway. Age relaxation is provided as per government rules: SC/ST — 5 years, OBC — 3 years, PwD — 10 years, Ex-servicemen — as per rules. Use the <a href="/tools/age-calculator/" style="color:var(--saffron)">Age Calculator</a> to check your eligibility.
+          </p>
+
+          <h2>Selection Process</h2>
+          <p>
+            The selection process for 12th pass government jobs typically includes:
+          </p>
+          <ul>
+            <li><strong>SSC CHSL:</strong> Tier-1 (CBT) → Tier-2 (CBT + Descriptive) → Tier-3 (Skill/Typing Test) → Document Verification</li>
+            <li><strong>Delhi Police Constable:</strong> CBT → Physical Endurance & Measurement Test → Medical Exam</li>
+            <li><strong>BSF/CRPF Head Constable:</strong> CBT → Physical Standard Test → Medical Exam</li>
+            <li><strong>Indian Navy SSR/AA:</strong> CBT → Physical Fitness Test → Medical Exam</li>
+            <li><strong>Agniveer Vayu:</strong> Online Test → Physical Fitness Test → Adaptability Test → Medical Exam</li>
+            <li><strong>RRB NTPC UG:</strong> CBT-1 → CBT-2 → Skill Test (if applicable) → Document Verification</li>
+          </ul>
+
+          <h2>State-wise 12th Pass Govt Jobs</h2>
+          <p>
+            Candidates looking for state-specific 12th pass jobs can explore:
+          </p>
+          <ul>
+            <li><a href="/states/rajasthan/" style="color:var(--saffron)">Rajasthan</a> — Rajasthan Police Constable, RSSB various posts</li>
+            <li><a href="/states/uttar-pradesh/" style="color:var(--saffron)">Uttar Pradesh</a> — UP Police Constable (60,000 posts), UPSSSC PET</li>
+            <li><a href="/states/bihar/" style="color:var(--saffron)">Bihar</a> — Bihar Police Constable (30,000 posts)</li>
+            <li><a href="/states/madhya-pradesh/" style="color:var(--saffron)">Madhya Pradesh</a> — MP Police Constable (10,000 posts), MP Forester</li>
+            <li>Delhi — Delhi Police Constable, DSSSB posts</li>
+            <li>Maharashtra, Gujarat, Karnataka, Tamil Nadu, West Bengal — State Police Constable recruitments</li>
+          </ul>
+
+          <h2>Department-wise 12th Pass Govt Jobs</h2>
+          <ul>
+            <li><strong>Staff Selection Commission (SSC):</strong> <a href="/qualifications/12th-pass/" style="color:var(--saffron)">SSC CHSL, SSC Stenographer, SSC Selection Post, Delhi Police</a></li>
+            <li><strong>Railway (RRB):</strong> <a href="/qualifications/12th-pass/" style="color:var(--saffron)">RRB NTPC UG, RRB ALP, RRB Ministerial</a></li>
+            <li><strong>Defence / CAPF:</strong> BSF, CRPF, CISF, ITBP, SSB, Assam Rifles — Head Constable & ASI posts</li>
+            <li><strong>Armed Forces:</strong> Indian Navy Agniveer, IAF Agniveer Vayu, Indian Army Agniveer</li>
+            <li><strong>Teaching:</strong> KVS PRT, NVS Teaching, DSSSB PRT — with 12th + D.El.Ed/B.Ed</li>
+            <li><strong>State PSC:</strong> MP Forester, RPSC Hospital Assistant</li>
           </ul>
         </div>
       </div>
 
+      {/* Internal Links */}
+      <div class="twelve-section">
+        <div class="twelve-section-head">
+          <span class="section-label">Explore More</span>
+        </div>
+        <div class="twelve-related-grid">
+          <a href="/latest-jobs/" class="twelve-related-card">
+            <span class="twelve-related-icon">📋</span>
+            <span class="twelve-related-title">Latest Jobs</span>
+            <span class="twelve-related-desc">All open government jobs</span>
+          </a>
+          <a href="/results/" class="twelve-related-card">
+            <span class="twelve-related-icon">📊</span>
+            <span class="twelve-related-title">Results</span>
+            <span class="twelve-related-desc">Exam results & merit lists</span>
+          </a>
+          <a href="/qualifications/10th-pass/" class="twelve-related-card">
+            <span class="twelve-related-icon">📝</span>
+            <span class="twelve-related-title">10th Pass Jobs</span>
+            <span class="twelve-related-desc">Jobs after 10th pass</span>
+          </a>
+          <a href="/qualifications/graduate/" class="twelve-related-card">
+            <span class="twelve-related-icon">🎓</span>
+            <span class="twelve-related-title">Graduate Jobs</span>
+            <span class="twelve-related-desc">Jobs after graduation</span>
+          </a>
+          <a href="/scholarship/" class="twelve-related-card">
+            <span class="twelve-related-icon">🏆</span>
+            <span class="twelve-related-title">Scholarships</span>
+            <span class="twelve-related-desc">12th pass scholarships</span>
+          </a>
+          <a href="/tools/cutoff-tracker/" class="twelve-related-card">
+            <span class="twelve-related-icon">📈</span>
+            <span class="twelve-related-title">Cutoff Tracker</span>
+            <span class="twelve-related-desc">Previous year cutoff marks</span>
+          </a>
+          <a href="/states/rajasthan/" class="twelve-related-card">
+            <span class="twelve-related-icon">🏛</span>
+            <span class="twelve-related-title">Rajasthan Jobs</span>
+            <span class="twelve-related-desc">State-specific vacancies</span>
+          </a>
+          <a href="/tools/age-calculator/" class="twelve-related-card">
+            <span class="twelve-related-icon">🔍</span>
+            <span class="twelve-related-title">Age Calculator</span>
+            <span class="twelve-related-desc">Check age eligibility</span>
+          </a>
+        </div>
+      </div>
+
       {/* FAQ */}
-      <div style="margin-top:var(--sp-xl)">
-        <div class="section-label">Frequently Asked Questions</div>
-        <div style="display:flex;flex-direction:column;gap:var(--sp-xs);margin-top:var(--sp-md)">
+      <div class="twelve-section">
+        <div class="twelve-section-head">
+          <span class="section-label">Frequently Asked Questions</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-xs)">
+          <details class="faq-item">
+            <summary>Which government jobs are available after 12th pass?</summary>
+            <p>After 12th pass, candidates can apply for SSC CHSL (LDC, DEO, Postal Assistant), SSC Stenographer, SSC Selection Post, Delhi Police Constable, BSF/CRPF/CISF Head Constable, Indian Navy SSR/AA, Indian Air Force Agniveer Vayu, Indian Army Agniveer, RRB NTPC Undergraduate, UPSSSC PET, State Police Constable, and many more government jobs.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which 12th pass govt jobs are currently open?</summary>
+            <p>Currently open 12th pass government jobs include SSC CHSL 2026 (3,954 posts), SSC Stenographer (1,590 posts), Delhi Police Constable (7,547 posts), BSF Head Constable (3,000 posts), Indian Navy Agniveer SSR (8,000 posts), IAF Agniveer Vayu (5,000 posts), RRB NTPC UG (3,445 posts), and multiple state police constable recruitments. Check the listings above for exact last dates and apply links.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How can I apply for a 12th pass government job online?</summary>
+            <p>To apply online for 12th pass government jobs: 1) Visit the official website mentioned in the notification (ssc.nic.in for SSC exams, joinindiannavy.gov.in for Navy, rrbcdg.gov.in for Railway, etc.). 2) Register with a valid email and mobile number. 3) Fill the online application form with personal and educational details. 4) Upload required documents (photo, signature, certificates). 5) Pay the application fee online. 6) Submit and download the confirmation page.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which 12th pass government jobs have the highest salary?</summary>
+            <p>The highest salary 12th pass government jobs include: UPSC NDA (Officer rank, Level-10, Rs. 56,100+ starting), SSC CHSL DEO (Level-4, Rs. 25,500–81,100), BSF/CISF ASI Steno (Level-5, Rs. 29,200–92,300), Delhi Police Head Constable Ministerial (Level-4), and RRB NTPC UG. Agniveer positions offer Rs. 30,000–40,000 monthly stipend during 4-year engagement.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What is the age limit for 12th pass govt jobs?</summary>
+            <p>Age limits vary by job: SSC CHSL — 18–27 years, Delhi Police Constable — 18–25 years, BSF/CRPF Head Constable — 18–25 years, Indian Navy SSR — 17–21 years, Agniveer Vayu — 17–23 years, RRB NTPC UG — 18–30 years, State Police Constable — 18–25 years (varies by state). Age relaxation applies for SC/ST (5 years), OBC (3 years), PwD (10 years), and Ex-servicemen as per government rules.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Are there 12th pass government jobs in Rajasthan?</summary>
+            <p>Yes, Rajasthan offers multiple 12th pass government jobs including Rajasthan Police Constable (15,000+ posts), RPSC Hospital Assistant, RSSB various posts, and Rajasthan State PSC recruitments. Candidates from Rajasthan can also apply for all India SSC, Railway, and Defence jobs. Visit our <a href="/states/rajasthan/" style="color:var(--saffron)">Rajasthan jobs section</a> for details.</p>
+          </details>
           <details class="faq-item">
             <summary>12th pass ke liye kaun kaun si government jobs hoti hain?</summary>
-            <p>12th pass candidates SSC CHSL, SSC MTS, SSC Stenographer, NDA, Indian Navy SSR/AA, Indian Air Force Agniveer Vayu, BSF Head Constable, CRPF ASI/HC, Delhi Police Constable, FCI, State LDC/Clerk jaisi government jobs ke liye apply kar sakte hain.</p>
+            <p>12th pass candidates SSC CHSL, SSC Stenographer, SSC Selection Post, Delhi Police Constable, BSF/CRPF/CISF Head Constable, Indian Navy SSR/AA, Air Force Agniveer Vayu, Army Agniveer, RRB NTPC UG, UPSSSC PET, State Police Constable jaisi government jobs ke liye apply kar sakte hain.</p>
           </details>
           <details class="faq-item">
             <summary>12th pass government job ki salary kitni hoti hai?</summary>
-            <p>12th pass government jobs mein salary post ke hisaab se alag hoti hai. SSC CHSL LDC mein starting salary Rs. 19,900-63,200 (Level-2) hoti hai. NDA mein Rs. 56,100 (Level-10) milta hai. Indian Navy SSR mein Rs. 21,700-69,100 milta hai.</p>
+            <p>12th pass government jobs mein salary post ke hisaab se alag hoti hai. SSC CHSL LDC mein Rs. 19,900–63,200 (Level-2), DEO mein Rs. 25,500–81,100 (Level-4), NDA mein Rs. 56,100 (Level-10), Navy SSR mein Rs. 21,700–69,100 (Level-3) milta hai. Agniveer mein Rs. 30,000–40,000 monthly stipend milta hai.</p>
           </details>
           <details class="faq-item">
-            <summary>12th pass ke baad NDA ke liye apply kar sakte hain?</summary>
-            <p>Haan, 12th pass (Physics, Maths for Air Force/Navy, any stream for Army) candidates NDA ke liye apply kar sakte hain. NDA ka exam UPSC conduct karta hai aur ismein written exam, SSB interview aur medical examination hota hai.</p>
-          </details>
-          <details class="faq-item">
-            <summary>SSC CHSL aur SSC MTS mein kya difference hai?</summary>
-            <p>SSC CHSL (10+2 level) mein LDC, DEO, Postal Assistant jaise posts milte hain. SSC MTS (Matriculation level) mein peon, watchman, gardener jaise Group C posts milte hain. CHSL ka level zyada hota hai aur salary bhi better hoti hai.</p>
-          </details>
-          <details class="faq-item">
-            <summary>12th pass ke baad kaun sa course karein government job ke liye?</summary>
-            <p>12th pass ke baad BCA, B.Com, BA, BSc, Diploma in Engineering, ITI, NDA, Banking courses kar sakte hain. Agar immediate job chahiye toh SSC CHSL, SSC MTS, NDA ke liye apply karein. Technical career ke liye diploma ya engineering karein.</p>
-          </details>
-          <details class="faq-item">
-            <summary>12th pass air force mein kaise jaayein?</summary>
-            <p>Indian Air Force mein 12th pass ke baad Agniveer Vayu ke liye apply kar sakte hain. Iske alawa NDA ke through flying branch mein bhi ja sakte hain. Agniveer Vayu mein 12th with Physics, Maths aur English zaroori hai with minimum 50% marks.</p>
+            <summary>12th pass govt job ki age limit kya hoti hai?</summary>
+            <p>Age limit job ke hisaab se alag hoti hai: SSC CHSL — 18-27, Delhi Police — 18-25, BSF/CRPF HC — 18-25, Navy SSR — 17-21, Agniveer Vayu — 17-23, RRB NTPC — 18-30, State Police — 18-25 years. SC/ST ko 5 saal, OBC ko 3 saal, PwD ko 10 saal ki relaxation milti hai.</p>
           </details>
         </div>
       </div>
@@ -313,9 +850,327 @@ const faqSchema = {
       {/* Disclaimer */}
       <div class="disclaimer" style="margin-top:var(--sp-xl)">
         <span class="disc-icon">⚠️</span>
-        <p class="disc-text">Ye information <strong style="font-weight:500;color:var(--warning)">tentative</strong> hai. Final dates aur vacancies ke liye official websites — <strong style="font-weight:500;color:var(--warning)">ssc.nic.in, upsc.gov.in, joinindiannavy.gov.in, bsf.gov.in</strong> — regularly check karein.</p>
+        <p class="disc-text">Ye information <strong style="font-weight:500;color:var(--warning)">tentative</strong> hai. Final dates, vacancies aur eligibility ke liye official websites — <strong style="font-weight:500;color:var(--warning)">ssc.nic.in, upsc.gov.in, joinindiannavy.gov.in, rrbcdg.gov.in, bsf.gov.in</strong> — regularly check karein. Salary and pay scale information is based on 7th Pay Commission and may vary by posting location and allowances.</p>
       </div>
 
     </div>
   </section>
+
+  <script is:inline>
+  function filterJobs() {
+    var stateVal = document.getElementById('stateSelect').value;
+    var catVal = document.getElementById('catSelect').value;
+    var rows = document.querySelectorAll('#twelveJobsTable tbody tr');
+    rows.forEach(function(row) {
+      var matchState = stateVal === 'all' || row.getAttribute('data-state') === stateVal;
+      var matchCat = catVal === 'all' || row.getAttribute('data-category') === catVal;
+      row.style.display = (matchState && matchCat) ? '' : 'none';
+    });
+  }
+  function sortJobs() {
+    var sortVal = document.getElementById('sortSelect').value;
+    var tbody = document.querySelector('#twelveJobsTable tbody');
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function(a, b) {
+      if (sortVal === 'closing') {
+        var da = a.getAttribute('data-lastdate') || 'zzz';
+        var db = b.getAttribute('data-lastdate') || 'zzz';
+        return da.localeCompare(db);
+      }
+      if (sortVal === 'salary') {
+        return (parseInt(b.getAttribute('data-vacancies')) || 0) - (parseInt(a.getAttribute('data-vacancies')) || 0);
+      }
+      return 0;
+    });
+    rows.forEach(function(r) { tbody.appendChild(r); });
+  }
+  </script>
 </BaseLayout>
+
+<style>
+  .twelve-filters {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    padding: var(--sp-md) var(--sp-lg);
+    margin-bottom: var(--sp-xl);
+  }
+  .twelve-filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-md);
+  }
+  .twelve-filter-group {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .twelve-filter-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .twelve-select {
+    height: 40px;
+    padding: 0 12px;
+    background: var(--soft);
+    border: 1px solid var(--hairline);
+    color: var(--white);
+    font-family: var(--font-hindi);
+    font-weight: 300;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .twelve-select:focus {
+    border-color: var(--saffron);
+    outline: none;
+  }
+
+  .twelve-section {
+    margin-top: var(--sp-xl);
+  }
+  .twelve-section-head {
+    margin-bottom: var(--sp-lg);
+  }
+
+  .twelve-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--sp-md);
+  }
+  .twelve-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    padding: var(--sp-md);
+    text-decoration: none;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .twelve-card:hover {
+    border-color: var(--saffron);
+    transform: translateY(-2px);
+  }
+  .twelve-card-urgent {
+    border-color: rgba(226, 39, 24, .4);
+  }
+  .twelve-card-urgent:hover {
+    border-color: var(--m-red);
+  }
+  .twelve-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-xs);
+  }
+  .twelve-card-cat {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--m-blue-dark);
+    border: 1px solid rgba(28, 105, 212, .4);
+    padding: 3px 8px;
+  }
+  .twelve-card-vac {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--gold);
+  }
+  .twelve-card-urgent-badge {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--m-red);
+    border: 1px solid rgba(226, 39, 24, .5);
+    padding: 3px 8px;
+    background: rgba(226, 39, 24, .08);
+  }
+  .twelve-card-state {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    border: 1px solid rgba(255, 107, 53, .4);
+    padding: 3px 8px;
+  }
+  .twelve-card-title {
+    font-family: var(--font-hindi);
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.3;
+    color: var(--strong);
+  }
+  .twelve-card-org {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .twelve-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-sm);
+    font-size: 13px;
+    color: var(--body);
+  }
+  .twelve-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-sm);
+    margin-top: auto;
+    padding-top: var(--sp-xs);
+    border-top: 1px solid var(--hairline-strong);
+  }
+  .twelve-card-qualify {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .twelve-card-apply {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--saffron);
+  }
+
+  .twelve-best-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--sp-md);
+  }
+  .twelve-best-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--sp-xs);
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    padding: var(--sp-lg);
+    text-decoration: none;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .twelve-best-card:hover {
+    border-color: var(--saffron);
+    transform: translateY(-3px);
+  }
+  .twelve-best-icon {
+    font-size: 28px;
+    line-height: 1;
+  }
+  .twelve-best-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--strong);
+  }
+  .twelve-best-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .twelve-prose h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--strong);
+    margin-top: var(--sp-lg);
+    margin-bottom: var(--sp-sm);
+  }
+  .twelve-prose p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--body);
+    margin-bottom: var(--sp-sm);
+  }
+  .twelve-prose strong {
+    font-weight: 500;
+    color: var(--strong);
+  }
+  .twelve-prose ul {
+    list-style: none;
+    margin-bottom: var(--sp-sm);
+  }
+  .twelve-prose ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--body);
+  }
+  .twelve-prose ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--saffron);
+  }
+
+  .twelve-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--sp-md);
+  }
+  .twelve-related-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--sp-xs);
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    padding: var(--sp-md);
+    text-decoration: none;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .twelve-related-card:hover {
+    border-color: var(--saffron);
+    transform: translateY(-2px);
+  }
+  .twelve-related-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .twelve-related-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--strong);
+  }
+  .twelve-related-desc {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 768px) {
+    .twelve-filter-row {
+      flex-direction: column;
+    }
+    .twelve-cards {
+      grid-template-columns: 1fr;
+    }
+    .twelve-best-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .twelve-related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

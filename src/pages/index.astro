@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import latestJobs from '../data/latest-jobs.json';
+import results from '../data/results.json';
+import admitCards from '../data/admit-cards.json';
 import answerKeys from '../data/answer-keys.json';
 import syllabusData from '../data/syllabus.json';
 
@@ -12,6 +14,40 @@ const topJobs = latestJobs.slice(0, 9).map(job => {
 });
 const topAnswerKeys = answerKeys.slice(0, 8);
 
+const recentUpdates = [
+  ...latestJobs.slice(0, 5).map(j => ({
+    type: 'job' as const,
+    title: j.shortTitle || j.title,
+    organization: j.organization,
+    date: j.postDate || '',
+    href: `/latest-jobs/${j.slug}/`,
+    badge: 'Job',
+    badgeColor: '#FF6B35',
+  })),
+  ...results.slice(0, 3).map(r => ({
+    type: 'result' as const,
+    title: r.shortTitle || r.title,
+    organization: r.organization,
+    date: r.releaseDate || '',
+    href: `/results/${r.slug}/`,
+    badge: 'Result',
+    badgeColor: '#0fa336',
+  })),
+  ...admitCards.slice(0, 3).map(a => ({
+    type: 'admit-card' as const,
+    title: a.shortTitle || a.title,
+    organization: a.organization,
+    date: a.releaseDate || '',
+    href: `/admit-cards/${a.slug}/`,
+    badge: 'Admit Card',
+    badgeColor: '#1c69d4',
+  })),
+].sort((a, b) => {
+  if (!a.date) return 1;
+  if (!b.date) return -1;
+  return b.date.localeCompare(a.date);
+}).slice(0, 10);
+
 const topExams = [
   { name: 'SSC CGL 2026', stage: 'Prelims', date: '2026-10-01', color: '#FF6B35', vacancies: '18000+' },
   { name: 'UPSC CSE 2026', stage: 'Prelims', date: '2026-05-24', color: '#0fa336', vacancies: '1000+' },
@@ -19,7 +55,7 @@ const topExams = [
 ];
 ---
 
-<BaseLayout title="Sarkari Sahayak — Govt Jobs, Result, Admit Card 2026 | सरकारी नौकरी" description="India's #1 Hindi Govt Job Portal. Latest Sarkari Naukri 2026 — Banking, Railway, SSC, UPSC, Rajasthan। Result, Admit Card, Syllabus sab ek jagah।">
+<BaseLayout title="Sarkari Sahayak — 12th Pass Govt Jobs, Results, Yojana & Scholarships 2026" description="India's #1 Hindi Govt Job Portal. Latest Sarkari Naukri 2026 — 12th Pass, Banking, Railway, SSC, UPSC, Rajasthan. Results, Admit Cards, Yojana, Scholarships sab ek jagah।" canonical="/">
 
 
 
@@ -80,6 +116,29 @@ const topExams = [
     </div>
   </section>
 
+  <!-- ========== RECENT UPDATES (Freshness Signal) ========== -->
+  <section class="home-sec home-sec-alt" id="recent-updates">
+    <div class="container">
+      <div class="home-sec-head">
+        <h2 class="home-sec-title">📋 Recent Updates</h2>
+        <span class="home-sec-more" style="color:var(--success)">Updated Daily</span>
+      </div>
+      <div class="home-list">
+        {recentUpdates.map((item, i) => (
+          <a href={item.href} class="home-lc-item">
+            <span class="home-lc-num" style={`background:${item.badgeColor}`}>{i + 1}</span>
+            <div class="home-lc-body">
+              <span class="home-lc-title">{item.title}</span>
+              <span class="home-lc-meta">{item.organization} · {item.date || 'Recent'}</span>
+            </div>
+            <span class="home-lc-status" style={`background:${item.badgeColor}20;color:${item.badgeColor};border:1px solid ${item.badgeColor}50`}>{item.badge}</span>
+            <span class="home-lc-arrow">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ========== EXPLORE BY CATEGORY ========== -->
   <section class="home-sec home-sec-alt" id="explore">
     <div class="container">
@@ -87,55 +146,55 @@ const topExams = [
         <h2 class="home-sec-title">📂 Explore by Category</h2>
       </div>
       <div class="home-explore-grid">
-        <a href="/exam-calendar/" class="home-explore-card">
-          <span class="home-exp-icon">📅</span>
-          <h3 class="home-exp-title">Exam Calendar 2026</h3>
-          <p class="home-exp-desc">Upcoming exams ke dates dekho</p>
+        <a href="/latest-jobs/" class="home-explore-card">
+          <span class="home-exp-icon">🔥</span>
+          <h3 class="home-exp-title">Latest Jobs</h3>
+          <p class="home-exp-desc">All open vacancies</p>
         </a>
-        <a href="/employment-news/" class="home-explore-card">
-          <span class="home-exp-icon">📰</span>
-          <h3 class="home-exp-title">Employment News</h3>
-          <p class="home-exp-desc">Weekly govt job notifications</p>
-        </a>
-        <a href="/states/uttar-pradesh/" class="home-explore-card">
-          <span class="home-exp-icon">📍</span>
-          <h3 class="home-exp-title">UP Jobs</h3>
-          <p class="home-exp-desc">UPSSSC, UPPSC, UP Police</p>
-        </a>
-        <a href="/states/bihar/" class="home-explore-card">
-          <span class="home-exp-icon">📍</span>
-          <h3 class="home-exp-title">Bihar Jobs</h3>
-          <p class="home-exp-desc">BPSC, Bihar Police, BSSC</p>
-        </a>
-        <a href="/states/rajasthan/" class="home-explore-card">
-          <span class="home-exp-icon">📍</span>
-          <h3 class="home-exp-title">Rajasthan Jobs</h3>
-          <p class="home-exp-desc">RPSC, RSSB, REET</p>
-        </a>
-        <a href="/states/madhya-pradesh/" class="home-explore-card">
-          <span class="home-exp-icon">📍</span>
-          <h3 class="home-exp-title">MP Jobs</h3>
-          <p class="home-exp-desc">MPSC, MP Police, MPPSC</p>
-        </a>
-        <a href="/qualifications/10th-pass/" class="home-explore-card">
-          <span class="home-exp-icon">🎓</span>
-          <h3 class="home-exp-title">10th Pass Jobs</h3>
-          <p class="home-exp-desc">Constable, Army, Railway</p>
+        <a href="/results/" class="home-explore-card">
+          <span class="home-exp-icon">📊</span>
+          <h3 class="home-exp-title">Results</h3>
+          <p class="home-exp-desc">Exam results & merit lists</p>
         </a>
         <a href="/qualifications/12th-pass/" class="home-explore-card">
           <span class="home-exp-icon">🎓</span>
           <h3 class="home-exp-title">12th Pass Jobs</h3>
           <p class="home-exp-desc">CHSL, NDA, Navy</p>
         </a>
+        <a href="/yojana/" class="home-explore-card">
+          <span class="home-exp-icon">🏛</span>
+          <h3 class="home-exp-title">Yojana</h3>
+          <p class="home-exp-desc">276+ govt schemes</p>
+        </a>
+        <a href="/scholarship/" class="home-explore-card">
+          <span class="home-exp-icon">🏆</span>
+          <h3 class="home-exp-title">Scholarships</h3>
+          <p class="home-exp-desc">State & central scholarships</p>
+        </a>
+        <a href="/exam-calendar/" class="home-explore-card">
+          <span class="home-exp-icon">📅</span>
+          <h3 class="home-exp-title">Exam Calendar</h3>
+          <p class="home-exp-desc">Upcoming exam dates</p>
+        </a>
+        <a href="/states/rajasthan/" class="home-explore-card">
+          <span class="home-exp-icon">📍</span>
+          <h3 class="home-exp-title">Rajasthan Jobs</h3>
+          <p class="home-exp-desc">RPSC, RSSB, REET</p>
+        </a>
+        <a href="/qualifications/10th-pass/" class="home-explore-card">
+          <span class="home-exp-icon">🎓</span>
+          <h3 class="home-exp-title">10th Pass Jobs</h3>
+          <p class="home-exp-desc">Constable, Army, Railway</p>
+        </a>
         <a href="/qualifications/graduate/" class="home-explore-card">
           <span class="home-exp-icon">🎓</span>
           <h3 class="home-exp-title">Graduate Jobs</h3>
           <p class="home-exp-desc">CGL, IBPS, UPSC</p>
         </a>
-        <a href="/qualifications/post-graduate/" class="home-explore-card">
-          <span class="home-exp-icon">🎓</span>
-          <h3 class="home-exp-title">PG Jobs</h3>
-          <p class="home-exp-desc">UGC NET, Professor, Research</p>
+        <a href="/tools/" class="home-explore-card">
+          <span class="home-exp-icon">🛠</span>
+          <h3 class="home-exp-title">Free Tools</h3>
+          <p class="home-exp-desc">Age calc, Salary calc</p>
         </a>
       </div>
     </div>
@@ -189,12 +248,14 @@ const topExams = [
   <section class="home-quickbar">
     <div class="container">
       <div class="home-qb-links">
+        <a href="/latest-jobs/" class="home-qb-link" style="background:var(--saffron);color:#fff;border-color:var(--saffron)">🔥 Latest Jobs</a>
+        <a href="/results/" class="home-qb-link" style="background:rgba(15,163,54,.1);color:var(--success);border-color:rgba(15,163,54,.4)">📊 Results</a>
+        <a href="/admit-cards/" class="home-qb-link">🎫 Admit Cards</a>
+        <a href="/qualifications/12th-pass/" class="home-qb-link" style="background:rgba(28,105,212,.1);color:#4d9ae8;border-color:rgba(28,105,212,.4)">🎓 12th Pass Jobs</a>
+        <a href="/scholarship/" class="home-qb-link" style="background:rgba(168,85,247,.1);color:#a855f7;border-color:rgba(168,85,247,.4)">🏆 Scholarships</a>
+        <a href="/yojana/" class="home-qb-link" style="background:rgba(255,193,7,.1);color:var(--gold);border-color:rgba(255,193,7,.4)">🏛 Yojana</a>
         <a href="/service/aadhaar/" class="home-qb-link">🪪 Aadhaar</a>
         <a href="/service/pan/" class="home-qb-link">💳 PAN Card</a>
-        <a href="/service/passport/" class="home-qb-link">🛂 Passport</a>
-        <a href="/service/driving-license/" class="home-qb-link">🚗 DL</a>
-        <a href="/service/voter-id/" class="home-qb-link">🗳️ Voter ID</a>
-        <a href="/service/ration-card/" class="home-qb-link">🍚 Ration</a>
         <a href="/national-services/" class="home-qb-link qb-more">All Services →</a>
       </div>
     </div>

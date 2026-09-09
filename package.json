@@ -10,7 +10,8 @@
     "sync": "node src/scripts/live-agent.mjs",
     "agent:live": "node src/scripts/live-agent.mjs --daemon --interval=30",
     "sitemap": "node src/scripts/generate-sitemap.mjs",
-    "index:google": "node src/scripts/google-index-ping.mjs"
+    "index:google": "node src/scripts/google-index-ping.mjs",
+    "index:now": "node src/scripts/indexnow-ping.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

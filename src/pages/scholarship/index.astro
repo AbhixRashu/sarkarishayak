@@ -163,6 +163,37 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- ========== RELATED PAGES ========== -->
+  <section class="section" style="background:var(--soft);padding-block:var(--sp-xxl)">
+    <div class="container">
+      <div class="section-head center-head" style="margin-bottom:var(--sp-lg)">
+        <span class="section-label">Explore More</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--sp-md)">
+        <a href="/scholarship/" style="display:flex;align-items:center;gap:var(--sp-sm);padding:var(--sp-md);background:var(--card);border:2px solid var(--saffron);text-decoration:none;transition:transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+          <span style="font-size:24px">🏆</span>
+          <div><span style="display:block;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--strong)">Scholarships</span><span style="font-size:12px;color:var(--muted)">Central & state scholarships</span></div>
+        </a>
+        <a href="/latest-jobs/" style="display:flex;align-items:center;gap:var(--sp-sm);padding:var(--sp-md);background:var(--card);border:1px solid var(--hairline);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--saffron)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--hairline)';this.style.transform=''">
+          <span style="font-size:24px">🔥</span>
+          <div><span style="display:block;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--strong)">Latest Jobs</span><span style="font-size:12px;color:var(--muted)">All open vacancies</span></div>
+        </a>
+        <a href="/results/" style="display:flex;align-items:center;gap:var(--sp-sm);padding:var(--sp-md);background:var(--card);border:1px solid var(--hairline);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--saffron)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--hairline)';this.style.transform=''">
+          <span style="font-size:24px">📊</span>
+          <div><span style="display:block;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--strong)">Results</span><span style="font-size:12px;color:var(--muted)">Exam results & merit lists</span></div>
+        </a>
+        <a href="/qualifications/12th-pass/" style="display:flex;align-items:center;gap:var(--sp-sm);padding:var(--sp-md);background:var(--card);border:1px solid var(--hairline);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--saffron)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--hairline)';this.style.transform=''">
+          <span style="font-size:24px">🎓</span>
+          <div><span style="display:block;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--strong)">12th Pass Jobs</span><span style="font-size:12px;color:var(--muted)">CHSL, NDA, Navy</span></div>
+        </a>
+        <a href="/tools/cutoff-tracker/" style="display:flex;align-items:center;gap:var(--sp-sm);padding:var(--sp-md);background:var(--card);border:1px solid var(--hairline);text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--saffron)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--hairline)';this.style.transform=''">
+          <span style="font-size:24px">📈</span>
+          <div><span style="display:block;font-family:var(--font-display);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--strong)">Cutoff Tracker</span><span style="font-size:12px;color:var(--muted)">Previous year cutoffs</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
     var filterBtns = document.querySelectorAll('#schFilters .chip');
