@@ -1,0 +1,397 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import latestJobs from '../../data/latest-jobs.json';
+
+// Get top 5 active jobs
+const activeJobs = latestJobs
+  .filter(j => new Date(j.lastDate) >= new Date())
+  .slice(0, 5);
+---
+
+<BaseLayout
+  title="Free Govt Job Widget — Embed on Your Website | Sarkari Sahayak"
+  description="Embed a free live government jobs widget on your website. Auto-updates daily with latest sarkari naukri. No coding needed — just copy-paste the code."
+  canonical="/tools/embed-widget"
+  keywords="embed govt jobs widget, free job widget website, sarkari naukri widget embed, latest govt jobs widget code"
+>
+
+<style>
+  .ew-hero {
+    background: linear-gradient(135deg, #000 0%, #0d1b2a 60%, #0a0a0a 100%);
+    padding: 70px 0 50px; text-align: center;
+  }
+  .ew-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,107,53,.45); background: rgba(255,107,53,.07);
+    color: var(--saffron); padding: 8px 18px;
+    font-family: var(--font-display); font-weight: 700; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .ew-title {
+    font-family: var(--font-display); font-weight: 700; font-size: 52px;
+    line-height: 1.1; text-transform: uppercase; color: var(--white); margin-bottom: 12px;
+  }
+  .ew-title span { color: var(--saffron); }
+  .ew-sub { font-size: 17px; color: var(--body); max-width: 560px; margin: 0 auto; }
+
+  .ew-main { padding: 70px 0; }
+  .ew-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: start; }
+
+  .panel-label {
+    font-family: var(--font-display); font-weight: 700; font-size: 11px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--saffron);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .panel-label::before { content: ''; width: 20px; height: 2px; background: var(--saffron); }
+
+  /* LIVE PREVIEW */
+  .widget-preview-wrap {
+    background: var(--elevated); border: 1px solid var(--hairline); padding: 24px;
+  }
+  .preview-note {
+    font-size: 12px; color: var(--muted); text-align: center; margin-bottom: 16px;
+  }
+
+  /* THE ACTUAL WIDGET (also used for iframe) */
+  .ss-widget {
+    border: 1px solid #333; background: #111; font-family: 'Hind', sans-serif;
+    max-width: 400px; margin: 0 auto;
+  }
+  .ss-w-head {
+    background: linear-gradient(90deg, #0066b1, #e22718);
+    padding: 10px 14px; display: flex; align-items: center;
+    justify-content: space-between;
+  }
+  .ss-w-brand {
+    font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 15px;
+    color: #fff; letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none;
+  }
+  .ss-w-live {
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    background: rgba(255,255,255,.15); color: #fff;
+    padding: 3px 8px; border-radius: 999px;
+  }
+  .ss-w-jobs { list-style: none; padding: 0; margin: 0; }
+  .ss-w-job {
+    padding: 10px 14px; border-bottom: 1px solid #222;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 8px;
+  }
+  .ss-w-job:last-child { border-bottom: none; }
+  .ss-w-name {
+    font-size: 13px; font-weight: 600; color: #e6e6e6; line-height: 1.4;
+    text-decoration: none; display: block;
+  }
+  .ss-w-name:hover { color: #FF6B35; }
+  .ss-w-org { font-size: 11px; color: #888; margin-top: 2px; }
+  .ss-w-date {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 3px 8px; border-radius: 999px; white-space: nowrap; flex-shrink: 0;
+    background: rgba(255,107,53,.15); color: #FF6B35;
+    border: 1px solid rgba(255,107,53,.35);
+  }
+  .ss-w-footer {
+    padding: 9px 14px; background: #0a0a0a;
+    text-align: center; border-top: 1px solid #222;
+  }
+  .ss-w-footer a {
+    font-size: 11px; color: #777; text-decoration: none;
+    font-family: 'Rajdhani', sans-serif; letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .ss-w-footer a:hover { color: #FF6B35; }
+
+  /* Code box */
+  .code-panel { background: var(--card); border: 1px solid var(--hairline); padding: 28px; }
+  .code-tabs {
+    display: flex; gap: 0; border-bottom: 1px solid var(--hairline);
+    margin-bottom: 20px;
+  }
+  .ctab {
+    padding: 10px 18px; font-family: var(--font-display); font-weight: 700;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent;
+    margin-bottom: -1px; transition: .25s; background: none; border-top: none;
+    border-left: none; border-right: none;
+  }
+  .ctab.active { color: var(--saffron); border-bottom-color: var(--saffron); }
+  .code-block {
+    background: #050505; border: 1px solid var(--hairline-strong);
+    padding: 16px; font-family: monospace; font-size: 13px;
+    color: #a8b5c8; line-height: 1.7; overflow-x: auto;
+    white-space: pre; margin-bottom: 16px;
+  }
+  .copy-code-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; background: var(--saffron); color: #000;
+    font-family: var(--font-display); font-weight: 700; font-size: 13px;
+    letter-spacing: 1.5px; text-transform: uppercase; border: none;
+    cursor: pointer; transition: background .25s;
+  }
+  .copy-code-btn:hover { background: var(--gold); }
+  .copy-code-btn.copied {
+    background: var(--success); color: #fff;
+  }
+
+  .how-steps {
+    background: var(--soft); border: 1px solid var(--hairline);
+    padding: 28px; margin-top: 40px;
+  }
+  .how-title {
+    font-family: var(--font-display); font-weight: 700; font-size: 20px;
+    text-transform: uppercase; color: var(--white); margin-bottom: 20px;
+  }
+  .how-step {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 16px; font-size: 15px; color: var(--body);
+  }
+  .hs-num {
+    width: 30px; height: 30px; flex-shrink: 0;
+    background: var(--saffron); color: #000;
+    font-family: var(--font-display); font-weight: 700; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .benefit-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 64px;
+  }
+  .benefit-card {
+    background: var(--card); border: 1px solid var(--hairline);
+    padding: 20px; text-align: center;
+  }
+  .benefit-icon { font-size: 32px; margin-bottom: 10px; }
+  .benefit-title {
+    font-family: var(--font-display); font-weight: 700; font-size: 15px;
+    text-transform: uppercase; color: var(--white); margin-bottom: 6px;
+  }
+  .benefit-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  @media (max-width: 768px) {
+    .ew-title { font-size: 34px; }
+    .ew-grid { grid-template-columns: 1fr; }
+    .benefit-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="ew-hero">
+  <div class="container">
+    <div class="ew-badge">🆓 Free Widget</div>
+    <h1 class="ew-title">Embed <span>Govt Jobs</span><br>On Your Site</h1>
+    <p class="ew-sub">
+      Apni website pe latest sarkari naukri widget lagaein — bilkul free.
+      Automatically update hota hai. Apne visitors ko value dein.
+    </p>
+  </div>
+</section>
+
+<main class="ew-main">
+  <div class="container">
+    <div class="ew-grid">
+
+      <!-- LEFT: Live Preview -->
+      <div>
+        <div class="panel-label">👁️ Live Preview</div>
+        <div class="widget-preview-wrap">
+          <p class="preview-note">⬇️ Yahi widget aapki site pe dikhega</p>
+
+          <!-- WIDGET -->
+          <div class="ss-widget" id="widgetPreview">
+            <div class="ss-w-head">
+              <a class="ss-w-brand" href="https://govtjob.salarypitcher.com" target="_blank" rel="noopener">
+                🇮🇳 Sarkari Sahayak
+              </a>
+              <span class="ss-w-live">🔴 LIVE</span>
+            </div>
+            <ul class="ss-w-jobs">
+              {activeJobs.map(job => {
+                const daysLeft = Math.ceil((new Date(job.lastDate).getTime() - Date.now()) / 86400000);
+                return (
+                  <li class="ss-w-job">
+                    <div>
+                      <a class="ss-w-name" href={`https://govtjob.salarypitcher.com/latest-jobs/${job.slug}/`} target="_blank" rel="noopener">
+                        {job.title}
+                      </a>
+                      <div class="ss-w-org">{job.department}</div>
+                    </div>
+                    <span class="ss-w-date">{daysLeft}d left</span>
+                  </li>
+                );
+              })}
+            </ul>
+            <div class="ss-w-footer">
+              <a href="https://govtjob.salarypitcher.com/latest-jobs/" target="_blank" rel="noopener">
+                View All Jobs → govtjob.salarypitcher.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- How to steps -->
+        <div class="how-steps">
+          <div class="how-title">📋 Kaise Lagaayein?</div>
+          <div class="how-step">
+            <div class="hs-num">1</div>
+            <div>Neeche se <strong>code copy</strong> karein (HTML ya WordPress)</div>
+          </div>
+          <div class="how-step">
+            <div class="hs-num">2</div>
+            <div>Apni site ke <strong>sidebar ya footer</strong> mein paste karein</div>
+          </div>
+          <div class="how-step">
+            <div class="hs-num">3</div>
+            <div>Widget <strong>automatically live jobs</strong> dikhata hai — roz update hoga</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Code -->
+      <div class="code-panel">
+        <div class="panel-label">💻 Embed Code</div>
+
+        <div class="code-tabs">
+          <button class="ctab active" onclick="switchTab(this,'html-code')" id="tab-html">HTML/Any Site</button>
+          <button class="ctab" onclick="switchTab(this,'iframe-code')" id="tab-iframe">iFrame</button>
+          <button class="ctab" onclick="switchTab(this,'wp-code')" id="tab-wp">WordPress</button>
+        </div>
+
+        <!-- HTML Code -->
+        <div id="html-code" class="tab-content">
+          <pre class="code-block" id="html-snippet">&lt;!-- Sarkari Sahayak — Free Govt Jobs Widget --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Hind:wght@400;600&display=swap" rel="stylesheet"&gt;
+&lt;div id="ss-jobs-widget"&gt;&lt;/div&gt;
+&lt;script&gt;
+(function(){
+  var d=document,el=d.getElementById('ss-jobs-widget');
+  el.innerHTML='&lt;p style="font-size:13px;color:#888;text-align:center"&gt;Loading jobs...&lt;/p&gt;';
+  fetch('https://govtjob.salarypitcher.com/api/widget-jobs.json')
+    .then(r=>r.json()).catch(()=>null)
+    .then(function(jobs){
+      if(!jobs||!jobs.length){el.innerHTML='';return;}
+      var h='&lt;div style="border:1px solid #333;background:#111;font-family:Hind,sans-serif;max-width:380px"&gt;';
+      h+='&lt;div style="background:linear-gradient(90deg,#0066b1,#e22718);padding:10px 14px;display:flex;align-items:center;justify-content:space-between"&gt;';
+      h+='&lt;a href="https://govtjob.salarypitcher.com" target="_blank" style="font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:1px;text-decoration:none"&gt;&#127470;&#127475; Sarkari Sahayak&lt;/a&gt;';
+      h+='&lt;span style="font-size:10px;background:rgba(255,255,255,.15);color:#fff;padding:3px 8px;border-radius:999px"&gt;&#128308; LIVE&lt;/span&gt;&lt;/div&gt;';
+      h+='&lt;ul style="list-style:none;padding:0;margin:0"&gt;';
+      jobs.forEach(function(j){
+        h+='&lt;li style="padding:10px 14px;border-bottom:1px solid #222;display:flex;justify-content:space-between;gap:8px;align-items:center"&gt;';
+        h+='&lt;div&gt;&lt;a href="https://govtjob.salarypitcher.com/latest-jobs/'+j.slug+'/" target="_blank" style="font-size:13px;font-weight:600;color:#e6e6e6;text-decoration:none"&gt;'+j.title+'&lt;/a&gt;';
+        h+='&lt;div style="font-size:11px;color:#888;margin-top:2px"&gt;'+j.department+'&lt;/div&gt;&lt;/div&gt;';
+        var d2=Math.ceil((new Date(j.lastDate)-Date.now())/86400000);
+        h+='&lt;span style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;background:rgba(255,107,53,.15);color:#FF6B35;border:1px solid rgba(255,107,53,.35);white-space:nowrap"&gt;'+d2+'d left&lt;/span&gt;&lt;/li&gt;';
+      });
+      h+='&lt;/ul&gt;&lt;div style="padding:9px 14px;background:#0a0a0a;text-align:center;border-top:1px solid #222"&gt;';
+      h+='&lt;a href="https://govtjob.salarypitcher.com/latest-jobs/" target="_blank" style="font-size:11px;color:#777;text-decoration:none;font-family:Rajdhani,sans-serif;letter-spacing:1px;text-transform:uppercase"&gt;View All → govtjob.salarypitcher.com&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;';
+      el.innerHTML=h;
+    });
+})();
+&lt;/script&gt;</pre>
+          <button class="copy-code-btn" onclick="copyCode(this, 'html-snippet')">📋 Copy HTML Code</button>
+        </div>
+
+        <!-- iFrame Code -->
+        <div id="iframe-code" class="tab-content" style="display:none">
+          <pre class="code-block" id="iframe-snippet">&lt;iframe
+  src="https://govtjob.salarypitcher.com/widget/jobs"
+  width="400"
+  height="380"
+  frameborder="0"
+  scrolling="no"
+  title="Latest Sarkari Naukri — Sarkari Sahayak"
+  style="border:none;display:block;max-width:100%"
+&gt;&lt;/iframe&gt;
+&lt;p style="font-size:11px;color:#888;text-align:center"&gt;
+  Powered by &lt;a href="https://govtjob.salarypitcher.com" target="_blank"&gt;Sarkari Sahayak&lt;/a&gt;
+&lt;/p&gt;</pre>
+          <button class="copy-code-btn" onclick="copyCode(this, 'iframe-snippet')">📋 Copy iFrame Code</button>
+        </div>
+
+        <!-- WordPress Code -->
+        <div id="wp-code" class="tab-content" style="display:none">
+          <p style="font-size:14px;color:var(--body);margin-bottom:16px;">
+            WordPress mein jaaein: <strong>Appearance → Widgets → Custom HTML Widget</strong>
+          </p>
+          <pre class="code-block" id="wp-snippet">[custom-html]
+&lt;!-- Sarkari Sahayak Widget for WordPress --&gt;
+&lt;div id="ss-wp-widget"&gt;
+  &lt;p style="color:#888;font-size:13px"&gt;Loading govt jobs...&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  document.addEventListener('DOMContentLoaded',function(){
+    var w=document.getElementById('ss-wp-widget');
+    if(w){
+      var f=document.createElement('iframe');
+      f.src='https://govtjob.salarypitcher.com/widget/jobs';
+      f.width='100%'; f.height='360';
+      f.frameBorder='0'; f.scrolling='no';
+      f.title='Sarkari Sahayak — Live Govt Jobs';
+      f.style.cssText='border:none;display:block;max-width:100%';
+      w.innerHTML='';
+      w.appendChild(f);
+      var p=document.createElement('p');
+      p.innerHTML='Powered by &lt;a href="https://govtjob.salarypitcher.com" target="_blank"&gt;Sarkari Sahayak&lt;/a&gt;';
+      p.style.cssText='font-size:11px;color:#888;text-align:center;margin-top:4px';
+      w.appendChild(p);
+    }
+  });
+&lt;/script&gt;
+[/custom-html]</pre>
+          <button class="copy-code-btn" onclick="copyCode(this, 'wp-snippet')">📋 Copy WordPress Code</button>
+        </div>
+
+        <div style="margin-top:24px;padding:16px;background:rgba(255,193,7,.07);border:1px solid rgba(255,193,7,.3);">
+          <p style="font-size:13px;color:var(--body);line-height:1.7;">
+            💡 <strong style="color:var(--gold)">Backlink Mile Automatically:</strong>
+            Jab bhi koi aapka ye widget apni site pe lagaata hai, "View All → govtjob.salarypitcher.com"
+            ka link hamaari site pe automatically aata hai. <strong>Yahi genuine backlink hai!</strong>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Benefits -->
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <div class="benefit-title">Auto Updates Daily</div>
+        <p class="benefit-desc">Latest jobs automatically dikhata hai — manually update karne ki zaroorat nahi</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎨</div>
+        <div class="benefit-title">Dark + Light Mode</div>
+        <p class="benefit-desc">Kisi bhi site ke design ke saath match karta hai</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📱</div>
+        <div class="benefit-title">Mobile Responsive</div>
+        <p class="benefit-desc">Phone aur desktop dono pe perfectly display hota hai</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script is:inline>
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.ctab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+  btn.classList.add('active');
+  document.getElementById(tabId).style.display = 'block';
+}
+
+function copyCode(btn, id) {
+  const code = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = '✅ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copy ' + (id.includes('html') ? 'HTML' : id.includes('iframe') ? 'iFrame' : 'WordPress') + ' Code';
+      btn.classList.remove('copied');
+    }, 3000);
+  });
+}
+</script>
+
+</BaseLayout>

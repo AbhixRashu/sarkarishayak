@@ -1,0 +1,569 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Link With Us | Partner With Sarkari Sahayak — Get Free Backlinks"
+  description="Partner with Sarkari Sahayak — India's #1 Hindi Govt Job Portal. Exchange backlinks, guest posts, and grow together. DA 30+ site. Free link exchange for education & job portals."
+  canonical="/link-with-us"
+  keywords="link exchange, backlink exchange india, guest post sarkari, partner with govt job site, seo link building india, education site link exchange"
+>
+
+<style>
+  .lw-hero {
+    background: linear-gradient(135deg, #000 0%, #0d1b2a 60%, #0a0a0a 100%);
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .lw-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(closest-side, rgba(28,105,212,.18), transparent 70%);
+    pointer-events: none;
+  }
+  .lw-hero-inner { position: relative; z-index: 1; }
+  .lw-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(255,107,53,.45); background: rgba(255,107,53,.07);
+    color: var(--saffron); padding: 9px 20px;
+    font-family: var(--font-display); font-weight: 700; font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .lw-title {
+    font-family: var(--font-display); font-weight: 700; font-size: 62px;
+    line-height: 1; text-transform: uppercase; color: var(--white);
+    margin-bottom: 16px;
+  }
+  .lw-title span { color: var(--saffron); }
+  .lw-sub { font-size: 18px; color: var(--body); max-width: 600px; margin: 0 auto 32px; }
+
+  .stats-band {
+    display: flex; justify-content: center; gap: 0;
+    border: 1px solid var(--hairline); background: var(--panel);
+    max-width: 700px; margin: 0 auto;
+  }
+  .sband-item {
+    flex: 1; text-align: center; padding: 20px 16px;
+    border-right: 1px solid var(--hairline);
+  }
+  .sband-item:last-child { border-right: none; }
+  .sband-num {
+    font-family: var(--font-display); font-weight: 700; font-size: 36px;
+    color: var(--saffron); line-height: 1;
+  }
+  .sband-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  .lw-main { padding: 80px 0; }
+
+  .lw-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 32px; margin-bottom: 64px;
+  }
+
+  .lw-card {
+    background: var(--card); border: 1px solid var(--hairline);
+    padding: 32px; position: relative; overflow: hidden;
+  }
+  .lw-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--m-gradient);
+  }
+  .lw-card-icon { font-size: 42px; margin-bottom: 16px; display: block; }
+  .lw-card-title {
+    font-family: var(--font-display); font-weight: 700; font-size: 22px;
+    text-transform: uppercase; color: var(--white); margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .lw-card-desc { font-size: 15px; color: var(--body); line-height: 1.7; }
+  .lw-card-tag {
+    display: inline-flex; margin-top: 16px; padding: 5px 12px;
+    font-family: var(--font-display); font-weight: 700; font-size: 11px;
+    letter-spacing: 1px; text-transform: uppercase;
+    background: rgba(255,107,53,.1); border: 1px solid rgba(255,107,53,.35);
+    color: var(--saffron);
+  }
+
+  .section-title-sm {
+    font-family: var(--font-display); font-weight: 700; font-size: 32px;
+    text-transform: uppercase; color: var(--white); margin-bottom: 8px;
+  }
+  .section-sub-sm { font-size: 16px; color: var(--muted); margin-bottom: 40px; }
+
+  /* Site Info Box */
+  .site-info-box {
+    background: var(--elevated); border: 1px solid var(--hairline);
+    padding: 32px; margin-bottom: 64px;
+  }
+  .si-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .si-item {
+    text-align: center; padding: 20px;
+    border-right: 1px solid var(--hairline);
+  }
+  .si-item:last-child { border-right: none; }
+  .si-val {
+    font-family: var(--font-display); font-weight: 700; font-size: 28px;
+    color: var(--white); line-height: 1;
+  }
+  .si-val em { font-style: normal; color: var(--saffron); }
+  .si-key { font-size: 12px; color: var(--muted); margin-top: 4px; letter-spacing: 0.5px; }
+
+  /* Requirements List */
+  .req-list { list-style: none; }
+  .req-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 16px; border: 1px solid var(--hairline-strong);
+    margin-bottom: 8px; font-size: 15px; color: var(--body);
+    background: var(--card);
+  }
+  .req-list li .ri { color: var(--saffron); font-size: 18px; flex-shrink: 0; }
+  .req-list li .rt { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+
+  /* Contact Form */
+  .lw-form-wrap {
+    background: var(--card); border: 1px solid var(--hairline);
+    padding: 40px; max-width: 720px; margin: 0 auto;
+  }
+  .form-title {
+    font-family: var(--font-display); font-weight: 700; font-size: 26px;
+    text-transform: uppercase; color: var(--white); margin-bottom: 6px;
+  }
+  .form-sub { font-size: 15px; color: var(--muted); margin-bottom: 32px; }
+  .lw-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-label {
+    font-family: var(--font-display); font-weight: 700; font-size: 11px;
+    letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted);
+  }
+  .form-input, .form-select, .form-textarea {
+    height: 46px; padding: 0 14px;
+    background: var(--soft); border: 1px solid var(--hairline);
+    color: var(--white); font-family: var(--font-hindi);
+    font-size: 15px; width: 100%; transition: border-color .25s;
+  }
+  .form-textarea { height: 120px; padding: 14px; resize: vertical; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--saffron); outline: none;
+  }
+  .form-select { cursor: pointer; }
+  .form-submit {
+    height: 50px; padding: 0 32px;
+    background: var(--saffron); color: #000;
+    font-family: var(--font-display); font-weight: 700; font-size: 14px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border: none; cursor: pointer; transition: background .25s;
+    display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+  }
+  .form-submit:hover { background: var(--gold); }
+
+  /* Email alternative */
+  .email-alt {
+    text-align: center; margin-top: 32px; padding-top: 24px;
+    border-top: 1px solid var(--hairline);
+  }
+  .email-alt p { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+  .email-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-display); font-weight: 700; font-size: 16px;
+    color: var(--saffron); letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255,107,53,.4);
+    padding-bottom: 2px;
+  }
+
+  /* Templates section */
+  .template-box {
+    background: var(--soft); border: 1px solid var(--hairline);
+    padding: 28px; margin-bottom: 20px; position: relative;
+  }
+  .template-label {
+    font-family: var(--font-display); font-weight: 700; font-size: 11px;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--saffron);
+    margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .template-label::before {
+    content: ''; width: 20px; height: 2px; background: var(--saffron);
+  }
+  .template-text {
+    font-size: 14px; line-height: 1.8; color: var(--body);
+    white-space: pre-wrap; font-family: monospace;
+    background: var(--canvas); padding: 16px; border: 1px solid var(--hairline-strong);
+  }
+  .copy-btn {
+    position: absolute; top: 16px; right: 16px;
+    padding: 6px 14px; background: transparent;
+    border: 1px solid var(--hairline); color: var(--muted);
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; transition: .25s;
+  }
+  .copy-btn:hover { border-color: var(--saffron); color: var(--saffron); }
+  .copy-btn.copied { border-color: var(--success); color: var(--success); }
+
+  @media (max-width: 768px) {
+    .lw-title { font-size: 38px; }
+    .lw-grid { grid-template-columns: 1fr; }
+    .si-grid { grid-template-columns: 1fr 1fr; }
+    .si-item:nth-child(2) { border-right: none; }
+    .si-item:nth-child(1), .si-item:nth-child(2) {
+      border-bottom: 1px solid var(--hairline);
+    }
+    .form-row { grid-template-columns: 1fr; }
+    .lw-form-wrap { padding: 24px; }
+    .stats-band { flex-direction: column; }
+    .sband-item { border-right: none; border-bottom: 1px solid var(--hairline); }
+    .sband-item:last-child { border-bottom: none; }
+  }
+</style>
+
+<!-- HERO -->
+<section class="lw-hero">
+  <div class="container lw-hero-inner">
+    <div class="lw-badge">🤝 Partnership Program</div>
+    <h1 class="lw-title">Link With <span>Us</span></h1>
+    <p class="lw-sub">
+      Sarkari Sahayak ke saath partner karein — India ka #1 Hindi Govt Job Portal.
+      Free link exchange, guest posts, aur mutual growth.
+    </p>
+
+    <div class="stats-band">
+      <div class="sband-item">
+        <div class="sband-num">50K+</div>
+        <div class="sband-label">Monthly Visitors</div>
+      </div>
+      <div class="sband-item">
+        <div class="sband-num">DA 30+</div>
+        <div class="sband-label">Domain Authority</div>
+      </div>
+      <div class="sband-item">
+        <div class="sband-num">2,000+</div>
+        <div class="sband-label">Indexed Pages</div>
+      </div>
+      <div class="sband-item">
+        <div class="sband-num">100%</div>
+        <div class="sband-label">Niche Relevant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="lw-main">
+  <div class="container">
+
+    <!-- Site Stats -->
+    <div class="site-info-box">
+      <p style="font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--saffron);margin-bottom:20px;">
+        📊 Hamaari Site Ki Details
+      </p>
+      <div class="si-grid">
+        <div class="si-item">
+          <div class="si-val">govtjob<em>.</em>salarypitcher<em>.</em>com</div>
+          <div class="si-key">Website URL</div>
+        </div>
+        <div class="si-item">
+          <div class="si-val">Govt Jobs <em>/</em> Education</div>
+          <div class="si-key">Niche</div>
+        </div>
+        <div class="si-item">
+          <div class="si-val">Hindi <em>+</em> English</div>
+          <div class="si-key">Language</div>
+        </div>
+        <div class="si-item">
+          <div class="si-val">India <em>(</em>National<em>)</em></div>
+          <div class="si-key">Audience</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partnership Types -->
+    <h2 class="section-title-sm">Partnership Options</h2>
+    <p class="section-sub-sm">Aap in 4 tareekon se hamare saath partner kar sakte hain</p>
+
+    <div class="lw-grid">
+      <div class="lw-card">
+        <span class="lw-card-icon">🔗</span>
+        <div class="lw-card-title">Link Exchange</div>
+        <p class="lw-card-desc">
+          Aap hamaari site ko apni relevant page pe link karein, hum aapki site ko apni
+          relevant page pe link karenge. Dono ko genuine DoFollow backlink milega.
+        </p>
+        <span class="lw-card-tag">✅ Free | DoFollow | Permanent</span>
+      </div>
+
+      <div class="lw-card">
+        <span class="lw-card-icon">✍️</span>
+        <div class="lw-card-title">Guest Post</div>
+        <p class="lw-card-desc">
+          Aap hamaari site pe quality article likhein — Sarkari jobs, exams, career advice
+          ke baare mein. Article mein 1-2 do-follow links apni site ke hoge.
+        </p>
+        <span class="lw-card-tag">✅ Free | Author Bio Link | Permanent</span>
+      </div>
+
+      <div class="lw-card">
+        <span class="lw-card-icon">📰</span>
+        <div class="lw-card-title">Resource Mention</div>
+        <p class="lw-card-desc">
+          Hamaari kisi bhi page pe aapki site ko ek useful resource ke roop mein mention
+          karwaaein. Contextual link milega relevant content mein.
+        </p>
+        <span class="lw-card-tag">✅ Free | Contextual Link | Niche Relevant</span>
+      </div>
+
+      <div class="lw-card">
+        <span class="lw-card-icon">📣</span>
+        <div class="lw-card-title">Social Shoutout</div>
+        <p class="lw-card-desc">
+          Aapki site ya content ko hamare Telegram channel aur social media pe share
+          karenge. Brand awareness + referral traffic milega.
+        </p>
+        <span class="lw-card-tag">✅ Free | Telegram | Social Media</span>
+      </div>
+    </div>
+
+    <!-- Requirements -->
+    <h2 class="section-title-sm">Eligibility Requirements</h2>
+    <p class="section-sub-sm">Hum sirf genuine sites ke saath partner karte hain</p>
+    <ul class="req-list" style="margin-bottom:64px;">
+      <li>
+        <span class="ri">✅</span>
+        <div>
+          <strong>Education / Govt Job Niche</strong>
+          <span class="rt">Sarkari naukri, exams, coaching, yojana, result — in topics se related site honi chahiye</span>
+        </div>
+      </li>
+      <li>
+        <span class="ri">✅</span>
+        <div>
+          <strong>Original Content</strong>
+          <span class="rt">Copied ya spun content wali sites accept nahi ki jaayengi</span>
+        </div>
+      </li>
+      <li>
+        <span class="ri">✅</span>
+        <div>
+          <strong>No Adult / Gambling Content</strong>
+          <span class="rt">Site pe koi objectionable content nahi hona chahiye</span>
+        </div>
+      </li>
+      <li>
+        <span class="ri">✅</span>
+        <div>
+          <strong>Minimum 10 Published Pages</strong>
+          <span class="rt">Nai sites consider nahi ki jaati. Kam se kam 10 quality pages chahiye</span>
+        </div>
+      </li>
+      <li>
+        <span class="ri">✅</span>
+        <div>
+          <strong>Google Indexed</strong>
+          <span class="rt">Site Google mein indexed honi chahiye — verify: site:yourwebsite.com</span>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Contact Form -->
+    <div class="lw-form-wrap">
+      <div class="form-title">📨 Apply for Partnership</div>
+      <p class="form-sub">Form fill karein — 24-48 ghante mein reply milega</p>
+
+      <form class="lw-form" id="lwForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="lw-name">Aapka Naam *</label>
+            <input class="form-input" id="lw-name" type="text" placeholder="Ramesh Kumar" required>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="lw-email">Email Address *</label>
+            <input class="form-input" id="lw-email" type="email" placeholder="you@yoursite.com" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="lw-url">Aapki Website URL *</label>
+          <input class="form-input" id="lw-url" type="url" placeholder="https://yourwebsite.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="lw-type">Partnership Type *</label>
+            <select class="form-select" id="lw-type" required>
+              <option value="">-- Select --</option>
+              <option value="link-exchange">🔗 Link Exchange</option>
+              <option value="guest-post">✍️ Guest Post (Hum likhenge)</option>
+              <option value="guest-post-you">✍️ Guest Post (Aap likhenge)</option>
+              <option value="resource">📰 Resource Mention</option>
+              <option value="shoutout">📣 Social Shoutout</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="lw-niche">Site Niche</label>
+            <select class="form-select" id="lw-niche">
+              <option value="">-- Select --</option>
+              <option value="govt-jobs">Govt Jobs / Sarkari Naukri</option>
+              <option value="education">Education / Coaching</option>
+              <option value="current-affairs">Current Affairs / GK</option>
+              <option value="result">Exam Results / Answer Keys</option>
+              <option value="yojana">Govt Schemes / Yojana</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="lw-msg">Message (Optional)</label>
+          <textarea class="form-textarea" id="lw-msg" placeholder="Aapki site ke baare mein thodi information, ya specifically kya chahte hain link exchange mein..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="lwSubmitBtn">
+          🚀 Send Partnership Request
+        </button>
+      </form>
+
+      <div class="email-alt">
+        <p>Ya directly email karein:</p>
+        <a class="email-link" href="mailto:contact@salarypitcher.com">
+          📧 contact@salarypitcher.com
+        </a>
+      </div>
+    </div>
+
+    <!-- Outreach Email Templates -->
+    <div style="margin-top:80px;">
+      <h2 class="section-title-sm">📋 Ready-Made Outreach Email Templates</h2>
+      <p class="section-sub-sm">Doosri sites ko link request karne ke liye in templates ko copy karein aur bhejein</p>
+
+      <div class="template-box">
+        <button class="copy-btn" onclick="copyTemplate(this, 'tpl1')">Copy</button>
+        <div class="template-label">Template 1 — Link Exchange Request (Hindi)</div>
+        <pre class="template-text" id="tpl1">Subject: Link Exchange Request — Sarkari Job Portal
+
+Namaste [Site Owner Name],
+
+Main Sarkari Sahayak (govtjob.salarypitcher.com) ka founder hoon.
+Hamari site India mein latest govt jobs, results, admit cards
+aur sarkari yojana ke baare mein Hindi mein content provide karti hai.
+
+Mujhe aapki site [URL] bahut helpful lagi — hamare audience ke
+liye relevant hai. Main aapke saath ek simple link exchange
+karna chahta hoon:
+
+✅ Aap hamare relevant page ko link karein
+✅ Hum aapke relevant page ko link karenge
+✅ Dono ko genuine backlink milega
+
+Kya aap interested hain? Koi charge nahi hai — pure mutual benefit.
+
+Reply karein aur hum details sort kar lete hain.
+
+Dhanyawad,
+[Aapka Naam]
+govtjob.salarypitcher.com</pre>
+      </div>
+
+      <div class="template-box">
+        <button class="copy-btn" onclick="copyTemplate(this, 'tpl2')">Copy</button>
+        <div class="template-label">Template 2 — Guest Post Pitch (English)</div>
+        <pre class="template-text" id="tpl2">Subject: Guest Post Collaboration — Govt Jobs Niche
+
+Hi [Name],
+
+I'm reaching out from Sarkari Sahayak (govtjob.salarypitcher.com),
+India's leading Hindi government job portal with 50,000+ monthly visitors.
+
+I'd love to contribute a high-quality guest post to your site on
+topics like:
+• Latest SSC/UPSC/IBPS exam updates
+• How to prepare for govt job exams
+• State government job opportunities
+• Sarkari Yojana benefits guide
+
+In return, I'd appreciate a do-follow backlink in the author bio
+or within the content.
+
+Would you be open to this collaboration? I can share 3 topic
+ideas for your approval before writing.
+
+Best regards,
+[Your Name]
+govtjob.salarypitcher.com</pre>
+      </div>
+
+      <div class="template-box">
+        <button class="copy-btn" onclick="copyTemplate(this, 'tpl3')">Copy</button>
+        <div class="template-label">Template 3 — Resource Page Link Request</div>
+        <pre class="template-text" id="tpl3">Subject: Resource Suggestion for Your [Page Name] Page
+
+Hi [Name],
+
+I came across your resource page at [their URL] and noticed
+you link to helpful government job websites.
+
+I'd like to suggest adding Sarkari Sahayak:
+🔗 https://govtjob.salarypitcher.com
+
+What we offer:
+• 2,000+ latest govt job listings (daily updated)
+• Free exam calendar, age calculator, salary calculator
+• Answer keys, results & admit cards in Hindi
+• 100% free, no login required
+
+It could be a great addition to your resource page for
+visitors looking for genuine govt job information in Hindi.
+
+Thank you for considering!
+
+[Your Name]</pre>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script is:inline>
+function copyTemplate(btn, id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+
+document.getElementById('lwForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('lw-name').value.trim();
+  const email = document.getElementById('lw-email').value.trim();
+  const url = document.getElementById('lw-url').value.trim();
+  const type = document.getElementById('lw-type').value;
+
+  if (!name || !email || !url || !type) {
+    alert('Please fill all required fields (*)');
+    return;
+  }
+
+  const btn = document.getElementById('lwSubmitBtn');
+  const subject = encodeURIComponent('Partnership Request — ' + type + ' from ' + url);
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Website: ' + url + '\n' +
+    'Type: ' + type + '\n' +
+    'Niche: ' + (document.getElementById('lw-niche').value || 'Not specified') + '\n\n' +
+    'Message:\n' + (document.getElementById('lw-msg').value || 'No message')
+  );
+  window.location.href = 'mailto:contact@salarypitcher.com?subject=' + subject + '&body=' + body;
+  btn.textContent = '✅ Opening Email...';
+  setTimeout(() => { btn.textContent = '🚀 Send Partnership Request'; }, 3000);
+});
+</script>
+
+</BaseLayout>
