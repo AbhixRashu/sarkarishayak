@@ -1,4 +1,3 @@
----
 // Generates /widget/jobs.json at build time
 // CORS-friendly static JSON for the embeddable widget
 import latestJobs from '../../data/latest-jobs.json';
@@ -26,4 +25,3 @@ export async function GET() {
     },
   });
 }
----
