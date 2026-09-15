@@ -453,6 +453,23 @@ export async function runLiveAgent() {
         console.log(`🚀 [Live Agent] Auto-pinging IndexNow for ${newUrls.length} new URL(s)...`);
         await pingIndexNowBatch(newUrls);
       }
+
+      // Auto-commit & push to trigger Vercel rebuild
+      console.log('📦 Auto-committing and pushing to GitHub...');
+      try {
+        execSync('git add -A', { cwd: ROOT, stdio: 'ignore' });
+        const totalNew = stats.jobs + stats.results + stats.admitCards + stats.yojanas + stats.answerKeys;
+        const commitMsg = `🤖 auto: +${totalNew} updates (${new Date().toISOString().split('T')[0]})`;
+        execSync(`git commit -m "${commitMsg}"`, { cwd: ROOT, stdio: 'ignore' });
+        execSync('git push', { cwd: ROOT, stdio: 'inherit' });
+        console.log('✓ Pushed to GitHub — Vercel will auto-rebuild.');
+      } catch (gitErr) {
+        if (gitErr.message && gitErr.message.includes('nothing to commit')) {
+          console.log('ℹ️ No git changes to commit.');
+        } else {
+          console.warn('⚠️ Git push failed:', gitErr.message);
+        }
+      }
     } catch (e) {
       console.warn('⚠️ Post-update hook warning:', e.message);
     }
