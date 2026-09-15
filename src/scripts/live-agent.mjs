@@ -19,6 +19,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
+import { pingIndexNowBatch } from './indexnow-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -198,6 +199,7 @@ export async function runLiveAgent() {
   const existingAnswerKeySlugs = new Set(existingAnswerKeys.map(k => k.slug));
 
   let stats = { jobs: 0, results: 0, admitCards: 0, yojanas: 0, answerKeys: 0 };
+  const newUrls = []; // Track newly discovered URLs for IndexNow ping
 
   for (const feed of REALTIME_FEEDS) {
     console.log(`📡 Scanning: ${feed.name}...`);
@@ -260,6 +262,7 @@ export async function runLiveAgent() {
           });
           existingYojanaSlugs.add(slug);
           stats.yojanas++;
+          newUrls.push(`https://govtjob.salarypitcher.com/yojana/${slug}/`);
         }
       }
       // 2. Sarkari Results
@@ -280,6 +283,7 @@ export async function runLiveAgent() {
           });
           existingResultSlugs.add(slug);
           stats.results++;
+          newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
         }
       }
       // 3. Admit Cards
@@ -300,6 +304,7 @@ export async function runLiveAgent() {
           });
           existingAdmitCardSlugs.add(slug);
           stats.admitCards++;
+          newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
         }
       }
       // 4. Answer Keys
@@ -319,6 +324,7 @@ export async function runLiveAgent() {
           });
           existingAnswerKeySlugs.add(slug);
           stats.answerKeys++;
+          newUrls.push(`https://govtjob.salarypitcher.com/answer-keys/${slug}/`);
         }
       }
       // 5. Latest Jobs
@@ -412,6 +418,7 @@ export async function runLiveAgent() {
           });
           existingJobSlugs.add(slug);
           stats.jobs++;
+          newUrls.push(`https://govtjob.salarypitcher.com/latest-jobs/${slug}/`);
         }
       }
     }
@@ -439,6 +446,12 @@ export async function runLiveAgent() {
       if (fs.existsSync(pingScript)) {
         console.log('🚀 [Live Agent] Auto-submitting latest updates to Google Indexing API...');
         execSync(`node "${pingScript}" --limit=20`, { stdio: 'inherit' });
+      }
+
+      // Auto-ping IndexNow (event-driven, chunked — Bing compliant)
+      if (newUrls.length > 0) {
+        console.log(`🚀 [Live Agent] Auto-pinging IndexNow for ${newUrls.length} new URL(s)...`);
+        await pingIndexNowBatch(newUrls);
       }
     } catch (e) {
       console.warn('⚠️ Post-update hook warning:', e.message);

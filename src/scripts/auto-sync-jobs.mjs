@@ -8,6 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { pingIndexNowBatch } from './indexnow-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -68,6 +69,7 @@ async function syncGovtJobs() {
   let newJobsCount = 0;
   let newResultsCount = 0;
   let newAdmitCardsCount = 0;
+  const newUrls = []; // Track newly discovered URLs for IndexNow ping
 
   // Real-time Feed Sources (RSS & Open Data endpoints)
   const RSS_FEEDS = [
@@ -186,6 +188,7 @@ async function syncGovtJobs() {
             });
             existingJobSlugs.add(slug);
             newJobsCount++;
+            newUrls.push(`https://govtjob.salarypitcher.com/latest-jobs/${slug}/`);
           }
         } else if (/result|merit list|score card/i.test(title)) {
           if (!existingResultSlugs.has(slug)) {
@@ -202,6 +205,7 @@ async function syncGovtJobs() {
             });
             existingResultSlugs.add(slug);
             newResultsCount++;
+            newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
           }
         } else if (/admit card|hall ticket|call letter/i.test(title)) {
           if (!existingAdmitCardSlugs.has(slug)) {
@@ -218,6 +222,7 @@ async function syncGovtJobs() {
             });
             existingAdmitCardSlugs.add(slug);
             newAdmitCardsCount++;
+            newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
           }
         }
       }
@@ -232,6 +237,12 @@ async function syncGovtJobs() {
   if (newAdmitCardsCount > 0) writeJSON(ADMIT_CARDS_FILE, existingAdmitCards);
 
   console.log(`✅ [Auto-Sync Complete] Synced: +${newJobsCount} Jobs, +${newResultsCount} Results, +${newAdmitCardsCount} Admit Cards.`);
+
+  // Ping IndexNow for newly discovered URLs (event-driven, Bing compliant)
+  if (newUrls.length > 0) {
+    console.log(`\n🚀 [Auto-Sync] Pinging IndexNow for ${newUrls.length} new URL(s)...`);
+    await pingIndexNowBatch(newUrls);
+  }
 }
 
 syncGovtJobs().catch(console.error);
