@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import jobs from '../../data/latest-jobs.json';
+import { buildJobPostingSchema } from '../../utils/jobSchema.js';
+import HowToApplyStepper from '../../components/HowToApplyStepper.astro';
 
 export function getStaticPaths() {
   return jobs.map(job => ({
@@ -12,46 +14,7 @@ export function getStaticPaths() {
 const { job } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
 
-const jobPostingSchema = {
-  "@context": "https://schema.org",
-  "@type": "JobPosting",
-  "title": job.title,
-  "description": `${job.title} — ${job.organization}. ${job.vacancies || 'Multiple'} vacancies. Last date: ${job.lastDate}. Apply online.`,
-  "datePosted": job.startDate || new Date().toISOString().split('T')[0],
-  "validThrough": job.lastDate && job.lastDate.includes('/') ? job.lastDate.split('/').reverse().join('-') : "2026-12-31",
-  "employmentType": "FULL_TIME",
-  "directApply": true,
-  "hiringOrganization": {
-    "@type": "Organization",
-    "name": job.organization,
-    "sameAs": job.applyUrl || siteUrl
-  },
-  "jobLocation": {
-    "@type": "Place",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "IN"
-    }
-  },
-  "baseSalary": {
-    "@type": "MonetaryAmount",
-    "currency": "INR",
-    "value": {
-      "@type": "QuantitativeValue",
-      "minValue": job.feeGeneral ? parseInt(job.feeGeneral.replace(/[^\d]/g, '')) : undefined,
-      "unitText": "APPLICATION FEE"
-    }
-  },
-  "identifier": {
-    "@type": "PropertyValue",
-    "name": job.organization,
-    "value": job.advNumber || job.slug
-  },
-  "applicationContact": {
-    "@type": "Organization",
-    "name": job.organization
-  }
-};
+const jobPostingSchema = buildJobPostingSchema(job, siteUrl);
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -86,21 +49,49 @@ const howToSchema = {
 
 const lastUpdated = new Date().toLocaleDateString('hi-IN', { year: 'numeric', month: 'long', day: 'numeric' });
 
+// Related Jobs logic: Match category, state, or organization (excluding current job)
+const relatedJobs = jobs
+  .filter(j => j.slug !== job.slug && (
+    (job.category && j.category === job.category) ||
+    (job.state && j.state === job.state) ||
+    (job.organization && j.organization === job.organization)
+  ))
+  .slice(0, 4);
+
+if (relatedJobs.length < 4) {
+  const others = jobs
+    .filter(j => j.slug !== job.slug && !relatedJobs.some(r => r.slug === j.slug))
+    .slice(0, 4 - relatedJobs.length);
+  relatedJobs.push(...others);
+}
+
 const d = {
   advNo: job.advNumber || 'Check Official Notification',
+  notificationDate: job.postDate || job.startDate || 'Refer to Notification',
   postDate: job.postDate || job.startDate,
   applyStart: job.startDate || job.lastDate,
   lastDateApply: job.lastDate,
   feeLastDate: job.feePaymentLastDate || job.lastDate,
-  correctionDate: job.correctionDate || 'N/A',
+  correctionDate: job.correctionDate || 'To be announced',
   examDate: job.examDate || 'To be announced',
+  admitCardDate: job.admitCardDate || '7–10 days before exam date',
   resultDate: job.resultDate || 'To be announced',
   feeGeneral: job.feeGeneral || '₹800–₹1000',
   feeSCST: job.feeSC_ST || '₹300–₹400',
   feePH: job.feePH || '₹0 (Exempted)',
+  feeFemale: job.feeFemale || (job.feeGeneral ? 'Check Notification' : '₹0 (Exempted)'),
+  paymentMode: 'Online (Net Banking, UPI, Debit Card, Credit Card) or E-Challan',
   ageMin: job.ageMin || 18,
   ageMax: job.ageMax || 40,
   ageRelaxation: 'SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs, Ex-Servicemen: as per Govt rules.',
+  ageRelaxationTable: [
+    { category: 'SC / ST', relaxation: '5 Years' },
+    { category: 'OBC (Non-Creamy Layer)', relaxation: '3 Years' },
+    { category: 'PwD / PH (General)', relaxation: '10 Years' },
+    { category: 'PwD / PH (OBC)', relaxation: '13 Years' },
+    { category: 'PwD / PH (SC / ST)', relaxation: '15 Years' },
+    { category: 'Ex-Servicemen (ESM)', relaxation: '3 Years after deduction of military service' }
+  ],
   posts: job.vacancyDetails || [{ postName: job.title.replace(/ Online Form.*/, '').replace(/ —.*/, ''), posts: job.vacancies || 'TBA' }],
   qualifications: job.eligibility || [{ postName: job.qualify || 'Post Name', details: job.qualify ? `${job.qualify} from a recognized University/Institution.` : 'Check Official Notification' }],
   howToApply: job.howToApply || [
@@ -111,11 +102,13 @@ const d = {
     'Pay the application fee online.',
     'Submit the form and save/print the confirmation.',
   ],
-  selectionProcess: job.selectionProcess || ['Written Examination', 'Skill/Physical Test (if applicable)', 'Document Verification', 'Final Merit List'],
-  links: job.importantLinks || [
-    { label: 'Apply Online', url: job.applyUrl || '#' },
-    { label: 'Download Notification', url: '#' },
-    { label: 'Official Website', url: '#' },
+  selectionProcess: job.selectionProcess || ['Written Examination / Computer Based Test (CBT)', 'Physical / Skill Test (if applicable)', 'Document Verification (DV)', 'Medical Examination', 'Final Merit List'],
+  links: [
+    { label: 'Apply Online', url: job.applyUrl || '#', type: 'official', badge: 'Official Portal' },
+    { label: 'Download Notification', url: job.applyUrl || '#', type: 'official', badge: 'Official PDF' },
+    { label: 'Official Website', url: job.applyUrl || '#', type: 'official', badge: 'Official Website' },
+    { label: 'Check Syllabus & Pattern', url: `/syllabus/`, type: 'internal', badge: 'Syllabus' },
+    { label: 'Govt Exam Daily Quiz', url: `/quiz/`, type: 'internal', badge: 'Free Quiz' },
   ],
   examPattern: job.examPattern || [
     { stage: 'Prelims', subjects: 'Reasoning, English, Quantitative Aptitude, General Awareness', questions: 200, maxMarks: 200, duration: '120 minutes' },
@@ -124,7 +117,7 @@ const d = {
   salaryDetails: job.salaryDetails || {
     payScale: job.salary || 'As per 7th Pay Commission Matrix',
     grossSalary: '₹60,000 to ₹70,000 (including allowances)',
-    allowances: 'Dearness Allowance, HRA, Special Allowance, Medical Benefits'
+    allowances: 'Dearness Allowance (DA), HRA, Special Allowance, Medical Benefits'
   },
   faq: job.faq || [
     { question: `${job.shortTitle || job.title} ka exam kab hoga?`, answer: 'Exam date abhi officially announce nahi hui hai.' },
@@ -181,7 +174,10 @@ const faqSchema = {
       <!-- hero header -->
       <div class="jd-hero">
         <div class="jd-hero-badge">{job.category?.toUpperCase() || 'GOVT JOB'}</div>
-        <h1 class="jd-hero-title">{job.title}</h1>
+        <div class="jd-hero-title-row">
+          <h1 class="jd-hero-title">{job.title}</h1>
+          <button class="jd-bookmark-btn" data-slug={job.slug} data-title={job.shortTitle || job.title} aria-label="Save job">🤍</button>
+        </div>
         <div class="jd-hero-org">{job.organization}</div>
         {d.advNo && <div class="jd-hero-adv">Adv. No: {d.advNo}</div>}
         <div class="jd-hero-meta">
@@ -292,15 +288,16 @@ const faqSchema = {
 
           <!-- How To Apply -->
           <section class="jd-card">
-            <h2 class="jd-card-head"><span class="jd-head-icon">📝</span> How To Apply</h2>
-            <ol class="jd-steps">
-              {d.howToApply.map((step, i) => (
-                <li>
-                  <span class="jd-step-num">{i + 1}</span>
-                  <span class="jd-step-text">{step}</span>
-                </li>
-              ))}
-            </ol>
+            <h2 class="jd-card-head"><span class="jd-head-icon">📝</span> How To Apply — Step-by-Step Interactive Guide</h2>
+            <HowToApplyStepper
+              steps={d.howToApply}
+              applyUrl={job.applyUrl}
+              organization={job.organization}
+              title={job.shortTitle || job.title}
+              feeGeneral={d.feeGeneral}
+              feeSC_ST={d.feeSCST}
+              feePH={d.feePH}
+            />
           </section>
 
           <!-- Mode of Selection -->
@@ -533,6 +530,18 @@ const faqSchema = {
     </div>
   </main>
 
+  <!-- Sticky Apply CTA -->
+  <div id="stickyCta" class="sticky-cta" style="display:none;">
+    <div class="sticky-cta-inner">
+      <div class="sticky-job-info">
+        <span class="sticky-title" id="stickyTitle"></span>
+        <span class="sticky-days" id="stickyDays"></span>
+      </div>
+      <a id="stickyApplyBtn" href="#" class="sticky-apply-btn" target="_blank" rel="noopener">Apply Now →</a>
+      <button id="stickyDismiss" class="sticky-dismiss" aria-label="Close">×</button>
+    </div>
+  </div>
+
   <style>
     .job-detail-page {
       padding-top: 80px;
@@ -584,6 +593,20 @@ const faqSchema = {
       color: var(--white);
       margin-bottom: 8px;
     }
+    .jd-hero-title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .jd-hero-title-row .jd-hero-title { margin-bottom: 0; flex: 1; }
+    .jd-bookmark-btn {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      cursor: pointer; font-size: 24px; padding: 6px 10px; border-radius: 10px;
+      transition: all .2s; line-height: 1; flex-shrink: 0; margin-top: 4px;
+    }
+    .jd-bookmark-btn:hover { background: rgba(255,107,53,.2); border-color: var(--saffron); transform: scale(1.1); }
+    .jd-bookmark-btn.bookmarked { background: rgba(255,107,53,.2); }
     .jd-hero-org {
       font-size: 16px;
       color: var(--saffron);
@@ -1079,5 +1102,130 @@ const faqSchema = {
     }
     .jd-social-item:hover { background: rgba(255,255,255,.05); border-color: var(--hairline); }
     .jd-social-icon { font-size: 20px; width: 28px; text-align: center; }
+
+    /* Sticky Apply CTA */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--navy); border-top: 2px solid var(--saffron);
+      box-shadow: 0 -4px 20px rgba(0,0,0,.3); padding: 0;
+      animation: slideUp .3s ease-out;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .sticky-cta-inner {
+      max-width: 1100px; margin: 0 auto; display: flex; align-items: center;
+      gap: 16px; padding: 12px 24px;
+    }
+    .sticky-job-info { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .sticky-title {
+      font-family: var(--font-display); font-size: 15px; font-weight: 700;
+      color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .sticky-days {
+      font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+      white-space: nowrap; background: rgba(255,107,53,.15); color: var(--saffron);
+    }
+    .sticky-apply-btn {
+      flex-shrink: 0; padding: 10px 24px; background: var(--saffron); color: #000;
+      font-family: var(--font-display); font-weight: 700; font-size: 15px;
+      border-radius: 8px; text-decoration: none; transition: all .2s; white-space: nowrap;
+    }
+    .sticky-apply-btn:hover { background: var(--gold); transform: translateY(-1px); }
+    .sticky-dismiss {
+      flex-shrink: 0; background: none; border: 1px solid rgba(255,255,255,.2);
+      color: var(--muted); font-size: 20px; width: 32px; height: 32px;
+      border-radius: 8px; cursor: pointer; transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sticky-dismiss:hover { background: rgba(255,255,255,.1); color: var(--white); }
+    @media (max-width: 640px) {
+      .sticky-cta-inner { padding: 10px 16px; gap: 10px; }
+      .sticky-title { font-size: 13px; }
+      .sticky-apply-btn { padding: 8px 16px; font-size: 13px; }
+    }
   </style>
+
+  <script is:inline define:vars={{ stickyJobData: { title: job.shortTitle || job.title, applyUrl: job.applyUrl || '#', lastDate: job.lastDate } }}>
+  (function() {
+    function getSavedJobs() {
+      try { return JSON.parse(localStorage.getItem('ss_saved_jobs') || '[]'); } catch(e) { return []; }
+    }
+    function setSavedJobs(arr) {
+      try { localStorage.setItem('ss_saved_jobs', JSON.stringify(arr)); } catch(e) {}
+    }
+    var btn = document.querySelector('.jd-bookmark-btn');
+    if (!btn) return;
+    var slug = btn.getAttribute('data-slug');
+    var title = btn.getAttribute('data-title');
+
+    function updateBtn() {
+      var saved = getSavedJobs();
+      var isSaved = saved.some(function(j) { return j.slug === slug; });
+      btn.textContent = isSaved ? '🧡' : '🤍';
+      btn.classList.toggle('bookmarked', isSaved);
+    }
+
+    btn.addEventListener('click', function() {
+      var saved = getSavedJobs();
+      var idx = saved.findIndex(function(j) { return j.slug === slug; });
+      if (idx >= 0) {
+        saved.splice(idx, 1);
+      } else {
+        saved.push({ slug: slug, title: title, savedAt: Date.now() });
+      }
+      setSavedJobs(saved);
+      updateBtn();
+    });
+
+    updateBtn();
+  })();
+
+    // Sticky Apply CTA
+    (function() {
+      var stickyCta = document.getElementById('stickyCta');
+      var stickyTitle = document.getElementById('stickyTitle');
+      var stickyDays = document.getElementById('stickyDays');
+      var stickyApplyBtn = document.getElementById('stickyApplyBtn');
+      var stickyDismiss = document.getElementById('stickyDismiss');
+      if (!stickyCta) return;
+
+      var jobTitle = stickyJobData.title;
+      var applyUrl = stickyJobData.applyUrl;
+      var lastDate = stickyJobData.lastDate;
+      var daysLeft = Math.ceil((new Date(lastDate).getTime() - Date.now()) / 86400000);
+
+      stickyTitle.textContent = jobTitle.length > 40 ? jobTitle.substring(0, 40) + '...' : jobTitle;
+      stickyApplyBtn.href = applyUrl;
+
+      if (daysLeft <= 0) {
+        stickyDays.textContent = '🔴 Closed';
+        stickyDays.style.background = 'rgba(136,136,136,.2)';
+        stickyDays.style.color = '#888';
+      } else if (daysLeft <= 3) {
+        stickyDays.textContent = '🔴 ' + daysLeft + 'd left!';
+        stickyDays.style.background = 'rgba(255,59,59,.15)';
+        stickyDays.style.color = '#FF3B3B';
+      } else if (daysLeft <= 7) {
+        stickyDays.textContent = '⚠️ ' + daysLeft + 'd left';
+        stickyDays.style.background = 'rgba(255,140,0,.15)';
+        stickyDays.style.color = '#FF8C00';
+      } else {
+        stickyDays.textContent = '✅ ' + daysLeft + 'd left';
+      }
+
+      var dismissed = false;
+      window.addEventListener('scroll', function() {
+        if (dismissed) return;
+        if (window.scrollY > 300) {
+          stickyCta.style.display = '';
+        } else {
+          stickyCta.style.display = 'none';
+        }
+      });
+
+      stickyDismiss.addEventListener('click', function() {
+        dismissed = true;
+        stickyCta.style.display = 'none';
+      });
+    })();
+  </script>
 </BaseLayout>

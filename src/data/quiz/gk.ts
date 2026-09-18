@@ -9,59 +9,454 @@ export interface QuizQuestion {
 }
 
 export const gkQuestions: QuizQuestion[] = [
-  { id: 1, question: "Bharat ka sabse lamba nadi kaun si hai?", options: ["Ganga", "Yamuna", "Brahmaputra", "Godavari"], correct: 2, explanation: "Brahmaputra Bharat ki sabse lambi nadi hai jo Manipur se nikalti hai aur Bangladesh hote hue Bengal ki khadi mein milti hai.", category: "gk", difficulty: "easy" },
-  { id: 2, question: "Bharat ka rashtriya pakshi kaun sa hai?", options: ["Mor", "Cheel", "Kabootar", "Kauwa"], correct: 0, explanation: "Mor (Indian Peafowl) Bharat ka rashtriya pakshi hai jo sundarta aur grace ka prateek hai.", category: "gk", difficulty: "easy" },
-  { id: 3, question: "Bharat ka sabse bada rajya kshetrafal mein kaun sa hai?", options: ["Madhya Pradesh", "Rajasthan", "Uttar Pradesh", "Maharashtra"], correct: 1, explanation: "Rajasthan Bharat ka sabse bada rajya hai jiska kshetrafal 3,42,239 varg km hai.", category: "gk", difficulty: "easy" },
-  { id: 4, question: "Vande Bharat train ka pehla route kis do shehron ke beech mein tha?", options: ["Delhi-Lucknow", "Delhi-Varanasi", "Mumbai-Goa", "Chennai-Bangalore"], correct: 1, explanation: "Vande Bharat Express ka pehla route Delhi se Varanasi ke beech tha jo 2018 mein shuru hua.", category: "gk", difficulty: "medium" },
-  { id: 5, question: "Bharat ka sabse uncha pek konsa hai?", options: ["Kangchenjunga", "Nanda Devi", "K2", "Kamet"], correct: 0, explanation: "Kangchenjunga (8,586 m) Bharat ka sabse uncha pek hai jo Sikkim mein hai.", category: "gk", difficulty: "medium" },
-  { id: 6, question: "Swachh Bharat Mission kab shuru hua tha?", options: ["2014", "2015", "2016", "2017"], correct: 0, explanation: "Swachh Bharat Mission 2 October 2014 ko Mahatma Gandhi ki 145vi janm jayanti ke mauke par shuru hua.", category: "gk", difficulty: "easy" },
-  { id: 7, question: "RBI ka full form kya hai?", options: ["Reserve Bank of India", "Republic Bank of India", "Rural Bank of India", "Reserve Bureau of India"], correct: 0, explanation: "RBI ka full form Reserve Bank of India hai jo Bharat ka central bank hai.", category: "gk", difficulty: "easy" },
-  { id: 8, question: "Bharat mein kitne rajya hain?", options: ["28", "29", "30", "31"], correct: 0, explanation: "Bharat mein 28 rajya hain aur 8 kendrashashit pradesh hain.", category: "gk", difficulty: "easy" },
-  { id: 9, question: "G20 Summit 2023 kahan ayojit hua tha?", options: ["Mumbai", "Kolkata", "New Delhi", "Bengaluru"], correct: 2, explanation: "G20 Summit 2023 ka ayojan Bharat mein New Delhi mein September 2023 mein hua tha.", category: "gk", difficulty: "easy" },
-  { id: 10, question: "Bharat ka sabse bada museum kaun sa hai?", options: ["National Museum Delhi", "Indian Museum Kolkata", "Salar Jung Museum Hyderabad", "Prince of Wales Museum Mumbai"], correct: 1, explanation: "Indian Museum Kolkata Bharat ka sabse purana aur sabse bada museum hai jo 1814 mein sthapit hua.", category: "gk", difficulty: "medium" },
-  { id: 11, question: "Chandrayaan-3 ka launch date kya tha?", options: ["14 July 2023", "23 August 2023", "15 August 2023", "5 September 2023"], correct: 0, explanation: "Chandrayaan-3 ko 14 July 2023 ko launch kiya gaya tha aur 23 August 2023 ko chand par safaltapoorvak utara.", category: "gk", difficulty: "medium" },
-  { id: 12, question: "Bharat Ratna award kab shuru hua tha?", options: ["1950", "1954", "1958", "1962"], correct: 1, explanation: "Bharat Ratna award 1954 mein shuru hua tha. Pehle yeh do saal tak diya nahi gaya.", category: "gk", difficulty: "medium" },
-  { id: 13, question: "Hindi Diwas kab manaya jata hai?", options: ["14 September", "15 August", "26 January", "2 October"], correct: 0, explanation: "Hindi Diwas 14 September ko manaya jata hai kyunki 1949 mein aaj ke din Hindi ko Rashtriya Bhasha ka darja mila.", category: "gk", difficulty: "easy" },
-  { id: 14, question: "Bharat ka sabse lamba samudra pul kaun sa hai?", options: ["Bandra-Worli Sea Link", "Mumbai Trans Harbour Link", "Pamban Bridge", "Howrah Bridge"], correct: 1, explanation: "Mumbai Trans Harbour Link (MTHL) Bharat ka sabse lamba samudra pul hai jo 21.8 km lamba hai.", category: "gk", difficulty: "hard" },
-  { id: 15, question: "ISRO ka full form kya hai?", options: ["Indian Space Research Organisation", "International Space Research Organisation", "Indian Scientific Research Organisation", "Indian Satellite Research Organisation"], correct: 0, explanation: "ISRO ka full form Indian Space Research Organisation hai jo Bharat ka space agency hai.", category: "gk", difficulty: "easy" },
-  { id: 16, question: "Bharat mein sabse zyada bhashayein kis rajya mein boli jaati hain?", options: ["Rajasthan", "Bihar", "Maharashtra", "Jammu & Kashmir"], correct: 3, explanation: "Jammu & Kashmir mein sabse zyada alag-alag bhashayein boli jaati hain.", category: "gk", difficulty: "hard" },
-  { id: 17, question: "Niti Aayog kab sthapit hua tha?", options: ["2014", "2015", "2016", "2017"], correct: 1, explanation: "Niti Aayog 1 January 2015 ko sthapit hua tha jo Planning Commission ki jagah aaya.", category: "gk", difficulty: "medium" },
-  { id: 18, question: "Bharat ka sabse purana vishwavidyalaya kaun sa hai?", options: ["BHU", "DU", "Calcutta University", "Nalanda University"], correct: 3, explanation: "Nalanda University (5th century) Bharat ki sabse purani university hai jo Bihar mein thi.", category: "gk", difficulty: "medium" },
-  { id: 19, question: "UPI ka full form kya hai?", options: ["Unified Payments Interface", "Universal Payment Interface", "Unified Profit Interface", "United Payments Interface"], correct: 0, explanation: "UPI ka full form Unified Payments Interface hai jo NPCI dwara develop kiya gaya hai.", category: "gk", difficulty: "easy" },
-  { id: 20, question: "Bharat ka sabse bada jila kshetrafal mein kaun sa hai?", options: ["Kutch (Gujarat)", "Leh (Ladakh)", "Churu (Rajasthan)", "Jaisalmer (Rajasthan)"], correct: 1, explanation: "Leh (Ladakh) Bharat ka sabse bada jila hai jiska kshetrafal 45,110 varg km hai.", category: "gk", difficulty: "hard" },
-  { id: 21, question: "UPI 123Pay kis ke liye hai?", options: ["Smartphone users", "Feature phone users", "Tablet users", "Desktop users"], correct: 1, explanation: "UPI 123Pay feature phone users ke liye hai jisse bina internet ke bhi payment ho sakta hai.", category: "gk", difficulty: "medium" },
-  { id: 22, question: "Bharat ka sabse pehla metro kis shehar mein chala tha?", options: ["Delhi", "Mumbai", "Kolkata", "Chennai"], correct: 2, explanation: "Kolkata Metro Bharat ka sabse pehla metro hai jo 1984 mein chalu hua.", category: "gk", difficulty: "medium" },
-  { id: 23, question: "Digital India Mission kab launch hua tha?", options: ["1 July 2015", "15 August 2015", "26 January 2016", "1 January 2016"], correct: 0, explanation: "Digital India Mission 1 July 2015 ko launch hua tha jo digital literacy badhane ke liye hai.", category: "gk", difficulty: "medium" },
-  { id: 24, question: "Bharat ka sabse zyada padha jaane wala akhbar kaun sa hai?", options: ["Dainik Jagran", "Dainik Bhaskar", "Hindustan Times", "Times of India"], correct: 0, explanation: "Dainik Jagran Bharat ka sabse zyada padha jaane wala akhbar hai jo Hindi mein hai.", category: "gk", difficulty: "easy" },
-  { id: 25, question: "PM-KISAN yojana ke tahat kitna milta hai?", options: ["₹4,000", "₹6,000", "₹8,000", "₹10,000"], correct: 1, explanation: "PM-KISAN ke tahat kisanon ko ₹6,000 prati varsh milte hain jo ₹2,000 ki teen kishton mein diye jaate hain.", category: "gk", difficulty: "easy" },
-  { id: 26, question: "Bharat ka pehla space tourist kaun tha?", options: ["Rakesh Sharma", "Kalpana Chawla", "Sunita Williams", "Ravish Malhotra"], correct: 0, explanation: "Rakesh Sharma Bharat ke pehle astronaut the jo 1984 mein Soviet Union ke saath space mein gaye.", category: "gk", difficulty: "easy" },
-  { id: 27, question: "Ayushman Bharat Yojana mein kitna cover milta hai?", options: ["₹1 lakh", "₹2 lakh", "₹5 lakh", "₹10 lakh"], correct: 2, explanation: "Ayushman Bharat Yojana mein prati parivar ₹5 lakh tak ka swasthya bima cover milta hai.", category: "gk", difficulty: "easy" },
-  { id: 28, question: "Bharat ka sabse bada cricket stadium kaun sa hai?", options: ["Eden Gardens Kolkata", "Narendra Modi Stadium Ahmedabad", "Wankhede Stadium Mumbai", "M.A. Chidambaram Stadium Chennai"], correct: 1, explanation: "Narendra Modi Stadium Ahmedabad Bharat ka sabse bada cricket stadium hai jisme 1,32,000 darshak baith sakte hain.", category: "gk", difficulty: "medium" },
-  { id: 29, question: "UPI AutoPay kya hai?", options: ["Automatic bill payment", "QR code payment", "NFC payment", "UPI request"], correct: 0, explanation: "UPI AutoPay ek automatic recurring payment system hai jo bills aur subscriptions ke liye hai.", category: "gk", difficulty: "medium" },
-  { id: 30, question: "Bharat ka sabse lamba national highway kaun sa hai?", options: ["NH 44", "NH 7", "NH 48", "NH 27"], correct: 0, explanation: "NH 44 (Srinagar-Kanyakumari) Bharat ka sabse lamba national highway hai jo 3,745 km lamba hai.", category: "gk", difficulty: "hard" },
-  { id: 31, question: "One Nation One Ration Card yojana kab lagu hua?", options: ["2019", "2020", "2021", "2022"], correct: 1, explanation: "One Nation One Ration Card yojana 2020 mein lagu hua jisse kisi bhi state se ration mil sakta hai.", category: "gk", difficulty: "medium" },
-  { id: 32, question: "Bharat ka sabse zyada varsh rainfall kahan hota hai?", options: ["Cherrapunji", "Mawsynram", "Mumbai", "Kerala"], correct: 1, explanation: "Mawsynram (Meghalaya) Bharat mein sabse zyada varsh rainfall hota hai.", category: "gk", difficulty: "medium" },
-  { id: 33, question: "Bharatiya Nyaya Sanhita (BNS) kab lagu hua?", options: ["1 January 2024", "1 July 2024", "15 August 2024", "26 January 2025"], correct: 1, explanation: "Bharatiya Nyaya Sanhita 1 July 2024 ko lagu hua jo Indian Penal Code ki jagah aaya.", category: "gk", difficulty: "medium" },
-  { id: 34, question: "PM Surya Ghar Muft Bijli Yojana mein kitni free bijli milti hai?", options: ["100 units", "200 units", "300 units", "500 units"], correct: 2, explanation: "PM Surya Ghar Yojana mein ghar ki chhat par solar panel lagakar 300 units free bijli milti hai.", category: "gk", difficulty: "medium" },
-  { id: 35, question: "Bharat ka sabse bada zoo kaun sa hai?", options: ["National Zoo Delhi", "Zoo Kolkata", "Arignar Anna Zoo Chennai", "Vijayawada Zoo"], correct: 2, explanation: "Arignar Anna Zoo (Guindy National Park) Chennai Bharat ka sabse purana zoo hai.", category: "gk", difficulty: "hard" },
-  { id: 36, question: "Lakhpati Didi Yojana kis ke liye hai?", options: ["Farmers", "Women SHG members", "Students", "Senior citizens"], correct: 1, explanation: "Lakhpati Didi Yojana mahila self-help group (SHG) members ke liye hai jisse ₹1 lakh ki aay ka lakshya hai.", category: "gk", difficulty: "medium" },
-  { id: 37, question: "Bharat mein sabse zyada smartphone users kis state mein hain?", options: ["Maharashtra", "Uttar Pradesh", "Karnataka", "Tamil Nadu"], correct: 1, explanation: "Uttar Pradesh mein sabse zyada smartphone users hain kyunki yeh Bharat ka sabse badi abadi wala rajya hai.", category: "gk", difficulty: "hard" },
-  { id: 38, question: "CBDC ka full form kya hai?", options: ["Central Bank Digital Currency", "Central Bureau of Digital Currency", "Central Bank of Digital Commerce", "Central Board of Digital Currency"], correct: 0, explanation: "CBDC ka full form Central Bank Digital Currency hai jo RBI ka digital rupiya hai.", category: "gk", difficulty: "hard" },
-  { id: 39, question: "PM Vishwakarma Yojana kis ke liye hai?", options: ["IT professionals", "Traditional artisans", "Farmers", "Teachers"], correct: 1, explanation: "PM Vishwakarma Yojana paramparik karigaron aur shilpkaron ke liye hai jo unki skills ko badhata hai.", category: "gk", difficulty: "medium" },
-  { id: 40, question: "Bharat ka sabse lamba bridge kaun sa hai?", options: ["Howrah Bridge", "Brahmaputra Bridge", "Mumbai Trans Harbour Link", "Atal Setu"], correct: 2, explanation: "Mumbai Trans Harbour Link (Atal Setu) 21.8 km ke saath Bharat ka sabse lamba bridge hai.", category: "gk", difficulty: "hard" },
-  { id: 41, question: "Startup India kitab kab launch hua tha?", options: ["2015", "2016", "2017", "2018"], correct: 1, explanation: "Startup India initiative 16 January 2016 ko launch hua tha jo startups ko badhava deta hai.", category: "gk", difficulty: "medium" },
-  { id: 42, question: "Bharat ka sabse zyada ghee utpadan kis rajya mein hota hai?", options: ["Gujarat", "Rajasthan", "Uttar Pradesh", "Punjab"], correct: 2, explanation: "Uttar Pradesh Bharat mein sabse zyada ghee utpadan karta hai.", category: "gk", difficulty: "hard" },
-  { id: 43, question: "G20 ka 2024 ka adhyaksh kaun tha?", options: ["India", "Brazil", "South Africa", "Australia"], correct: 1, explanation: "G20 ka 2024 ka adhyaksh Brazil tha.", category: "gk", difficulty: "medium" },
-  { id: 44, question: "Bharat ka sabse bada port kaun sa hai?", options: ["Nhava Sheva", "Kandla", "Chennai", "Mumbai"], correct: 0, explanation: "Nhava Sheva (JNPT) Bharat ka sabse bada container port hai jo Maharashtra mein hai.", category: "gk", difficulty: "medium" },
-  { id: 45, question: "Open Network for Digital Commerce (ONDC) kya hai?", options: ["E-commerce platform", "Digital payment system", "Logistics network", "Social media platform"], correct: 0, explanation: "ONDC ek open network hai jo e-commerce ko democratize karta hai aur chote sellers ko madad karta hai.", category: "gk", difficulty: "hard" },
-  { id: 46, question: "Bharat ka sabse zyada tourists kis state mein aate hain?", options: ["Goa", "Maharashtra", "Tamil Nadu", "Rajasthan"], correct: 3, explanation: "Rajasthan mein sabse zyada domestic aur international tourists aate hain.", category: "gk", difficulty: "medium" },
-  { id: 47, question: "Bhashini app kya hai?", options: ["Translation app", "Language learning app", "Speech recognition app", "All of the above"], correct: 3, explanation: "Bhashini ek AI-powered translation app hai jo 22+ Indian languages support karta hai.", category: "gk", difficulty: "medium" },
-  { id: 48, question: "Bharat ka sabse zyada paida hone wala phal kaun sa hai?", options: ["Aam", "Kela", "Sabji", "Tamatar"], correct: 1, explanation: "Kela Bharat mein sabse zyada paida hone wala phal hai.", category: "gk", difficulty: "easy" },
-  { id: 49, question: "PM eBus Seva yojana mein kitne e-bus lane hain?", options: ["10,000", "20,000", "50,000", "1,00,000"], correct: 3, explanation: "PM eBus Seva yojana mein 1,00,000 e-bus lane hain jo public transport ko improve karenge.", category: "gk", difficulty: "hard" },
-  { id: 50, question: "Bharat ka pehla underwater metro kahan hai?", options: ["Mumbai", "Kolkata", "Chennai", "Delhi"], correct: 1, explanation: "Kolkata mein Hooghly river ke neeche Bharat ka pehla underwater metro hai.", category: "gk", difficulty: "medium" },
-  { id: 51, question: "Digital India Award 2023 kise mila tha?", options: ["UPSC", "MyGov", "IRCTC", "DigiLocker"], correct: 1, explanation: "MyGov ko Digital India Award 2023 mein best digital governance platform ke liye mila.", category: "gk", difficulty: "hard" },
-  { id: 52, question: "Bharat ka sabse bada solar park kahan hai?", options: ["Rajasthan", "Gujarat", "Karnataka", "Tamil Nadu"], correct: 0, explanation: "Bhadla Solar Park Rajasthan mein hai jo duniya ke sabse bade solar parks mein se ek hai.", category: "gk", difficulty: "medium" },
-  { id: 53, question: "National Education Policy (NEP) 2020 mein kya naya hai?", options: ["5+3+3+4 structure", "10+2 structure", "12+4 structure", "8+4 structure"], correct: 0, explanation: "NEP 2020 mein 5+3+3+4 academic structure lagu hua jo foundational learning par focus karta hai.", category: "gk", difficulty: "medium" },
-  { id: 54, question: "Bharat ka sabse zyada forest cover kis rajya mein hai?", options: ["Madhya Pradesh", "Arunachal Pradesh", "Chhattisgarh", "Maharashtra"], correct: 0, explanation: "Madhya Pradesh mein sabse zyada forest cover hai jo Bharat ka sabse bada rajya bhi hai.", category: "gk", difficulty: "hard" },
-  { id: 55, question: "e-Shram card kis ke liye hai?", options: ["Government employees", "Unorganised workers", "Business owners", "Students"], correct: 1, explanation: "e-Shram card unorganised workers ke liye hai jisse unhe social security benefits milte hain.", category: "gk", difficulty: "easy" }
+  {
+    id: 1,
+    question: "भारतीय संविधान का कौन सा अनुच्छेद 'समान नागरिक संहिता' (Uniform Civil Code) से संबंधित है?",
+    options: ["अनुच्छेद 40", "अनुच्छेद 44", "अनुच्छेद 48", "अनुच्छेद 51"],
+    correct: 1,
+    explanation: "अनुच्छेद 44 राज्य के नीति निर्देशक तत्वों (DPSP) के अंतर्गत पूरे भारत में नागरिकों के लिए एक समान नागरिक संहिता (UCC) का प्रावधान करता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 2,
+    question: "भारत में किस नदी को 'दक्षिण भारत की गंगा' या 'दक्षिण गंगा' कहा जाता है?",
+    options: ["कृष्णा नदी", "गोदावरी नदी", "कावेरी नदी", "महानदी"],
+    correct: 1,
+    explanation: "गोदावरी प्रायद्वीपीय भारत की सबसे लंबी नदी (1,465 किमी) है और इसे इसकी लंबाई और पवित्रता के कारण 'दक्षिण गंगा' या 'वृद्ध गंगा' कहा जाता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 3,
+    question: "भारतीय राष्ट्रीय कांग्रेस के किस अधिवेशन में 'पूर्ण स्वराज' की मांग औपचारिक रूप से स्वीकार की गई थी?",
+    options: ["1920 नागपुर", "1924 बेलगाम", "1929 लाहौर", "1931 कराची"],
+    correct: 2,
+    explanation: "दिसंबर 1929 के लाहौर अधिवेशन में पंडित जवाहरलाल नेहरू की अध्यक्षता में 'पूर्ण स्वराज' का ऐतिहासिक प्रस्ताव पारित किया गया था।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 4,
+    question: "क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य कौन सा है?",
+    options: ["मध्य प्रदेश", "राजस्थान", "उत्तर प्रदेश", "महाराष्ट्र"],
+    correct: 1,
+    explanation: "राजस्थान 3,42,239 वर्ग किमी क्षेत्रफल के साथ भारत का सबसे बड़ा राज्य है, इसके बाद क्रमशः मध्य प्रदेश और महाराष्ट्र आते हैं।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 5,
+    question: "भारत का सबसे ऊंचा जलप्रपात (Waterfalls) कुंचिकल किस राज्य में स्थित है?",
+    options: ["केरल", "कर्नाटक", "तमिलनाडु", "महाराष्ट्र"],
+    correct: 1,
+    explanation: "कुंचिकल जलप्रपात कर्नाटक के शिमोगा जिले में वाराही नदी पर स्थित है, जिसकी ऊंचाई लगभग 455 मीटर है।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 6,
+    question: "भारतीय रिज़र्व बैंक (RBI) की स्थापना किस आयोग की सिफारिश पर हुई थी?",
+    options: ["हिल्टन यंग आयोग", "हंटर आयोग", "साइमन कमीशन", "कैबिनेट मिशन"],
+    correct: 0,
+    explanation: "RBI की स्थापना हिल्टन यंग आयोग (रॉयल कमीशन ऑन इंडियन करेंसी एंड फाइनेंस) की सिफारिश पर 1 अप्रैल 1935 को हुई थी।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 7,
+    question: "हड़प्पा सभ्यता का स्थल 'लोथल', जो प्राचीन गोदीबाड़ा (Dockyard) के लिए प्रसिद्ध है, किस राज्य में है?",
+    options: ["राजस्थान", "पंजाब", "हरियाणा", "गुजरात"],
+    correct: 3,
+    explanation: "लोथल गुजरात के भाल क्षेत्र में भोगवा नदी के तट पर स्थित सिंधु घाटी सभ्यता का प्रमुख बंदरगाह और गोदीबाड़ा शहर था।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 8,
+    question: "मानव शरीर में रक्त का थक्का जमने (Blood Clotting) के लिए कौन सा विटामिन आवश्यक है?",
+    options: ["विटामिन A", "विटामिन C", "विटामिन K", "विटामिन D"],
+    correct: 2,
+    explanation: "विटामिन K (फाइलोक्विनोन) यकृत में प्रोथ्रोम्बिन के निर्माण के लिए आवश्यक है जो रक्त के थक्के जमने में मुख्य भूमिका निभाता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 9,
+    question: "भारतीय संविधान की 8वीं अनुसूची में कुल कितनी भाषाओं को मान्यता दी गई है?",
+    options: ["18", "20", "22", "24"],
+    correct: 2,
+    explanation: "मूल संविधान में 14 भाषाएं थीं। संशोधनों के बाद वर्तमान में 8वीं अनुसूची में कुल 22 आधिकारिक भाषाएं सूचीबद्ध हैं।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 10,
+    question: "भारत में 'प्रोजेक्ट टाइगर' किस वर्ष शुरू किया गया था?",
+    options: ["1971", "1973", "1977", "1982"],
+    correct: 1,
+    explanation: "बाघों के संरक्षण के लिए जिम कॉर्बेट नेशनल पार्क से 1 अप्रैल 1973 को 'प्रोजेक्ट टाइगर' की शुरुआत की गई थी।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 11,
+    question: "सूर्य के प्रकाश को पृथ्वी तक पहुँचने में लगभग कितना समय लगता है?",
+    options: ["5 मिनट 20 सेकंड", "6 मिनट 10 सेकंड", "8 मिनट 20 सेकंड", "10 मिनट"],
+    correct: 2,
+    explanation: "प्रकाश की चाल लगभग 3 लाख किमी/सेकंड है और सूर्य से पृथ्वी की औसत दूरी 14.96 करोड़ किमी है, जिससे समय लगभग 8 मिनट 20 सेकंड (500 सेकंड) लगता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 12,
+    question: "भारतीय संविधान का संरक्षक (Guardian of the Constitution) किसे माना जाता है?",
+    options: ["भारत का राष्ट्रपति", "भारत का सर्वोच्च न्यायालय", "संसद", "भारत का महान्यायवादी"],
+    correct: 1,
+    explanation: "संविधान की व्याख्या और मौलिक अधिकारों की रक्षा का अंतिम दायित्व भारत के सर्वोच्च न्यायालय (Supreme Court) के पास है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 13,
+    question: "संसद के संयुक्त अधिवेशन (Joint Sitting) की अध्यक्षता कौन करता है?",
+    options: ["भारत का राष्ट्रपति", "राज्यसभा का सभापति", "लोकसभा का अध्यक्ष (Speaker)", "प्रधानमंत्री"],
+    correct: 2,
+    explanation: "अनुच्छेद 108 के तहत राष्ट्रपति संयुक्त बैठक बुलाते हैं, लेकिन अनुच्छेद 118(4) के अनुसार इसकी अध्यक्षता लोकसभा अध्यक्ष (Speaker) करते हैं।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 14,
+    question: "भारत के किस राज्य में 'काजीरंगा राष्ट्रीय उद्यान' स्थित है, जो एक सींग वाले गैंडे के लिए प्रसिद्ध है?",
+    options: ["पश्चिम बंगाल", "असम", "ओडिशा", "अरुणाचल प्रदेश"],
+    correct: 1,
+    explanation: "काजीरंगा राष्ट्रीय उद्यान असम के गोलाघाट और नागांव जिलों में स्थित एक यूनेस्को विश्व धरोहर स्थल है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 15,
+    question: "'सत्यमेव जयते' शब्द किस उपनिषद से लिया गया है?",
+    options: ["कठ उपनिषद", "मुण्डक उपनिषद", "केनोपनिषद", "छांदोग्य उपनिषद"],
+    correct: 1,
+    explanation: "भारत का राष्ट्रीय आदर्श वाक्य 'सत्यमेव जयते' मुण्डक उपनिषद से लिया गया है, जिसका अर्थ है 'सत्य की ही जीत होती है'।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 16,
+    question: "नीति आयोग (NITI Aayog) के पदेन अध्यक्ष (Ex-officio Chairman) कौन होते हैं?",
+    options: ["वित्त मंत्री", "राष्ट्रपति", "प्रधानमंत्री", "गृह मंत्री"],
+    correct: 2,
+    explanation: "1 जनवरी 2015 को स्थापित नीति आयोग (National Institution for Transforming India) के पदेन अध्यक्ष देश के प्रधानमंत्री होते हैं।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 17,
+    question: "गांधीजी ने 1930 में प्रसिद्ध दांडी मार्च (नमक सत्याग्रह) कहाँ से शुरू किया था?",
+    options: ["साबरमती आश्रम", "दांडी", "सेवाग्राम आश्रम", "वर्धा"],
+    correct: 0,
+    explanation: "12 मार्च 1930 को गांधीजी ने अपने 78 अनुयायियों के साथ साबरमती आश्रम से 240 मील की दांडी यात्रा शुरू की थी।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 18,
+    question: "विश्व पर्यावरण दिवस (World Environment Day) प्रतिवर्ष किस तिथि को मनाया जाता है?",
+    options: ["22 अप्रैल", "5 जून", "16 सितंबर", "1 दिसंबर"],
+    correct: 1,
+    explanation: "संयुक्त राष्ट्र पर्यावरण कार्यक्रम (UNEP) के तहत पर्यावरण जागरूकता बढ़ाने के लिए हर साल 5 जून को विश्व पर्यावरण दिवस मनाया जाता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 19,
+    question: "भारत में जीएसटी (Goods and Services Tax) कब लागू किया गया था?",
+    options: ["1 जनवरी 2017", "1 अप्रैल 2017", "1 जुलाई 2017", "1 अक्टूबर 2017"],
+    correct: 2,
+    explanation: "भारत में 101वें संविधान संशोधन अधिनियम के तहत 1 जुलाई 2017 को अप्रत्यक्ष कर प्रणाली 'जीएसटी' लागू की गई थी।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 20,
+    question: "कर्क रेखा (Tropic of Cancer) भारत के कितने राज्यों से होकर गुजरती है?",
+    options: ["6 राज्य", "7 राज्य", "8 राज्य", "9 राज्य"],
+    correct: 2,
+    explanation: "कर्क रेखा 8 राज्यों से गुजरती है: गुजरात, राजस्थान, मध्य प्रदेश, छत्तीसगढ़, झारखंड, पश्चिम बंगाल, त्रिपुरा और मिजोरम।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 21,
+    question: "वायुमंडल में सबसे अधिक मात्रा में पाई जाने वाली गैस कौन सी है?",
+    options: ["ऑक्सीजन", "नाइट्रोजन", "कार्बन डाइऑक्साइड", "आर्गन"],
+    correct: 1,
+    explanation: "पृथ्वी के वायुमंडल में लगभग 78.08% नाइट्रोजन और लगभग 20.95% ऑक्सीजन पाई जाती है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 22,
+    question: "भारत का पहला परमाणु ऊर्जा केंद्र (Atomic Power Station) कहाँ स्थापित किया गया था?",
+    options: ["तारापुर (महाराष्ट्र)", "रावतभाटा (राजस्थान)", "कुडनकुलम (तमिलनाडु)", "नरोरा (उत्तर प्रदेश)"],
+    correct: 0,
+    explanation: "तारापुर परमाणु ऊर्जा केंद्र भारत का पहला वाणिज्यिक परमाणु ऊर्जा संयंत्र था, जो अक्टूबर 1969 में शुरू हुआ था।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 23,
+    question: "ध्वनि की तीव्रता (Loudness) मापने की इकाई क्या है?",
+    options: ["हर्ट्ज़ (Hz)", "डेसिबल (dB)", "कैंडेला", "ल्युमेन"],
+    correct: 1,
+    explanation: "ध्वनि की तीव्रता को डेसिबल (dB) में मापा जाता है, जबकि ध्वनि की आवृत्ति (Frequency) को हर्ट्ज़ (Hz) में मापा जाता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 24,
+    question: "भारत छोड़ो आंदोलन (Quit India Movement) किस वर्ष शुरू हुआ था?",
+    options: ["1940", "1942", "1945", "1946"],
+    correct: 1,
+    explanation: "8 अगस्त 1942 को बॉम्बे के गोवालिया टैंक मैदान से गांधीजी ने 'करो या मरो' नारे के साथ भारत छोड़ो आंदोलन शुरू किया था।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 25,
+    question: "भारतीय संविधान का कौन सा अनुच्छेद 'अस्पृश्यता के उन्मूलन' (Abolition of Untouchability) से संबंधित है?",
+    options: ["अनुच्छेद 14", "अनुच्छेद 17", "अनुच्छेद 19", "अनुच्छेद 21"],
+    correct: 1,
+    explanation: "अनुच्छेद 17 अस्पृश्यता को समाप्त करता है और किसी भी रूप में इसका आचरण दंडनीय अपराध घोषित करता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 26,
+    question: "हीराकुंड बांध किस नदी पर निर्मित भारत का सबसे लंबा बांध है?",
+    options: ["दामोदर", "नर्मदा", "महानदी", "गोदावरी"],
+    correct: 2,
+    explanation: "हीराकुंड बांध ओडिशा के संबलपुर में महानदी पर बना है। इसकी कुल लंबाई 25.8 किमी है, जो इसे दुनिया के सबसे लंबे मिट्टी के बांधों में से एक बनाती है।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 27,
+    question: "मानव शरीर की सबसे बड़ी ग्रंथि (Largest Gland) कौन सी है?",
+    options: ["अग्न्याशय (Pancreas)", "यकृत (Liver)", "थायरॉयड", "पीयूष ग्रंथि"],
+    correct: 1,
+    explanation: "यकृत (Liver) मानव शरीर की सबसे बड़ी ग्रंथि और सबसे भारी आंतरिक अंग है, जिसका वजन लगभग 1.5 किग्रा होता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 28,
+    question: "1857 के प्रथम स्वतंत्रता संग्राम के समय भारत का गवर्नर जनरल कौन था?",
+    options: ["लॉर्ड डलहौजी", "लॉर्ड कैनिंग", "लॉर्ड कर्जन", "लॉर्ड माउंटबेटन"],
+    correct: 1,
+    explanation: "1857 के विद्रोह के समय लॉर्ड कैनिंग गवर्नर जनरल थे। 1858 में वे भारत के पहले वायसराय बने।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 29,
+    question: "भारत में हरित क्रांति (Green Revolution) का जनक किसे कहा जाता है?",
+    options: ["डॉ. वर्गीज कुरियन", "एम.एस. स्वामीनाथन", "डॉ. होमी भाभा", "सैम पित्रोदा"],
+    correct: 1,
+    explanation: "एम.एस. स्वामीनाथन को भारत में उच्च उपज वाली गेहूं और चावल की किस्मों को विकसित कर खाद्यान्न आत्मनिर्भरता लाने के लिए हरित क्रांति का जनक माना जाता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 30,
+    question: "भारतीय संविधान सभा के संवैधानिक सलाहकार (Constitutional Advisor) कौन थे?",
+    options: ["डॉ. बी.आर. अम्बेडकर", "डॉ. राजेंद्र प्रसाद", "सर बी.एन. राव", "के.एम. मुंशी"],
+    correct: 2,
+    explanation: "सर बेनेगल नरसिंह राव (B.N. Rau) संविधान सभा के संवैधानिक सलाहकार थे जिन्होंने संविधान का प्रारंभिक मसौदा तैयार किया था।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 31,
+    question: "किस देश के साथ भारत की सबसे लंबी अंतरराष्ट्रीय स्थलीय सीमा लगती है?",
+    options: ["चीन", "पाकिस्तान", "बांग्लादेश", "नेपाल"],
+    correct: 2,
+    explanation: "भारत की सबसे लंबी सीमा बांग्लादेश के साथ (4,096.7 किमी) लगती है, जो 5 भारतीय राज्यों से मिलती है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 32,
+    question: "पंचायती राज व्यवस्था को संवैधानिक दर्जा किस संविधान संशोधन अधिनियम द्वारा दिया गया?",
+    options: ["71वां संशोधन", "73वां संशोधन", "74वां संशोधन", "86वां संशोधन"],
+    correct: 1,
+    explanation: "73वें संविधान संशोधन 1992 द्वारा संविधान में भाग 9 और 11वीं अनुसूची जोड़कर त्रिस्तरीय पंचायती राज को संवैधानिक दर्जा दिया गया।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 33,
+    question: "रोहतांग दर्रा (Rohtang Pass) भारत के किस राज्य/केंद्रशासित प्रदेश में स्थित है?",
+    options: ["उत्तराखंड", "हिमाचल प्रदेश", "लद्दाख", "सिक्किम"],
+    correct: 1,
+    explanation: "रोहतांग दर्रा हिमाचल प्रदेश में पीर पंजाल श्रेणी में स्थित है, जो कुल्लू घाटी को लाहौल और स्पीति घाटियों से जोड़ता है।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 34,
+    question: "किस विटामिन की कमी के कारण रतौंधी (Night Blindness) रोग होता है?",
+    options: ["विटामिन A", "विटामिन B1", "विटामिन C", "विटामिन E"],
+    correct: 0,
+    explanation: "विटामिन A (रेटिनॉल) की कमी से आँखों में रोडोप्सिन वर्णक कम हो जाता है, जिससे कम रोशनी में देखने में कठिनाई (रतौंधी) होती है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 35,
+    question: "अकबरनामा और आईन-ए-अकबरी की रचना किसने की थी?",
+    options: ["बीरबल", "अबुल फजल", "तानसेन", "फैजी"],
+    correct: 1,
+    explanation: "मुगल सम्राट अकबर के नवरत्नों में से एक अबुल फजल ने फारसी भाषा में अकबरनामा और उसके तीसरे भाग आईन-ए-अकबरी की रचना की थी।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 36,
+    question: "भारतीय संविधान में 'मौलिक कर्तव्य' (Fundamental Duties) किस देश के संविधान से प्रेरित हैं?",
+    options: ["संयुक्त राज्य अमेरिका", "सोवियत संघ (USSR / रूस)", "ब्रिटेन", "आयरलैंड"],
+    correct: 1,
+    explanation: "42वें संविधान संशोधन 1976 द्वारा स्वर्ण सिंह समिति की सिफारिश पर सोवियत संघ के संविधान से प्रेरित होकर भाग 4A में मौलिक कर्तव्य जोड़े गए।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 37,
+    question: "सिंधु जल समझौता (Indus Water Treaty) भारत और किस देश के बीच 1960 में हुआ था?",
+    options: ["चीन", "पाकिस्तान", "अफगानिस्तान", "बांग्लादेश"],
+    correct: 1,
+    explanation: "19 सितंबर 1960 को विश्व बैंक की मध्यस्थता में भारत और पाकिस्तान के बीच सिंधु और उसकी सहायक नदियों के जल बंटवारे पर समझौता हुआ था।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 38,
+    question: "पृथ्वी की सबसे ऊपरी ठोस परत को क्या कहा जाता है?",
+    options: ["मेंटल (Mantle)", "क्रस्ट / भूपर्पटी (Crust)", "कोर / क्रोड (Core)", "मैग्मा"],
+    correct: 1,
+    explanation: "पृथ्वी की सबसे बाहरी और पतली ठोस परत को भूपर्पटी (Crust) कहते हैं, जो मुख्यतः सिलिका और एल्युमिनियम (SiAl) से बनी है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 39,
+    question: "भारतीय संसद के किस सदन को कभी भंग नहीं किया जा सकता?",
+    options: ["लोकसभा", "राज्यसभा", "विधानसभा", "इनमें से कोई नहीं"],
+    correct: 1,
+    explanation: "राज्यसभा एक स्थायी सदन है जो कभी भंग नहीं होता। इसके एक-तिहाई सदस्य प्रत्येक दो वर्ष बाद सेवानिवृत्त होते हैं।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 40,
+    question: "विद्युत धारा (Electric Current) मापने के लिए किस उपकरण का उपयोग किया जाता है?",
+    options: ["वोल्टमीटर", "एमीटर", "गैल्वेनोमीटर", "ओह्ममीटर"],
+    correct: 1,
+    explanation: "परिपथ में विद्युत धारा के परिमाण को मापने के लिए एमीटर (Ammeter) को हमेशा श्रेणी क्रम (Series) में लगाया जाता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 41,
+    question: "कुचिपुड़ी (Kuchipudi) किस भारतीय राज्य का प्रमुख शास्त्रीय नृत्य है?",
+    options: ["तमिलनाडु", "केरल", "आंध्र प्रदेश", "ओडिशा"],
+    correct: 2,
+    explanation: "कुचिपुड़ी आंध्र प्रदेश के कृष्णा जिले के कुचिपुड़ी गांव से जन्मा एक प्रमुख भारतीय शास्त्रीय नृत्य है।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 42,
+    question: "भारत में वित्तीय वर्ष (Financial Year) की अवधि क्या होती है?",
+    options: ["1 जनवरी से 31 दिसंबर", "1 अप्रैल से 31 मार्च", "1 जुलाई से 30 जून", "1 मार्च से 28 फरवरी"],
+    correct: 1,
+    explanation: "भारत सरकार और अधिकांश वित्तीय संस्थानों का वित्तीय वर्ष 1 अप्रैल से शुरू होकर अगले वर्ष के 31 मार्च तक चलता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 43,
+    question: "प्रकाश वर्ष (Light Year) किसकी इकाई है?",
+    options: ["समय की", "दूरी की", "प्रकाश की तीव्रता की", "चाल की"],
+    correct: 1,
+    explanation: "प्रकाश द्वारा निर्वात में एक वर्ष में तय की गई दूरी को प्रकाश वर्ष कहते हैं (लगभग 9.46 × 10^12 किमी)। यह खगोलीय दूरी की इकाई है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 44,
+    question: "भारतीय संविधान का कौन सा अनुच्छेद 'जीवन और व्यक्तिगत स्वतंत्रता के अधिकार' (Right to Life) की गारंटी देता है?",
+    options: ["अनुच्छेद 19", "अनुच्छेद 20", "अनुच्छेद 21", "अनुच्छेद 22"],
+    correct: 2,
+    explanation: "अनुच्छेद 21 घोषित करता है कि विधि द्वारा स्थापित प्रक्रिया के अतिरिक्त किसी भी व्यक्ति को उसके जीवन या दैहिक स्वतंत्रता से वंचित नहीं किया जाएगा।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 45,
+    question: "भाखड़ा नांगल परियोजना किस नदी पर स्थित है?",
+    options: ["सतलुज", "व्यास", "रावी", "चिनाब"],
+    correct: 0,
+    explanation: "भाखड़ा नांगल बांध हिमाचल प्रदेश और पंजाब की सीमा पर सतलुज नदी पर बना भारत का एक प्रमुख गुरुत्वीय बांध है।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 46,
+    question: "प्लासी का युद्ध (Battle of Plassey) किस वर्ष लड़ा गया था?",
+    options: ["1757", "1764", "1761", "1772"],
+    correct: 0,
+    explanation: "23 जून 1757 को बंगाल के नवाब सिराजुद्दौला और रॉबर्ट क्लाइव के नेतृत्व वाली ब्रिटिश ईस्ट इंडिया कंपनी के बीच प्लासी का युद्ध हुआ था।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 47,
+    question: "कंप्यूटर की मुख्य मेमोरी (Main Memory) को क्या कहा जाता है?",
+    options: ["ROM", "RAM", "हार्ड डिस्क", "पेन ड्राइव"],
+    correct: 1,
+    explanation: "RAM (Random Access Memory) प्राथमिक/अस्थायी मेमोरी है जिसे CPU सीधे और तेजी से पढ़ और लिख सकता है।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 48,
+    question: "भारत में राष्ट्रीय मतदाता दिवस (National Voters' Day) कब मनाया जाता है?",
+    options: ["15 जनवरी", "24 जनवरी", "25 जनवरी", "26 जनवरी"],
+    correct: 2,
+    explanation: "25 जनवरी 1950 को भारत निर्वाचन आयोग (ECI) की स्थापना के उपलक्ष्य में हर वर्ष 25 जनवरी को राष्ट्रीय मतदाता दिवस मनाया जाता है।",
+    category: "gk",
+    difficulty: "medium"
+  },
+  {
+    id: 49,
+    question: "अजंता और एलोरा की प्रसिद्ध गुफाएं किस राज्य में स्थित हैं?",
+    options: ["मध्य प्रदेश", "महाराष्ट्र", "कर्नाटक", "गुजरात"],
+    correct: 1,
+    explanation: "अजंता और एलोरा की रॉक-कट प्राचीन गुफाएं महाराष्ट्र के छत्रपति संभाजीनगर (औरंगाबाद) जिले में स्थित यूनेस्को धरोहर स्थल हैं।",
+    category: "gk",
+    difficulty: "easy"
+  },
+  {
+    id: 50,
+    question: "वायुमंडलीय दाब (Atmospheric Pressure) मापने के लिए किस यंत्र का उपयोग किया जाता है?",
+    options: ["बैरोमीटर (Barometer)", "मैनोमीटर", "हाइग्रोमीटर", "अल्टीमीटर"],
+    correct: 0,
+    explanation: "बैरोमीटर का उपयोग वायुमंडलीय दाब मापने के लिए किया जाता है। इसका आविष्कार इवानजेलिस्टा टोरीसेली ने किया था।",
+    category: "gk",
+    difficulty: "easy"
+  }
 ];

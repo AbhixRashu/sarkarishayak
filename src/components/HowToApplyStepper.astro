@@ -1,0 +1,792 @@
+---
+interface Props {
+  steps?: string[];
+  applyUrl?: string;
+  organization?: string;
+  title?: string;
+  feeGeneral?: string;
+  feeSC_ST?: string;
+  feePH?: string;
+}
+
+const {
+  steps = [],
+  applyUrl = '#',
+  organization = 'Recruiting Organization',
+  title = 'Application',
+  feeGeneral = 'Check Notification',
+  feeSC_ST = 'Check Notification',
+  feePH = '₹0 (Exempted)'
+} = Astro.props;
+
+// Standard structured steps with rich fallback and icon mappings
+const defaultStepTemplates = [
+  {
+    stepNum: 1,
+    icon: '🌐',
+    title: 'Visit Official Portal',
+    desc: `Official recruitment portal par visit karein (${organization}).`,
+    hasLink: true,
+    details: 'Diye gaye direct link ya official website par jaakar active recruitment notification section check karein.'
+  },
+  {
+    stepNum: 2,
+    icon: '👤',
+    title: 'Online Registration (New User)',
+    desc: 'New Candidate Registration link par click karke profile banayein.',
+    details: 'Apna Name, Mobile Number, Email ID aur Date of Birth enter karein. OTP verify hone ke baad Registration Number aur Password generate hoga, jise note karke rakhein.'
+  },
+  {
+    stepNum: 3,
+    icon: '📝',
+    title: 'Fill Application Details',
+    desc: 'Login karke detailed application form dhyaan se bharein.',
+    details: 'Educational qualification (10th/12th/Graduation marks & roll numbers), Category (General/OBC/SC/ST/EWS), Communication Address aur Exam City Center preferences sahi bharein.'
+  },
+  {
+    stepNum: 4,
+    icon: '🖼️',
+    title: 'Upload Photograph & Signature',
+    desc: 'Nirdharit size aur format mein photo aur signature upload karein.',
+    hasUploadSpec: true,
+    details: 'Guidelines ke anuroop document scan karein taaki form reject na ho:'
+  },
+  {
+    stepNum: 5,
+    icon: '💳',
+    title: 'Pay Application Fee',
+    desc: 'Apni category ke anusaar application fee ka online bhugtan karein.',
+    hasFeeTable: true,
+    details: 'Net Banking, Debit Card, Credit Card ya UPI se online fee jama karein. Fee payment ka receipt zaroor save karein.'
+  },
+  {
+    stepNum: 6,
+    icon: '🚀',
+    title: 'Final Submit & Download Printout',
+    desc: 'Form review karke Final Submit karein aur hard copy print karein.',
+    details: 'Final Submit button dabane se pehle Preview mein saare details re-check karein. Form submit hone ke baad final application PDF download karke 2 printout apne pass surakshit rakhein.'
+  }
+];
+
+// Merge any custom steps provided in `steps` array
+const enrichedSteps = defaultStepTemplates.map((template, idx) => {
+  const customText = steps[idx];
+  return {
+    ...template,
+    customText: customText || template.desc
+  };
+});
+---
+
+<div class="apply-stepper-container" id="howToApplyStepper">
+  <div class="stepper-header-bar">
+    <div class="stepper-status-badge">
+      <span class="pulse-dot"></span>
+      <span>Step-by-Step Online Guide</span>
+    </div>
+    <button type="button" class="stepper-toggle-all-btn" id="toggleAllStepsBtn" aria-expanded="false">
+      <span class="btn-text">Expand All</span>
+      <span class="btn-icon">▾</span>
+    </button>
+  </div>
+
+  <div class="stepper-timeline">
+    {enrichedSteps.map((step, index) => (
+      <div class={`stepper-step ${index === 0 ? 'is-open' : ''}`} data-step={index}>
+        {/* Step Rail & Number Node */}
+        <div class="step-rail">
+          <div class="step-node" aria-hidden="true">
+            <span class="node-icon">{step.icon}</span>
+            <span class="node-badge">{step.stepNum}</span>
+          </div>
+          {index < enrichedSteps.length - 1 && <div class="step-connector"></div>}
+        </div>
+
+        {/* Step Card / Accordion Content */}
+        <div class="step-content">
+          <button
+            type="button"
+            class="step-trigger"
+            aria-expanded={index === 0 ? 'true' : 'false'}
+            aria-controls={`step-body-${index}`}
+          >
+            <div class="trigger-left">
+              <span class="step-tag">Step {step.stepNum}</span>
+              <h3 class="step-heading">{step.title}</h3>
+              <p class="step-summary">{step.customText}</p>
+            </div>
+            <div class="trigger-chevron" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </button>
+
+          <div
+            id={`step-body-${index}`}
+            class="step-body"
+            style={index === 0 ? 'max-height: 500px; opacity: 1;' : 'max-height: 0px; opacity: 0;'}
+          >
+            <div class="step-body-inner">
+              <p class="step-detail-text">{step.details}</p>
+
+              {/* Special Feature: Official Link Copy & Visit (Step 1) */}
+              {step.hasLink && (
+                <div class="step-link-box">
+                  <div class="link-info">
+                    <span class="link-label">Official Link:</span>
+                    <span class="link-url-text" id="officialLinkText">{applyUrl !== '#' ? applyUrl : 'Check Notification'}</span>
+                  </div>
+                  <div class="link-actions">
+                    {applyUrl !== '#' && (
+                      <button
+                        type="button"
+                        class="copy-link-btn"
+                        data-link={applyUrl}
+                        aria-label="Copy official application link"
+                      >
+                        <span class="copy-icon">📋</span>
+                        <span class="copy-label">Copy Link</span>
+                      </button>
+                    )}
+                    <a
+                      href={applyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="open-link-btn"
+                    >
+                      <span>Open Website ↗</span>
+                    </a>
+                  </div>
+                </div>
+              )}
+
+              {/* Special Feature: Upload Guidelines Box (Step 4) */}
+              {step.hasUploadSpec && (
+                <div class="step-spec-grid">
+                  <div class="spec-card">
+                    <div class="spec-header">
+                      <span class="spec-icon">📷</span>
+                      <span class="spec-title">Passport Photo</span>
+                    </div>
+                    <ul class="spec-list">
+                      <li><strong>Size:</strong> 20 KB – 50 KB</li>
+                      <li><strong>Format:</strong> JPG / JPEG</li>
+                      <li><strong>Background:</strong> White / Plain Light</li>
+                      <li>Bina cap, mask ya goggles ke</li>
+                    </ul>
+                  </div>
+                  <div class="spec-card">
+                    <div class="spec-header">
+                      <span class="spec-icon">✍️</span>
+                      <span class="spec-title">Signature</span>
+                    </div>
+                    <ul class="spec-list">
+                      <li><strong>Size:</strong> 10 KB – 20 KB</li>
+                      <li><strong>Format:</strong> JPG / JPEG</li>
+                      <li><strong>Ink:</strong> Black / Blue ballpoint pen</li>
+                      <li>White paper par clear sign</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+
+              {/* Special Feature: Application Fee Summary Table (Step 5) */}
+              {step.hasFeeTable && (
+                <div class="step-fee-card">
+                  <div class="fee-card-title">💵 Category-wise Fee Structure</div>
+                  <div class="fee-table-mini">
+                    <div class="fee-row">
+                      <span class="fee-cat">General / OBC / EWS:</span>
+                      <span class="fee-amt bold">{feeGeneral}</span>
+                    </div>
+                    <div class="fee-row">
+                      <span class="fee-cat">SC / ST:</span>
+                      <span class="fee-amt">{feeSC_ST}</span>
+                    </div>
+                    <div class="fee-row">
+                      <span class="fee-cat">PH / Divyang:</span>
+                      <span class="fee-amt green">{feePH}</span>
+                    </div>
+                  </div>
+                  <div class="fee-note">
+                    ⚡ Mode: Net Banking, UPI, Debit Card, Credit Card (Online Payment).
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+(function() {
+  const container = document.getElementById('howToApplyStepper');
+  if (!container) return;
+
+  const steps = container.querySelectorAll('.stepper-step');
+  const toggleAllBtn = container.querySelector('#toggleAllStepsBtn');
+
+  // Accordion toggle per step
+  steps.forEach((step) => {
+    const trigger = step.querySelector('.step-trigger');
+    const body = step.querySelector('.step-body');
+    if (!trigger || !body) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = step.classList.contains('is-open');
+      if (isOpen) {
+        step.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        body.style.maxHeight = '0px';
+        body.style.opacity = '0';
+      } else {
+        step.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        body.style.maxHeight = (body.scrollHeight + 40) + 'px';
+        body.style.opacity = '1';
+      }
+      updateToggleAllBtn();
+    });
+  });
+
+  // Toggle all steps
+  if (toggleAllBtn) {
+    toggleAllBtn.addEventListener('click', () => {
+      const allOpen = Array.from(steps).every(s => s.classList.contains('is-open'));
+      steps.forEach(step => {
+        const trigger = step.querySelector('.step-trigger');
+        const body = step.querySelector('.step-body');
+        if (!trigger || !body) return;
+
+        if (allOpen) {
+          step.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+          body.style.maxHeight = '0px';
+          body.style.opacity = '0';
+        } else {
+          step.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = (body.scrollHeight + 40) + 'px';
+          body.style.opacity = '1';
+        }
+      });
+      updateToggleAllBtn();
+    });
+  }
+
+  function updateToggleAllBtn() {
+    if (!toggleAllBtn) return;
+    const allOpen = Array.from(steps).every(s => s.classList.contains('is-open'));
+    const btnText = toggleAllBtn.querySelector('.btn-text');
+    const btnIcon = toggleAllBtn.querySelector('.btn-icon');
+    if (btnText) btnText.textContent = allOpen ? 'Collapse All' : 'Expand All';
+    if (btnIcon) btnIcon.textContent = allOpen ? '▴' : '▾';
+    toggleAllBtn.setAttribute('aria-expanded', allOpen ? 'true' : 'false');
+  }
+
+  // Copy official link button
+  container.querySelectorAll('.copy-link-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const link = btn.getAttribute('data-link');
+      if (!link) return;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(link).then(showCopied).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        const input = document.createElement('input');
+        input.value = link;
+        document.body.appendChild(input);
+        input.select();
+        try {
+          document.execCommand('copy');
+          showCopied();
+        } catch (err) {
+          alert('Link: ' + link);
+        }
+        document.body.removeChild(input);
+      }
+
+      function showCopied() {
+        const label = btn.querySelector('.copy-label');
+        const icon = btn.querySelector('.copy-icon');
+        const origText = label ? label.textContent : 'Copy Link';
+        const origIcon = icon ? icon.textContent : '📋';
+
+        if (label) label.textContent = 'Copied! ✅';
+        if (icon) icon.textContent = '';
+        btn.classList.add('copied');
+
+        setTimeout(() => {
+          if (label) label.textContent = origText;
+          if (icon) icon.textContent = origIcon;
+          btn.classList.remove('copied');
+        }, 2200);
+      }
+    });
+  });
+})();
+</script>
+
+<style>
+  .apply-stepper-container {
+    background: var(--card, #111a2e);
+    border: 1px solid var(--hairline, rgba(255,255,255,.08));
+    border-radius: 12px;
+    padding: 20px;
+    margin: 8px 0 24px;
+  }
+
+  .stepper-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--hairline, rgba(255,255,255,.08));
+  }
+
+  .stepper-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--saffron, #FF6B35);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--saffron, #FF6B35);
+    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+    animation: pulse 1.6s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 107, 53, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+  }
+
+  .stepper-toggle-all-btn {
+    background: var(--elevated, #162035);
+    border: 1px solid var(--hairline, rgba(255,255,255,.1));
+    color: var(--body, #ccc);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+
+  .stepper-toggle-all-btn:hover {
+    border-color: var(--saffron, #FF6B35);
+    color: var(--white, #fff);
+  }
+
+  .stepper-timeline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stepper-step {
+    display: flex;
+    gap: 16px;
+    position: relative;
+  }
+
+  /* Step Rail */
+  .step-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 44px;
+  }
+
+  .step-node {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--elevated, #162035);
+    border: 2px solid var(--hairline, rgba(255,255,255,.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+  }
+
+  .node-icon {
+    font-size: 20px;
+  }
+
+  .node-badge {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--navy, #0d1b2a);
+    border: 1.5px solid var(--saffron, #FF6B35);
+    color: var(--saffron, #FF6B35);
+    font-size: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stepper-step.is-open .step-node {
+    border-color: var(--saffron, #FF6B35);
+    background: rgba(255, 107, 53, 0.12);
+    box-shadow: 0 0 12px rgba(255, 107, 53, 0.25);
+  }
+
+  .step-connector {
+    width: 2px;
+    flex-grow: 1;
+    min-height: 24px;
+    background: var(--hairline, rgba(255,255,255,.1));
+    margin: 4px 0;
+  }
+
+  .stepper-step.is-open .step-connector {
+    background: linear-gradient(to bottom, var(--saffron, #FF6B35), var(--hairline, rgba(255,255,255,.1)));
+  }
+
+  /* Step Content Card */
+  .step-content {
+    flex-grow: 1;
+    background: var(--elevated, #162035);
+    border: 1px solid var(--hairline, rgba(255,255,255,.08));
+    border-radius: 10px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  .stepper-step.is-open .step-content {
+    border-color: rgba(255, 107, 53, 0.35);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+
+  .step-trigger {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .trigger-left {
+    flex-grow: 1;
+  }
+
+  .step-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--saffron, #FF6B35);
+    margin-bottom: 2px;
+  }
+
+  .step-heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white, #fff);
+    margin: 0 0 4px;
+    line-height: 1.3;
+  }
+
+  .step-summary {
+    font-size: 13.5px;
+    color: var(--body, #bbb);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .trigger-chevron {
+    color: var(--muted, #888);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .stepper-step.is-open .trigger-chevron {
+    transform: rotate(180deg);
+    color: var(--saffron, #FF6B35);
+  }
+
+  /* Step Body */
+  .step-body {
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+  }
+
+  .step-body-inner {
+    padding: 4px 18px 18px;
+    border-top: 1px dashed var(--hairline, rgba(255,255,255,.08));
+  }
+
+  .step-detail-text {
+    font-size: 14px;
+    color: var(--body, #ccc);
+    line-height: 1.55;
+    margin: 12px 0;
+  }
+
+  /* Link Box (Step 1) */
+  .step-link-box {
+    background: rgba(255, 107, 53, 0.06);
+    border: 1px solid rgba(255, 107, 53, 0.25);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .link-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 200px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .link-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--saffron, #FF6B35);
+    letter-spacing: 0.5px;
+  }
+
+  .link-url-text {
+    font-size: 13px;
+    color: var(--white, #fff);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: monospace;
+  }
+
+  .link-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .copy-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--elevated, #162035);
+    border: 1px solid var(--hairline, rgba(255,255,255,.2));
+    color: var(--white, #fff);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .copy-link-btn:hover {
+    border-color: var(--saffron, #FF6B35);
+    color: var(--saffron, #FF6B35);
+  }
+
+  .copy-link-btn.copied {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+    color: #10b981;
+  }
+
+  .open-link-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--saffron, #FF6B35);
+    color: #000;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .open-link-btn:hover {
+    background: var(--gold, #FFC107);
+  }
+
+  /* Upload Spec Grid (Step 4) */
+  .step-spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .spec-card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--hairline, rgba(255,255,255,.1));
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .spec-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .spec-icon {
+    font-size: 18px;
+  }
+
+  .spec-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--white, #fff);
+  }
+
+  .spec-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 12.5px;
+    color: var(--body, #ccc);
+    line-height: 1.5;
+  }
+
+  /* Fee Box (Step 5) */
+  .step-fee-card {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--hairline, rgba(255,255,255,.1));
+    border-radius: 8px;
+    padding: 14px;
+    margin-top: 12px;
+  }
+
+  .fee-card-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--white, #fff);
+    margin-bottom: 10px;
+  }
+
+  .fee-table-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .fee-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(255,255,255,.06);
+  }
+
+  .fee-cat {
+    color: var(--body, #ccc);
+  }
+
+  .fee-amt {
+    font-weight: 600;
+    color: var(--white, #fff);
+  }
+
+  .fee-amt.bold {
+    color: var(--saffron, #FF6B35);
+    font-weight: 700;
+  }
+
+  .fee-amt.green {
+    color: var(--success, #10b981);
+    font-weight: 600;
+  }
+
+  .fee-note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted, #888);
+    font-style: italic;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 640px) {
+    .apply-stepper-container {
+      padding: 14px 12px;
+    }
+    .step-node {
+      width: 38px;
+      height: 38px;
+    }
+    .node-icon {
+      font-size: 17px;
+    }
+    .step-rail {
+      width: 38px;
+    }
+    .stepper-step {
+      gap: 10px;
+    }
+    .step-trigger {
+      padding: 12px 14px;
+    }
+    .step-heading {
+      font-size: 15px;
+    }
+    .step-summary {
+      font-size: 12.5px;
+    }
+    .step-link-box {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .link-actions {
+      width: 100%;
+    }
+    .copy-link-btn, .open-link-btn {
+      flex: 1;
+      justify-content: center;
+      padding: 10px 12px;
+    }
+  }
+</style>

@@ -13,20 +13,20 @@ import { englishGrammarQuestions } from '../../data/quiz/english-grammar';
 
 export function getStaticPaths() {
   return [
-    { params: { category: 'gk' }, props: { category: 'gk', name: 'General Knowledge', nameHi: 'सामान्य ज्ञान', icon: '🧠', questions: gkQuestions } },
-    { params: { category: 'current-affairs' }, props: { category: 'current-affairs', name: 'Current Affairs', nameHi: 'करंट अफेयर्स', icon: '📰', questions: currentAffairsQuestions } },
-    { params: { category: 'ssc-cgl' }, props: { category: 'ssc-cgl', name: 'SSC CGL Level', nameHi: 'SSC CGL स्तर', icon: '📝', questions: sscCglQuestions } },
-    { params: { category: 'ibps' }, props: { category: 'ibps', name: 'IBPS Level', nameHi: 'IBPS स्तर', icon: '🏦', questions: ibpsQuestions } },
-    { params: { category: 'railway' }, props: { category: 'railway', name: 'Railway Level', nameHi: 'रेलवे स्तर', icon: '🚂', questions: railwayQuestions } },
-    { params: { category: 'upsc' }, props: { category: 'upsc', name: 'UPSC Prelims', nameHi: 'UPSC प्रीलिम्स', icon: '🏛️', questions: upscQuestions } },
-    { params: { category: 'reasoning' }, props: { category: 'reasoning', name: 'Reasoning', nameHi: 'रीजनिंग', icon: '🧩', questions: reasoningQuestions } },
-    { params: { category: 'mathematics' }, props: { category: 'mathematics', name: 'Mathematics', nameHi: 'गणित', icon: '🔢', questions: mathematicsQuestions } },
-    { params: { category: 'hindi-grammar' }, props: { category: 'hindi-grammar', name: 'Hindi Grammar', nameHi: 'हिंदी व्याकरण', icon: '📖', questions: hindiGrammarQuestions } },
-    { params: { category: 'english-grammar' }, props: { category: 'english-grammar', name: 'English Grammar', nameHi: 'अंग्रेजी व्याकरण', icon: '🔤', questions: englishGrammarQuestions } },
+    { params: { category: 'gk' }, props: { category: 'gk', name: 'General Knowledge', nameHi: 'सामान्य ज्ञान', icon: '🧠', questions: gkQuestions, nextCategory: 'current-affairs', nextName: 'Current Affairs' } },
+    { params: { category: 'current-affairs' }, props: { category: 'current-affairs', name: 'Current Affairs', nameHi: 'करंट अफेयर्स', icon: '📰', questions: currentAffairsQuestions, nextCategory: 'ssc-cgl', nextName: 'SSC CGL' } },
+    { params: { category: 'ssc-cgl' }, props: { category: 'ssc-cgl', name: 'SSC CGL Level', nameHi: 'SSC CGL स्तर', icon: '📝', questions: sscCglQuestions, nextCategory: 'railway', nextName: 'Railway' } },
+    { params: { category: 'railway' }, props: { category: 'railway', name: 'Railway Level', nameHi: 'रेलवे स्तर', icon: '🚂', questions: railwayQuestions, nextCategory: 'ibps', nextName: 'IBPS Banking' } },
+    { params: { category: 'ibps' }, props: { category: 'ibps', name: 'IBPS Level', nameHi: 'IBPS स्तर', icon: '🏦', questions: ibpsQuestions, nextCategory: 'reasoning', nextName: 'Reasoning' } },
+    { params: { category: 'reasoning' }, props: { category: 'reasoning', name: 'Reasoning', nameHi: 'रीजनिंग', icon: '🧩', questions: reasoningQuestions, nextCategory: 'mathematics', nextName: 'Mathematics' } },
+    { params: { category: 'mathematics' }, props: { category: 'mathematics', name: 'Mathematics', nameHi: 'गणित', icon: '🔢', questions: mathematicsQuestions, nextCategory: 'hindi-grammar', nextName: 'Hindi Grammar' } },
+    { params: { category: 'hindi-grammar' }, props: { category: 'hindi-grammar', name: 'Hindi Grammar', nameHi: 'हिंदी व्याकरण', icon: '📖', questions: hindiGrammarQuestions, nextCategory: 'english-grammar', nextName: 'English Grammar' } },
+    { params: { category: 'english-grammar' }, props: { category: 'english-grammar', name: 'English Grammar', nameHi: 'अंग्रेजी व्याकरण', icon: '🔤', questions: englishGrammarQuestions, nextCategory: 'upsc', nextName: 'UPSC Prelims' } },
+    { params: { category: 'upsc' }, props: { category: 'upsc', name: 'UPSC Prelims', nameHi: 'UPSC प्रीलिम्स', icon: '🏛️', questions: upscQuestions, nextCategory: 'gk', nextName: 'General Knowledge' } },
   ];
 }
 
-const { category, name, nameHi, icon, questions } = Astro.props;
+const { category, name, nameHi, icon, questions, nextCategory = 'current-affairs', nextName = 'Current Affairs' } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
 
 const breadcrumbSchema = {
@@ -115,6 +115,7 @@ const breadcrumbSchema = {
             <div class="q-number" id="qNumber">Question 1</div>
             <div class="q-text" id="qText"></div>
             <div class="q-options" id="qOptions"></div>
+            <div class="q-live-explanation" id="qExplanation" style="display:none"></div>
           </div>
 
           <div class="q-actions">
@@ -166,7 +167,8 @@ const breadcrumbSchema = {
             </div>
 
             <div class="q-result-actions">
-              <a href={`/quiz/${category}/`} class="q-retry-btn">🔄 Retry Quiz</a>
+              <button type="button" class="q-retry-btn" id="tryAgainBtn">🔄 Try Again</button>
+              <a href={`/quiz/${nextCategory}/`} class="q-next-quiz-btn">🚀 Next Quiz: {nextName} →</a>
               <a href="/quiz/" class="q-category-btn">📂 All Categories</a>
             </div>
           </div>
@@ -180,8 +182,15 @@ const breadcrumbSchema = {
   (function() {
     'use strict';
 
-    const ALL_QUESTIONS = questionsJSON;
-    const QUIZ_LENGTH = 10;
+    let ALL_QUESTIONS = [];
+    try {
+      ALL_QUESTIONS = typeof questionsJSON === 'string' ? JSON.parse(questionsJSON) : (questionsJSON || []);
+    } catch (e) {
+      console.error('Quiz questions parse error:', e);
+      ALL_QUESTIONS = [];
+    }
+
+    const QUIZ_LENGTH = Math.min(10, ALL_QUESTIONS.length || 10);
     const TIME_LIMIT = 15 * 60;
     let quizQuestions = [];
     let currentQ = 0;
@@ -197,6 +206,7 @@ const breadcrumbSchema = {
     const startBtn = document.getElementById('startBtn');
     const skipBtn = document.getElementById('skipBtn');
     const nextBtn = document.getElementById('nextBtn');
+    const tryAgainBtn = document.getElementById('tryAgainBtn');
 
     // Load streak
     function getStreak() {
@@ -240,6 +250,10 @@ const breadcrumbSchema = {
     }
 
     function startQuiz() {
+      if (!ALL_QUESTIONS.length) {
+        alert('Questions abhi load nahi ho paye. Kripya page refresh karein.');
+        return;
+      }
       quizQuestions = shuffleArray(ALL_QUESTIONS).slice(0, QUIZ_LENGTH);
       currentQ = 0;
       score = 0;
@@ -272,6 +286,10 @@ const breadcrumbSchema = {
 
     function loadQuestion() {
       const q = quizQuestions[currentQ];
+      if (!q) {
+        finishQuiz();
+        return;
+      }
       answered = false;
       document.getElementById('qCurrent').textContent = currentQ + 1;
       document.getElementById('qNumber').textContent = `Question ${currentQ + 1}`;
@@ -281,8 +299,15 @@ const breadcrumbSchema = {
       document.getElementById('nextBtn').style.display = 'none';
       document.getElementById('skipBtn').style.display = '';
 
+      const expEl = document.getElementById('qExplanation');
+      if (expEl) {
+        expEl.style.display = 'none';
+        expEl.className = 'q-live-explanation';
+        expEl.innerHTML = '';
+      }
+
       const optionsHtml = q.options.map((opt, i) =>
-        `<button class="q-option" data-idx="${i}">${opt}</button>`
+        `<button class="q-option" data-idx="${i}"><span class="opt-prefix">${String.fromCharCode(65 + i)}.</span> ${opt}</button>`
       ).join('');
       document.getElementById('qOptions').innerHTML = optionsHtml;
 
@@ -306,6 +331,17 @@ const breadcrumbSchema = {
         if (i === q.correct) btn.classList.add('correct');
         if (i === idx && !isCorrect) btn.classList.add('wrong');
       });
+
+      const expEl = document.getElementById('qExplanation');
+      if (expEl && q.explanation) {
+        expEl.style.display = 'block';
+        expEl.className = `q-live-explanation ${isCorrect ? 'correct' : 'wrong'}`;
+        expEl.innerHTML = `
+          <div class="exp-badge">${isCorrect ? '✅ Sahi Jawab!' : '❌ Galat Jawab!'}</div>
+          <div class="exp-text"><strong>Sahi Uttar:</strong> ${q.options[q.correct]}</div>
+          <div class="exp-desc">${q.explanation}</div>
+        `;
+      }
 
       document.getElementById('skipBtn').style.display = 'none';
       document.getElementById('nextBtn').style.display = '';
@@ -361,7 +397,7 @@ const breadcrumbSchema = {
       }
 
       // WhatsApp share
-      const shareText = `Aaj ka ${name} quiz mein ${score}/10 mila! 🎯\nAccuracy: ${accuracyVal}%\n🔥 ${streak} din ka streak!\n\nTum bhi try karo: ${window.location.href}`;
+      const shareText = `Aaj ka ${name} quiz mein ${score}/${QUIZ_LENGTH} mila! 🎯\nAccuracy: ${accuracyVal}%\n🔥 ${streak} din ka streak!\n\nTum bhi try karo: ${window.location.href}`;
       document.getElementById('whatsappShare').href = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 
       // Copy score
@@ -385,7 +421,7 @@ const breadcrumbSchema = {
                 let cls = '';
                 if (oi === a.correct) cls = 'correct-opt';
                 if (oi === a.selected && !a.isCorrect) cls = 'wrong-opt';
-                return `<span class="review-opt ${cls}">${opt}</span>`;
+                return `<span class="review-opt ${cls}">${String.fromCharCode(65 + oi)}. ${opt}</span>`;
               }).join('')}
             </div>
             <div class="review-status">${statusText}</div>
@@ -398,6 +434,9 @@ const breadcrumbSchema = {
     startBtn.addEventListener('click', startQuiz);
     skipBtn.addEventListener('click', skipQuestion);
     nextBtn.addEventListener('click', nextQuestion);
+    if (tryAgainBtn) {
+      tryAgainBtn.addEventListener('click', startQuiz);
+    }
 
     // Show streak on start screen
     const streak = getStreak();
@@ -552,13 +591,44 @@ const breadcrumbSchema = {
     .review-status { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
     .review-explain { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
-    .q-result-actions { display: flex; gap: var(--sp-sm); justify-content: center; }
-    .q-retry-btn, .q-category-btn {
+    .opt-prefix { font-weight: 700; color: var(--saffron); margin-right: 6px; }
+
+    .q-live-explanation {
+      margin-top: var(--sp-md);
+      padding: 14px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.6;
+      animation: fadeIn 0.25s ease-in;
+    }
+    .q-live-explanation.correct {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-left: 4px solid var(--success);
+    }
+    .q-live-explanation.wrong {
+      background: rgba(226, 39, 24, 0.12);
+      border: 1px solid rgba(226, 39, 24, 0.4);
+      border-left: 4px solid var(--m-red);
+    }
+    .exp-badge { font-weight: 700; font-size: 13px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .q-live-explanation.correct .exp-badge { color: var(--success); }
+    .q-live-explanation.wrong .exp-badge { color: var(--m-red); }
+    .exp-text { font-weight: 600; color: var(--strong); margin-bottom: 4px; }
+    .exp-desc { color: var(--body); font-size: 13.5px; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    .q-result-actions { display: flex; gap: var(--sp-sm); justify-content: center; flex-wrap: wrap; }
+    .q-retry-btn, .q-next-quiz-btn, .q-category-btn {
       padding: 14px 24px; font-family: var(--font-display); font-weight: 700; font-size: 14px;
       letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all .2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer;
     }
-    .q-retry-btn { background: var(--saffron); color: #000; border: none; }
-    .q-retry-btn:hover { background: var(--gold); }
+    .q-retry-btn { background: transparent; color: var(--strong); border: 1px solid var(--hairline); }
+    .q-retry-btn:hover { border-color: var(--saffron); color: var(--saffron); }
+    .q-next-quiz-btn { background: var(--saffron); color: #000; border: none; }
+    .q-next-quiz-btn:hover { background: var(--gold); transform: translateY(-1px); }
     .q-category-btn { background: transparent; color: var(--body); border: 1px solid var(--hairline); }
     .q-category-btn:hover { border-color: var(--saffron); color: var(--saffron); }
 

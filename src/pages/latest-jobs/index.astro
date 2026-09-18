@@ -48,6 +48,26 @@ const openCount = sortedJobs.filter(j => {
   const d = parseDate(j.lastDate);
   return !d || d >= now;
 }).length;
+
+function getUrgencyClass(lastDate: string): string {
+  const d = parseDate(lastDate);
+  if (!d) return '';
+  const daysLeft = Math.ceil((d.getTime() - Date.now()) / 86400000);
+  if (daysLeft <= 0) return 'lj-expired';
+  if (daysLeft <= 3) return 'lj-urgent';
+  if (daysLeft <= 7) return 'lj-soon';
+  return '';
+}
+
+function getUrgencyBadge(lastDate: string): { text: string; cls: string } {
+  const d = parseDate(lastDate);
+  if (!d) return { text: '', cls: '' };
+  const daysLeft = Math.ceil((d.getTime() - Date.now()) / 86400000);
+  if (daysLeft <= 0) return { text: '🔴 Closed', cls: 'lj-badge-expired' };
+  if (daysLeft <= 3) return { text: `🔴 ${daysLeft}d left!`, cls: 'lj-badge-urgent' };
+  if (daysLeft <= 7) return { text: `⚠️ ${daysLeft}d`, cls: 'lj-badge-soon' };
+  return { text: `✅ Open`, cls: 'lj-badge-open' };
+}
 ---
 
 <BaseLayout
@@ -93,26 +113,32 @@ const openCount = sortedJobs.filter(j => {
             </tr>
           </thead>
           <tbody>
-            {sortedJobs.map(job => (
-              <tr data-category={job.category}>
-                <td>
-                  <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
-                  <br/>
-                  <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
-                </td>
-                <td style="white-space:nowrap">{job.organization}</td>
-                <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
-                  {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
-                </td>
-                <td style="white-space:nowrap;font-family:var(--font-display);font-weight:600">{job.lastDate}</td>
-                <td style="white-space:nowrap;font-size:12px;color:var(--muted)">{job.postDate || '—'}</td>
-                <td style="text-align:center">
-                  <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
-                    Apply ↗
-                  </a>
-                </td>
-              </tr>
-            ))}
+                {sortedJobs.map(job => {
+                  const urgency = getUrgencyBadge(job.lastDate);
+                  return (
+                  <tr data-category={job.category} class={getUrgencyClass(job.lastDate)}>
+                    <td>
+                      <a href={`/latest-jobs/${job.slug}`} style="color:var(--strong);font-weight:400">{job.title}</a>
+                      <br/>
+                      <span style="font-size:12px;color:var(--muted)">{job.qualify}</span>
+                    </td>
+                    <td style="white-space:nowrap">{job.organization}</td>
+                    <td style="text-align:center;font-family:var(--font-display);font-weight:700;color:var(--gold)">
+                      {job.vacancies > 0 ? job.vacancies.toLocaleString('en-IN') : '—'}
+                    </td>
+                    <td style="white-space:nowrap">
+                      <span style="font-family:var(--font-display);font-weight:600">{job.lastDate}</span>
+                      {urgency.text && <><br/><span class={`lj-urgency-badge ${urgency.cls}`}>{urgency.text}</span></>}
+                    </td>
+                    <td style="white-space:nowrap;font-size:12px;color:var(--muted)">{job.postDate || '—'}</td>
+                    <td style="text-align:center">
+                      <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                        Apply ↗
+                      </a>
+                    </td>
+                  </tr>
+                  );
+                })}
           </tbody>
         </table>
       </div>
@@ -171,4 +197,23 @@ const openCount = sortedJobs.filter(j => {
     });
   });
   </script>
+
+  <style>
+    .lj-urgency-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+    .lj-badge-expired { background: #888; color: #fff; }
+    .lj-badge-urgent { background: #FF3B3B; color: #fff; animation: lj-pulse 1s infinite; }
+    .lj-badge-soon { background: #FF8C00; color: #fff; }
+    .lj-badge-open { background: #0fa336; color: #fff; }
+    @keyframes lj-pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+    tr.lj-expired td { opacity: .6; }
+    tr.lj-urgent td { background: rgba(255,59,59,.03); }
+  </style>
 </BaseLayout>

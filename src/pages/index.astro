@@ -8,8 +8,8 @@ import syllabusData from '../data/syllabus.json';
 
 const topJobs = latestJobs.slice(0, 9).map(job => {
   const daysLeft = Math.ceil((new Date(job.lastDate).getTime() - Date.now()) / 86400000);
-  const urgency = daysLeft <= 3 ? 'urgent' : daysLeft <= 7 ? 'soon' : 'open';
-  const deadlineWidth = Math.max(5, 100 - (daysLeft / 30 * 100));
+  const urgency = daysLeft <= 0 ? 'expired' : daysLeft <= 3 ? 'urgent' : daysLeft <= 7 ? 'soon' : 'open';
+  const deadlineWidth = daysLeft <= 0 ? 0 : Math.max(5, 100 - (daysLeft / 30 * 100));
   return { ...job, daysLeft, urgency, deadlineWidth };
 });
 const topAnswerKeys = answerKeys.slice(0, 8);
@@ -293,12 +293,13 @@ const topExams = [
       </div>
       <div class="home-jobs-grid">
         {topJobs.map(job => (
-          <a href={`/latest-jobs/${job.slug}/`} class={`home-job-card ${job.urgency === 'urgent' ? 'job-urgent' : ''}`}>
+          <a href={`/latest-jobs/${job.slug}/`} class={`home-job-card ${job.urgency === 'urgent' ? 'job-urgent' : ''} ${job.urgency === 'expired' ? 'job-expired' : ''}`}>
             <div class="jc-top">
               <span class={`jc-cat jc-cat-${job.category}`}>{job.category}</span>
               <div class="jc-badges">
-                {job.urgency === 'urgent' && <span class="jc-badge jc-badge-urgent">⚠️ {job.daysLeft} din baaki</span>}
-                {job.urgency === 'soon' && <span class="jc-badge jc-badge-soon">⏰ {job.daysLeft} din</span>}
+                {job.urgency === 'expired' && <span class="jc-badge jc-badge-expired">🔴 Closed</span>}
+                {job.urgency === 'urgent' && <span class="jc-badge jc-badge-urgent">🔴 {job.daysLeft} din baaki!</span>}
+                {job.urgency === 'soon' && <span class="jc-badge jc-badge-soon">⚠️ {job.daysLeft} din</span>}
                 {job.urgency === 'open' && <span class="jc-badge jc-badge-open">✅ Open</span>}
               </div>
             </div>
@@ -316,15 +317,25 @@ const topExams = [
               <div class="jc-deadline-bar">
                 <div class={`jc-deadline-fill jc-fill-${job.urgency}`} style={`width: ${job.deadlineWidth}%`}></div>
               </div>
-              <div class="jc-deadline-text">⏰ Last Date: {job.lastDate}</div>
+              <div class="jc-footer-row">
+                <div class="jc-deadline-text">⏰ Last Date: {job.lastDate}</div>
+                <button class="bookmark-btn" data-slug={job.slug} data-title={job.shortTitle || job.title} aria-label="Save job" onclick="event.preventDefault();event.stopPropagation();">🤍</button>
+              </div>
             </div>
           </a>
         ))}
       </div>
+
+      <!-- Saved Jobs Section -->
+      <div class="saved-jobs-section" id="savedJobsSection" style="display:none;margin-top:32px;">
+        <div class="saved-jobs-head">
+          <h3 class="saved-jobs-title">💾 Saved Jobs</h3>
+          <span class="saved-jobs-count" id="savedJobsCount"></span>
+        </div>
+        <div class="saved-jobs-list" id="savedJobsList"></div>
+      </div>
     </div>
   </section>
-
-  <!-- ========== TRENDING / AAJ KYA VIRAL HAI ========== -->
   <section class="home-sec home-sec-alt" id="trending">
     <div class="container">
       <div class="home-sec-head">
@@ -539,6 +550,77 @@ const topExams = [
       { slug: 'indian-army-agniveer', title: 'Agniveer Rally 2026', org: 'Indian Army', cat: 'defence', vacancies: '25000+' },
     ];
 
+    // Bookmark / Save-for-Later
+    function getSavedJobs() {
+      try { return JSON.parse(localStorage.getItem('ss_saved_jobs') || '[]'); } catch(e) { return []; }
+    }
+    function setSavedJobs(arr) {
+      try { localStorage.setItem('ss_saved_jobs', JSON.stringify(arr)); } catch(e) {}
+    }
+    function toggleBookmark(slug, title) {
+      var saved = getSavedJobs();
+      var idx = saved.findIndex(function(j) { return j.slug === slug; });
+      if (idx >= 0) {
+        saved.splice(idx, 1);
+      } else {
+        saved.push({ slug: slug, title: title, savedAt: Date.now() });
+      }
+      setSavedJobs(saved);
+      updateBookmarkUI();
+      renderSavedJobs();
+    }
+    function updateBookmarkUI() {
+      var saved = getSavedJobs();
+      var slugs = saved.map(function(j) { return j.slug; });
+      document.querySelectorAll('.bookmark-btn').forEach(function(btn) {
+        var s = btn.getAttribute('data-slug');
+        if (slugs.indexOf(s) >= 0) {
+          btn.textContent = '🧡';
+          btn.classList.add('bookmarked');
+        } else {
+          btn.textContent = '🤍';
+          btn.classList.remove('bookmarked');
+        }
+      });
+    }
+    function renderSavedJobs() {
+      var saved = getSavedJobs();
+      var section = document.getElementById('savedJobsSection');
+      var list = document.getElementById('savedJobsList');
+      var count = document.getElementById('savedJobsCount');
+      if (!section || !list || !count) return;
+      if (saved.length === 0) {
+        section.style.display = 'none';
+        return;
+      }
+      section.style.display = '';
+      count.textContent = saved.length + ' saved';
+      list.innerHTML = saved.map(function(j) {
+        return '<a href="/latest-jobs/' + j.slug + '/" class="saved-job-item">' +
+          '<span class="saved-job-title">' + j.title + '</span>' +
+          '<button class="saved-job-remove" data-slug="' + j.slug + '" aria-label="Remove saved job">✕</button>' +
+        '</a>';
+      }).join('');
+      list.querySelectorAll('.saved-job-remove').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleBookmark(btn.getAttribute('data-slug'), '');
+        });
+      });
+    }
+
+    // Init bookmarks
+    document.querySelectorAll('.bookmark-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleBookmark(btn.getAttribute('data-slug'), btn.getAttribute('data-title'));
+      });
+    });
+    updateBookmarkUI();
+    renderSavedJobs();
+
     // Increment view count per job
     var views = {};
     try { views = JSON.parse(localStorage.getItem('ss_job_views') || '{}'); } catch(e) {}
@@ -657,6 +739,7 @@ const topExams = [
       transition: all .2s; position: relative;
     }
     .home-job-card.job-urgent { border-color: var(--m-red); border-width: 2px; }
+    .home-job-card.job-expired { opacity: .65; }
     .home-job-card:hover { border-color: var(--saffron); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
     .home-job-card .jc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 8px; }
     .home-job-card .jc-cat {
@@ -674,10 +757,11 @@ const topExams = [
     .jc-badge {
       font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap;
     }
-    .jc-badge-urgent { background: rgba(226,39,24,.12); color: var(--m-red); border: 1px solid rgba(226,39,24,.3); animation: pulse-badge 1.5s infinite; }
-    .jc-badge-soon { background: rgba(255,193,7,.12); color: var(--warning); border: 1px solid rgba(255,193,7,.3); }
-    .jc-badge-open { background: rgba(15,163,54,.1); color: var(--success); border: 1px solid rgba(15,163,54,.3); }
-    @keyframes pulse-badge { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+    .jc-badge-expired { background: #888; color: #fff; border: 1px solid #666; }
+    .jc-badge-urgent { background: #FF3B3B; color: #fff; border: 1px solid rgba(255,59,59,.5); animation: pulse-badge 1s infinite; }
+    .jc-badge-soon { background: #FF8C00; color: #fff; border: 1px solid rgba(255,140,0,.4); }
+    .jc-badge-open { background: #0fa336; color: #fff; border: 1px solid rgba(15,163,54,.4); }
+    @keyframes pulse-badge { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
     .home-job-card .jc-title { font-size: 16px; font-weight: 700; color: var(--strong); line-height: 1.3; margin-bottom: 4px; font-family: var(--font-display); }
     .home-job-card:hover .jc-title { color: var(--saffron); }
     .home-job-card .jc-org { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
@@ -687,12 +771,45 @@ const topExams = [
     .jc-salary { font-size: 12px; font-weight: 600; color: var(--success); background: rgba(15,163,54,.08); padding: 2px 8px; border-radius: 4px; }
     .home-job-card .jc-info { display: flex; justify-content: space-between; font-size: 12px; color: var(--body); margin-bottom: 10px; }
     .jc-footer { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--hairline); }
+    .jc-footer-row { display: flex; align-items: center; justify-content: space-between; }
     .jc-deadline-bar { height: 4px; background: var(--elevated); border-radius: 2px; overflow: hidden; margin-bottom: 8px; }
     .jc-deadline-fill { height: 100%; border-radius: 2px; transition: width .3s; }
+    .jc-fill-expired { background: #888; }
     .jc-fill-urgent { background: var(--m-red); }
     .jc-fill-soon { background: var(--warning); }
     .jc-fill-open { background: var(--success); }
     .jc-deadline-text { font-size: 13px; font-weight: 700; color: var(--saffron); }
+
+    /* Bookmark Button */
+    .bookmark-btn {
+      background: none; border: none; cursor: pointer; font-size: 20px;
+      padding: 2px 6px; border-radius: 6px; transition: all .2s; line-height: 1;
+    }
+    .bookmark-btn:hover { background: rgba(255,107,53,.1); transform: scale(1.15); }
+    .bookmark-btn.bookmarked { color: #FF6B35; }
+
+    /* Saved Jobs Section */
+    .saved-jobs-section {
+      background: var(--card); border: 2px solid var(--saffron); border-radius: 14px;
+      padding: 20px 24px; margin-top: 32px;
+    }
+    .saved-jobs-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .saved-jobs-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--strong); margin: 0; }
+    .saved-jobs-count { font-size: 13px; font-weight: 600; color: var(--saffron); background: rgba(255,107,53,.1); padding: 3px 10px; border-radius: 20px; }
+    .saved-jobs-list { display: flex; flex-direction: column; gap: 8px; }
+    .saved-job-item {
+      display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+      background: var(--elevated); border: 1px solid var(--hairline); border-radius: 10px;
+      text-decoration: none; transition: all .2s;
+    }
+    .saved-job-item:hover { border-color: var(--saffron); transform: translateX(4px); }
+    .saved-job-title { flex: 1; font-size: 14px; font-weight: 600; color: var(--strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .saved-job-remove {
+      background: none; border: none; cursor: pointer; font-size: 16px;
+      color: var(--muted); padding: 4px 8px; border-radius: 6px; transition: all .2s;
+    }
+    .saved-job-remove:hover { background: rgba(226,39,24,.1); color: var(--m-red); }
+    .saved-jobs-empty { font-size: 14px; color: var(--muted); text-align: center; padding: 16px; }
 
     /* ===== TRENDING SECTION ===== */
     .home-trending-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
