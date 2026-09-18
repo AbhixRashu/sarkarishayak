@@ -1,0 +1,6 @@
+# Sarkari Sahayak WhatsApp Bot — Requirements
+# No external dependencies! Uses Python standard library only.
+# (urllib, json, os, sys, pathlib — all built-in)
+
+# Optional: Install only if you want richer HTTP error handling
+# requests>=2.31.0

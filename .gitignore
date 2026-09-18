@@ -9,3 +9,7 @@ credentials*.json
 
 .vercel
 .env*
+
+# WhatsApp Bot
+whatsapp-bot/__pycache__/
+whatsapp-bot/*.pyc

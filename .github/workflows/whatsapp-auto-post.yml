@@ -1,0 +1,111 @@
+name: 📲 WhatsApp Channel Auto-Poster
+
+on:
+  # Existing auto-update workflow ke baad automatically trigger hoga
+  workflow_run:
+    workflows: ["24/7 Automated Govt Jobs & Results Sync"]
+    types: [completed]
+
+  # Manual trigger — kabhi bhi GitHub se 1-click run kar sako
+  workflow_dispatch:
+    inputs:
+      category:
+        description: 'Which category to post? (leave blank for all)'
+        required: false
+        default: ''
+        type: choice
+        options:
+          - ''
+          - jobs
+          - results
+          - admit_cards
+          - yojana
+      dry_run:
+        description: 'Dry run? (no actual WhatsApp post)'
+        required: false
+        default: false
+        type: boolean
+      test_message:
+        description: 'Send test message only?'
+        required: false
+        default: false
+        type: boolean
+
+  # Standalone cron — Har 2 ghante mein auto-run (backup)
+  schedule:
+    - cron: '30 */2 * * *'   # 30 min offset from main workflow
+
+permissions:
+  contents: write  # posted_ids.json update ke liye
+
+jobs:
+  post-to-whatsapp:
+    runs-on: ubuntu-latest
+
+    # Sirf tab run karo jab parent workflow success hua ho (ya manual/cron)
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      # ── 1. Checkout (with latest data) ────────────────────────────────────
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          # Always get latest data (auto-update ne push kiya hoga)
+          ref: main
+
+      # ── 2. Setup Python ────────────────────────────────────────────────────
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # ── 3. Run WhatsApp Bot ───────────────────────────────────────────────
+      - name: Run WhatsApp Auto-Poster
+        env:
+          GREENAPI_ID_INSTANCE: ${{ secrets.GREENAPI_ID_INSTANCE }}
+          GREENAPI_API_TOKEN:    ${{ secrets.GREENAPI_API_TOKEN }}
+          WHATSAPP_CHANNEL_ID:   ${{ secrets.WHATSAPP_CHANNEL_ID }}
+          MAX_POSTS_PER_RUN:     "3"
+          POST_DELAY_SECONDS:    "8"
+          MAX_AGE_DAYS:          "3"
+        run: |
+          cd whatsapp-bot
+
+          # Build arguments based on inputs
+          ARGS=""
+
+          # Test message mode
+          if [ "${{ github.event.inputs.test_message }}" = "true" ]; then
+            ARGS="$ARGS --test"
+          fi
+
+          # Dry run mode
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+
+          # Category filter
+          if [ -n "${{ github.event.inputs.category }}" ]; then
+            ARGS="$ARGS --category ${{ github.event.inputs.category }}"
+          fi
+
+          echo "▶ Running: python whatsapp_poster.py $ARGS"
+          python whatsapp_poster.py $ARGS
+
+      # ── 4. Commit updated posted_ids.json ─────────────────────────────────
+      - name: Save Posted IDs (Anti-Duplicate)
+        run: |
+          git config --global user.name  "Sarkari Sahayak Bot"
+          git config --global user.email "bot@sarkarisahayak.in"
+
+          if git diff --quiet whatsapp-bot/posted_ids.json; then
+            echo "✓ No new posts — posted_ids.json unchanged."
+          else
+            git add whatsapp-bot/posted_ids.json
+            git commit -m "📲 whatsapp: updated posted_ids after auto-post [skip ci]"
+            git push origin main
+            echo "✓ posted_ids.json committed to prevent duplicate posts."
+          fi
