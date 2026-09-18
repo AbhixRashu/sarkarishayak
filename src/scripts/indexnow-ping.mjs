@@ -1,17 +1,21 @@
 /**
  * indexnow-ping.mjs
- * CLI script to submit URLs to IndexNow API (Bing-compliant, chunked).
+ * CLI script to submit URLs to IndexNow API in STREAMING MODE (Bing recommended).
+ *
+ * STREAMING MODE: URLs submitted one-by-one with a small delay.
+ * This eliminates the Bing "IndexNow is in batch mode" warning.
  *
  * Usage:
- *   node src/scripts/indexnow-ping.mjs                     # ping all sitemap URLs in chunks of 5
+ *   node src/scripts/indexnow-ping.mjs                        # stream all sitemap URLs
  *   node src/scripts/indexnow-ping.mjs https://example.com/page  # ping single URL
- *   node src/scripts/indexnow-ping.mjs --limit=50           # ping first 50 URLs
+ *   node src/scripts/indexnow-ping.mjs --limit=50             # stream first 50 URLs
+ *   node src/scripts/indexnow-ping.mjs --delay=300            # custom delay in ms (default 500ms)
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { pingIndexNow, pingIndexNowBatch } from './indexnow-utils.mjs';
+import { pingIndexNow, pingIndexNowStream } from './indexnow-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,35 +31,42 @@ function getSitemapUrls(limit = 5000) {
 }
 
 async function main() {
-  console.log('🚀 [IndexNow] Bing-compliant chunked submission pipeline...\n');
+  console.log('🚀 [IndexNow] Streaming mode — Bing-compliant one-by-one submission...\n');
 
   const args = process.argv.slice(2);
   const specificUrl = args.find(a => a.startsWith('http'));
   const limitArg = args.find(a => a.startsWith('--limit='));
-  const limit = limitArg ? parseInt(limitArg.split('=')[1], 10) : 5000;
+  const delayArg = args.find(a => a.startsWith('--delay='));
 
-  let urlsToPing = [];
+  const limit = limitArg ? parseInt(limitArg.split('=')[1], 10) : 5000;
+  const delayMs = delayArg ? parseInt(delayArg.split('=')[1], 10) : 500;
 
   if (specificUrl) {
-    urlsToPing = [specificUrl];
-  } else {
-    urlsToPing = getSitemapUrls(limit);
+    // Single URL — direct ping
+    console.log(`📡 Submitting single URL: ${specificUrl}\n`);
+    const result = await pingIndexNow(specificUrl);
+    console.log(result.ok ? '\n✅ Done!' : `\n❌ Failed (HTTP ${result.status})`);
+    return;
   }
+
+  const urlsToPing = getSitemapUrls(limit);
 
   if (urlsToPing.length === 0) {
     console.log('⚠️  No URLs found. Run `npm run sitemap` first.');
     process.exit(1);
   }
 
-  console.log(`📡 Submitting ${urlsToPing.length} URLs in chunks of 5 (2s delay between chunks)...\n`);
+  console.log(`📡 Streaming ${urlsToPing.length} URLs — one per request, ${delayMs}ms apart...`);
+  console.log(`⏱️  Estimated time: ~${Math.round(urlsToPing.length * delayMs / 1000)}s\n`);
 
-  const result = await pingIndexNowBatch(urlsToPing);
+  const result = await pingIndexNowStream(urlsToPing, delayMs);
 
   console.log(`\n======================================================`);
-  console.log(`📊 [IndexNow Summary]`);
+  console.log(`📊 [IndexNow Streaming Summary]`);
   console.log(`   🟢 Successfully Submitted: ${result.success}`);
   console.log(`   🔴 Failed: ${result.fail}`);
   console.log(`   📦 Total: ${result.total}`);
+  console.log(`   🔄 Mode: Streaming (${delayMs}ms per URL)`);
   console.log(`======================================================\n`);
 }
 

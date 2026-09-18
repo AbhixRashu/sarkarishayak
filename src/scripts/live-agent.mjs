@@ -19,7 +19,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
-import { pingIndexNowBatch } from './indexnow-utils.mjs';
+import { pingIndexNowStream } from './indexnow-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -451,7 +451,7 @@ export async function runLiveAgent() {
       // Auto-ping IndexNow (event-driven, chunked — Bing compliant)
       if (newUrls.length > 0) {
         console.log(`🚀 [Live Agent] Auto-pinging IndexNow for ${newUrls.length} new URL(s)...`);
-        await pingIndexNowBatch(newUrls);
+        await pingIndexNowStream(newUrls);
       }
 
       // Auto-commit & push to trigger Vercel rebuild
