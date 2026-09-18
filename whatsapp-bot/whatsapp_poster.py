@@ -38,11 +38,11 @@ if sys.platform == "win32":
 # ─── Configuration ────────────────────────────────────────────────────────────
 
 # Green-API credentials (GitHub Secrets se aayenge)
-GREENAPI_ID_INSTANCE    = os.environ.get("GREENAPI_ID_INSTANCE", "")
-GREENAPI_API_TOKEN      = os.environ.get("GREENAPI_API_TOKEN", "")
+GREENAPI_ID_INSTANCE    = os.environ.get("GREENAPI_ID_INSTANCE", "").strip()
+GREENAPI_API_TOKEN      = os.environ.get("GREENAPI_API_TOKEN", "").strip()
 
-# WhatsApp Channel ID (format: 120363xxxxxx@newsletter)
-WHATSAPP_CHANNEL_ID     = os.environ.get("WHATSAPP_CHANNEL_ID", "")
+# WhatsApp Channel ID (format: 0029Va...@newsletter)
+WHATSAPP_CHANNEL_ID     = os.environ.get("WHATSAPP_CHANNEL_ID", "").strip()
 
 # Website base URL
 SITE_BASE_URL = "https://sarkarisahayak.in"
