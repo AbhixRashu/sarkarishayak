@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import jobs from '../../data/latest-jobs.json';
 import { buildJobPostingSchema } from '../../utils/jobSchema.js';
 import HowToApplyStepper from '../../components/HowToApplyStepper.astro';
+import SyllabusPopup from '../../components/SyllabusPopup.astro';
+import { resolveSyllabusForJob } from '../../utils/syllabus.js';
 
 export function getStaticPaths() {
   return jobs.map(job => ({
@@ -128,6 +130,10 @@ const d = {
   ],
   socialLinks: job.socialLinks || { telegram: '#', whatsapp: '#', facebook: '#' },
 };
+
+// Interactive syllabus data (curated entry if matched, else built from job data)
+// powers the "Syllabus & Exam Pattern" popup shown in place of the old Apply popup
+const syllabus = resolveSyllabusForJob(job);
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -439,9 +445,15 @@ const faqSchema = {
           <!-- Quick Actions -->
           <div class="jd-card jd-side-card jd-quick-card">
             <h3 class="jd-quick-title">Quick Actions</h3>
-            <a href={job.applyUrl || '#'} target="_blank" rel="noopener" class="jd-apply-btn">
-              Apply Online Now →
-            </a>
+            {syllabus && (
+              <SyllabusPopup
+                exam={syllabus.exam}
+                syllabusUrl={syllabus.syllabusUrl}
+                applyUrl={job.applyUrl}
+                label="📚 Syllabus & Exam Pattern →"
+                variant="primary"
+              />
+            )}
             <a href="/latest-jobs/" class="jd-more-jobs-btn">
               View More Jobs →
             </a>
@@ -537,7 +549,7 @@ const faqSchema = {
         <span class="sticky-title" id="stickyTitle"></span>
         <span class="sticky-days" id="stickyDays"></span>
       </div>
-      <a id="stickyApplyBtn" href="#" class="sticky-apply-btn" target="_blank" rel="noopener">Apply Now →</a>
+      <button type="button" id="stickyApplyBtn" class="sticky-apply-btn">📚 Syllabus →</button>
       <button id="stickyDismiss" class="sticky-dismiss" aria-label="Close">×</button>
     </div>
   </div>
@@ -1128,6 +1140,7 @@ const faqSchema = {
       flex-shrink: 0; padding: 10px 24px; background: var(--saffron); color: #000;
       font-family: var(--font-display); font-weight: 700; font-size: 15px;
       border-radius: 8px; text-decoration: none; transition: all .2s; white-space: nowrap;
+      border: none; cursor: pointer; line-height: 1.2;
     }
     .sticky-apply-btn:hover { background: var(--gold); transform: translateY(-1px); }
     .sticky-dismiss {
@@ -1194,7 +1207,10 @@ const faqSchema = {
       var daysLeft = Math.ceil((new Date(lastDate).getTime() - Date.now()) / 86400000);
 
       stickyTitle.textContent = jobTitle.length > 40 ? jobTitle.substring(0, 40) + '...' : jobTitle;
-      stickyApplyBtn.href = applyUrl;
+      // Sticky CTA opens the interactive syllabus popup (keeps visitors on-site)
+      stickyApplyBtn.addEventListener('click', function () {
+        if (typeof window.ssOpenSyllabusPopup === 'function') window.ssOpenSyllabusPopup();
+      });
 
       if (daysLeft <= 0) {
         stickyDays.textContent = '🔴 Closed';

@@ -109,7 +109,7 @@ function getUrgencyBadge(lastDate: string): { text: string; cls: string } {
               <th style="text-align:center">Vacancies</th>
               <th>Last Date</th>
               <th>Posted</th>
-              <th style="text-align:center">Apply</th>
+              <th style="text-align:center">View</th>
             </tr>
           </thead>
           <tbody>
@@ -132,8 +132,8 @@ function getUrgencyBadge(lastDate: string): { text: string; cls: string } {
                     </td>
                     <td style="white-space:nowrap;font-size:12px;color:var(--muted)">{job.postDate || '—'}</td>
                     <td style="text-align:center">
-                      <a href={job.applyUrl} target="_blank" rel="noopener" class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
-                        Apply ↗
+                      <a href={`/latest-jobs/${job.slug}/`} class="btn-ghost" style="height:36px;padding:0 14px;font-size:11px">
+                        View →
                       </a>
                     </td>
                   </tr>

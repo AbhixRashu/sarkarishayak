@@ -202,6 +202,10 @@ export function getStaticPaths() {
 }
 
 const { exam, isJobSpecific } = Astro.props;
+
+// Total topics across all subjects — used by the interactive study tracker
+const syllTotalTopics = (exam.subjects || []).reduce((n, s) => n + ((s.topics || []).length), 0);
+const syllStorageKey = `ss_syll_progress_${exam.id || 'exam'}`;
 const siteUrl = 'https://govtjob.salarypitcher.com';
 
 const breadcrumbSchema = {
@@ -316,23 +320,52 @@ const faqSchema = {
         </div>
       </div>
 
-      <!-- Subject-wise Syllabus Accordion -->
-      <h2 class="d-h" style="margin-bottom:14px">Subject-wise Syllabus & Exam Pattern</h2>
+      <!-- Subject-wise Syllabus — Interactive Study Tracker -->
+      <h2 class="d-h" style="margin-bottom:14px">Subject-wise Syllabus &amp; Exam Pattern</h2>
+
+      <div class="syll-tracker">
+        <div class="syll-tracker-top">
+          <span class="syll-tracker-label">🎯 Aapki preparation progress</span>
+          <span class="syll-tracker-text" data-syll-progress-text>0 / {syllTotalTopics} topics</span>
+        </div>
+        <div class="syll-tracker-bar"><span class="syll-tracker-fill" data-syll-progress-fill></span></div>
+        <div class="syll-tracker-actions">
+          <button type="button" class="syll-mini" data-syll-expand>⌄ Expand all</button>
+          <button type="button" class="syll-mini" data-syll-collapse>⌃ Collapse all</button>
+          <button type="button" class="syll-mini syll-mini-warn" data-syll-reset>↺ Reset progress</button>
+        </div>
+      </div>
+
+      <input
+        type="search"
+        class="syll-search"
+        data-syll-search
+        placeholder="🔍 Search topic — e.g. Percentage, Reasoning, Hindi..."
+        aria-label="Search syllabus topic"
+      />
+
       <div class="syll-subjects-list">
         {exam.subjects && exam.subjects.map((subject, i) => (
-          <details class="syll-subject" open={i === 0}>
-            <summary class="syll-subject-head">
+          <div class="syll-subject open" data-syll-subj>
+            <button type="button" class="syll-subject-head" data-syll-subj-toggle aria-expanded="true">
               <span class="syll-subject-name">{subject.name}</span>
               <span class="syll-subject-meta">{subject.questions} Qs · {subject.marks} Marks · {subject.tier}</span>
-            </summary>
-            <div class="syll-topics">
-              {subject.topics && subject.topics.map(topic => (
-                <span class="syll-topic">{topic}</span>
+              <span class="syll-subject-count" data-syll-subj-count>0/{(subject.topics || []).length}</span>
+              <span class="syll-caret">▾</span>
+            </button>
+            <div class="syll-topics" data-syll-subj-body>
+              {subject.topics && subject.topics.map((topic, ti) => (
+                <button type="button" class="syll-topic" data-syll-topic data-key={`s${i}t${ti}`}>
+                  <span class="syll-tick">○</span>
+                  <span class="syll-topic-text">{topic}</span>
+                </button>
               ))}
             </div>
-          </details>
+          </div>
         ))}
       </div>
+      <p class="syll-empty" data-syll-empty hidden>Koi topic match nahi hua — dusra keyword try karo.</p>
+      <p class="syll-hint">💡 Tip: Topic par tap karke tick karo — progress apne device mein save ho jata hai, kal wapas aake dekh sakte ho.</p>
 
       <!-- Recommended Books -->
       {exam.books && exam.books.length > 0 && (
@@ -451,6 +484,7 @@ const faqSchema = {
       overflow: hidden;
     }
     .syll-subject-head {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -459,26 +493,85 @@ const faqSchema = {
       list-style: none;
       flex-wrap: wrap;
       gap: 8px;
+      background: transparent;
+      border: none;
+      text-align: left;
     }
     .syll-subject-head::-webkit-details-marker { display: none; }
     .syll-subject-head::before { content: '▸ '; color: var(--saffron); }
-    .syll-subject[open] .syll-subject-head::before { content: '▾ '; }
+    .syll-subject.open .syll-subject-head::before { content: '▾ '; }
     .syll-subject-name { font-weight: 700; color: var(--strong); font-size: 15px; }
     .syll-subject-meta { font-size: 12px; color: var(--muted); }
+    .syll-subject-count {
+      font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+      background: var(--elevated); color: var(--saffron); border: 1px solid var(--hairline);
+    }
+    .syll-caret { font-size: 12px; color: var(--muted); transition: transform .2s ease; }
+    .syll-subject:not(.open) .syll-caret { transform: rotate(-90deg); }
     .syll-topics {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       padding: 0 16px 14px;
     }
+    .syll-subject:not(.open) .syll-topics { display: none; }
     .syll-topic {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       font-size: 13px;
-      padding: 4px 10px;
+      padding: 5px 11px;
       border-radius: 6px;
       background: var(--elevated);
       color: var(--body);
       border: 1px solid var(--hairline);
+      cursor: pointer;
+      transition: all .15s ease;
     }
+    .syll-topic:hover { border-color: var(--saffron); transform: translateY(-1px); }
+    .syll-topic.done {
+      background: rgba(14, 124, 90, .12);
+      border-color: #0e7c5a;
+      color: #0e7c5a;
+      text-decoration: line-through;
+    }
+    .syll-tick { font-size: 11px; font-weight: 700; }
+
+    /* Interactive study tracker */
+    .syll-tracker {
+      margin: 0 0 12px;
+      padding: 12px 14px;
+      background: var(--elevated);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+    }
+    .syll-tracker-top {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12.5px; font-weight: 600; color: var(--strong); gap: 8px; flex-wrap: wrap;
+    }
+    .syll-tracker-bar {
+      height: 8px; border-radius: 999px; background: var(--hairline);
+      overflow: hidden; margin: 8px 0 10px;
+    }
+    .syll-tracker-fill {
+      display: block; height: 100%; width: 0%;
+      background: linear-gradient(90deg, #0e7c5a, #f0b429); transition: width .25s ease;
+    }
+    .syll-tracker-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .syll-mini {
+      font-size: 11.5px; padding: 5px 10px; border-radius: 8px;
+      border: 1px solid var(--hairline); background: var(--card);
+      color: var(--body); cursor: pointer;
+    }
+    .syll-mini:hover { border-color: var(--saffron); color: var(--strong); }
+    .syll-mini-warn:hover { border-color: #d9534f; color: #d9534f; }
+    .syll-search {
+      width: 100%; padding: 11px 14px; border-radius: 10px; margin-bottom: 12px;
+      border: 1px solid var(--hairline); background: var(--card);
+      color: var(--strong); font-size: 14px;
+    }
+    .syll-empty { font-size: 13px; color: var(--muted); text-align: center; padding: 12px; }
+    .syll-hint { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
 
     .syll-books { display: grid; gap: 8px; }
     .syll-book {
@@ -546,4 +639,95 @@ const faqSchema = {
     .faq-quest { font-weight: 600; color: var(--strong); cursor: pointer; }
     .faq-ans { margin-top: 8px; color: var(--body); font-size: 14px; line-height: 1.6; }
   </style>
+
+  <script is:inline define:vars={{ syllKey: syllStorageKey }}>
+  (function () {
+    var KEY = syllKey;
+    var widget = document.querySelector('.syll-tracker');
+    if (!widget) return;
+
+    var topics = Array.prototype.slice.call(document.querySelectorAll('[data-syll-topic]'));
+    var subjects = Array.prototype.slice.call(document.querySelectorAll('[data-syll-subj]'));
+    var fill = document.querySelector('[data-syll-progress-fill]');
+    var text = document.querySelector('[data-syll-progress-text]');
+    var search = document.querySelector('[data-syll-search]');
+    var empty = document.querySelector('[data-syll-empty]');
+
+    function load() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
+    function persist(arr) { try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {} }
+    var done = load();
+
+    function paint() {
+      var total = topics.length;
+      var count = 0;
+      topics.forEach(function (t) {
+        var isDone = done.indexOf(t.getAttribute('data-key')) >= 0;
+        t.classList.toggle('done', isDone);
+        var tick = t.querySelector('.syll-tick');
+        if (tick) tick.textContent = isDone ? '✓' : '○';
+        if (isDone) count++;
+      });
+      subjects.forEach(function (s) {
+        var all = s.querySelectorAll('[data-syll-topic]').length;
+        var d = s.querySelectorAll('[data-syll-topic].done').length;
+        var badge = s.querySelector('[data-syll-subj-count]');
+        if (badge) badge.textContent = d + '/' + all;
+      });
+      if (fill) fill.style.width = total ? ((count / total) * 100) + '%' : '0%';
+      if (text) text.textContent = count + ' / ' + total + ' topics' + (total && count === total ? ' 🎉 Sab ho gaya!' : '');
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+
+      var topic = t.closest('[data-syll-topic]');
+      if (topic) {
+        var k = topic.getAttribute('data-key');
+        var i = done.indexOf(k);
+        if (i >= 0) { done.splice(i, 1); } else { done.push(k); }
+        persist(done);
+        paint();
+        return;
+      }
+
+      var head = t.closest('[data-syll-subj-toggle]');
+      if (head) {
+        var subj = head.closest('[data-syll-subj]');
+        var isOpen = subj.classList.toggle('open');
+        head.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        return;
+      }
+
+      if (t.closest('[data-syll-expand]')) { subjects.forEach(function (s) { s.classList.add('open'); }); return; }
+      if (t.closest('[data-syll-collapse]')) { subjects.forEach(function (s) { s.classList.remove('open'); }); return; }
+      if (t.closest('[data-syll-reset]')) {
+        if (window.confirm('Saari preparation progress reset kar dein?')) { done = []; persist(done); paint(); }
+      }
+    });
+
+    if (search) search.addEventListener('input', function () {
+      var q = search.value.trim().toLowerCase();
+      var anyVisible = false;
+      subjects.forEach(function (s) {
+        var nameEl = s.querySelector('.syll-subject-name');
+        var nameMatch = nameEl ? nameEl.textContent.toLowerCase().indexOf(q) >= 0 : false;
+        var topicEls = Array.prototype.slice.call(s.querySelectorAll('[data-syll-topic]'));
+        var visible = 0;
+        topicEls.forEach(function (t) {
+          var txt = (t.textContent || '').toLowerCase();
+          var match = !q || nameMatch || txt.indexOf(q) >= 0;
+          t.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+        var show = !q || nameMatch || visible > 0;
+        s.style.display = show ? '' : 'none';
+        if (q && show) s.classList.add('open');
+        if (show) anyVisible = true;
+      });
+      if (empty) empty.hidden = anyVisible;
+    });
+
+    paint();
+  })();
+  </script>
 </BaseLayout>

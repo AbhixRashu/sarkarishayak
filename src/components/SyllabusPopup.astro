@@ -1,0 +1,463 @@
+---
+/**
+ * SyllabusPopup.astro — interactive "Syllabus & Exam Pattern" popup
+ *
+ * Replaces the old "Apply Online Now" popup on job pages: instead of sending the
+ * visitor straight to the official site, it opens the exam syllabus with
+ * clickable topic checklists + saved preparation progress (localStorage).
+ *
+ * Props:
+ *  - exam:        syllabus object (subjects/topics/marks/duration)
+ *  - syllabusUrl: internal full syllabus page
+ *  - applyUrl:    official apply link (kept at the bottom of the popup)
+ *  - label:       button text
+ *  - variant:     primary | ghost
+ */
+interface Props {
+  exam: any;
+  syllabusUrl?: string;
+  applyUrl?: string;
+  label?: string;
+  variant?: 'primary' | 'ghost';
+  buttonId?: string;
+}
+
+const {
+  exam,
+  syllabusUrl = '/syllabus/',
+  applyUrl = '',
+  label = '📚 Syllabus & Exam Pattern →',
+  variant = 'primary',
+  buttonId = '',
+} = Astro.props;
+
+const subjects = (exam && exam.subjects) || [];
+const totalTopics = subjects.reduce((n, s) => n + ((s.topics || []).length), 0);
+const storageKey = `ss_syll_progress_${(exam && exam.id) || 'exam'}`;
+const metaChips = [
+  exam && exam.totalMarks ? `${exam.totalMarks} Marks` : '',
+  exam && exam.duration ? `${exam.duration}` : '',
+  exam && exam.tiers ? `${exam.tiers} Stage${exam.tiers > 1 ? 's' : ''}` : '',
+  exam && exam.level ? exam.level : '',
+].filter(Boolean);
+---
+
+<button
+  type="button"
+  class={`sss-trigger sss-trigger-${variant}`}
+  id={buttonId || undefined}
+  data-sss-open
+  aria-haspopup="dialog"
+>{label}</button>
+
+<div class="sss-overlay" data-sss-overlay aria-hidden="true">
+  <div class="sss-modal" role="dialog" aria-modal="true" aria-label={`${exam?.exam || 'Exam'} syllabus`}>
+    <button type="button" class="sss-close" data-sss-close aria-label="Close syllabus popup">×</button>
+
+    <div class="sss-head">
+      <span class="sss-badge">📚 Syllabus &amp; Exam Pattern</span>
+      <h3 class="sss-title">{exam?.exam}</h3>
+      <p class="sss-org">{exam?.organization}{exam?.fullName ? ` • ${exam.fullName}` : ''}</p>
+      {metaChips.length > 0 && (
+        <div class="sss-meta">
+          {metaChips.map(m => <span class="sss-chip">{m}</span>)}
+        </div>
+      )}
+    </div>
+
+    <div class="sss-progress-wrap">
+      <div class="sss-progress-top">
+        <span class="sss-progress-label">🎯 Your preparation progress</span>
+        <span class="sss-progress-text" data-sss-progress-text>0 / {totalTopics} topics</span>
+      </div>
+      <div class="sss-progress-bar"><span class="sss-progress-fill" data-sss-progress-fill></span></div>
+      <div class="sss-actions">
+        <button type="button" class="sss-mini" data-sss-expand>⌄ Expand all</button>
+        <button type="button" class="sss-mini" data-sss-collapse>⌃ Collapse all</button>
+        <button type="button" class="sss-mini sss-mini-warn" data-sss-reset>↺ Reset</button>
+      </div>
+    </div>
+
+    <input
+      type="search"
+      class="sss-search"
+      data-sss-search
+      placeholder="🔍 Search any topic — e.g. Percentage, Reasoning, Hindi..."
+      aria-label="Search syllabus topic"
+    />
+
+    <div class="sss-subjects" data-sss-subjects>
+      {subjects.map((subject, si) => (
+        <div class="sss-subj open" data-sss-subj>
+          <button type="button" class="sss-subj-head" data-sss-subj-toggle aria-expanded="true">
+            <span class="sss-subj-name">{subject.name}</span>
+            <span class="sss-subj-meta">
+              {subject.questions ? `${subject.questions} Qs · ` : ''}{subject.marks ? `${subject.marks} Marks · ` : ''}{subject.tier || ''}
+            </span>
+            <span class="sss-subj-count" data-sss-subj-count>0/{(subject.topics || []).length}</span>
+            <span class="sss-caret">▾</span>
+          </button>
+          <div class="sss-topic-grid" data-sss-subj-body>
+            {(subject.topics || []).map((topic, ti) => (
+              <button type="button" class="sss-topic" data-sss-topic data-key={`s${si}t${ti}`}>
+                <span class="sss-tick">○</span>
+                <span class="sss-topic-text">{topic}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+      <p class="sss-empty" data-sss-empty hidden>Koi topic match nahi hua — dusra keyword try karo.</p>
+    </div>
+
+    <div class="sss-foot">
+      <a class="sss-foot-link" href={syllabusUrl}>📖 Open full syllabus page →</a>
+      {applyUrl && (
+        <a class="sss-foot-apply" href={applyUrl} target="_blank" rel="noopener">Apply on official site ↗</a>
+      )}
+      <p class="sss-note">✅ Ticks aapke device mein save rehte hain — kal wapas aake dekh sakte ho ki kahan tak padh liya.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sss-trigger {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .sss-trigger:hover { transform: translateY(-1px); }
+  .sss-trigger-primary {
+    background: linear-gradient(135deg, #0e7c5a, #0a6349);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(14, 124, 90, .28);
+  }
+  .sss-trigger-ghost {
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    color: var(--strong);
+  }
+
+  .sss-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 12, 15, .72);
+    backdrop-filter: blur(3px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 16px;
+  }
+  .sss-overlay.open { display: flex; }
+  .sss-modal {
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 22px 22px 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+  }
+  .sss-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--hairline);
+    background: var(--elevated);
+    color: var(--strong);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .sss-badge {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--saffron);
+  }
+  .sss-title { font-family: var(--font-display); font-size: 20px; margin: 6px 0 2px; color: var(--strong); }
+  .sss-org { font-size: 12.5px; color: var(--muted); margin: 0 0 8px; }
+  .sss-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+  .sss-chip {
+    font-size: 11.5px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--elevated);
+    color: var(--body);
+    border: 1px solid var(--hairline);
+  }
+
+  .sss-progress-wrap {
+    margin: 14px 0 12px;
+    padding: 12px 14px;
+    background: var(--elevated);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+  }
+  .sss-progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--strong);
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .sss-progress-bar {
+    height: 8px;
+    border-radius: 999px;
+    background: var(--hairline);
+    overflow: hidden;
+    margin: 8px 0 10px;
+  }
+  .sss-progress-fill {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0e7c5a, #f0b429);
+    transition: width .25s ease;
+  }
+  .sss-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .sss-mini {
+    font-size: 11.5px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--hairline);
+    background: var(--card);
+    color: var(--body);
+    cursor: pointer;
+  }
+  .sss-mini:hover { border-color: var(--saffron); color: var(--strong); }
+  .sss-mini-warn:hover { border-color: #d9534f; color: #d9534f; }
+
+  .sss-search {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--hairline);
+    background: var(--card);
+    color: var(--strong);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .sss-subj {
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    background: var(--card);
+  }
+  .sss-subj-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    flex-wrap: wrap;
+  }
+  .sss-subj-name { font-weight: 700; font-size: 14.5px; color: var(--strong); flex: 1 1 auto; }
+  .sss-subj-meta { font-size: 11.5px; color: var(--muted); }
+  .sss-subj-count {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--elevated);
+    color: var(--saffron);
+    border: 1px solid var(--hairline);
+  }
+  .sss-caret { font-size: 12px; color: var(--muted); transition: transform .2s ease; }
+  .sss-subj:not(.open) .sss-caret { transform: rotate(-90deg); }
+  .sss-subj:not(.open) .sss-topic-grid { display: none; }
+  .sss-topic-grid { display: flex; flex-wrap: wrap; gap: 7px; padding: 0 14px 14px; }
+  .sss-topic {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--hairline);
+    background: var(--elevated);
+    color: var(--body);
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .sss-topic:hover { border-color: var(--saffron); transform: translateY(-1px); }
+  .sss-topic.done {
+    background: rgba(14, 124, 90, .12);
+    border-color: #0e7c5a;
+    color: #0e7c5a;
+    text-decoration: line-through;
+  }
+  .sss-tick { font-size: 11px; font-weight: 700; }
+  .sss-empty { font-size: 13px; color: var(--muted); text-align: center; padding: 14px; }
+
+  .sss-foot {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .sss-foot-link { font-size: 13px; font-weight: 600; color: var(--saffron); text-decoration: none; }
+  .sss-foot-apply {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 14px;
+    border-radius: 10px;
+    background: var(--strong);
+    color: var(--card);
+    text-decoration: none;
+  }
+  .sss-note { flex: 1 1 100%; font-size: 11.5px; color: var(--muted); margin: 2px 0 0; }
+
+  @media (max-width: 640px) {
+    .sss-modal { max-height: 92vh; padding: 18px 14px 14px; border-radius: 14px; }
+    .sss-title { font-size: 17px; }
+    .sss-topic { font-size: 12px; padding: 5px 9px; }
+  }
+</style>
+
+<script is:inline define:vars={{ sssKey: storageKey }}>
+(function () {
+  var KEY = sssKey;
+  var overlay = document.querySelector('.sss-overlay');
+  if (!overlay) return;
+
+  var topics = Array.prototype.slice.call(overlay.querySelectorAll('[data-sss-topic]'));
+  var subjects = Array.prototype.slice.call(overlay.querySelectorAll('[data-sss-subj]'));
+  var fill = overlay.querySelector('[data-sss-progress-fill]');
+  var text = overlay.querySelector('[data-sss-progress-text]');
+  var search = overlay.querySelector('[data-sss-search]');
+  var empty = overlay.querySelector('[data-sss-empty]');
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
+  function save(arr) { try { localStorage.setItem(KEY, JSON.stringify(arr)); } catch (e) {} }
+  var done = load();
+
+  function paint() {
+    var total = topics.length;
+    var count = 0;
+    topics.forEach(function (t) {
+      var isDone = done.indexOf(t.getAttribute('data-key')) >= 0;
+      t.classList.toggle('done', isDone);
+      var tick = t.querySelector('.sss-tick');
+      if (tick) tick.textContent = isDone ? '✓' : '○';
+      if (isDone) count++;
+    });
+    subjects.forEach(function (s) {
+      var all = s.querySelectorAll('[data-sss-topic]');
+      var d = s.querySelectorAll('[data-sss-topic].done').length;
+      var badge = s.querySelector('[data-sss-subj-count]');
+      if (badge) badge.textContent = d + '/' + all.length;
+    });
+    if (fill) fill.style.width = total ? ((count / total) * 100) + '%' : '0%';
+    if (text) text.textContent = count + ' / ' + total + ' topics' + (total && count === total ? ' 🎉' : '');
+  }
+
+  function openPopup() {
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    paint();
+  }
+  function closePopup() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Exposed so the sticky bar / any button can open this popup
+  window.ssOpenSyllabusPopup = openPopup;
+  window.ssCloseSyllabusPopup = closePopup;
+
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t.closest('[data-sss-open]')) { e.preventDefault(); openPopup(); return; }
+    if (t.closest('[data-sss-close]')) { closePopup(); return; }
+    if (t === overlay) { closePopup(); return; }
+
+    var topic = t.closest('[data-sss-topic]');
+    if (topic) {
+      var k = topic.getAttribute('data-key');
+      var i = done.indexOf(k);
+      if (i >= 0) { done.splice(i, 1); } else { done.push(k); }
+      save(done);
+      paint();
+      return;
+    }
+
+    var head = t.closest('[data-sss-subj-toggle]');
+    if (head) {
+      var subj = head.closest('[data-sss-subj]');
+      var isOpen = subj.classList.toggle('open');
+      head.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closePopup();
+  });
+
+  var expand = overlay.querySelector('[data-sss-expand]');
+  var collapse = overlay.querySelector('[data-sss-collapse]');
+  var reset = overlay.querySelector('[data-sss-reset]');
+  if (expand) expand.addEventListener('click', function () { subjects.forEach(function (s) { s.classList.add('open'); }); });
+  if (collapse) collapse.addEventListener('click', function () { subjects.forEach(function (s) { s.classList.remove('open'); }); });
+  if (reset) reset.addEventListener('click', function () {
+    if (window.confirm('Saari preparation progress reset kar dein?')) { done = []; save(done); paint(); }
+  });
+
+  if (search) search.addEventListener('input', function () {
+    var q = search.value.trim().toLowerCase();
+    var anyVisible = false;
+    subjects.forEach(function (s) {
+      var nameEl = s.querySelector('.sss-subj-name');
+      var nameMatch = nameEl ? nameEl.textContent.toLowerCase().indexOf(q) >= 0 : false;
+      var topicEls = Array.prototype.slice.call(s.querySelectorAll('[data-sss-topic]'));
+      var visibleTopics = 0;
+      topicEls.forEach(function (t) {
+        var txt = (t.textContent || '').toLowerCase();
+        var match = !q || nameMatch || txt.indexOf(q) >= 0;
+        t.style.display = match ? '' : 'none';
+        if (match) visibleTopics++;
+      });
+      var show = !q || nameMatch || visibleTopics > 0;
+      s.style.display = show ? '' : 'none';
+      if (q && show) s.classList.add('open');
+      if (show) anyVisible = true;
+    });
+    if (empty) empty.hidden = anyVisible;
+  });
+
+  paint();
+})();
+</script>
