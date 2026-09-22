@@ -2,12 +2,18 @@ name: 24/7 Automated Govt Jobs & Results Sync
 
 on:
   schedule:
-    # Runs automatically every 2 hours, 24/7/365 in GitHub Cloud
-    - cron: '0 */2 * * *'
+    # Runs automatically every 30 minutes, 24/7/365 in GitHub Cloud
+    # (free unlimited minutes — repo is public)
+    - cron: '*/30 * * * *'
   workflow_dispatch: # Allows manual 1-click trigger anytime from GitHub
 
 permissions:
   contents: write
+
+# Prevent overlapping runs if a previous cycle is still executing
+concurrency:
+  group: live-agent-sync
+  cancel-in-progress: false
 
 jobs:
   auto-update:
@@ -23,15 +29,22 @@ jobs:
         with:
           node-version: 20
 
-      - name: Run 24/7 Live Ingestion Agent
+      - name: Configure Git Identity (before agent, so its internal auto-commit works)
+        run: |
+          git config --global user.name "Sarkari Sahayak Bot"
+          git config --global user.email "bot@salarypitcher.com"
+
+      - name: Run 24/7 Live Ingestion Agent (+ Telegram Channel Auto-Post)
+        env:
+          # Set these in: Repo → Settings → Secrets and variables → Actions
+          # If unset, the agent still syncs normally — Telegram step just skips safely.
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           node src/scripts/live-agent.mjs
 
       - name: Check for Changes and Auto-Commit
         run: |
-          git config --global user.name "Sarkari Sahayak Bot"
-          git config --global user.email "bot@salarypitcher.com"
-          
           if [ -n "$(git status --porcelain)" ]; then
             git add src/data/ public/sitemap.xml
             git commit -m "🤖 auto-sync: latest govt jobs, results & admit cards [skip ci]"

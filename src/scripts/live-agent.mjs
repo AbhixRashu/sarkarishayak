@@ -20,6 +20,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import { pingIndexNowStream } from './indexnow-utils.mjs';
+import { notifyNewEntries } from './telegram-notify.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -200,6 +201,7 @@ export async function runLiveAgent() {
 
   let stats = { jobs: 0, results: 0, admitCards: 0, yojanas: 0, answerKeys: 0 };
   const newUrls = []; // Track newly discovered URLs for IndexNow ping
+  const newEntries = []; // Track newly saved entries for Telegram channel notification
 
   for (const feed of REALTIME_FEEDS) {
     console.log(`📡 Scanning: ${feed.name}...`);
@@ -263,6 +265,13 @@ export async function runLiveAgent() {
           existingYojanaSlugs.add(slug);
           stats.yojanas++;
           newUrls.push(`https://govtjob.salarypitcher.com/yojana/${slug}/`);
+          newEntries.push({
+            type: 'yojana',
+            title,
+            organization: 'Government of India',
+            releaseDate: pubDate,
+            url: `https://govtjob.salarypitcher.com/yojana/${slug}/`
+          });
         }
       }
       // 2. Sarkari Results
@@ -284,6 +293,13 @@ export async function runLiveAgent() {
           existingResultSlugs.add(slug);
           stats.results++;
           newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
+          newEntries.push({
+            type: 'results',
+            title: `${title} 2026`,
+            organization: org,
+            releaseDate: pubDate,
+            url: `https://govtjob.salarypitcher.com/results/${slug}/`
+          });
         }
       }
       // 3. Admit Cards
@@ -305,6 +321,13 @@ export async function runLiveAgent() {
           existingAdmitCardSlugs.add(slug);
           stats.admitCards++;
           newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
+          newEntries.push({
+            type: 'admit-cards',
+            title: `${title} 2026`,
+            organization: org,
+            releaseDate: pubDate,
+            url: `https://govtjob.salarypitcher.com/admit-cards/${slug}/`
+          });
         }
       }
       // 4. Answer Keys
@@ -325,6 +348,13 @@ export async function runLiveAgent() {
           existingAnswerKeySlugs.add(slug);
           stats.answerKeys++;
           newUrls.push(`https://govtjob.salarypitcher.com/answer-keys/${slug}/`);
+          newEntries.push({
+            type: 'answer-keys',
+            title: `${title} 2026`,
+            organization: org,
+            releaseDate: pubDate,
+            url: `https://govtjob.salarypitcher.com/answer-keys/${slug}/`
+          });
         }
       }
       // 5. Latest Jobs
@@ -419,6 +449,16 @@ export async function runLiveAgent() {
           existingJobSlugs.add(slug);
           stats.jobs++;
           newUrls.push(`https://govtjob.salarypitcher.com/latest-jobs/${slug}/`);
+          newEntries.push({
+            type: 'jobs',
+            title: `${title} Recruitment 2026`,
+            organization: org,
+            vacancies: 500,
+            qualify: '10th / 12th / Graduate / Diploma',
+            lastDate: 'Check Official Notification',
+            salary: 'As per 7th Pay Commission Matrix',
+            url: `https://govtjob.salarypitcher.com/latest-jobs/${slug}/`
+          });
         }
       }
     }
@@ -452,6 +492,18 @@ export async function runLiveAgent() {
       if (newUrls.length > 0) {
         console.log(`🚀 [Live Agent] Auto-pinging IndexNow for ${newUrls.length} new URL(s)...`);
         await pingIndexNowStream(newUrls);
+      }
+
+      // 📣 Auto-post new updates to the Telegram channel.
+      // Fail-safe by design: notifyNewEntries never throws — if Telegram is
+      // down/misconfigured it only logs, so saving & deploying is never blocked.
+      if (newEntries.length > 0) {
+        console.log(`📣 [Live Agent] Posting ${newEntries.length} update(s) to Telegram channel...`);
+        try {
+          await notifyNewEntries(newEntries);
+        } catch (tgErr) {
+          console.warn('⚠️ [Telegram] Notification step failed (ignored):', tgErr.message);
+        }
       }
 
       // Auto-commit & push to trigger Vercel rebuild

@@ -11,7 +11,9 @@
     "agent:live": "node src/scripts/live-agent.mjs --daemon --interval=30",
     "sitemap": "node src/scripts/generate-sitemap.mjs",
     "index:google": "node src/scripts/google-index-ping.mjs",
-    "index:now": "node src/scripts/indexnow-ping.mjs"
+    "index:now": "node src/scripts/indexnow-ping.mjs",
+    "telegram:test": "node src/scripts/telegram-notify.mjs --test",
+    "telegram:test:dry": "node src/scripts/telegram-notify.mjs --test --dry-run"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.2",
