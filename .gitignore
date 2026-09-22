@@ -13,3 +13,7 @@ credentials*.json
 # WhatsApp Bot
 whatsapp-bot/__pycache__/
 whatsapp-bot/*.pyc
+
+# local build logs
+build.log
+
