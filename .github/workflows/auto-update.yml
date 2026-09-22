@@ -6,6 +6,12 @@ on:
     # (free unlimited minutes — repo is public)
     - cron: '*/30 * * * *'
   workflow_dispatch: # Allows manual 1-click trigger anytime from GitHub
+    inputs:
+      telegram_test:
+        description: 'Also send a TEST message to the Telegram channel?'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -42,6 +48,13 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           node src/scripts/live-agent.mjs
+
+      - name: Optional — Send Telegram TEST message (manual trigger only)
+        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.telegram_test == 'true' }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node src/scripts/telegram-notify.mjs --test
 
       - name: Check for Changes and Auto-Commit
         run: |
