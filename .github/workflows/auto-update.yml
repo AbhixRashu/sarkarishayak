@@ -40,12 +40,16 @@ jobs:
           git config --global user.name "Sarkari Sahayak Bot"
           git config --global user.email "bot@salarypitcher.com"
 
-      - name: Run 24/7 Live Ingestion Agent (+ Telegram Channel Auto-Post)
+      - name: Run 24/7 Live Ingestion Agent (+ Telegram Auto-Post + Google Indexing)
         env:
           # Set these in: Repo → Settings → Secrets and variables → Actions
-          # If unset, the agent still syncs normally — Telegram step just skips safely.
+          # If unset, the agent still syncs normally — those extra steps just skip safely.
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Instant-indexing credentials. Paste the exact content of your local
+          # service-account.json (raw JSON or base64) into this secret.
+          # Without it the Google Indexing API ping is skipped — nothing else breaks.
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
           node src/scripts/live-agent.mjs
 

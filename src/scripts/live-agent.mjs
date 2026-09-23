@@ -17,6 +17,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import { pingIndexNowStream } from './indexnow-utils.mjs';
@@ -481,11 +482,35 @@ export async function runLiveAgent() {
         console.log('✓ Sitemap regenerated successfully.');
       }
 
-      // Auto-ping Google Indexing API
-      const pingScript = path.join(ROOT, 'src/scripts/google-index-ping.mjs');
-      if (fs.existsSync(pingScript)) {
-        console.log('🚀 [Live Agent] Auto-submitting latest updates to Google Indexing API...');
-        execSync(`node "${pingScript}" --limit=20`, { stdio: 'inherit' });
+      // Auto-ping Google Indexing API — submit the EXACT URLs discovered in this run.
+      // (The old `--limit=20` call always pinged the FIRST 20 sitemap URLs, which are
+      //  static hub pages Google ignores, so brand-new pages were never submitted.)
+      if (newUrls.length > 0) {
+        const pingScript = path.join(ROOT, 'src/scripts/google-index-ping.mjs');
+        const hasCredentials = fs.existsSync(path.join(ROOT, 'service-account.json')) || !!process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+
+        if (!fs.existsSync(pingScript)) {
+          console.log('ℹ️ [Google Indexing] Skipped — google-index-ping.mjs not found.');
+        } else if (!hasCredentials) {
+          console.log('ℹ️ [Google Indexing] Skipped — no service-account.json / GOOGLE_SERVICE_ACCOUNT_JSON available.');
+        } else {
+          // Google only acts on JobPosting pages and the daily quota is 200/run-project,
+          // so job URLs go first and each run is capped.
+          const submitQueue = [...new Set(newUrls)]
+            .sort((a, b) => Number(b.includes('/latest-jobs/')) - Number(a.includes('/latest-jobs/')))
+            .slice(0, 100);
+
+          // URLs travel through a temp file: a long URL list can exceed the shell limit
+          const urlsFile = path.join(os.tmpdir(), 'sarkari-new-urls.json');
+          try {
+            fs.writeFileSync(urlsFile, JSON.stringify(submitQueue, null, 2), 'utf-8');
+            console.log(`🚀 [Live Agent] Submitting ${submitQueue.length} brand-new URL(s) to Google Indexing API...`);
+            execSync(`node "${pingScript}" --urls-file="${urlsFile}"`, { stdio: 'inherit' });
+          } catch (googleErr) {
+            // Never let a Google failure block IndexNow / Telegram / auto-push
+            console.warn('⚠️ [Google Indexing] Step failed (continuing):', googleErr.message);
+          }
+        }
       }
 
       // Auto-ping IndexNow (event-driven, chunked — Bing compliant)

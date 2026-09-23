@@ -28,6 +28,53 @@ const cutoffs = loadJson('cutoffs.json');
 
 const today = new Date().toISOString().split('T')[0];
 
+const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+
+function buildIso(year, month, day) {
+  if (!year || !month || !day) return null;
+  if (year < 2000 || year > new Date().getFullYear() + 1) return null;
+  if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+  const date = new Date(Date.UTC(year, month - 1, day));
+  if (date.getUTCDate() !== day || date.getUTCMonth() !== month - 1) return null;
+  return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+}
+
+function toIsoDate(value) {
+  if (!value) return null;
+  const raw = String(value).trim();
+
+  // 2026-09-22
+  let m = raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (m) return buildIso(Number(m[1]), Number(m[2]), Number(m[3]));
+
+  // 22/09/2026 · 22-09-2026 (DD/MM/YYYY)
+  m = raw.match(/^(\d{1,2})[/\-.](\d{1,2})[/\-.](\d{4})$/);
+  if (m) return buildIso(Number(m[3]), Number(m[2]), Number(m[1]));
+
+  // 20 August 2015
+  m = raw.match(/^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/);
+  if (m) return buildIso(Number(m[3]), MONTHS[m[2].slice(0, 3).toLowerCase()], Number(m[1]));
+
+  // August 2015
+  m = raw.match(/^([A-Za-z]+)\s+(\d{4})$/);
+  if (m) return buildIso(Number(m[2]), MONTHS[m[1].slice(0, 3).toLowerCase()], 1);
+
+  return null;
+}
+
+// Truthful <lastmod> from the entry's own date. Google ignores a sitemap where
+// every URL claims "today" on every regeneration, which slowed recrawls down.
+function lastmodOf(entry, ...fields) {
+  if (entry) {
+    for (const field of fields) {
+      const iso = toIsoDate(entry[field]);
+      // A <lastmod> in the future makes Google distrust the whole sitemap
+      if (iso) return iso > today ? today : iso;
+    }
+  }
+  return today;
+}
+
 const staticPages = [
   { loc: '/', priority: '1.0', changefreq: 'daily' },
   { loc: '/latest-jobs/', priority: '0.9', changefreq: 'daily' },
@@ -132,7 +179,7 @@ for (const j of jobs) {
   if (!j.slug || j.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/latest-jobs/${j.slug}/</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmodOf(j, 'postDate', 'startDate')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -143,7 +190,7 @@ for (const r of results) {
   if (!r.slug || r.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/results/${r.slug}/</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmodOf(r, 'releaseDate', 'date')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -154,7 +201,7 @@ for (const a of admitCards) {
   if (!a.slug || a.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/admit-cards/${a.slug}/</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmodOf(a, 'releaseDate', 'date')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -165,7 +212,7 @@ for (const k of answerKeys) {
   if (!k.slug || k.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/answer-keys/${k.slug}/</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmodOf(k, 'releaseDate', 'date')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`);
@@ -200,7 +247,7 @@ for (const y of yojanas) {
   if (!y.slug || y.slug.length < MIN_SLUG_LEN) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/yojana/${y.slug}/</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmodOf(y, 'launchDate')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);

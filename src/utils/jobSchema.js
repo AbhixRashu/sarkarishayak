@@ -202,14 +202,43 @@ export function resolveBaseSalary(job) {
   };
 }
 
+// Google requires ISO 8601 (YYYY-MM-DD) for JobPosting dates.
+// The data files mix "2026-09-22" and "01/08/2026" — normalise everything.
+function toIsoDate(value) {
+  if (!value) return null;
+  const raw = String(value).trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+  const dmy = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (dmy) return `${dmy[3]}-${dmy[2].padStart(2, '0')}-${dmy[1].padStart(2, '0')}`;
+  return null;
+}
+
+function isoToday() {
+  return new Date().toISOString().split('T')[0];
+}
+
+function addDaysIso(days) {
+  const d = new Date();
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().split('T')[0];
+}
+
 export function resolveValidThrough(lastDate) {
-  if (!lastDate) return "2026-12-31";
-  if (/^\d{4}-\d{2}-\d{2}$/.test(lastDate)) return lastDate;
-  if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(lastDate)) {
-    const parts = lastDate.split('/');
-    return `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
-  }
-  return "2026-12-31";
+  const iso = toIsoDate(lastDate);
+  if (iso) return iso;
+  // No announced deadline => assume valid for the next 60 days.
+  // (A hardcoded "2026-12-31" quietly expired every such posting.)
+  return addDaysIso(60);
+}
+
+// datePosted must be valid ISO 8601 and must not be in the future.
+// "01/08/2026" made the whole JobPosting markup invalid, which is why Google
+// silently ignored the Indexing API notifications for job pages.
+export function resolveDatePosted(job) {
+  const today = isoToday();
+  const iso = toIsoDate(job.postDate) || toIsoDate(job.startDate) || toIsoDate(job.lastDate);
+  if (!iso) return today;
+  return iso > today ? today : iso;
 }
 
 export function buildJobPostingSchema(job, siteUrl = 'https://govtjob.salarypitcher.com') {
@@ -222,7 +251,7 @@ export function buildJobPostingSchema(job, siteUrl = 'https://govtjob.salarypitc
     "@type": "JobPosting",
     "title": job.title,
     "description": `${job.title} — ${job.organization}. ${job.vacancies || 'Multiple'} vacancies. Last date: ${job.lastDate}. Apply online.`,
-    "datePosted": job.startDate || new Date().toISOString().split('T')[0],
+    "datePosted": resolveDatePosted(job),
     "validThrough": validThrough,
     "employmentType": "FULL_TIME",
     "directApply": true,
