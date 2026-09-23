@@ -511,6 +511,8 @@ export async function runLiveAgent() {
             console.warn('⚠️ [Google Indexing] Step failed (continuing):', googleErr.message);
           }
         }
+      } else {
+        console.log('ℹ️ [Google Indexing] No new URLs in this run — nothing to submit.');
       }
 
       // Auto-ping IndexNow (event-driven, chunked — Bing compliant)
