@@ -98,8 +98,8 @@ jobs:
       # ── 4. Commit updated posted_ids.json ─────────────────────────────────
       - name: Save Posted IDs (Anti-Duplicate)
         run: |
-          git config --global user.name  "Sarkari Sahayak Bot"
-          git config --global user.email "bot@sarkarisahayak.in"
+          git config --global user.name  "Rashu"
+          git config --global user.email "b2rgaming66@gmail.com"
 
           if git diff --quiet whatsapp-bot/posted_ids.json; then
             echo "✓ No new posts — posted_ids.json unchanged."

@@ -35,10 +35,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Configure Git Identity (before agent, so its internal auto-commit works)
+      - name: Configure Git Identity (matches GitHub/Vercel owner)
         run: |
-          git config --global user.name "Sarkari Sahayak Bot"
-          git config --global user.email "bot@salarypitcher.com"
+          git config --global user.name "Rashu"
+          git config --global user.email "b2rgaming66@gmail.com"
 
       - name: Run 24/7 Live Ingestion Agent (+ Telegram Auto-Post + Google Indexing)
         env:
