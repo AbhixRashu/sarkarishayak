@@ -245,13 +245,21 @@ export function buildJobPostingSchema(job, siteUrl = 'https://govtjob.salarypitc
   const address = resolveJobAddress(job);
   const salary = resolveBaseSalary(job);
   const validThrough = resolveValidThrough(job.lastDate);
+  const datePosted = resolveDatePosted(job);
+  const pageUrl = `${siteUrl}/latest-jobs/${job.slug}/`;
+  // dateModified = today's ISO timestamp — tells Google content is fresh
+  // and ensures Indexing API latestUpdate field is populated (fixes "no latestUpdate" issue)
+  const dateModified = new Date().toISOString();
 
   return {
     "@context": "https://schema.org",
     "@type": "JobPosting",
+    // url is MANDATORY for Google Indexing API to queue the page
+    "url": pageUrl,
     "title": job.title,
-    "description": `${job.title} — ${job.organization}. ${job.vacancies || 'Multiple'} vacancies. Last date: ${job.lastDate}. Apply online.`,
-    "datePosted": resolveDatePosted(job),
+    "description": `${job.title} — ${job.organization}. ${job.vacancies || 'Multiple'} vacancies. Last date: ${job.lastDate}. Apply online at ${siteUrl}.`,
+    "datePosted": datePosted,
+    "dateModified": dateModified,
     "validThrough": validThrough,
     "employmentType": "FULL_TIME",
     "directApply": true,

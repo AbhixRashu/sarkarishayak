@@ -72,3 +72,9 @@ jobs:
           else
             echo "✓ Datasets are up-to-date. No new entries found."
           fi
+
+      - name: 🚀 IndexNow — Submit ALL New Sitemap URLs (Google + Bing Instant Crawl)
+        run: |
+          echo "📡 Submitting all sitemap URLs to IndexNow (Bing/Google instant crawl)..."
+          node src/scripts/indexnow-ping.mjs --limit=500 --delay=200
+          echo "✅ IndexNow submission complete!"
