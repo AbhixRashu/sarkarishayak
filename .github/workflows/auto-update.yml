@@ -63,7 +63,9 @@ jobs:
       - name: Check for Changes and Auto-Commit
         run: |
           if [ -n "$(git status --porcelain)" ]; then
-            git add src/data/ public/sitemap.xml
+            # data + sitemap + scripts (scripts add taki naye quality filters /
+            # gsc-report kabhi missing na rahein) — build.log aur .env* ignored hain
+            git add src/data/ public/sitemap.xml src/scripts/ package.json .github/
             git commit -m "🤖 auto-sync: latest govt jobs, results & admit cards [skip ci]"
             git push origin main
             echo "✓ New updates pushed to repository. Auto-deploy triggered!"

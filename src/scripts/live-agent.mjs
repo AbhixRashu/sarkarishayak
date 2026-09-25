@@ -22,6 +22,11 @@ import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 import { pingIndexNowStream } from './indexnow-utils.mjs';
 import { notifyNewEntries } from './telegram-notify.mjs';
+import {
+  makeSlug, truncateTitleAtWord, appendIfMissing,
+  isQualityTitle as passesQualityGate,
+  pickBestLink, HONEST_YOJANA_TEXT
+} from './quality-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -60,15 +65,9 @@ function writeJSON(filePath, data) {
   }
 }
 
-// Slug generator
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .trim()
-    .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
+// Slug generator + quality gate ab quality-utils.mjs me hain (shared).
+// Wahan word-boundary truncation, double-hyphen cleanup, junk-topic detection
+// aur official-link picking — sab ek jagah hai.
 
 // Strip HTML tags & entities
 function cleanText(str) {
@@ -84,18 +83,8 @@ function cleanText(str) {
     .trim();
 }
 
-// Quality gate: reject garbage/low-quality titles before ingestion
-function isQualityTitle(title) {
-  // Must have at least 3 real words
-  const words = title.split(/\s+/).filter(w => w.length > 1);
-  if (words.length < 3) return false;
-  // Must be at least 15 chars long
-  if (title.length < 15) return false;
-  // Reject if 70%+ characters are numbers or symbols
-  const alphaChars = (title.match(/[a-zA-Z\u0900-\u097F]/g) || []).length;
-  if (alphaChars / title.length < 0.3) return false;
-  return true;
-}
+// Quality gate ab quality-utils.mjs me hai (junk topic + govt context +
+// category match ke saath) — yahan purana local version nahi rakhte.
 
 // Real-Time High Priority Feed Channels
 const REALTIME_FEEDS = [
@@ -229,13 +218,12 @@ export async function runLiveAgent() {
       const description = descMatch ? cleanText(descMatch[1]) : '';
       const pubDate = dateMatch ? new Date(dateMatch[1]).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
 
-      if (!isQualityTitle(title)) continue;
-      const baseSlug = slugify(title).slice(0, 50);
-
       // 1. Sarkari Yojana
       if (feed.type === 'yojana' || /yojana|pradhan mantri|pm-|kisan|awas|subsidy|ration|ayushman/i.test(title)) {
-        const slug = `${baseSlug}-yojana`;
+        if (!passesQualityGate(title, 'yojana')) continue;
+        const slug = makeSlug(title, 'yojana', 60);
         if (!existingYojanaSlugs.has(slug)) {
+          const officialPortal = pickBestLink(rawLink, title, 'Government of India');
           existingYojanas.unshift({
             name: title,
             slug,
@@ -243,22 +231,17 @@ export async function runLiveAgent() {
             launchDate: pubDate,
             ministry: 'Government of India',
             budget: 'As per latest scheme notification',
-            eligibility: 'भारतीय नागरिक जो योजना के अंतर्गत निर्धारित पात्रता नियमों को पूरा करते हैं।',
-            benefits: description || `${title} के तहत पात्र नागरिकों को वित्तीय सहायता और सरकारी लाभ प्रदान किए जाते हैं।`,
-            applicationProcess: [
-              'आधिकारिक वेबसाइट या नजदीकी CSC केंद्र पर जाएँ',
-              'आधार कार्ड और मोबाइल नंबर से रजिस्ट्रेशन करें',
-              'आवेदन फॉर्म भरें और आवश्यक दस्तावेज अपलोड करें',
-              'आवेदन सबमिट करें और पावती रसीद सुरक्षित रखें'
-            ],
-            documents: ['आधार कार्ड', 'आय प्रमाण पत्र', 'निवास प्रमाण पत्र', 'बैंक पासबुक', 'पासपोर्ट फोटो'],
-            officialWebsite: rawLink || 'https://www.india.gov.in',
+            eligibility: HONEST_YOJANA_TEXT.eligibility,
+            benefits: description || HONEST_YOJANA_TEXT.benefits,
+            applicationProcess: HONEST_YOJANA_TEXT.applicationProcess,
+            documents: HONEST_YOJANA_TEXT.documents,
+            officialWebsite: officialPortal,
             helpline: '1800-11-0001 (National Portal)',
             shortDescription: `${title} — सरकारी योजना विवरण, पात्रता, लाभ व ऑनलाइन आवेदन।`,
             importantDates: [`Notification Date: ${pubDate}`, 'Status: Active'],
             importantLinks: [
-              { label: 'Official Portal', url: rawLink || 'https://www.india.gov.in' },
-              { label: 'Scheme Details', url: rawLink || 'https://www.india.gov.in' }
+              { label: 'Official Portal', url: officialPortal },
+              { label: 'Scheme Details', url: officialPortal }
             ],
             stateImplementation: 'National / All States',
             autoSynced: true
@@ -277,17 +260,20 @@ export async function runLiveAgent() {
       }
       // 2. Sarkari Results
       else if (feed.type === 'results' || /result|merit list|score card|marks list/i.test(title)) {
-        const slug = `${baseSlug}-result-2026`;
+        if (!passesQualityGate(title, 'results')) continue;
+        const slug = makeSlug(title, 'result-2026', 60);
         if (!existingResultSlugs.has(slug)) {
           const org = detectOrganization(title);
+          const fullTitle = appendIfMissing(title, '2026');
+          const cleanResultUrl = pickBestLink(rawLink, title, org);
           existingResults.unshift({
             slug,
-            title: `${title} 2026`,
-            shortTitle: title.slice(0, 40),
+            title: fullTitle,
+            shortTitle: truncateTitleAtWord(title, 40),
             organization: org,
             category: detectCategory(title),
             releaseDate: pubDate,
-            resultUrl: rawLink || 'https://govtjob.salarypitcher.com/results/',
+            resultUrl: cleanResultUrl,
             status: 'Declared',
             autoSynced: true
           });
@@ -296,7 +282,7 @@ export async function runLiveAgent() {
           newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
           newEntries.push({
             type: 'results',
-            title: `${title} 2026`,
+            title: fullTitle,
             organization: org,
             releaseDate: pubDate,
             url: `https://govtjob.salarypitcher.com/results/${slug}/`
@@ -305,17 +291,20 @@ export async function runLiveAgent() {
       }
       // 3. Admit Cards
       else if (feed.type === 'admit-cards' || /admit card|hall ticket|call letter|exam city/i.test(title)) {
-        const slug = `${baseSlug}-admit-card-2026`;
+        if (!passesQualityGate(title, 'admit-cards')) continue;
+        const slug = makeSlug(title, 'admit-card-2026', 60);
         if (!existingAdmitCardSlugs.has(slug)) {
           const org = detectOrganization(title);
+          const fullTitle = appendIfMissing(title, '2026');
+          const cleanDownloadUrl = pickBestLink(rawLink, title, org);
           existingAdmitCards.unshift({
             slug,
-            title: `${title} 2026`,
-            shortTitle: title.slice(0, 40),
+            title: fullTitle,
+            shortTitle: truncateTitleAtWord(title, 40),
             organization: org,
             category: detectCategory(title),
             releaseDate: pubDate,
-            downloadUrl: rawLink || 'https://govtjob.salarypitcher.com/admit-cards/',
+            downloadUrl: cleanDownloadUrl,
             status: 'Released',
             autoSynced: true
           });
@@ -324,7 +313,7 @@ export async function runLiveAgent() {
           newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
           newEntries.push({
             type: 'admit-cards',
-            title: `${title} 2026`,
+            title: fullTitle,
             organization: org,
             releaseDate: pubDate,
             url: `https://govtjob.salarypitcher.com/admit-cards/${slug}/`
@@ -333,16 +322,19 @@ export async function runLiveAgent() {
       }
       // 4. Answer Keys
       else if (feed.type === 'answer-keys' || /answer key|response sheet|objection/i.test(title)) {
-        const slug = `${baseSlug}-answer-key-2026`;
+        if (!passesQualityGate(title, 'answer-keys')) continue;
+        const slug = makeSlug(title, 'answer-key-2026', 60);
         if (!existingAnswerKeySlugs.has(slug)) {
           const org = detectOrganization(title);
+          const fullTitle = appendIfMissing(title, '2026');
+          const cleanDownloadUrl = pickBestLink(rawLink, title, org);
           existingAnswerKeys.unshift({
             slug,
-            title: `${title} 2026`,
-            shortTitle: title.slice(0, 40),
+            title: fullTitle,
+            shortTitle: truncateTitleAtWord(title, 40),
             organization: org,
             releaseDate: pubDate,
-            downloadUrl: rawLink || 'https://govtjob.salarypitcher.com/answer-keys/',
+            downloadUrl: cleanDownloadUrl,
             status: 'Available',
             autoSynced: true
           });
@@ -351,7 +343,7 @@ export async function runLiveAgent() {
           newUrls.push(`https://govtjob.salarypitcher.com/answer-keys/${slug}/`);
           newEntries.push({
             type: 'answer-keys',
-            title: `${title} 2026`,
+            title: fullTitle,
             organization: org,
             releaseDate: pubDate,
             url: `https://govtjob.salarypitcher.com/answer-keys/${slug}/`
@@ -360,20 +352,23 @@ export async function runLiveAgent() {
       }
       // 5. Latest Jobs
       else if (/recruitment|vacancy|vacancies|posts|officer|clerk|constable|teacher|engineer|apply/i.test(title)) {
-        const slug = `${baseSlug}-2026`;
+        if (!passesQualityGate(title, 'jobs')) continue;
+        const slug = makeSlug(title, '2026', 60);
         if (!existingJobSlugs.has(slug)) {
           const org = detectOrganization(title);
+          const fullTitle = appendIfMissing(title, 'Recruitment 2026');
+          const officialPortal = pickBestLink(rawLink, title, org);
           existingJobs.unshift({
             slug,
-            title: `${title} Recruitment 2026`,
-            shortTitle: title.slice(0, 40),
+            title: fullTitle,
+            shortTitle: truncateTitleAtWord(title, 40),
             organization: org,
             category: detectCategory(title),
             vacancies: 500,
             postDate: pubDate,
             startDate: pubDate,
             lastDate: 'Check Official Notification',
-            applyUrl: rawLink || 'https://govtjob.salarypitcher.com/latest-jobs/',
+            applyUrl: officialPortal,
             salary: 'As per 7th Pay Commission Matrix',
             qualify: '10th / 12th / Graduate / Diploma',
             feeGeneral: 'Check Notification',
@@ -393,9 +388,9 @@ export async function runLiveAgent() {
             ],
             selectionProcess: ['Written Examination', 'Skill/Physical Test (if applicable)', 'Document Verification', 'Final Merit List'],
             importantLinks: [
-              { label: 'Apply Online', url: rawLink || '#' },
-              { label: 'Download Notification', url: '#' },
-              { label: 'Official Website', url: '#' },
+              { label: 'Apply Online', url: officialPortal },
+              { label: 'Download Notification', url: officialPortal },
+              { label: 'Official Website', url: officialPortal },
             ],
             examPattern: [
               {
@@ -494,25 +489,39 @@ export async function runLiveAgent() {
         } else if (!hasCredentials) {
           console.log('ℹ️ [Google Indexing] Skipped — no service-account.json / GOOGLE_SERVICE_ACCOUNT_JSON available.');
         } else {
-          // Google only acts on JobPosting pages and the daily quota is 200/run-project,
-          // so job URLs go first and each run is capped.
+          // Google only acts on JobPosting pages and the daily quota is 200/run-project.
+          // Non-job URLs (results/admits/yojana) waste the 200 quota and Google silently drops them.
           const submitQueue = [...new Set(newUrls)]
-            .sort((a, b) => Number(b.includes('/latest-jobs/')) - Number(a.includes('/latest-jobs/')))
+            .filter(u => u.includes('/latest-jobs/'))
             .slice(0, 100);
 
-          // URLs travel through a temp file: a long URL list can exceed the shell limit
-          const urlsFile = path.join(os.tmpdir(), 'sarkari-new-urls.json');
-          try {
-            fs.writeFileSync(urlsFile, JSON.stringify(submitQueue, null, 2), 'utf-8');
-            console.log(`🚀 [Live Agent] Submitting ${submitQueue.length} brand-new URL(s) to Google Indexing API...`);
-            execSync(`node "${pingScript}" --urls-file="${urlsFile}"`, { stdio: 'inherit' });
-          } catch (googleErr) {
-            // Never let a Google failure block IndexNow / Telegram / auto-push
-            console.warn('⚠️ [Google Indexing] Step failed (continuing):', googleErr.message);
+          if (submitQueue.length === 0) {
+            console.log('ℹ️ [Google Indexing] No JobPosting URLs discovered in this run — skipping ping to save quota.');
+          } else {
+            // URLs travel through a temp file: a long URL list can exceed the shell limit
+            const urlsFile = path.join(os.tmpdir(), 'sarkari-new-urls.json');
+            try {
+              fs.writeFileSync(urlsFile, JSON.stringify(submitQueue, null, 2), 'utf-8');
+              console.log(`🚀 [Live Agent] Submitting ${submitQueue.length} brand-new JobPosting URL(s) to Google Indexing API...`);
+              execSync(`node "${pingScript}" --urls-file="${urlsFile}"`, { stdio: 'inherit' });
+            } catch (googleErr) {
+              // Never let a Google failure block IndexNow / Telegram / auto-push
+              console.warn('⚠️ [Google Indexing] Step failed (continuing):', googleErr.message);
+            }
           }
         }
       } else {
         console.log('ℹ️ [Google Indexing] No new URLs in this run — nothing to submit.');
+      }
+
+      // Auto-submit sitemap to Google Search Console (PUT /sitemaps endpoint)
+      try {
+        const gscScript = path.join(ROOT, 'src/scripts/gsc-report.mjs');
+        if (fs.existsSync(gscScript)) {
+          execSync(`node "${gscScript}" --submit`, { stdio: 'inherit' });
+        }
+      } catch (gscErr) {
+        console.warn('⚠️ [GSC] Sitemap submit step failed (continuing):', gscErr.message);
       }
 
       // Auto-ping IndexNow (event-driven, chunked — Bing compliant)

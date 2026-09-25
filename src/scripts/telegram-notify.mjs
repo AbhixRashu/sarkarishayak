@@ -157,7 +157,7 @@ export function buildEntryMessage(entry) {
 // ---------------------------------------------------------------------------
 // Telegram Bot API call (direct HTTPS, no library)
 // ---------------------------------------------------------------------------
-async function callSendMessage(text) {
+async function callSendMessage(text, chatId = CHAT_ID) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
   try {
@@ -166,7 +166,7 @@ async function callSendMessage(text) {
       signal: controller.signal,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        chat_id: CHAT_ID,
+        chat_id: chatId,
         text,
         parse_mode: 'HTML',
         disable_web_page_preview: false,
@@ -192,16 +192,26 @@ function sleep(ms) {
 /**
  * Send one message to the channel with 1 retry. NEVER throws — failures are
  * logged and reported via the return value so the job pipeline is unaffected.
+ *
+ * @param {string} text        Message (HTML parse_mode)
+ * @param {string} [chatId]    Override target chat. Traffic report jaisi
+ *                             internal cheezein public channel par nahi bhejni
+ *                             chahiye, isliye TELEGRAM_REPORT_CHAT_ID se
+ *                             alag chat par bheji ja sakti hain.
  */
-export async function sendTelegramMessage(text) {
+export async function sendTelegramMessage(text, chatId = CHAT_ID) {
   if (!isTelegramConfigured()) {
     console.warn('⚠️ [Telegram] Skipped — TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not set.');
+    return false;
+  }
+  if (!chatId) {
+    console.warn('⚠️ [Telegram] Skipped — target chat id missing.');
     return false;
   }
 
   for (let attempt = 1; attempt <= 2; attempt++) {
     try {
-      await callSendMessage(text);
+      await callSendMessage(text, chatId);
       if (attempt > 1) console.log('✓ [Telegram] Retry succeeded.');
       return true;
     } catch (err) {

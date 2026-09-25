@@ -242,6 +242,7 @@ async function main() {
 
   let submitted = 0;
   let queued = 0;
+  let ignored = 0;
   let failed = 0;
 
   for (let i = 0; i < targets.length; i++) {
@@ -255,7 +256,11 @@ async function main() {
           queued++;
           console.log(`[${i + 1}/${targets.length}] ✓ Queued by Google (${result.latestUpdate.notifyTime}): ${url}`);
         } else {
-          console.log(`[${i + 1}/${targets.length}] ✓ Accepted (HTTP 200): ${url}`);
+          // HTTP 200 par latestUpdate MISSING hona = Google ne request "samajh" li
+          // par koi notification RECORD nahi banaya. Live test me ye 404 wala
+          // metadata deta tha — matlab queue me kuch gaya hi nahi.
+          ignored++;
+          console.warn(`[${i + 1}/${targets.length}] ⚠️  HTTP 200 but Google IGNORED it (no latestUpdate): ${url}`);
         }
       } else {
         failed++;
@@ -281,16 +286,19 @@ async function main() {
 
   console.log('\n======================================================');
   console.log('📊 [Google Indexing Summary]');
-  console.log(`   🟢 Accepted by Google (HTTP 200): ${submitted}`);
-  console.log(`   🟡 Confirmed queued for crawl:    ${queued}`);
-  console.log(`   🔴 Failed:                        ${failed}`);
-  console.log(`   📦 Total attempted:               ${targets.length}`);
+  console.log(`   ✅ ACTUALLY QUEUED (verified):  ${queued}`);
+  console.log(`   ⚠️  HTTP 200 but IGNORED:       ${ignored}`);
+  console.log(`   🔴 Failed:                      ${failed}`);
+  console.log(`   📦 Total attempted:             ${targets.length}`);
   console.log('======================================================\n');
 
-  if (submitted > 0 && queued === 0 && failed === 0) {
-    console.log('💡 NOTE: Google answered 200 but returned no latestUpdate metadata.');
-    console.log('   Google schedules crawls only for JobPosting / BroadcastEvent pages —');
-    console.log('   job pages qualify, plain pages (yojana, static, tools) do not.');
+  if (queued === 0 && submitted > 0) {
+    console.log('🔴 Google ne EK BHI URL queue nahi kiya (sab 200 par ignore hue).');
+    console.log('   Google Indexing API SIRF JobPosting/BroadcastEvent pages accept karta hai,');
+    console.log('   aur usse spam/quality filter bhi drop kar sakta hai.');
+    console.log('   Iska matlab nahi ki request fail hui — HTTP 200 fine hai, par');
+    console.log('   instant crawl trigger KAHI NAHI hua.');
+    console.log('   Faithful sitemap crawl + IndexNow (Bing) hi abhi reliable auto-push hai.');
   }
   if (failed > 0) {
     console.log(`💡 For 403 "Permission denied", add ${keyData.client_email} as OWNER of the`);

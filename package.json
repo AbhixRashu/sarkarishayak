@@ -14,6 +14,9 @@
     "index:sample": "node src/scripts/google-index-ping.mjs --sample=20",
     "index:now": "node src/scripts/indexnow-ping.mjs",
     "index:all": "node src/scripts/generate-sitemap.mjs && node src/scripts/google-index-ping.mjs && node src/scripts/indexnow-ping.mjs",
+    "gsc:report": "node src/scripts/gsc-report.mjs",
+    "gsc:submit": "node src/scripts/gsc-report.mjs --submit",
+    "gsc:dry": "node src/scripts/gsc-report.mjs --dry-run",
     "telegram:test": "node src/scripts/telegram-notify.mjs --test",
     "telegram:test:dry": "node src/scripts/telegram-notify.mjs --test --dry-run"
   },

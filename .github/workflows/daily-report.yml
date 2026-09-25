@@ -1,0 +1,43 @@
+name: 📈 Daily Google Traffic Report
+
+# Har din ek baar (4:30 UTC = 10:00 AM IST): sitemap auto-submit + Google ka
+# asli traffic report. GitHub Actions ke log me chhapta hai, aur agar
+# TELEGRAM_REPORT_CHAT_ID secret set hai to Telegram par bhi bhej deta hai.
+#
+# Note: report PUBLIC Telegram channel (TELEGRAM_CHAT_ID) par NAHI jaati —
+# subscribers ko spam lagega. Alag chat chahiye to TELEGRAM_REPORT_CHAT_ID
+# secret me apna private chat id / group id daalo.
+
+on:
+  schedule:
+    - cron: '30 4 * * *'   # 4:30 UTC daily = 10:00 AM IST
+  workflow_dispatch:        # 1-click run anytime
+
+permissions:
+  contents: read
+
+jobs:
+  traffic-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Google Search Console — sitemap submit + traffic report
+        env:
+          # Repo → Settings → Secrets and variables → Actions
+          # Paste the exact content of your local service-account.json here
+          # (raw JSON or base64). Without it this step skips cleanly.
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          # Report delivery (OPTIONAL — console log always has the numbers)
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_REPORT_CHAT_ID: ${{ secrets.TELEGRAM_REPORT_CHAT_ID }}
+        run: node src/scripts/gsc-report.mjs --days=7

@@ -264,11 +264,25 @@ for (const s of scholarships) {
   </url>`);
 }
 
+// Dedupe: ek hi <loc> do baar mat aao (Google poore sitemap ko drop kar sakta hai).
+const seenLocs = new Set();
+const dedupedUrls = [];
+for (const block of urls) {
+  const m = block.match(/<loc>(.*?)<\/loc>/);
+  const loc = m ? m[1] : block;
+  if (seenLocs.has(loc)) continue;
+  seenLocs.add(loc);
+  dedupedUrls.push(block);
+}
+if (dedupedUrls.length !== urls.length) {
+  console.warn(`⚠️  Removed ${urls.length - dedupedUrls.length} duplicate <loc> entries.`);
+}
+
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.join('\n')}
+${dedupedUrls.join('\n')}
 </urlset>
 `;
 
 writeFileSync(SITEMAP_PATH, sitemapXml, 'utf8');
-console.log(`Generated sitemap.xml with ${urls.length} URLs!`);
+console.log(`Generated sitemap.xml with ${dedupedUrls.length} URLs!`);
