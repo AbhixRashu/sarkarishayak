@@ -17,6 +17,17 @@ const { title, description, canonical, lang = 'hi', ogType = 'website', keywords
 const siteUrl = 'https://govtjob.salarypitcher.com';
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : undefined;
 const lastUpdated = new Date().toISOString().split('T')[0];
+
+// Google AdSense — keep in sync with public/ads.txt (google.com, pub-..., DIRECT, ...)
+const ADSENSE_CLIENT = 'ca-pub-1132201977628357';
+// Ads are only requested on the live subdomain. Loading AdSense on localhost or on
+// *.vercel.app preview URLs creates invalid-traffic signals, and ad requests are what
+// speed up AdSense's ads.txt crawl for salarypitcher.com (the root domain).
+const vercelEnv = process.env.VERCEL_ENV;
+const showAdsense =
+  vercelEnv !== 'preview' &&
+  vercelEnv !== 'development' &&
+  (vercelEnv === 'production' || Astro.url.hostname === new URL(siteUrl).hostname);
 ---
 
 <!DOCTYPE html>
@@ -827,6 +838,19 @@ const lastUpdated = new Date().toISOString().split('T')[0];
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "yij2fobc30");
   </script>
+
+  <!-- Google AdSense: verification meta tag + Auto ads loader (live subdomain only) -->
+  {showAdsense && (
+    <>
+      <meta name="google-adsense-account" content={ADSENSE_CLIENT} />
+      <script
+        is:inline
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+        crossorigin="anonymous"
+      ></script>
+    </>
+  )}
 </head>
 
 <body>
