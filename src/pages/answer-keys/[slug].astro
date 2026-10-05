@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import answerKeys from '../../data/answer-keys.json';
+import { primarySlugOf } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return answerKeys.map(ak => ({
@@ -11,6 +12,16 @@ export function getStaticPaths() {
 
 const { answerKey } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
+
+// Related answer keys: pehle isi organization ke, phir recent baaki — unique
+// internal links har page par (thin-template signal ke against).
+const relatedAnswerKeys = [
+  ...answerKeys.filter(k => k.slug !== answerKey.slug && k.organization === answerKey.organization),
+  ...answerKeys.filter(k => k.slug !== answerKey.slug && k.organization !== answerKey.organization),
+].slice(0, 4);
+
+// Duplicate variants → canonical primary (pages delete NAHI hote).
+const canonicalSlug = primarySlugOf(answerKeys, answerKey.slug);
 const isKeyAvailable = answerKey.keyUrl && answerKey.keyUrl !== '#';
 const isObjectionAvailable = answerKey.objectionUrl && answerKey.objectionUrl !== '#';
 const isOfficialAvailable = answerKey.officialUrl && answerKey.officialUrl !== '#';
@@ -38,7 +49,7 @@ const articleSchema = {
 <BaseLayout
   title={`${answerKey.title} | Sarkari Sahayak 2026`}
   description={`${answerKey.title} — ${answerKey.organization}. Download answer key, raise objection, steps and direct links at Sarkari Sahayak.`}
-  canonical={`/answer-keys/${answerKey.slug}/`}
+  canonical={`/answer-keys/${canonicalSlug}/`}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
@@ -123,9 +134,23 @@ const articleSchema = {
 
           <div class="ak-card">
             <div class="ak-disclaimer">
-              <strong>Disclaimer:</strong> Yeh jaankaari saamanya soochna ke liye hai. Sarkari Sahayak iski praamaanikta ki guarantee nahi deta. Kripya official website se latest notification zaroor verify karein. Data August 2026 tak updated hai.
+              <strong>Disclaimer:</strong> Yeh jaankaari saamanya soochna ke liye hai. Sarkari Sahayak iski praamaanikta ki guarantee nahi deta. Kripya official website se latest notification zaroor verify karein.
             </div>
           </div>
+
+          {relatedAnswerKeys.length > 0 && (
+            <div class="ak-card">
+              <div class="ak-card-head">ताज़ा Answer Keys</div>
+              <div class="ak-links-list">
+                {relatedAnswerKeys.map(k => (
+                  <a class="ak-link-item" href={`/answer-keys/${k.slug}/`}>
+                    <span class="ak-link-label">{k.shortTitle || k.title}</span>
+                    <span class="ak-link-arrow">→</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
 
         </div>
 

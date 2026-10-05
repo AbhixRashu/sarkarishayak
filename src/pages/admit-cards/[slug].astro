@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import admitCards from '../../data/admit-cards.json';
+import { primarySlugOf } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return admitCards.map(ac => ({
@@ -11,6 +12,16 @@ export function getStaticPaths() {
 
 const { admitCard } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
+
+// Related admit cards: pehle isi organization ke, phir recent baaki — unique
+// internal links har page par (thin-template signal ke against).
+const relatedAdmitCards = [
+  ...admitCards.filter(a => a.slug !== admitCard.slug && a.organization === admitCard.organization),
+  ...admitCards.filter(a => a.slug !== admitCard.slug && a.organization !== admitCard.organization),
+].slice(0, 4);
+
+// Duplicate variants → canonical primary (pages delete NAHI hote).
+const canonicalSlug = primarySlugOf(admitCards, admitCard.slug);
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -35,7 +46,7 @@ const articleSchema = {
 <BaseLayout
   title={`${admitCard.title} | Sarkari Sahayak 2026`}
   description={`${admitCard.title} — ${admitCard.organization}। Download admit card, check exam date, steps & direct links at Sarkari Sahayak.`}
-  canonical={`/admit-cards/${admitCard.slug}/`}
+  canonical={`/admit-cards/${canonicalSlug}/`}
   ogType="article"
   keywords={`${admitCard.title}, ${admitCard.organization} admit card 2026, hall ticket download, admit card kaise download karein, sarkari admit card`}
 >
@@ -143,6 +154,22 @@ const articleSchema = {
             </ol>
           </section>
 
+          {relatedAdmitCards.length > 0 && (
+            <section class="ac-card">
+              <h2 class="ac-card-head"><span class="ac-head-icon">🔗</span> ताज़ा Admit Cards</h2>
+              <div class="ac-links-list">
+                {relatedAdmitCards.map(ac => (
+                  <a href={`/admit-cards/${ac.slug}/`} class="ac-link-item">
+                    <div class="ac-link-info">
+                      <span class="ac-link-label">{ac.shortTitle || ac.title}</span>
+                    </div>
+                    <span class="ac-link-arrow">→</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
         </div>
 
         <!-- sidebar -->
@@ -187,7 +214,7 @@ const articleSchema = {
 
       <!-- disclaimer -->
       <div class="ac-disclaimer">
-        <p><strong>Disclaimer:</strong> यह जानकारी सामान्य सूचना के लिए है। Sarkari Sahayak इसकी प्रामाणिकता की गारंटी नहीं देता। कृपया official website से latest notification ज़रूर verify करें। डेटा अगस्त 2026 तक updated है।</p>
+        <p><strong>Disclaimer:</strong> यह जानकारी सामान्य सूचना के लिए है। Sarkari Sahayak इसकी प्रामाणिकता की गारंटी नहीं देता। कृपया official website से latest notification ज़रूर verify करें।</p>
       </div>
 
     </div>

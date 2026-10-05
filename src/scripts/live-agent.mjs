@@ -25,7 +25,8 @@ import { notifyNewEntries } from './telegram-notify.mjs';
 import {
   makeSlug, truncateTitleAtWord, appendIfMissing,
   isQualityTitle as passesQualityGate,
-  pickBestLink, HONEST_YOJANA_TEXT
+  pickBestLink, HONEST_YOJANA_TEXT,
+  slugFamilyKey
 } from './quality-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -189,6 +190,15 @@ export async function runLiveAgent() {
   const existingYojanaSlugs = new Set(existingYojanas.map(y => y.slug));
   const existingAnswerKeySlugs = new Set(existingAnswerKeys.map(k => k.slug));
 
+  // Slug ke saath "family key" (pehle 4 slug segments) bhi check karo — title ke
+  // 1-2 shabd badalne par banne wale near-duplicate pages (IFFCO-type) ko rokta
+  // hai. Duplicate pages = scaled-content/spam signal, bilkul nahi chahiye.
+  const existingJobFamilies = new Set(existingJobs.map(j => slugFamilyKey(j.slug)));
+  const existingResultFamilies = new Set(existingResults.map(r => slugFamilyKey(r.slug)));
+  const existingAdmitCardFamilies = new Set(existingAdmitCards.map(a => slugFamilyKey(a.slug)));
+  const existingYojanaFamilies = new Set(existingYojanas.map(y => slugFamilyKey(y.slug)));
+  const existingAnswerKeyFamilies = new Set(existingAnswerKeys.map(k => slugFamilyKey(k.slug)));
+
   let stats = { jobs: 0, results: 0, admitCards: 0, yojanas: 0, answerKeys: 0 };
   const newUrls = []; // Track newly discovered URLs for IndexNow ping
   const newEntries = []; // Track newly saved entries for Telegram channel notification
@@ -222,7 +232,8 @@ export async function runLiveAgent() {
       if (feed.type === 'yojana' || /yojana|pradhan mantri|pm-|kisan|awas|subsidy|ration|ayushman/i.test(title)) {
         if (!passesQualityGate(title, 'yojana')) continue;
         const slug = makeSlug(title, 'yojana', 60);
-        if (!existingYojanaSlugs.has(slug)) {
+        const family = slugFamilyKey(slug);
+        if (!existingYojanaSlugs.has(slug) && !existingYojanaFamilies.has(family)) {
           const officialPortal = pickBestLink(rawLink, title, 'Government of India');
           existingYojanas.unshift({
             name: title,
@@ -247,6 +258,7 @@ export async function runLiveAgent() {
             autoSynced: true
           });
           existingYojanaSlugs.add(slug);
+          existingYojanaFamilies.add(family);
           stats.yojanas++;
           newUrls.push(`https://govtjob.salarypitcher.com/yojana/${slug}/`);
           newEntries.push({
@@ -262,7 +274,8 @@ export async function runLiveAgent() {
       else if (feed.type === 'results' || /result|merit list|score card|marks list/i.test(title)) {
         if (!passesQualityGate(title, 'results')) continue;
         const slug = makeSlug(title, 'result-2026', 60);
-        if (!existingResultSlugs.has(slug)) {
+        const family = slugFamilyKey(slug);
+        if (!existingResultSlugs.has(slug) && !existingResultFamilies.has(family)) {
           const org = detectOrganization(title);
           const fullTitle = appendIfMissing(title, '2026');
           const cleanResultUrl = pickBestLink(rawLink, title, org);
@@ -278,6 +291,7 @@ export async function runLiveAgent() {
             autoSynced: true
           });
           existingResultSlugs.add(slug);
+          existingResultFamilies.add(family);
           stats.results++;
           newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
           newEntries.push({
@@ -293,7 +307,8 @@ export async function runLiveAgent() {
       else if (feed.type === 'admit-cards' || /admit card|hall ticket|call letter|exam city/i.test(title)) {
         if (!passesQualityGate(title, 'admit-cards')) continue;
         const slug = makeSlug(title, 'admit-card-2026', 60);
-        if (!existingAdmitCardSlugs.has(slug)) {
+        const family = slugFamilyKey(slug);
+        if (!existingAdmitCardSlugs.has(slug) && !existingAdmitCardFamilies.has(family)) {
           const org = detectOrganization(title);
           const fullTitle = appendIfMissing(title, '2026');
           const cleanDownloadUrl = pickBestLink(rawLink, title, org);
@@ -309,6 +324,7 @@ export async function runLiveAgent() {
             autoSynced: true
           });
           existingAdmitCardSlugs.add(slug);
+          existingAdmitCardFamilies.add(family);
           stats.admitCards++;
           newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
           newEntries.push({
@@ -324,7 +340,8 @@ export async function runLiveAgent() {
       else if (feed.type === 'answer-keys' || /answer key|response sheet|objection/i.test(title)) {
         if (!passesQualityGate(title, 'answer-keys')) continue;
         const slug = makeSlug(title, 'answer-key-2026', 60);
-        if (!existingAnswerKeySlugs.has(slug)) {
+        const family = slugFamilyKey(slug);
+        if (!existingAnswerKeySlugs.has(slug) && !existingAnswerKeyFamilies.has(family)) {
           const org = detectOrganization(title);
           const fullTitle = appendIfMissing(title, '2026');
           const cleanDownloadUrl = pickBestLink(rawLink, title, org);
@@ -339,6 +356,7 @@ export async function runLiveAgent() {
             autoSynced: true
           });
           existingAnswerKeySlugs.add(slug);
+          existingAnswerKeyFamilies.add(family);
           stats.answerKeys++;
           newUrls.push(`https://govtjob.salarypitcher.com/answer-keys/${slug}/`);
           newEntries.push({
@@ -354,23 +372,30 @@ export async function runLiveAgent() {
       else if (/recruitment|vacancy|vacancies|posts|officer|clerk|constable|teacher|engineer|apply/i.test(title)) {
         if (!passesQualityGate(title, 'jobs')) continue;
         const slug = makeSlug(title, '2026', 60);
-        if (!existingJobSlugs.has(slug)) {
+        const family = slugFamilyKey(slug);
+        if (!existingJobSlugs.has(slug) && !existingJobFamilies.has(family)) {
           const org = detectOrganization(title);
           const fullTitle = appendIfMissing(title, 'Recruitment 2026');
           const officialPortal = pickBestLink(rawLink, title, org);
+          // Fabricated "500 posts" band karo — title me asli number ho to wahi
+          // extract karo, warna null. Har nayi job pe nakli 500/18-40 years ka
+          // identical data = scaled-content/spam signal (spam update isi pe
+          // attack karta hai). Schema vacancy null hone par 'Multiple' dikhata hai.
+          const vacMatch = `${title} ${description}`.match(/(\d[\d,]*)\s*(?:vacanc|posts?)/i);
+          const vacancies = vacMatch ? parseInt(vacMatch[1].replace(/[,\s]/g, ''), 10) : null;
           existingJobs.unshift({
             slug,
             title: fullTitle,
             shortTitle: truncateTitleAtWord(title, 40),
             organization: org,
             category: detectCategory(title),
-            vacancies: 500,
+            vacancies,
             postDate: pubDate,
             startDate: pubDate,
             lastDate: 'Check Official Notification',
             applyUrl: officialPortal,
-            salary: 'As per 7th Pay Commission Matrix',
-            qualify: '10th / 12th / Graduate / Diploma',
+            salary: 'As per official notification',
+            qualify: 'Check official notification',
             feeGeneral: 'Check Notification',
             feeSC_ST: 'Check Notification',
             feePH: 'Check Notification',
@@ -409,9 +434,9 @@ export async function runLiveAgent() {
               }
             ],
             salaryDetails: {
-              payScale: 'As per 7th Pay Commission Matrix',
-              grossSalary: '₹60,000 to ₹70,000 (including allowances)',
-              allowances: 'Dearness Allowance, HRA, Special Allowance, Medical Benefits'
+              payScale: 'As per official notification / pay matrix of the recruiting body',
+              grossSalary: 'Notification ke hisaab se — official notification dekhein',
+              allowances: 'Allowances recruiting body ke notification ke mutabik'
             },
             faq: [
               {
@@ -420,7 +445,9 @@ export async function runLiveAgent() {
               },
               {
                 question: `${title.slice(0, 40)} mein kitni vacancy hai?`,
-                answer: 'Is recruitment mein total 500 posts hain. Detailed vacancy breakdown official notification mein hai.'
+                answer: vacancies
+                  ? `Is recruitment mein ${vacancies.toLocaleString('en-IN')} posts hain. Category-wise breakdown official notification mein hai.`
+                  : 'Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein.'
               },
               {
                 question: `${title.slice(0, 40)} ke liye online apply kaise karein?`,
@@ -428,7 +455,7 @@ export async function runLiveAgent() {
               },
               {
                 question: `${title.slice(0, 40)} ki eligibility kya hai?`,
-                answer: 'Educational qualification: 10th / 12th / Graduate / Diploma. Age limit: 18-40 years. Age relaxation SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs.'
+                answer: 'Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein.'
               },
               {
                 question: `${title.slice(0, 40)} ki last date kya hai?`,
@@ -443,16 +470,17 @@ export async function runLiveAgent() {
             autoSynced: true
           });
           existingJobSlugs.add(slug);
+          existingJobFamilies.add(family);
           stats.jobs++;
           newUrls.push(`https://govtjob.salarypitcher.com/latest-jobs/${slug}/`);
           newEntries.push({
             type: 'jobs',
             title: `${title} Recruitment 2026`,
             organization: org,
-            vacancies: 500,
-            qualify: '10th / 12th / Graduate / Diploma',
+            vacancies: vacancies || 'As per official notification',
+            qualify: 'Check official notification',
             lastDate: 'Check Official Notification',
-            salary: 'As per 7th Pay Commission Matrix',
+            salary: 'As per official notification',
             url: `https://govtjob.salarypitcher.com/latest-jobs/${slug}/`
           });
         }

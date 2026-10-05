@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import results from '../../data/results.json';
+import { primarySlugOf } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return results.map(r => ({
@@ -11,6 +12,17 @@ export function getStaticPaths() {
 
 const { result } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
+
+// Related results: pehle isi organization ke, phir recent baaki — har page ko
+// unique internal linking + next-step value deta hai (thin/template page nahi lagta).
+const relatedResults = [
+  ...results.filter(r => r.slug !== result.slug && r.organization === result.organization),
+  ...results.filter(r => r.slug !== result.slug && r.organization !== result.organization),
+].slice(0, 4);
+
+// Duplicate variants (same slug family) → canonical primary page ki taraf.
+// Koi page delete nahi hota — sirf Google ko bataya jata hai ki asli kaunsa hai.
+const canonicalSlug = primarySlugOf(results, result.slug);
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -87,7 +99,7 @@ const steps = result.howToCheck || [
 <BaseLayout
   title={`${result.title} | Sarkari Sahayak 2026`}
   description={`${result.title} — ${result.organization}. ${result.shortDescription || 'Check result, important dates, steps & direct links at Sarkari Sahayak.'}`}
-  canonical={`/results/${result.slug}/`}
+  canonical={`/results/${canonicalSlug}/`}
   ogType="article"
   keywords={`${result.title}, ${result.organization} result 2026, sarkari result, merit list 2026, check result online`}
 >
@@ -160,6 +172,20 @@ const steps = result.howToCheck || [
             <p><strong>Disclaimer:</strong> यह जानकारी आधिकारिक अधिसूचनाओं से ली गई है। सभी विवरणों की पुष्टि आधिकारिक वेबसाइट से करें। Sarkari Sahayak इस जानकारी की सटीकता की गारंटी नहीं देता।</p>
             <p style="margin-top:8px;font-size:13px;color:var(--muted)">🕐 Last Updated: {lastUpdated}</p>
           </div>
+
+          {relatedResults.length > 0 && (
+            <section class="rd-related-links" style="margin-bottom:20px">
+              <h3 class="rd-related-title">इसी संगठन / विभाग के ताज़ा रिज़ल्ट</h3>
+              <div class="rd-related-grid">
+                {relatedResults.map(r => (
+                  <a href={`/results/${r.slug}/`} class="rd-related-item">
+                    <span class="rd-related-icon">📊</span>
+                    <span>{r.shortTitle || r.title}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
 
           <!-- Internal Links -->
           <div class="rd-related-links">

@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { slugFamilyKey } from './quality-utils.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../../');
@@ -143,31 +144,47 @@ const rajServices = [
 
 const urls = [];
 
+// Family dedupe: duplicate variants (same first-4 slug segments, e.g. SSC CGL
+// admit card ke 11 alag URLs) sitemap me sirf EK baar aayen — primary wala.
+// NOTE: duplicate PAGES site pe live rehte hain (unpe canonical primary ko
+// point karta hai); sitemap sirf canonical versions dikhata hai, jo Google
+// ki recommended practice hai. URL delete/exclude-from-site kuch nahi hota.
+const seenFamilies = new Set();
+function familyUnique(ns, slug) {
+  const key = slugFamilyKey(slug);
+  if (!key) return true;
+  const id = `${ns}:${key}`;
+  if (seenFamilies.has(id)) return false;
+  seenFamilies.add(id);
+  return true;
+}
+
 // Static and hub pages
 for (const p of staticPages) {
+  // Sach wala <lastmod>: sirf roz (daily) badalne wale hub pages aaj ki date
+  // claim karein. Har rebuild pe sabko "today" dikhana = Google ko sitemap pe
+  // bharosa kam karna (spam update ke time ye signal bilkul nahi chahiye).
+  const lastmodLine = p.changefreq === 'daily' ? `\n    <lastmod>${today}</lastmod>` : '';
   urls.push(`  <url>
-    <loc>https://govtjob.salarypitcher.com${p.loc}</loc>
-    <lastmod>${today}</lastmod>
+    <loc>https://govtjob.salarypitcher.com${p.loc}</loc>${lastmodLine}
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`);
 }
 
-// National services
+// National services (static pages — kabhi roz nahi badalte, isliye koi lastmod nahi)
 for (const s of nationalServices) {
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/service/${s}/</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
 }
 
-// Rajasthan services
+// Rajasthan services (static — lastmod sirf tab jab asli date ho)
 for (const s of rajServices) {
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/raj/${s}/</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -177,6 +194,7 @@ for (const s of rajServices) {
 const MIN_SLUG_LEN = 10;
 for (const j of jobs) {
   if (!j.slug || j.slug.length < MIN_SLUG_LEN) continue;
+  if (!familyUnique('jobs', j.slug)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/latest-jobs/${j.slug}/</loc>
     <lastmod>${lastmodOf(j, 'postDate', 'startDate')}</lastmod>
@@ -188,6 +206,7 @@ for (const j of jobs) {
 // Results
 for (const r of results) {
   if (!r.slug || r.slug.length < MIN_SLUG_LEN) continue;
+  if (!familyUnique('results', r.slug)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/results/${r.slug}/</loc>
     <lastmod>${lastmodOf(r, 'releaseDate', 'date')}</lastmod>
@@ -199,6 +218,7 @@ for (const r of results) {
 // Admit cards
 for (const a of admitCards) {
   if (!a.slug || a.slug.length < MIN_SLUG_LEN) continue;
+  if (!familyUnique('admit-cards', a.slug)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/admit-cards/${a.slug}/</loc>
     <lastmod>${lastmodOf(a, 'releaseDate', 'date')}</lastmod>
@@ -210,6 +230,7 @@ for (const a of admitCards) {
 // Answer keys
 for (const k of answerKeys) {
   if (!k.slug || k.slug.length < MIN_SLUG_LEN) continue;
+  if (!familyUnique('answer-keys', k.slug)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/answer-keys/${k.slug}/</loc>
     <lastmod>${lastmodOf(k, 'releaseDate', 'date')}</lastmod>
@@ -224,7 +245,6 @@ for (const c of cutoffs) {
   if (!slug) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/cutoffs/${slug}/</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -236,7 +256,6 @@ for (const s of syllabus) {
   if (!slug) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/syllabus/${slug}/</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`);
@@ -245,6 +264,7 @@ for (const s of syllabus) {
 // Yojana pages
 for (const y of yojanas) {
   if (!y.slug || y.slug.length < MIN_SLUG_LEN) continue;
+  if (!familyUnique('yojana', y.slug)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/yojana/${y.slug}/</loc>
     <lastmod>${lastmodOf(y, 'launchDate')}</lastmod>
@@ -258,7 +278,6 @@ for (const s of scholarships) {
   if (!s.slug) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/scholarship/${s.slug}/</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`);

@@ -73,8 +73,12 @@ jobs:
             echo "✓ Datasets are up-to-date. No new entries found."
           fi
 
-      - name: 🚀 IndexNow — Submit ALL New Sitemap URLs (Google + Bing Instant Crawl)
+      - name: 🚀 IndexNow — Submit URLs that actually changed TODAY (Bing instant crawl)
         run: |
-          echo "📡 Submitting all sitemap URLs to IndexNow (Bing/Google instant crawl)..."
-          node src/scripts/indexnow-ping.mjs --limit=500 --delay=200
+          echo "📡 Submitting today's changed sitemap URLs to IndexNow (Bing)..."
+          # --today: sirf aaj (<lastmod> = aaj) change hue URLs. Purana
+          # --limit=500 har 30 min same 500 purane URLs ping karta tha
+          # (~24k/day) — spam signal, zero benefit. Naye pages waise bhi
+          # live-agent se event-driven ping ho chuke hote hain.
+          node src/scripts/indexnow-ping.mjs --today --delay=200
           echo "✅ IndexNow submission complete!"

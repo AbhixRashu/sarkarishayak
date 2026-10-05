@@ -5,6 +5,7 @@ import { buildJobPostingSchema } from '../../utils/jobSchema.js';
 import HowToApplyStepper from '../../components/HowToApplyStepper.astro';
 import SyllabusPopup from '../../components/SyllabusPopup.astro';
 import { resolveSyllabusForJob } from '../../utils/syllabus.js';
+import { primarySlugOf } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return jobs.map(job => ({
@@ -15,6 +16,9 @@ export function getStaticPaths() {
 
 const { job } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
+
+// Duplicate job variants → canonical primary (koi page delete nahi hota).
+const canonicalSlug = primarySlugOf(jobs, job.slug);
 
 const jobPostingSchema = buildJobPostingSchema(job, siteUrl);
 
@@ -152,7 +156,7 @@ const faqSchema = {
 <BaseLayout 
   title={`${job.title} | Sarkari Sahayak 2026`} 
   description={`${job.title} — ${job.organization}. Vacancies: ${job.vacancies || 'TBA'}. Last Date: ${job.lastDate}. Apply online now.`} 
-  canonical={`/latest-jobs/${job.slug}/`}
+  canonical={`/latest-jobs/${canonicalSlug}/`}
   ogType="article"
   keywords={`${job.title}, ${job.organization} recruitment 2026, ${job.category || 'sarkari naukri'} vacancy, apply online, sarkari job 2026, latest government jobs`}
 >

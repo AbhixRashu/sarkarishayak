@@ -68,6 +68,41 @@ export function makeSlug(title, suffix = '', maxTotal = 60) {
   return cleanSuffix ? `${body}-${cleanSuffix}` : body;
 }
 
+/**
+ * Slug ka "family key" — pehle 4 hyphen segments.
+ *
+ * Dedupe: ek hi khabar title ke 1-2 shabd badalne par alag slug ban leti thi
+ * (IFFCO jaise cases → do duplicate pages, dono sitemap me → spam/scaled-content
+ * signal). Agar do slugs ke pehle 4 segments same hain to wo wahi exam/job hai —
+ * distinction aksar 5th segment se aata hai, isliye 4 safe hai:
+ *   "iffco-agt-recruitment-2026-notification-out-at-2026"
+ *   "iffco-agt-recruitment-2026-notification-out-apply-2026"  → same family
+ *   "ssc-cgl-tier-1-result-2026" vs "ssc-cgl-mains-result-2026" → alag family
+ *
+ * Slug Set ke saath use karo — ye "same story, slightly different title" wale
+ * duplicates pakadta hai jo plain slug match kabhi nahi pakadta.
+ */
+export function slugFamilyKey(slug) {
+  const parts = String(slug || '').toLowerCase().split('-').filter(Boolean);
+  if (parts.length === 0) return '';
+  return parts.slice(0, 4).join('|');
+}
+
+/**
+ * Dataset me isi family ka pehla entry (= file me sabse upar, yaani newest)
+ * — wahi PRIMARY page hai. Duplicate variants ka canonical usko point karega.
+ *
+ * NOTE: koi page delete/disappear nahi hota — wo live rehta hai, bas <head>
+ * me canonical batata hai ki Google signals us primary page pe consolidate
+ * kare. Isse duplicate-footprint kam hota hai bina kuch udaye.
+ */
+export function primarySlugOf(entries, slug) {
+  const key = slugFamilyKey(slug);
+  if (!key) return slug;
+  const hit = (entries || []).find(e => e && slugFamilyKey(e.slug) === key);
+  return hit && hit.slug ? hit.slug : slug;
+}
+
 // ---------------------------------------------------------------------------
 // TITLE — duplicate phrase aur mid-word katne se bachao
 // ---------------------------------------------------------------------------
