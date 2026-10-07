@@ -23,6 +23,14 @@ const relatedAdmitCards = [
 // Duplicate variants → canonical primary (pages delete NAHI hote).
 const canonicalSlug = primarySlugOf(admitCards, admitCard.slug);
 
+// Thin page: auto-synced + no real download URL = noindex
+const isThinPage =
+  Boolean(admitCard.autoSynced) &&
+  (
+    !admitCard.downloadUrl || admitCard.downloadUrl === '#' ||
+    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(admitCard.downloadUrl || '')
+  );
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -49,6 +57,7 @@ const articleSchema = {
   canonical={`/admit-cards/${canonicalSlug}/`}
   ogType="article"
   keywords={`${admitCard.title}, ${admitCard.organization} admit card 2026, hall ticket download, admit card kaise download karein, sarkari admit card`}
+  noindex={isThinPage}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

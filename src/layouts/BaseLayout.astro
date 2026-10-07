@@ -11,9 +11,10 @@ interface Props {
   lang?: string;
   ogType?: string;
   keywords?: string;
+  noindex?: boolean;
 }
 
-const { title, description, canonical, lang = 'hi', ogType = 'website', keywords } = Astro.props;
+const { title, description, canonical, lang = 'hi', ogType = 'website', keywords, noindex = false } = Astro.props;
 const siteUrl = 'https://govtjob.salarypitcher.com';
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : undefined;
 const lastUpdated = new Date().toISOString().split('T')[0];
@@ -64,8 +65,8 @@ const showAdsense =
   <link rel="me" href="https://govtjob.salarypitcher.com/4d1dfba9aa07492a98672edb71029e25.txt" type="text/plain" />
   <link rel="alternate" hreflang="hi" href={siteUrl + (canonical || '/')} />
   <link rel="alternate" hreflang="x-default" href={siteUrl + (canonical || '/')} />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <meta name="googlebot" content="index, follow">
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large'}>
+  <meta name="googlebot" content={noindex ? 'noindex, nofollow' : 'index, follow'}>
   <meta name="last-modified" content={lastUpdated}>
   <link rel="prefetch" href="/latest-jobs/">
   <link rel="prefetch" href="/results/">

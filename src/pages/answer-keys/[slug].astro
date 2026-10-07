@@ -44,12 +44,21 @@ const articleSchema = {
   "author": { "@type": "Organization", "name": "Sarkari Sahayak" },
   "publisher": { "@type": "Organization", "name": "Sarkari Sahayak" }
 };
+
+// Thin page: auto-synced + no real key URL = noindex
+const isThinPage =
+  Boolean(answerKey.autoSynced) &&
+  (
+    !answerKey.keyUrl || answerKey.keyUrl === '#' ||
+    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(answerKey.keyUrl || '')
+  );
 ---
 
 <BaseLayout
   title={`${answerKey.title} | Sarkari Sahayak 2026`}
   description={`${answerKey.title} — ${answerKey.organization}. Download answer key, raise objection, steps and direct links at Sarkari Sahayak.`}
   canonical={`/answer-keys/${canonicalSlug}/`}
+  noindex={isThinPage}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

@@ -20,6 +20,19 @@ const siteUrl = 'https://govtjob.salarypitcher.com';
 // Duplicate job variants → canonical primary (koi page delete nahi hota).
 const canonicalSlug = primarySlugOf(jobs, job.slug);
 
+// Thin/incomplete auto-synced page detection.
+// Agar lastDate vague hai + applyUrl official portal nahi (news RSS ya generic)
+// toh yeh page Google ke liye low-quality signal hai → noindex karo jab tak
+// asli data na aaye. Page live rehta hai — sirf Google usse rank nahi karta.
+const VAGUE_DATE = /check official|tba|to be announced|announce nahi/i;
+const isThinPage =
+  Boolean(job.autoSynced) &&
+  (VAGUE_DATE.test(job.lastDate || '') || !job.lastDate) &&
+  (
+    !job.applyUrl ||
+    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(job.applyUrl)
+  );
+
 const jobPostingSchema = buildJobPostingSchema(job, siteUrl);
 
 const breadcrumbSchema = {
@@ -159,6 +172,7 @@ const faqSchema = {
   canonical={`/latest-jobs/${canonicalSlug}/`}
   ogType="article"
   keywords={`${job.title}, ${job.organization} recruitment 2026, ${job.category || 'sarkari naukri'} vacancy, apply online, sarkari job 2026, latest government jobs`}
+  noindex={isThinPage}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(jobPostingSchema)} />

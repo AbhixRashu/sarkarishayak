@@ -94,6 +94,14 @@ const steps = result.howToCheck || [
   'Submit to view your result',
   'Download and print the result for future reference',
 ];
+
+// Thin page: auto-synced + no real result URL = noindex
+const isThinPage =
+  Boolean(result.autoSynced) &&
+  (
+    !result.resultUrl ||
+    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(result.resultUrl || '')
+  );
 ---
 
 <BaseLayout
@@ -102,6 +110,7 @@ const steps = result.howToCheck || [
   canonical={`/results/${canonicalSlug}/`}
   ogType="article"
   keywords={`${result.title}, ${result.organization} result 2026, sarkari result, merit list 2026, check result online`}
+  noindex={isThinPage}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
