@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import results from '../../data/results.json';
-import { primarySlugOf } from '../../scripts/quality-utils.mjs';
+import { primarySlugOf, isThinResult } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return results.map(r => ({
@@ -96,12 +96,7 @@ const steps = result.howToCheck || [
 ];
 
 // Thin page: auto-synced + no real result URL = noindex
-const isThinPage =
-  Boolean(result.autoSynced) &&
-  (
-    !result.resultUrl ||
-    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(result.resultUrl || '')
-  );
+const isThinPage = isThinResult(result);
 ---
 
 <BaseLayout

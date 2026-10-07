@@ -341,22 +341,35 @@ export function isQualityTitle(title, type) {
 
 // Organization -> uska OFFICIAL portal. Google ka JobPosting rule kehta hai
 // apply link official hona chahiye; private coaching blog nahi.
+// Organization -> uska OFFICIAL portal. Google ka JobPosting rule kehta hai
+// apply link official hona chahiye; private coaching blog nahi.
 const OFFICIAL_PORTALS = [
   [/\bssc\b|staff selection/i, 'https://ssc.gov.in'],
   [/\bupsc\b/i, 'https://upsc.gov.in'],
-  [/rrb|railway|railtel|rpf|cris/i, 'https://indianrailways.gov.in'],
-  [/ibps/i, 'https://www.ibps.in'],
-  [/\bsbi\b|state bank/i, 'https://sbi.co.in'],
-  [/\brbi\b|reserve bank/i, 'https://www.rbi.org.in'],
-  [/\bnta\b|neet|jee|cuet|\bgate\b/i, 'https://nta.ac.in'],
-  [/bpsc|bihar/i, 'https://www.bpsc.bihar.gov.in'],
-  [/rpsc|rajasthan/i, 'https://rpsc.rajasthan.gov.in'],
-  [/mppsc|madhya pradesh/i, 'https://mppsc.mp.gov.in'],
-  [/uppsc|uttar pradesh|\bup\b/i, 'https://uppsc.up.nic.in'],
-  [/army|navy|air force|nda|cds|drdo|defence/i, 'https://www.joinindianarmy.nic.in'],
-  [/\bcisf\b|crpf|bsf|itbp|ssb|capf/i, 'https://www.crpf.gov.in'],
-  [/epfo|esic|lic|gail|ongc|bhel|nhpc|sail/i, 'https://www.india.gov.in'],
-  [/post office|india post|gds/i, 'https://www.indiapost.gov.in'],
+  [/\brrb\b|railway|railtel|\brpf\b|cris/i, 'https://indianrailways.gov.in'],
+  [/\bibps\b/i, 'https://www.ibps.in'],
+  [/\bsbi\b|state bank of india/i, 'https://sbi.co.in'],
+  [/\brbi\b|reserve bank of india/i, 'https://www.rbi.org.in'],
+  [/\bnta\b|\bneet\b|\bjee\b|\bcuet\b|\bgate\b/i, 'https://nta.ac.in'],
+  [/\bdsssb\b|delhi subordinate/i, 'https://dsssb.delhi.gov.in'],
+  [/\bwbpsc\b|west bengal psc/i, 'https://psc.wb.gov.in'],
+  [/\bpsssb\b|punjab sssb/i, 'https://sssb.punjab.gov.in'],
+  [/\bhssc\b|\bhpsc\b|haryana/i, 'https://hssc.gov.in'],
+  [/\bukpsc\b|\buksssc\b|uttarakhand/i, 'https://psc.uk.gov.in'],
+  [/\bbpsc\b|\bbssc\b|bihar/i, 'https://www.bpsc.bihar.gov.in'],
+  [/\brpsc\b|\brsmssb\b|rajasthan/i, 'https://rpsc.rajasthan.gov.in'],
+  [/\bmppsc\b|\bmppeb\b|\besb\b|madhya pradesh/i, 'https://mppsc.mp.gov.in'],
+  [/\buppsc\b|\bupsssc\b|uttar pradesh/i, 'https://uppsc.up.nic.in'],
+  [/\bjpsc\b|\bjssc\b|jharkhand/i, 'https://jssc.nic.in'],
+  [/\bopsc\b|\bosssc\b|odisha/i, 'https://opsc.gov.in'],
+  [/\bappsc\b|\btspsc\b/i, 'https://psc.ap.gov.in'],
+  [/\bkpsc\b|karnataka/i, 'https://kpsc.kar.nic.in'],
+  [/\btnpsc\b|tamil nadu/i, 'https://www.tnpsc.gov.in'],
+  [/\bmpsc\b|maharashtra/i, 'https://mpsc.gov.in'],
+  [/\b(army|navy|air force|nda|cds|drdo|defence|agniveer)\b/i, 'https://www.joinindianarmy.nic.in'],
+  [/\b(cisf|crpf|bsf|itbp|ssb|capf|assam rifles)\b/i, 'https://www.crpf.gov.in'],
+  [/\b(epfo|esic|lic|gail|ongc|bhel|nhpc|sail|ntpc|iocl)\b/i, 'https://www.india.gov.in'],
+  [/post office|india post|\bgds\b/i, 'https://www.indiapost.gov.in'],
 ];
 
 /**
@@ -421,4 +434,64 @@ export const HONEST_YOJANA_TEXT = {
     'निर्देशानुसार आवेदन करें',
   ],
 };
+
+// ---------------------------------------------------------------------------
+// THIN PAGE DETECTION (Shared between Astro templates & sitemap generator)
+// Pages flagged as thin:
+// 1. Get `noindex` in meta robots tag (Google ignores them for site-quality score)
+// 2. Are excluded from sitemap.xml (prevents "Submitted URL marked noindex" errors)
+// ---------------------------------------------------------------------------
+
+const VAGUE_DATE = /check official|check notification|tba|to be announced|announce nahi/i;
+
+export function isThinJob(job) {
+  if (!job) return false;
+  return Boolean(job.autoSynced) &&
+    (VAGUE_DATE.test(job.lastDate || '') || !job.lastDate) &&
+    (
+      !job.applyUrl ||
+      job.applyUrl === '#' ||
+      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(job.applyUrl)
+    );
+}
+
+export function isThinResult(result) {
+  if (!result) return false;
+  return Boolean(result.autoSynced) &&
+    (
+      !result.resultUrl ||
+      result.resultUrl === '#' ||
+      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(result.resultUrl || '')
+    );
+}
+
+export function isThinAdmitCard(card) {
+  if (!card) return false;
+  return Boolean(card.autoSynced) &&
+    (
+      !card.downloadUrl ||
+      card.downloadUrl === '#' ||
+      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(card.downloadUrl || '')
+    );
+}
+
+export function isThinAnswerKey(key) {
+  if (!key) return false;
+  return Boolean(key.autoSynced) &&
+    (
+      !key.keyUrl ||
+      key.keyUrl === '#' ||
+      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(key.keyUrl || '')
+    );
+}
+
+export function isThinYojana(yojana) {
+  if (!yojana) return false;
+  return Boolean(yojana.autoSynced) &&
+    (
+      !yojana.officialWebsite ||
+      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(yojana.officialWebsite || '') ||
+      /news\.google\.com/i.test(yojana.benefits || '')
+    );
+}
 

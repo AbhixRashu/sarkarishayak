@@ -5,7 +5,7 @@ import { buildJobPostingSchema } from '../../utils/jobSchema.js';
 import HowToApplyStepper from '../../components/HowToApplyStepper.astro';
 import SyllabusPopup from '../../components/SyllabusPopup.astro';
 import { resolveSyllabusForJob } from '../../utils/syllabus.js';
-import { primarySlugOf } from '../../scripts/quality-utils.mjs';
+import { primarySlugOf, isThinJob } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return jobs.map(job => ({
@@ -24,14 +24,7 @@ const canonicalSlug = primarySlugOf(jobs, job.slug);
 // Agar lastDate vague hai + applyUrl official portal nahi (news RSS ya generic)
 // toh yeh page Google ke liye low-quality signal hai → noindex karo jab tak
 // asli data na aaye. Page live rehta hai — sirf Google usse rank nahi karta.
-const VAGUE_DATE = /check official|tba|to be announced|announce nahi/i;
-const isThinPage =
-  Boolean(job.autoSynced) &&
-  (VAGUE_DATE.test(job.lastDate || '') || !job.lastDate) &&
-  (
-    !job.applyUrl ||
-    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(job.applyUrl)
-  );
+const isThinPage = isThinJob(job);
 
 const jobPostingSchema = buildJobPostingSchema(job, siteUrl);
 

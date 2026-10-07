@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import yojanas from '../../data/yojana.json';
-import { primarySlugOf } from '../../scripts/quality-utils.mjs';
+import { primarySlugOf, isThinYojana } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return yojanas.map(y => ({
@@ -15,6 +15,9 @@ const siteUrl = 'https://govtjob.salarypitcher.com';
 
 // Duplicate yojana variants → canonical primary (pages delete NAHI hote).
 const canonicalSlug = primarySlugOf(yojanas, yojana.slug);
+
+// Thin/auto-synced schemes without verified details get noindex
+const isThinPage = isThinYojana(yojana);
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -54,6 +57,7 @@ const related = yojanas.filter(y => y.category === yojana.category && y.slug !==
   title={`${yojana.name} | Sarkari Sahayak 2026`}
   description={`${yojana.shortDescription} — ${yojana.ministry}. Eligibility, Benefits, Application Process, Documents — सब कुछ हिंदी में।`}
   canonical={`/yojana/${canonicalSlug}/`}
+  noindex={isThinPage}
 >
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />

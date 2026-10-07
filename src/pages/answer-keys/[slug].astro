@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import answerKeys from '../../data/answer-keys.json';
-import { primarySlugOf } from '../../scripts/quality-utils.mjs';
+import { primarySlugOf, isThinAnswerKey } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return answerKeys.map(ak => ({
@@ -46,12 +46,7 @@ const articleSchema = {
 };
 
 // Thin page: auto-synced + no real key URL = noindex
-const isThinPage =
-  Boolean(answerKey.autoSynced) &&
-  (
-    !answerKey.keyUrl || answerKey.keyUrl === '#' ||
-    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(answerKey.keyUrl || '')
-  );
+const isThinPage = isThinAnswerKey(answerKey);
 ---
 
 <BaseLayout

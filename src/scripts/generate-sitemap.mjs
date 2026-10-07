@@ -1,7 +1,15 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { slugFamilyKey, titleFamilyKey } from './quality-utils.mjs';
+import {
+  slugFamilyKey,
+  titleFamilyKey,
+  isThinJob,
+  isThinResult,
+  isThinAdmitCard,
+  isThinAnswerKey,
+  isThinYojana
+} from './quality-utils.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../../');
@@ -202,6 +210,7 @@ const MIN_SLUG_LEN = 10;
 for (const j of jobs) {
   if (!j.slug || j.slug.length < MIN_SLUG_LEN) continue;
   if (!familyUnique('jobs', j)) continue;
+  if (isThinJob(j)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/latest-jobs/${j.slug}/</loc>
     <lastmod>${lastmodOf(j, 'postDate', 'startDate')}</lastmod>
@@ -214,6 +223,7 @@ for (const j of jobs) {
 for (const r of results) {
   if (!r.slug || r.slug.length < MIN_SLUG_LEN) continue;
   if (!familyUnique('results', r)) continue;
+  if (isThinResult(r)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/results/${r.slug}/</loc>
     <lastmod>${lastmodOf(r, 'releaseDate', 'date')}</lastmod>
@@ -226,6 +236,7 @@ for (const r of results) {
 for (const a of admitCards) {
   if (!a.slug || a.slug.length < MIN_SLUG_LEN) continue;
   if (!familyUnique('admit-cards', a)) continue;
+  if (isThinAdmitCard(a)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/admit-cards/${a.slug}/</loc>
     <lastmod>${lastmodOf(a, 'releaseDate', 'date')}</lastmod>
@@ -238,6 +249,7 @@ for (const a of admitCards) {
 for (const k of answerKeys) {
   if (!k.slug || k.slug.length < MIN_SLUG_LEN) continue;
   if (!familyUnique('answer-keys', k)) continue;
+  if (isThinAnswerKey(k)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/answer-keys/${k.slug}/</loc>
     <lastmod>${lastmodOf(k, 'releaseDate', 'date')}</lastmod>
@@ -272,6 +284,7 @@ for (const s of syllabus) {
 for (const y of yojanas) {
   if (!y.slug || y.slug.length < MIN_SLUG_LEN) continue;
   if (!familyUnique('yojana', y)) continue;
+  if (isThinYojana(y)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/yojana/${y.slug}/</loc>
     <lastmod>${lastmodOf(y, 'launchDate')}</lastmod>

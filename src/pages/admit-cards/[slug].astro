@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import admitCards from '../../data/admit-cards.json';
-import { primarySlugOf } from '../../scripts/quality-utils.mjs';
+import { primarySlugOf, isThinAdmitCard } from '../../scripts/quality-utils.mjs';
 
 export function getStaticPaths() {
   return admitCards.map(ac => ({
@@ -24,12 +24,7 @@ const relatedAdmitCards = [
 const canonicalSlug = primarySlugOf(admitCards, admitCard.slug);
 
 // Thin page: auto-synced + no real download URL = noindex
-const isThinPage =
-  Boolean(admitCard.autoSynced) &&
-  (
-    !admitCard.downloadUrl || admitCard.downloadUrl === '#' ||
-    /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(admitCard.downloadUrl || '')
-  );
+const isThinPage = isThinAdmitCard(admitCard);
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
