@@ -79,28 +79,128 @@ export function makeSlug(title, suffix = '', maxTotal = 60) {
  *   "iffco-agt-recruitment-2026-notification-out-apply-2026"  → same family
  *   "ssc-cgl-tier-1-result-2026" vs "ssc-cgl-mains-result-2026" → alag family
  *
+ * Number-words normalize hote hain ("tier-one" === "tier-1") — warna ek hi
+ * admit card do families me baant jaata tha (ssc-cgl-tier-1 vs ssc-cgl-tier-one),
+ * dono sitemap me aur dono self-canonical → duplicate signal wapas.
+ *
  * Slug Set ke saath use karo — ye "same story, slightly different title" wale
  * duplicates pakadta hai jo plain slug match kabhi nahi pakadta.
  */
+const NUMBER_WORDS = {
+  one: '1', two: '2', three: '3', four: '4', five: '5',
+  six: '6', seven: '7', eight: '8', nine: '9', ten: '10',
+  first: '1', second: '2', third: '3', fourth: '4', fifth: '5',
+};
+
 export function slugFamilyKey(slug) {
-  const parts = String(slug || '').toLowerCase().split('-').filter(Boolean);
+  const parts = String(slug || '').toLowerCase().split('-').filter(Boolean)
+    .map(seg => NUMBER_WORDS[seg] || seg);
   if (parts.length === 0) return '';
   return parts.slice(0, 4).join('|');
 }
 
 /**
- * Dataset me isi family ka pehla entry (= file me sabse upar, yaani newest)
- * — wahi PRIMARY page hai. Duplicate variants ka canonical usko point karega.
+ * Title ka "word-set family key" — sare words sort+dedupe karke join.
+ *
+ * Slug family se alag: ye WORD ORDER badalne wale duplicates pakadta hai jo
+ * slug-based key chhod deta hai:
+ *   "IDBI Bank Executive Online Form 2026"  vs "IDBI Bank Executive 2026 Online Form"
+ *   "RBI Assistant Online Form 2026"        vs "RBI Assistant 2026 Online Form"
+ * Dono ek hi news hai — alag-alag pages + dono sitemap me = scaled-content signal.
+ *
+ * Rules:
+ *   - Sare tokens rakhe jaate hain (chhote jaise "up"/"mp"/"po"/"a"/"b" bhi) —
+ *     UP vs MP Police, Grade-A vs Grade-B, IBPS PO vs SO ALAG rehne chahiye.
+ *   - Number-words normalize (title me "Tier One" = "Tier 1").
+ *   - Years rakhe jaate hain — CHSL-2025 aur CHSL-2024 alag results hain.
+ *   - <2 tokens ya empty/non-Latin (Hindi) title → '' (no match, safe).
+ *   - Equality-based hai: sirf EXACT same word-set wale merge hote hain.
+ */
+const _titleKeyCache = new Map();
+
+export function titleFamilyKey(title) {
+  const raw = String(title || '');
+  if (_titleKeyCache.has(raw)) return _titleKeyCache.get(raw);
+
+  const tokens = raw.toLowerCase()
+    .replace(/[^a-z0-9\u0900-\u097f\s]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(w => NUMBER_WORDS[w] || w);
+  let key = '';
+  if (tokens.length >= 2) {
+    key = [...new Set(tokens)].sort().join('|');
+  }
+  _titleKeyCache.set(raw, key);
+  return key;
+}
+
+/**
+ * Dataset me isi story ka PRIMARY page — pehla (file me sabse upar = newest)
+ * entry jo uske connected component me ho.
+ *
+ * Component = union of slug-family aur title word-set family (transitive):
+ *   A~B (slug family), B~C (title family)  ⇒  A, B, C sabka primary = C-jaisa
+ *   pehla wala entry. Union-find se chains stable rehti hain — warna
+ *   A→B→C wali canonical chain ban sakti thi (Google ko 2 hops follow karne
+ *   padte, aur sitemap/canonical set alag-alag ho jaate).
+ *
+ * Duplicate variants ka canonical primary ko point karta hai. Result cached
+ * hai (WeakMap) — build me har page pe O(n) rebuild nahi hota.
  *
  * NOTE: koi page delete/disappear nahi hota — wo live rehta hai, bas <head>
  * me canonical batata hai ki Google signals us primary page pe consolidate
  * kare. Isse duplicate-footprint kam hota hai bina kuch udaye.
  */
+const _primaryCache = new WeakMap();
+
+function buildPrimaryMap(list) {
+  const n = list.length;
+  const parent = new Int32Array(n);
+  for (let i = 0; i < n; i++) parent[i] = i;
+  const find = i => {
+    while (parent[i] !== i) { parent[i] = parent[parent[i]]; i = parent[i]; }
+    return i;
+  };
+  // chhota index (= file me pehla = newest) hamesha root banao
+  const union = (a, b) => {
+    a = find(a); b = find(b);
+    if (a !== b) parent[Math.max(a, b)] = Math.min(a, b);
+  };
+
+  const keyFirst = new Map(); // family key -> pehla index
+  list.forEach((e, i) => {
+    if (!e) return;
+    const keys = [];
+    const s = slugFamilyKey(e.slug);
+    if (s) keys.push('s:' + s);
+    const t = titleFamilyKey(e.title || e.name);
+    if (t) keys.push('t:' + t);
+    for (const k of keys) {
+      if (keyFirst.has(k)) union(i, keyFirst.get(k));
+      else keyFirst.set(k, i);
+    }
+  });
+
+  const map = new Map();
+  list.forEach((e, i) => {
+    if (e && e.slug) {
+      const root = list[find(i)];
+      map.set(e.slug, (root && root.slug) || e.slug);
+    }
+  });
+  return map;
+}
+
 export function primarySlugOf(entries, slug) {
-  const key = slugFamilyKey(slug);
-  if (!key) return slug;
-  const hit = (entries || []).find(e => e && slugFamilyKey(e.slug) === key);
-  return hit && hit.slug ? hit.slug : slug;
+  const list = entries || [];
+  if (list.length === 0) return slug;
+  let map = _primaryCache.get(list);
+  if (!map) {
+    map = buildPrimaryMap(list);
+    _primaryCache.set(list, map);
+  }
+  return map.get(slug) || slug;
 }
 
 // ---------------------------------------------------------------------------

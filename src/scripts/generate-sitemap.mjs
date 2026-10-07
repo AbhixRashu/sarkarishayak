@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { slugFamilyKey } from './quality-utils.mjs';
+import { slugFamilyKey, titleFamilyKey } from './quality-utils.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../../');
@@ -146,16 +146,23 @@ const urls = [];
 
 // Family dedupe: duplicate variants (same first-4 slug segments, e.g. SSC CGL
 // admit card ke 11 alag URLs) sitemap me sirf EK baar aayen — primary wala.
+// Title word-set bhi check hota hai — word-order wale dupes (slugs alag hone
+// par bhi ek hi story, e.g. "IDBI Bank Executive Online Form" vs
+// "IDBI Bank Executive 2026 Online Form") pakadne ke liye.
 // NOTE: duplicate PAGES site pe live rehte hain (unpe canonical primary ko
 // point karta hai); sitemap sirf canonical versions dikhata hai, jo Google
 // ki recommended practice hai. URL delete/exclude-from-site kuch nahi hota.
 const seenFamilies = new Set();
-function familyUnique(ns, slug) {
-  const key = slugFamilyKey(slug);
-  if (!key) return true;
-  const id = `${ns}:${key}`;
-  if (seenFamilies.has(id)) return false;
-  seenFamilies.add(id);
+function familyUnique(ns, entry) {
+  const slug = typeof entry === 'string' ? entry : entry.slug;
+  const skey = slugFamilyKey(slug);
+  const tkey = typeof entry === 'string' ? '' : titleFamilyKey(entry.title || entry.name);
+  const ids = [];
+  if (skey) ids.push(`${ns}:s:${skey}`);
+  if (tkey) ids.push(`${ns}:t:${tkey}`);
+  if (ids.length === 0) return true;
+  if (ids.some(id => seenFamilies.has(id))) return false;
+  for (const id of ids) seenFamilies.add(id);
   return true;
 }
 
@@ -194,7 +201,7 @@ for (const s of rajServices) {
 const MIN_SLUG_LEN = 10;
 for (const j of jobs) {
   if (!j.slug || j.slug.length < MIN_SLUG_LEN) continue;
-  if (!familyUnique('jobs', j.slug)) continue;
+  if (!familyUnique('jobs', j)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/latest-jobs/${j.slug}/</loc>
     <lastmod>${lastmodOf(j, 'postDate', 'startDate')}</lastmod>
@@ -206,7 +213,7 @@ for (const j of jobs) {
 // Results
 for (const r of results) {
   if (!r.slug || r.slug.length < MIN_SLUG_LEN) continue;
-  if (!familyUnique('results', r.slug)) continue;
+  if (!familyUnique('results', r)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/results/${r.slug}/</loc>
     <lastmod>${lastmodOf(r, 'releaseDate', 'date')}</lastmod>
@@ -218,7 +225,7 @@ for (const r of results) {
 // Admit cards
 for (const a of admitCards) {
   if (!a.slug || a.slug.length < MIN_SLUG_LEN) continue;
-  if (!familyUnique('admit-cards', a.slug)) continue;
+  if (!familyUnique('admit-cards', a)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/admit-cards/${a.slug}/</loc>
     <lastmod>${lastmodOf(a, 'releaseDate', 'date')}</lastmod>
@@ -230,7 +237,7 @@ for (const a of admitCards) {
 // Answer keys
 for (const k of answerKeys) {
   if (!k.slug || k.slug.length < MIN_SLUG_LEN) continue;
-  if (!familyUnique('answer-keys', k.slug)) continue;
+  if (!familyUnique('answer-keys', k)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/answer-keys/${k.slug}/</loc>
     <lastmod>${lastmodOf(k, 'releaseDate', 'date')}</lastmod>
@@ -264,7 +271,7 @@ for (const s of syllabus) {
 // Yojana pages
 for (const y of yojanas) {
   if (!y.slug || y.slug.length < MIN_SLUG_LEN) continue;
-  if (!familyUnique('yojana', y.slug)) continue;
+  if (!familyUnique('yojana', y)) continue;
   urls.push(`  <url>
     <loc>https://govtjob.salarypitcher.com/yojana/${y.slug}/</loc>
     <lastmod>${lastmodOf(y, 'launchDate')}</lastmod>

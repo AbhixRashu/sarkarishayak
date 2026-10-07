@@ -26,7 +26,7 @@ import {
   makeSlug, truncateTitleAtWord, appendIfMissing,
   isQualityTitle as passesQualityGate,
   pickBestLink, HONEST_YOJANA_TEXT,
-  slugFamilyKey
+  slugFamilyKey, titleFamilyKey
 } from './quality-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -192,12 +192,22 @@ export async function runLiveAgent() {
 
   // Slug ke saath "family key" (pehle 4 slug segments) bhi check karo — title ke
   // 1-2 shabd badalne par banne wale near-duplicate pages (IFFCO-type) ko rokta
-  // hai. Duplicate pages = scaled-content/spam signal, bilkul nahi chahiye.
+  // hai. Title word-set bhi check hota hai — word order badalne par banne wale
+  // duplicates (slugs alag ho kar bhi ek hi story) rokne ke liye.
+  // Duplicate pages = scaled-content/spam signal, bilkul nahi chahiye.
   const existingJobFamilies = new Set(existingJobs.map(j => slugFamilyKey(j.slug)));
   const existingResultFamilies = new Set(existingResults.map(r => slugFamilyKey(r.slug)));
   const existingAdmitCardFamilies = new Set(existingAdmitCards.map(a => slugFamilyKey(a.slug)));
   const existingYojanaFamilies = new Set(existingYojanas.map(y => slugFamilyKey(y.slug)));
   const existingAnswerKeyFamilies = new Set(existingAnswerKeys.map(k => slugFamilyKey(k.slug)));
+
+  // Stored titles me per-branch suffix (appendIfMissing) lag chuka hota hai —
+  // incoming title pe bhi wahi suffix lagakar compare karo, warna set me mismatch.
+  const existingJobTitleKeys = new Set(existingJobs.map(j => titleFamilyKey(appendIfMissing(j.title, 'Recruitment 2026'))).filter(Boolean));
+  const existingResultTitleKeys = new Set(existingResults.map(r => titleFamilyKey(appendIfMissing(r.title, '2026'))).filter(Boolean));
+  const existingAdmitCardTitleKeys = new Set(existingAdmitCards.map(a => titleFamilyKey(appendIfMissing(a.title, '2026'))).filter(Boolean));
+  const existingYojanaTitleKeys = new Set(existingYojanas.map(y => titleFamilyKey(y.name)).filter(Boolean));
+  const existingAnswerKeyTitleKeys = new Set(existingAnswerKeys.map(k => titleFamilyKey(appendIfMissing(k.title, '2026'))).filter(Boolean));
 
   let stats = { jobs: 0, results: 0, admitCards: 0, yojanas: 0, answerKeys: 0 };
   const newUrls = []; // Track newly discovered URLs for IndexNow ping
@@ -233,7 +243,9 @@ export async function runLiveAgent() {
         if (!passesQualityGate(title, 'yojana')) continue;
         const slug = makeSlug(title, 'yojana', 60);
         const family = slugFamilyKey(slug);
-        if (!existingYojanaSlugs.has(slug) && !existingYojanaFamilies.has(family)) {
+        const titleKey = titleFamilyKey(title);
+        if (!existingYojanaSlugs.has(slug) && !existingYojanaFamilies.has(family)
+            && !(titleKey && existingYojanaTitleKeys.has(titleKey))) {
           const officialPortal = pickBestLink(rawLink, title, 'Government of India');
           existingYojanas.unshift({
             name: title,
@@ -259,6 +271,7 @@ export async function runLiveAgent() {
           });
           existingYojanaSlugs.add(slug);
           existingYojanaFamilies.add(family);
+          if (titleKey) existingYojanaTitleKeys.add(titleKey);
           stats.yojanas++;
           newUrls.push(`https://govtjob.salarypitcher.com/yojana/${slug}/`);
           newEntries.push({
@@ -275,9 +288,11 @@ export async function runLiveAgent() {
         if (!passesQualityGate(title, 'results')) continue;
         const slug = makeSlug(title, 'result-2026', 60);
         const family = slugFamilyKey(slug);
-        if (!existingResultSlugs.has(slug) && !existingResultFamilies.has(family)) {
+        const fullTitle = appendIfMissing(title, '2026');
+        const titleKey = titleFamilyKey(fullTitle);
+        if (!existingResultSlugs.has(slug) && !existingResultFamilies.has(family)
+            && !(titleKey && existingResultTitleKeys.has(titleKey))) {
           const org = detectOrganization(title);
-          const fullTitle = appendIfMissing(title, '2026');
           const cleanResultUrl = pickBestLink(rawLink, title, org);
           existingResults.unshift({
             slug,
@@ -292,6 +307,7 @@ export async function runLiveAgent() {
           });
           existingResultSlugs.add(slug);
           existingResultFamilies.add(family);
+          if (titleKey) existingResultTitleKeys.add(titleKey);
           stats.results++;
           newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
           newEntries.push({
@@ -308,9 +324,11 @@ export async function runLiveAgent() {
         if (!passesQualityGate(title, 'admit-cards')) continue;
         const slug = makeSlug(title, 'admit-card-2026', 60);
         const family = slugFamilyKey(slug);
-        if (!existingAdmitCardSlugs.has(slug) && !existingAdmitCardFamilies.has(family)) {
+        const fullTitle = appendIfMissing(title, '2026');
+        const titleKey = titleFamilyKey(fullTitle);
+        if (!existingAdmitCardSlugs.has(slug) && !existingAdmitCardFamilies.has(family)
+            && !(titleKey && existingAdmitCardTitleKeys.has(titleKey))) {
           const org = detectOrganization(title);
-          const fullTitle = appendIfMissing(title, '2026');
           const cleanDownloadUrl = pickBestLink(rawLink, title, org);
           existingAdmitCards.unshift({
             slug,
@@ -325,6 +343,7 @@ export async function runLiveAgent() {
           });
           existingAdmitCardSlugs.add(slug);
           existingAdmitCardFamilies.add(family);
+          if (titleKey) existingAdmitCardTitleKeys.add(titleKey);
           stats.admitCards++;
           newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
           newEntries.push({
@@ -341,9 +360,11 @@ export async function runLiveAgent() {
         if (!passesQualityGate(title, 'answer-keys')) continue;
         const slug = makeSlug(title, 'answer-key-2026', 60);
         const family = slugFamilyKey(slug);
-        if (!existingAnswerKeySlugs.has(slug) && !existingAnswerKeyFamilies.has(family)) {
+        const fullTitle = appendIfMissing(title, '2026');
+        const titleKey = titleFamilyKey(fullTitle);
+        if (!existingAnswerKeySlugs.has(slug) && !existingAnswerKeyFamilies.has(family)
+            && !(titleKey && existingAnswerKeyTitleKeys.has(titleKey))) {
           const org = detectOrganization(title);
-          const fullTitle = appendIfMissing(title, '2026');
           const cleanDownloadUrl = pickBestLink(rawLink, title, org);
           existingAnswerKeys.unshift({
             slug,
@@ -357,6 +378,7 @@ export async function runLiveAgent() {
           });
           existingAnswerKeySlugs.add(slug);
           existingAnswerKeyFamilies.add(family);
+          if (titleKey) existingAnswerKeyTitleKeys.add(titleKey);
           stats.answerKeys++;
           newUrls.push(`https://govtjob.salarypitcher.com/answer-keys/${slug}/`);
           newEntries.push({
@@ -373,9 +395,11 @@ export async function runLiveAgent() {
         if (!passesQualityGate(title, 'jobs')) continue;
         const slug = makeSlug(title, '2026', 60);
         const family = slugFamilyKey(slug);
-        if (!existingJobSlugs.has(slug) && !existingJobFamilies.has(family)) {
+        const fullTitle = appendIfMissing(title, 'Recruitment 2026');
+        const titleKey = titleFamilyKey(fullTitle);
+        if (!existingJobSlugs.has(slug) && !existingJobFamilies.has(family)
+            && !(titleKey && existingJobTitleKeys.has(titleKey))) {
           const org = detectOrganization(title);
-          const fullTitle = appendIfMissing(title, 'Recruitment 2026');
           const officialPortal = pickBestLink(rawLink, title, org);
           // Fabricated "500 posts" band karo — title me asli number ho to wahi
           // extract karo, warna null. Har nayi job pe nakli 500/18-40 years ka
@@ -471,6 +495,7 @@ export async function runLiveAgent() {
           });
           existingJobSlugs.add(slug);
           existingJobFamilies.add(family);
+          if (titleKey) existingJobTitleKeys.add(titleKey);
           stats.jobs++;
           newUrls.push(`https://govtjob.salarypitcher.com/latest-jobs/${slug}/`);
           newEntries.push({
