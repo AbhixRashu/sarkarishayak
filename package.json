@@ -18,7 +18,9 @@
     "gsc:submit": "node src/scripts/gsc-report.mjs --submit",
     "gsc:dry": "node src/scripts/gsc-report.mjs --dry-run",
     "telegram:test": "node src/scripts/telegram-notify.mjs --test",
-    "telegram:test:dry": "node src/scripts/telegram-notify.mjs --test --dry-run"
+    "telegram:test:dry": "node src/scripts/telegram-notify.mjs --test --dry-run",
+    "check:new-urls": "node src/scripts/check-daily-urls.mjs",
+    "check:yesterday": "node src/scripts/check-daily-urls.mjs --yesterday"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.2",

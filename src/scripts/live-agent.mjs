@@ -28,6 +28,7 @@ import {
   pickBestLink, HONEST_YOJANA_TEXT,
   slugFamilyKey, titleFamilyKey
 } from './quality-utils.mjs';
+import { recordNewUrls } from './url-tracker.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -528,6 +529,15 @@ export async function runLiveAgent() {
       if (fs.existsSync(sitemapScript)) {
         execSync(`node "${sitemapScript}"`, { stdio: 'ignore' });
         console.log('✓ Sitemap regenerated successfully.');
+      }
+
+      // Record newly discovered URLs in daily Notepad & JSON log
+      if (newUrls.length > 0) {
+        try {
+          recordNewUrls(newEntries.length > 0 ? newEntries : newUrls.map(u => ({ url: u })));
+        } catch (trackErr) {
+          console.warn('⚠️ [URL Tracker] Could not log URLs:', trackErr.message);
+        }
       }
 
       // Auto-ping Google Indexing API — submit the EXACT URLs discovered in this run.
