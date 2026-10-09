@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-09)
-# Total New URLs: 15
+# Total New URLs: 30
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -19,3 +19,18 @@ https://govtjob.salarypitcher.com/latest-jobs/mp-police-driver-recruitment-notif
 https://govtjob.salarypitcher.com/latest-jobs/psssb-clerk-exam-2026-out-for-531-vacancies-written-2026/
 https://govtjob.salarypitcher.com/latest-jobs/canara-bank-apprentice-vacancy-2026-check-state-wise-2026/
 https://govtjob.salarypitcher.com/latest-jobs/nicl-ao-notification-2026-out-for-321-vacancies-check-2026/
+https://govtjob.salarypitcher.com/latest-jobs/tnpsc-group-4-recruitment-2026-apply-for-6574-posts-2026/
+https://govtjob.salarypitcher.com/results/nda-result-2026-out-download-upsc-nda-2-merit-result-2026/
+https://govtjob.salarypitcher.com/results/aiims-bhopal-cutoff-2026-round-wise-anlaysis-of-result-2026/
+https://govtjob.salarypitcher.com/results/rpsc-statistical-officer-result-2026-out-check-result-2026/
+https://govtjob.salarypitcher.com/results/ukmssb-medical-officer-result-2026-out-check-result-2026/
+https://govtjob.salarypitcher.com/results/aiims-bhubaneswar-cutoff-2026-check-neet-round-result-2026/
+https://govtjob.salarypitcher.com/results/hpsc-hcs-result-2025-out-abhishek-saroha-tops-result-2026/
+https://govtjob.salarypitcher.com/admit-cards/ssc-phase-14-answer-key-2026-out-download-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/ppsc-senior-assistant-exam-date-2026-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/psssb-group-d-admit-card-2026-download-hall-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/mphc-assistant-grade-3-exam-date-2026-out-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/iob-so-exam-date-2026-announced-check-shift-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/jee-main-question-paper-2026-direct-link-to-admit-card-2026/
+https://govtjob.salarypitcher.com/answer-keys/ssc-phase-14-answer-key-2026-out-download-answer-key-2026/
+https://govtjob.salarypitcher.com/answer-keys/jee-main-question-paper-2026-direct-link-to-answer-key-2026/
