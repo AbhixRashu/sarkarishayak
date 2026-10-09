@@ -1,5 +1,103 @@
 [
   {
+    "slug": "dav-teaching-non-teaching-recruitment-2026-2026",
+    "title": "DAV Teaching & Non Teaching Recruitment 2026 Notification Out - Apply Online for LDC, PGT, PRT and More Posts",
+    "shortTitle": "DAV Teaching & Non Teaching Recruitment 2026",
+    "organization": "Govt of India",
+    "category": "teaching",
+    "vacancies": null,
+    "postDate": "2026-10-09",
+    "startDate": "2026-10-09",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://www.india.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://www.india.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "DAV Teaching & Non Teaching Recruitment  ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "DAV Teaching & Non Teaching Recruitment  mein kitni vacancy hai?",
+        "answer": "Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein."
+      },
+      {
+        "question": "DAV Teaching & Non Teaching Recruitment  ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "DAV Teaching & Non Teaching Recruitment  ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "DAV Teaching & Non Teaching Recruitment  ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
     "slug": "mp-police-new-vacancy-2026-l-mp-police-driver-vacancy-2026",
     "title": "MP Police New Vacancy 2026 l MP Police Driver Vacancy 2026 Notification Out MP Police Recruitment Recruitment 2026",
     "shortTitle": "MP Police New Vacancy 2026 l MP Police Driver",
