@@ -350,8 +350,21 @@ const OFFICIAL_PORTALS = [
   [/\bibps\b/i, 'https://www.ibps.in'],
   [/\bsbi\b|state bank of india/i, 'https://sbi.co.in'],
   [/\brbi\b|reserve bank of india/i, 'https://www.rbi.org.in'],
+  [/\bbank of baroda\b|\bbob\b/i, 'https://www.bankofbaroda.in'],
+  [/\bpnb\b|punjab national bank/i, 'https://www.pnbindia.in'],
+  [/\bcanara bank\b/i, 'https://canarabank.com'],
+  [/\buiic\b|united india insurance/i, 'https://uiic.co.in'],
+  [/\bniacl\b|new india assurance/i, 'https://www.newindia.co.in'],
+  [/\blic\b|life insurance/i, 'https://licindia.in'],
   [/\bnta\b|\bneet\b|\bjee\b|\bcuet\b|\bgate\b/i, 'https://nta.ac.in'],
+  [/\bctet\b|\bcbse\b/i, 'https://ctet.nic.in'],
+  [/\butet\b|ukutet/i, 'https://ukutet.com'],
   [/\bdsssb\b|delhi subordinate/i, 'https://dsssb.delhi.gov.in'],
+  [/\bdelhi police\b/i, 'https://delhipolice.gov.in'],
+  [/\bup police\b|\bupprb\b|\buppbpb\b/i, 'https://uppbpb.gov.in'],
+  [/\bbihar police\b|\bcsbc\b|\bbpssc\b/i, 'https://csbc.bih.nic.in'],
+  [/\bmp police\b|\bmpesb\b/i, 'https://esb.mp.gov.in'],
+  [/\brajasthan police\b/i, 'https://police.rajasthan.gov.in'],
   [/\bwbpsc\b|west bengal psc/i, 'https://psc.wb.gov.in'],
   [/\bpsssb\b|punjab sssb/i, 'https://sssb.punjab.gov.in'],
   [/\bhssc\b|\bhpsc\b|haryana/i, 'https://hssc.gov.in'],
@@ -366,6 +379,11 @@ const OFFICIAL_PORTALS = [
   [/\bkpsc\b|karnataka/i, 'https://kpsc.kar.nic.in'],
   [/\btnpsc\b|tamil nadu/i, 'https://www.tnpsc.gov.in'],
   [/\bmpsc\b|maharashtra/i, 'https://mpsc.gov.in'],
+  [/\bignou\b/i, 'https://www.ignou.ac.in'],
+  [/\bpfrda\b/i, 'https://www.pfrda.org.in'],
+  [/\bnabard\b/i, 'https://www.nabard.org'],
+  [/\bsebi\b/i, 'https://www.sebi.gov.in'],
+  [/\bhigh court\b/i, 'https://districts.ecourts.gov.in'],
   [/\b(army|navy|air force|nda|cds|drdo|defence|agniveer)\b/i, 'https://www.joinindianarmy.nic.in'],
   [/\b(cisf|crpf|bsf|itbp|ssb|capf|assam rifles)\b/i, 'https://www.crpf.gov.in'],
   [/\b(epfo|esic|lic|gail|ongc|bhel|nhpc|sail|ntpc|iocl)\b/i, 'https://www.india.gov.in'],
@@ -447,11 +465,10 @@ const VAGUE_DATE = /check official|check notification|tba|to be announced|announ
 export function isThinJob(job) {
   if (!job) return false;
   return Boolean(job.autoSynced) &&
-    (VAGUE_DATE.test(job.lastDate || '') || !job.lastDate) &&
     (
       !job.applyUrl ||
       job.applyUrl === '#' ||
-      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(job.applyUrl)
+      /news\.google\.com/i.test(job.applyUrl)
     );
 }
 
@@ -461,7 +478,7 @@ export function isThinResult(result) {
     (
       !result.resultUrl ||
       result.resultUrl === '#' ||
-      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(result.resultUrl || '')
+      /news\.google\.com/i.test(result.resultUrl || '')
     );
 }
 
@@ -471,17 +488,18 @@ export function isThinAdmitCard(card) {
     (
       !card.downloadUrl ||
       card.downloadUrl === '#' ||
-      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(card.downloadUrl || '')
+      /news\.google\.com/i.test(card.downloadUrl || '')
     );
 }
 
 export function isThinAnswerKey(key) {
   if (!key) return false;
+  const url = key.downloadUrl || key.keyUrl;
   return Boolean(key.autoSynced) &&
     (
-      !key.keyUrl ||
-      key.keyUrl === '#' ||
-      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(key.keyUrl || '')
+      !url ||
+      url === '#' ||
+      /news\.google\.com/i.test(url)
     );
 }
 
@@ -490,7 +508,8 @@ export function isThinYojana(yojana) {
   return Boolean(yojana.autoSynced) &&
     (
       !yojana.officialWebsite ||
-      /news\.google\.com|india\.gov\.in\/?(\?|$)/i.test(yojana.officialWebsite || '') ||
+      yojana.officialWebsite === '#' ||
+      /news\.google\.com/i.test(yojana.officialWebsite || '') ||
       /news\.google\.com/i.test(yojana.benefits || '')
     );
 }

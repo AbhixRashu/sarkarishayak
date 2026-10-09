@@ -262,11 +262,11 @@ export function buildJobPostingSchema(job, siteUrl = 'https://govtjob.salarypitc
     "dateModified": dateModified,
     "validThrough": validThrough,
     "employmentType": "FULL_TIME",
-    "directApply": true,
+    "directApply": false,
     "hiringOrganization": {
       "@type": "Organization",
       "name": job.organization,
-      "sameAs": job.applyUrl || siteUrl
+      ...(job.applyUrl && !job.applyUrl.includes('salarypitcher.com') ? { "sameAs": job.applyUrl } : {})
     },
     "jobLocation": {
       "@type": "Place",
