@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-10)
-# Total New URLs: 10
+# Total New URLs: 17
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -14,3 +14,10 @@ https://govtjob.salarypitcher.com/latest-jobs/mp-high-court-stenographer-recruit
 https://govtjob.salarypitcher.com/results/aiims-patna-cutoff-2026-check-neet-round-wise-result-2026/
 https://govtjob.salarypitcher.com/admit-cards/nicl-ao-admit-card-2026-release-date-check-admit-card-2026/
 https://govtjob.salarypitcher.com/admit-cards/pgimer-chandigarh-nursing-officer-exam-date-admit-card-2026/
+https://govtjob.salarypitcher.com/latest-jobs/cg-vyapam-group-2-recruitment-2026-notification-out-2026/
+https://govtjob.salarypitcher.com/latest-jobs/opsc-aee-recruitment-2026-notification-out-for-758-2026/
+https://govtjob.salarypitcher.com/results/bihar-police-constable-final-result-2026-out-result-2026/
+https://govtjob.salarypitcher.com/results/jkssb-result-2026-out-for-barber-x-raybcg-result-2026/
+https://govtjob.salarypitcher.com/admit-cards/kreis-teacher-exam-date-2026-out-check-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/delhi-police-pemt-and-dv-admit-card-2026-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/ssc-stenographer-2027-notification-apply-admit-card-2026/
