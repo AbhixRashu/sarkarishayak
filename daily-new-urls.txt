@@ -1,32 +1,7 @@
 # =========================================================
-# SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-10)
-# Total New URLs: 26
+# SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-11)
+# Total New URLs: 1
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
-https://govtjob.salarypitcher.com/latest-jobs/appsc-hostel-welfare-officer-2026-detailed-2026/
-https://govtjob.salarypitcher.com/latest-jobs/dsssb-sweeper-chowkidar-recruitment-2026-apply-online-2026/
-https://govtjob.salarypitcher.com/results/ssc-selection-post-phase-14-result-2026-merit-result-2026/
-https://govtjob.salarypitcher.com/results/aiims-new-delhi-cutoff-2026-check-neet-round-result-2026/
-https://govtjob.salarypitcher.com/results/nit-trichy-gate-cse-cutoff-2027-category-wise-result-2026/
-https://govtjob.salarypitcher.com/admit-cards/mphc-assistant-grade-iii-exam-date-2026-admit-card-2026/
-https://govtjob.salarypitcher.com/latest-jobs/mp-high-court-stenographer-recruitment-2026-2026/
-https://govtjob.salarypitcher.com/results/aiims-patna-cutoff-2026-check-neet-round-wise-result-2026/
-https://govtjob.salarypitcher.com/admit-cards/nicl-ao-admit-card-2026-release-date-check-admit-card-2026/
-https://govtjob.salarypitcher.com/admit-cards/pgimer-chandigarh-nursing-officer-exam-date-admit-card-2026/
-https://govtjob.salarypitcher.com/latest-jobs/cg-vyapam-group-2-recruitment-2026-notification-out-2026/
-https://govtjob.salarypitcher.com/latest-jobs/opsc-aee-recruitment-2026-notification-out-for-758-2026/
-https://govtjob.salarypitcher.com/results/bihar-police-constable-final-result-2026-out-result-2026/
-https://govtjob.salarypitcher.com/results/jkssb-result-2026-out-for-barber-x-raybcg-result-2026/
-https://govtjob.salarypitcher.com/admit-cards/kreis-teacher-exam-date-2026-out-check-admit-card-2026/
-https://govtjob.salarypitcher.com/admit-cards/delhi-police-pemt-and-dv-admit-card-2026-admit-card-2026/
-https://govtjob.salarypitcher.com/admit-cards/ssc-stenographer-2027-notification-apply-admit-card-2026/
-https://govtjob.salarypitcher.com/latest-jobs/rajasthan-safai-karamchari-recruitment-2026-apply-2026/
-https://govtjob.salarypitcher.com/latest-jobs/territorial-army-officer-recruitment-2026-notification-2026/
-https://govtjob.salarypitcher.com/results/aiims-norcet-11-mains-result-2026-out-at-result-2026/
-https://govtjob.salarypitcher.com/results/aiims-norcet-11-stage-2-cutoff-2026-out-check-result-2026/
-https://govtjob.salarypitcher.com/yojana/met-2027-notification-exam-dates-eligibility-yojana/
-https://govtjob.salarypitcher.com/yojana/gate-registration-2027-ongoing-apply-till-oct-12-yojana/
-https://govtjob.salarypitcher.com/results/aiims-norcet-11-2026-mains-result-link-out-live-result-2026/
-https://govtjob.salarypitcher.com/admit-cards/ugc-net-exam-date-2026-out-dec-cycle-check-admit-card-2026/
-https://govtjob.salarypitcher.com/yojana/pm-awas-yojana-ai-yojana/
+https://govtjob.salarypitcher.com/admit-cards/cbse-special-exam-date-sheet-2026-class-12-admit-card-2026/
