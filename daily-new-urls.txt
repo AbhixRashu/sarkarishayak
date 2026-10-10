@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-10)
-# Total New URLs: 23
+# Total New URLs: 26
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -27,3 +27,6 @@ https://govtjob.salarypitcher.com/results/aiims-norcet-11-mains-result-2026-out-
 https://govtjob.salarypitcher.com/results/aiims-norcet-11-stage-2-cutoff-2026-out-check-result-2026/
 https://govtjob.salarypitcher.com/yojana/met-2027-notification-exam-dates-eligibility-yojana/
 https://govtjob.salarypitcher.com/yojana/gate-registration-2027-ongoing-apply-till-oct-12-yojana/
+https://govtjob.salarypitcher.com/results/aiims-norcet-11-2026-mains-result-link-out-live-result-2026/
+https://govtjob.salarypitcher.com/admit-cards/ugc-net-exam-date-2026-out-dec-cycle-check-admit-card-2026/
+https://govtjob.salarypitcher.com/yojana/pm-awas-yojana-ai-yojana/
