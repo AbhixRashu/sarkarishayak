@@ -1,7 +1,8 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-11)
-# Total New URLs: 1
+# Total New URLs: 2
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
 https://govtjob.salarypitcher.com/admit-cards/cbse-special-exam-date-sheet-2026-class-12-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/hbse-supplementary-admit-card-2026-out-exam-admit-card-2026/
