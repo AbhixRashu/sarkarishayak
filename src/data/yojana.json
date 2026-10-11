@@ -1,5 +1,42 @@
 [
   {
+    "name": "Prime Minister Dhan-Dhaanya Krishi Yojana (PMDDKY)",
+    "slug": "prime-minister-dhan-dhaanya-krishi-yojana-pmddky-yojana",
+    "category": "farmers",
+    "launchDate": "2026-10-10",
+    "ministry": "Government of India",
+    "budget": "As per latest scheme notification",
+    "eligibility": "पात्रता की जानकारी आधिकारिक अधिसूचना में देखें (नीचे आधिकारिक पोर्टल लिंक)।",
+    "benefits": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxOdy1NZ1ZtY3hxalJQR29CNTdLUUpRNzhMQVBGckJ4N1FXeDg5YlRzM1IteHBQdEJ6UzQ4S2xSQWkwb2ZZV2c1SHluLXVjY3RlSlFFT2ZZbGFlU0c1T1VPd001QWlSOV9QU2JfMWRmcy1QbExYWU9EUGxMay0wNkVmYTRVUno0U1NGa1BWV0JKcHRMMDVhdDctZHpR?oc=5\" target=\"_blank\">Prime Minister Dhan-Dhaanya Krishi Yojana (PMDDKY)</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">PIB</font>",
+    "applicationProcess": [
+      "नीचे दिए आधिकारिक पोर्टल पर जाएँ",
+      "आधिकारिक अधिसूचना पढ़ें और पात्रता जाँचें",
+      "निर्देशानुसार आवेदन करें"
+    ],
+    "documents": [
+      "आधिकारिक अधिसूचना में दी गई दस्तावेज़ सूची देखें"
+    ],
+    "officialWebsite": "https://www.india.gov.in",
+    "helpline": "1800-11-0001 (National Portal)",
+    "shortDescription": "Prime Minister Dhan-Dhaanya Krishi Yojana (PMDDKY) — सरकारी योजना विवरण, पात्रता, लाभ व ऑनलाइन आवेदन।",
+    "importantDates": [
+      "Notification Date: 2026-10-10",
+      "Status: Active"
+    ],
+    "importantLinks": [
+      {
+        "label": "Official Portal",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Scheme Details",
+        "url": "https://www.india.gov.in"
+      }
+    ],
+    "stateImplementation": "National / All States",
+    "autoSynced": true
+  },
+  {
     "name": "यूपी में 6 ब्याज पर मिलेगा 6 लाख तक का कृषि लोन, मुख्यमंत्री कृषक समृद्धि योजना के सोमवार से शुरू होंगे आवेदन - up mukhyamantri krishak samriddhi yojana offers 6 loan",
     "slug": "6-6-up-mukhyamantri-krishak-samriddhi-yojana-offers-yojana",
     "category": "welfare",
