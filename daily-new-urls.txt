@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-14)
-# Total New URLs: 9
+# Total New URLs: 11
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -13,3 +13,5 @@ https://govtjob.salarypitcher.com/admit-cards/kolkata-police-constable-pmt-pst-2
 https://govtjob.salarypitcher.com/admit-cards/rrb-alp-city-intimation-slip-2026-expected-admit-card-2026/
 https://govtjob.salarypitcher.com/yojana/pm-dhan-dhaanya-krishi-yojana-yojana/
 https://govtjob.salarypitcher.com/answer-keys/bpsc-po-final-answer-key-2026-released-answer-key-2026/
+https://govtjob.salarypitcher.com/results/matsya-university-result-2026-out-at-result-2026/
+https://govtjob.salarypitcher.com/admit-cards/jee-main-2027-exam-date-out-nta-jee-session-admit-card-2026/
