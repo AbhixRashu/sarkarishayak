@@ -1,5 +1,593 @@
 [
   {
+    "slug": "uco-bank-apprentice-recruitment-2026-notification-out-2026",
+    "title": "UCO Bank Apprentice Recruitment 2026: Notification Out for 530 Posts; Apply Online & Check Eligibility Here",
+    "shortTitle": "UCO Bank Apprentice Recruitment 2026",
+    "organization": "Banking Sector",
+    "category": "banking",
+    "vacancies": 530,
+    "postDate": "2026-10-14",
+    "startDate": "2026-10-14",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://www.india.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://www.india.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "UCO Bank Apprentice Recruitment 2026: No ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "UCO Bank Apprentice Recruitment 2026: No mein kitni vacancy hai?",
+        "answer": "Is recruitment mein 530 posts hain. Category-wise breakdown official notification mein hai."
+      },
+      {
+        "question": "UCO Bank Apprentice Recruitment 2026: No ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "UCO Bank Apprentice Recruitment 2026: No ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "UCO Bank Apprentice Recruitment 2026: No ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
+    "slug": "bihar-tre-40-recruitment-2026-big-update-deled-2024-26-2026",
+    "title": "Bihar TRE 4.0 Recruitment 2026 (Big Update) D.El.Ed 2024-26 Students Get Chance to Apply, Applicant Numbers Expected to Rise",
+    "shortTitle": "Bihar TRE 4.0 Recruitment 2026 (Big",
+    "organization": "Govt of India",
+    "category": "other",
+    "vacancies": null,
+    "postDate": "2026-10-14",
+    "startDate": "2026-10-14",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://www.bpsc.bihar.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://www.bpsc.bihar.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://www.bpsc.bihar.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://www.bpsc.bihar.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "Bihar TRE 4.0 Recruitment 2026 (Big Upda ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "Bihar TRE 4.0 Recruitment 2026 (Big Upda mein kitni vacancy hai?",
+        "answer": "Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein."
+      },
+      {
+        "question": "Bihar TRE 4.0 Recruitment 2026 (Big Upda ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "Bihar TRE 4.0 Recruitment 2026 (Big Upda ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "Bihar TRE 4.0 Recruitment 2026 (Big Upda ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
+    "slug": "ap-dsc-notification-2026-out-2721-teacher-vacancies-2026",
+    "title": "AP DSC Notification 2026 OUT: 2,721 Teacher Vacancies for SGT, TGT, PGT, School Assistant & Other Posts Recruitment 2026",
+    "shortTitle": "AP DSC Notification 2026 OUT: 2,721",
+    "organization": "Govt of India",
+    "category": "police",
+    "vacancies": null,
+    "postDate": "2026-10-14",
+    "startDate": "2026-10-14",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://www.india.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://www.india.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "AP DSC Notification 2026 OUT: 2,721 Teac ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "AP DSC Notification 2026 OUT: 2,721 Teac mein kitni vacancy hai?",
+        "answer": "Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein."
+      },
+      {
+        "question": "AP DSC Notification 2026 OUT: 2,721 Teac ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "AP DSC Notification 2026 OUT: 2,721 Teac ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "AP DSC Notification 2026 OUT: 2,721 Teac ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
+    "slug": "appsc-group-2-notification-2026-out-at-pscapgovin-2026",
+    "title": "APPSC Group 2 Notification 2026 Out at psc.ap.gov.in: Apply Online from 10 November; Check Eligibility Here Recruitment 2026",
+    "shortTitle": "APPSC Group 2 Notification 2026 Out at psc.ap",
+    "organization": "Govt of India",
+    "category": "other",
+    "vacancies": null,
+    "postDate": "2026-10-14",
+    "startDate": "2026-10-14",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://psc.ap.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://psc.ap.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://psc.ap.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://psc.ap.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "APPSC Group 2 Notification 2026 Out at p ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "APPSC Group 2 Notification 2026 Out at p mein kitni vacancy hai?",
+        "answer": "Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein."
+      },
+      {
+        "question": "APPSC Group 2 Notification 2026 Out at p ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "APPSC Group 2 Notification 2026 Out at p ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "APPSC Group 2 Notification 2026 Out at p ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
+    "slug": "appsc-aee-notification-2026-out-for-503-assistant-2026",
+    "title": "APPSC AEE Notification 2026 (OUT) For 503 Assistant Executive Engineer Posts; Check Eligibility, Vacancy & Other Details Recruitment 2026",
+    "shortTitle": "APPSC AEE Notification 2026 (OUT) For 503",
+    "organization": "Govt of India",
+    "category": "police",
+    "vacancies": null,
+    "postDate": "2026-10-14",
+    "startDate": "2026-10-14",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://psc.ap.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://psc.ap.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://psc.ap.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://psc.ap.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "APPSC AEE Notification 2026 (OUT) For 50 ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "APPSC AEE Notification 2026 (OUT) For 50 mein kitni vacancy hai?",
+        "answer": "Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein."
+      },
+      {
+        "question": "APPSC AEE Notification 2026 (OUT) For 50 ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "APPSC AEE Notification 2026 (OUT) For 50 ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "APPSC AEE Notification 2026 (OUT) For 50 ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
+    "slug": "mpesb-sub-engineer-recruitment-2026-apply-online-2026",
+    "title": "MPESB Sub Engineer Recruitment 2026: Apply Online Reopens for 1700 Vacancies, Check Eligibility & More Details Here",
+    "shortTitle": "MPESB Sub Engineer Recruitment 2026",
+    "organization": "Govt of India",
+    "category": "other",
+    "vacancies": 1700,
+    "postDate": "2026-10-14",
+    "startDate": "2026-10-14",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://esb.mp.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://esb.mp.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://esb.mp.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://esb.mp.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "MPESB Sub Engineer Recruitment 2026: App ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "MPESB Sub Engineer Recruitment 2026: App mein kitni vacancy hai?",
+        "answer": "Is recruitment mein 1,700 posts hain. Category-wise breakdown official notification mein hai."
+      },
+      {
+        "question": "MPESB Sub Engineer Recruitment 2026: App ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "MPESB Sub Engineer Recruitment 2026: App ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "MPESB Sub Engineer Recruitment 2026: App ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
     "slug": "upsssc-je-mechanical-recruitment-2026-notification-out-2026",
     "title": "UPSSSC JE Mechanical Recruitment 2026: Notification Out for 1156 Posts; Check Apply Online & Eligibility Here",
     "shortTitle": "UPSSSC JE Mechanical Recruitment 2026",
