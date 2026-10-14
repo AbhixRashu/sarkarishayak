@@ -1,9 +1,11 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-15)
-# Total New URLs: 3
+# Total New URLs: 5
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
 https://govtjob.salarypitcher.com/latest-jobs/income-tax-delhi-sports-quota-recruitment-2026-apply-2026/
 https://govtjob.salarypitcher.com/results/wbpsc-miscellaneous-final-result-2026-released-result-2026/
 https://govtjob.salarypitcher.com/yojana/40-modi-cabinet-expands-pension-for-disabled-40-yojana/
+https://govtjob.salarypitcher.com/latest-jobs/rrb-ntpc-notification-2026-pdf-out-for-5236-ug-and-2026/
+https://govtjob.salarypitcher.com/results/nios-on-demand-result-2026-out-resultsniosacin-result-2026/
