@@ -1,9 +1,11 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-16)
-# Total New URLs: 3
+# Total New URLs: 5
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
 https://govtjob.salarypitcher.com/latest-jobs/supreme-court-junior-court-attendant-notification-2026-2026/
 https://govtjob.salarypitcher.com/latest-jobs/hpsc-fso-exam-date-2026-out-check-exam-schedule-for-2026/
 https://govtjob.salarypitcher.com/answer-keys/psssb-clerk-omr-sheet-2026-released-answer-key-2026/
+https://govtjob.salarypitcher.com/latest-jobs/indian-coast-guard-recruitment-2026-notification-out-2026/
+https://govtjob.salarypitcher.com/results/osstet-result-2026-score-card-bseodishaacin-result-2026/
