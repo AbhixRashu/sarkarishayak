@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-15)
-# Total New URLs: 8
+# Total New URLs: 12
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -12,3 +12,7 @@ https://govtjob.salarypitcher.com/results/nios-on-demand-result-2026-out-results
 https://govtjob.salarypitcher.com/results/jnvst-class-6-result-2026-out-get-summer-bound-result-2026/
 https://govtjob.salarypitcher.com/yojana/nsap-renamed-pradhan-mantri-samajik-sahayata-yojana-yojana/
 https://govtjob.salarypitcher.com/yojana/social-security-scheme-expansion-5-625-20000-yojana/
+https://govtjob.salarypitcher.com/latest-jobs/rrb-ntpc-ug-notification-2026-out-for-1688-posts-apply-2026/
+https://govtjob.salarypitcher.com/admit-cards/kp-constable-pet-admit-card-2026-out-pmt-admit-card-2026/
+https://govtjob.salarypitcher.com/admit-cards/jharkhand-tet-admit-card-2026-out-today-at-admit-card-2026/
+https://govtjob.salarypitcher.com/yojana/ladli-behna-yojana-125-41-mohan-yadav-1834-yojana/
