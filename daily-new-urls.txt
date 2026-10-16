@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-17)
-# Total New URLs: 4
+# Total New URLs: 7
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -8,3 +8,6 @@ https://govtjob.salarypitcher.com/latest-jobs/hprca-recruitment-2026-commission-
 https://govtjob.salarypitcher.com/results/sms-medical-college-jaipur-cutoff-2026-check-result-2026/
 https://govtjob.salarypitcher.com/results/auat-result-2026-out-live-rank-cards-released-result-2026/
 https://govtjob.salarypitcher.com/yojana/14454-maharajganj-14454-pm-awas-beneficiaries-to-get-yojana/
+https://govtjob.salarypitcher.com/latest-jobs/uco-bank-apprentice-vacancy-2026-530-16650-apply-2026/
+https://govtjob.salarypitcher.com/results/mahatma-gandhi-medical-college-cutoff-2026-result-2026/
+https://govtjob.salarypitcher.com/admit-cards/icai-admit-card-2026-expected-soon-check-admit-card-2026/
