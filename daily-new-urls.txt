@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-17)
-# Total New URLs: 29
+# Total New URLs: 31
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -33,3 +33,5 @@ https://govtjob.salarypitcher.com/admit-cards/osssc-amin-revised-answer-key-2026
 https://govtjob.salarypitcher.com/admit-cards/railway-je-cbt-1-city-intimation-2026-out-admit-card-2026/
 https://govtjob.salarypitcher.com/yojana/pm-vishwakarma-scheme-2nd-phase-pm-17-sep-enurl-sep-yojana/
 https://govtjob.salarypitcher.com/answer-keys/osssc-amin-revised-answer-key-2026-out-answer-key-2026/
+https://govtjob.salarypitcher.com/results/uppsc-lt-grade-teacher-mains-result-2026-out-result-2026/
+https://govtjob.salarypitcher.com/results/goa-hssc-ssc-result-2026-link-active-when-will-result-2026/
