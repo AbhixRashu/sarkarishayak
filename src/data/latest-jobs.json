@@ -9410,14 +9410,14 @@
   {
     "slug": "bihar-librarian-recruitment-2026-apply-online-begins-2026",
     "title": "Bihar Librarian Recruitment 2026: Apply Online Begins For 5800 Posts, Check Eligibility and More Details Here",
-    "shortTitle": "Bihar Librarian Recruitment 2026: Apply Online",
+    "shortTitle": "Bihar Librarian 2026",
     "organization": "Govt of India",
     "category": "other",
     "vacancies": 500,
     "postDate": "2026-10-01",
     "startDate": "2026-10-01",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bpsc.bihar.gov.in",
+    "applyUrl": "https://bpsc.bih.nic.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -9444,15 +9444,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "label": "Official Notification",
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Official Website",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "label": "BPSC Official Website",
+        "url": "https://bpsc.bih.nic.in"
       }
     ],
     "examPattern": [
@@ -9503,7 +9503,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://bpsc.bih.nic.in"
   },
   {
     "slug": "dsssb-recruitment-2026-notification-out-for-641-posts-2026",
@@ -9606,14 +9607,14 @@
   {
     "slug": "supreme-court-jca-recruitment-2026-notification-out-2026",
     "title": "Supreme Court JCA Recruitment 2026: Notification Out for 250 Junior Court Assistant Posts, Check Eligibility",
-    "shortTitle": "Supreme Court JCA Recruitment 2026",
+    "shortTitle": "Supreme Court JCA 2026",
     "organization": "Govt of India",
     "category": "police",
     "vacancies": 500,
     "postDate": "2026-10-01",
     "startDate": "2026-10-01",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.india.gov.in",
+    "applyUrl": "https://main.sci.gov.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -9640,15 +9641,11 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.india.gov.in"
+        "url": "https://main.sci.gov.in"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.india.gov.in"
-      },
-      {
-        "label": "Official Website",
-        "url": "https://www.india.gov.in"
+        "label": "Official Recruitment Portal",
+        "url": "https://main.sci.gov.in"
       }
     ],
     "examPattern": [
@@ -9699,7 +9696,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://main.sci.gov.in"
   },
   {
     "slug": "uiic-ao-apply-online-2026-last-date-to-apply-today-1st-2026",
@@ -9802,14 +9800,14 @@
   {
     "slug": "bihar-librarian-vacancy-2026-application-process-2026",
     "title": "Bihar Librarian Vacancy 2026: Application Process Begins For 5800 Posts, Check More Details Recruitment 2026",
-    "shortTitle": "Bihar Librarian Vacancy 2026",
+    "shortTitle": "Bihar Librarian 2026",
     "organization": "Govt of India",
     "category": "other",
     "vacancies": 500,
     "postDate": "2026-10-01",
     "startDate": "2026-10-01",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bpsc.bihar.gov.in",
+    "applyUrl": "https://bpsc.bih.nic.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -9836,15 +9834,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "label": "Official Notification",
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Official Website",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "label": "BPSC Official Website",
+        "url": "https://bpsc.bih.nic.in"
       }
     ],
     "examPattern": [
@@ -9895,7 +9893,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://bpsc.bih.nic.in"
   },
   {
     "slug": "supreme-court-of-india-junior-court-assistant-2026",
@@ -10683,15 +10682,15 @@
   },
   {
     "slug": "bank-of-baroda-so-recruitment-2026-apply-online-last-2026",
-    "title": "Bank of Baroda SO Recruitment 2026: Apply Online Last Date Extended Till October 1",
-    "shortTitle": "Bank of Baroda SO Recruitment 2026",
-    "organization": "Banking Sector",
+    "title": "Bank of Baroda Specialist Officer (SO) Recruitment 2026: Apply Online",
+    "shortTitle": "Bank of Baroda SO 2026",
+    "organization": "Bank of Baroda",
     "category": "banking",
     "vacancies": 500,
     "postDate": "2026-09-30",
     "startDate": "2026-09-30",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.india.gov.in",
+    "applyUrl": "https://www.bankofbaroda.in/career",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -10718,15 +10717,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.india.gov.in"
+        "url": "https://www.bankofbaroda.in/career"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.india.gov.in"
+        "label": "Official Career Portal",
+        "url": "https://www.bankofbaroda.in/career"
       },
       {
-        "label": "Official Website",
-        "url": "https://www.india.gov.in"
+        "label": "Bank Official Website",
+        "url": "https://www.bankofbaroda.in"
       }
     ],
     "examPattern": [
@@ -10752,23 +10751,23 @@
     },
     "faq": [
       {
-        "question": "Bank of Baroda SO Recruitment 2026: Appl ka exam kab hoga?",
+        "question": "Bank of Baroda SO 2026 ka exam kab hoga?",
         "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
       },
       {
-        "question": "Bank of Baroda SO Recruitment 2026: Appl mein kitni vacancy hai?",
+        "question": "Bank of Baroda SO 2026 mein kitni vacancy hai?",
         "answer": "Is recruitment mein total 500 posts hain. Detailed vacancy breakdown official notification mein hai."
       },
       {
-        "question": "Bank of Baroda SO Recruitment 2026: Appl ke liye online apply kaise karein?",
+        "question": "Bank of Baroda SO 2026 ke liye online apply kaise karein?",
         "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
       },
       {
-        "question": "Bank of Baroda SO Recruitment 2026: Appl ki eligibility kya hai?",
+        "question": "Bank of Baroda SO 2026 ki eligibility kya hai?",
         "answer": "Educational qualification: 10th / 12th / Graduate / Diploma. Age limit: 18-40 years. Age relaxation SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs."
       },
       {
-        "question": "Bank of Baroda SO Recruitment 2026: Appl ki last date kya hai?",
+        "question": "Bank of Baroda SO 2026 ki last date kya hai?",
         "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
       }
     ],
@@ -10777,7 +10776,9 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://www.bankofbaroda.in",
+    "notificationUrl": "https://www.bankofbaroda.in/career"
   },
   {
     "slug": "ibps-clerk-vacancy-2026-check-revised-vacancies-state-2026",
@@ -11377,7 +11378,7 @@
     "postDate": "2026-09-29",
     "startDate": "2026-09-29",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.india.gov.in",
+    "applyUrl": "https://assamrifles.gov.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -11404,15 +11405,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.india.gov.in"
+        "url": "https://assamrifles.gov.in"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.india.gov.in"
+        "label": "Official Notification",
+        "url": "https://assamrifles.gov.in"
       },
       {
         "label": "Official Website",
-        "url": "https://www.india.gov.in"
+        "url": "https://assamrifles.gov.in"
       }
     ],
     "examPattern": [
@@ -11463,7 +11464,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://assamrifles.gov.in"
   },
   {
     "slug": "mp-high-court-assistant-grade-3-recruitment-2026-apply-2026",
@@ -12357,7 +12359,7 @@
     "postDate": "2026-09-28",
     "startDate": "2026-09-28",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.india.gov.in",
+    "applyUrl": "https://assamrifles.gov.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -12384,15 +12386,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.india.gov.in"
+        "url": "https://assamrifles.gov.in"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.india.gov.in"
+        "label": "Official Notification",
+        "url": "https://assamrifles.gov.in"
       },
       {
         "label": "Official Website",
-        "url": "https://www.india.gov.in"
+        "url": "https://assamrifles.gov.in"
       }
     ],
     "examPattern": [
@@ -12443,7 +12445,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://assamrifles.gov.in"
   },
   {
     "slug": "rrb-paramedical-recruitment-2026-begins-for-590-2026",
@@ -12742,14 +12745,14 @@
   {
     "slug": "bihar-librarian-vacancy-2026-notification-out-for-5800-2026",
     "title": "Bihar Librarian Vacancy 2026: Notification Out For 5800 Posts, Check Eligibility Criteria, Application Form and More Details Recruitment 2026",
-    "shortTitle": "Bihar Librarian Vacancy 2026",
+    "shortTitle": "Bihar Librarian 2026",
     "organization": "Govt of India",
     "category": "other",
     "vacancies": 500,
     "postDate": "2026-09-28",
     "startDate": "2026-09-28",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bpsc.bihar.gov.in",
+    "applyUrl": "https://bpsc.bih.nic.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -12776,15 +12779,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "label": "Official Notification",
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Official Website",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "label": "BPSC Official Website",
+        "url": "https://bpsc.bih.nic.in"
       }
     ],
     "examPattern": [
@@ -12835,7 +12838,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://bpsc.bih.nic.in"
   },
   {
     "slug": "ibps-rrb-recruitment-2026-apply-for-13745-officer-and-2026",
@@ -13819,15 +13823,15 @@
   },
   {
     "slug": "bank-of-baroda-so-recruitment-2026-out-last-date-2026",
-    "title": "Bank of Baroda SO Recruitment 2026 Out, Last Date Extended Till 1 October",
-    "shortTitle": "Bank of Baroda SO Recruitment 2026 Out",
-    "organization": "Banking Sector",
+    "title": "Bank of Baroda Specialist Officer (SO) Recruitment 2026: Apply Online",
+    "shortTitle": "Bank of Baroda SO 2026",
+    "organization": "Bank of Baroda",
     "category": "banking",
     "vacancies": 500,
     "postDate": "2026-09-25",
     "startDate": "2026-09-25",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.india.gov.in",
+    "applyUrl": "https://www.bankofbaroda.in/career",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -13854,15 +13858,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.india.gov.in"
+        "url": "https://www.bankofbaroda.in/career"
       },
       {
-        "label": "Download Notification",
-        "url": "https://www.india.gov.in"
+        "label": "Official Career Portal",
+        "url": "https://www.bankofbaroda.in/career"
       },
       {
-        "label": "Official Website",
-        "url": "https://www.india.gov.in"
+        "label": "Bank Official Website",
+        "url": "https://www.bankofbaroda.in"
       }
     ],
     "examPattern": [
@@ -13913,7 +13917,9 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://www.bankofbaroda.in",
+    "notificationUrl": "https://www.bankofbaroda.in/career"
   },
   {
     "slug": "1338-delhi-teacher-vacancy-2026-sanctioned-check-2026",
@@ -14897,15 +14903,15 @@
   },
   {
     "slug": "bank-of-baroda-so-recruitment-2026-last-date-today-2026",
-    "title": "Bank of Baroda SO Recruitment 2026 Last Date Today: Apply Online for 1100 Posts, Check Eligibility & Other Details Here Recruitment 2026",
-    "shortTitle": "Bank of Baroda SO Recruitment 2026 Last ",
-    "organization": "Banking Sector",
+    "title": "Bank of Baroda Specialist Officer (SO) Recruitment 2026: Apply Online",
+    "shortTitle": "Bank of Baroda SO 2026",
+    "organization": "Bank of Baroda",
     "category": "banking",
     "vacancies": 500,
     "postDate": "2026-09-24",
     "startDate": "2026-09-24",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bankofbaroda.in",
+    "applyUrl": "https://www.bankofbaroda.in/career",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -14932,15 +14938,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
+        "url": "https://www.bankofbaroda.in/career"
+      },
+      {
+        "label": "Official Career Portal",
+        "url": "https://www.bankofbaroda.in/career"
+      },
+      {
+        "label": "Bank Official Website",
         "url": "https://www.bankofbaroda.in"
-      },
-      {
-        "label": "Download Notification",
-        "url": "#"
-      },
-      {
-        "label": "Official Website",
-        "url": "#"
       }
     ],
     "examPattern": [
@@ -14991,7 +14997,9 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://www.bankofbaroda.in",
+    "notificationUrl": "https://www.bankofbaroda.in/career"
   },
   {
     "slug": "uiic-ao-apply-online-2026-started-now-uiiccoin-che-2026",
@@ -16269,15 +16277,15 @@
   },
   {
     "slug": "bank-of-baroda-so-recruitment-2026-last-date-tomor-2026",
-    "title": "Bank of Baroda SO Recruitment 2026 Last Date Tomorrow: Apply Online for 1100 Posts, Check Eligibility & Other Details Here Recruitment 2026",
-    "shortTitle": "Bank of Baroda SO Recruitment 2026 Last ",
-    "organization": "Banking Sector",
+    "title": "Bank of Baroda Specialist Officer (SO) Recruitment 2026: Apply Online",
+    "shortTitle": "Bank of Baroda SO 2026",
+    "organization": "Bank of Baroda",
     "category": "banking",
     "vacancies": 500,
     "postDate": "2026-09-23",
     "startDate": "2026-09-23",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bankofbaroda.in",
+    "applyUrl": "https://www.bankofbaroda.in/career",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -16304,15 +16312,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
+        "url": "https://www.bankofbaroda.in/career"
+      },
+      {
+        "label": "Official Career Portal",
+        "url": "https://www.bankofbaroda.in/career"
+      },
+      {
+        "label": "Bank Official Website",
         "url": "https://www.bankofbaroda.in"
-      },
-      {
-        "label": "Download Notification",
-        "url": "#"
-      },
-      {
-        "label": "Official Website",
-        "url": "#"
       }
     ],
     "examPattern": [
@@ -16363,7 +16371,9 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://www.bankofbaroda.in",
+    "notificationUrl": "https://www.bankofbaroda.in/career"
   },
   {
     "slug": "crpf-constable-sports-quota-recruitment-2026-apply-2026",
@@ -17740,14 +17750,14 @@
   {
     "slug": "assam-rifles-recruitment-2026-notification-out-for-2026",
     "title": "Assam Rifles Recruitment 2026– Notification Out for 354 Technical and Tradesman Posts Recruitment 2026",
-    "shortTitle": "Assam Rifles Recruitment 2026– Notificat",
+    "shortTitle": "Assam Rifles Recruitment 2026",
     "organization": "Govt of India",
     "category": "other",
     "vacancies": 500,
     "postDate": "2026-09-21",
     "startDate": "2026-09-21",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.crpf.gov.in",
+    "applyUrl": "https://assamrifles.gov.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -17774,15 +17784,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.crpf.gov.in"
+        "url": "https://assamrifles.gov.in"
       },
       {
-        "label": "Download Notification",
-        "url": "#"
+        "label": "Official Notification",
+        "url": "https://assamrifles.gov.in"
       },
       {
         "label": "Official Website",
-        "url": "#"
+        "url": "https://assamrifles.gov.in"
       }
     ],
     "examPattern": [
@@ -17833,7 +17843,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://assamrifles.gov.in"
   },
   {
     "slug": "jssc-jilcce-recruitment-2026-326-health-supervisor-2026",
@@ -29107,9 +29118,9 @@
   },
   {
     "slug": "government-jobs-2026-ibps-railway-vacancies-open-2026",
-    "title": "Government Jobs 2026: IBPS, Railway Vacancies Open Recruitment 2026",
-    "shortTitle": "Government Jobs 2026: IBPS, Railway Vaca",
-    "organization": "Railway Recruitment Board",
+    "title": "Railway & IBPS Recruitment 2026: Apply Online for 500+ Posts",
+    "shortTitle": "Railway & IBPS Jobs 2026",
+    "organization": "Railway Recruitment Board & IBPS",
     "category": "banking",
     "vacancies": 500,
     "postDate": "2026-09-07",
@@ -29141,16 +29152,16 @@
     ],
     "importantLinks": [
       {
-        "label": "Apply Online",
+        "label": "Apply Online (RRB)",
         "url": "https://indianrailways.gov.in"
       },
       {
-        "label": "Download Notification",
-        "url": "#"
+        "label": "Official Portal (IBPS)",
+        "url": "https://www.ibps.in"
       },
       {
         "label": "Official Website",
-        "url": "#"
+        "url": "https://indianrailways.gov.in"
       }
     ],
     "examPattern": [
@@ -29176,23 +29187,23 @@
     },
     "faq": [
       {
-        "question": "Government Jobs 2026: IBPS, Railway Vaca ka exam kab hoga?",
+        "question": "Railway & IBPS 2026 ka exam kab hoga?",
         "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
       },
       {
-        "question": "Government Jobs 2026: IBPS, Railway Vaca mein kitni vacancy hai?",
+        "question": "Railway & IBPS 2026 mein kitni vacancy hai?",
         "answer": "Is recruitment mein total 500 posts hain. Detailed vacancy breakdown official notification mein hai."
       },
       {
-        "question": "Government Jobs 2026: IBPS, Railway Vaca ke liye online apply kaise karein?",
+        "question": "Railway & IBPS 2026 ke liye online apply kaise karein?",
         "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
       },
       {
-        "question": "Government Jobs 2026: IBPS, Railway Vaca ki eligibility kya hai?",
+        "question": "Railway & IBPS 2026 ki eligibility kya hai?",
         "answer": "Educational qualification: 10th / 12th / Graduate / Diploma. Age limit: 18-40 years. Age relaxation SC/ST: 5 yrs, OBC: 3 yrs, PH: 10 yrs."
       },
       {
-        "question": "Government Jobs 2026: IBPS, Railway Vaca ki last date kya hai?",
+        "question": "Railway & IBPS 2026 ki last date kya hai?",
         "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
       }
     ],
@@ -29201,7 +29212,9 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://indianrailways.gov.in",
+    "notificationUrl": "https://indianrailways.gov.in"
   },
   {
     "slug": "uiic-ao-recruitment-2026-notification-out-apply-on-2026",
@@ -30872,14 +30885,14 @@
   {
     "slug": "bihar-librarian-bharti-2026-5800-vacancies-out-app-2026",
     "title": "Bihar Librarian Bharti 2026: 5800 Vacancies Out, Apply Online Starts from October 1 Recruitment 2026",
-    "shortTitle": "Bihar Librarian Bharti 2026: 5800 Vacanc",
+    "shortTitle": "Bihar Librarian 2026",
     "organization": "Govt of India",
     "category": "other",
     "vacancies": 500,
     "postDate": "2026-09-04",
     "startDate": "2026-09-04",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bpsc.bihar.gov.in",
+    "applyUrl": "https://bpsc.bih.nic.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -30906,15 +30919,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Download Notification",
-        "url": "#"
+        "label": "Official Notification",
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Official Website",
-        "url": "#"
+        "label": "BPSC Official Website",
+        "url": "https://bpsc.bih.nic.in"
       }
     ],
     "examPattern": [
@@ -30965,7 +30978,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://bpsc.bih.nic.in"
   },
   {
     "slug": "pmbi-recruitment-2026-notification-out-apply-for-1-2026",
@@ -31361,15 +31375,15 @@
   },
   {
     "slug": "bank-of-baroda-so-recruitment-2026-1100-vacancies--2026",
-    "title": "Bank of Baroda SO Recruitment 2026 - 1100 Vacancies announced Recruitment 2026",
-    "shortTitle": "Bank of Baroda SO Recruitment 2026 - 110",
-    "organization": "Banking Sector",
+    "title": "Bank of Baroda Specialist Officer (SO) Recruitment 2026: Apply Online",
+    "shortTitle": "Bank of Baroda SO 2026",
+    "organization": "Bank of Baroda",
     "category": "banking",
     "vacancies": 500,
     "postDate": "2026-09-04",
     "startDate": "2026-09-04",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bankofbaroda.in",
+    "applyUrl": "https://www.bankofbaroda.in/career",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -31396,15 +31410,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
+        "url": "https://www.bankofbaroda.in/career"
+      },
+      {
+        "label": "Official Career Portal",
+        "url": "https://www.bankofbaroda.in/career"
+      },
+      {
+        "label": "Bank Official Website",
         "url": "https://www.bankofbaroda.in"
-      },
-      {
-        "label": "Download Notification",
-        "url": "#"
-      },
-      {
-        "label": "Official Website",
-        "url": "#"
       }
     ],
     "examPattern": [
@@ -31455,7 +31469,9 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://www.bankofbaroda.in",
+    "notificationUrl": "https://www.bankofbaroda.in/career"
   },
   {
     "slug": "rcfl-apprentice-recruitment-2026-notification-out--2026",
@@ -33126,14 +33142,14 @@
   {
     "slug": "bihar-librarian-vacancy-2026-application-starts-fr-2026",
     "title": "Bihar Librarian Vacancy 2026: Application Starts From 1 Oct, Check Eligibility & Exam Dates Here Recruitment 2026",
-    "shortTitle": "Bihar Librarian Vacancy 2026: Applicatio",
+    "shortTitle": "Bihar Librarian 2026",
     "organization": "Govt of India",
     "category": "other",
     "vacancies": 500,
     "postDate": "2026-09-02",
     "startDate": "2026-09-02",
     "lastDate": "Check Official Notification",
-    "applyUrl": "https://www.bpsc.bihar.gov.in",
+    "applyUrl": "https://bpsc.bih.nic.in",
     "salary": "As per 7th Pay Commission Matrix",
     "qualify": "10th / 12th / Graduate / Diploma",
     "feeGeneral": "Check Notification",
@@ -33160,15 +33176,15 @@
     "importantLinks": [
       {
         "label": "Apply Online",
-        "url": "https://www.bpsc.bihar.gov.in"
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Download Notification",
-        "url": "#"
+        "label": "Official Notification",
+        "url": "https://bpsc.bih.nic.in"
       },
       {
-        "label": "Official Website",
-        "url": "#"
+        "label": "BPSC Official Website",
+        "url": "https://bpsc.bih.nic.in"
       }
     ],
     "examPattern": [
@@ -33219,7 +33235,8 @@
       "whatsapp": "#",
       "facebook": "#"
     },
-    "autoSynced": true
+    "autoSynced": true,
+    "officialUrl": "https://bpsc.bih.nic.in"
   },
   {
     "slug": "bpsc-tre-40-recruitment-2026-apply-online-begins-f-2026",
@@ -79893,7 +79910,7 @@
   },
   {
     "title": "Assam Rifles Tradesman Constable 2026",
-    "shortTitle": "Assam Rifles Tradesman 2026",
+    "shortTitle": "Assam Rifles Recruitment 2026",
     "organization": "Assam Rifles",
     "advNumber": "AR/Tradesman/2026",
     "category": "defence",
@@ -79995,7 +80012,7 @@
         "url": "https://assamrifles.gov.in"
       },
       {
-        "label": "Download Notification",
+        "label": "Official Notification",
         "url": "https://assamrifles.gov.in"
       },
       {
@@ -80053,7 +80070,8 @@
       "telegram": "#",
       "whatsapp": "#",
       "facebook": "#"
-    }
+    },
+    "officialUrl": "https://assamrifles.gov.in"
   },
   {
     "title": "Assam Rifles Head Constable Ministerial 2026",

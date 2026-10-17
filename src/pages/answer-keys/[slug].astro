@@ -22,9 +22,10 @@ const relatedAnswerKeys = [
 
 // Duplicate variants → canonical primary (pages delete NAHI hote).
 const canonicalSlug = primarySlugOf(answerKeys, answerKey.slug);
-const isKeyAvailable = answerKey.keyUrl && answerKey.keyUrl !== '#';
-const isObjectionAvailable = answerKey.objectionUrl && answerKey.objectionUrl !== '#';
-const isOfficialAvailable = answerKey.officialUrl && answerKey.officialUrl !== '#';
+const keyUrl = answerKey.keyUrl || answerKey.downloadUrl;
+const isKeyAvailable = Boolean(keyUrl && keyUrl !== '#' && /^https?:\/\//i.test(keyUrl));
+const isObjectionAvailable = Boolean(answerKey.objectionUrl && answerKey.objectionUrl !== '#' && /^https?:\/\//i.test(answerKey.objectionUrl));
+const isOfficialAvailable = Boolean(answerKey.officialUrl && answerKey.officialUrl !== '#' && /^https?:\/\//i.test(answerKey.officialUrl));
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -163,40 +164,61 @@ const isThinPage = isThinAnswerKey(answerKey);
           <div class="ak-card">
             <div class="ak-card-head">Important Links</div>
             <div class="ak-links-list">
-              <a
-                class="ak-link-item"
-                href={isKeyAvailable ? answerKey.keyUrl : '#'}
-                target={isKeyAvailable ? '_blank' : undefined}
-                rel={isKeyAvailable ? 'noopener noreferrer' : undefined}
-              >
-                <span class="ak-link-label">Download Answer Key</span>
-                <span class="ak-link-arrow">{isKeyAvailable ? '\u2192' : 'Coming Soon'}</span>
-              </a>
-              <a
-                class={`ak-link-item ak-link-objection ${!isObjectionAvailable ? 'ak-link-disabled' : ''}`}
-                href={isObjectionAvailable ? answerKey.objectionUrl : '#'}
-                target={isObjectionAvailable ? '_blank' : undefined}
-                rel={isObjectionAvailable ? 'noopener noreferrer' : undefined}
-              >
-                <span class="ak-link-label">Raise Objection</span>
-                <span class="ak-link-arrow">{isObjectionAvailable ? '\u2192' : 'Coming Soon'}</span>
-              </a>
-              <a
-                class={`ak-link-item ${!isOfficialAvailable ? 'ak-link-disabled' : ''}`}
-                href={isOfficialAvailable ? answerKey.officialUrl : '#'}
-                target={isOfficialAvailable ? '_blank' : undefined}
-                rel={isOfficialAvailable ? 'noopener noreferrer' : undefined}
-              >
-                <span class="ak-link-label">Official Website</span>
-                <span class="ak-link-arrow">{isOfficialAvailable ? '\u2192' : 'Coming Soon'}</span>
-              </a>
+              {isKeyAvailable ? (
+                <a
+                  class="ak-link-item"
+                  href={keyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="ak-link-label">Download Answer Key</span>
+                  <span class="ak-link-arrow">→</span>
+                </a>
+              ) : (
+                <div class="ak-link-item ak-link-disabled">
+                  <span class="ak-link-label">Download Answer Key</span>
+                  <span class="ak-link-arrow">Coming Soon</span>
+                </div>
+              )}
+              {isObjectionAvailable ? (
+                <a
+                  class="ak-link-item ak-link-objection"
+                  href={answerKey.objectionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="ak-link-label">Raise Objection</span>
+                  <span class="ak-link-arrow">→</span>
+                </a>
+              ) : (
+                <div class="ak-link-item ak-link-objection ak-link-disabled">
+                  <span class="ak-link-label">Raise Objection</span>
+                  <span class="ak-link-arrow">Coming Soon</span>
+                </div>
+              )}
+              {isOfficialAvailable ? (
+                <a
+                  class="ak-link-item"
+                  href={answerKey.officialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="ak-link-label">Official Website</span>
+                  <span class="ak-link-arrow">→</span>
+                </a>
+              ) : (
+                <div class="ak-link-item ak-link-disabled">
+                  <span class="ak-link-label">Official Website</span>
+                  <span class="ak-link-arrow">Coming Soon</span>
+                </div>
+              )}
             </div>
           </div>
 
           <div class="ak-card ak-quick-actions">
             <div class="ak-card-head">Quick Actions</div>
             {isKeyAvailable ? (
-              <a class="btn-primary ak-action-btn" href={answerKey.keyUrl} target="_blank" rel="noopener noreferrer">
+              <a class="btn-primary ak-action-btn" href={keyUrl} target="_blank" rel="noopener noreferrer">
                 Download Answer Key
               </a>
             ) : (

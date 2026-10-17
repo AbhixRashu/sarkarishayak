@@ -187,26 +187,40 @@ const articleSchema = {
                 { label: 'Download Admit Card', url: admitCard.downloadUrl },
                 { label: 'Check Exam City', url: admitCard.examCityUrl },
                 { label: 'Official Website', url: admitCard.officialUrl },
-              ].map(link => (
-                <a href={link.url && link.url !== '#' ? link.url : '#'} target="_blank" rel="noopener" class={`ac-link-item${!link.url || link.url === '#' ? ' coming-soon' : ''}`}>
-                  <div class="ac-link-info">
-                    <span class="ac-link-label">{link.label}</span>
-                    {!link.url || link.url === '#' ? (
+              ].map(link => {
+                const hasValidUrl = Boolean(link.url && link.url !== '#' && /^https?:\/\//i.test(link.url));
+                return hasValidUrl ? (
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" class="ac-link-item">
+                    <div class="ac-link-info">
+                      <span class="ac-link-label">{link.label}</span>
+                    </div>
+                    <span class="ac-link-arrow">→</span>
+                  </a>
+                ) : (
+                  <div class="ac-link-item coming-soon">
+                    <div class="ac-link-info">
+                      <span class="ac-link-label">{link.label}</span>
                       <span class="ac-link-soon">Coming Soon</span>
-                    ) : null}
+                    </div>
+                    <span class="ac-link-arrow">—</span>
                   </div>
-                  <span class="ac-link-arrow">→</span>
-                </a>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           <!-- Quick Actions -->
           <div class="ac-card ac-side-card ac-quick-card">
             <h3 class="ac-quick-title">Quick Actions</h3>
-            <a href={admitCard.downloadUrl && admitCard.downloadUrl !== '#' ? admitCard.downloadUrl : '#'} target="_blank" rel="noopener" class="ac-download-btn">
-              Download Admit Card →
-            </a>
+            {admitCard.downloadUrl && admitCard.downloadUrl !== '#' && /^https?:\/\//i.test(admitCard.downloadUrl) ? (
+              <a href={admitCard.downloadUrl} target="_blank" rel="noopener noreferrer" class="ac-download-btn">
+                Download Admit Card →
+              </a>
+            ) : (
+              <button class="ac-download-btn" disabled style="opacity:0.6;cursor:not-allowed;">
+                Admit Card Coming Soon
+              </button>
+            )}
             <a href="/admit-cards/" class="ac-more-btn">
               View More Admit Cards →
             </a>

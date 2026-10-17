@@ -20,6 +20,11 @@ const siteUrl = 'https://govtjob.salarypitcher.com';
 // Duplicate job variants → canonical primary (koi page delete nahi hota).
 const canonicalSlug = primarySlugOf(jobs, job.slug);
 
+// Truncated shortTitle cleanup (e.g. "...Railway Vaca" -> "Railway Vacancies")
+const cleanShortTitle = (job.shortTitle && !/-[a-z]{1,3}$/i.test(job.shortTitle) && job.shortTitle.trim().length > 5)
+  ? job.shortTitle.trim().replace(/-+$/, '')
+  : (job.title ? job.title.split(/[:|—–-]/)[0].trim() : 'Recruitment');
+
 // Thin/incomplete auto-synced page detection.
 // Agar lastDate vague hai + applyUrl official portal nahi (news RSS ya generic)
 // toh yeh page Google ke liye low-quality signal hai → noindex karo jab tak
@@ -34,15 +39,15 @@ const breadcrumbSchema = {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl + "/" },
     { "@type": "ListItem", "position": 2, "name": "Latest Jobs", "item": siteUrl + "/latest-jobs/" },
-    { "@type": "ListItem", "position": 3, "name": job.shortTitle || job.title }
+    { "@type": "ListItem", "position": 3, "name": cleanShortTitle }
   ]
 };
 
 const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": `${job.shortTitle || job.title} — Online Apply Kaise Karein`,
-  "description": `Step-by-step guide for ${job.shortTitle || job.title} online application.`,
+  "name": `${cleanShortTitle} — Online Apply Kaise Karein`,
+  "description": `Step-by-step guide for ${cleanShortTitle} online application.`,
   "step": (job.howToApply || [
     'Visit the official website of the recruiting organization.',
     'Find the relevant recruitment notification.',
@@ -115,13 +120,35 @@ const d = {
     'Submit the form and save/print the confirmation.',
   ],
   selectionProcess: job.selectionProcess || ['Written Examination / Computer Based Test (CBT)', 'Physical / Skill Test (if applicable)', 'Document Verification (DV)', 'Medical Examination', 'Final Merit List'],
-  links: [
-    { label: 'Apply Online', url: job.applyUrl || '#', type: 'official', badge: 'Official Portal' },
-    { label: 'Download Notification', url: job.applyUrl || '#', type: 'official', badge: 'Official PDF' },
-    { label: 'Official Website', url: job.applyUrl || '#', type: 'official', badge: 'Official Website' },
-    { label: 'Check Syllabus & Pattern', url: `/syllabus/`, type: 'internal', badge: 'Syllabus' },
-    { label: 'Govt Exam Daily Quiz', url: `/quiz/`, type: 'internal', badge: 'Free Quiz' },
-  ],
+  links: (() => {
+    const validImportantLinks = Array.isArray(job.importantLinks)
+      ? job.importantLinks.filter(l => l && l.url && l.url !== '#' && /^https?:\/\//i.test(l.url))
+      : [];
+
+    const rawList = validImportantLinks.length > 0
+      ? validImportantLinks
+      : [
+          { label: 'Apply Online', url: job.applyUrl },
+          { label: 'Download Notification', url: job.notificationUrl || job.applyUrl },
+          { label: 'Official Website', url: job.officialUrl || job.applyUrl },
+        ];
+
+    const out = rawList.map(l => {
+      const isHttp = Boolean(l.url && l.url !== '#' && /^https?:\/\//i.test(l.url));
+      return {
+        label: l.label || 'Official Portal',
+        url: isHttp ? l.url : null,
+        type: 'official',
+        badge: isHttp ? 'Official' : 'Coming Soon'
+      };
+    });
+
+    out.push(
+      { label: 'Check Syllabus & Pattern', url: '/syllabus/', type: 'internal', badge: 'Syllabus' },
+      { label: 'Govt Exam Daily Quiz', url: '/quiz/', type: 'internal', badge: 'Free Quiz' }
+    );
+    return out;
+  })(),
   examPattern: job.examPattern || [
     { stage: 'Prelims', subjects: 'Reasoning, English, Quantitative Aptitude, General Awareness', questions: 200, maxMarks: 200, duration: '120 minutes' },
     { stage: 'Mains', subjects: 'Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge', questions: 200, maxMarks: 200, duration: '120 minutes' }
@@ -131,13 +158,18 @@ const d = {
     grossSalary: '₹60,000 to ₹70,000 (including allowances)',
     allowances: 'Dearness Allowance (DA), HRA, Special Allowance, Medical Benefits'
   },
-  faq: job.faq || [
-    { question: `${job.shortTitle || job.title} ka exam kab hoga?`, answer: 'Exam date abhi officially announce nahi hui hai.' },
-    { question: `${job.shortTitle || job.title} mein kitni vacancy hai?`, answer: `Is recruitment mein total ${job.vacancies ? job.vacancies.toLocaleString('en-IN') : 'TBA'} posts hain.` },
-    { question: `${job.shortTitle || job.title} ke liye online apply kaise karein?`, answer: 'Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein.' },
-    { question: `${job.shortTitle || job.title} ki eligibility kya hai?`, answer: `Educational qualification: ${job.qualify || 'Check official notification'}. Age limit: ${job.ageMin || 18}-${job.ageMax || 40} years.` },
-    { question: `${job.shortTitle || job.title} ki last date kya hai?`, answer: `Online apply ki last date ${job.lastDate} hai.` }
-  ],
+  faq: (job.faq && Array.isArray(job.faq) && job.faq.length > 0)
+    ? job.faq.map(f => ({
+        question: f.question ? f.question.replace(job.shortTitle || '', cleanShortTitle) : `${cleanShortTitle} FAQ`,
+        answer: f.answer ? f.answer.replace(job.shortTitle || '', cleanShortTitle) : 'Check official notification.'
+      }))
+    : [
+        { question: `${cleanShortTitle} ka exam kab hoga?`, answer: 'Exam date abhi officially announce nahi hui hai.' },
+        { question: `${cleanShortTitle} mein kitni vacancy hai?`, answer: `Is recruitment mein total ${job.vacancies ? job.vacancies.toLocaleString('en-IN') : 'TBA'} posts hain.` },
+        { question: `${cleanShortTitle} ke liye online apply kaise karein?`, answer: 'Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein.' },
+        { question: `${cleanShortTitle} ki eligibility kya hai?`, answer: `Educational qualification: ${job.qualify || 'Check official notification'}. Age limit: ${job.ageMin || 18}-${job.ageMax || 40} years.` },
+        { question: `${cleanShortTitle} ki last date kya hai?`, answer: `Online apply ki last date ${job.lastDate} hai.` }
+      ],
   socialLinks: job.socialLinks || { telegram: '#', whatsapp: '#', facebook: '#' },
 };
 
@@ -420,10 +452,22 @@ const faqSchema = {
             <h2 class="jd-card-head"><span class="jd-head-icon">🔗</span> Important Links</h2>
             <div class="jd-links-list">
               {d.links.map(link => (
-                <a href={link.url} target="_blank" rel="noopener" class="jd-link-item">
-                  <span class="jd-link-label">{link.label}</span>
-                  <span class="jd-link-arrow">→</span>
-                </a>
+                link.url ? (
+                  <a
+                    href={link.url}
+                    target={link.type === 'internal' ? undefined : '_blank'}
+                    rel={link.type === 'internal' ? undefined : 'noopener noreferrer'}
+                    class="jd-link-item"
+                  >
+                    <span class="jd-link-label">{link.label}</span>
+                    <span class="jd-link-arrow">→</span>
+                  </a>
+                ) : (
+                  <div class="jd-link-item jd-link-disabled" style="opacity:0.7;">
+                    <span class="jd-link-label">{link.label}</span>
+                    <span class="jd-link-arrow" style="font-size:0.75rem;color:#94a3b8;">Coming Soon</span>
+                  </div>
+                )
               ))}
             </div>
           </div>

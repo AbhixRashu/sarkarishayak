@@ -230,37 +230,71 @@ const isThinPage = isThinResult(result);
             <h2 class="rd-card-head"><span class="rd-head-icon">🔗</span> Important Links</h2>
             <div class="rd-links-list">
               {resultLink && (
-                <a href={resultLink.url && resultLink.url !== '#' ? resultLink.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
-                  <span class="rd-link-label">{resultLink.label}</span>
-                  <span class="rd-link-arrow">{resultLink.url && resultLink.url !== '#' ? '→' : 'Coming Soon'}</span>
-                </a>
+                resultLink.url && resultLink.url !== '#' && /^https?:\/\//i.test(resultLink.url) ? (
+                  <a href={resultLink.url} target="_blank" rel="noopener noreferrer" class="rd-link-item">
+                    <span class="rd-link-label">{resultLink.label}</span>
+                    <span class="rd-link-arrow">→</span>
+                  </a>
+                ) : (
+                  <div class="rd-link-item rd-link-disabled" style="opacity:0.7;">
+                    <span class="rd-link-label">{resultLink.label}</span>
+                    <span class="rd-link-arrow" style="font-size:0.75rem;color:#94a3b8;">Coming Soon</span>
+                  </div>
+                )
               )}
               {officialLink && (
-                <a href={officialLink.url && officialLink.url !== '#' ? officialLink.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
-                  <span class="rd-link-label">{officialLink.label}</span>
-                  <span class="rd-link-arrow">{officialLink.url && officialLink.url !== '#' ? '→' : 'Coming Soon'}</span>
-                </a>
+                officialLink.url && officialLink.url !== '#' && /^https?:\/\//i.test(officialLink.url) ? (
+                  <a href={officialLink.url} target="_blank" rel="noopener noreferrer" class="rd-link-item">
+                    <span class="rd-link-label">{officialLink.label}</span>
+                    <span class="rd-link-arrow">→</span>
+                  </a>
+                ) : (
+                  <div class="rd-link-item rd-link-disabled" style="opacity:0.7;">
+                    <span class="rd-link-label">{officialLink.label}</span>
+                    <span class="rd-link-arrow" style="font-size:0.75rem;color:#94a3b8;">Coming Soon</span>
+                  </div>
+                )
               )}
               {notifLink && (
-                <a href={notifLink.url && notifLink.url !== '#' ? notifLink.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
-                  <span class="rd-link-label">{notifLink.label}</span>
-                  <span class="rd-link-arrow">{notifLink.url && notifLink.url !== '#' ? '→' : 'Coming Soon'}</span>
-                </a>
+                notifLink.url && notifLink.url !== '#' && /^https?:\/\//i.test(notifLink.url) ? (
+                  <a href={notifLink.url} target="_blank" rel="noopener noreferrer" class="rd-link-item">
+                    <span class="rd-link-label">{notifLink.label}</span>
+                    <span class="rd-link-arrow">→</span>
+                  </a>
+                ) : (
+                  <div class="rd-link-item rd-link-disabled" style="opacity:0.7;">
+                    <span class="rd-link-label">{notifLink.label}</span>
+                    <span class="rd-link-arrow" style="font-size:0.75rem;color:#94a3b8;">Coming Soon</span>
+                  </div>
+                )
               )}
               {links.filter(l => l !== resultLink && l !== officialLink && l !== notifLink).map(link => (
-                <a href={link.url && link.url !== '#' ? link.url : undefined} target="_blank" rel="noopener" class="rd-link-item">
-                  <span class="rd-link-label">{link.label}</span>
-                  <span class="rd-link-arrow">{link.url && link.url !== '#' ? '→' : 'Coming Soon'}</span>
-                </a>
+                link.url && link.url !== '#' && /^https?:\/\//i.test(link.url) ? (
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" class="rd-link-item">
+                    <span class="rd-link-label">{link.label}</span>
+                    <span class="rd-link-arrow">→</span>
+                  </a>
+                ) : (
+                  <div class="rd-link-item rd-link-disabled" style="opacity:0.7;">
+                    <span class="rd-link-label">{link.label}</span>
+                    <span class="rd-link-arrow" style="font-size:0.75rem;color:#94a3b8;">Coming Soon</span>
+                  </div>
+                )
               ))}
             </div>
           </div>
 
           <div class="rd-card rd-side-card rd-quick-card">
             <h3 class="rd-quick-title">Quick Actions</h3>
-            <a href={result.resultUrl && result.resultUrl !== '#' ? result.resultUrl : '#'} target="_blank" rel="noopener" class="rd-apply-btn">
-              Check Result →
-            </a>
+            {result.resultUrl && result.resultUrl !== '#' && /^https?:\/\//i.test(result.resultUrl) ? (
+              <a href={result.resultUrl} target="_blank" rel="noopener noreferrer" class="rd-apply-btn">
+                Check Result →
+              </a>
+            ) : (
+              <button class="rd-apply-btn" disabled style="opacity:0.6;cursor:not-allowed;">
+                Result Coming Soon
+              </button>
+            )}
             <a href="/results/" class="rd-more-btn">
               View More Results →
             </a>
