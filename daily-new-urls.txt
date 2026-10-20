@@ -1,7 +1,9 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-21)
-# Total New URLs: 1
+# Total New URLs: 3
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
 https://govtjob.salarypitcher.com/results/jmi-entrance-exam-result-2026-out-for-mass-result-2026/
+https://govtjob.salarypitcher.com/results/ipmat-rohtak-result-2026-out-iimrohtakacin-get-result-2026/
+https://govtjob.salarypitcher.com/results/mbose-hsslc-result-2026-out-megresultsnicin-result-2026/
