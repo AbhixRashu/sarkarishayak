@@ -1,5 +1,103 @@
 [
   {
+    "slug": "bihar-btsc-fso-recruitment-2026-notification-out-apply-2026",
+    "title": "Bihar BTSC FSO Recruitment 2026 Notification Out - Apply Online for 105 Food Safety Officer Posts",
+    "shortTitle": "Bihar BTSC FSO Recruitment 2026",
+    "organization": "Govt of India",
+    "category": "other",
+    "vacancies": null,
+    "postDate": "2026-10-22",
+    "startDate": "2026-10-22",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://www.bpsc.bihar.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://www.bpsc.bihar.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://www.bpsc.bihar.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://www.bpsc.bihar.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "Bihar BTSC FSO Recruitment 2026 Notifica ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "Bihar BTSC FSO Recruitment 2026 Notifica mein kitni vacancy hai?",
+        "answer": "Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein."
+      },
+      {
+        "question": "Bihar BTSC FSO Recruitment 2026 Notifica ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "Bihar BTSC FSO Recruitment 2026 Notifica ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "Bihar BTSC FSO Recruitment 2026 Notifica ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
     "slug": "wbpsc-to-recruit-1145-sub-surveyor-posts-2026",
     "title": "WBPSC to recruit 1145 Sub Surveyor Posts Recruitment 2026",
     "shortTitle": "WBPSC to recruit 1145 Sub Surveyor Posts",
