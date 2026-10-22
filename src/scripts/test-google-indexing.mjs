@@ -3,7 +3,7 @@ import { loadServiceAccount, getGoogleAccessToken, GOOGLE_SCOPES } from './googl
 async function testIndexing() {
   const { keyData } = loadServiceAccount();
   const token = await getGoogleAccessToken(keyData, GOOGLE_SCOPES.indexing);
-  const testUrl = 'https://sarkarisahayak.online/latest-jobs/up-police-constable-2027/';
+  const testUrl = 'https://sarkarishayak.online/latest-jobs/up-police-constable-2027/';
 
   console.log('Sending URL_UPDATED notification for:', testUrl);
   const pubRes = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {

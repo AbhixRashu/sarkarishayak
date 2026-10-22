@@ -241,7 +241,7 @@ export function resolveDatePosted(job) {
   return iso > today ? today : iso;
 }
 
-export function buildJobPostingSchema(job, siteUrl = 'https://sarkarisahayak.online') {
+export function buildJobPostingSchema(job, siteUrl = 'https://sarkarishayak.online') {
   const address = resolveJobAddress(job);
   const salary = resolveBaseSalary(job);
   const validThrough = resolveValidThrough(job.lastDate);
@@ -266,7 +266,7 @@ export function buildJobPostingSchema(job, siteUrl = 'https://sarkarisahayak.onl
     "hiringOrganization": {
       "@type": "Organization",
       "name": job.organization,
-      ...(job.applyUrl && !job.applyUrl.includes('sarkarisahayak.online') ? { "sameAs": job.applyUrl } : {})
+      ...(job.applyUrl && !job.applyUrl.includes('sarkarishayak.online') ? { "sameAs": job.applyUrl } : {})
     },
     "jobLocation": {
       "@type": "Place",

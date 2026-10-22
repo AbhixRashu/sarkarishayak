@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://sarkarisahayak.online',
+  site: 'https://sarkarishayak.online',
   compressHTML: true,
 });

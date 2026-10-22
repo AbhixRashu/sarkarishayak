@@ -1,5 +1,5 @@
 async function dumpJsonLd() {
-  const res = await fetch('https://sarkarisahayak.online/latest-jobs/up-police-constable-2027/');
+  const res = await fetch('https://sarkarishayak.online/latest-jobs/up-police-constable-2027/');
   const html = await res.text();
   const matches = html.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi) || [];
   for (const m of matches) {

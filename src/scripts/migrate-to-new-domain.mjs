@@ -1,8 +1,8 @@
 /**
  * migrate-to-new-domain.mjs
  *
- * Replaces all instances of 'sarkarisahayak.online' and 'salarypitcher.com'
- * with 'sarkarisahayak.online' across configuration, templates, schemas, and scripts.
+ * Replaces all instances of 'sarkarishayak.online' and 'salarypitcher.com'
+ * with 'sarkarishayak.online' across configuration, templates, schemas, and scripts.
  */
 
 import fs from 'fs';
@@ -13,14 +13,14 @@ const IGNORE_DIRS = new Set(['.git', '.vercel', 'node_modules', 'dist', '.astro'
 const IGNORE_FILES = new Set(['build.log', 'package-lock.json']);
 
 const replacements = [
-  { from: /https:\/\/govtjob\.salarypitcher\.com/g, to: 'https://sarkarisahayak.online' },
-  { from: /http:\/\/govtjob\.salarypitcher\.com/g, to: 'https://sarkarisahayak.online' },
-  { from: /govtjob\.salarypitcher\.com/g, to: 'sarkarisahayak.online' },
-  { from: /hello@govtjob\.salarypitcher\.com/g, to: 'contact@sarkarisahayak.online' },
+  { from: /https:\/\/govtjob\.salarypitcher\.com/g, to: 'https://sarkarishayak.online' },
+  { from: /http:\/\/govtjob\.salarypitcher\.com/g, to: 'https://sarkarishayak.online' },
+  { from: /govtjob\.salarypitcher\.com/g, to: 'sarkarishayak.online' },
+  { from: /hello@govtjob\.salarypitcher\.com/g, to: 'contact@sarkarishayak.online' },
   { from: /Sarkari Sahayak/g, to: 'Sarkari Sahayak' },
   { from: /An Initiative of <a href="https:\/\/salarypitcher\.com"[^>]*>Salary Pitcher<\/a> · /g, to: '' },
   { from: / \| A Salary Pitcher Initiative/g, to: '' },
-  { from: /https:\/\/salarypitcher\.com/g, to: 'https://sarkarisahayak.online' }
+  { from: /https:\/\/salarypitcher\.com/g, to: 'https://sarkarishayak.online' }
 ];
 
 let modifiedCount = 0;
@@ -63,6 +63,6 @@ function processDir(dir) {
   }
 }
 
-console.log('🔄 Migrating codebase to sarkarisahayak.online...\n');
+console.log('🔄 Migrating codebase to sarkarishayak.online...\n');
 processDir(ROOT);
 console.log(`\n🎉 Total files updated: ${modifiedCount}`);

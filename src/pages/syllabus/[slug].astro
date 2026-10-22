@@ -206,7 +206,7 @@ const { exam, isJobSpecific } = Astro.props;
 // Total topics across all subjects — used by the interactive study tracker
 const syllTotalTopics = (exam.subjects || []).reduce((n, s) => n + ((s.topics || []).length), 0);
 const syllStorageKey = `ss_syll_progress_${exam.id || 'exam'}`;
-const siteUrl = 'https://sarkarisahayak.online';
+const siteUrl = 'https://sarkarishayak.online';
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",

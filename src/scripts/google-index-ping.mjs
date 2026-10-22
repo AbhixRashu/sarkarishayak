@@ -37,7 +37,7 @@ const ROOT = path.resolve(__dirname, '../../');
 const SERVICE_ACCOUNT_FILE = path.join(ROOT, 'service-account.json');
 const SITEMAP_FILE = path.join(ROOT, 'public/sitemap.xml');
 
-const SITE_HOST = 'sarkarisahayak.online';
+const SITE_HOST = 'sarkarishayak.online';
 const SITE_ORIGIN = `https://${SITE_HOST}`;
 const PUBLISH_ENDPOINT = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 
@@ -302,7 +302,7 @@ async function main() {
   }
   if (failed > 0) {
     console.log(`💡 For 403 "Permission denied", add ${keyData.client_email} as OWNER of the`);
-    console.log('   https://sarkarisahayak.online property in Google Search Console.');
+    console.log('   https://sarkarishayak.online property in Google Search Console.');
   }
 
   return failed > 0 && submitted === 0 ? 1 : 0;

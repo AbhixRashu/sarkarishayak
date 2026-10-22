@@ -9,14 +9,14 @@
  *   import { pingIndexNow, pingIndexNowStream } from './indexnow-utils.mjs';
  *
  *   // Single URL (ideal: call on every new page publish)
- *   await pingIndexNow('https://sarkarisahayak.online/latest-jobs/some-slug/');
+ *   await pingIndexNow('https://sarkarishayak.online/latest-jobs/some-slug/');
  *
  *   // Stream multiple URLs one-by-one (streaming mode, Bing compliant)
  *   await pingIndexNowStream(urlArray);
  */
 
 const INDEXNOW_KEY = '4d1dfba9aa07492a98672edb71029e25';
-const SITE_HOST = 'sarkarisahayak.online';
+const SITE_HOST = 'sarkarishayak.online';
 const KEY_LOCATION = `https://${SITE_HOST}/${INDEXNOW_KEY}.txt`;
 const API_ENDPOINT = 'https://api.indexnow.org/indexnow';
 

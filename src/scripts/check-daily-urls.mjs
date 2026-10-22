@@ -138,7 +138,7 @@ async function main() {
 
   for (let i = 0; i < urls.length; i++) {
     const url = urls[i];
-    process.stdout.write(`[${i + 1}/${urls.length}] Inspecting: ${url.replace('https://sarkarisahayak.online', '')}... `);
+    process.stdout.write(`[${i + 1}/${urls.length}] Inspecting: ${url.replace('https://sarkarishayak.online', '')}... `);
 
     const result = await inspectUrl(url, token);
 

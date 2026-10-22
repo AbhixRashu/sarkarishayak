@@ -281,7 +281,7 @@ if (cliArgs.includes('--test')) {
     qualify: '10th Pass',
     lastDate: '15 October 2026',
     salary: '₹18,000 – ₹56,900 (Pay Level-1)',
-    url: 'https://sarkarisahayak.online/latest-jobs/',
+    url: 'https://sarkarishayak.online/latest-jobs/',
   };
 
   const message = buildEntryMessage(dummyEntry);
