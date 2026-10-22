@@ -1,7 +1,8 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-23)
-# Total New URLs: 1
+# Total New URLs: 2
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
 https://sarkarishayak.online/latest-jobs/bihar-btsc-fso-recruitment-2026-notification-out-apply-2026/
+https://sarkarishayak.online/latest-jobs/2026-no-exam-job-railway-vacancy-2026-10th-pass-govt-2026/
