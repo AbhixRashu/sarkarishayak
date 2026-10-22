@@ -17,31 +17,31 @@ const htmlCode = `&lt;!-- Sarkari Sahayak — Free Govt Jobs Widget --&gt;
 (function(){
   var d=document,el=d.getElementById('ss-jobs-widget');
   el.innerHTML='&lt;p style="font-size:13px;color:#888;text-align:center"&gt;Loading jobs...&lt;/p&gt;';
-  fetch('https://govtjob.salarypitcher.com/api/widget-jobs.json')
+  fetch('https://sarkarisahayak.online/api/widget-jobs.json')
     .then(function(r){return r.json()}).catch(function(){return null})
     .then(function(jobs){
       if(!jobs||!jobs.length){el.innerHTML='';return;}
       var h='&lt;div style="border:1px solid #333;background:#111;font-family:Hind,sans-serif;max-width:380px"&gt;';
       h+='&lt;div style="background:linear-gradient(90deg,#0066b1,#e22718);padding:10px 14px;display:flex;align-items:center;justify-content:space-between"&gt;';
-      h+='&lt;a href="https://govtjob.salarypitcher.com" target="_blank" style="font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:1px;text-decoration:none"&gt;&#127470;&#127475; Sarkari Sahayak&lt;/a&gt;';
+      h+='&lt;a href="https://sarkarisahayak.online" target="_blank" style="font-family:Rajdhani,sans-serif;font-weight:700;font-size:15px;color:#fff;letter-spacing:1px;text-decoration:none"&gt;&#127470;&#127475; Sarkari Sahayak&lt;/a&gt;';
       h+='&lt;span style="font-size:10px;background:rgba(255,255,255,.15);color:#fff;padding:3px 8px;border-radius:999px"&gt;&#128308; LIVE&lt;/span&gt;&lt;/div&gt;';
       h+='&lt;ul style="list-style:none;padding:0;margin:0"&gt;';
       jobs.forEach(function(j){
         h+='&lt;li style="padding:10px 14px;border-bottom:1px solid #222;display:flex;justify-content:space-between;gap:8px;align-items:center"&gt;';
-        h+='&lt;div&gt;&lt;a href="https://govtjob.salarypitcher.com/latest-jobs/'+j.slug+'/" target="_blank" style="font-size:13px;font-weight:600;color:#e6e6e6;text-decoration:none"&gt;'+j.title+'&lt;/a&gt;';
+        h+='&lt;div&gt;&lt;a href="https://sarkarisahayak.online/latest-jobs/'+j.slug+'/" target="_blank" style="font-size:13px;font-weight:600;color:#e6e6e6;text-decoration:none"&gt;'+j.title+'&lt;/a&gt;';
         h+='&lt;div style="font-size:11px;color:#888;margin-top:2px"&gt;'+j.department+'&lt;/div&gt;&lt;/div&gt;';
         var d2=Math.ceil((new Date(j.lastDate)-Date.now())/86400000);
         h+='&lt;span style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;background:rgba(255,107,53,.15);color:#FF6B35;border:1px solid rgba(255,107,53,.35);white-space:nowrap"&gt;'+d2+'d left&lt;/span&gt;&lt;/li&gt;';
       });
       h+='&lt;/ul&gt;&lt;div style="padding:9px 14px;background:#0a0a0a;text-align:center;border-top:1px solid #222"&gt;';
-      h+='&lt;a href="https://govtjob.salarypitcher.com/latest-jobs/" target="_blank" style="font-size:11px;color:#777;text-decoration:none;font-family:Rajdhani,sans-serif;letter-spacing:1px;text-transform:uppercase"&gt;View All → govtjob.salarypitcher.com&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;';
+      h+='&lt;a href="https://sarkarisahayak.online/latest-jobs/" target="_blank" style="font-size:11px;color:#777;text-decoration:none;font-family:Rajdhani,sans-serif;letter-spacing:1px;text-transform:uppercase"&gt;View All → sarkarisahayak.online&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;';
       el.innerHTML=h;
     });
 })();
 &lt;/script&gt;`;
 
 const iframeCode = `&lt;iframe
-  src="https://govtjob.salarypitcher.com/widget/jobs"
+  src="https://sarkarisahayak.online/widget/jobs"
   width="400"
   height="380"
   frameborder="0"
@@ -50,7 +50,7 @@ const iframeCode = `&lt;iframe
   style="border:none;display:block;max-width:100%"
 &gt;&lt;/iframe&gt;
 &lt;p style="font-size:11px;color:#888;text-align:center"&gt;
-  Powered by &lt;a href="https://govtjob.salarypitcher.com" target="_blank"&gt;Sarkari Sahayak&lt;/a&gt;
+  Powered by &lt;a href="https://sarkarisahayak.online" target="_blank"&gt;Sarkari Sahayak&lt;/a&gt;
 &lt;/p&gt;`;
 
 const wpCode = `[custom-html]
@@ -63,7 +63,7 @@ const wpCode = `[custom-html]
     var w=document.getElementById('ss-wp-widget');
     if(w){
       var f=document.createElement('iframe');
-      f.src='https://govtjob.salarypitcher.com/widget/jobs';
+      f.src='https://sarkarisahayak.online/widget/jobs';
       f.width='100%'; f.height='360';
       f.frameBorder='0'; f.scrolling='no';
       f.title='Sarkari Sahayak — Live Govt Jobs';
@@ -71,7 +71,7 @@ const wpCode = `[custom-html]
       w.innerHTML='';
       w.appendChild(f);
       var p=document.createElement('p');
-      p.innerHTML='Powered by &lt;a href="https://govtjob.salarypitcher.com" target="_blank"&gt;Sarkari Sahayak&lt;/a&gt;';
+      p.innerHTML='Powered by &lt;a href="https://sarkarisahayak.online" target="_blank"&gt;Sarkari Sahayak&lt;/a&gt;';
       p.style.cssText='font-size:11px;color:#888;text-align:center;margin-top:4px';
       w.appendChild(p);
     }
@@ -268,7 +268,7 @@ const wpCode = `[custom-html]
           <!-- WIDGET -->
           <div class="ss-widget" id="widgetPreview">
             <div class="ss-w-head">
-              <a class="ss-w-brand" href="https://govtjob.salarypitcher.com" target="_blank" rel="noopener">
+              <a class="ss-w-brand" href="https://sarkarisahayak.online" target="_blank" rel="noopener">
                 🇮🇳 Sarkari Sahayak
               </a>
               <span class="ss-w-live">🔴 LIVE</span>
@@ -279,7 +279,7 @@ const wpCode = `[custom-html]
                 return (
                   <li class="ss-w-job">
                     <div>
-                      <a class="ss-w-name" href={`https://govtjob.salarypitcher.com/latest-jobs/${job.slug}/`} target="_blank" rel="noopener">
+                      <a class="ss-w-name" href={`https://sarkarisahayak.online/latest-jobs/${job.slug}/`} target="_blank" rel="noopener">
                         {job.title}
                       </a>
                       <div class="ss-w-org">{job.department}</div>
@@ -290,8 +290,8 @@ const wpCode = `[custom-html]
               })}
             </ul>
             <div class="ss-w-footer">
-              <a href="https://govtjob.salarypitcher.com/latest-jobs/" target="_blank" rel="noopener">
-                View All Jobs → govtjob.salarypitcher.com
+              <a href="https://sarkarisahayak.online/latest-jobs/" target="_blank" rel="noopener">
+                View All Jobs → sarkarisahayak.online
               </a>
             </div>
           </div>
@@ -349,7 +349,7 @@ const wpCode = `[custom-html]
         <div style="margin-top:24px;padding:16px;background:rgba(255,193,7,.07);border:1px solid rgba(255,193,7,.3);">
           <p style="font-size:13px;color:var(--body);line-height:1.7;">
             💡 <strong style="color:var(--gold)">Backlink Mile Automatically:</strong>
-            Jab bhi koi aapka ye widget apni site pe lagaata hai, "View All → govtjob.salarypitcher.com"
+            Jab bhi koi aapka ye widget apni site pe lagaata hai, "View All → sarkarisahayak.online"
             ka link hamaari site pe automatically aata hai. <strong>Yahi genuine backlink hai!</strong>
           </p>
         </div>

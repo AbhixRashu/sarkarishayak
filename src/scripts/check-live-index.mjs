@@ -11,16 +11,16 @@ async function main() {
 
   const urlsToCheck = [
     // 1. Homepage
-    'https://govtjob.salarypitcher.com/',
+    'https://sarkarisahayak.online/',
     // 2. Previously high traffic pages (old URLs)
-    'https://govtjob.salarypitcher.com/answer-keys/utet-answer-key-2026-download-paper-1-and-answer-key-2026/',
-    'https://govtjob.salarypitcher.com/latest-jobs/up-police-constable-2027/',
-    'https://govtjob.salarypitcher.com/latest-jobs/bank-of-baroda-so-recruitment-2026-1100-vacancies--2026/',
-    'https://govtjob.salarypitcher.com/latest-jobs/government-jobs-2026-ibps-railway-vacancies-open-2026/',
+    'https://sarkarisahayak.online/answer-keys/utet-answer-key-2026-download-paper-1-and-answer-key-2026/',
+    'https://sarkarisahayak.online/latest-jobs/up-police-constable-2027/',
+    'https://sarkarisahayak.online/latest-jobs/bank-of-baroda-so-recruitment-2026-1100-vacancies--2026/',
+    'https://sarkarisahayak.online/latest-jobs/government-jobs-2026-ibps-railway-vacancies-open-2026/',
     // 3. New URLs from recent list
-    'https://govtjob.salarypitcher.com/latest-jobs/1338-delhi-teacher-vacancy-2026-sanctioned-check-2026/',
-    'https://govtjob.salarypitcher.com/latest-jobs/rajasthan-safai-karmachari-recruitment-2026-last-date-2026/',
-    'https://govtjob.salarypitcher.com/latest-jobs/mp-police-asi-recruitment-2026-notification-out-for-2026/'
+    'https://sarkarisahayak.online/latest-jobs/1338-delhi-teacher-vacancy-2026-sanctioned-check-2026/',
+    'https://sarkarisahayak.online/latest-jobs/rajasthan-safai-karmachari-recruitment-2026-last-date-2026/',
+    'https://sarkarisahayak.online/latest-jobs/mp-police-asi-recruitment-2026-notification-out-for-2026/'
   ];
 
   console.log('=== CHECKING LIVE WEB STATUS & GOOGLE GSC INDEX STATUS ===\n');

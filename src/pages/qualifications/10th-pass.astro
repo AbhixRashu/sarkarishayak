@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import jobs from '../../data/latest-jobs.json';
 
-const siteUrl = 'https://govtjob.salarypitcher.com';
+const siteUrl = 'https://sarkarisahayak.online';
 
 const filteredJobs = jobs.filter(j => {
   const q = (j.qualify + ' ' + (j.eligibility?.map(e => e.details).join(' ') || '')).toLowerCase();

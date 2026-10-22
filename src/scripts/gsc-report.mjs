@@ -196,7 +196,7 @@ export async function buildTrafficReport(token, days = 7) {
 
   const L = [];
   L.push(`📊 <b>GOOGLE TRAFFIC REPORT</b>`);
-  L.push(`🌐 govtjob.salarypitcher.com`);
+  L.push(`🌐 sarkarisahayak.online`);
   L.push(`📅 ${prettyDate(range.start)} – ${prettyDate(range.end)} (${days} din)`);
   L.push('');
   L.push(`👆 Clicks       : <b>${num(cur.clicks)}</b>`);

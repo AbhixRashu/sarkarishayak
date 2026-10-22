@@ -241,7 +241,7 @@ export function resolveDatePosted(job) {
   return iso > today ? today : iso;
 }
 
-export function buildJobPostingSchema(job, siteUrl = 'https://govtjob.salarypitcher.com') {
+export function buildJobPostingSchema(job, siteUrl = 'https://sarkarisahayak.online') {
   const address = resolveJobAddress(job);
   const salary = resolveBaseSalary(job);
   const validThrough = resolveValidThrough(job.lastDate);
@@ -266,7 +266,7 @@ export function buildJobPostingSchema(job, siteUrl = 'https://govtjob.salarypitc
     "hiringOrganization": {
       "@type": "Organization",
       "name": job.organization,
-      ...(job.applyUrl && !job.applyUrl.includes('salarypitcher.com') ? { "sameAs": job.applyUrl } : {})
+      ...(job.applyUrl && !job.applyUrl.includes('sarkarisahayak.online') ? { "sameAs": job.applyUrl } : {})
     },
     "jobLocation": {
       "@type": "Place",

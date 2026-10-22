@@ -80,7 +80,7 @@ async function syncGovtJobs() {
   for (const feed of RSS_FEEDS) {
     try {
       const res = await fetch(feed.url, {
-        headers: { 'User-Agent': 'Mozilla/5.0 (SarkariSahayakBot/2.0; +https://govtjob.salarypitcher.com)' }
+        headers: { 'User-Agent': 'Mozilla/5.0 (SarkariSahayakBot/2.0; +https://sarkarisahayak.online)' }
       });
       if (!res.ok) continue;
       const xml = await res.text();
@@ -112,7 +112,7 @@ async function syncGovtJobs() {
               postDate: pubDate,
               startDate: pubDate,
               lastDate: 'Check Notification',
-              applyUrl: rawLink || 'https://govtjob.salarypitcher.com/latest-jobs/',
+              applyUrl: rawLink || 'https://sarkarisahayak.online/latest-jobs/',
               salary: 'As per 7th Pay Commission',
               qualify: 'Graduate / 10th / 12th',
               feeGeneral: 'Check Notification',
@@ -188,7 +188,7 @@ async function syncGovtJobs() {
             });
             existingJobSlugs.add(slug);
             newJobsCount++;
-            newUrls.push(`https://govtjob.salarypitcher.com/latest-jobs/${slug}/`);
+            newUrls.push(`https://sarkarisahayak.online/latest-jobs/${slug}/`);
           }
         } else if (/result|merit list|score card/i.test(title)) {
           if (!existingResultSlugs.has(slug)) {
@@ -199,13 +199,13 @@ async function syncGovtJobs() {
               organization: 'Govt of India',
               category: 'central',
               releaseDate: pubDate,
-              resultUrl: rawLink || 'https://govtjob.salarypitcher.com/results/',
+              resultUrl: rawLink || 'https://sarkarisahayak.online/results/',
               status: 'Declared',
               autoSynced: true
             });
             existingResultSlugs.add(slug);
             newResultsCount++;
-            newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
+            newUrls.push(`https://sarkarisahayak.online/results/${slug}/`);
           }
         } else if (/admit card|hall ticket|call letter/i.test(title)) {
           if (!existingAdmitCardSlugs.has(slug)) {
@@ -216,13 +216,13 @@ async function syncGovtJobs() {
               organization: 'Govt of India',
               category: 'central',
               releaseDate: pubDate,
-              downloadUrl: rawLink || 'https://govtjob.salarypitcher.com/admit-cards/',
+              downloadUrl: rawLink || 'https://sarkarisahayak.online/admit-cards/',
               status: 'Released',
               autoSynced: true
             });
             existingAdmitCardSlugs.add(slug);
             newAdmitCardsCount++;
-            newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
+            newUrls.push(`https://sarkarisahayak.online/admit-cards/${slug}/`);
           }
         }
       }

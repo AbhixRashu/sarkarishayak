@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://govtjob.salarypitcher.com',
+  site: 'https://sarkarisahayak.online',
   compressHTML: true,
 });

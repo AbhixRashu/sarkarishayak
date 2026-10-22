@@ -274,13 +274,13 @@ export async function runLiveAgent() {
           existingYojanaFamilies.add(family);
           if (titleKey) existingYojanaTitleKeys.add(titleKey);
           stats.yojanas++;
-          newUrls.push(`https://govtjob.salarypitcher.com/yojana/${slug}/`);
+          newUrls.push(`https://sarkarisahayak.online/yojana/${slug}/`);
           newEntries.push({
             type: 'yojana',
             title,
             organization: 'Government of India',
             releaseDate: pubDate,
-            url: `https://govtjob.salarypitcher.com/yojana/${slug}/`
+            url: `https://sarkarisahayak.online/yojana/${slug}/`
           });
         }
       }
@@ -310,13 +310,13 @@ export async function runLiveAgent() {
           existingResultFamilies.add(family);
           if (titleKey) existingResultTitleKeys.add(titleKey);
           stats.results++;
-          newUrls.push(`https://govtjob.salarypitcher.com/results/${slug}/`);
+          newUrls.push(`https://sarkarisahayak.online/results/${slug}/`);
           newEntries.push({
             type: 'results',
             title: fullTitle,
             organization: org,
             releaseDate: pubDate,
-            url: `https://govtjob.salarypitcher.com/results/${slug}/`
+            url: `https://sarkarisahayak.online/results/${slug}/`
           });
         }
       }
@@ -346,13 +346,13 @@ export async function runLiveAgent() {
           existingAdmitCardFamilies.add(family);
           if (titleKey) existingAdmitCardTitleKeys.add(titleKey);
           stats.admitCards++;
-          newUrls.push(`https://govtjob.salarypitcher.com/admit-cards/${slug}/`);
+          newUrls.push(`https://sarkarisahayak.online/admit-cards/${slug}/`);
           newEntries.push({
             type: 'admit-cards',
             title: fullTitle,
             organization: org,
             releaseDate: pubDate,
-            url: `https://govtjob.salarypitcher.com/admit-cards/${slug}/`
+            url: `https://sarkarisahayak.online/admit-cards/${slug}/`
           });
         }
       }
@@ -381,13 +381,13 @@ export async function runLiveAgent() {
           existingAnswerKeyFamilies.add(family);
           if (titleKey) existingAnswerKeyTitleKeys.add(titleKey);
           stats.answerKeys++;
-          newUrls.push(`https://govtjob.salarypitcher.com/answer-keys/${slug}/`);
+          newUrls.push(`https://sarkarisahayak.online/answer-keys/${slug}/`);
           newEntries.push({
             type: 'answer-keys',
             title: fullTitle,
             organization: org,
             releaseDate: pubDate,
-            url: `https://govtjob.salarypitcher.com/answer-keys/${slug}/`
+            url: `https://sarkarisahayak.online/answer-keys/${slug}/`
           });
         }
       }
@@ -498,7 +498,7 @@ export async function runLiveAgent() {
           existingJobFamilies.add(family);
           if (titleKey) existingJobTitleKeys.add(titleKey);
           stats.jobs++;
-          newUrls.push(`https://govtjob.salarypitcher.com/latest-jobs/${slug}/`);
+          newUrls.push(`https://sarkarisahayak.online/latest-jobs/${slug}/`);
           newEntries.push({
             type: 'jobs',
             title: `${title} Recruitment 2026`,
@@ -507,7 +507,7 @@ export async function runLiveAgent() {
             qualify: 'Check official notification',
             lastDate: 'Check Official Notification',
             salary: 'As per official notification',
-            url: `https://govtjob.salarypitcher.com/latest-jobs/${slug}/`
+            url: `https://sarkarisahayak.online/latest-jobs/${slug}/`
           });
         }
       }

@@ -23,7 +23,7 @@ const __dirname = path.dirname(__filename);
 export const ROOT = path.resolve(__dirname, '../../');
 export const SERVICE_ACCOUNT_FILE = path.join(ROOT, 'service-account.json');
 
-export const SITE_HOST = 'govtjob.salarypitcher.com';
+export const SITE_HOST = 'sarkarisahayak.online';
 export const SITE_ORIGIN = `https://${SITE_HOST}`;
 export const SITEMAP_URL = `${SITE_ORIGIN}/sitemap.xml`;
 
