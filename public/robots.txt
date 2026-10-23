@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sarkarishayak.online/sitemap.xml
+Sitemap: https://www.sarkarishayak.online/sitemap.xml

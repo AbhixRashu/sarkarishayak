@@ -181,7 +181,7 @@ for (const p of staticPages) {
   // bharosa kam karna (spam update ke time ye signal bilkul nahi chahiye).
   const lastmodLine = p.changefreq === 'daily' ? `\n    <lastmod>${today}</lastmod>` : '';
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online${p.loc}</loc>${lastmodLine}
+    <loc>https://www.sarkarishayak.online${p.loc}</loc>${lastmodLine}
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`);
@@ -190,7 +190,7 @@ for (const p of staticPages) {
 // National services (static pages — kabhi roz nahi badalte, isliye koi lastmod nahi)
 for (const s of nationalServices) {
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/service/${s}/</loc>
+    <loc>https://www.sarkarishayak.online/service/${s}/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -199,7 +199,7 @@ for (const s of nationalServices) {
 // Rajasthan services (static — lastmod sirf tab jab asli date ho)
 for (const s of rajServices) {
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/raj/${s}/</loc>
+    <loc>https://www.sarkarishayak.online/raj/${s}/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -212,7 +212,7 @@ for (const j of jobs) {
   if (!familyUnique('jobs', j)) continue;
   if (isThinJob(j)) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/latest-jobs/${j.slug}/</loc>
+    <loc>https://www.sarkarishayak.online/latest-jobs/${j.slug}/</loc>
     <lastmod>${lastmodOf(j, 'postDate', 'startDate')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -225,7 +225,7 @@ for (const r of results) {
   if (!familyUnique('results', r)) continue;
   if (isThinResult(r)) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/results/${r.slug}/</loc>
+    <loc>https://www.sarkarishayak.online/results/${r.slug}/</loc>
     <lastmod>${lastmodOf(r, 'releaseDate', 'date')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -238,7 +238,7 @@ for (const a of admitCards) {
   if (!familyUnique('admit-cards', a)) continue;
   if (isThinAdmitCard(a)) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/admit-cards/${a.slug}/</loc>
+    <loc>https://www.sarkarishayak.online/admit-cards/${a.slug}/</loc>
     <lastmod>${lastmodOf(a, 'releaseDate', 'date')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -251,7 +251,7 @@ for (const k of answerKeys) {
   if (!familyUnique('answer-keys', k)) continue;
   if (isThinAnswerKey(k)) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/answer-keys/${k.slug}/</loc>
+    <loc>https://www.sarkarishayak.online/answer-keys/${k.slug}/</loc>
     <lastmod>${lastmodOf(k, 'releaseDate', 'date')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -263,7 +263,7 @@ for (const c of cutoffs) {
   const slug = c.id || c.slug;
   if (!slug) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/cutoffs/${slug}/</loc>
+    <loc>https://www.sarkarishayak.online/cutoffs/${slug}/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`);
@@ -274,7 +274,7 @@ for (const s of syllabus) {
   const slug = s.id || s.slug;
   if (!slug) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/syllabus/${slug}/</loc>
+    <loc>https://www.sarkarishayak.online/syllabus/${slug}/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`);
@@ -286,7 +286,7 @@ for (const y of yojanas) {
   if (!familyUnique('yojana', y)) continue;
   if (isThinYojana(y)) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/yojana/${y.slug}/</loc>
+    <loc>https://www.sarkarishayak.online/yojana/${y.slug}/</loc>
     <lastmod>${lastmodOf(y, 'launchDate')}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -297,7 +297,7 @@ for (const y of yojanas) {
 for (const s of scholarships) {
   if (!s.slug) continue;
   urls.push(`  <url>
-    <loc>https://sarkarishayak.online/scholarship/${s.slug}/</loc>
+    <loc>https://www.sarkarishayak.online/scholarship/${s.slug}/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`);
