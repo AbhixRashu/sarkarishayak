@@ -1,32 +1,7 @@
 # =========================================================
-# SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-24)
-# Total New URLs: 26
+# SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-25)
+# Total New URLs: 1
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
-https://sarkarishayak.online/results/cci-result-2026-out-direct-link-to-download-result-2026/
-https://sarkarishayak.online/admit-cards/ssc-je-city-intimation-slip-2026-released-admit-card-2026/
-https://sarkarishayak.online/latest-jobs/up-tgt-notification-2026-out-apply-online-for-17735-2026/
-https://sarkarishayak.online/latest-jobs/wbpsc-to-recruit-clerkship-posts-2026/
-https://sarkarishayak.online/yojana/empowering-annadatas-pradhan-mantri-fasal-bima-yojana-yojana/
-https://sarkarishayak.online/yojana/upessc-assistant-teacher-recruitment-2026-yojana/
-https://sarkarishayak.online/latest-jobs/odisha-police-constable-recruitment-2026-apply-online-2026/
-https://sarkarishayak.online/latest-jobs/semi-conductor-laboratory-scl-recruitment-2026-2026/
-https://sarkarishayak.online/latest-jobs/nia-si-recruitment-2026-apply-for-inspector-and-sub-2026/
-https://sarkarishayak.online/latest-jobs/railway-station-master-notification-2026-short-notice-2026/
-https://sarkarishayak.online/results/tantia-university-cutoff-2026-check-rajasthan-result-2026/
-https://sarkarishayak.online/results/rpsc-2nd-grade-sanskrit-result-2026-released-result-2026/
-https://sarkarishayak.online/admit-cards/up-special-tet-city-intimation-slip-2026-admit-card-2026/
-https://sarkarishayak.online/latest-jobs/upessc-principal-recruitment-2026-notification-out-2026/
-https://sarkarishayak.online/latest-jobs/up-headmaster-vacancy-2026-notification-out-apply-2026/
-https://sarkarishayak.online/latest-jobs/wb-police-driver-recruitment-2026-notification-out-for-2026/
-https://sarkarishayak.online/admit-cards/gujarat-police-dv-admit-card-2026-released-admit-card-2026/
-https://sarkarishayak.online/admit-cards/dsssb-tgt-admit-card-2026-out-direct-link-admit-card-2026/
-https://sarkarishayak.online/admit-cards/bob-so-admit-card-2026-out-direct-link-to-admit-card-2026/
-https://sarkarishayak.online/admit-cards/ini-cet-january-2027-admit-card-on-october-admit-card-2026/
-https://sarkarishayak.online/results/isro-result-2026-released-download-assistant-result-2026/
-https://sarkarishayak.online/admit-cards/jk-set-admit-card-2026-out-download-hall-admit-card-2026/
-https://sarkarishayak.online/admit-cards/ap-special-tet-answer-key-2026-at-admit-card-2026/
-https://sarkarishayak.online/yojana/video-pm-fasal-bima-yojana-pm-cm-mohan-mp-yojana/
-https://sarkarishayak.online/yojana/pm-vishwakarma-yojana-2-yojana/
-https://sarkarishayak.online/answer-keys/ap-special-tet-answer-key-2026-at-answer-key-2026/
+https://sarkarishayak.online/admit-cards/uppsc-lecturer-admit-card-2026-download-admit-card-2026/
