@@ -1,5 +1,201 @@
 [
   {
+    "slug": "uppsc-announces-501-roaro-vacancies-apply-online-by-2026",
+    "title": "UPPSC Announces 501 RO/ARO Vacancies, Apply Online by November 26 Recruitment 2026",
+    "shortTitle": "UPPSC Announces 501 RO/ARO Vacancies",
+    "organization": "Uttar Pradesh Govt",
+    "category": "other",
+    "vacancies": null,
+    "postDate": "2026-10-25",
+    "startDate": "2026-10-25",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://uppsc.up.nic.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://uppsc.up.nic.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://uppsc.up.nic.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://uppsc.up.nic.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "UPPSC Announces 501 RO/ARO Vacancies, Ap ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "UPPSC Announces 501 RO/ARO Vacancies, Ap mein kitni vacancy hai?",
+        "answer": "Vacancy count official notification mein diya gaya hai — apply se pehle notification zaroor padhein."
+      },
+      {
+        "question": "UPPSC Announces 501 RO/ARO Vacancies, Ap ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "UPPSC Announces 501 RO/ARO Vacancies, Ap ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "UPPSC Announces 501 RO/ARO Vacancies, Ap ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
+    "slug": "assam-cm-announces-recruitment-exams-for-over-5700-2026",
+    "title": "Assam CM Announces Recruitment Exams for Over 5,700 Posts Across 6 Government Departments Recruitment 2026",
+    "shortTitle": "Assam CM Announces Recruitment Exams for",
+    "organization": "Govt of India",
+    "category": "other",
+    "vacancies": 5700,
+    "postDate": "2026-10-25",
+    "startDate": "2026-10-25",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://www.india.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://www.india.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "Assam CM Announces Recruitment Exams for ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "Assam CM Announces Recruitment Exams for mein kitni vacancy hai?",
+        "answer": "Is recruitment mein 5,700 posts hain. Category-wise breakdown official notification mein hai."
+      },
+      {
+        "question": "Assam CM Announces Recruitment Exams for ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "Assam CM Announces Recruitment Exams for ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "Assam CM Announces Recruitment Exams for ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
     "slug": "wb-police-driver-recruitment-2026-notification-out-for-2026",
     "title": "WB Police Driver Recruitment 2026: Notification Out For Various Posts Across West Bengal, Check Vacancy And Eligibility",
     "shortTitle": "WB Police Driver Recruitment 2026",
