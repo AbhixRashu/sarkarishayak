@@ -1,7 +1,9 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-25)
-# Total New URLs: 1
+# Total New URLs: 3
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
 https://sarkarishayak.online/admit-cards/uppsc-lecturer-admit-card-2026-download-admit-card-2026/
+https://sarkarishayak.online/admit-cards/mp-si-admit-card-2026-out-direct-link-to-admit-card-2026/
+https://sarkarishayak.online/admit-cards/mpsi-admit-card-2026-out-mpesb-releases-mp-admit-card-2026/
