@@ -1,8 +1,9 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-26)
-# Total New URLs: 2
+# Total New URLs: 3
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
 https://sarkarishayak.online/yojana/jee-main-2027-registration-nta-opens-session-1-yojana/
 https://sarkarishayak.online/answer-keys/upsssc-pet-question-paper-2026-oct-25-answer-key-2026/
+https://sarkarishayak.online/admit-cards/uiic-ao-mains-admit-card-2026-for-phase-2-admit-card-2026/
