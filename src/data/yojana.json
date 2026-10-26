@@ -1,5 +1,42 @@
 [
   {
+    "name": "PM Kisan Beneficiary List Check: क‍िसान कैसे चेक करें गांव की ल‍िस्‍ट में अपना नाम, जानें पूरा प्रोसेस",
+    "slug": "pm-kisan-beneficiary-list-check-yojana",
+    "category": "farmers",
+    "launchDate": "2026-10-26",
+    "ministry": "Government of India",
+    "budget": "As per latest scheme notification",
+    "eligibility": "पात्रता की जानकारी आधिकारिक अधिसूचना में देखें (नीचे आधिकारिक पोर्टल लिंक)।",
+    "benefits": "<a href=\"https://news.google.com/rss/articles/CBMi0gJBVV95cUxPQ0JMX3pVYjYtZ21Qa2pHMmdOUU53SzN2X0RUUWkzbEpTWXlscTNDUzJRNnQ1dDlWTklTME9CYlUyV1UtUUZ1ZzJMdEViN3pTZGdlM2NwUjVQak0yN1FQX0szRmRZM09fam9XRGlmUGdIY2F0TE9Pc2J6RHVXSmxlNmxfZ3JRNWZvd3VsR1NKYUJyNWdLM3AxTFVUcVRhdWppTXZOQ2lzWmJnTnVvUXZ6blljUkt0MnRFUENnekcyR1dlMXJ6c2FMbEJWNEpXdjVXZ3p3STBsWE1DUlVCeDdmOWtKV3FwTGk1emhqZEpYV3dNM2NvbEpVeFVfVzZBcnRQanE0aXV2VXY5YzBZY29QQmRNNzZvbTVTc3g1MXIyWkdCQ2w4VzJCVGhsV19NUUlIbFZrM180Y09OZUdmTXh5c1hRSGJvc3RZN1ZnRVRlUlVqUdIB1wJBVV95cUxPanFRbk4tXzhqVzVMc0xSS2h4ZXExWWowZ2VOMmJ6WVRpM0cwRW5OSWRmYzhLNXNyT2dienM5bG9MYVY3MHlXODEtcHJZdGhhTzBKVHJYYXpXMy1IaHgwZjY3UklZaElrdlAxamU2eDNDWXRlWUxpXzNOS0RBN2h1X1RUOEtxUjQ2RFVEa3pJLTF2V0dad1hiZ2YyVjNEQUJnRjlqMnNybWJ6bG1rdTd4eTBhTHkxWjVVbG1Ldk1UOUVPdkVESGlHZEVPR3lvZUh3a0JlUlhmcFdhNU1EU0tUNGl5bUdmLThPZEVmcUo4MzR2SHo2UGpUcGZ4V3djQjZVNWNmbVB2WENFdmVJYm5sNFNCMnFKYl9JcVUtcEVET0IwNkRmUkZRT05sQkRjV2w2cW5YaVRvd1BRWEpOd0JsRWhCcERDdFJFX1U0WGU0S0ZVbkJZNTlr?oc=5\" target=\"_blank\">PM Kisan Beneficiary List Check: क‍िसान कैसे चेक करें गांव की ल‍िस्‍ट में अपना नाम, जानें पूरा प्रोसेस</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Navbharat Times</font>",
+    "applicationProcess": [
+      "नीचे दिए आधिकारिक पोर्टल पर जाएँ",
+      "आधिकारिक अधिसूचना पढ़ें और पात्रता जाँचें",
+      "निर्देशानुसार आवेदन करें"
+    ],
+    "documents": [
+      "आधिकारिक अधिसूचना में दी गई दस्तावेज़ सूची देखें"
+    ],
+    "officialWebsite": "https://www.india.gov.in",
+    "helpline": "1800-11-0001 (National Portal)",
+    "shortDescription": "PM Kisan Beneficiary List Check: क‍िसान कैसे चेक करें गांव की ल‍िस्‍ट में अपना नाम, जानें पूरा प्रोसेस — सरकारी योजना विवरण, पात्रता, लाभ व ऑनलाइन आवेदन।",
+    "importantDates": [
+      "Notification Date: 2026-10-26",
+      "Status: Active"
+    ],
+    "importantLinks": [
+      {
+        "label": "Official Portal",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Scheme Details",
+        "url": "https://www.india.gov.in"
+      }
+    ],
+    "stateImplementation": "National / All States",
+    "autoSynced": true
+  },
+  {
     "name": "PM-KISAN से जुड़ा कोई सवाल है? BharatVistaar ऐप पर जाएं या भारती से पूछे, जानें कैसे",
     "slug": "pm-kisan-bharatvistaar-yojana",
     "category": "farmers",
