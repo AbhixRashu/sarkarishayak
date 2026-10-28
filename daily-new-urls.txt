@@ -1,6 +1,6 @@
 # =========================================================
 # SARKARI SAHAYAK - NEW URLS LOG (Date: 2026-10-29)
-# Total New URLs: 10
+# Total New URLs: 15
 # Ye list Google Search Console mein manual submit/inspect karne ke liye hai
 # =========================================================
 
@@ -14,3 +14,8 @@ https://sarkarishayak.online/yojana/pm-viksit-gram-swaraj-yojana-7395-yojana/
 https://sarkarishayak.online/yojana/pradhan-mantri-viksit-gram-swaraj-yojana-yojana/
 https://sarkarishayak.online/answer-keys/ugc-net-answer-key-2026-releasing-this-week-answer-key-2026/
 https://sarkarishayak.online/answer-keys/rrb-je-cbt-1-answer-key-2026-response-sheet-answer-key-2026/
+https://sarkarishayak.online/answer-keys/isro-final-answer-key-2026-out-check-udc-answer-key-2026/
+https://sarkarishayak.online/yojana/pm-kisan-yojana-76-24-yojana/
+https://sarkarishayak.online/yojana/pm-kisan-95-2000-yojana/
+https://sarkarishayak.online/yojana/cabinet-pm-gram-swaraj-yojana-7395-yojana/
+https://sarkarishayak.online/yojana/pm-kisan-24-934-18680-yojana/
