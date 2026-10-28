@@ -1,5 +1,103 @@
 [
   {
+    "slug": "bel-probationary-engineer-recruitment-2026-2026",
+    "title": "BEL Probationary Engineer Recruitment 2026: Notification Out for 350 Vacancies, Check Eligibility and Apply Online Dates",
+    "shortTitle": "BEL Probationary Engineer Recruitment 2026",
+    "organization": "Govt of India",
+    "category": "other",
+    "vacancies": 350,
+    "postDate": "2026-10-28",
+    "startDate": "2026-10-28",
+    "lastDate": "Check Official Notification",
+    "applyUrl": "https://www.india.gov.in",
+    "salary": "As per official notification",
+    "qualify": "Check official notification",
+    "feeGeneral": "Check Notification",
+    "feeSC_ST": "Check Notification",
+    "feePH": "Check Notification",
+    "ageMin": 18,
+    "ageMax": 40,
+    "examDate": "To be announced",
+    "resultDate": "To be announced",
+    "howToApply": [
+      "Visit the official website of the recruiting organization.",
+      "Find the relevant recruitment notification.",
+      "Register and fill the online application form.",
+      "Upload required documents (photograph, signature, certificates).",
+      "Pay the application fee online.",
+      "Submit the form and save/print the confirmation."
+    ],
+    "selectionProcess": [
+      "Written Examination",
+      "Skill/Physical Test (if applicable)",
+      "Document Verification",
+      "Final Merit List"
+    ],
+    "importantLinks": [
+      {
+        "label": "Apply Online",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Download Notification",
+        "url": "https://www.india.gov.in"
+      },
+      {
+        "label": "Official Website",
+        "url": "https://www.india.gov.in"
+      }
+    ],
+    "examPattern": [
+      {
+        "stage": "Prelims",
+        "subjects": "Reasoning, English, Quantitative Aptitude, General Awareness",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      },
+      {
+        "stage": "Mains",
+        "subjects": "Economic & Social Issues, Agriculture & Rural Development, English, Computer Knowledge",
+        "questions": 200,
+        "maxMarks": 200,
+        "duration": "120 minutes"
+      }
+    ],
+    "salaryDetails": {
+      "payScale": "As per official notification / pay matrix of the recruiting body",
+      "grossSalary": "Notification ke hisaab se — official notification dekhein",
+      "allowances": "Allowances recruiting body ke notification ke mutabik"
+    },
+    "faq": [
+      {
+        "question": "BEL Probationary Engineer Recruitment 20 ka exam kab hoga?",
+        "answer": "Exam date abhi officially announce nahi hui hai. Official notification aane ke baad date confirm hogi."
+      },
+      {
+        "question": "BEL Probationary Engineer Recruitment 20 mein kitni vacancy hai?",
+        "answer": "Is recruitment mein 350 posts hain. Category-wise breakdown official notification mein hai."
+      },
+      {
+        "question": "BEL Probationary Engineer Recruitment 20 ke liye online apply kaise karein?",
+        "answer": "Official website par jaake registration karein, form fill karein, documents upload karein aur fee pay karein."
+      },
+      {
+        "question": "BEL Probationary Engineer Recruitment 20 ki eligibility kya hai?",
+        "answer": "Educational qualification, age limit aur age relaxation ki poori jaankari official notification mein di gayi hai. Notification padhne ke baad hi apply karein."
+      },
+      {
+        "question": "BEL Probationary Engineer Recruitment 20 ki last date kya hai?",
+        "answer": "Online apply ki last date abhi officially announce nahi hui hai. Check official notification."
+      }
+    ],
+    "socialLinks": {
+      "telegram": "#",
+      "whatsapp": "#",
+      "facebook": "#"
+    },
+    "autoSynced": true
+  },
+  {
     "slug": "uppsc-ro-aro-vacancy-2026-notification-out-for-501-2026",
     "title": "UPPSC RO ARO Vacancy 2026 Notification Out For 501 Posts, Apply Online Starts On 26 Oct Recruitment 2026",
     "shortTitle": "UPPSC RO ARO Vacancy 2026 Notification Out",
