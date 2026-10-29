@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Contact Us | Sarkari Sahayak 2026"
-  description="Sarkari Sahayak se sampark karein — feedback, suggestions, ya kisi bhi sawaal ke liye humein email karein."
+  description="Sarkari Sahayak se sampark karein — feedback, suggestions, content correction ya kisi bhi sawaal ke liye humein email karein."
   canonical="/contact/"
 >
   <section class="section">
@@ -16,8 +16,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p class="section-sub">Koi sawaal hai? Feedback dena chahte hain? Humse sampark karein.</p>
       </div>
 
+      <!-- Quick Contact Cards -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-top:var(--sp-lg); margin-bottom:var(--sp-xl);">
+        <div class="ac-card" style="padding:1.25rem; text-align:center; border:1px solid rgba(255,255,255,0.08); border-radius:12px; background:rgba(255,255,255,0.02);">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📧</div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.25rem; color:#fff;">Official Email</h3>
+          <p style="font-size:0.9rem; color:#94a3b8; margin:0;"><a href="mailto:hello@sarkarishayak.online" style="color:#38bdf8; text-decoration:none;">hello@sarkarishayak.online</a></p>
+          <span style="font-size:0.75rem; color:#64748b;">Response within 24-48 hrs</span>
+        </div>
+
+        <div class="ac-card" style="padding:1.25rem; text-align:center; border:1px solid rgba(255,255,255,0.08); border-radius:12px; background:rgba(255,255,255,0.02);">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">📍</div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.25rem; color:#fff;">Editorial Team</h3>
+          <p style="font-size:0.9rem; color:#94a3b8; margin:0;">Jaipur, Rajasthan</p>
+          <span style="font-size:0.75rem; color:#64748b;">India — 302001</span>
+        </div>
+
+        <div class="ac-card" style="padding:1.25rem; text-align:center; border:1px solid rgba(255,255,255,0.08); border-radius:12px; background:rgba(255,255,255,0.02);">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">⏰</div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.25rem; color:#fff;">Working Hours</h3>
+          <p style="font-size:0.9rem; color:#94a3b8; margin:0;">Mon - Sat: 10 AM - 6 PM</p>
+          <span style="font-size:0.75rem; color:#64748b;">Closed on National Holidays</span>
+        </div>
+      </div>
+
       <div class="tool-box" style="margin-top:var(--sp-xl)">
-        <div class="tool-title">✉️ Contact Form</div>
+        <div class="tool-title">✉️ Send Message Directly</div>
 
         <form id="contactForm" novalidate>
           <div class="c-field" id="field-name">
@@ -52,7 +76,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="c-err">Kripya apna message daalein.</span>
           </div>
 
-          <button type="submit" class="btn-primary" style="width:100%">Message Bhejein →</button>
+          <button type="submit" class="btn-primary" style="width:100%">Message Bhejein (Open Email Client) →</button>
         </form>
       </div>
 
@@ -62,13 +86,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h2 class="section-title" style="font-size:28px">Seedha Email Karein</h2>
         </div>
         <p>
-          Agar aap form use nahi karna chahte, toh seedha humein email karein:
+          Agar form use nahi karna chahte, toh aap seedha humare editorial email par sampark kar sakte hain:
         </p>
         <p style="font-size:16px">
           <strong>Email:</strong> <a href="mailto:hello@sarkarishayak.online" class="mini-link">hello@sarkarishayak.online</a>
         </p>
         <p>
-          Hum <strong>24-48 hours</strong> mein aapke email ka reply dene ki koshish karte hain. Weekend ya government holidays pe thoda delay ho sakta hai.
+          Hum <strong>24-48 ghante</strong> ke andar har genuine email ka javab dete hain.
         </p>
       </div>
 
@@ -78,17 +102,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <h2 class="section-title" style="font-size:28px">Contact Guidelines</h2>
         </div>
         <ul>
-          <li><strong>Clear Subject:</strong> Apne message mein topic ya sawaal clearly mention karein</li>
-          <li><strong>Official Queries:</strong> Sarkari processes se related sawaal ke liye pehle official website check karein — hum sirf guide karte hain, process nahi karte</li>
-          <li><strong>Patience Rakhein:</strong> Humari chhoti team hai, par hum har message ka jawab dete hain</li>
-          <li><strong>No Spam:</strong> Repeated messages ya promotional content na bhejein</li>
+          <li><strong>Clear Subject:</strong> Apne message mein topic ya exam/job ka naam clearly mention karein.</li>
+          <li><strong>Official Queries:</strong> Sarkari pariksha ya form related queries ke liye official helpline par sampark karein — hum ek informational portal hain.</li>
+          <li><strong>Corrections:</strong> Agar website par koi information galat ya outdated lage, toh notification link ke saath report karein taaki hum turant update karein.</li>
+          <li><strong>No Promotional Spam:</strong> Commercial promotion ya paid backlinks ke spam emails ko ignore kiya jayega.</li>
         </ul>
       </div>
 
       <div class="disclaimer" style="margin-top:var(--sp-xl)">
         <span class="disc-icon">⚠️</span>
         <div class="disc-text">
-          <strong>Note:</strong> Sarkari Sahayak ek informational platform hai. Hum sarkari processes ko handle nahi karte. Agar aapko kisi government service ke baare mein sawaal hai, toh kripya directly official website ya helpline pe sampark karein.
+          <strong>Note:</strong> Sarkari Sahayak ek independent informational portal hai. Hum kisi bhi sarkar ya government body ke official representative nahi hain.
         </div>
       </div>
 
@@ -125,10 +149,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       if (!valid) return;
 
+      var subject = encodeURIComponent('[Sarkari Sahayak] ' + topic.value + ' - ' + name.value);
+      var body = encodeURIComponent('Naam: ' + name.value + '\nEmail: ' + email.value + '\nTopic: ' + topic.value + '\n\nSandesh:\n' + message.value);
+      
+      // Open default email client
+      window.location.href = 'mailto:hello@sarkarishayak.online?subject=' + subject + '&body=' + body;
+
       if (window._ssToast) {
-        window._ssToast('Message send ho gaya! Jald hi aapko reply milega. 🎉', 'info');
+        window._ssToast('Email client open ho raha hai... dhanyawad! 🎉', 'info');
       }
-      form.reset();
     });
   })();
   </script>

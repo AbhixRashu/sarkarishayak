@@ -32,8 +32,8 @@ on:
         type: boolean
 
   # Standalone cron — Har 2 ghante mein auto-run (backup)
-  schedule:
-    - cron: '30 */2 * * *'   # 30 min offset from main workflow
+  # schedule:
+  #   - cron: '30 */2 * * *'   # 30 min offset from main workflow
 
 permissions:
   contents: write  # posted_ids.json update ke liye

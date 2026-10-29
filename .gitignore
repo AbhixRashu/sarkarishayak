@@ -17,3 +17,5 @@ whatsapp-bot/*.pyc
 # local build logs
 build.log
 
+
+src/data_backup/

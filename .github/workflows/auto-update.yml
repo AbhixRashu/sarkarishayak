@@ -1,10 +1,9 @@
 name: 24/7 Automated Govt Jobs & Results Sync
 
 on:
-  schedule:
-    # Runs automatically every 30 minutes, 24/7/365 in GitHub Cloud
-    # (free unlimited minutes — repo is public)
-    - cron: '*/30 * * * *'
+  # Automated cron disabled to prevent scaled scraping / AI spam penalty
+  # schedule:
+  #   - cron: '*/30 * * * *'
   workflow_dispatch: # Allows manual 1-click trigger anytime from GitHub
     inputs:
       telegram_test:
